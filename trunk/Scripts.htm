@@ -115,14 +115,14 @@ FileAppend, %Var%, C:\Eigene Datei.txt</pre>
 <p>Unmittelbar nach einem Fortsetzungsbereich kann eine Zeile mit der &ouml;ffnenden Klammer eines weiteren Fortsetzungsbereichs erfolgen. Dadurch k&ouml;nnen die oben genannten Optionen w&auml;hrend der Erstellung einer einzelnen Zeile variiert werden.</p>
 <p>Die st&uuml;ckweise Konstruktion eines Fortsetzungsbereichs mithilfe von <a href="commands/_Include.htm">#Include</a> wird nicht unterst&uuml;tzt.</p>
 <h2 id="ahk2exe">Umwandlung eines Scripts in eine EXE-Datei (ahk2exe)</h2>
-<p>Ein Script-Compiler wurde dem Programm beigelegt (freundlicherweise aus dem AutoIt-v3-Quellcode von Jonathan Bennett).</p>
+<p>Ein Script-Compiler wurde dem Programm beigelegt (freundlicherweise von fincs).</p>
 <p> Sobald ein Script kompiliert ist, ist es eine eigenst&auml;ndige ausf&uuml;hrbare Datei; dadurch kann sie sogar auf Computer verwendet werden, die kein AutoHotkey installiert haben (solche EXE-Dateien k&ouml;nnen ohne Einschr&auml;nkungen weitergegeben oder verkauft werden). Der Kompilierungsvorgang erstellt eine ausf&uuml;hrbare Datei, die folgendes enth&auml;lt: den AutoHotkey-Interpreter, das Script, jede <a href="commands/_Include.htm">eingef&uuml;gte</a> Datei und jede Datei, die mithilfe von <a href="commands/FileInstall.htm">FileInstall</a> integriert wurde.</p>
-<p>Ahk2exe kann wie folgt verwendet werden:</p>
+<p>Ahk2Exe kann wie folgt verwendet werden:</p>
 <ol>
   <li><strong>GUI-Schnittstelle</strong>: F&uuml;hrt die Verkn&uuml;pfung &quot;Convert .ahk to .exe&quot; im Startmen&uuml; aus.</li>
-  <li><strong>Rechtsklick</strong>: In einem offenen Explorer-Fenster kann eine .ahk-Datei mit der rechten Maustaste angeklickt und &quot;Compile Script&quot; ausgew&auml;hlt werden (nur verf&uuml;gbar, wenn die Option &quot;Script Compiler&quot; bei der Installation von AutoHotkey markiert wurde). Dadurch wird eine EXE-Datei mit dem gleichen Dateinamen des Scripts erstellt, die nach einer kurzen Zeit im gleichen Verzeichnis erscheint. Hinweis: Die EXE-Datei wird mit dem Icon und der Kompressionsstufe erstellt, die zuvor mittels der ersten Methode von oben bestimmt wurden, sowie <u>ohne Passwort</u>.</li>
+  <li><strong>Rechtsklick</strong>: In einem offenen Explorer-Fenster kann eine .ahk-Datei mit der rechten Maustaste angeklickt und &quot;Compile Script&quot; ausgew&auml;hlt werden (nur verf&uuml;gbar, wenn die Option &quot;Script Compiler&quot; bei der Installation von AutoHotkey markiert wurde). Dadurch wird eine EXE-Datei mit dem gleichen Dateinamen des Scripts erstellt, die nach einer kurzen Zeit im gleichen Verzeichnis erscheint. Hinweis: Die EXE-Datei wird mit dem Icon und der .bin-Datei erstellt, die zuvor mittels der ersten Methode von oben bestimmt wurden.</li>
   <li><a name="ahk2exeCmd"></a><strong>Befehlszeile</strong>: Der Compiler kann auf der Befehlszeile mit folgenden Parametern ausgef&uuml;hrt werden:
-  <pre>Ahk2exe.exe /in EigenesScript.ahk [/out EigenesScript.exe] [/icon EigenesIcon.ico] [/bin AutoHotkeySC.bin]</pre>
+  <pre>Ahk2Exe.exe /in EigenesScript.ahk [/out EigenesScript.exe] [/icon EigenesIcon.ico] [/bin AutoHotkeySC.bin]</pre>
   Zum Beispiel:
 <pre>Ahk2exe.exe /in &quot;EigenesScript.ahk&quot; /icon &quot;EigenesIcon.ico&quot;</pre>
 Verwendung:
@@ -133,7 +133,7 @@ Verwendung:
 </ol>
 <p>Hinweise:</p>
 <ul>
-  <li>Script-Dateien mit Nicht-ASCII-Zeichen <u>m&uuml;ssen mit UTF-8 kodiert werden</u>. Da jedoch Ahk2Exe Unicode-Dateinamen nicht unterst&uuml;tzt, k&ouml;nnen nur ASCII-Zeichen in den Dateinamen von #Include und FileInstall verwendet werden.</li>
+  <li>BOM-lose Scripts werden wie die Unicode-Version von AutoHotkey_L als UTF-8 interpretiert. Das heißt, dass das Script <strong>als UTF-8 abgespeichert werden muss</strong>, falls Nicht-ASCII-Zeichen vorhanden sind.</li>
   <li>Die Kompilierung verbessert die Performance des Scripts in keiner Weise.</li>
   <li>Seit v1.1.01 wird der Passwortschutz und die /NoDecompile-Option nicht mehr unterst&uuml;tzt.</li>
   <li>Sobald <a href="http://www.matcode.com/mpress.htm">mpress.exe</a> im Unterordner &quot;Compiler&quot; vorhanden ist, wo AutoHotkey installiert wurde, dann wird die ausf&uuml;hrbare Datei komprimiert. Damit wird auch der Quellcode des Scripts komprimiert (ohne Kommentare), der ansonsten mithilfe eines PE-Ressource-Editors aus der EXE-Datei extrahiert werden kann.</li>
@@ -143,6 +143,7 @@ Verwendung:
   <li>Die interne Variable A_IsCompiled enth&auml;lt 1, wenn das Script kompiliert ist. Ansonsten ist sie leer.</li>
   <li>Sobald Parameter an Ahk2Exe &uuml;bergeben werden, erscheint eine Meldung in der Standardausgabe (stdout) bei Erfolg oder Misserfolg des Kompilierungsvorgangs. Obwohl die Meldung nicht in der Eingabeaufforderung angezeigt wird, kann sie durch die Umleitung der Ausgabe an einer Datei &quot;abgefangen&quot; werden. <span class="ver">[v1.0.43+]</span></li>
 </ul>
+<p>Der Quellcode sowie neuere Versionen des Compilers können auf <a href="https://github.com/fincs/Ahk2Exe">GitHub</a> gefunden werden.</p>
 
 <h2 id="cmd">&Uuml;bergabe von Befehlszeilenparameter an einem Script</h2>
 <p>Scripts unterst&uuml;tzen Befehlszeilenparameter. Das Format ist:</p>
