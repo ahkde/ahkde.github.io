@@ -11,7 +11,12 @@
 <h1>&Auml;nderungen und neue Funktionen</h1>
 <p>Dieses Changelog betrifft nur AutoHotkey_L. Siehe <a href="ChangeLogHelp.htm">Changelog von AutoHotkey</a>.</p>
 
-<!--new revisions go here-->
+<!--neue Revisionen erfolgen hier-->
+<h2>1.1.02.00 - 6. August 2011</h2>
+<p>TV_SetImageList() hinzugefügt.</p>
+<p>Zeichen, die nicht standardmäßige Umschaltzustände 16 und 32 benötigen, verwenden nun eine Rückfallmethode, anstatt falsche Tastatureingaben zu erzeugen.</p>
+<p>Umgang mit toten Tasten überarbeitet, um Probleme zu verhindern, wenn mehrere Scripts mit Hotstrings aktiv sind.</p>
+
 <h2>1.1.01.00 - 30. Juli 2011</h2>
 <p>Zus&auml;tzliche Unterst&uuml;tzung f&uuml;r Instanzvariablen in Klassendefinitionen, mit einfache Zuweisungssyntax.</p>
 <p>Neue interne Variablen hinzugef&uuml;gt: A_ScriptHwnd und A_PriorKey.</p>
@@ -26,8 +31,6 @@
 <p>Methode ersetzt, die verwendet wurde, um Script-Texte in 32-Bit-kompilierte Scripts zu speichern; nun in Einklang mit 64-Bit.</p>
 <p>Fehler beim Erkennen von AltGr auf der Tastaturbelegung des aktiven Fensters behoben (bei Unicode-Versionen).</p>
 <p>Fehler mit SendInput behoben, wobei ein &uuml;berfl&uuml;ssiges LCtrl-Up-Ereignis nach einem AltGr-Up-Ereignis durchgef&uuml;hrt wurde.</p>
-
-
 
 <h2>1.1.00.01 - 17. Juli 2011</h2>
 <p>Fehler behoben: Modifikatortasten wurden beim Senden von Sonderzeichen nicht automatisch losgelassen.</p>
@@ -358,7 +361,7 @@
 
 <h2>Revision 48 - 21. Februar 2010</h2>
 <p>Fehler behoben: Alleinstehendes <code>obj.()</code> wurde nicht als g&uuml;ltiger Ausdruck erkannt.</p>
-<p>ControlSend verwendet nun WM_CHAR, um Zeichen zu unterst&uuml;tzen, die keinen dazugeh&ouml;rigen Tastencode haben.  Zum Beispiel gilt das f&uuml;r &quot;�&quot; (en-US), Unendlichzeichen in einer Unicode-Version und <code>{U+221e}</code> in jeder Version.</p>
+<p>ControlSend verwendet nun WM_CHAR, um Zeichen zu unterst&uuml;tzen, die keinen dazugeh&ouml;rigen Tastencode haben.  Zum Beispiel gilt das f&uuml;r &quot;&quot; (en-US), Unendlichzeichen in einer Unicode-Version und <code>{U+221e}</code> in jeder Version.</p>
 <p>KeyHistory zeigt nun den kompletten 16-Bit-Zeichencode von VK_PACKET-Ereignisse (VK=E7) an.  Mit <a href="commands/Send.htm#Unicode">Send</a> wurden sie m&ouml;glicherweise f&uuml;r Unicode-Zeichen erzeugt.</p>
 
 <h2>Revision 47 - 13. Februar 2010</h2>
