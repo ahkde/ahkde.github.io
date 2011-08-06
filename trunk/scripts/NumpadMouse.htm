@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>Tastatur-Ziffernblock als eine Maus verwenden -- von deguix</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="/forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
@@ -16,7 +16,7 @@ PRE {font-family:Andale Mono, Courier New, Monospace;}
 
 <h1>Tastatur-Ziffernblock als eine Maus verwenden -- von deguix</h1>
 
-<p> Mit diesem Script kann die Maus wie die echte Maus bewegt werden (vielleicht sogar einfacher bei einigen Aufgaben). Es werden bis zu f&uuml;nf Maustasten sowie das Drehen des Mausrades unterst&uuml;tzt.  Au&szlig;erdem kann damit die Bewegungsgeschwindigkeit, Genauigkeit und &quot;Achseninversion&quot; angepasst werden.
+<p> Mit diesem Script kann die Maus wie die echte Maus bewegt werden (vielleicht sogar einfacher bei einigen Aufgaben). Es werden bis zu fünf Maustasten sowie das Drehen des Mausrades unterstützt.  Außerdem kann damit die Bewegungsgeschwindigkeit, Genauigkeit und "Achseninversion" angepasst werden.
 </p>
 <p><a href="NumpadMouse.ahk">Dieses Script herunterladen</a> &nbsp;| &nbsp;<a href="index.htm">Andere Beispiel-Scripts</a> &nbsp;| &nbsp;<a href="http://www.autohotkey.com">Home</a></p>
 
@@ -24,14 +24,14 @@ PRE {font-family:Andale Mono, Courier New, Monospace;}
 o------------------------------------------------------------o
 |Tastatur-Ziffernblock als eine Maus verwenden               |
 (------------------------------------------------------------)
-| von deguix      / Eine Script-Datei f&uuml;r AutoHotkey 1.0.22+ |
+| von deguix      / Eine Script-Datei für AutoHotkey 1.0.22+ |
 |                    ----------------------------------------|
 |                                                            |
 |  Dieses Script ist ein Verwendungsbeispiel von AutoHotkey. | | Es verwendet die Neubelegung von Numpad-Tasten, um eine    |
 | Maus zu simulieren. Einige Funktionen sind die             |
 | Beschleunigung, womit die Mausgeschwindigkeit beim         |
-| l&auml;ngeren Halten einer Taste erh&ouml;ht werden kann, und die    |
-| Rotation, womit die Numpad-Maus &quot;gedreht&quot; werden kann. |
+| längeren Halten einer Taste erhöht werden kann, und die    |
+| Rotation, womit die Numpad-Maus "gedreht" werden kann. |
 | Zum Beispiel NumPadDown als NumPadUp und umgekehrt. |
 | Siehe nachfolgende Liste mit Tasten:           |
 |                                                            |
@@ -84,9 +84,9 @@ o------------------------------------------------------------o
 #MaxHotkeysPerInterval 500
 
 <em>; Mithilfe des Tastatur-Hooks werden die Numpad-Hotkeys implementiert
-; daran gehindert, von ANSI-Zeichenerzeugungen wie &agrave; beeintr&auml;chtigt zu 
+; daran gehindert, von ANSI-Zeichenerzeugungen wie &agrave; beeinträchtigt zu
 ; werden.  Denn AutoHotkey erzeugt solche Zeichen,
-; sobald ALT gedr&uuml;ckt gehalten wird und mehrere Numpad-Tastatureingaben gesendet werden.
+; sobald ALT gedrückt gehalten wird und mehrere Numpad-Tastatureingaben gesendet werden.
 ; Hook-Hotkeys sind intelligent genug, solche Tastatureingaben zu ignorieren.</em>
 #UseHook
 
@@ -104,8 +104,8 @@ MouseRotationAngle = 0
 
 <em>; ENDE DES KONFIGURATIONSBEREICHS</em>
 
-<em>; Notwendig oder Tastendr&uuml;cke senden f&auml;lschlicherweise ihre
-; nat&uuml;rlichen Aktionen. Wie NumPadDiv wird manchmal &quot;/&quot; zum
+<em>; Notwendig oder Tastendrücke senden fälschlicherweise ihre
+; natürlichen Aktionen. Wie NumPadDiv wird manchmal "/" zum
 ; Bildschirm gesendet.       </em>
 #InstallKeybdHook
 
@@ -113,11 +113,11 @@ Temp = 0
 Temp2 = 0
 
 MouseRotationAnglePart = %MouseRotationAngle%
-<em>; Durch 45 teilen&ordm;, weil MouseMove nur ganze Zahlen unterst&uuml;tzt,
+<em>; Durch 45 teilen&ordm;, weil MouseMove nur ganze Zahlen unterstützt,
 ; und sobald die Mausrotation auf eine Zahl kleiner als 45 gesetzt wird,&ordm;
-; erfolgen merkw&uuml;rdige Bewegungen.
+; erfolgen merkwürdige Bewegungen.
 ;
-; Zum Beispiel: 22.5&ordm; beim Dr&uuml;cken von NumPadUp:
+; Zum Beispiel: 22.5&ordm; beim Drücken von NumPadUp:
 ; Zuerst wird die Maus nach oben bewegt, bis die Geschwindigkeit
 ; 1 erreicht.</em>
 MouseRotationAnglePart /= 45
@@ -172,11 +172,11 @@ Hotkey, !Numpad3, ButtonWheelMaxSpeedDown
 Gosub, ~ScrollLock  <em>; Initialisieren, basierend auf dem aktuellen ScrollLock-Status.</em>
 return
 
-<em>; Unterst&uuml;tzung f&uuml;r Tastenaktivierung</em>
+<em>; Unterstützung für Tastenaktivierung</em>
 
 ~ScrollLock::
 <em>; Darauf warten, bis sie losgelassen wird, weil der Hook-Status ansonsten
-; beim Dr&uuml;cken der Taste neu gesetzt wird, wodurch das Up-Ereignis unterdr&uuml;ckt wird,
+; beim Drücken der Taste neu gesetzt wird, wodurch das Up-Ereignis unterdrückt wird,
 ; folglich wird das Umschalten des ScrollLock-Status/Lichts verhindert:</em>
 KeyWait, ScrollLock
 GetKeyState, ScrollLockState, ScrollLock, T
@@ -260,7 +260,7 @@ else
 }
 return
 
-<em>; Unterst&uuml;tzung f&uuml;r Mausklicks</em>
+<em>; Unterstützung für Mausklicks</em>
 
 ButtonLeftClick:
 GetKeyState, already_down_state, LButton
@@ -337,7 +337,7 @@ SetTimer, ButtonClickEnd, off
 MouseClick, %ButtonClick%,,, 1, 0, U
 return
 
-<em>; Unterst&uuml;tzung f&uuml;r die Mausbewegung</em>
+<em>; Unterstützung für die Mausbewegung</em>
 
 ButtonSpeedUp:
 MouseSpeed++
@@ -345,7 +345,7 @@ ToolTip, Mausgeschwindigkeit: %MouseSpeed% Pixel
 SetTimer, RemoveToolTip, 1000
 return
 ButtonSpeedDown:
-If MouseSpeed &gt; 1
+If MouseSpeed > 1
     MouseSpeed--
 If MouseSpeed = 1
     ToolTip, Mausgeschwindigkeit: %MouseSpeed% Pixel
@@ -359,7 +359,7 @@ ToolTip, Mausbeschleunigungsgeschwindigkeit: %MouseAccelerationSpeed% Pixel
 SetTimer, RemoveToolTip, 1000
 return
 ButtonAccelerationSpeedDown:
-If MouseAccelerationSpeed &gt; 1
+If MouseAccelerationSpeed > 1
     MouseAccelerationSpeed--
 If MouseAccelerationSpeed = 1
     ToolTip, Mausbeschleunigungsgeschwindigkeit: %MouseAccelerationSpeed% Pixel
@@ -374,7 +374,7 @@ ToolTip, Mausmaximalgeschwindigkeit: %MouseMaxSpeed% Pixel
 SetTimer, RemoveToolTip, 1000
 return
 ButtonMaxSpeedDown:
-If MouseMaxSpeed &gt; 1
+If MouseMaxSpeed > 1
     MouseMaxSpeed--
 If MouseMaxSpeed = 1
     ToolTip, Mausmaximalgeschwindigkeit: %MouseMaxSpeed% Pixel
@@ -385,7 +385,7 @@ return
 
 ButtonRotationAngleUp:
 MouseRotationAnglePart++
-If MouseRotationAnglePart &gt;= 8
+If MouseRotationAnglePart >= 8
     MouseRotationAnglePart = 0
 MouseRotationAngle = %MouseRotationAnglePart%
 MouseRotationAngle *= 45
@@ -394,7 +394,7 @@ SetTimer, RemoveToolTip, 1000
 return
 ButtonRotationAngleDown:
 MouseRotationAnglePart--
-If MouseRotationAnglePart &lt; 0
+If MouseRotationAnglePart < 0
     MouseRotationAnglePart = 7
 MouseRotationAngle = %MouseRotationAnglePart%
 MouseRotationAngle *= 45
@@ -410,7 +410,7 @@ ButtonUpLeft:
 ButtonUpRight:
 ButtonDownLeft:
 ButtonDownRight:
-If Button &lt;&gt; 0
+If Button <> 0
 {
     IfNotInString, A_ThisHotkey, %Button%
     {
@@ -421,9 +421,9 @@ If Button &lt;&gt; 0
 StringReplace, Button, A_ThisHotkey, *
 
 ButtonAccelerationStart:
-If MouseAccelerationSpeed &gt;= 1
+If MouseAccelerationSpeed >= 1
 {
-    If MouseMaxSpeed &gt; %MouseCurrentSpeed%
+    If MouseMaxSpeed > %MouseCurrentSpeed%
     {
         Temp = 0.001
         Temp *= %MouseAccelerationSpeed%
@@ -438,18 +438,18 @@ If MouseAccelerationSpeed &gt;= 1
     MouseCurrentSpeedToDirection /= 90.0
     Temp = %MouseCurrentSpeedToDirection%
 
-    if Temp &gt;= 0
+    if Temp >= 0
     {
-        if Temp &lt; 1
+        if Temp < 1
         {
             MouseCurrentSpeedToDirection = 1
             MouseCurrentSpeedToDirection -= %Temp%
             Goto EndMouseCurrentSpeedToDirectionCalculation
         }
     }
-    if Temp &gt;= 1
+    if Temp >= 1
     {
-        if Temp &lt; 2
+        if Temp < 2
         {
             MouseCurrentSpeedToDirection = 0
             Temp -= 1
@@ -457,9 +457,9 @@ If MouseAccelerationSpeed &gt;= 1
             Goto EndMouseCurrentSpeedToDirectionCalculation
         }
     }
-    if Temp &gt;= 2
+    if Temp >= 2
     {
-        if Temp &lt; 3
+        if Temp < 3
         {
             MouseCurrentSpeedToDirection = -1
             Temp -= 2
@@ -467,9 +467,9 @@ If MouseAccelerationSpeed &gt;= 1
             Goto EndMouseCurrentSpeedToDirectionCalculation
         }
     }
-    if Temp &gt;= 3
+    if Temp >= 3
     {
-        if Temp &lt; 4
+        if Temp < 4
         {
             MouseCurrentSpeedToDirection = 0
             Temp -= 3
@@ -487,18 +487,18 @@ EndMouseCurrentSpeedToDirectionCalculation:
     Temp = %MouseCurrentSpeedToSide%
     Transform, Temp, mod, %Temp%, 4
 
-    if Temp &gt;= 0
+    if Temp >= 0
     {
-        if Temp &lt; 1
+        if Temp < 1
         {
             MouseCurrentSpeedToSide = 0
             MouseCurrentSpeedToSide += %Temp%
             Goto EndMouseCurrentSpeedToSideCalculation
         }
     }
-    if Temp &gt;= 1
+    if Temp >= 1
     {
-        if Temp &lt; 2
+        if Temp < 2
         {
             MouseCurrentSpeedToSide = 1
             Temp -= 1
@@ -506,9 +506,9 @@ EndMouseCurrentSpeedToDirectionCalculation:
             Goto EndMouseCurrentSpeedToSideCalculation
         }
     }
-    if Temp &gt;= 2
+    if Temp >= 2
     {
-        if Temp &lt; 3
+        if Temp < 3
         {
             MouseCurrentSpeedToSide = 0
             Temp -= 2
@@ -516,9 +516,9 @@ EndMouseCurrentSpeedToDirectionCalculation:
             Goto EndMouseCurrentSpeedToSideCalculation
         }
     }
-    if Temp &gt;= 3
+    if Temp >= 3
     {
-        if Temp &lt; 4
+        if Temp < 4
         {
             MouseCurrentSpeedToSide = -1
             Temp -= 3
@@ -632,12 +632,12 @@ MouseCurrentSpeed = %MouseSpeed%
 Button = 0
 return
 
-<em>;Unterst&uuml;tzung f&uuml;r die Mausradbewegung</em>
+<em>;Unterstützung für die Mausradbewegung</em>
 
 ButtonWheelSpeedUp:
 MouseWheelSpeed++
 RegRead, MouseWheelSpeedMultiplier, HKCU, Control Panel\Desktop, WheelScrollLines
-If MouseWheelSpeedMultiplier &lt;= 0
+If MouseWheelSpeedMultiplier <= 0
     MouseWheelSpeedMultiplier = 1
 MouseWheelSpeedReal = %MouseWheelSpeed%
 MouseWheelSpeedReal *= %MouseWheelSpeedMultiplier%
@@ -646,9 +646,9 @@ SetTimer, RemoveToolTip, 1000
 return
 ButtonWheelSpeedDown:
 RegRead, MouseWheelSpeedMultiplier, HKCU, Control Panel\Desktop, WheelScrollLines
-If MouseWheelSpeedMultiplier &lt;= 0
+If MouseWheelSpeedMultiplier <= 0
     MouseWheelSpeedMultiplier = 1
-If MouseWheelSpeedReal &gt; %MouseWheelSpeedMultiplier%
+If MouseWheelSpeedReal > %MouseWheelSpeedMultiplier%
 {
     MouseWheelSpeed--
     MouseWheelSpeedReal = %MouseWheelSpeed%
@@ -664,7 +664,7 @@ return
 ButtonWheelAccelerationSpeedUp:
 MouseWheelAccelerationSpeed++
 RegRead, MouseWheelSpeedMultiplier, HKCU, Control Panel\Desktop, WheelScrollLines
-If MouseWheelSpeedMultiplier &lt;= 0
+If MouseWheelSpeedMultiplier <= 0
     MouseWheelSpeedMultiplier = 1
 MouseWheelAccelerationSpeedReal = %MouseWheelAccelerationSpeed%
 MouseWheelAccelerationSpeedReal *= %MouseWheelSpeedMultiplier%
@@ -673,9 +673,9 @@ SetTimer, RemoveToolTip, 1000
 return
 ButtonWheelAccelerationSpeedDown:
 RegRead, MouseWheelSpeedMultiplier, HKCU, Control Panel\Desktop, WheelScrollLines
-If MouseWheelSpeedMultiplier &lt;= 0
+If MouseWheelSpeedMultiplier <= 0
     MouseWheelSpeedMultiplier = 1
-If MouseWheelAccelerationSpeed &gt; 1
+If MouseWheelAccelerationSpeed > 1
 {
     MouseWheelAccelerationSpeed--
     MouseWheelAccelerationSpeedReal = %MouseWheelAccelerationSpeed%
@@ -691,7 +691,7 @@ return
 ButtonWheelMaxSpeedUp:
 MouseWheelMaxSpeed++
 RegRead, MouseWheelSpeedMultiplier, HKCU, Control Panel\Desktop, WheelScrollLines
-If MouseWheelSpeedMultiplier &lt;= 0
+If MouseWheelSpeedMultiplier <= 0
     MouseWheelSpeedMultiplier = 1
 MouseWheelMaxSpeedReal = %MouseWheelMaxSpeed%
 MouseWheelMaxSpeedReal *= %MouseWheelSpeedMultiplier%
@@ -700,9 +700,9 @@ SetTimer, RemoveToolTip, 1000
 return
 ButtonWheelMaxSpeedDown:
 RegRead, MouseWheelSpeedMultiplier, HKCU, Control Panel\Desktop, WheelScrollLines
-If MouseWheelSpeedMultiplier &lt;= 0
+If MouseWheelSpeedMultiplier <= 0
     MouseWheelSpeedMultiplier = 1
-If MouseWheelMaxSpeed &gt; 1
+If MouseWheelMaxSpeed > 1
 {
     MouseWheelMaxSpeed--
     MouseWheelMaxSpeedReal = %MouseWheelMaxSpeed%
@@ -718,9 +718,9 @@ return
 ButtonWheelUp:
 ButtonWheelDown:
 
-If Button &lt;&gt; 0
+If Button <> 0
 {
-    If Button &lt;&gt; %A_ThisHotkey%
+    If Button <> %A_ThisHotkey%
     {
         MouseWheelCurrentAccelerationSpeed = 0
         MouseWheelCurrentSpeed = %MouseWheelSpeed%
@@ -729,9 +729,9 @@ If Button &lt;&gt; 0
 StringReplace, Button, A_ThisHotkey, *
 
 ButtonWheelAccelerationStart:
-If MouseWheelAccelerationSpeed &gt;= 1
+If MouseWheelAccelerationSpeed >= 1
 {
-    If MouseWheelMaxSpeed &gt; %MouseWheelCurrentSpeed%
+    If MouseWheelMaxSpeed > %MouseWheelCurrentSpeed%
     {
         Temp = 0.001
         Temp *= %MouseWheelAccelerationSpeed%

@@ -3,21 +3,21 @@
 <html>
 <head>
 <title>WinMenuSelectItem</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>WinMenuSelectItem</h1>
 
-<p>Aktiviert einen Men&uuml;punkt von der Men&uuml;leiste des angegebenen Fensters.</p>
+<p>Aktiviert einen Menüpunkt von der Menüleiste des angegebenen Fensters.</p>
 
-<pre class="Syntax">WinMenuSelectItem, Fenstertitel, Fenstertext, Men&uuml; [, Untermen&uuml;1, Untermen&uuml;2, Untermen&uuml;3, Untermen&uuml;4, Untermen&uuml;5, Untermen&uuml;6, Titelausnahme, Textausnahme] </pre>
+<pre class="Syntax">WinMenuSelectItem, Fenstertitel, Fenstertext, Menü [, Untermenü1, Untermenü2, Untermenü3, Untermenü4, Untermenü5, Untermenü6, Titelausnahme, Textausnahme] </pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Fenstertitel</td>
-    <td width="85%">Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
+    <td width="85%">Der Titel oder Teiltitel des Fensters (das Übereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enthält und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschränkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
   </tr>
   <tr>
     <td>Fenstertext</td>
@@ -25,59 +25,59 @@
   </tr>
   <tr>
     <td>Menu</td>
-    <td>Der Name des Men&uuml;s auf h&ouml;chster Ebene, z. B. Datei, Bearbeiten, Ansicht. Es kann auch die Position des gew&uuml;nschten Men&uuml;punkts angegeben werden, wobei 1&amp; das erste Men&uuml; repr&auml;sentiert, 2&amp; das zweite Men&uuml;, und so weiter. </td>
+    <td>Der Name des Menüs auf höchster Ebene, z. B. Datei, Bearbeiten, Ansicht. Es kann auch die Position des gewünschten Menüpunkts angegeben werden, wobei 1& das erste Menü repräsentiert, 2& das zweite Menü, und so weiter. </td>
   </tr>
   <tr>
-    <td>Untermen&uuml;1</td>
-    <td>Der Name oder die Position des Men&uuml;punkts, um es auszuw&auml;hlen (siehe oben).</td>
+    <td>Untermenü1</td>
+    <td>Der Name oder die Position des Menüpunkts, um es auszuwählen (siehe oben).</td>
   </tr>
   <tr>
-    <td>Untermen&uuml;2</td>
-    <td>Wenn das <em>Untermen&uuml;1</em> auch ein Men&uuml; enth&auml;lt, dann ist dies der Name oder die Position des inneren Men&uuml;punkts.</td>
+    <td>Untermenü2</td>
+    <td>Wenn das <em>Untermenü1</em> auch ein Menü enthält, dann ist dies der Name oder die Position des inneren Menüpunkts.</td>
   </tr>
   <tr>
-    <td>Untermen&uuml;3</td>
+    <td>Untermenü3</td>
     <td>Wie oben. </td>
   </tr>
   <tr>
-    <td>Untermen&uuml;4</td>
+    <td>Untermenü4</td>
     <td>Wie oben.</td>
   </tr>
   <tr>
-    <td>Untermen&uuml;5</td>
+    <td>Untermenü5</td>
     <td>Wie oben.</td>
   </tr>
   <tr>
-    <td>Untermen&uuml;6</td>
+    <td>Untermenü6</td>
     <td>Wie oben.</td>
   </tr>
   <tr>
     <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
+    <td>Fenstertitel mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
   <tr>
     <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
+    <td>Fenstertexte mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enth&auml;lt ErrorLevel eine 0.</p>
+<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0.</p>
 <h3>Bemerkungen</h3>
-<p>Dieser Befehl funktioniert auch, wenn das Zielfenster nicht aktiv ist. Allerdings m&uuml;ssen sich einige Fenster m&ouml;glicherweise im <a href="WinRestore.htm">nicht minimierten</a> Zustand befinden.</p>
-<p>Dieser Befehl <strong>funktioniert nicht</strong> bei Anwendungen, die untypische Men&uuml;leisten verwenden. Dazu z&auml;hlen auch Microsoft Outlook und Outlook Express, da sie verborgene Werkzeugleisten f&uuml;r ihre Men&uuml;leisten verwenden. Verwendet in solchen F&auml;llen <a href="ControlSend.htm">ControlSend</a> oder <a href="PostMessage.htm">PostMessage</a>, die m&ouml;glicherweise in der Lage sind, mit einigen untypischen Men&uuml;leisten zu interagieren.</p>
-<p>Die Men&uuml;namen sind nicht von der Gro&szlig;- und Kleinschreibung abh&auml;ngig (z. B. Datei-&gt;Speichern ist das Gleiche wie datei-&gt;speichern). Die Verwendung vom kaufm&auml;nnischen Und (&amp;) ist nicht notwendig, das den unterstrichenen Buchstaben in einem Men&uuml;punkt kennzeichnet (z. B. &amp;Datei ist das Gleiche wie Datei).</p>
-<p>In den Men&uuml;-Parametern k&ouml;nnen auch Positionen angegeben werden. Diese Methode unterst&uuml;tzt Men&uuml;s, die keinen Text enthalten (weil sie vielleicht Bilder anstelle von Text enthalten). Position 1&amp; ist der erste Men&uuml;punkt (z. B. das Datei-Men&uuml;), Position 2&amp; ist der zweite Men&uuml;punkt (z. B. das Bearbeiten-Men&uuml;), und so weiter. Men&uuml;-Trennlinien z&auml;hlen als Men&uuml;punkte, damit die Position eines Men&uuml;punkts erkannt werden kann.</p>
-<p>Fenstertitel und -texte sind von der Gro&szlig;- und Kleinschreibung abh&auml;ngig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
+<p>Dieser Befehl funktioniert auch, wenn das Zielfenster nicht aktiv ist. Allerdings müssen sich einige Fenster möglicherweise im <a href="WinRestore.htm">nicht minimierten</a> Zustand befinden.</p>
+<p>Dieser Befehl <strong>funktioniert nicht</strong> bei Anwendungen, die untypische Menüleisten verwenden. Dazu zählen auch Microsoft Outlook und Outlook Express, da sie verborgene Werkzeugleisten für ihre Menüleisten verwenden. Verwendet in solchen Fällen <a href="ControlSend.htm">ControlSend</a> oder <a href="PostMessage.htm">PostMessage</a>, die möglicherweise in der Lage sind, mit einigen untypischen Menüleisten zu interagieren.</p>
+<p>Die Menünamen sind nicht von der Groß- und Kleinschreibung abhängig (z. B. Datei->Speichern ist das Gleiche wie datei->speichern). Die Verwendung vom kaufmännischen Und (&) ist nicht notwendig, das den unterstrichenen Buchstaben in einem Menüpunkt kennzeichnet (z. B. &Datei ist das Gleiche wie Datei).</p>
+<p>In den Menü-Parametern können auch Positionen angegeben werden. Diese Methode unterstützt Menüs, die keinen Text enthalten (weil sie vielleicht Bilder anstelle von Text enthalten). Position 1& ist der erste Menüpunkt (z. B. das Datei-Menü), Position 2& ist der zweite Menüpunkt (z. B. das Bearbeiten-Menü), und so weiter. Menü-Trennlinien zählen als Menüpunkte, damit die Position eines Menüpunkts erkannt werden kann.</p>
+<p>Fenstertitel und -texte sind von der Groß- und Kleinschreibung abhängig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
 
 <h3>Verwandte Befehle</h3>
 <p><a href="ControlSend.htm">ControlSend</a>, <a href="PostMessage.htm">PostMessage</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent"><em>; W&auml;hlt Datei-&gt;&Ouml;ffnen im Editor aus:</em>
-WinMenuSelectItem, Unbenannt - Editor, , Datei, &Ouml;ffnen
+<pre class="NoIndent"><em>; Wählt Datei->Öffnen im Editor aus:</em>
+WinMenuSelectItem, Unbenannt - Editor, , Datei, Öffnen
 
 <em>; Wie oben, nur mit Positionsangabe:</em>
-WinMenuSelectItem, Unbenannt - Editor, , 1&amp;, 2&amp;</pre>
+WinMenuSelectItem, Unbenannt - Editor, , 1&, 2&</pre>
 
 </body>
 </html>

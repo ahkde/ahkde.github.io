@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>FileCopy</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -25,49 +25,49 @@
   </tr>
   <tr>
     <td width="15%">Flag</td>
-    <td width="85%"><p>(Optional) Mit diesem Parameter wird bestimmt, ob Dateien &uuml;berschrieben werden, wenn sie bereits vorhanden sind:</p>
-      <p>0 = (Standard) vorhandene Dateien nicht &uuml;berschreiben<br>1 = vorhandene Dateien &uuml;berschreiben</p>
+    <td width="85%"><p>(Optional) Mit diesem Parameter wird bestimmt, ob Dateien überschrieben werden, wenn sie bereits vorhanden sind:</p>
+      <p>0 = (Standard) vorhandene Dateien nicht überschreiben<br>1 = vorhandene Dateien überschreiben</p>
       <p>Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> oder True bzw. False sein (intern auch als 1 bzw. 0 gespeichert).</p></td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Bei Problemen enth&auml;lt <a href="../misc/ErrorLevel.htm">ErrorLevel</a> die Anzahl an Dateien, die nicht kopiert werden konnten, ansonsten wird ErrorLevel auf 0 gesetzt. Bei AutoIt-v2-Scripts (.aut) wird ErrorLevel auf 1 gesetzt, wenn irgendeine Datei nicht kopiert werden konnte.</p>
-<p>In jedem Fall wird ErrorLevel auf 0 gesetzt, wenn die Quelldatei eine einzelne Datei (ohne Platzhalter) ist und nicht existiert. Zur &Uuml;berpr&uuml;fung dieser Bedingung kann <a href="IfExist.htm">IfExist</a> oder <a href="../Functions.htm#FileExist">FileExist()</a> mit der Quelldatei verwendet werden, bevor sie kopiert wird.</p>
-<p>Im Gegensatz zu <a href="FileMove.htm">FileMove</a> wird das Kopieren einer Datei auf sich selbst als Fehler erkannt, selbst wenn der &Uuml;berschreibmodus aktiv ist.</p>
-<p>Wenn Dateien gefunden wurden, enth&auml;lt <a href="../Variables.htm#LastError">A_LastError</a> eine Null oder den R&uuml;ckgabewert der Systemfunktion GetLastError()-Funktion unmittelbar nach dem letzten Fehler. Ansonsten enth&auml;lt A_LastError einen Fehlercode, der darauf hinweist, warum keine Dateien gefunden wurden.</p>
+<p>Bei Problemen enthält <a href="../misc/ErrorLevel.htm">ErrorLevel</a> die Anzahl an Dateien, die nicht kopiert werden konnten, ansonsten wird ErrorLevel auf 0 gesetzt. Bei AutoIt-v2-Scripts (.aut) wird ErrorLevel auf 1 gesetzt, wenn irgendeine Datei nicht kopiert werden konnte.</p>
+<p>In jedem Fall wird ErrorLevel auf 0 gesetzt, wenn die Quelldatei eine einzelne Datei (ohne Platzhalter) ist und nicht existiert. Zur Überprüfung dieser Bedingung kann <a href="IfExist.htm">IfExist</a> oder <a href="../Functions.htm#FileExist">FileExist()</a> mit der Quelldatei verwendet werden, bevor sie kopiert wird.</p>
+<p>Im Gegensatz zu <a href="FileMove.htm">FileMove</a> wird das Kopieren einer Datei auf sich selbst als Fehler erkannt, selbst wenn der Überschreibmodus aktiv ist.</p>
+<p>Wenn Dateien gefunden wurden, enthält <a href="../Variables.htm#LastError">A_LastError</a> eine Null oder den Rückgabewert der Systemfunktion GetLastError()-Funktion unmittelbar nach dem letzten Fehler. Ansonsten enthält A_LastError einen Fehlercode, der darauf hinweist, warum keine Dateien gefunden wurden.</p>
 
 <h3>Bemerkungen</h3>
-<p>FileCopy kopiert nur Dateien. Um stattdessen den Inhalt eines Ordners zu kopieren (alle Dateien und Unterordner), sieht die Beispiele weiter unten. Zum Kopieren eines einzelnen Ordners (einschlie&szlig;lich Unterordnern) wird <a href="FileCopyDir.htm">FileCopyDir</a> verwendet.</p>
+<p>FileCopy kopiert nur Dateien. Um stattdessen den Inhalt eines Ordners zu kopieren (alle Dateien und Unterordner), sieht die Beispiele weiter unten. Zum Kopieren eines einzelnen Ordners (einschließlich Unterordnern) wird <a href="FileCopyDir.htm">FileCopyDir</a> verwendet.</p>
 <p>Die Operation wird fortgesetzt, selbst wenn Fehler auftreten.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="FileMove.htm">FileMove</a>, <a href="FileCopyDir.htm">FileCopyDir</a>, <a href="FileMoveDir.htm">FileMoveDir</a>, <a href="FileDelete.htm">FileDelete</a></p>
 <h3>Beispiele</h3>
-<pre class="NoIndent">FileCopy, C:\Eigene Dokumente\Liste1.txt, D:\Hauptsicherung\  <em>; Macht eine Kopie, beh&auml;lt aber den originalen Namen.</em>
+<pre class="NoIndent">FileCopy, C:\Eigene Dokumente\Liste1.txt, D:\Hauptsicherung\  <em>; Macht eine Kopie, behält aber den originalen Namen.</em>
 FileCopy, C:\Eigene Datei.txt, C:\Eigene neue Datei.txt  <em>; Kopiert eine Datei mit neuem Namen in den gleichen Ordner.</em>
 FileCopy, C:\Ordner1\*.txt, D:\Neuer Ordner\*.bkp  <em>; Kopiert eine Datei mit neuer Erweiterung in einen anderen Ordner.</em></pre>
 <p>&nbsp;</p>
 <pre class="NoIndent"><em>; Das folgende Beispiel kopiert alle Dateien und Unterordner in einem anderen Ordner:</em>
-ErrorCount := CopyFilesAndFolders(&quot;C:\Eigener Ordner\*.*&quot;, &quot;D:\Zielordner f&uuml;r Dateien &amp; Ordner&quot;)
-If ErrorCount &lt;&gt; 0
+ErrorCount := CopyFilesAndFolders("C:\Eigener Ordner\*.*", "D:\Zielordner für Dateien & Ordner")
+If ErrorCount <> 0
     MsgBox %ErrorCount% Dateien/Ordner konnten nicht kopiert werden.
 
-CopyFilesAndFolders(Quellmuster, Zielordner, &Uuml;berschreiben = false)
+CopyFilesAndFolders(Quellmuster, Zielordner, Überschreiben = false)
 <em>; Kopiert alle Dateien und Ordner von Quellmuster in einem Ordner mit den Namen Zielordner und
-; gibt die Anzahl an Dateien/Ordnern zur&uuml;ck, die nicht kopiert werden konnten.</em>
+; gibt die Anzahl an Dateien/Ordnern zurück, die nicht kopiert werden konnten.</em>
 {
     <em>; Zuerst alle Dateien kopieren (aber nicht die Ordner):</em>
-    FileCopy, %Quellmuster%, %Zielordner%, %&Uuml;berschreiben%
+    FileCopy, %Quellmuster%, %Zielordner%, %Überschreiben%
     ErrorCount := ErrorLevel
     <em>; Jetzt alle Ordner kopieren:</em>
-    Loop, %Quellmuster%, 2  <em>; 2 bedeutet &quot;nur Ordner&quot;.</em>
+    Loop, %Quellmuster%, 2  <em>; 2 bedeutet "nur Ordner".</em>
     {
-        FileCopyDir, %A_LoopFileFullPath%, %Zielordner%\%A_LoopFileName%, %&Uuml;berschreiben%
+        FileCopyDir, %A_LoopFileFullPath%, %Zielordner%\%A_LoopFileName%, %Überschreiben%
         ErrorCount += ErrorLevel
         If ErrorLevel  <em>; Jeden Problemordner mit Namen anzeigen.</em>
             MsgBox %A_LoopFileFullPath% kann nicht nach %Zielordner% kopiert werden.
     }
-    Return Fehlerz&auml;hlung
+    Return Fehlerzählung
 }</pre>
 
 </body>

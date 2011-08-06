@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>ControlGetFocus</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -15,13 +15,13 @@
 <pre class="Syntax">ControlGetFocus, Ausgabevariable [, Fenstertitel, Fenstertext, Titelausnahme, Textausnahme]</pre>
 <h3>Parameter</h3>
 <table class="info">
-  <tr> 
+  <tr>
     <td width="15%">Ausgabevariable</td>
-    <td width="85%"><p>Der Name der Variable, in der die Bezeichnung des Steuerelements gespeichert wird. Die Bezeichnung selbst besteht aus den Klassennamen des Steuerelements, gefolgt von einer laufenden Nummer innerhalb des &uuml;bergeordneten Fensters, z. B. Button12. </p>    </td>
+    <td width="85%"><p>Der Name der Variable, in der die Bezeichnung des Steuerelements gespeichert wird. Die Bezeichnung selbst besteht aus den Klassennamen des Steuerelements, gefolgt von einer laufenden Nummer innerhalb des übergeordneten Fensters, z. B. Button12. </p>    </td>
   </tr>
   <tr>
     <td>Fenstertitel</td>
-    <td>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
+    <td>Der Titel oder Teiltitel des Fensters (das Übereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die nächsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enthält und die nächsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschränkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
   </tr>
   <tr>
     <td>Fenstertext</td>
@@ -29,35 +29,35 @@
   </tr>
   <tr>
     <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
+    <td>Fenstertitel mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
   <tr>
     <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
+    <td>Fenstertexte mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
 <p> <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 0 gesetzt, wenn das Steuerelement mit dem Eingabefokus ermittelt werden konnte. Ansonsten (z. B. wenn das Fenster nicht existiert oder kein einziges Steuerelement den Eingabefokus hat) wird ErrorLevel auf 1 gesetzt.</p>
 <h3>Bemerkungen</h3>
-<p>Das Steuerelement, welches mit diesem Befehl ermittelt wird, ist auch das Steuerelement, welches die Tastatureingaben des Benutzers empf&auml;ngt.</p>
+<p>Das Steuerelement, welches mit diesem Befehl ermittelt wird, ist auch das Steuerelement, welches die Tastatureingaben des Benutzers empfängt.</p>
 <p>Das Fenster muss aktiv sein, damit ein Steuerelement fokussiert sein kann. Ist das Fenster nicht aktiv, wird <em>Ausgabevariable</em> leer gemacht.</p>
-<p>Wenn ControlGetFocus mehrmals schnell ausgef&uuml;hrt wird (d. h. alle 500 ms oder schneller), dann ist der Benutzer wahrscheinlich nicht mehr in der Lage, einen Doppelklick durchzuf&uuml;hren. Mit dem Aufruf der Betriebssystemfunktion GetGUIThreadInfo() mittels <a href="DllCall.htm">DllCall</a> kann das Problem vermieden werden. Zum Beispiel:</p>
+<p>Wenn ControlGetFocus mehrmals schnell ausgeführt wird (d. h. alle 500 ms oder schneller), dann ist der Benutzer wahrscheinlich nicht mehr in der Lage, einen Doppelklick durchzuführen. Mit dem Aufruf der Betriebssystemfunktion GetGUIThreadInfo() mittels <a href="DllCall.htm">DllCall</a> kann das Problem vermieden werden. Zum Beispiel:</p>
 <pre><em>; Dieses Script ermittelt die ahk_id (HWND) des fokussierten Steuerelements im aktiven Fenster.
-; Dieses Script ben&ouml;tigt Windows 98, NT 4.0 SP3+ oder h&ouml;her.</em>
+; Dieses Script benötigt Windows 98, NT 4.0 SP3+ oder höher.</em>
 GuiThreadInfoSize = 48
 VarSetCapacity(GuiThreadInfo, GuiThreadInfoSize)
 <a href="../Functions.htm#NumPut">NumPut</a>(GuiThreadInfoSize, GuiThreadInfo, 0)
-If not DllCall(&quot;GetGUIThreadInfo&quot;, uint, 0, str, GuiThreadInfo)
+If not DllCall("GetGUIThreadInfo", uint, 0, str, GuiThreadInfo)
 {
     MsgBox GetGUIThreadInfo() hat einen Fehler entdeckt.
     Return
 }
 FocusedHWND := <a href="../Functions.htm#NumGet">NumGet</a>(GuiThreadInfo, 12)  <em>; Ermittelt das hwndFocus-Feld aus der Struktur.</em>
-MsgBox % &quot;Die ahk_id (HWND) des fokussierten Steuerelements ist &quot; . FocusedHWND
-<em>; Diese ID kann f&uuml;r alle Steuerelement-Befehle verwendet werden.  Zum Beispiel:
+MsgBox % "Die ahk_id (HWND) des fokussierten Steuerelements ist " . FocusedHWND
+<em>; Diese ID kann für alle Steuerelement-Befehle verwendet werden.  Zum Beispiel:
 ; ControlGetText, Ausgabevariable,, ahk_id %FocusedHWND%</em></pre>
-<p>Fenstertitel und -texte sind von der Gro&szlig;- und Kleinschreibung abh&auml;ngig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
+<p>Fenstertitel und -texte sind von der Groß- und Kleinschreibung abhängig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="ControlFocus.htm">ControlFocus</a>, <a href="ControlMove.htm">ControlMove</a>, <a href="ControlClick.htm">ControlClick</a>, <a href="ControlGetText.htm">ControlGetText</a>, <a href="ControlSetText.htm">ControlSetText</a>, <a href="ControlSend.htm">ControlSend</a> </p>
 <h3>Beispiel</h3>
