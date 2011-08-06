@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>SoundGet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>SoundGet</h1>
+
+<p>Ermittelt diverse Einstellungen eines Audiogeräts (Stummschalten, Gesamtlautstärke usw.)</p>
+
+<pre class="Syntax">SoundGet, Ausgabevariable [, Komponententyp, Kontrolltyp, Gerätenummer]</pre>
+<h3>Parameter</h3>
+<table class="info">
+  <tr>
+    <td width="15%">Ausgabevariable</td>
+    <td width="85%">Der Name der Variable, in der die abgerufene Einstellung gespeichert wird, welche entweder eine Fließkommazahl zwischen 0 und 100 oder das Wort ON oder OFF ist (nur für die <em>Kontrolltypen</em> ONOFF, MUTE, MONO, LOUDNESS, STEREOENH und BASSBOOST). Die Variable wird leer gemacht, wenn ein Problem beim Abrufen der Einstellung aufgetreten ist. Das Format der Fließkommazahl (eine Zahl mit Dezimalstellen) wird durch <a href="SetFormat.htm">SetFormat</a> festgelegt.</td>
+  </tr>
+  <tr>
+    <td>Komponententyp</td>
+    <td><p>Wenn leer oder nicht vorhanden, dann wird standardmäßig das Wort ERROR verwendet. Ansonsten ist es ein folgendes Wort: MASTER (gleichbedeutend mit SPEAKERS), DIGITAL, LINE, MICROPHONE, SYNTH, CD, TELEPHONE, PCSPEAKER, WAVE, AUX, ANALOG, HEADPHONES oder N/A. Wenn das Audiogerät den angegebenen <em>Komponententyp</em> nicht hat, dann kennzeichnet ErrorLevel das Problem.</p>
+      <p>Die Komponente mit der Bezeichnung Auxiliary kann in einigen Mixern nur mit ANALOG und nicht mit AUX aufgerufen werden.</p>
+    <p>Wenn ein Gerät mehrere Instanzen vom <em>Komponententyp</em> hat (zum Beispiel zwei vom Typ LINE), dann enthält der erste Typ normalerweise die Wiedergabeeinstellungen und der zweite Typ die Aufnahmeeinstellungen. Um auf eine Instanz außer der Ersten zuzugreifen, fügt dem Parameter einen Doppelpunkt und eine Nummer an. Zum Beispiel: Analog:2 ist die zweite Instanz der analogen Komponente.</p>    </td>
+  </tr>
+  <tr>
+    <td>Kontrolltyp</td>
+    <td>Wenn leer oder nicht vorhanden, dann wird standardmäßig das Wort VOLUME verwendet. Ansonsten ist es ein folgendes Wort: VOLUME (oder VOL), ONOFF, MUTE, MONO, LOUDNESS, STEREOENH, BASSBOOST, PAN, QSOUNDPAN, BASS, TREBLE, EQUALIZER oder die Nummer eines gültigen Kontrolltyps (siehe <a href="SoundSet.htm#Ex">Soundkartenanalyse-Script</a>). Wenn der <em>Komponententyp</em> den angegebenen <em>Kontrolltyp</em> nicht hat, dann kennzeichnet ErrorLevel das Problem.</td>
+  </tr>
+  <tr>
+    <td>Gerätenummer</td>
+    <td>Wenn dieser Parameter weggelassen wird, dann standardmäßig eine 1 (das erste Audiogerät), welches in der Regel das Standardgerät für die Aufnahme und Wiedergabe ist. Verwendet eine Zahl größer als 1, um ein anderes Audiogerät zu bearbeiten. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
+  </tr>
+</table>
+<h3>ErrorLevel</h3>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 0 gesetzt, wenn der Befehl erfolgreich war. Ansonsten enthält ErrorLevel einen folgenden Satz:</p>
+<table class="info" style="width:436px">
+  <tr>
+    <td width="426">Invalid Control Type or Component Type (ungültiger Kontrolltyp oder Komponententyp)</td>
+  </tr>
+  <tr>
+    <td>Can't Open Specified Mixer (der angegebene Mixer konnte nicht geöffnet werden)</td>
+  </tr>
+  <tr>
+    <td>Mixer Doesn't Support This Component Type (der Mixer unterstützt nicht diesen Komponententyp)</td>
+  </tr>
+  <tr>
+    <td>Mixer Doesn't Have That Many of That Component Type (der Mixer hat nicht so viele Komponententypen)</td>
+  </tr>
+  <tr>
+    <td>Component Doesn't Support This Control Type (die Komponente unterstützt nicht diesen Kontrolltyp)</td>
+  </tr>
+  <tr>
+    <td>Can't Get Current Setting (aktuelle Einstellung konnte nicht ermittelt werden)</td>
+  </tr>
+</table>
+<h3>Bemerkungen</h3>
+<p>In Windows Vista oder höher ermittelt SoundGet die Einstellungen des Scripts und nicht des aktiven Fensters. Dieses Problem wird möglicherweise in einer zukünftigen Version behoben. Als Übergangslösung kann die Kompatibilitätseinstellung der Datei "AutoHotkey.exe" (oder des <a href="../Scripts.htm#ahk2exe">kompilierte Scripts</a>) auf "Windows XP" gesetzt werden.</p>
+<p>Um die Einsatzmöglichkeiten des installierten Audiogeräts (Mixer) festzustellen (z. B. verfügbare Komponenten- und Kontrolltypen), führt das <a href="SoundSet.htm#Ex">Soundkartenanalyse-Script</a> aus.</p>
+<p>Verwendet <a href="SoundSet.htm">SoundSet</a>, um eine Einstellung zu ändern. </p>
+<h3>Verwandte Befehle</h3>
+<p><a href="SoundSet.htm">SoundSet</a>, <a href="SoundGetWaveVolume.htm">SoundGetWaveVolume</a>, <a href="SoundSetWaveVolume.htm">SoundSetWaveVolume</a>, <a href="SoundPlay.htm">SoundPlay</a></p>
+<h3>Beispiele</h3>
+<pre class="NoIndent">SoundGet, master_volume
+MsgBox, Gesamtlautstärke liegt bei %master_volume% Prozent.
+
+SoundGet, master_mute, , mute
+MsgBox, Gesamtlautstärke ist zurzeit %master_mute%.
+
+SoundGet, bass_level, Master, bass
+If ErrorLevel
+    MsgBox, Fehlerbeschreibung: %ErrorLevel%
+Else
+    MsgBox, The BASS-Pegel für MASTER liegt bei %bass_level% Prozent.
+
+SoundGet, microphone_mute, Microphone, mute
+If microphone_mute = Off
+    MsgBox, Das Mikrofon ist nicht stummgeschaltet.</pre>
+
+</body>
+</html>
