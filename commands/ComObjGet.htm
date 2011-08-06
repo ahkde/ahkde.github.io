@@ -3,20 +3,20 @@
 <html>
 <head>
 <title>ComObjGet()</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>ComObjGet() <span class="ver">[AHK_L 53+]</span></h1>
-<p>Gibt die Referenz auf ein Objekt zur&uuml;ck, unterst&uuml;tzt von einer COM-Komponente.</p>
+<p>Gibt die Referenz auf ein Objekt zurück, unterstützt von einer COM-Komponente.</p>
 <pre class="Syntax">ComObject := ComObjGet(Name)</pre>
 
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td>Name</td>
-    <td>Der Anzeigename des Objekts, das abgerufen werden soll. Siehe <a href="http://msdn.microsoft.com/en-us/library/ms691253.aspx">MkParseDisplayName (MSDN)</a> f&uuml;r mehr Informationen.</td>
+    <td>Der Anzeigename des Objekts, das abgerufen werden soll. Siehe <a href="http://msdn.microsoft.com/en-us/library/ms691253.aspx">MkParseDisplayName (MSDN)</a> für mehr Informationen.</td>
   </tr>
 </table>
 
@@ -24,23 +24,23 @@
 <a href="ComObjCreate.htm">ComObjCreate</a>, <a href="ComObjActive.htm">ComObjActive</a>, <a href="ComObjConnect.htm">ComObjConnect</a>, <a href="ComObjError.htm">ComObjError</a>, <a href="http://msdn.microsoft.com/en-us/library/ms678805.aspx">CoGetObject (MSDN)</a>
 
 <h3>Beispiele</h3>
-<pre class="NoIndent" id="exwmi"><em>; Beispiel: Dr&uuml;ckt Umschalt+Escape, um die zuletzt verwendete Befehlszeile anzuzeigen und
-; den aktiven Prozess des Fensters zu starten.  Ben&ouml;tigt XP oder h&ouml;her.</em>
+<pre class="NoIndent" id="exwmi"><em>; Beispiel: Drückt Umschalt+Escape, um die zuletzt verwendete Befehlszeile anzuzeigen und
+; den aktiven Prozess des Fensters zu starten.  Benötigt XP oder höher.</em>
 +Esc::
     WinGet pid, PID, A
     <em>; WMI-Service-Objekt ermitteln.</em>
-    wmi := <b>ComObjGet</b>(&quot;winmgmts:&quot;)
-    <em>; Abfrage ausf&uuml;hren, um den/die passenden Prozess(e) zu ermitteln.</em>
-    queryEnum := wmi.ExecQuery(&quot;&quot;
-        . &quot;Select * from Win32_Process where ProcessId=&quot; . pid)
+    wmi := <b>ComObjGet</b>("winmgmts:")
+    <em>; Abfrage ausführen, um den/die passenden Prozess(e) zu ermitteln.</em>
+    queryEnum := wmi.ExecQuery(""
+        . "Select * from Win32_Process where ProcessId=" . pid)
         ._NewEnum()
-    <em>; Den ersten passenden Prozess &uuml;bernehmen.</em>
+    <em>; Den ersten passenden Prozess übernehmen.</em>
     If queryEnum[process]
         MsgBox 0, Befehlszeile, % process.CommandLine
     Else
         MsgBox Prozess nicht gefunden!
     <em>; Alle globalen Objekte leeren (nicht notwendig, wenn lokale Variablen verwendet werden).</em>
-    wmi := queryEnum := process := &quot;&quot;
+    wmi := queryEnum := process := ""
 Return
 <em>; Win32_Process: <a href="http://msdn.microsoft.com/en-us/library/aa394372.aspx">http://msdn.microsoft.com/en-us/library/aa394372.aspx</a></em>
 </pre>

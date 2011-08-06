@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>WinGetActiveStats</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,16 +12,16 @@
 
 <p>Kombiniert die Funktionen von <a href="WinGetActiveTitle.htm">WinGetActiveTitle</a> und <a href="WinGetPos.htm">WinGetPos</a> in einem Befehl.</p>
 
-<pre class="Syntax">WinGetActiveStats, Titel, Breite, H&ouml;he, X, Y </pre>
+<pre class="Syntax">WinGetActiveStats, Titel, Breite, Höhe, X, Y </pre>
 <h3>Parameter</h3>
 <table class="info">
-  <tr> 
+  <tr>
     <td width="15%">Titel</td>
     <td width="85%">Der Name der Variable, in der der Titel des aktiven Fensters gespeichert wird.</td>
   </tr>
   <tr>
-    <td>Breite/H&ouml;he</td>
-    <td>Die Namen der Variablen, in denen die Breite und H&ouml;he des aktiven Fensters gespeichert wird.</td>
+    <td>Breite/Höhe</td>
+    <td>Die Namen der Variablen, in denen die Breite und Höhe des aktiven Fensters gespeichert wird.</td>
   </tr>
   <tr>
     <td>X, Y </td>
@@ -31,13 +31,13 @@
 
 <h3>Bemerkungen</h3>
 <p>Wenn kein passendes Fenster gefunden wird, dann werden die Ausgabevariablen leer gemacht.</p>
-<p>Dieser Befehl ist gleichbedeutend mit der folgenden Sequenz:<br> <a href="WinGetTitle.htm">WinGetTitle</a>, Titel, A<br> <a href="WinGetPos.htm">WinGetPos</a>, X, Y, Breite, H&ouml;he, A</p>
-<p>Wenn das aktive Fenster versteckt und <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> ausgeschaltet ist (Standardeinstellung), dann sind alle Befehle au&szlig;er <a href="WinShow.htm">WinShow</a> nicht imstande, das Fenster &quot;zu sehen&quot;. Wenn aus diesem oder anderem Grund kein aktives Fenster vorhanden ist, dann werden alle Ausgabevariablen leer gemacht.</p>
+<p>Dieser Befehl ist gleichbedeutend mit der folgenden Sequenz:<br> <a href="WinGetTitle.htm">WinGetTitle</a>, Titel, A<br> <a href="WinGetPos.htm">WinGetPos</a>, X, Y, Breite, Höhe, A</p>
+<p>Wenn das aktive Fenster versteckt und <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> ausgeschaltet ist (Standardeinstellung), dann sind alle Befehle außer <a href="WinShow.htm">WinShow</a> nicht imstande, das Fenster "zu sehen". Wenn aus diesem oder anderem Grund kein aktives Fenster vorhanden ist, dann werden alle Ausgabevariablen leer gemacht.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="WinGetPos.htm">WinGetPos</a>, <a href="WinGetActiveTitle.htm">WinGetActiveTitle</a>, <a href="WinGetTitle.htm">WinGetTitle</a>, <a href="WinGetClass.htm">WinGetClass</a>, <a href="WinGetText.htm">WinGetText</a>, <a href="ControlGetText.htm">ControlGetText</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">WinGetActiveStats, Titel, Breite, H&ouml;he, X, Y
-MsgBox, Das aktive Fenster &quot;%Titel%&quot; ist %Breite% breit`, %H&ouml;he% hoch`, und befindet sich auf %X%`,%Y%.</pre>
+<pre class="NoIndent">WinGetActiveStats, Titel, Breite, Höhe, X, Y
+MsgBox, Das aktive Fenster "%Titel%" ist %Breite% breit`, %Höhe% hoch`, und befindet sich auf %X%`,%Y%.</pre>
 
 </body>
 </html>
