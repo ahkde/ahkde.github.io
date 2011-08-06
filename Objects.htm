@@ -124,7 +124,7 @@ obj.item[x] := y</pre>
   <li>Daher wird das String-Format von Integer-Werten nicht beibehalten. Zum Beispiel sind <code>x[0x10]</code>, <code>x[16]</code> und <code>x[00016]</code> gleichwertig. Das gilt auch f&uuml;r numerische Strings, die keinen Dezimalpunkt enthalten.</li>
   <li>Direkt vorhandene Strings in Anf&uuml;hrungszeichen werden in v1.x als rein nicht-numerisch angesehen, daher sind <code>x[1]</code> und <code>x[&quot;1&quot;]</code> <i>nicht</i> gleichwertig. Wenn dar&uuml;ber hinaus ein direkt vorhandener String in Anf&uuml;hrungszeichen mit anderen Werten verkettet wird (wie in <code>&quot;0x&quot; x</code>), dann wird das Ergebnis als rein nicht-numerisch behandelt. Allerdings gilt das nicht f&uuml;r Variablen, somit sind <code>x[1]</code> und <code>x[y:=&quot;1&quot;]</code> gleichwertig. Dieses Problem wird in v2 gel&ouml;st, daher sollten Scripts vermeiden, numerische Literale in Anf&uuml;hrungszeichen als Schl&uuml;ssel zu verwenden.</li>
   <li>Flie&szlig;kommazahlen werden nicht als Schl&uuml;ssel unterst&uuml;tzt - stattdessen werden sie in Strings umgewandelt.  In v1.x behalten Flie&szlig;komma-Literale ihr urspr&uuml;ngliches Format, w&auml;hrend reine Flie&szlig;kommazahlen (wie z. B. das Ergebnis von <code>0+1.0</code> oder <code>Sqrt(y)</code>) das aktuelle <a href="http://www.autohotkey.com/docs/commands/SetFormat.htm">Float-Format</a> erzwingen. Aus Gr&uuml;nden der Konsistenz und Klarheit sollten Scripts vermeiden, Flie&szlig;komma-Literale als Schl&uuml;ssel zu verwenden.</li>
-  <li>Der String-Schl&uuml;ssel <a href="#Extensibility">&quot;base&quot;</a> hat eine besondere Bedeutung, au&szlig;er es wird mit <a href="objects/Object.htm#Insert">Insert</a> verwendet.</p></li>
+  <li>Der String-Schl&uuml;ssel <a href="#Custom_Objects">&quot;base&quot;</a> hat eine besondere Bedeutung, au&szlig;er es wird mit <a href="objects/Object.htm#Insert">Insert</a> verwendet.</p></li>
 </ul>
 
 <h2 id="Extended_Usage">Erweiterte Grundlagen</h2>
@@ -144,7 +144,7 @@ Tabelle[x, y] := Inhalt  <em>; B</em></pre>
 <p>Wenn <code>Tabelle[x]</code> nicht vorhanden ist, dann unterscheiden sich <span class="Code"><em>A</em></span> und <span class="Code"><em>B</em></span> wie folgt:</p>
 <ul>
   <li><span class="Code"><em>A</em></span> schl&auml;gt fehl, w&auml;hrend <span class="Code"><em>B</em></span> automatisch ein Objekt erstellt und es in <code>Tabelle[x]</code> speichert.</li>
-  <li>Wenn die <a href="#Extensibility">Basis</a> von <code>Tabelle</code> <a href="#MetaFunc">Meta-Funktionen</a> definiert, dann werden sie wie folgt aufgerufen:
+  <li>Wenn die <a href="#Custom_Objects">Basis</a> von <code>Tabelle</code> <a href="#Meta_Functions">Meta-Funktionen</a> definiert, dann werden sie wie folgt aufgerufen:
   <pre>Tabelle.base.__Get(Tabelle, x)<span class="dull">[y] := Inhalt</span>   <em>; A</em>
 Tabelle.base.__Set(Tabelle, x, y, Inhalt)     <em>; B</em></pre>
   Folglich erm&ouml;glicht <em><span class="Code">B</span></em>, dass das Objekt ein benutzerdefiniertes Verhalten f&uuml;r die gesamte Zuweisung definieren kann.</li>
@@ -169,7 +169,7 @@ ErsteFunktion(Parameter) {
 ZweiteFunktion(Parameter) {
     MsgBox % A_ThisFunc &quot;: &quot; (IsObject(Parameter) ? &quot;Objekt&quot; : Parameter)
 }</pre>
-<p>F&uuml;r die Abw&auml;rtskompatibilit&auml;t wird die zweite Form das <i>Array</i> nicht als Parameter &uuml;bergeben, wenn <code>Array [A_Index]</code> einen Funktionsnamen anstelle einer Funktionsreferenz enth&auml;lt. Wenn allerdings <code>Array[A_Index]</code> von <code>Array.base[A_Index]</code> <a href="#Extensibility">geerbt</a> wird, dann wird das <i>Array</i> als Parameter &uuml;bergeben.</p>
+<p>F&uuml;r die Abw&auml;rtskompatibilit&auml;t wird die zweite Form das <i>Array</i> nicht als Parameter &uuml;bergeben, wenn <code>Array [A_Index]</code> einen Funktionsnamen anstelle einer Funktionsreferenz enth&auml;lt. Wenn allerdings <code>Array[A_Index]</code> von <code>Array.base[A_Index]</code> <a href="#Custom_Objects">geerbt</a> wird, dann wird das <i>Array</i> als Parameter &uuml;bergeben.</p>
 
 <h2 id="Custom_Objects">Benutzerdefinierte Objekte</h2>
 <p>Objekte in AutoHotkey basieren auf Prototypen anstelle von Klassen. Das hei&szlig;t, dass ein Objekt die Eigenschaften und Methoden von seinem Prototyp oder <code>Basis</code>-Objekt erben kann, aber eine vordefinierte Struktur nicht angegeben werden muss. Eigenschaften und Methoden k&ouml;nnen zu einem Objekt oder zu Objekten, die jederzeit davon abgeleitet werden, hinzugef&uuml;gt werden (bzw. davon entfernt werden). Jedoch emuliert AutoHotkey die Klassen, indem <a href="#Custom_Classes">Klassendefinitionen</a> in gew&ouml;hnliche Objekte umgewandelt werden. F&uuml;r komplexere oder spezielle Situationen kann das Basisobjekt das Standardverhalten durch die Definition von <i><a href="#Meta_Functions">Meta-Funktionen</a></i> &uuml;berschreiben.</p>
@@ -345,7 +345,7 @@ class Farbe
 }</pre>
 
 <h4 id="Objects_as_Functions">Objekte als Funktionen</h4>
-<p>Wenn ein Aufruf wie <code>obj.func(param)</code> erfolgt, dann k&ouml;nnte <i>obj.func</i> einen Funktionsnamen oder ein Objekt enthalten.  Wenn <i>obj.func</i> ein Objekt enth&auml;lt, dann wird es mit <i>obj</i> als Schl&uuml;ssel aufgerufen.  In den meisten F&auml;llen existiert <code>obj.func[obj]</code> nicht und die __Call-<a href="#MetaFunc">Meta-Funktion</a> von <i>obj.func</i> stattdessen aufgerufen.  Damit kann das Verhalten von Funktionsaufrufen wie im folgenden Beispiel auf einer abstrakten Weise ge&auml;ndert werden:</p>
+<p>Wenn ein Aufruf wie <code>obj.func(param)</code> erfolgt, dann k&ouml;nnte <i>obj.func</i> einen Funktionsnamen oder ein Objekt enthalten.  Wenn <i>obj.func</i> ein Objekt enth&auml;lt, dann wird es mit <i>obj</i> als Schl&uuml;ssel aufgerufen.  In den meisten F&auml;llen existiert <code>obj.func[obj]</code> nicht und die __Call-<a href="#Meta_Functions">Meta-Funktion</a> von <i>obj.func</i> stattdessen aufgerufen.  Damit kann das Verhalten von Funktionsaufrufen wie im folgenden Beispiel auf einer abstrakten Weise ge&auml;ndert werden:</p>
 <pre><em>; Erstellt ein Prototyp f&uuml;r ein Array mit Funktionen.</em>
 FuncArrayType := {__Call: &quot;FuncType_Call&quot;}
 <em>; Erstellt ein Array mit Funktionen.</em>
@@ -505,7 +505,7 @@ ObjRelease(Adresse)
 </pre>
 <p>Allerdings muss ObjAddRef nicht verwendet werden, wenn eine Adresse mithilfe von <code><a href="#AddressCast">Object(obj)</a></code> sofort bezogen wird.</p>
 <p>Generell sollte jede neue Kopie einer Objektadresse als eine Objektreferenz behandelt werden, nur nicht, wenn das Script wie vorgesehen f&uuml;r den Aufruf von ObjAddRef und/oder ObjRelease verantwortlich ist. Sobald zum Beispiel eine Adresse mit so etwas wie <code>x := Adresse</code> kopiert wird, sollte ObjAddRef aufgerufen werden, um die Referenzz&auml;hlung zu erh&ouml;hen. Sobald au&szlig;erdem das Script mit einer bestimmten Kopie der Objektadresse fertig ist, sollte es ObjRelease aufrufen. Dadurch wird sichergestellt, dass das Objekt freigegeben wird, wenn die letzte Referenz davon verloren gegangen ist - und nicht vorher.</p>
-<p>Um Code beim Freigeben der letzten Referenz auf ein Objekt auszuf&uuml;hren, implementiert die <a href="#Cleanup">__Delete</a>-Meta-Funktion.</p>
+<p>Um Code beim Freigeben der letzten Referenz auf ein Objekt auszuf&uuml;hren, implementiert die <a href="#Custom_NewDelete">__Delete</a>-Meta-Funktion.</p>
 <p><b>Bekannte Einschr&auml;nkungen:</b></p>
 <ul>
   <li>Zirkelbez&uuml;ge m&uuml;ssen gebrochen werden, bevor ein Objekt freigegeben werden kann. Zum Beispiel:
@@ -522,7 +522,7 @@ y.&uuml;bergeordnet := &quot;&quot;  <em>; Bricht den Kreislauf.</em>
 x := &quot;&quot;, y := &quot;&quot;</pre></li>
   <li>Obwohl Referenzen in statischen und globalen Variablen automatisch beim Beenden des Programms freigegeben werden, gilt es nicht f&uuml;r Referenzen in nicht-statischen lokalen Variablen oder im Ausdrucksauswertungsstapel.  Diese Referenzen werden nur freigegeben, wenn die Funktion oder der Ausdruck normal beendet werden darf.</li>
 </ul>
-<p>Obwohl der verwendete Speicher des Objekts beim Beenden des Programms vom Betriebssystem wiedergewonnen wird, wird <a href="#Cleanup">__Delete</a> erst aufgerufen, wenn alle Referenzen auf das Objekt freigegeben wurden.  Das kann wichtig sein, wenn es andere Ressourcen freigibt, die nicht automatisch durch das Betriebssystem wiedergewonnen werden, wie zum Beispiel tempor&auml;re Dateien.</p>
+<p>Obwohl der verwendete Speicher des Objekts beim Beenden des Programms vom Betriebssystem wiedergewonnen wird, wird <a href="#Custom_NewDelete">__Delete</a> erst aufgerufen, wenn alle Referenzen auf das Objekt freigegeben wurden.  Das kann wichtig sein, wenn es andere Ressourcen freigibt, die nicht automatisch durch das Betriebssystem wiedergewonnen werden, wie zum Beispiel tempor&auml;re Dateien.</p>
 
 <a name="AddressCast"></a><h3 id="Implementation_Pointers">Pointer auf Objekte</h3>
 <p>In einigen seltenen F&auml;llen kann es erforderlich sein, ein Objekt an einem externen Code mittels DllCall zu &uuml;bergeben oder es in eine bin&auml;re Datenstruktur f&uuml;r den sp&auml;teren Abruf zu speichern. Eine Objektadresse kann mithilfe von <code>x := &amp;obj</code> abgerufen werden; wenn allerdings die Variable <i>obj</i> geleert wird, dann k&ouml;nnte das Objekt vorzeitig freigegeben werden. Damit so etwas nicht passiert, verwendet ObjAddRef wie oben oder die <code>Object()</code>-Funktion wie folgt:</p>
