@@ -138,7 +138,7 @@ MsgBox % Verbinden("`n", <b class="blue">substrings*</b>)</pre>
 }</pre>
 <p><a name="InitStatic"></a><strong>Statische Initialisierungen</strong>: Vor v1.0.46 waren alle statischen Variablen zu Beginn leer; daher konnten sie nur ermittelt werden, wenn sie zuerst überprüft wurden, ob sie leer waren. Seit v1.0.46 können statische Variablen mit etwas anderem als <code>""</code> initialisiert werden, wenn <code>:=</code> oder <code>=</code> gefolgt von einem folgenden Wert angefügt wird: true, false, ein direkt vorhandener Integer, eine direkt vorhandene Fließkommazahl oder ein direkt vorhandener String wie <code>"fox"</code>. Zum Beispiel: <code>static X:=0, Y:="fox"</code>. Jede statische Variable wird nur einmal initialisiert (bevor das Script ausgeführt wird).</p>
 <p><span class="ver">[AHK_L 58+]:</span> <code>Static Variable := Ausdruck</code> wird unterstützt. Solche Ausdrücke werden nach der jetzigen Reihenfolge unmittelbar vor dem automatischen Ausführungsbereich des Scripts ausgewertet.</p>
-<p><a name="AssumeStatic"></a><strong>Modus für statische Ansicht</strong> <span class="ver">[v1.0.48 +]:</span> Eine Funktion kann so definiert werden, dass all ihre Variablen statisch angesehen werden (außer ihren Parametern), indem die erste Zeile das Wort "static" enthält. Zum Beispiel:</p>
+<p><a name="AssumeStatic"></a><strong>Modus für statische Ansicht</strong> <span class="ver">[v1.0.48+]:</span> Eine Funktion kann so definiert werden, dass all ihre Variablen statisch angesehen werden (außer ihren Parametern), indem die erste Zeile das Wort "static" enthält. Zum Beispiel:</p>
 <pre>StatischesArrayAbrufen(Elementnummer)
 {
     <strong>static</strong>
