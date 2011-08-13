@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>IniRead</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>IniRead</h1>
+
+<p>Liest einen Wert von einer INI-Datei im Standardformat.</p>
+
+<pre class="Syntax">IniRead, Ausgabevariable, Dateiname [, Sektion, Schlüssel, Standardwert]</pre>
+<h3>Parameter</h3>
+<table class="info">
+  <tr>
+    <td>Ausgabevariable</td>
+    <td>
+      <p>Der Name der Variable, in der der ermittelte Wert gespeichert wird. Wenn der Wert nicht ermittelt werden kann, dann enthält die Variable den <em>Standardwert</em> (siehe unten).</p>
+      <p><span class="ver">[AHK_L 57+]:</span> Wenn der <i>Schlüssel</i> weggelassen wird, dann wird der Inhalt der angegebenen <i>Sektion</i> abgerufen, ohne jegliche Kommentare. Sobald die <i>Sektion</i> auch weggelassen wird, enthält die <i>Ausgabevariable</i> eine Liste mit Sektionsnamen, die durch LF-Zeichen (<code>`n</code>) getrennt sind.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="15%">Dateiname</td>
+    <td width="85%">Der Name der Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist.&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Sektion</td>
+    <td>Name der Sektion in der INI-Datei. Solche Sektionen werden mit eckigen Klammern dargestellt (die Klammern dürfen nicht in diesem Parameter stehen).</td>
+  </tr>
+  <tr>
+    <td>Schlüssel</td>
+    <td>Name des Schlüssels in der INI-Datei.</td>
+  </tr>
+  <tr>
+    <td>Standardwert</td>
+    <td><p>Dieser Wert wird in die <em>Ausgabevariable</em> gespeichert, wenn der angeforderte Schlüssel nicht gefunden wird. Wenn weggelassen, dann wird ERROR als Standard verwendet. Als leeren Wert kann <a href="../Variables.htm#Space">%A_Space%</a> benutzt werden.</p>
+      <p><span class="ver">[AHK_L 57+]:</span> Dieser Parameter wird nicht verwendet, wenn der <i>Schlüssel</i> nicht vorhanden ist.</p>
+      <p>Für AutoIt-Scripts (.aut): Aus Kompatibilitätsgründen wird dieser Parameter nicht unterstützt; Das Wort ERROR wird immer in der <em>Ausgabevariable</em> gespeichert, wenn ein Problem beim Lesen des Wertes entstanden ist.</p></td>
+  </tr>
+</table>
+<h3>ErrorLevel</h3>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird <strong>nicht</strong> durch diesen Befehl beeinflusst. Bei einem Problem wird die <em>Ausgabevariable</em> auf den oben genannten <em>Standardwert</em> gesetzt. </p>
+<h3>Bemerkungen</h3>
+<p> Das Betriebssystem entfernt automatisch führende oder nachfolgende Leerzeichen/Tabulatoren in der Ausgabevariable.</p>
+<p>Eine typische INI-Datei sieht wie folgt aus:</p>
+<pre>[Sektionsname]
+Schlüssel=Wert</pre>
+<h3>Verwandte Befehle</h3>
+<p><a href="IniDelete.htm">IniDelete</a>, <a href="IniWrite.htm">IniWrite</a>, <a href="RegRead.htm">RegRead</a>, <a href="LoopReadFile.htm"> dateilesende Schleife</a>, <a href="FileRead.htm">FileRead</a> </p>
+<h3>Beispiel</h3>
+<pre class="NoIndent">IniRead, Ausgabevariable, C:\Temp\EigeneDatei.ini, Sektion2, Schlüssel
+MsgBox, Der Wert ist %Ausgabevariable%.</pre>
+
+</body>
+</html>

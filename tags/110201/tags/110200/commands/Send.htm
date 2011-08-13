@@ -1,0 +1,516 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Send/SendRaw/SendInput/SendPlay/SendEvent: Tasten & Klicks senden</title>
+<meta name="description" content="Send keystrokes and mouse clicks to any window with this free macro program. SendInput is generally the fastest and most reliable method.">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.red {color: #FF0000; font-weight: bold;}
+-->
+</style>
+</head>
+<body>
+
+<h1>Send / SendRaw / SendInput / SendPlay / SendEvent: Tasten & Klicks senden</h1>
+
+<p>Sendet künstliche Tastatureingaben und Mausklicks an das <a href="WinActivate.htm">aktive</a> Fenster.</p>
+
+<pre class="Syntax">Send Tasten
+SendRaw Tasten
+SendInput Tasten
+SendPlay Tasten
+SendEvent Tasten</pre>
+<h3>Parameter</h3>
+<table class="info">
+  <tr>
+    <td width="15%">Tasten</td>
+    <td width="85%">Eine Reihe von Tasten, die gesendet werden. Das Komma vor dem ersten Parameter ist wie bei anderen Befehlen optional.</td>
+  </tr>
+</table>
+
+<p><strong><a name="SendRaw"></a>Raw-Modus</strong>: Der <em>SendRaw</em>-Befehl interpretiert alle Zeichen direkt, anstatt zum Beispiel {Enter} in einer Enter-Taste, ^c in Steuerung+C und so weiter zu übersetzen. Allerdings gelten die normalen Regeln für Schutzsequenzen, Variablenreferenzen und Ausdrücke immer noch, da diese verarbeitet werden, bevor der Befehl ausgeführt wird. Um den Raw-Modus mit SendInput, SendPlay oder SendEvent zu verwenden, schreibt <a href="#Raw">{Raw}</a> als erstes Element im String, zum Beispiel: <em>SendInput {Raw}abc</em></p>
+<p><strong>Normal-Modus</strong>: Wenn der Raw-Modus nicht aktiv ist, dann werden folgende Zeichen als Modifikatoren behandelt (diese Modifikatoren beeinflussen nur die nächstgelegene Taste):</p>
+<p><span class="red">!</span>: Sendet eine ALT-Taste. Zum Beispiel würde <em>Send Das ist ein Text!a</em> die Tasten "Das ist ein Text" senden und danach ALT+a drücken. <strong>Hinweis</strong>: !A erzeugt in einigen Programmen einen anderen Effekt als !a. Denn !A drückt ALT+UMSCHALT+A und !a drückt ALT+a. Im Zweifelsfall immer Kleinbuchstaben verwenden.</p>
+<p><span class="red">+</span>: Sendet eine UMSCHALT-Taste. Zum Beispiel: <em>Send +abC</em> sendet den Text "AbC" und <em>Send !+a</em> drückt die Tastenkombination ALT+UMSCHALT+a.</p>
+<p><span class="red">^</span>: Sendet eine STRG-Taste. Zum Beispiel: <em>Send ^!a</em> drückt STRG+ALT+a und <em>Send ^{Home}</em> sendet STEUERUNG+POS1. <strong>Hinweis</strong>: ^A erzeugt in einigen Programmen einen anderen Effekt als ^a, weil ^A die Tastenkombination STEUERUNG+UMSCHALT+A und ^a die Tastenkombination STEUERUNG+a drückt. Im Zweifelsfall immer Kleinbuchstaben verwenden.</p>
+<p><span class="red">#</span>: Sendet eine WIN-Taste, beispielsweise hält <em>Send #e</em> die Windows-Taste gedrückt und drückt dann den Buchstaben "e".</p>
+<p><br> <a name="SendInput"></a><a name="SendPlay"></a><strong>SendInput</strong> und <strong>SendPlay</strong> <span class="ver">[v1.0.43+]:</span> SendInput und SendPlay verwenden die gleiche Syntax wie Send, sind aber in der Regel schneller und zuverlässiger. Darüber hinaus wird jede physische Tastatur- oder Mausaktivität während des Sendens zwischengespeichert, um zu verhindern, dass die Benutzereingaben sich mit denen vermischen, die gesendet wurden. <a href="SendMode.htm">SendMode</a> kann verwendet werden, um Send gleichbedeutend mit SendInput oder SendPlay zumachen. Weitere Details können in <a href="#SendInputDetail">SendInput</a> und <a href="#SendPlayDetail">SendPlay</a> weiter unten gefunden werden.</p>
+<p><a name="SendEvent"></a><strong>SendEvent</strong> <span class="ver">[v1.0.43+]:</span> SendEvent sendet Tastatureingaben mit der gleichen Methode wie der <em>Send</em>-Befehl vor Version 1.0.43. Die Geschwindigkeit, mit welcher die Tastatureingaben gesendet werden, wird durch <a href="SetKeyDelay.htm">SetKeyDelay</a> beeinflusst. Standardmäßig ist <em>Send</em> gleichbedeutend mit <em>SendEvent</em>, kann aber auch gleichbedeutend mit <a href="#SendInputDetail">SendInput</a> oder <a href="#SendPlayDetail">SendPlay</a> mittels <a href="SendMode.htm">SendMode</a> gemacht werden.</p>
+<p><strong>Key Names</strong>: Die folgende Tabelle listet alle besonderen Tasten auf, die gesendet werden können (jeder Tastenname muss von geschweiften Klammern umschlossen werden):</p>
+<table class="info">
+  <tr>
+    <th width="200">Tastenname</th>
+    <th>Resultierende Tastatureingabe</th>
+  </tr>
+  <tr>
+    <td align="center">{F1} - {F24}</td>
+    <td>Funktionstasten. Zum Beispiel: {F12} ist die F12-Taste.</td>
+  </tr>
+  <tr>
+    <td align="center">{!}</td>
+    <td>!</td>
+  </tr>
+  <tr>
+    <td align="center">{#}</td>
+    <td>#</td>
+  </tr>
+  <tr>
+    <td align="center">{+}</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td align="center">{^}</td>
+    <td>^</td>
+  </tr>
+  <tr>
+    <td align="center">{{}</td>
+    <td>{</td>
+  </tr>
+  <tr>
+    <td align="center">{}}</td>
+    <td>}</td>
+  </tr>
+  <tr>
+    <td align="center">{Enter}</td>
+    <td>ENTER-Taste auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{Escape} oder {Esc}</td>
+    <td>ESCAPE</td>
+  </tr>
+  <tr>
+    <td align="center">{Space}</td>
+    <td>SPACE (nur für Leerzeichen, die am Anfang oder am Ende des Strings benötigt werden, Leerzeichen in der Mitte können direkt vorhanden sein)</td>
+  </tr>
+  <tr>
+    <td align="center">{Tab}</td>
+    <td>TAB</td>
+  </tr>
+  <tr>
+    <td align="center">{Backspace} oder {BS}</td>
+    <td>Rücktaste</td>
+  </tr>
+  <tr>
+    <td align="center">{Delete} oder {Del}</td>
+    <td>Entfernen</td>
+  </tr>
+  <tr>
+    <td align="center">{Insert} oder {Ins}</td>
+    <td>Einfügen</td>
+  </tr>
+  <tr>
+    <td align="center">{Up}</td>
+    <td>Taste mit Pfeil nach oben auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{Down}</td>
+    <td>Taste mit Pfeil nach unten auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{Left}</td>
+    <td>Taste mit Pfeil nach links auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{Right}</td>
+    <td>Taste mit Pfeil nach rechts auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{Home}</td>
+    <td>Pos1-Taste auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{End}</td>
+    <td>Ende-Taste auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{PgUp}</td>
+    <td>Bild-Auf-Taste auf der Tastatur</td>
+  </tr>
+  <tr>
+    <td align="center">{PgDn}</td>
+    <td>Bild-Ab-Taste auf der Tastatur</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{CapsLock}</td>
+    <td>Feststelltaste (<a href="SetNumScrollCapsLockState.htm">SetCapsLockState</a> ist zuverlässiger in NT/2k/XP).
+
+
+ Das Senden von {CapsLock} benötigt möglicherweise vorher <a href="SetStoreCapslockMode.htm">SetStoreCapslockMode Off</a>.</td>
+  </tr>
+  <tr>
+    <td align="center">{ScrollLock}</td>
+    <td>Rollen (siehe auch: <a href="SetNumScrollCapsLockState.htm">SetScrollLockState</a>)</td>
+  </tr>
+  <tr>
+    <td align="center">{NumLock}</td>
+    <td>Num-Taste (siehe auch: <a href="SetNumScrollCapsLockState.htm">SetNumLockState</a>)</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{Control} oder {Ctrl} </td>
+    <td>STRG (technische Info: sendet die neutrale virtuelle Taste, aber den linken Scan-Code)</td>
+  </tr>
+  <tr>
+    <td align="center">{LControl} oder {LCtrl}</td>
+    <td>Linke STRG-Taste (technische Info: In Win9x das Gleiche wie STRG, aber in NT/2k/XP wird die linke virtuelle anstelle der neutralen Taste gesendet)</td>
+  </tr>
+  <tr>
+    <td align="center">{RControl} oder {RCtrl}</td>
+    <td>Rechte STRG-Taste</td>
+  </tr>
+  <tr>
+    <td align="center">{Control Down} oder {Ctrl Down}</td>
+    <td>Hält die STRG-Taste gedrückt, bis {Ctrl Up} gesendet wird. XP/2000/NT: Um stattdessen die linke oder rechte Taste gedrückt zuhalten, verwendet {RCtrl Down} und {RCtrl Up}. </td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{Alt}</td>
+    <td>ALT (technische Info: sendet die neutrale virtuelle Taste, aber den linken Scan-Code)</td>
+  </tr>
+  <tr>
+    <td align="center">{LAlt}</td>
+    <td>Linke ALT-Taste (technische Info: In Win9x das Gleiche wie ALT, aber in NT/2k/XP wird die linke virtuelle Taste gesendet) </td>
+  </tr>
+  <tr>
+    <td align="center">{RAlt}</td>
+    <td>Rechte ALT-Taste (oder ALTGR, abhängig von der Tastaturbelegung)</td>
+  </tr>
+  <tr>
+    <td align="center">{Alt Down}</td>
+    <td>Hält die ALT-Taste gedrückt, bis {Alt Up} gesendet wird. XP/2000/NT: Um stattdessen die linke oder rechte Taste gedrückt zuhalten, verwendet {RAlt Down} und {RAlt Up}.</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{Shift}</td>
+    <td> UMSCHALT (technische Info: sendet die neutrale virtuelle Taste, aber den linken Scan-Code)</td>
+  </tr>
+  <tr>
+    <td align="center">{LShift}</td>
+    <td>Linke UMSCHALT-Taste (technische Info: In Win9x das Gleiche wie UMSCHALT, aber in NT/2k/XP wird die linke virtuelle Taste gesendet) </td>
+  </tr>
+  <tr>
+    <td align="center">{RShift}</td>
+    <td>Rechte UMSCHALT-Taste</td>
+  </tr>
+  <tr>
+    <td align="center">{Shift Down}</td>
+    <td>Hält die UMSCHALT-Taste gedrückt, bis {Shift Up} gesendet wird. XP/2000/NT: Um stattdessen die linke oder rechte Taste gedrückt zuhalten, verwendet {RShift Down} und {RShift Up}.</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{LWin}</td>
+    <td>Linke Windows-Taste</td>
+  </tr>
+  <tr>
+    <td align="center">{RWin}</td>
+    <td>Rechte Windows-Taste</td>
+  </tr>
+  <tr>
+    <td align="center">{LWin Down}</td>
+    <td>Hält die linke Windows-Taste gedrückt, bis {LWin Up} gesendet wird.</td>
+  </tr>
+  <tr>
+    <td align="center">{RWin Down}</td>
+    <td>Hält die rechte Windows-Taste gedrückt, bis {RWin Up} gesendet wird.</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{AppsKey}</td>
+    <td>Menü-Taste (aktiviert die rechte Maustaste oder das Kontextmenü) </td>
+  </tr>
+  <tr>
+    <td align="center">{Sleep}</td>
+    <td>SLEEP-Taste.</td>
+  </tr>
+  <tr>
+    <td align="center">{ASC nnnnn}</td>
+    <td><p><a name="asc"></a>Sendet die Tastatur-Kombination ALT+nnnnn, die verwendet werden kann, um spezielle Zeichen zu erzeugen, die nicht auf der Tastatur vorhanden sind. Um ASCII-Zeichen zu generieren, verwendet eine Zahl zwischen 1 und 255. Um ANSI-Zeichen zu generieren (Standard in den meisten Sprachen), verwendet eine Zahl zwischen 128 und 255, aber mit einer vorangestellten Null, zum Beispiel {Asc 0133}.</p>
+    <p>Um Unicode-Zeichen zu generieren, verwendet eine Zahl zwischen 256 und 65535 (ohne führende Null). Dies wird jedoch nicht von allen Anwendungen unterstützt. Für eine größere Kompatibilität und einfacheres Versenden von langen Unicode-Strings sollte deshalb "<a href="Transform.htm#Unicode">Transform Unicode</a>" verwenden werden.</p></td>
+  </tr>
+  <tr id="Unicode">
+    <td align="center">{U+nnnn}</td>
+    <td><p><a name="sendu"></a><span class="ver">[AHK_L 24+]:</span> Sendet ein Unicode-Zeichen, wobei <em>nnnn</em> der hexadezimale Wert des Zeichens ohne das Präfix 0x ist. Beachtet, dass in der Unicode-Version von AutoHotkey_L Unicode-Zeichen direkt in den Text eingefügt werden können, wenn das Script als UTF-8 oder UTF-16 abgepeichert wird.</p>
+    <p>Wenn das Zeichen nicht auf einen virtuellen Tastencode abgebildet werden kann, dann wird <a href="http://msdn.microsoft.com/en-us/library/ms646310.aspx">SendInput()</a> oder <a href="http://msdn.microsoft.com/en-us/library/ms646276.aspx">WM_CHAR</a> verwendet und der aktuelle Send-Modus unwirksam gemacht.</p></td>
+  </tr>
+  <tr>
+    <td align="center"><p>{vkXX}<br> {scYYY}<br> {vkXXscYYY}</p>    </td>
+    <td><p><a name="vk"></a>Sendet eine Tastatureingabe, die die virtuelle Taste XX und den Scan-Code YYY enthält. Zum Beispiel: <em>Send {vkFFsc159}</em>. Wenn der sc- oder vk-Teil weggelassen wird, dann wird der geeignetste Wert anstelle gesendet.</p>
+      <p>Die Werte für XX und YYY sind hexadezimal und können für gewöhnlich vom Menüpunkt <a href="KeyHistory.htm">View-> Key history</a> im Hauptfenster ermittelt werden. Siehe auch: <a href="../KeyList.htm#SpecialKeys">Sondertasten</a></p></td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{Numpad0} - {Numpad9}</td>
+    <td>Numpad-Zifferntasten (wenn Numlock eingeschaltet ist). Zum Beispiel: {Numpad5} ist die Zahl 5.</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadDot}</td>
+    <td>Numpad-Komma (wenn Numlock eingeschaltet ist).</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadEnter}</td>
+    <td>Enter-Taste auf dem Ziffernblock</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadMult}</td>
+    <td>Numpad-Multiplikationszeichen</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadDiv}</td>
+    <td>Numpad-Divisionszeichen</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadAdd}</td>
+    <td>Numpad-Additionszeichen</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadSub}</td>
+    <td>Numpad-Subtraktionszeichen</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{NumpadDel}</td>
+    <td>Entf-Taste auf dem Ziffernblock (diese und die nachfolgenden Numpad-Tasten sind nur verwendbar, wenn Numlock ausgeschaltet ist)</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadIns}</td>
+    <td>Einfg-Taste auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadClear}</td>
+    <td>Funktionslose Taste dem Ziffernblock (in der Regel die Taste '5', wenn Numlock ausgeschaltet ist).</td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadUp}</td>
+    <td>Taste mit Pfeil nach oben auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadDown}</td>
+    <td>Taste mit Pfeil nach unten auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadLeft}</td>
+    <td>Taste mit Pfeil nach links auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadRight}</td>
+    <td>Taste mit Pfeil nach rechts auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadHome}</td>
+    <td>Pos1-Taste auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadEnd}</td>
+    <td>Ende-Taste auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadPgUp}</td>
+    <td>Bild-Auf-Taste auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <td align="center">{NumpadPgDn}</td>
+    <td>Bild-Ab-Taste auf dem Ziffernblock </td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Back}</td>
+    <td>2000/XP/Vista+: Drückt die Schaltfläche "Zurück" des Browsers</td>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Forward}</td>
+    <td>2000/XP/Vista+: Drückt die Schaltfläche "Vorwärts" des Browsers</td>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Refresh}</td>
+    <td>2000/XP/Vista+: Drückt die Schaltfläche "Aktualisieren" des Browsers</td>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Stop}</td>
+    <td>2000/XP/Vista+: Drückt die Schaltfläche "Stopp" des Browsers</td>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Search}</td>
+    <td>2000/XP/Vista+: Drückt die Schaltfläche "Suchen" des Browsers</td>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Favorites}</td>
+    <td>2000/XP/Vista+: Drückt die Schaltfläche "Favoriten" des Browsers</td>
+  </tr>
+  <tr>
+    <td align="center">{Browser_Home}</td>
+    <td>2000/XP/Vista+: Startet den Browser und öffnet die Startseite</td>
+  </tr>
+  <tr>
+    <td align="center">{Volume_Mute}</td>
+    <td>2000/XP/Vista+: Gesamtlautstärke stummschalten bzw. Stummschaltung aufheben. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, +1, , mute</em></td>
+  </tr>
+  <tr>
+    <td align="center">{Volume_Down}</td>
+    <td>2000/XP/Vista+: Gesamtlautstärke leiser stellen. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, -5 </em></td>
+  </tr>
+  <tr>
+    <td align="center">{Volume_Up}</td>
+    <td>2000/XP/Vista+: Gesamtlautstärke lauter stellen. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, +5</em></td>
+  </tr>
+  <tr>
+    <td align="center">{Media_Next}</td>
+    <td>2000/XP/Vista+: Nächsten Track im Media Player auswählen</td>
+  </tr>
+  <tr>
+    <td align="center">{Media_Prev}</td>
+    <td>2000/XP/Vista+: Vorherigen Track im Media Player auswählen</td>
+  </tr>
+  <tr>
+    <td align="center">{Media_Stop}</td>
+    <td>2000/XP/Vista+: Media Player stoppen</td>
+  </tr>
+  <tr>
+    <td align="center">{Media_Play_Pause}</td>
+    <td>2000/XP/Vista+: Media Player abspielen bzw. pausieren</td>
+  </tr>
+  <tr>
+    <td align="center">{Launch_Mail}</td>
+    <td>2000/XP/Vista+: Startet E-Mail-Anwendung</td>
+  </tr>
+  <tr>
+    <td align="center">{Launch_Media}</td>
+    <td>2000/XP/Vista+: Startet Media Player</td>
+  </tr>
+  <tr>
+    <td align="center">{Launch_App1}</td>
+    <td>2000/XP/Vista+: Startet benutzerdefinierte Anwendung 1.</td>
+  </tr>
+  <tr>
+    <td align="center">{Launch_App2}</td>
+    <td>2000/XP/Vista+: Startet benutzerdefinierte Anwendung 2.</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center">{PrintScreen}</td>
+    <td>Druck-Taste </td>
+  </tr>
+  <tr>
+    <td align="center">{CtrlBreak}</td>
+    <td>Strg+Untbr</td>
+  </tr>
+  <tr>
+    <td align="center">{Pause}</td>
+    <td>Pause</td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td align="center"><strong>{Click [Optionen]}</strong><br> <span class="ver">[v1.0.43+]</span></td>
+    <td><a name="Click"></a>Sendet einen Mausklick mit den gleichen Möglichkeiten des <a href="Click.htm">Click-Befehls</a>. Zum Beispiel klickt {Click} einmal mit der linken Maustaste auf die aktuelle Position des Mauszeigers und {Click 100, 200} klickt auf den Koordinaten 100, 200 (basierend auf <a href="CoordMode.htm">CoordMode</a>). Um die Maus zu verschieben, ohne zu klicken, verwendet 0 nach den Koordinaten, z. B.: {Click 100, 200, 0}. Die Verzögerung zwischen den Mausklicks wird durch <a href="SetMouseDelay.htm">SetMouseDelay</a> bestimmt (nicht <a href="SetKeyDelay.htm">SetKeyDelay</a>).</td>
+  </tr>
+  <tr>
+    <td align="center">{WheelDown}, {WheelUp}, {WheelLeft}, {WheelRight}, {LButton}, {RButton}, {MButton}, {XButton1}, {XButton2}</td>
+    <td>Sendet ein Ereignis einer Maustaste an die aktuelle Position des Mauszeigers (um Position und andere Optionen zu kontrollieren, verwendet <a href="Click.htm">{Click}</a>). Die Verzögerung zwischen den Mausklicks wird durch <a href="SetMouseDelay.htm">SetMouseDelay</a> bestimmt. WheelLeft/Right benötigen v1.0.48+, funktionieren aber nicht auf Betriebssystemen älter als Windows Vista.</td>
+  </tr>
+  <tr>
+    <td align="center"><strong>{Blind}</strong></td>
+    <td><p><a name="blind"></a>Wenn {Blind} das erste Element im String ist, dann verhindert das Programm, dass Alt/Strg/Umschalt/Win losgelassen werden, wenn sie anfänglich gedrückt werden. Zum Beispiel sendet <em>+s::Send {Blind}abc</em> den String ABC und nicht abc, weil der Benutzer die Umschalt-Taste gedrückt hält.</p>
+      <p>{Blind} verursacht auch, dass <a href="SetStoreCapslockMode.htm">SetStoreCapslockMode</a> ignoriert wird, d. h. der Status von der Festelltaste wird nicht geändert. Schließlich lässt {Blind} zusätzliche Steuerungstasten weg, die ansonsten gesendet werden. Solche Tastatureingaben verhindern ...: 1) das Anzeigen des Startmenüs, während LWin/RWin-Tastatureingaben, 2) das Aktivieren der Menüleiste während Alt-Tastatureingaben.</p>
+      <p>Blind-Modus wird intern verwendet, wenn eine <a href="../misc/Remap.htm">Taste neubelegt wird</a>. Zum Beispiel erzeugt Die Neubelegung a::b: 1) "b", wenn "a" eingegeben; 2) "B", wenn "A" eingegeben (Großbuchstaben) und 3) Steuerung+B, wenn Steuerung+A eingegeben.</p>
+      <p>{Blind} wird nicht von SendRaw und <a href="ControlSend.htm">ControlSendRaw</a> unterstützt. Darüber hinaus wird es nicht ganz von <a href="#SendPlayDetail">SendPlay</a> unterstützt, besonders mit Modifikatoren (Strg, Alt, Umschalt und Win).</p></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>{Raw}</strong><br> <span class="ver">[v1.0.43+]</span></td>
+    <td><a name="Raw" id="Raw"></a>Sendet die Tastatureingaben genau so, wie sie angezeigt werden, anstatt {Enter} als Enter-Taste, ^c als Steuerung+C und so weiter zu übersetzen. Obwohl der String {Raw} nicht am Anfang des Strings stehen muss, bleibt er für den Rest des Strings aktiv, wenn er einmal angegeben wird.</td>
+  </tr>
+</table>
+
+<h2>Eine Taste wiederholend drücken oder gedrückt halten </h2>
+<p><strong>Um eine Tastatureingabe wiederholend zu drücken</strong>: Umschließt den Namen der Taste, gefolgt von der Wiederholungsanzahl, mit geschweiften Klammern. Zum Beispiel:</p>
+<pre>Send {DEL 4}  <em>; Drückt die Entf-Taste viermal.</em>
+Send {S 30}   <em>; Sendet 30 S-Zeichen in Großbuchstaben.</em>
+Send +{TAB 4}  <em>; Drückt Umschalt+Tab viermal.</em></pre>
+<p><strong>Eine Taste gedrückt halten oder loslassen</strong>: Umschließt den Namen der Taste, gefolgt von dem Wort <strong>Down</strong> oder <strong>Up</strong>, mit geschweiften Klammern. Zum Beispiel:</p>
+<pre>Send {b down}{b up}
+Send {TAB down}{TAB up}
+Send {Up down}  <em>; Drückt die Taste mit Pfeil nach oben.</em>
+Sleep 1000  <em>; Für eine Sekunde gedrückt halten.</em>
+Send {Up up}  <em>; Die Taste mit Pfeil nach oben loslassen.</em></pre>
+<p>Wenn eine Taste mit der oberen Methode gedrückt gehalten wird, dann wird die Taste nicht automatisch wiederholt, z. B. wenn sie physisch gedrückt gehalten wird (denn die automatische Wiederholung ist eine Treiber/Hardware-Funktion). Allerdings kann eine <a href="Loop.htm">Schleife</a> dazu verwendet werden, eine automatische Wiederholung zu simulieren. Das folgende Beispiel sendet 20 Tabulator-Tastatureingaben:</p>
+<pre>Loop 20
+{
+    Send {Tab down}  <em>; Auto-Wiederholung, bestehend aus nacheinander folgende Down-Ereignisse (ohne Up-Ereignisse).</em>
+    Sleep 30  <em>; Die Anzahl an Millisekunden zwischen den Tastatureingaben (oder verwendet <a href="SetKeyDelay.htm">SetKeyDelay</a>).</em>
+}
+Send {Tab up}  <em>; Taste loslassen.</em></pre>
+<p>Das Wort <em>DownTemp</em> kann auch verwendet werden. Bewirkt das Gleiche wie <em>Down</em>, außer für Modifikatoren (Strg/Umschalt/Alt/Win). In solchen Fällen teilt <em>DownTemp</em> mit, dass nachfolgende Sendungen die Taste nicht dauerhaft gedrückt halten und sie loslässt, sobald eine Tastatureingabe nach ihr ruft. Zum Beispiel erzeugt <em>Send {Control DownTemp}</em> später gefolgt von <em>Send a</em> eine normale Tastatureingabe "a", nicht die Tastatureingabe Steuerung+A.</p>
+
+<h2>Allgemeine Bemerkungen</h2>
+<p>Neben Buchstaben A bis Z werden folgende Buchstaben und Symbole auch unterstützt (wenn jedoch der System-Zeichensatz etwas anderes als 1252 [US & Westeuropa] ist, dann unterscheidet sich diese Liste):<br> &euro;&sbquo;&fnof;&bdquo;&hellip;&dagger;&Dagger;&circ;&permil;&Scaron;&lsaquo;&OElig;Ž&lsquo;&rsquo;&ldquo;&rdquo;&bull;&ndash;&mdash;&tilde;&trade;&scaron;&rsaquo;&oelig;ž&Yuml;&nbsp;&iexcl;&cent;&pound;&curren;&yen;&brvbar;&sect;&uml;&copy;&ordf;&laquo;&not;&shy;&reg;&macr;&deg;&plusmn;&sup2;&sup3;&acute;&micro;&para;&middot;&cedil;&sup1;&ordm;&raquo;&frac14;&frac12;&frac34;&iquest;<br> &Agrave;&Aacute;&Acirc;&Atilde;Ä&Aring;&AElig;&Ccedil;&Egrave;&Eacute;&Ecirc;&Euml;&Igrave;&Iacute;&Icirc;&Iuml;&ETH;&Ntilde;&Ograve;&Oacute;&Ocirc;&Otilde;Ö&times;&Oslash;&Ugrave;&Uacute;&Ucirc;Ü&Yacute;&THORN;ß&agrave;&aacute;&acirc;&atilde;ä&aring;&aelig;&ccedil;&egrave;&eacute;&ecirc;&euml;&igrave;&iacute;&icirc;&iuml;&eth;&ntilde;&ograve;&oacute;&ocirc;&otilde;ö&divide;&oslash;&ugrave;&uacute;&ucirc;ü&yacute;&thorn;&yuml;</p>
+<p><strong>BlockInput im Vergleich mit SendInput/SendPlay</strong>: Obwohl der <a href="BlockInput.htm">BlockInput</a>-Befehl verwendet werden kann, um beliebige physische Tastatureingaben daran zu hindern, den Eingabeverlauf zu stören, ist es oft besser, <a href="#SendInputDetail">SendInput</a> oder <a href="#SendPlayDetail">SendPlay</a> zu verwenden, damit Tastatureingaben und Mausklicks nicht unterbrochen werden können. Denn im Gegensatz zum BlockInput verwirft SendInput/Play nicht die Benutzereingabe während des Send-Befehls. Solche Tastatureingaben werden zwischengespeichert und danach gesendet.</p>
+<p>Beim Senden einer großen Anzahl von Tastatureingaben kann ein <a href="../Scripts.htm#continuation">Fortsetzungsbereich</a> verwendet werden, um die Les- und Pflegbarkeit zu verbessern.</p>
+<p>Da das Betriebssystem die Simulation von STRG-ALT-ENTF nicht erlaubt, hat z. B. <em>Send ^!{Delete}</em> keine Wirkung.</p>
+<p><b>Send funktioniert möglicherweise nicht</b> in Windows Vista oder höher, wenn das aktive Fenster mit administrativen Rechten läuft, das Script jedoch nicht. Auf Grund des Sicherheitsmechanismus namens User Interface Privilege Isolation (UIPI).</p>
+
+<h2 id="SendInputDetail">SendInput <span class="ver">[v1.0.43+]</span></h2>
+<p>SendInput ist in der Regel die bevorzugte Methode, um Tastatureingaben und Mausklicks zu senden, wegen der überlegenen Geschwindigkeit und Zuverlässigkeit. In den meisten Fällen wird SendInput sofort ausgeführt, selbst wenn lange Strings gesendet werden. Da SendInput so schnell ist, ist es auch zuverlässiger, da plötzlich auftauchende Fenster kaum die Gelegenheit haben, die Tastatureingaben abzufangen. Die Zuverlässigkeit wird nochmal verbessert, da die Benutzereingabe während eines SendInput-Befehls bis zum Schluss zwischengespeichert wird.</p>
+<p>Im Gegensatz zu den anderen Send-Modi begrenzt das Betriebssystem den SendInput-Befehl auf etwa 5000 Zeichen (variiert je nach Version des Betriebssystems und Performance-Einstellungen). Zeichen und Ereignisse über dem Limit werden nicht gesendet.</p>
+<p><strong>Hinweis:</strong> SendInput ignoriert SetKeyDelay, weil das Betriebssystem eine Verzögerung dieser Art nicht unterstützt. Wenn allerdings SendInput zum <a href="#SendEvent">SendEvent</a> bei den unten beschriebenen Bedienungen zurückkehrt, dann wird <a href="SetKeyDelay.htm"><em>SetKeyDelay -1, 0</em></a> verwendet (es sei denn, die Tastenverzögerung des SendEvent-Befehls ist "<em>-1, -1</em>", in diesem Fall wird "<em>-1, -1</em>" verwendet). Wenn SendInput zum <a href="#SendPlayDetail">SendPlay</a> zurückkehrt, dann wird die Tastenverzögerung von SendPlay verwendet.</p>
+<p><a name="SendInputUnavail"></a>Wenn ein Script, <em>im Gegensatz zu</em> einem Script mit SendInput, einen <a href="_InstallKeybdHook.htm">systemnahen Tastatur-Hook</a> installiert hat, dann kehrt SendInput automatisch zu <a href="#SendEvent">SendEvent</a> zurück (oder <a href="#SendPlayDetail">SendPlay</a>, wenn <em><a href="SendMode.htm">SendMode, InputThenPlay</a></em> aktiv ist). Denn die Anwesenheit eines externen Hooks deaktiviert alle Vorteile von SendInput, das heißt, es wird schlechter als SendPlay und SendEvent. Da jedoch SendInput nicht in der Lage ist, einen systemnahen Hook in Programmen anders als AutoHotkey v1.0.43+ zu erkennen, kehrt es nicht zurück und wird unzuverlässiger als SendPlay/Event.</p>
+<p>Wenn SendInput Mausklicks z. B. mithilfe von <a href="#Click">{Click}</a> sendet und <em><a href="SetMouseDelay.htm">CoordMode Mouse, Relative</a></em> aktiv ist (die Standardeinstellung), dann wird sich jeder Klick auf das Fenster beziehen, welches beim Sendestart aktiv war. Wenn SendInput deshalb absichtlich ein anderes Fenster aktiviert (z. B. mit Alt+Tab), dann sind die Koordinaten der nachfolgenden Klicks im selben Befehl falsch, weil sie sich immer noch auf das alten anstatt auf das neue Fenster beziehen.</p>
+<p>Windows 95 (und NT4 vor SP3): SendInput wird nicht unterstützt und kehrt automatisch zu SendEvent zurück (oder SendPlay, wenn <a href="SendMode.htm"><em>SendMode, InputThenPlay</em></a> aktiv ist).</p>
+<h2 id="SendPlayDetail">SendPlay <span class="ver">[v1.0.43+]</span></h2>
+<p>Der größte Vorteil von SendPlay ist seine Fähigkeit, Tastatureingaben und Mausklicks in einer breiteren Auswahl an Spielen "wiederzugeben". Zum Beispiel kann ein bestimmtes Spiel <a href="../Hotstrings.htm#SendMode">Hotstrings</a> nur akzeptiert, wenn sie die <a href="../Hotstrings.htm#SendMode">SendPlay-Option</a> aktiv haben. Allerdings funktioniert SendPlay möglicherweise nicht in Windows Vista oder höher, wenn die Benutzerkontensteuerung (UAC) aktiv ist, selbst wenn das Script als Administrator läuft.</p>
+<p>Von den drei Send-Modi ist SendPlay am ungewöhnlichsten, weil es an sich Tastatureingaben und Mausklicks nicht simuliert. Stattdessen werden mehrere Ereignisse (Nachrichten) erstellt, die direkt in das aktive Fenster einfließen (vergleichbar mit <a href="ControlSend.htm">ControlSend</a>, nur auf einem niedrigeren Niveau).</p>
+<p>Wie bei <a href="#SendInputDetail">SendInput</a> werden Tastatureingaben von SendPlay nicht mit den Benutzereingaben vermischt. Wenn der Benutzer während eines SendPlay-Befehls etwas schreibt, dann werden solche Tastatureingaben bis zum Schluss zwischengespeichert.</p>
+<p>Obwohl SendPlay deutlich langsamer als SendInput ist, ist es meist schneller als der traditionelle <a href="#SendEvent">SendEvent</a>-Modus (selbst wenn <a href="SetKeyDelay.htm">KeyDelay</a> auf -1 ist).</p>
+<p>SendPlay kann keine System-Hotkeys auslösen, die mit den beiden Windows-Tasten (LWin und RWin) verbunden sind. Zum Beispiel kann nicht das Startmenü oder das Ausführen-Dialogfenster mit Win+R angezeigt werden.</p>
+<p>Die Windows-Tasten (LWin und RWin) werden automatisch während eines SendPlay-Befehls blockiert, wenn der <a href="_InstallKeybdHook.htm">Tastatur-Hook</a> installiert ist. Dadurch wird verhindert, dass das Startmenü angezeigt wird, wenn der Benutzer versehentlich eine Windows-Taste während des Sendens drückt. Im Gegensatz dazu müssen alle anderen Tasten nicht blockiert werden, weil das Betriebssystem sie während eines SendPlay-Befehls automatisch bis zum Schluss zwischenspeichert.</p>
+<p>SendPlay verwendet nicht die Standard-Einstellungen von SetKeyDelay und SetMouseDelay. Stattdessen wird standardmäßig keine Verzögerung verwendet, die aber wie in den folgenden Beispielen geändert werden kann:</p>
+<pre><a href="SetKeyDelay.htm">SetKeyDelay</a>, 0, 10, <strong>Play</strong>  <em>; Beachtet, dass sowohl 0 als auch -1 im SendPlay-Modus identisch sind.</em>
+<a href="SetMouseDelay.htm">SetMouseDelay</a>, 10, <strong>Play</strong></pre>
+<p>SendPlay ist nicht der Lage, Festell-, Num- oder Scroll-Tasten auszuschalten. Ebenso ist es erst in der Lage, den Status einer Taste wie in <a href="GetKeyState.htm">GetKeyState</a> zu ändern, wenn die Tastatureingaben an ein Fenster des Scripts gesendet werden. Selbst dann können alle Änderungen an den linken/rechten Modifikatoren (z. B. RControl) nur mit ihrem neutralen Gegenstück (z. B. Control) erkannt werden. Außerdem hat SendPlay andere Einschränkungen, wie auf der <a href="SendMode.htm#Play">SendMode-Seite</a> beschrieben.</p>
+<p>Im Gegensatz zu <a href="#SendInputDetail">SendInput</a> und <a href="#SendEvent">SendEvent</a> kann SendPlay von einem Benutzer unterbrochen werden, wenn Steuerung+Alt+Entf oder Steuerung+Escape gedrückt wird. Wenn dies geschieht, dann werden die restlichen Tastatureingaben nicht gesendet und das Script fortgesetzt, als ob der SendPlay-Befehl normal ausgeführt wurde.</p>
+<p>Obwohl SendPlay LWin- und RWin-Ereignisse senden kann, werden sie direkt an das aktive Fenster gesendet, anstatt deren interne Betriebssystemfunktion durchzuführen. Als Übergangslösung dient <a href="#SendEvent">SendEvent</a>. Zum Beispiel zeigt <em>SendEvent #r</em> das Ausführen-Dialogfenster des Startmenüs an.</p>
+
+<h2>Verwandte Befehle</h2>
+<p><a href="SendMode.htm">SendMode</a>, <a href="SetKeyDelay.htm">SetKeyDelay</a>, <a href="SetStoreCapslockMode.htm">SetStoreCapslockMode</a>, <a href="_EscapeChar.htm">Schutzzeichen (z. B. `%) </a>, <a href="ControlSend.htm">ControlSend</a>, <a href="BlockInput.htm">BlockInput</a>, <a href="../Hotstrings.htm">Hotstrings</a>, <a href="WinActivate.htm">WinActivate</a></p>
+<h2>Beispiele</h2>
+<pre class="NoIndent">Send Mit freundlichen Grüßen,{enter}John Smith  <em>; Ermöglicht eine zweizeilige Signatur.</em>
+Send !ds <em>; Wählt Datei->Speichern im Menü aus (Alt+D, gefolgt von S).</em>
+Send {End}+{Left 4} <em>; Springt ans Textende und sendet viermal Umschalt+Pfeil nach links.</em>
+SendInput <a href="#Raw">{Raw}</a>Viele mehrere unberarbeitete Zeichen mit der schnellsten Methode gesendet (<a href="#SendInputDetail">SendInput</a>).</pre>
+
+</body>
+</html>

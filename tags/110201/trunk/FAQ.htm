@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AutoHotkey FAQ</title>
+<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
+<link href="css/default.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+h4 {margin-top: 1.5em;}
+-->
+</style>
+</head>
+<body>
+
+<h1>Häufig gestellte Fragen (FAQ)</h1>
+
+<p>Wenn die gewünschte Frage unten nicht aufgelistet wird, dann überprüft die von der Community gepflegte <a href="http://www.autohotkey.com/wiki/index.php?title=FAQ">FAQ auf AutoHotkey-Wiki</a>.</p>
+
+<h3>Sprachsyntax</h3>
+<ul>
+  <li><a href="#quotes">Wann werden im Zusammenhang mit Befehlen und Parametern Anführungszeichen verwendet?</a></li>
+  <li><a href="#percent">Wann genau werden Variablen mit Prozentzeichen umschlossen (%)?</a></li>
+  <li><a href="#esc">Wann sollten Prozentzeichen und Kommas geschützt werden?</a></li>
+</ul>
+<h3>Allgemeine Aufgaben</h3>
+<ul>
+  <li><a href="#autoexec">Warum werden einige Zeilen in meinem Script nie ausgeführt? </a></li>
+  <li><a href="#run">Warum ist der Run-Befehl nicht in der Lage, mein Spiel oder Programm auszuführen?</a></li>
+  <li><a href="#output">Wie kann die Ausgabe einer Befehlszeilenoperation abgefragt werden?</a></li>
+  <li><a href="#close">Wie kann ein Script andere Scripts schließen, pausieren oder sperren?</a></li>
+  <li><a href="#repeat">Wie kann eine sich wiederholende Aktion gestoppt werden, ohne das Script beenden zu müssen?</a></li>
+  <li><a href="#perf">Wie kann die Performance für Spiele oder zum anderen Zeitpunkt verbessert werden, wenn die CPU stark belastet wird?</a></li>
+  <li><a href="#help">Wie kann die kontextabhängige Hilfe für AutoHotkey-Befehle in einem beliebigen Editor verwendet werden?</a></li>
+  <li><a href="#load">Wie kann man feststellen, dass eine Webseite fertig geladen ist?</a></li>
+  <li><a href="#time">Wie können Datums- oder Uhrzeitwerte verglichen oder geändert werden?</a></li>
+  <li><a href="#games">Warum funktionieren Hotstring-, Send- und MouseClick-Befehle in einigen Spielen nicht?</a></li>
+  <li><a href="#winamp">Wie kann Winamp gesteuert werden, selbst wenn es nicht aktiv ist?</a></li>
+  <li><a href="#msgbox">Wie können die Namen der MsgBox-Schaltflächen geändert werden?</a></li>
+</ul>
+<h3>Hotkeys, Hotstrings und Neubelegung</h3>
+<ul>
+  <li><a href="#Startup">Wie können meine Hotkeys und Hotstrings automatisch bei jedem PC-Start ausgeführt werden?</a></li>
+  <li><a href="#HotMouse">Ich habe Schwierigkeiten, dass meine Maustasten wie Hotkeys funktionieren. Irgendwelche Hinweise?</a></li>
+  <li><a href="#HotSymb">Wie können Tabulatoren und Leerzeichen als Hotkeys definiert werden?</a></li>
+  <li><a href="#Remap">Wie können Tastatur- oder Maustasten neu belegt werden, damit sie zu anderen Tasten werden?</a></li>
+  <li><a href="#HotContext">Wie kann ein Hotkey oder Hotstring exklusiv für ein bestimmtes Programm bereitgestellt werden? Mit anderen Worten möchte ich eine bestimmte Taste dazu bringen, dass sie sich anders als normal verhält, falls ein bestimmtes Fenster aktiv ist.</a></li>
+  <li><a href="#HotPrefix">Wie kann bei einer Präfix-Taste erreicht werden, dass sie ihre ursprüngliche Funktion durchführt, anstatt nichts zu tun?</a></li>
+  <li><a href="#HotOverride">Wie können die internen Windows-Tastenkombinationen wie Win+U (Eingabehilfen) und Win+R (Ausführen) geändert oder deaktiviert werden?</a></li>
+  <li><a href="#HotZero">Meine Tastatur hat eine besondere 000-Taste. Kann ich damit einen Hotkey erzeugen?</a></li>
+</ul>
+<h2>Sprachsyntax</h2>
+<h3 id="quotes">Wann werden im Zusammenhang mit Befehlen und Parametern Anführungszeichen verwendet?</h3>
+<p>Anführungszeichen (") haben nur innerhalb von <a href="Variables.htm#Expressions">Ausdrücken</a> eine besondere Bedeutung. Ansonsten werden sie wie ganz normale direkt vorhandene Zeichen behandelt. Wenn allerdings ein Script ein Programm oder Dokument ausführt, dann erwartet das Betriebssystem für gewöhnlich Anführungszeichen um Kommandozeilenparameter mit Leerzeichen, wie in diesem Beispiel: Run, Notepad.exe "C:\Eigene Dateien\Adressenliste.txt"</p>
+<h3 id="percent">Wann genau werden Variablen mit Prozentzeichen umschlossen (%)?</h3>
+<p>Variablennamen werden immer mit Prozentzeichen umschlossen, bis auf die unten <strong>fett</strong> dargestellten Ausnahmen:</p>
+<p>1) In Parametern, die Eingabe- oder Ausgabevariablen sind: <code><a href="commands/StringLen.htm">StringLen</a>, <strong>Ausgabevariable</strong>, <strong>Eingabevariable</strong></code><br> 2) Auf der linken Seite einer Zuweisung: <code><strong>Var</strong> = 123abc</code><br> 3) Auf der linken Seite einer <a href="commands/IfEqual.htm">traditionellen If-Anweisung (kein Ausdruck)</a>: <code>If <strong>Var1</strong> < %Var2%</code><br> 4) Überall in <a href="Variables.htm#Expressions">Ausdrücken</a>. Zum Beispiel:<br>
+<pre>If (<strong>Var1</strong> <> <strong>Var2</strong>)
+    <strong>Var1 <a href="commands/SetExpression.htm">:=</a> Var2</strong> + 100</pre></p>
+<h3 id="esc">Wann sollten Prozentzeichen und Kommas geschützt werden?</h3>
+<p>Direkt vorhandene Prozentzeichen müssen mit einem Akzent <a href="commands/_EscapeChar.htm">geschützt</a> werden. Zum Beispiel: <code>MsgBox Der aktuelle Prozentwert liegt bei 25`%.</code> Direkt vorhandene Kommas müssen auch geschützt werden (<code>`,</code>), wenn sie in einer <a href="commands/MsgBox.htm">MsgBox</a> oder im letzten Parameter eines Befehls verwenden werden (in diesem Fall ist der Akzent zulässig, aber nicht notwendig).</p>
+<p> Wenn Kommas oder Prozentzeichen innerhalb eines <a href="Variables.htm#Expressions">Ausdrucks</a> von Anführungszeichen umschlossen werden, dann ist der Akzent zulässig, aber nicht notwendig. Zum Beispiel: <code>Var := "15%"</code></p>
+<h2>Allgemeine Aufgaben</h2>
+<h3 id="autoexec">Warum werden einige Zeilen in meinem Script nie ausgeführt?</h3>
+<p>Jede Zeile, die unmittelbar beim Script-Start ausgeführt werden soll, sollte am Anfang des Scripts und vor dem ersten <a href="Hotkeys.htm">Hotkey</a>, <a href="Hotstrings.htm">Hotstring</a> oder <a href="commands/Return.htm">Return</a> angegeben werden. Für weitere Informationen, siehe <a href="Scripts.htm#auto">automatischer Ausführungsbereich</a>.</p>
+<p>Außerdem muss ein <a href="Hotkeys.htm">Hotkey</a>, der mehr als eine Zeile ausführt, seine erste Zeile <em>unter</em> dem Hotkey auflisten, aber nicht auf derselben Zeile. Zum Beispiel:</p>
+<pre>#space::  <em>; Win+Leerzeichen</em>
+Run Notepad
+WinWaitActive Unbenannt - Editor
+WinMaximize
+Return</pre>
+<h3 id="run">Warum ist der Run-Befehl nicht in der Lage, mein Spiel oder Programm auszuführen?</h3>
+<p>Einige Programme müssen in ihren eigenen Verzeichnissen gestartet werden (im Zweifelsfall der sicherste Weg). Zum Beispiel:</p>
+<pre>Run, %ProgramFiles%\Beliebige Anwendung\Anwendung.exe, %ProgramFiles%\Beliebige Anwendung</pre>
+<h3 id="output">Wie kann die Ausgabe einer Befehlszeilenoperation abgefragt werden?</h3>
+<p>Tests zeigen, dass eine temporäre Datei aufgrund von Datei-Caching sehr schnell bei kleinen Ausgaben sein kann. Tatsächlich wird sie gar nicht erst auf das Laufwerk geschrieben, wenn die Datei unmittelbar danach gelöscht wird. Zum Beispiel:</p>
+<pre><a href="commands/Run.htm">RunWait</a> %comspec% /c dir > C:\Eigene Temp-Datei.txt
+FileRead, Ausgabevariable, C:\Eigene Temp-Datei.txt
+FileDelete, C:\Eigene Temp-Datei.txt</pre>
+<p>Um das Verwenden von temporären Dateien zu vermeiden (besonders wenn die Ausgabe groß ist), zieht <a href="http://www.autohotkey.com/forum/topic8606.html">CmdRet</a> oder <a href="http://www.autohotkey.com/forum/topic16823.html">StdoutToVar</a> in Betracht.
+<h3 id="close">Wie kann ein Script andere Scripts schließen, pausieren oder sperren?</h3>
+<p>Zunächst ein Beispiel, dass ein anderes Script schließt:</p>
+<pre>DetectHiddenWindows On  <em>; Damit kann das versteckte Hauptfenster eines Scripts erkannt werden.</em>
+SetTitleMatchMode 2  <em>; Verhindert, dass unten der vollständige Pfad der Datei angegeben werden muss.</em>
+WinClose Script-Dateiname.ahk - AutoHotkey  <em>; Das hier auf den gewünschten Dateinamen aktualisieren (von der Groß- und Kleinschreibung abhängig).</em></pre>
+<p>Um ein anderes Script <a href="commands/Suspend.htm">zu sperren</a> oder <a href="commands/Pause.htm">zu pausieren</a>, ersetzt die letzte Zeile von oben jeweils mit dieser Zeile:</p>
+<pre>PostMessage, 0x111, 65305,,, Script-Dateiname.ahk - AutoHotkey  <em>; Suspend.</em>
+PostMessage, 0x111, 65306,,, Script-Dateiname.ahk - AutoHotkey  <em>; Pause.</em></pre>
+<h3 id="repeat">Wie kann eine sich wiederholende Aktion gestoppt werden, ohne das Script beenden zu müssen?</h3>
+<p>Um das ganze Script beim Drücken einer Taste zu pausieren oder fortzusetzen, kann dem <a href="commands/Pause.htm">Pause</a>-Befehl ein Hotkey wie im folgenden Beispiel zugewiesen werden:</p>
+<pre>^!p::Pause  <em>; Drückt Strg+Alt+P, um das Script zu pausieren. Drückt ihn nochmal, um es fortzusetzen.</em></pre>
+<p>Um eine Aktion zu stoppen, die sich innerhalb einer <a href="commands/Loop.htm">Schleife</a> wiederholt, zieht den folgenden funktionierenden Hotkey in Betracht, um die wiederholende Aktion sowohl zu starten als auch zu stoppen. Mit anderen Worten wird beim einmaligen Drücken des Hotkeys die Schleife gestartet. Wenn der gleiche Hotkey nochmals gedrückt wird, dann wird sie gestoppt.</p>
+<pre>#MaxThreadsPerHotkey 3
+<strong>#z::  <em>; Hotkey: Win+Z (passt diesen Hotkey je nach Bedarf an).</em></strong>
+#MaxThreadsPerHotkey 1
+If WinZLaufenLassen  <em>; Bedeutet, dass ein darunterliegender <a href="misc/Threads.htm">Thread</a> bereits die untere Schleife ausführt.</em>
+{
+    WinZLaufenLassen := false  <em>; Weist den Thread darauf hin, die Schleife zu stoppen.</em>
+    Return  <em>; Beendet diesen Thread, damit der darunterliegende Thread fortgesetzt und die Veränderung von der oberen Zeile bemerken wird.</em>
+}
+<em>; Ansonsten:</em>
+WinZLaufenLassen := true
+Loop
+{
+    <strong><em>; Die nächsten vier Zeilen sind die gewünschten Aktionen, die wiederholt werden sollen (passt sie je nach Bedarf an):</em></strong>
+    ToolTip, Drückt nochmals Win+Z, um das hier zu stoppen.
+    Sleep 1000
+    ToolTip
+    Sleep 1000
+    <strong><em>; Lasst den Rest aber unverändert.</em></strong>
+    If not WinZLaufenLassen <em>; Der Benutzer hat die Schleife durch erneutes Drücken von Win+Z gestoppt.</em>
+        break  <em>; Schleife unterbrechen.</em>
+}
+WinZLaufenLassen := false  <em>; Zurücksetzen, damit der Hotkey wieder verwendet werden kann.</em>
+Return</pre>
+<h3 id="perf">Wie kann die Performance für Spiele oder zum anderen Zeitpunkt verbessert werden, wenn die CPU stark belastet wird?</h3>
+<p>Wenn <a href="Hotkeys.htm">Hotkeys</a>, <a href="commands/Click.htm">Clicks</a> oder <a href="commands/Send.htm">Sends</a> im Script deutlich langsamer als normal sind, während die CPU stark belastet wird, dann könnte das Erhöhen der Script-Prozesspriorität helfen. Fügt dafür die folgende Zeile am Anfang des Scripts hinzu:<br> <a href="commands/Process.htm">Process, Priority, , High</a></p>
+<h3 id="help">Wie kann die kontextabhängige Hilfe für AutoHotkey-Befehle in einem beliebigen Editor verwendet werden?</h3>
+<p>Rajat hat dafür <a href="scripts/ContextSensitiveHelp.htm">diesen Script</a> geschrieben.</p>
+<h3 id="load">Wie kann man feststellen, dass eine Webseite fertig geladen ist?</h3>
+<p>Beim Internet Explorer ist die zuverlässigste Methode das Verwenden von DllCall und COM, wie auf <a href="http://www.autohotkey.com/forum/topic19256.html">www.autohotkey.com/forum/topic19256.html</a> demonstriert. Zusätzlich kann der Inhalt der Adress- und Statusleiste abgerufen werden, wie auf <a href="http://www.autohotkey.com/forum/topic19255.html">www.autohotkey.com/forum/topic19255.html</a> demonstriert.</p>
+<p><strong>Ältere, weniger zuverlässige Methode: </strong>Das folgende Beispiel funktioniert fast mit allen Webseiten im MS Internet Explorer. Eine ähnliche Methode funktioniert möglicherweise auch in anderen Browsern:</p>
+<pre>Run, www.yahoo.com
+MouseMove, 0, 0  <em>; Hindert die Statusleiste daran, den Link unter dem Mauszeiger anstelle von "Fertig" anzuzeigen.</em>
+WinWait, Yahoo! -
+WinActivate
+<a href="commands/StatusBarWait.htm">StatusBarWait</a>, Done, 30
+If ErrorLevel
+   MsgBox Die Wartezeit ist abgelaufen oder das Fenster wurde geschlossen.
+Else
+   MsgBox Die Webseite wurde geladen.</pre>
+<h3 id="time">Wie können Datums- oder Uhrzeitwerte verglichen oder geändert werden?</h3>
+<p>Der <a href="commands/EnvAdd.htm">EnvAdd</a>-Befehl kann eine bestimmte Menge an Tagen, Stunden, Minuten oder Sekunden im <a href="commands/FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format addieren oder subtrahieren. Das folgende Beispiel subtrahiert 7 Tage von der angegebenen Zeit:<br> EnvAdd, Zeitstempel, -7, days</p>
+<p>Um den Zeitraum zwischen zwei Daten oder Zeiten zu ermitteln, siehe <a href="commands/EnvSub.htm">EnvSub</a> für ein Beispiel. Außerdem enthält die interne Variable <a href="Variables.htm#Now">A_Now</a> die aktuelle Ortszeit. Zudem gibt es noch mehr interne <a href="Variables.htm#date">Datum/Zeit-Variablen</a>, sowie der <a href="commands/FormatTime.htm">FormatTime</a>-Befehl, um einen benutzerdefinierten Datum/Zeit-String zu erstellen.</p>
+<h3 id="games">Warum funktionieren <a href="Hotstrings.htm">Hotstrings</a>, <a href="commands/Send.htm">Sends</a> und <a href="commands/Click.htm">Clicks</a> in einigen Spielen nicht?</h3>
+<p>Einige Spiele verwenden ausschließlich DirectInput. Als Nebeneffekt werden alle simulierten Tastatureingaben und Mausklicks möglicherweise ignoriert. Als Übergangslösung kann eine folgende Angabe (oder in Kombination) ausprobiert werden:</p>
+<ul>
+  <li>Verwendet SendPlay mittels: 1) dem <a href="commands/Send.htm#SendPlayDetail">SendPlay-Befehl</a>; 2) <a href="commands/SendMode.htm">SendMode Play</a>; und/oder 3) der <a href="Hotstrings.htm#SendMode">Hotstring-Option <em>SP</em></a>.</li>
+  <li>Erhöht <a href="commands/SetKeyDelay.htm">SetKeyDelay</a>. Zum Beispiel:<br>
+  <pre class="NoIndent">SetKeyDelay, 0, 50<br>SetKeyDelay, 0, 50, Play</pre></li>
+  <li>Versucht den <a href="commands/ControlSend.htm">ControlSend</a>-Befehl, der möglicherweise funktioniert, während jeder andere Send-Modus versagt.</li>
+</ul>
+<h3 id="winamp">Wie kann Winamp gesteuert werden, selbst wenn es nicht aktiv ist?</h3>
+<p>Siehe <a href="misc/Winamp.htm">Winamp automatisieren</a>.</p>
+<h3 id="msgbox">Wie können die Namen der <a href="commands/MsgBox.htm">MsgBox</a>-Schaltflächen geändert werden?</h3>
+<p>Hier dazu ein <a href="scripts/MsgBoxButtonNames.htm">Beispiel</a>.</p>
+<h2>Hotkeys, Hotstrings und Neubelegung</h2>
+<h3 id="Startup">Wie können meine Hotkeys und Hotstrings automatisch bei jedem PC-Start ausgeführt werden?</h3>
+<p>Es gibt einen Ordner namens "Autostart" im Startmenü.&nbsp; Wenn eine Verknüpfung des Scripts in diesem Ordner eingefügt wird, dann wird das Script jedesmal automatisch ausgeführt, sobald Windows hochgefahren wird. Um eine Verknüpfung zu erstellen:</p>
+<ol>
+  <li>Findet die Script-Datei, wählt sie aus und drückt Steuerung+C.</li>
+  <li>Klickt mit der rechten Maustaste auf die Start-Schaltfläche bzw. auf "Alle Programme" (normalerweise in der linken unteren Ecke des Bildschirms) und wählt "Öffnen - Alle Benutzer" aus.</li>
+  <li>Navigiert zum Autostart-Ordner innerhalb von "Programme".</li>
+  <li>Wählt in der Menüleiste <em>Bearbeiten -> Verknüpfung einfügen</em> aus.&nbsp; Die Verknüpfung des Scripts sollte sich nun im Autostart-Ordner befinden.</li>
+</ol>
+<h3 id="HotMouse">Ich habe Schwierigkeiten, dass meine Maustasten wie Hotkeys funktionieren. Irgendwelche Hinweise?</h3>
+<p>Beachtet, dass <a href="Hotkeys.htm">Maus-Hotkeys</a> zurzeit nicht in Win95/98/Me möglich sind. In anderen Betriebssystemen sollte die linke und die rechte Maustaste ganz normal zuweisbar sein (zum Beispiel ist <code>#LButton::</code> der Hotkey Win+LeftButton). Ebenso sollte die mittlere Maustaste und das Drehen des <a href="KeyList.htm">Mausrades</a> normal zuweisbar sein, außer bei Mäusen, deren Treiber direkt solche Tasten kontrolliert.</p>
+<p> Die vierte (XButton1) und fünfte Maustaste (XButton2) sind möglicherweise auch zuweisbar, wenn der Maustreiber seine Klicks für das System <a href="commands/KeyHistory.htm">sichtbar</a> macht. Wenn sie nicht sichtbar sind (oder wenn die Maus mehr als 5 Tasten hat, die verwendet werden sollen), dann versucht, die dazugehörige Software der Maus zu konfigurieren (meistens in der Systemsteuerung oder im Startmenü), um eine Tastatureingabe zu senden, sobald eine dieser Tasten gedrückt wird. Solch eine Tastatureingabe kann dann in einem Script als Hotkey definiert werden. Wenn zum Beispiel die vierte Maustaste konfiguriert wird, um Steuerung+F1 zu senden, dann kann diese Taste mithilfe von <code>^F1::</code> im Script indirekt zu einem Hotkey gemacht werden.</p>
+<p>Wenn bei einer Maus mit 5 Tasten die vierte und fünfte Maustaste nicht <a href="commands/KeyHistory.htm">sichtbar</a> ist, dann versucht, den aktuellen Maustreiber auf den Standardtreiber des Betriebssystems zu setzen. Das setzt voraus, dass solch ein Treiber für die spezielle Maus vorhanden ist und dass der Benutzer ohne den mitgelieferten Funktionen der Software leben kann.</p>
+<h3 id="HotSymb">Wie können Tabulatoren und Leerzeichen als Hotkeys definiert werden?</h3>
+<p>Verwendet die Namen der Tasten (Tab und Space) anstelle der Zeichen. Zum Beispiel ist <code>#Space</code> die Tastenkombination Win+Space und <code>^!Tab</code> die Tastenkombination Steuerung+Alt+Tab.</p>
+<h3 id="Remap">Wie können Tastatur- oder Maustasten neu belegt werden, damit sie zu anderen Tasten werden?</h3>
+<p>Das wird auf der Seite "<a href="misc/Remap.htm">Neubelegung von Tasten</a>" erklärt.</p>
+<h3 id="HotContext">Wie kann ein <a href="Hotkeys.htm">Hotkey</a> oder <a href="Hotstrings.htm">Hotstring</a> exklusiv für ein bestimmtes Programm bereitgestellt werden? Mit anderen Worten möchte ich eine bestimmte Taste dazu bringen, dass sie sich anders als normal verhält, falls ein bestimmtes Fenster aktiv ist.</h3>
+<p>Die bevorzugte Methode ist <a href="commands/_IfWinActive.htm">#IfWinActive</a>. Zum Beispiel:</p>
+<pre>#IfWinActive, ahk_class Notepad
+^a::MsgBox Steuerung+A wurde gedrückt, während der Editor aktiv ist.
+
+</pre>
+<p>Windows 95/98/Me: Obwohl die obige Methode funktioniert, passiert durch das Drücken von Steuerung+A in einem Fenster außer dem Editor überhaupt nichts (selbst deren ursprüngliche Funktion nicht). Verwendet als Übergangslösung:.</p>
+<pre>$^a::Send ^a  <em>; Dieser Hotkey muss <strong>zuerst</strong> in Windows 9x aufgelistet werden. Das $-Präfix erlaubt dem Hotkey, "sich selbst zu senden".</em>
+#IfWinActive, ahk_class Notepad
+^a::MsgBox Steuerung+A wurde gedrückt, während der Editor aktiv ist.</pre>
+<h3 id="HotPrefix">Wie kann bei einer Präfix-Taste erreicht werden, dass sie ihre ursprüngliche Funktion durchführt, anstatt nichts zu tun?</h3>
+<p>Zieht das folgende Beispiel in Betracht, dass Numpad0 zum Bestandteil einer Tastenkombination macht:</p>
+<pre>Numpad0 & Numpad1::MsgBox, Numpad1 wurde gedrückt, während Numpad0 gedrückt gehalten wird.</pre>
+<p>Damit Numpad0 nun einen echte Numpad0-Tastatureingabe sendet, sobald sie nicht dazu verwendet wurde, einen Hotkey wie oben auszuführen, fügt den folgenden Hotkey hinzu:</p>
+<pre> $Numpad0::Send, {Numpad0}</pre>
+<p>Der $-Präfix ist notwendig, um eine Warnmeldung über eine Endlosschleife zu unterdrücken (da der Hotkey "sich selbst sendet"). Darüber hinaus wird die obere Aktion in dem Moment ausgelöst, wenn die Taste <strong>losgelassen</strong> wird.</p>
+<h3 id="HotOverride">Wie können die internen Windows-Tastenkombinationen wie Win+U (Eingabehilfen) und Win+R (Ausführen) geändert oder deaktiviert werden?</h3>
+<p>Hier dazu einige <a href="misc/Override.htm">Beispiele</a>.</p>
+<h3 id="HotZero">Meine Tastatur hat eine besondere 000-Taste. Kann ich damit einen Hotkey erzeugen?</h3>
+<p>Es ist möglich, aber nur wenn das Betriebssystem Windows NT, 2000, XP oder höher ist. Dieses <a href="scripts/Numpad000.htm">Beispiel-Script</a> wandelt die "000"-Taste in eine Gleichheitstaste um. Diese Aktion kann geändert werden, wenn die Zeile "Send, =" je nach Bedarf mit einer anderen Zeile ersetzt wird. </p>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Loop (Dateiinhalt)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>Loop (Dateiinhalt)</h1>
+
+<p>Ermittelt nacheinander die Zeilen einer Textdatei (besser als <a href="FileReadLine.htm">FileReadLine</a>).</p>
+
+<pre class="Syntax">Loop, Read, Eingabedatei [, Ausgabedatei]</pre>
+<h3>Parameter</h3>
+<table class="info">
+  <tr>
+    <td width="15%">Read</td>
+    <td width="85%">Dieser Parameter muss das Wort READ sein.</td>
+  </tr>
+  <tr>
+    <td>Eingabedatei</td>
+    <td>Der Name der Textdatei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist. Windows- und Unix-Formate werden unterstützt, d. h. die Zeilen einer Datei können mit CR-LF-Paaren (`r`n) oder nur mit LF-Zeichen (`n) enden.</td>
+  </tr>
+  <tr>
+    <td>Ausgabedatei</td>
+    <td><p>(Optional) Der Name der Datei, die während der Schleife offen bleibt und sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist.</p>
+      <p>Innerhalb der Schleife kann der Befehl <a href="FileAppend.htm">FileAppend</a> mit nur einem Parameter (der zu schreibende Text) verwendet werden, um der besonderen Datei den Text anzufügen. Das Anfügen des Textes auf diese Weise ist besser als <a href="FileAppend.htm">FileAppend</a> mit dem zweiten Parameter, weil die Datei nicht erst bei jeder Operation geschlossen und neu geöffnet werden muss. Der Benutzer sollte nicht vergessen, ein LF-Zeichen (`n) je nach Bedarf an dem Text anzufügen.</p>
+      <p>Die Datei wird nicht geöffnet, wenn nichts zu schreiben ist. Das passiert, wenn die Schleife keinen Durchlauf hat oder nie den Befehl <a href="FileAppend.htm">FileAppend</a> verwendet.</p>
+      <p><strong>Binärmodus:</strong> Um den Text im Binärmodus anzufügen, stellt ein Sternchen vor dem Dateinamen. Dadurch wird jedes LF-Zeichen (`n) zu einem einzelnen Zeilenvorschub (LF) anstelle des Windows-Standards CR + LF. Zum Beispiel: <strong>*</strong>C:\Eigene Unix-Datei.txt. Selbst ohne Sternchen wird der Binärmodus automatisch aktiviert, wenn <a href="FileAppend.htm">FileAppend</a> das erste Mal dazu verwendet wird, CR-LF-Paare (`r` n) zu schreiben.</p>
+      <p><strong>Standard-Ausgabe (stdout):</strong> Enthält die <em>Ausgabedatei</em> nur ein Sternchen (*), dann wird jeder beliebige Text zur Standard-Ausgabe (stdout) von <a href="FileAppend.htm">FileAppend</a> gesendet. Solche Texte können zu einer Datei oder EXE-Datei weitergeleitet werden oder von <a href="_ErrorStdOut.htm">originellen Texteditoren</a> abgefangen werden. Siehe <a href="FileAppend.htm">FileAppend</a> für mehr Details.</p>
+      <p><strong>Geschützte Kommas</strong>: Im Gegensatz zum letzten Parameter der meisten anderen Befehle müssen Kommas in der <em>Ausgabedatei</em> geschützt werden (`,).</p></td>
+  </tr>
+</table>
+
+<h3>Bemerkungen</h3>
+<p>Eine dateilesende Schleife ist nützlich, wenn der Benutzer nacheinander jede Zeile in einer Text-Datei bearbeiten will. Sie ist besser als <a href="FileReadLine.htm">FileReadLine</a>, weil: 1) die Datei die ganze Zeit offen bleibt und 2) die Datei nicht jedes Mal neu eingelesen werden muss, um die gewünschte Zeilennummer zu finden.</p>
+<p><a name="LoopReadLine"></a>Die interne Variable <strong>A_LoopReadLine</strong> existiert in jeder dateilesenden Schleife. Sie enthält den Inhalt der aktuellen Zeile, ohne CR- und LF-Zeichen (`r`n), die das Zeilenende markieren. Wenn eine innere dateilesende Schleife durch eine äußere dateilesende Schleife eingeschlossen ist, dann hat die Zeile innerhalb der Schleife Vorrang.</p>
+<p>Zeilen mit bis zu 65.534 Zeichen können gelesen werden. Wenn die Länge einer Zeile überschritten wird, dann werden die restlichen Zeichen im nächsten Schleifendurchlauf eingelesen.</p>
+<p><a href="StringSplit.htm">StringSplit</a> oder <a href="LoopParse.htm">Parsing-Schleife</a> wird häufig in einer dateilesenden Schleife verwendet, um den Inhalt jeder Zeile in der <em>Eingabedatei</em> zu parsen. Wenn zum Beispiel jede Zeile in der <em>Eingabedatei</em> mehrere tab-getrennte Felder enthält, dann können diese Felder wie in diesem Beispiel einzeln abgerufen werden:</p>
+<pre>Loop, read, C:\Database Export.txt
+{
+    Loop, parse, A_LoopReadLine, %A_Tab%
+    {
+        MsgBox, Feldnummer %A_Index% ist %A_LoopField%.
+    }
+}</pre>
+<p>Um die ganze Datei in eine Variable zu laden, verwendet <a href="FileRead.htm">FileRead</a>, weil dieser Befehl besser als eine Schleife ist (besonders für große Dateien).</p>
+<p>Damit mehrere Dateien gleichzeitig offen sein können, verwendet DllCall() wie in <a href="DllCall.htm#file">diesem Beispiel</a>.</p>
+<p>Siehe <a href="Loop.htm">Loop</a> für Informationen über <a href="Block.htm">Blocks</a>, <a href="Break.htm">Break</a>, <a href="Continue.htm">Continue</a> und A_Index (die gibt es in jeder Schleifenvariante).</p>
+<p>Um die Kodierung einer Datei ohne Bytereihenfolge-Markierung zu kontrollieren, verwendet <a href="FileEncoding.htm">FileEncoding</a>.</p>
+
+<h3>Verwandte Befehle</h3>
+<p><a href="FileEncoding.htm">FileEncoding</a>, <a href="FileOpen.htm">FileOpen</a>/<a href="../objects/File.htm">Datei-Objekt</a>, <a href="FileRead.htm">FileRead</a>, <a href="FileReadLine.htm">FileReadLine</a>, <a href="FileAppend.htm">FileAppend</a>, <a href="Sort.htm">Sort</a>, <a href="Loop.htm">Loop</a>, <a href="Break.htm">Break</a>, <a href="Continue.htm">Continue</a>, <a href="Block.htm">Blocks, </a><a href="FileSetAttrib.htm">FileSetAttrib</a>, <a href="FileSetTime.htm">FileSetTime</a></p>
+
+<h3>Beispiele</h3>
+<pre class="NoIndent"><em>; Beispiel #1: Nur Zeilen in der ersten Datei, die das Wort FAMILY enthalten, werden in die zweite Datei geschrieben.
+; Hebt die Kommentierung der ersten Zeile auf, um die Datei zu überschreiben.
+;FileDelete, C:\Dokumente\Familienadressen.txt</em>
+
+Loop, read, C:\Dokumente\Adressliste.txt, C:\Dokumente\Familienadressen.txt
+{
+    IfInString, A_LoopReadLine, Familie, FileAppend, %A_LoopReadLine%`n
+}</pre>
+<p>&nbsp;</p>
+<pre class="NoIndent"><em>; Beispiel #2: Ermittelt die letzte Zeile einer Text-Datei.</em>
+Loop, read, C:\Logdatei.txt
+    letzteZeile := A_LoopReadLine  <em>; Wenn die Schleife endet, dann wird diese Variable die letzte Zeile beinhalten.</em></pre>
+<p>&nbsp;</p>
+<pre class="NoIndent"><em>; Beispiel #3: Ein funktionierendes Script, das versucht, alle FTP- und HTTP-URLs
+; aus einer Text- oder HTML-Datei zu extrahieren:</em>
+FileSelectFile, Quelldatei, 3,, Text- oder HTML-Datei zur Analyse auswählen:
+If Quelldatei =
+    Return  <em>; In diesem Fall beenden.</em>
+
+SplitPath, Quelldatei,, Quelldateipfad,, Quelldateiname
+Zieldatei = %Quelldateipfad%\%Quelldateiname% Extrahierte Links.txt
+
+IfExist, %Zieldatei%
+{
+    MsgBox, 4,, Vorhandene Datei überschreiben? Drücke Nein, um die Links anzufügen.`n`nDATEI: %Zieldatei%
+    IfMsgBox, Yes
+        FileDelete, %Zieldatei%
+}
+
+Linkzählung = 0
+Loop, read, %Quelldatei%, %Zieldatei%
+{
+    URLSuchstring = %A_LoopReadLine%
+    Gosub, URLSuche
+}
+MsgBox %Linkzählung% Links wurden gefunden und in "%Zieldatei%" geschrieben.
+Return
+
+
+URLSuche:
+<em>; Es wird dieser bestimmte Weg verwendet, weil einige URLs andere URLs eingebettet haben:</em>
+StringGetPos, URLStart1, URLSuchstring, http://
+StringGetPos, URLStart2, URLSuchstring, ftp://
+StringGetPos, URLStart3, URLSuchstring, www.
+
+<em>; Findet die Startposition ganz links:</em>
+URLStart = %URLStart1%  <em>; Standardwert setzen.</em>
+Loop
+{
+    <em>; Es hilft der Performance (zumindest in einem Script mit vielen Variablen), wenn </em>
+    <em>; "URLStart%A_Index%" nur einmal aufgelöst wird:</em>
+    ArrayElement := URLStart%A_Index%
+    If ArrayElement =  <em>; Ende des Arrays erreicht.</em>
+        break
+    If ArrayElement = -1  <em>; Dieses Element ist disqualifiziert.</em>
+        continue
+    If URLStart = -1
+        URLStart = %ArrayElement%
+    Else <em>; URLStart beinhaltet eine gültige Position,  also mit ArrayElement vergleichen.</em>
+    {
+        If ArrayElement <> -1
+            If ArrayElement < %URLStart%
+                URLStart = %ArrayElement%
+    }
+}
+
+If URLStart = -1  <em>; Keine URLs im URLSuchstring.</em>
+    Return
+
+<em>; Ansonsten diese URL extrahieren:</em>
+StringTrimLeft, URL, URLSuchstring, %URLStart%  <em>; Beginnenden/irrelevanten Teil auslassen.</em>
+Loop, parse, URL, %A_Tab%%A_Space%<>  <em>; erstes Leer-, Tab- oder Winkelzeichen finden.</em>
+{
+    URL = %A_LoopField%
+    break  <em>; z. B. nur einen Schleifendurchlauf ausführen, um das erste "Feld" zu holen.</em>
+}
+<em>; Wenn die oben genannte Schleife keine Iteration hat, weil keine Endzeichen gefunden wurden,
+; lasse den Inhalt der URL-Variable unberührt.</em>
+
+<em>; Wenn die URL mit Anführungszeichen endet, dann werden sie entfernt.  Erstmal wird StringReplace verwendet, aber
+; beachtet, dass Anführungszeichen durchaus innerhalb der URLs gültig sind, dadurch
+; können sie zerstört werden:</em>
+StringReplace, SaubereURL, URL, ",, All
+FileAppend, %SaubereURL%`n
+Linkzählung += 1
+
+<em>; Nachschauen, ob noch andere URLs in dieser Zeile vorhanden sind:</em>
+StringLen, ZeichenAuslassen, URL
+ZeichenAuslassen += %URLStart%
+StringTrimLeft, URLSuchstring, URLSuchstring, %ZeichenAuslassen%
+Gosub, URLSuche  <em>; Rekursiver Aufruf auf sich selbst.</em>
+Return</pre>
+
+</body>
+</html>

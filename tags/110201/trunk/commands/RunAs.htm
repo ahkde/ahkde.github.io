@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RunAs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>RunAs</h1>
+
+<p>Bestimmt eine Reihe von Benutzerdaten für nachfolgende <a href="Run.htm">RunWait</a>- und <a href="Run.htm">Run</a>-Befehle. Benötigt Windows 2000/XP oder höher.</p>
+
+<pre class="Syntax">RunAs [, Benutzer, Passwort, Domäne] </pre>
+<h3>Parameter</h3>
+<table class="info">
+  <tr>
+    <td width="15%">Benutzer</td>
+    <td width="85%">Wenn alle Parameter weggelassen werden, dann wird die RunAs-Funktion deaktiviert, welches das Standardverhalten von <a href="Run.htm">Run</a> und <a href="Run.htm">RunWait</a> wiederherstellt. Ansonsten enthält dieser Parameter den Benutzernamen, der für neu erstellte Prozesse gilt. </td>
+  </tr>
+  <tr>
+    <td>Passwort</td>
+    <td>Passwort des <em>Benutzers</em>.</td>
+  </tr>
+  <tr>
+    <td>Domäne</td>
+    <td><p>Domäne des <em>Benutzers</em>. Um das lokale Konto zu verwenden, lasst diesen Parameter leer. Wenn das nicht funktioniert, versucht @DeinComputerName.</p>
+    </td>
+  </tr>
+</table>
+<h3>Bemerkungen</h3>
+<p>Nur Windows XP/2000 oder höher werden unterstützt. Dieser Befehl hat keine Auswirkung auf andere Betriebssysteme.
+
+
+NT4-Benutzer sollten stattdessen den SU-Befehl aus dem NT Resource Kit installieren und verwenden.</p>
+<p>Dieser Befehl macht nichts anderes, als AutoHotkey zu benachrichtigen, alternative Benutzerdaten für alle nachfolgenden <a href="Run.htm">Run</a>- und <a href="Run.htm">RunWait</a>-Befehle zu verwenden (oder nicht zu verwenden).</p>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird nicht durch diesen Befehl beeinflusst. Wenn die Angabe des <em>Benutzers</em>, des <em>Passworts</em> oder der <em>Domäne</em> ungültig ist, dann zeigt <a href="Run.htm">Run</a> und <a href="Run.htm">RunWait</a> eine Fehlermeldung an, um das Problem näher zu beschreiben (es sei denn, <a href="Run.htm#UseErrorLevel">UseErrorLevel</a> ist aktiv). </p>
+<p>Während die RunAs-Funktion aktiv ist, sind <a href="Run.htm">Run</a> und <a href="Run.htm">RunWait</a> nicht in der Lage, Dokumente, URLs oder Systemverben auszuführen. Mit anderen Worten muss es eine ausführbare Datei sein.</p>
+<p> Der Dienst "Sekundäre Anmeldung" muss auf manuell oder automatisch gestellt werden, damit dieser Befehl funktioniert (das Betriebssystem sollte den Dienst bei Bedarf automatisch starten, wenn es manuell gestellt ist).</p>
+<h3>Verwandte Befehle</h3>
+<p><a href="Run.htm">Run</a>, <a href="Run.htm">RunWait</a> </p>
+<h3>Beispiel</h3>
+<pre class="NoIndent">RunAs, Administrator, EigenesPasswort
+Run, RegEdit.exe
+RunAs  <em>; Normales Verhalten wiederherstellen.</em></pre>
+
+</body>
+</html>
