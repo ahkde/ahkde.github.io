@@ -12,6 +12,14 @@
 <p>Dieses Changelog betrifft nur AutoHotkey_L. Siehe <a href="ChangeLogHelp.htm">Changelog von AutoHotkey</a>.</p>
 
 <!--neue Revisionen erfolgen hier-->
+<h2>1.1.02.01 - 13. August 2011</h2>
+<p>A_PriorKey geändert, damit die Up-Ereignisse der Tasten ausgeschlossen werden.</p>
+<p>Fehler beim Abruf des Prozessnamens/-pfades in bestimmten Fällen behoben:</p>
+<ul>
+	<li>Name/Pfad eines 64-Bit-Prozesses von einem 32-Bit-Script abrufen.</li>
+	<li>Name/Pfad eines erhöhten Prozesses von einem nicht erhöhten Prozess (UAC) abrufen.</li>
+</ul>
+
 <h2>1.1.02.00 - 6. August 2011</h2>
 <p>TV_SetImageList() hinzugefügt.</p>
 <p>Zeichen, die nicht standardmäßige Umschaltzustände 16 und 32 benötigen, verwenden nun eine Rückfallmethode, anstatt falsche Tastatureingaben zu erzeugen.</p>
@@ -19,6 +27,7 @@
 
 <h2>1.1.01.00 - 30. Juli 2011</h2>
 <p>Zusätzliche Unterstützung für Instanzvariablen in Klassendefinitionen, mit einfache Zuweisungssyntax.</p>
+<p>Schlüsselwort <code>var</code> entfernt, das in Klassendefinitionen verwendet wurde; benutzt stattdessen <code>static</code>.</p>
 <p>Neue interne Variablen hinzugefügt: A_ScriptHwnd und A_PriorKey.</p>
 <p>Neue interne Funktionen hinzugefügt: GetKeyName(), GetKeyVK(), GetKeySC() und IsByRef().</p>
 <p>Neuer Unterbefehl hinzugefügt: WinGet, Ausgabevariable, ProcessPath.</p>

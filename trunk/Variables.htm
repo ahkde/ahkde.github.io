@@ -534,7 +534,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
   </tr>
   <tr id="PriorKey">
     <td>A_PriorKey</td>
-    <td><span class="ver">[v1.1.01+]:</span> Der Tastenname des vorletzten Eintrags im <a href="commands/KeyHistory.htm">Tastenverlauf</a>, ausgeschlossen die erzeugten Tasten von AutoHotkey-Scripts, oder ein leerer String, falls kein entsprechender Eintrag vorhanden ist. Damit diese Variable verwendet werden kann, muss der Tastatur- oder Maus-Hook installiert und der Tastenverlauf aktiviert sein. Siehe <a href="commands/KeyHistory.htm">KeyHistory</a>.</td>
+    <td><span class="ver">[v1.1.01+]:</span> Der Name der letzten Taste, die vor dem Drücken oder Loslassen der aktuellsten Taste gedrückt wurde, oder ein leerer String, falls kein geeigneter Tastendruck im Tastenverlauf gefunden werden kann. Alle erzeugten Eingaben von AutoHotkey-Scripts werden ignoriert. Damit diese Variable verwendet werden kann, muss der <a href="commands/_InstallKeybdHook.htm">Tastatur</a>- oder <a href="commands/_InstallMouseHook.htm">Maus</a>-Hook installiert und der <a href="commands/KeyHistory.htm">Tastenverlauf</a> aktiviert sein.</td>
   </tr>
   <tr>
     <td>A_TimeSinceThisHotkey</td>
