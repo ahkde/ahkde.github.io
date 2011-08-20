@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>VarSetCapacity()</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>VarSetCapacity()</h1>
+
+<p>Vergrößert die Aufnahmekapazität einer Variable oder gibt deren Speicher frei. Normalerweise nur für ungewöhnliche Sachverhalte wie bei <a href="DllCall.htm">DllCall</a>.</p>
+
+<pre class="Syntax">GewährteKapazität := VarSetCapacity(Variablenname [, BenötigteKapazität, Füllbyte])</pre>
+<h3>Parameter</h3>
+<table class="info">
+  <tr>
+    <td width="15%">GewährteKapazität</td>
+    <td width="85%">Die Anzahl an Bytes, die die Variable nun enthalten kann, wobei sie größer gleich <em>GewährteKapazität</em> ist. Wenn der <em>Variablenname</em> ungültig ist (z. B. direkt vorhandener String oder Zahl), dann wird eine 0 zurückgegeben. Wenn das System nicht genügend Speicher zu Verfügung hat, um die Veränderung vorzunehmen (sehr selten), dann wird eine Fehlermeldung angezeigt und die aktuelle Kapazität zurückgegeben - dieses Verhalten wird wahrscheinlich in einer zukünftigen Version geändert.</td>
+  </tr>
+  <tr>
+    <td>Variablenname</td>
+    <td>Der Name der Variable (<em>ohne Anführungszeichen</em>). Zum Beispiel: <code>VarSetCapacity(EigeneVar, 1000)</code>. Kann auch eine dynamische Variable wie <code>Array%i%</code> oder der <a href="../Functions.htm#ByRef">ByRef-Parameter einer Funktion</a> sein.</td>
+  </tr>
+  <tr>
+    <td>BenötigteKapazität</td>
+    <td><p>Wenn weggelassen, dann wird die aktuelle Kapazität der Variable zurückgegeben und deren Inhalt nicht geändert. Ansonsten geht der komplette Inhalt der Variable verloren (die Variable wird leer gemacht).</p>
+      <p>Bestimmt für die <em>BenötigteKapazität</em> die Anzahl an Bytes, die die Variable nach dem Einstellen enthalten soll. Bei Unicode-Strings sollte die doppelte Anzahl angegeben werden. Die <em>BenötigteKapazität</em> umfasst nicht den internen Null-Terminator. Zum Beispiel erlaubt eine 1, dass die Variable zusätzlich zum internen Terminator ein Byte enthält. Hinweis: Die Variable wird automatisch erweitert, wenn ihr später vom Script einen größeren Wert zugewiesen wird.</p>
+      <p>Da diese Funktion oft aufgerufen wird, um einfach sicherzustellen, dass die Variable eine bestimmte Mindestkapazität hat, dann wird die Variable aus Gründen der Performance nur verkleinert, wenn die <em>BenötigteKapazität</em> eine 0 ist. Mit anderen Worten: wenn die Variablenkapazität bereits größer als die <em>BenötigteKapazität</em> ist, dann wird sie nicht verkleinert (die Variable wird aber für die Konsistenz immer noch leer gemacht).</p>
+      <p>Um daher eine Variable direkt zu verkleinern, gebt deren Speicher mit <code>VarSetCapacity(Var, 0)</code> frei und verwendet danach <code>VarSetCapacity(Var, NeueKapazität)</code>, oder lasst sie einfach nach Bedarf automatisch um 0 erweitern.</p>
+      <p>Aus Gründen der Performance könnte das Freigeben einer Variable mit einer Kapazität kleiner als 64 Zeichen (128 Bytes in Unicode-Versionen) nicht funktionieren, weil deren Speicher permanenter Art ist. In diesem Fall wird die aktuelle Kapazität anstelle von 0 zurückgegeben.</p>
+      <p>Aus Gründen der Performance wird der Speicher einer Variable mit einer Kapazität kleiner als 4096 Bytes nicht freigegeben, sobald ein leerer String gespeichert wird (z. B. <code>Var := ""</code>). Allerdings kann sie mit <code>VarSetCapacity(Var, 0)</code> freigegeben werden.</p>
+      <p><a name="neg1"></a>Seit v1.0.44.03 kann mit -1 für <em>BenötigteKapazität</em> die intern gespeicherte Länge der Variable auf die Länge des aktuellen Inhalts aktualisiert werden. Besonders nützlich, wenn die Variable indirekt geändert wurde, wie die Übergabe deren <a href="../Variables.htm#amp">Adresse</a> mithilfe von <a href="DllCall.htm">DllCall()</a>. In diesem Modus gibt VarSetCapacity() die Länge in Bytes anstelle der Kapazität zurück.</p></td>
+  </tr>
+  <tr>
+    <td>Füllbyte</td>
+    <td>Dieser Parameter wird normalerweise weggelassen, in diesem Fall wird der Speicher der Zielvariable nicht initialisiert (stattdessen wird die Variable wie oben beschrieben einfach leer gemacht). Verwendet ansonsten eine Zahl zwischen 0 und 255. Jedes Byte im Speicherbereich der Zielvariable (deren aktuelle Kapazität, die größer als <em>BenötigteKapazität</em> sein kann) wird auf diese Zahl gesetzt.  Die 0 ist mit Abstand der häufigste verwendete Wert, weil sie bei Variablen mit unbearbeiteten Binärdaten nützlich ist (z. B. bei einer <a href="DllCall.htm#struct">DllCall-Struktur</a>).</td>
+  </tr>
+</table>
+
+<h3>Bemerkungen</h3>
+<p>Neben der <a href="DllCall.htm#str">DllCall</a>-Verwendung kann diese Funktion auch dazu verwendet werden, die Performance zu erhöhen, wenn ein String mithilfe der stufenweisen Verkettung konstruiert wird. Dadurch können mehrere automatische Größenanpassungen verhindert werden, wenn bekannt ist, wie groß letztendlich die Stringlänge ist. In einem solchen Fall muss die <em>BenötigteKapazität</em> nicht genau sein: wenn die Kapazität zu klein ist, dann ist die Performance immer noch verbessert. Außerdem beginnt die Variable mit der automatischen Erweiterung, wenn die Kapazität verbraucht ist. Wenn die Kapazität zu groß ist, dann wird etwas zu viel Speicher verbraucht, aber nur vorübergehend, denn der gesamte Speicher kann mithilfe von <em>VarSetCapacity(Var, 0)</em> oder <em>Var := ""</em> wieder freigegeben werden.</p>
+<p><a href="_MaxMem.htm">#MaxMem</a> limitiert nur die automatische Erweiterung der Variable. <a href="VarSetCapacity.htm">VarSetCapacity</a> wird aber dadurch nicht beeinflusst.</p>
+<h3>Verwandte Befehle</h3>
+<p><a href="DllCall.htm">DllCall</a>, <a href="_MaxMem.htm">#MaxMem</a></p>
+<h3>Beispiel</h3>
+<pre class="NoIndent">VarSetCapacity(EigeneVar, 10240000)  <em>; ~10 MB</em>
+Loop
+{
+    ...
+    EigeneVar = %EigeneVar%%StringFürVerkettung%
+    ...
+}</pre>
+
+</body>
+</html>
