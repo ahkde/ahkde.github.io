@@ -79,7 +79,7 @@ If not EnumAdresse  <em>; schneller Modus ist okay, weil er nur vom diesen Threa
 DetectHiddenWindows On  <em>; Durch den schnellen Modus wird diese Einstellung auch für das Callback wirksam.</em>
 
 <em>; Kontrolle an EnumWindows() übergeben, die Callback mehrmals aufruft:</em>
-DllCall("EnumWindows", UInt, EnumAdresse, UInt, 0)
+DllCall("EnumWindows", Ptr, EnumAdresse, Ptr, 0)
 MsgBox %Output%  <em>; Zeigt die gesammelten Informationen von Callback an.</em>
 
 EnumWindowsProc(hwnd, lParam)
@@ -103,10 +103,13 @@ Gui, Add, Text, HwndEigenerTextHwnd, Hier ein Text mit einer`nbenutzerdefinierte
 Gui +LastFound
 GuiHwnd := WinExist()
 
+<em>; 64-Bit-Scripts müssen SetWindowLongPtr anstelle von SetWindowLong aufrufen:</em>
+SetWindowLong := A_PtrSize=8 ? "SetWindowLongPtr" : "SetWindowLong"
+
 WindowProcNew := <strong>RegisterCallback</strong>("WindowProc", ""  <em>; Verwendet "", um den schnellen Modus für die Unterklasse zu verhindern.</em>
     , <strong>4</strong>, EigenerTextHwnd)  <em>; Parameteranzahl muss exakt angegeben werden, wenn der Ereignisinfo-Parameter vorhanden ist.</em>
-WindowProcOld := DllCall("SetWindowLong", UInt, GuiHwnd, Int, -4  <em>; -4 ist GWL_WNDPROC</em>
-    , Int, WindowProcNew, <strong>UInt</strong>)  <em>; Wert muss auf UInt gesetzt werden.</em>
+WindowProcOld := DllCall(SetWindowLong, Ptr, GuiHwnd, Int, -4  <em>; -4 ist GWL_WNDPROC</em>
+    , Ptr, WindowProcNew, Ptr)  <em>; Wert muss auf Ptr oder UPtr anstelle von Int gesetzt werden.</em>
 
 Gui Show
 Return
@@ -117,11 +120,11 @@ WindowProc(hwnd, uMsg, wParam, lParam)
     global Texthintergrundfarbe, Pinsel, WindowProcOld
     If (uMsg = 0x138 && lParam = A_EventInfo)  <em>; 0x138 ist WM_CTLCOLORSTATIC.</em>
     {
-        DllCall("SetBkColor", UInt, wParam, UInt, Texthintergrundfarbe)
+        DllCall("SetBkColor", UInt, wParam, Ptr, Texthintergrundfarbe)
         Return Pinsel  <em>; Gibt HBRUSH zurück, um dem OS mitzuteilen, dass wir HDC ändern.</em>
     }
     <em>; Ansonsten (wenn nichts zurückgegeben wird) werden alle unbehandelten Ereignisse an dem originalen WindowProc übergeben.</em>
-    Return DllCall("CallWindowProc", UInt, WindowProcOld, UInt, hwnd, UInt, uMsg, UInt, wParam, UInt, lParam)
+    Return DllCall("CallWindowProc", Ptr, WindowProcOld, Ptr, hwnd, UInt, uMsg, Ptr, wParam, Ptr, lParam)
 }
 
 GuiClose:
