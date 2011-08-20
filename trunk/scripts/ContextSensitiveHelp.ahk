@@ -1,17 +1,17 @@
-; Kontextabhängige Hilfe in einem beliebigen Editor - von Rajat
+; KontextabhÃ¤ngige Hilfe in einem beliebigen Editor - von Rajat
 ; http://www.autohotkey.com
 ; Damit kann mit Strg+2 (oder ein anderer Hotkey) die Hilfe-Dateiseite
-; für den markierten AutoHotkey-Befehl oder Schlüsselwort angezeigt werden. Wenn nichts markiert ist,
+; fÃ¼r den markierten AutoHotkey-Befehl oder SchlÃ¼sselwort angezeigt werden. Wenn nichts markiert ist,
 ; dann wird der Befehlsname vom Anfang der aktuellen Zeile extrahiert.
 
-; Der unten genannte Hotkey nutzt die Zwischenablage, um die Kompatibilität mit
-; den meisten Editoren zu gewährleisten (da ControlGet nicht immer funktioniert).
+; Der unten genannte Hotkey nutzt die Zwischenablage, um die KompatibilitÃ¤t mit
+; den meisten Editoren zu gewÃ¤hrleisten (da ControlGet nicht immer funktioniert).
 ; Danach wird der originale Inhalt der Zwischenablage wiederhergestellt, jedoch als Klartext,
 ; was immer noch besser als gar nichts ist.
 
 $^2::
-; Die folgenden Werte sind nur während des Hotkey-Threads wirksam.
-; Deshalb ist es nicht notwendig, deren ursprüngliche Werte wiederherzustellen,
+; Die folgenden Werte sind nur wÃ¤hrend des Hotkey-Threads wirksam.
+; Deshalb ist es nicht notwendig, deren ursprÃ¼ngliche Werte wiederherzustellen,
 ; weil das automatisch geschieht, sobald der Thread endet:
 SetWinDelay 10
 SetKeyDelay 0
@@ -37,18 +37,18 @@ if ErrorLevel <> 0
 		Return
 	}
 }
-C_Cmd = %clipboard%  ; Führende oder nachfolgende Tabulator- & Leerzeichen entfernen.
-clipboard = %C_ClipboardPrev%  ; Die ursprüngliche Zwischenablage für den Benutzer wiederherstellen.
+C_Cmd = %clipboard%  ; FÃ¼hrende oder nachfolgende Tabulator- & Leerzeichen entfernen.
+clipboard = %C_ClipboardPrev%  ; Die ursprÃ¼ngliche Zwischenablage fÃ¼r den Benutzer wiederherstellen.
 Loop, parse, C_Cmd, %A_Space%`,  ; Das erste Leerzeichen oder Komma kennzeichnet das Ende des Befehls.
 {
 	C_Cmd = %A_LoopField%
-	break ; d.h. wir benötigen nur einen Durchlauf.
+	break ; d.h. wir benÃ¶tigen nur einen Durchlauf.
 }
 IfWinNotExist, AutoHotkey Help
 {
 	; Standort von AutoHotkey ermitteln:
 	RegRead, ahk_dir, HKEY_LOCAL_MACHINE, SOFTWARE\AutoHotkey, InstallDir
-	if ErrorLevel  ; Nichts gefunden, so in anderen häufigen Standorten nachschauen.
+	if ErrorLevel  ; Nichts gefunden, so in anderen hÃ¤ufigen Standorten nachschauen.
 	{
 		if A_AhkPath
 			SplitPath, A_AhkPath,, ahk_dir
