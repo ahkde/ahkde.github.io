@@ -9,7 +9,7 @@
 <body>
 
 <h1>ComObjQuery() <span class="ver">[v1.0.96.00+]</span></h1>
-<p>Abfragen eines COM-Objekts für eine Schnittstelle oder Dienst.</p>
+<p>Abfragen eines COM-Objekts f&uuml;r eine Schnittstelle oder Dienst.</p>
 <pre class="Syntax">InterfacePointer := ComObjQuery(ComObject, [SID,] IID)</pre>
 
 <h3>Parameter</h3>
@@ -29,7 +29,7 @@
 </table>
 
 <h3>Allgemeine Bemerkungen</h3>
-<p>Die erste Form dieser Funktion ist mit <a href="http://msdn.microsoft.com/en-us/library/ms682521.aspx">IUnknown::QueryInterface</a> vergleichbar. Die zweite Form fragt intern die <a href="http://msdn.microsoft.com/en-us/library/cc678965.aspx">IServiceProvider</a>-Schnittstelle ab und ruft danach <a href="http://msdn.microsoft.com/en-us/library/cc678966.aspx">IServiceProvider::QueryService</a> auf. In jedem Fall ist der Rückgabewert entweder eine 0 oder ein Pointer auf die angeforderte Schnittstelle. Im Allgemeinen muss der Pointer <a href="ObjAddRef.htm">freigegeben</a> werden, wenn das Script damit fertig ist.</p>
+<p>Die erste Form dieser Funktion ist mit <a href="http://msdn.microsoft.com/en-us/library/ms682521.aspx">IUnknown::QueryInterface</a> vergleichbar. Die zweite Form fragt intern die <a href="http://msdn.microsoft.com/en-us/library/cc678965.aspx">IServiceProvider</a>-Schnittstelle ab und ruft danach <a href="http://msdn.microsoft.com/en-us/library/cc678966.aspx">IServiceProvider::QueryService</a> auf. In jedem Fall ist der R&uuml;ckgabewert entweder eine 0 oder ein Pointer auf die angeforderte Schnittstelle. Im Allgemeinen muss der Pointer <a href="ObjAddRef.htm">freigegeben</a> werden, wenn das Script damit fertig ist.</p>
 
 <h3>Verwandte Befehle</h3>
 <a href="ObjAddRef.htm">ObjRelease</a>, <a href="ComObjCreate.htm">ComObjCreate</a>, <a href="ComObjGet.htm">ComObjGet</a>, <a href="ComObjActive.htm">ComObjActive</a>, <a href="ComObjError.htm">ComObjError</a>
@@ -47,14 +47,14 @@ IID_IProvideClassInfo := "{B196B283-BAB4-101A-B69C-00AA00341D07}"
 <em>; Anfordern eines Pointers auf die IProvideClassInfo-Schnittstelle des Objekts.</em>
 If !(pci := ComObjQuery(obj, IID_IProvideClassInfo))
 {
-    MsgBox IProvideClassInfo-Schnittstelle wird nicht unterstützt.
+    MsgBox IProvideClassInfo-Schnittstelle wird nicht unterst&uuml;tzt.
     Return
 }
 
 <em>; GetClassInfo aufrufen, um einen Pointer auf die ITypeInfo-Schnittstelle abzurufen.</em>
 DllCall(vtable(pci, 3), "ptr", pci, "ptr*", ti)
 
-<em>; Ruft GetDocumentation auf, um den vollständigen Typennamen des Objekts zu erhalten.</em>
+<em>; Ruft GetDocumentation auf, um den vollst&auml;ndigen Typennamen des Objekts zu erhalten.</em>
 DllCall(vtable(ti, 12), "ptr", ti, "int", -1, "ptr*", name, "ptr", 0, "ptr", 0, "ptr", 0)
 
 <em>; Wandelt den BSTR-Pointer in einem brauchbaren String um.</em>
@@ -69,7 +69,7 @@ MsgBox % "Klassenname: " name
 
 vtable(ptr, n) {
     <em>; NumGet(ptr+0) gibt die Adresse der virtuellen Funktionstabelle
-    ; des Objekts zurück (kurz: vtable). Der Rest des Ausdrucks ermittelt
+    ; des Objekts zur&uuml;ck (kurz: vtable). Der Rest des Ausdrucks ermittelt
     ; die Adresse der n-ten Funktionsadresse von der vtable.</em>
     Return NumGet(NumGet(ptr+0), n*A_PtrSize)
 }
@@ -104,15 +104,15 @@ GetWebBrowser()
     <em>; Den Dokument-Objekt-Pointer freigeben.</em>
     ObjRelease(pdoc)
 
-    <em>; Gibt das WebBrowser-Objekt zurück, für die Verwendbarkeit angepasst:</em>
+    <em>; Gibt das WebBrowser-Objekt zur&uuml;ck, f&uuml;r die Verwendbarkeit angepasst:</em>
     static VT_DISPATCH := 9, F_OWNVALUE := 1
     Return ComObject(VT_DISPATCH, pweb, F_OWNVALUE)
 }
 
-GUID(ByRef GUID, sGUID) <em>; Wandelt ein String in eine binäre GUID um und gibt deren Adresse zurück.</em>
+GUID(ByRef GUID, sGUID) <em>; Wandelt ein String in eine bin&auml;re GUID um und gibt deren Adresse zur&uuml;ck.</em>
 {
     VarSetCapacity(GUID, 16, 0)
-    Return DllCall("ole32\CLSIDFromString", "wstr", sGUID, "ptr", &GUID) >= 0 ? &GUID : ""
+    Return DllCall("ole32\CLSIDFromString", "wstr", sGUID, "ptr", &GUID) &gt;= 0 ? &GUID : ""
 }
 
 </pre>

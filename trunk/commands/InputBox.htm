@@ -12,57 +12,56 @@
 
 <p>Zeigt ein Fenster zur Eingabe eines Strings an.</p>
 
-<pre class="Syntax">InputBox, Ausgabevariable [, Titel, Anzeigetext, HIDE, Breite, Höhe, X, Y, Schriftart, Zeitüberschreitung, Standardwert]</pre>
+<pre class="Syntax">InputBox, Ausgabevariable [, Titel, Anzeigetext, HIDE, Breite, H&ouml;he, X, Y, Schriftart, Zeit&uuml;berschreitung, Standardwert]</pre>
 <h3>Parameter</h3>
-<TABLE width="100%" border="1"
-cellpadding="3" cellspacing="0" bordercolor="#C0C0C0">
-  <TR>
-    <TD>Ausgabevariable</TD>
-    <TD>Der Name der Variable, in der der eingegebene Text des Benutzers gespeichert wird.</TD>
-  </TR>
-  <TR>
-    <TD>Titel</TD>
-    <TD>Der Titel der InputBox. Wenn leer oder nicht vorhanden, dann wird standardmäßig der aktuelle Name des Scripts verwendet. </TD>
-  </TR>
-  <TR>
-    <TD>Anzeigetext</TD>
-    <TD>Text des Eingabefensters, der darauf hinweist, was eingegeben werden soll. Wenn der <em>Anzeigetext</em> lang ist, dann kann die Liste in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern könnten.</TD>
-  </TR>
-  <TR>
-    <TD>HIDE</TD>
-    <TD>Wenn dieser Parameter das Wort HIDE ist, dann wird die Benutzereingabe verborgen, welches nützlich für Passwörter ist.</TD>
-  </TR>
-  <TR>
-    <TD>Breite</TD>
-    <TD>Wenn dieser Parameter nicht vorhanden oder leer ist, dann ist die Standardbreite des Fensters 375. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</TD>
-  </TR>
-  <TR>
-    <TD>Höhe</TD>
-    <TD>Wenn dieser Parameter nicht vorhanden oder leer ist, dann ist die Standardhöhe des Fensters 189. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</TD>
-  </TR>
-  <TR>
-    <TD>X, Y </TD>
-    <TD>Die X- und Y-Koordinaten des Fensters (mit 0,0 wird das Fenster in die linken oberen Ecke des Bildschirms verschoben), die <a href="../Variables.htm#Expressions">Ausdrücke</a> sein können. Wenn einer der Koordinaten leer- oder weggelassen wird, dann wird das Fenster in dieser Abmessung zentriert. Jede Koordinate kann negativ sein, d. h. das Fenster liegt somit teilweise außerhalb des Bildschirms.</TD>
-  </TR>
-  <TR>
-    <TD>Font</TD>
-    <TD>Noch nicht implementiert (leer lassen). Dieser Parameter könnte zukünftig so etwas ähnliches wie verdana:8 akzeptieren.</TD>
-  </TR>
-  <TR>
-    <TD>Zeitüberschreitung</TD>
-    <TD>Zeitüberschreitung in Sekunden (kann einen Dezimalpunkt oder einen <a href="../Variables.htm#Expressions">Ausdruck</a> enthalten).&nbsp; Wenn dieser Wert 2147483 (24.8 Tage) übersteigt, dann wird dieser auf 2147483 gesetzt. Wenn die Zeit abgelaufen ist, wird das Eingabefenster automatisch geschlossen und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 2 gesetzt. Die <em>Ausgabevariable</em> enthält nach wie vor die Eingabe des Benutzers.</TD>
-  </TR>
-  <TR>
-    <TD>Standardwert</TD>
-    <TD>Ein String, der anfänglich im Edit-Feld des Eingabefensters erscheint. Der Benutzer kann den String z. B. mit der Rücktaste ändern. </TD>
-  </TR>
-</TABLE>
+<table class="info">
+  <tr>
+    <td>Ausgabevariable</td>
+    <td>Der Name der Variable, in der der eingegebene Text des Benutzers gespeichert wird.</td>
+  </tr>
+  <tr>
+    <td>Titel</td>
+    <td>Der Titel der InputBox. Wenn leer oder nicht vorhanden, dann wird standardm&auml;&szlig;ig der aktuelle Name des Scripts verwendet. </td>
+  </tr>
+  <tr>
+    <td>Anzeigetext</td>
+    <td>Text des Eingabefensters, der darauf hinweist, was eingegeben werden soll. Wenn der <em>Anzeigetext</em> lang ist, dann kann die Liste in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern k&ouml;nnten.</td>
+  </tr>
+  <tr>
+    <td>HIDE</td>
+    <td>Wenn dieser Parameter das Wort HIDE ist, dann wird die Benutzereingabe verborgen, welches n&uuml;tzlich f&uuml;r Passw&ouml;rter ist.</td>
+  </tr>
+  <tr>
+    <td>Breite</td>
+    <td>Wenn dieser Parameter nicht vorhanden oder leer ist, dann ist die Standardbreite des Fensters 375. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
+  </tr>
+  <tr>
+    <td>H&ouml;he</td>
+    <td>Wenn dieser Parameter nicht vorhanden oder leer ist, dann ist die Standardh&ouml;he des Fensters 189. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
+  </tr>
+  <tr>
+    <td>X, Y </td>
+    <td>Die X- und Y-Koordinaten des Fensters (mit 0,0 wird das Fenster in die linken oberen Ecke des Bildschirms verschoben), die <a href="../Variables.htm#Expressions">Ausdr&uuml;cke</a> sein k&ouml;nnen. Wenn einer der Koordinaten leer- oder weggelassen wird, dann wird das Fenster in dieser Abmessung zentriert. Jede Koordinate kann negativ sein, d. h. das Fenster liegt somit teilweise au&szlig;erhalb des Bildschirms.</td>
+  </tr>
+  <tr>
+    <td>Font</td>
+    <td>Noch nicht implementiert (leer lassen). Dieser Parameter k&ouml;nnte zuk&uuml;nftig so etwas &auml;hnliches wie verdana:8 akzeptieren.</td>
+  </tr>
+  <tr>
+    <td>Zeit&uuml;berschreitung</td>
+    <td>Zeit&uuml;berschreitung in Sekunden (kann einen Dezimalpunkt oder einen <a href="../Variables.htm#Expressions">Ausdruck</a> enthalten).&nbsp; Wenn dieser Wert 2147483 (24.8 Tage) &uuml;bersteigt, dann wird dieser auf 2147483 gesetzt. Wenn die Zeit abgelaufen ist, wird das Eingabefenster automatisch geschlossen und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 2 gesetzt. Die <em>Ausgabevariable</em> enth&auml;lt nach wie vor die Eingabe des Benutzers.</td>
+  </tr>
+  <tr>
+    <td>Standardwert</td>
+    <td>Ein String, der anf&auml;nglich im Edit-Feld des Eingabefensters erscheint. Der Benutzer kann den String z. B. mit der R&uuml;cktaste &auml;ndern. </td>
+  </tr>
+</table>
 <h3>ErrorLevel</h3>
 <p>Siehe unten.</p>
 <h3>Bemerkungen</h3>
-<p>Das Fenster erlaubt dem Benutzer, einen Text einzugeben und auf die Schaltflächen OK oder ABBRECHEN zu drücken. Der Benutzer kann das Fenster durch das Ziehen der Rahmen skalieren. </p>
-<p>Wenn der Benutzer die ABBRECHEN-Schaltfläche betätigt: Bei AutoItv2-Scripts (.aut) ist die <em>Ausgabevariable</em> leer und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird nicht geändert. Bei allen anderen Script-Typen (z. B. .ahk, .ini) wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt (oder 0 für OK) und die <em>Ausgabevariable</em> enthält den eingegeben Wert. Dadurch kann die ABBRECHEN-Schaltfläche nebenbei eine andere Funktion ausführen, wenn es gewünscht ist.</p>
-<p>Wenn die Wartezeit des Fensters abläuft, wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> bei allen Script-Typen auf 2 gesetzt. Daher sollten AutoItv2-Scripts den ErrorLevel direkt auf 0 setzen, bevor dieser Befehl mit einer Zeitüberschreitung verwendet wird.</p>
+<p>Das Fenster erlaubt dem Benutzer, einen Text einzugeben und auf die Schaltfl&auml;chen OK oder ABBRECHEN zu dr&uuml;cken. Der Benutzer kann das Fenster durch das Ziehen der Rahmen skalieren. </p>
+<p>Wenn der Benutzer die ABBRECHEN-Schaltfl&auml;che bet&auml;tigt: Bei AutoItv2-Scripts (.aut) ist die <em>Ausgabevariable</em> leer und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird nicht ge&auml;ndert. Bei allen anderen Script-Typen (z. B. .ahk, .ini) wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt (oder 0 f&uuml;r OK) und die <em>Ausgabevariable</em> enth&auml;lt den eingegeben Wert. Dadurch kann die ABBRECHEN-Schaltfl&auml;che nebenbei eine andere Funktion ausf&uuml;hren, wenn es gew&uuml;nscht ist.</p>
+<p>Wenn die Wartezeit des Fensters abl&auml;uft, wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> bei allen Script-Typen auf 2 gesetzt. Daher sollten AutoItv2-Scripts den ErrorLevel direkt auf 0 setzen, bevor dieser Befehl mit einer Zeit&uuml;berschreitung verwendet wird.</p>
 <p>Ein GUI-Fenster kann eine modale InputBox mittels <a href="Gui.htm#OwnDialogs">Gui, +OwnDialogs</a> anzeigen. Eine modale InputBox hindert den Benutzer solange daran, mit dem GUI-Fenster zu interagieren, bis die InputBox wieder geschlossen wird.</p>
 <h3>Verwandte Befehle</h3>
 <p> <a href="Gui.htm">GUI</a>, <a href="Input.htm">Input</a>, <a href="MsgBox.htm">MsgBox</a>, <a href="FileSelectFile.htm">FileSelectFile</a>, <a href="FileSelectFolder.htm">FileSelectFolder</a>, <a href="SplashTextOn.htm">SplashTextOn</a>, <a href="ToolTip.htm">ToolTip</a></p>
@@ -70,7 +69,7 @@ cellpadding="3" cellspacing="0" bordercolor="#C0C0C0">
 <pre class="NoIndent">InputBox, Passwort, Passwort eingeben, (die Eingabe wird versteckt), hide
 InputBox, Benutzereingabe, Telefonnummer, Bitte geben sie eine Telefonnummer ein., , 640, 480
 If ErrorLevel
-    MsgBox, ABBRECHEN wurde gedrückt.
+    MsgBox, ABBRECHEN wurde gedr&uuml;ckt.
 Else
     MsgBox, Sie haben "%Benutzereingabe%" eingegeben.</pre>
 

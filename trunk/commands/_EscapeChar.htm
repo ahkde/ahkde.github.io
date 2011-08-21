@@ -2,15 +2,15 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>#EscapeChar (und die Erläuterung zu Schutzsequenzen)</title>
+<title>#EscapeChar (und die Erl&auml;uterung zu Schutzsequenzen)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<h1>#EscapeChar (und die Erläuterung zu Schutzsequenzen)</h1>
+<h1>#EscapeChar (und die Erl&auml;uterung zu Schutzsequenzen)</h1>
 
-<p>Verändert das Schutzzeichen des Scripts (z. B. Akzent zu Backslash).</p>
+<p>Ver&auml;ndert das Schutzzeichen des Scripts (z. B. Akzent zu Backslash).</p>
 
 <pre class="Syntax">#EscapeChar NeuesZeichen</pre>
 <h3>Parameter</h3>
@@ -22,7 +22,7 @@
 </table>
 <h3>Bemerkungen</h3>
 <p>Das Schutzzeichen wird verwendet, um das nachfolgende Zeichen anders als normal zu interpretieren.</p>
-<p>Das Standard-Schutzzeichen in AutoIt-v2-Scripts (.aut) ist ein Backslash (\). Für alle anderen Dateiendungen, einschließlich aller kompilierten Scripts, ist das Schutzzeichen standardmäßig ein Akzent/Gravis (`).</p>
+<p>Das Standard-Schutzzeichen in AutoIt-v2-Scripts (.aut) ist ein Backslash (\). F&uuml;r alle anderen Dateiendungen, einschlie&szlig;lich aller kompilierten Scripts, ist das Schutzzeichen standardm&auml;&szlig;ig ein Akzent/Gravis (`).</p>
 <h3>Schutzsequenzen (wenn ein Akzent das Schutzzeichen ist)</h3>
 <table class="info">
   <tr>
@@ -31,7 +31,7 @@
   </tr>
   <tr>
     <td width="15%">`,</td>
-    <td width="85%">, (direkt vorhandenes Komma). <strong>Hinweis:</strong> Kommas, die im letzten Parameter eines Befehls angegeben werden, müssen nicht mit einem Schutzzeichen vorangestellt werden, weil das Programm diese Kommas direkt behandelt. Das Gleiche gilt auch für alle Parameter der <a href="MsgBox.htm">MsgBox</a>, weil es eine intelligente Komma-Handhabung hat.</td>
+    <td width="85%">, (direkt vorhandenes Komma). <strong>Hinweis:</strong> Kommas, die im letzten Parameter eines Befehls angegeben werden, m&uuml;ssen nicht mit einem Schutzzeichen vorangestellt werden, weil das Programm diese Kommas direkt behandelt. Das Gleiche gilt auch f&uuml;r alle Parameter der <a href="MsgBox.htm">MsgBox</a>, weil es eine intelligente Komma-Handhabung hat.</td>
   </tr>
   <tr>
     <td>`%</td>
@@ -47,7 +47,7 @@
   </tr>
   <tr>
     <td>`::</td>
-    <td>:: (direkt vorhandenes Doppelpunkt-Paar). Ab v1.0.40 ist es nicht länger notwendig, diese mit einem Schutzzeichen voranzustellen.</td>
+    <td>:: (direkt vorhandenes Doppelpunkt-Paar). Ab v1.0.40 ist es nicht l&auml;nger notwendig, diese mit einem Schutzzeichen voranzustellen.</td>
   </tr>
   <tr>
     <td>`n</td>
@@ -59,7 +59,7 @@
   </tr>
   <tr>
     <td>`b</td>
-    <td>Rücktaste</td>
+    <td>R&uuml;cktaste</td>
   </tr>
   <tr>
     <td>`t</td>
@@ -79,19 +79,19 @@
   </tr>
   <tr>
     <td>Send</td>
-    <td>Wenn <a href="Send.htm">Send-Befehle</a> oder <a href="../Hotstrings.htm">Hotstrings</a> in ihrem Standardmodus verwendet werden (nicht raw), dann haben Zeichen wie {}^!+# eine besondere Bedeutung. Umschließt sie deshalb mit Klammern, damit sie direkt verwendet werden können. Zum Beispiel: Send {<strong>^</strong>}{<strong>!</strong>}{<strong>{</strong>}</td>
+    <td>Wenn <a href="Send.htm">Send-Befehle</a> oder <a href="../Hotstrings.htm">Hotstrings</a> in ihrem Standardmodus verwendet werden (nicht raw), dann haben Zeichen wie {}^!+# eine besondere Bedeutung. Umschlie&szlig;t sie deshalb mit Klammern, damit sie direkt verwendet werden k&ouml;nnen. Zum Beispiel: Send {<strong>^</strong>}{<strong>!</strong>}{<strong>{</strong>}</td>
   </tr>
   <tr>
     <td>""</td>
-    <td>Innerhalb eines <a href="../Variables.htm#Expressions">Ausdrucks</a> mit einem direkt vorhandener String kann ein direkt vorhandenes Anführungszeichen erzeugt werden, wenn zwei aufeinanderfolgende Anführungszeichen verwendet werden. Zum Beispiel: Var := "Die Farbe ""Rot"" wurde gefunden."</td>
+    <td>Innerhalb eines <a href="../Variables.htm#Expressions">Ausdrucks</a> mit einem direkt vorhandener String kann ein direkt vorhandenes Anf&uuml;hrungszeichen erzeugt werden, wenn zwei aufeinanderfolgende Anf&uuml;hrungszeichen verwendet werden. Zum Beispiel: Var := "Die Farbe ""Rot"" wurde gefunden."</td>
   </tr>
 </table>
 <h3>Verwandte Befehle</h3>
 <p> <a name="DerefChar"></a><a name="Delimiter"></a>Die folgenden selten verwendeten Anweisungen existieren auch:</p>
-<pre>#DerefChar #  <em>; Verändert das Standardzeichen %.</em>
-#Delimiter /  <em>; Verändert das Standardzeichen Komma.</em></pre>
+<pre>#DerefChar #  <em>; Ver&auml;ndert das Standardzeichen %.</em>
+#Delimiter /  <em>; Ver&auml;ndert das Standardzeichen Komma.</em></pre>
 <h3>Beispiel</h3>
-<pre class="NoIndent">#EscapeChar \  <em>; Verändert den Akzent (`) zu einem Backslash.</em></pre>
+<pre class="NoIndent">#EscapeChar \  <em>; Ver&auml;ndert den Akzent (`) zu einem Backslash.</em></pre>
 
 </body>
 </html>

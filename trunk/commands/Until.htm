@@ -10,7 +10,7 @@
 
 <h1>Until <span class="ver">[AHK_L 59+]</span></h1>
 
-<p>Eine Schleife, die ausgeführt wird, bis die angegebene Bedingung erfüllt wird.</p>
+<p>Eine Schleife, die ausgef&uuml;hrt wird, bis die angegebene Bedingung erf&uuml;llt wird.</p>
 
 <pre class="Syntax">Loop {
     ...
@@ -19,12 +19,12 @@
 <table class="info">
   <tr>
     <td width="15%">Ausdruck</td>
-    <td width="85%">Beliebiger gültiger <a href="../Variables.htm#Expressions">Ausdruck</a>.</td>
+    <td width="85%">Beliebiger g&uuml;ltiger <a href="../Variables.htm#Expressions">Ausdruck</a>.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Der Ausdruck wird nach jeder Iteration einmal ausgewertet, auch wenn <a href="Continue.htm">continue</a> verwendet wurde. Wenn die Auswertung des Ausdrucks falsch ist (ein leerer String oder die Zahl 0), dann wird die Schleife fortgesetzt, ansonsten wird die Schleife unterbrochen und die Ausführung bei der Zeile nach <i>Until</i> fortgesetzt.</p>
+<p>Der Ausdruck wird nach jeder Iteration einmal ausgewertet, auch wenn <a href="Continue.htm">continue</a> verwendet wurde. Wenn die Auswertung des Ausdrucks falsch ist (ein leerer String oder die Zahl 0), dann wird die Schleife fortgesetzt, ansonsten wird die Schleife unterbrochen und die Ausf&uuml;hrung bei der Zeile nach <i>Until</i> fortgesetzt.</p>
 <p>Loop Until ist die Kurzfassung von:</p>
 <pre>Loop {
     ...
@@ -34,11 +34,11 @@
 <p>Allerdings ist Loop Until oft leichter zu verstehen und kann im Gegensatz zu oben mit einer einzeiligen Aktion verwendet werden. Zum Beispiel:</p>
 <pre>Loop
     x *= 2
-Until x > y</pre>
+Until x &gt; y</pre>
 <p><i>Until</i> kann kann mit Loop oder For verwendet werden. Zum Beispiel:</p>
 <pre>Loop, Read, %A_ScriptFullPath%
     Zeilen .= A_LoopReadLine . "`n"
-<b>Until</b> A_Index=5  <em>; Liest die ersten fünf Zeilen.</em>
+<b>Until</b> A_Index=5  <em>; Liest die ersten f&uuml;nf Zeilen.</em>
 MsgBox % Zeilen
 
 </pre>

@@ -10,7 +10,7 @@
 
 <h1>WinSetTitle</h1>
 
-<p>Ändert den Titel des angegebenen Fensters.</p>
+<p>&Auml;ndert den Titel des angegebenen Fensters.</p>
 
 <pre class="Syntax">WinSetTitle, NeuerTitel
 WinSetTitle, Fenstertitel, Fenstertext, NeuerTitel [, Titelausnahme, Textausnahme] </pre>
@@ -22,7 +22,7 @@ WinSetTitle, Fenstertitel, Fenstertext, NeuerTitel [, Titelausnahme, Textausnahm
   </tr>
   <tr>
     <td>Fenstertitel</td>
-    <td>Der Titel oder Teiltitel des Fensters (das Übereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die nächsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enthält und die nächsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschränkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
+    <td>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
   </tr>
   <tr>
     <td>Fenstertext</td>
@@ -30,17 +30,17 @@ WinSetTitle, Fenstertitel, Fenstertext, NeuerTitel [, Titelausnahme, Textausnahm
   </tr>
   <tr>
     <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht berücksichtigt.</td>
+    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
   </tr>
   <tr>
     <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht berücksichtigt.</td>
+    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Der veränderte Fenstertitel besteht nur möglicherweise vorübergehend, wenn die Anwendung des angegebenen Fensters den Titel häufig verändert.</p>
-<p>Fenstertitel und -texte sind von der Groß- und Kleinschreibung abhängig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
+<p>Der ver&auml;nderte Fenstertitel besteht nur m&ouml;glicherweise vor&uuml;bergehend, wenn die Anwendung des angegebenen Fensters den Titel h&auml;ufig ver&auml;ndert.</p>
+<p>Fenstertitel und -texte sind von der Gro&szlig;- und Kleinschreibung abh&auml;ngig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="WinMove.htm">WinMove</a>, <a href="WinGetActiveStats.htm">WinGetActiveStats</a>, <a href="WinGetActiveTitle.htm">WinGetActiveTitle</a>, <a href="WinGetText.htm">WinGetText</a>, <a href="ControlGetText.htm">ControlGetText</a>, <a href="WinGetPos.htm">WinGetPos</a>, <a href="WinSet.htm">WinSet</a></p>
 <h3>Beispiel</h3>

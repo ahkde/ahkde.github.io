@@ -17,7 +17,7 @@
 <table class="info">
   <tr>
     <td>Eingabevariable</td>
-    <td>Name der Variable, die den Dateinamen zur Analyse enthält.</td>
+    <td>Name der Variable, die den Dateinamen zur Analyse enth&auml;lt.</td>
   </tr>
   <tr>
     <td width="15%">Dateiname</td>
@@ -25,7 +25,7 @@
   </tr>
   <tr>
     <td>Verzeichnis</td>
-    <td>Der Name der Ausgabevariable, in der das Verzeichnis der Datei, einschließlich Laufwerksbuchstaben oder Freigabenamen (wenn vorhanden) gespeichert werden. Der letzte Backslash ist nicht enthalten, selbst wenn sich die Datei in einem Wurzelverzeichnis befindet.</td>
+    <td>Der Name der Ausgabevariable, in der das Verzeichnis der Datei, einschlie&szlig;lich Laufwerksbuchstaben oder Freigabenamen (wenn vorhanden) gespeichert werden. Der letzte Backslash ist nicht enthalten, selbst wenn sich die Datei in einem Wurzelverzeichnis befindet.</td>
   </tr>
   <tr>
     <td>Erweiterung</td>
@@ -43,10 +43,10 @@
 
 <h3>Bemerkungen</h3>
 <p>Jede Ausgabevariable kann weggelassen werden, wenn sie nicht gebraucht wird.</p>
-<p>Wenn die <em>Eingabevariable</em> einen Dateinamen ohne Laufwerksbuchstaben enthält (also ohne Pfad oder nur einen relativen Pfad), dann wird das <em>Laufwerk</em> leer gemacht, alle anderen Ausgabevariablen jedoch richtig gesetzt. Wenn kein Pfad vorhanden ist, dann wird das <em>Verzeichnis</em> leer gemacht; wenn ein Pfad ohne Dateiname vorhanden ist, dann wird der <em>Dateiname</em> und <em>NameOhneErw</em> leer gemacht.</p>
-<p> Gegenwärtige Dateien und Verzeichnisse im Dateisystem werden nicht von diesem Befehl überprüft. Er analysiert einfach den angegebenen String in der <em>Eingabevariable</em>.</p>
-<p>Platzhalter (* und ?) und andere illegale Zeichen im Dateinamen werden wie legale Zeichen behandelt, wobei Doppelpunkte, Backslashs und Punkte eine Ausnahme bilden, da sie als Abgrenzung für Laufwerksbuchstaben, Verzeichnisse und Erweiterungen dienen.</p>
-<p><strong>Unterstützung für URLs</strong>: Wenn die <em>Eingabevariable</em> einen Doppelpunkt und zwei Schrägstriche enthält (z. B. http://domain.com oder ftp://domain.com), dann wird das <em>Verzeichnis</em> Protokoll-Präfix + Domänenname + Verzeichnis (z. B. http://domain.com/images) und das <em>Laufwerk</em> Protokoll-Präfix + Domännename (z. B. http://domain.com) enthalten. Alle anderen Ausgabevariablen werden nach ihrer Definition gesetzt.</p>
+<p>Wenn die <em>Eingabevariable</em> einen Dateinamen ohne Laufwerksbuchstaben enth&auml;lt (also ohne Pfad oder nur einen relativen Pfad), dann wird das <em>Laufwerk</em> leer gemacht, alle anderen Ausgabevariablen jedoch richtig gesetzt. Wenn kein Pfad vorhanden ist, dann wird das <em>Verzeichnis</em> leer gemacht; wenn ein Pfad ohne Dateiname vorhanden ist, dann wird der <em>Dateiname</em> und <em>NameOhneErw</em> leer gemacht.</p>
+<p> Gegenw&auml;rtige Dateien und Verzeichnisse im Dateisystem werden nicht von diesem Befehl &uuml;berpr&uuml;ft. Er analysiert einfach den angegebenen String in der <em>Eingabevariable</em>.</p>
+<p>Platzhalter (* und ?) und andere illegale Zeichen im Dateinamen werden wie legale Zeichen behandelt, wobei Doppelpunkte, Backslashs und Punkte eine Ausnahme bilden, da sie als Abgrenzung f&uuml;r Laufwerksbuchstaben, Verzeichnisse und Erweiterungen dienen.</p>
+<p><strong>Unterst&uuml;tzung f&uuml;r URLs</strong>: Wenn die <em>Eingabevariable</em> einen Doppelpunkt und zwei Schr&auml;gstriche enth&auml;lt (z. B. http://domain.com oder ftp://domain.com), dann wird das <em>Verzeichnis</em> Protokoll-Pr&auml;fix + Dom&auml;nenname + Verzeichnis (z. B. http://domain.com/images) und das <em>Laufwerk</em> Protokoll-Pr&auml;fix + Dom&auml;nnename (z. B. http://domain.com) enthalten. Alle anderen Ausgabevariablen werden nach ihrer Definition gesetzt.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="LoopFile.htm#LoopFileExt">A_LoopFileExt</a>, <a href="StringSplit.htm">StringSplit</a>, <a href="StringGetPos.htm">StringGetPos</a>, <a href="StringMid.htm">StringMid</a>, <a href="StringTrimLeft.htm">StringTrimLeft</a>, <a href="StringLeft.htm">StringLeft</a>, <a href="FileSelectFile.htm">FileSelectFile</a>, <a href="FileSelectFolder.htm">FileSelectFolder</a> </p>
 <h3>Beispiel</h3>

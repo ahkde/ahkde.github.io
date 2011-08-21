@@ -18,19 +18,19 @@ Variable = Wert</pre>
 <table class="info">
   <tr>
     <td width="15%">Variable</td>
-    <td width="85%">Der Name der <a href="../Variables.htm">Variable</a>, die den <em>Wert</em> enthält.</td>
+    <td width="85%">Der Name der <a href="../Variables.htm">Variable</a>, die den <em>Wert</em> enth&auml;lt.</td>
   </tr>
   <tr>
     <td>Wert</td>
-    <td>Der String oder die Zahl, die gespeichert werden soll. Wenn der String lang ist, dann kann dieser in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern könnten.</td>
+    <td>Der String oder die Zahl, die gespeichert werden soll. Wenn der String lang ist, dann kann dieser in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern k&ouml;nnten.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Standardmäßig werden Leerzeichen oder Tabulatoren im <em>Wert</em> am Anfang und Ende der <em>Variable</em> weggelassen. Um das zu verhindern, verwendet die Methoden wie in <a href="AutoTrim.htm#Off">AutoTrim Off</a> beschrieben.</p>
-<p>Der Name "SetEnv" ist irreführend und wird nur für die Abwärtskompatibilität mit AutoIt v2 verwendet. Im Gegensatz zu AutoIt v2 werden AutoHotkey-Variablen nicht in die Systemumgebung gespeichert.  Denn die Performance wird schlechter und das Betriebssystem begrenzt die Größe jeder Umgebungsvariable auf 32 KB. Verwendet <a href="EnvSet.htm">EnvSet</a> anstelle von SetEnv, um in eine <a href="../Variables.htm#env">Umgebungsvariable</a> zu schreiben.</p>
-<p>Der Speicher einer großen Variable kann freigegeben werden, wenn ihr nichts zugewiesen wird (z. B. Variable =)</p>
-<p>Es ist möglich, einen <a href="../misc/Arrays.htm">Array</a> mit diesem Befehl zu erstellen, sowie mit anderen Befehlen, die eine <em>Ausgabevariable</em> akzeptieren. Dazu enthält die <em>Ausgabevariable</em> eine Referenz auf eine andere Variable (z. B. Array%i% = 123). Siehe <a href="../misc/Arrays.htm">Arrays</a> für mehr Details.</p>
+<p>Standardm&auml;&szlig;ig werden Leerzeichen oder Tabulatoren im <em>Wert</em> am Anfang und Ende der <em>Variable</em> weggelassen. Um das zu verhindern, verwendet die Methoden wie in <a href="AutoTrim.htm#Off">AutoTrim Off</a> beschrieben.</p>
+<p>Der Name "SetEnv" ist irref&uuml;hrend und wird nur f&uuml;r die Abw&auml;rtskompatibilit&auml;t mit AutoIt v2 verwendet. Im Gegensatz zu AutoIt v2 werden AutoHotkey-Variablen nicht in die Systemumgebung gespeichert.  Denn die Performance wird schlechter und das Betriebssystem begrenzt die Gr&ouml;&szlig;e jeder Umgebungsvariable auf 32 KB. Verwendet <a href="EnvSet.htm">EnvSet</a> anstelle von SetEnv, um in eine <a href="../Variables.htm#env">Umgebungsvariable</a> zu schreiben.</p>
+<p>Der Speicher einer gro&szlig;en Variable kann freigegeben werden, wenn ihr nichts zugewiesen wird (z. B. Variable =)</p>
+<p>Es ist m&ouml;glich, einen <a href="../misc/Arrays.htm">Array</a> mit diesem Befehl zu erstellen, sowie mit anderen Befehlen, die eine <em>Ausgabevariable</em> akzeptieren. Dazu enth&auml;lt die <em>Ausgabevariable</em> eine Referenz auf eine andere Variable (z. B. Array%i% = 123). Siehe <a href="../misc/Arrays.htm">Arrays</a> f&uuml;r mehr Details.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="AutoTrim.htm">AutoTrim</a>, <a href="EnvSet.htm">EnvSet</a>, <a href="EnvAdd.htm">EnvAdd</a>, <a href="EnvSub.htm">EnvSub</a>, <a href="EnvMult.htm">EnvMult</a>, <a href="EnvDiv.htm">EnvDiv</a>, <a href="IfEqual.htm">If</a>, <a href="../misc/Arrays.htm">Arrays</a></p>
 <h3>Beispiel</h3>
