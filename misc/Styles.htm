@@ -8,10 +8,10 @@
 </head>
 
 <body>
-<h1>Styles für <a href="../commands/Gui.htm">Gui</a>- und <a href="../commands/GuiControl.htm">GuiControl</a>-Befehle</h1>
+<h1>Styles f&uuml;r <a href="../commands/Gui.htm">Gui</a>- und <a href="../commands/GuiControl.htm">GuiControl</a>-Befehle</h1>
 <h2 style="margin-top: 1.5em;">Inhaltsverzeichnis</h2>
 <ul>
-  <li><a href="#Common">Gewöhnliche Styles für Gui/übergeordnete Fenster und den meisten Steuerelementarten </a></li>
+  <li><a href="#Common">Gew&ouml;hnliche Styles f&uuml;r Gui/&uuml;bergeordnete Fenster und den meisten Steuerelementarten </a></li>
   <li><a href="#Text">Text</a> | <a href="#Edit">Edit</a> | <a href="#UpDown">UpDown</a> | <a href="#Pic">Picture</a></li>
   <li><a href="#Button">Button | Checkbox | Radio | GroupBox</a></li>
   <li><a href="#DDL">DropDownList | ComboBox</a></li>
@@ -22,24 +22,24 @@
 <p>&nbsp;</p>
 <table class="info">
 <tr bgcolor="#EEEEEE">
-  <th><a name="Common"></a>Gewöhnliche Styles</th>
+  <th><a name="Common"></a>Gew&ouml;hnliche Styles</th>
   <th>Wert</th>
   <th>Beschreibung</th>
 </tr>
 <tr>
-  <td>Standard für GUI-Fenster </td>
+  <td>Standard f&uuml;r GUI-Fenster </td>
   <td>&nbsp;</td>
   <td>WS_POPUP, WS_CAPTION, WS_SYSMENU, WS_MINIMIZEBOX</td>
 </tr>
 <tr>
-  <td>Erzwungen für GUI-Fenster </td>
+  <td>Erzwungen f&uuml;r GUI-Fenster </td>
   <td>&nbsp;</td>
   <td>WS_CLIPSIBLINGS</td>
 </tr>
 <tr>
   <td>WS_BORDER</td>
   <td>0x800000</td>
-  <td>+/-Border. Erstellt ein Fenster mit einem dünnen Rahmen.</td>
+  <td>+/-Border. Erstellt ein Fenster mit einem d&uuml;nnen Rahmen.</td>
 </tr>
 <tr>
   <td>WS_POPUP</td>
@@ -54,7 +54,7 @@
 <tr>
   <td>WS_DISABLED</td>
   <td>0x8000000</td>
-  <td>+/-Disabled. Erstellt ein Fenster, das zunächst deaktiviert ist.</td>
+  <td>+/-Disabled. Erstellt ein Fenster, das zun&auml;chst deaktiviert ist.</td>
 </tr>
 <tr>
   <td>WS_DLGFRAME</td>
@@ -64,7 +64,7 @@
 <tr>
   <td>WS_GROUP</td>
   <td>0x20000</td>
-  <td>+/-Group. Kennzeichnet, dass dieses Steuerelement das Erste in einer Steuerelementgruppe ist. Dieser Style wird automatisch angewendet, um das "nur eins zur selben Zeit"-Verhalten von Radio-Schaltflächen zu verwalten. In dem seltenen Fall, wo zwei Radio-Gruppen nacheinander hinzugefügt werden (ohne andere Steuerelementarten dazwischen), kann dieser Style manuell auf das erste Steuerelement in der zweiten Radio-Gruppe angewendet werden, um sie von der ersten Gruppe abzuspalten.</td>
+  <td>+/-Group. Kennzeichnet, dass dieses Steuerelement das Erste in einer Steuerelementgruppe ist. Dieser Style wird automatisch angewendet, um das "nur eins zur selben Zeit"-Verhalten von Radio-Schaltfl&auml;chen zu verwalten. In dem seltenen Fall, wo zwei Radio-Gruppen nacheinander hinzugef&uuml;gt werden (ohne andere Steuerelementarten dazwischen), kann dieser Style manuell auf das erste Steuerelement in der zweiten Radio-Gruppe angewendet werden, um sie von der ersten Gruppe abzuspalten.</td>
 </tr>
 <tr>
   <td>WS_HSCROLL</td>
@@ -74,37 +74,37 @@
 <tr>
   <td>WS_MAXIMIZE</td>
   <td>0x1000000</td>
-  <td>Erstellt ein Fenster, das zunächst maximiert ist.</td>
+  <td>Erstellt ein Fenster, das zun&auml;chst maximiert ist.</td>
 </tr>
 <tr>
   <td>WS_MAXIMIZEBOX</td>
   <td>0x10000</td>
-  <td>+/-MaximizeBox. Erstellt ein Fenster mit einer Maximieren-Schaltfläche. Kann nicht mit dem WS_EX_CONTEXTHELP-Style kombiniert werden. Der WS_SYSMENU-Style muss ebenfalls angegeben werden.</td>
+  <td>+/-MaximizeBox. Erstellt ein Fenster mit einer Maximieren-Schaltfl&auml;che. Kann nicht mit dem WS_EX_CONTEXTHELP-Style kombiniert werden. Der WS_SYSMENU-Style muss ebenfalls angegeben werden.</td>
 </tr>
 <tr>
   <td>WS_MINIMIZE</td>
   <td>0x20000000</td>
-  <td>Erstellt ein Fenster, das zunächst minimiert ist.</td>
+  <td>Erstellt ein Fenster, das zun&auml;chst minimiert ist.</td>
 </tr>
 <tr>
   <td>WS_MINIMIZEBOX</td>
   <td>0x20000</td>
-  <td>+/-MinimizeBox. Erstellt ein Fenster mit einer Minimieren-Schaltfläche. Kann nicht mit dem WS_EX_CONTEXTHELP-Style kombiniert werden. Der WS_SYSMENU-Style muss ebenfalls angegeben werden.</td>
+  <td>+/-MinimizeBox. Erstellt ein Fenster mit einer Minimieren-Schaltfl&auml;che. Kann nicht mit dem WS_EX_CONTEXTHELP-Style kombiniert werden. Der WS_SYSMENU-Style muss ebenfalls angegeben werden.</td>
 </tr>
 <tr>
   <td>WS_OVERLAPPED</td>
   <td>0</td>
-  <td>Erstellt ein überlappendes Fenster. Ein überlappendes Fenster hat eine Titelleiste und einen Rahmen. Das Gleiche wie der WS_TILED-Style.</td>
+  <td>Erstellt ein &uuml;berlappendes Fenster. Ein &uuml;berlappendes Fenster hat eine Titelleiste und einen Rahmen. Das Gleiche wie der WS_TILED-Style.</td>
 </tr>
 <tr>
   <td>WS_OVERLAPPEDWINDOW</td>
   <td>0xCF0000</td>
-  <td>Erstellt ein überlappendes Fenster mit den Styles WS_OVERLAPPED, WS_CAPTION, WS_SYSMENU, WS_THICKFRAME, WS_MINIMIZEBOX und WS_MAXIMIZEBOX. Das Gleiche wie der WS_TILEDWINDOW-Style.</td>
+  <td>Erstellt ein &uuml;berlappendes Fenster mit den Styles WS_OVERLAPPED, WS_CAPTION, WS_SYSMENU, WS_THICKFRAME, WS_MINIMIZEBOX und WS_MAXIMIZEBOX. Das Gleiche wie der WS_TILEDWINDOW-Style.</td>
 </tr>
 <tr>
   <td>WS_POPUPWINDOW</td>
   <td>0x80880000</td>
-  <td>Erstellt ein Popup-Fenster mit den Styles WS_BORDER, WS_POPUP und WS_SYSMENU. Die Styles WS_CAPTION und WS_POPUPWINDOW müssen kombiniert werden, damit das Fenstermenü sichtbar ist.</td>
+  <td>Erstellt ein Popup-Fenster mit den Styles WS_BORDER, WS_POPUP und WS_SYSMENU. Die Styles WS_CAPTION und WS_POPUPWINDOW m&uuml;ssen kombiniert werden, damit das Fenstermen&uuml; sichtbar ist.</td>
 </tr>
 <tr>
   <td>WS_SIZEBOX</td>
@@ -114,12 +114,12 @@
 <tr>
   <td>WS_SYSMENU</td>
   <td>0x80000</td>
-  <td>+/-SysMenu. Erstellt ein Fenster mit einem Fenstermenü in der Titelleiste. Der WS_CAPTION-Style muss ebenfalls angegeben werden.</td>
+  <td>+/-SysMenu. Erstellt ein Fenster mit einem Fenstermen&uuml; in der Titelleiste. Der WS_CAPTION-Style muss ebenfalls angegeben werden.</td>
 </tr>
 <tr>
   <td>WS_TABSTOP</td>
   <td>0x10000</td>
-  <td>+/-Tabstop. Definiert ein Steuerelement, das den Tastaturfokus empfangen kann, wenn der Benutzer die Tabulatortaste drückt. Durch das Drücken der Tabulatortaste wird der Tastaturfokus auf das nächste Steuerelement mit dem WS_TABSTOP-Style gesetzt.</td>
+  <td>+/-Tabstop. Definiert ein Steuerelement, das den Tastaturfokus empfangen kann, wenn der Benutzer die Tabulatortaste dr&uuml;ckt. Durch das Dr&uuml;cken der Tabulatortaste wird der Tastaturfokus auf das n&auml;chste Steuerelement mit dem WS_TABSTOP-Style gesetzt.</td>
 </tr>
 <tr>
   <td>WS_THICKFRAME</td>
@@ -134,12 +134,12 @@
 <tr>
   <td>WS_VISIBLE</td>
   <td>0x10000000</td>
-  <td>Erstellt ein Fenster, das zunächst sichtbar ist.</td>
+  <td>Erstellt ein Fenster, das zun&auml;chst sichtbar ist.</td>
 </tr>
 <tr>
   <td>WS_CHILD</td>
   <td>0x40000000</td>
-  <td>Erstellt ein untergeordnetes Fenster. Ein Fenster mit diesem Style hat keine Menüleiste. Dieser Style kann nicht mit dem WS_POPUP-Style verwendet werden.</td>
+  <td>Erstellt ein untergeordnetes Fenster. Ein Fenster mit diesem Style hat keine Men&uuml;leiste. Dieser Style kann nicht mit dem WS_POPUP-Style verwendet werden.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -167,12 +167,12 @@
 <tr>
   <td>SS_BLACKRECT</td>
   <td>0x4</td>
-  <td>Definiert ein Rechteck, dass mit der aktuellen Farbe des Fensterrahmens gefüllt wird. Diese Farbe ist im Standard-Farbschema schwarz.</td>
+  <td>Definiert ein Rechteck, dass mit der aktuellen Farbe des Fensterrahmens gef&uuml;llt wird. Diese Farbe ist im Standard-Farbschema schwarz.</td>
 </tr>
 <tr>
   <td>SS_CENTER </td>
   <td>0x1</td>
-  <td>+/-Center. Definiert ein einfaches Rechteck und zentriert den Text des Fehlerwerts im Rechteck. Wörter, die über das Zeilenende hinausgehen, werden automatisch auf den Anfang der nächsten zentrierten Zeile umgebrochen.</td>
+  <td>+/-Center. Definiert ein einfaches Rechteck und zentriert den Text des Fehlerwerts im Rechteck. W&ouml;rter, die &uuml;ber das Zeilenende hinausgehen, werden automatisch auf den Anfang der n&auml;chsten zentrierten Zeile umgebrochen.</td>
 </tr>
 <tr>
   <td>SS_ETCHEDFRAME </td>
@@ -197,27 +197,27 @@
 <tr>
   <td>SS_GRAYRECT </td>
   <td>0x5</td>
-  <td>Definiert ein Rechteck, dass mit der aktuellen Farbe des Bildschirmhintergrunds gefüllt wird. Diese Farbe ist im Standard-Farbschema grau.</td>
+  <td>Definiert ein Rechteck, dass mit der aktuellen Farbe des Bildschirmhintergrunds gef&uuml;llt wird. Diese Farbe ist im Standard-Farbschema grau.</td>
 </tr>
 <tr>
   <td>SS_LEFT</td>
   <td>0</td>
-  <td>+/-Left. Das wird standardmäßig verwendet. Definiert ein einfaches Rechteck und richtet den Text des Fehlerwerts im Rechteck links aus. Der Text wird formatiert, bevor er angezeigt wird. Wörter, die über das Zeilenende hinausgehen, werden automatisch auf den Anfang der nächsten links ausgerichteten Zeile umgebrochen. Wörter, die länger als die Breite des Steuerelements sind, werden abgeschnitten.</td>
+  <td>+/-Left. Das wird standardm&auml;&szlig;ig verwendet. Definiert ein einfaches Rechteck und richtet den Text des Fehlerwerts im Rechteck links aus. Der Text wird formatiert, bevor er angezeigt wird. W&ouml;rter, die &uuml;ber das Zeilenende hinausgehen, werden automatisch auf den Anfang der n&auml;chsten links ausgerichteten Zeile umgebrochen. W&ouml;rter, die l&auml;nger als die Breite des Steuerelements sind, werden abgeschnitten.</td>
 </tr>
 <tr>
   <td>SS_LEFTNOWORDWRAP </td>
   <td>0xC</td>
-  <td>+/-Wrap. Definiert ein einfaches Rechteck und richtet den Text im Rechteck links aus. Tabulatoren werden erweitert, aber Wörter werden nicht umgebrochen. Text, der über das Zeilenende hinausgeht, wird abgeschnitten.</td>
+  <td>+/-Wrap. Definiert ein einfaches Rechteck und richtet den Text im Rechteck links aus. Tabulatoren werden erweitert, aber W&ouml;rter werden nicht umgebrochen. Text, der &uuml;ber das Zeilenende hinausgeht, wird abgeschnitten.</td>
 </tr>
 <tr>
   <td>SS_NOPREFIX </td>
   <td>0x80</td>
-  <td><a name="SS_NOPREFIX"></a>Verhindert, dass das kaufmännischen Und-Zeichen (&) ein Buchstabe im Text des Steuerelements unterstreicht. Das kann nützlich sein, wenn Dateinamen oder anderen Strings im Text des Steuerelements mit einem kaufmännische Und-Zeichen (&) angezeigt werden müssen. </td>
+  <td><a name="SS_NOPREFIX"></a>Verhindert, dass das kaufm&auml;nnischen Und-Zeichen (&) ein Buchstabe im Text des Steuerelements unterstreicht. Das kann n&uuml;tzlich sein, wenn Dateinamen oder anderen Strings im Text des Steuerelements mit einem kaufm&auml;nnische Und-Zeichen (&) angezeigt werden m&uuml;ssen. </td>
 </tr>
 <tr>
   <td>SS_NOTIFY</td>
   <td>0x100</td>
-  <td>Übergibt dem übergeordneten Fenster die STN_CLICKED-Nachricht, wenn der Benutzer auf das Steuerelement klickt.</td>
+  <td>&Uuml;bergibt dem &uuml;bergeordneten Fenster die STN_CLICKED-Nachricht, wenn der Benutzer auf das Steuerelement klickt.</td>
   </tr>
 <tr>
   <td>SS_RIGHT </td>
@@ -232,12 +232,12 @@
 <tr>
   <td>SS_WHITEFRAME </td>
   <td>0x9</td>
-  <td>Definiert ein Feld mit einem Rahmen, aber in der gleichen Farbe wie der Fensterhintergrund. Diese Farbe ist im Standard-Farbschema weiß.</td>
+  <td>Definiert ein Feld mit einem Rahmen, aber in der gleichen Farbe wie der Fensterhintergrund. Diese Farbe ist im Standard-Farbschema wei&szlig;.</td>
 </tr>
 <tr>
   <td>SS_WHITERECT </td>
   <td>0x6</td>
-  <td>Definiert ein Rechteck, dass mit der aktuellen Farbe des Fensterhintergrunds gefüllt wird. Diese Farbe ist im Standard-Farbschema weiß.</td>
+  <td>Definiert ein Rechteck, dass mit der aktuellen Farbe des Fensterhintergrunds gef&uuml;llt wird. Diese Farbe ist im Standard-Farbschema wei&szlig;.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -251,8 +251,8 @@
   <td>Standard</td>
   <td>&nbsp;</td>
   <td><p>WS_TABSTOP und WS_EX_CLIENTEDGE (Erweiterter Syle E0x200)</p>
-    <p>Wenn ein Edit-Steuerelement aufgrund von Inhalten mit mehreren Zeilen automatisch als mehrzeilig erkannt wird, dessen Höhe größer als 1 Zeile ist oder dessen Zeilenanzahl eindeutig größer als 1 angegegen wurde, dann gelten standardmäßig die folgenden Styles: WS_VSCROLL, ES_WANTRETURN und ES_AUTOVSCROLL</p>
-    <p>Wenn ein Edit automatisch als einzeilig erkannt wird, dann wird standardmäßig ES_AUTOHSCROLL angewendet.</p></td>
+    <p>Wenn ein Edit-Steuerelement aufgrund von Inhalten mit mehreren Zeilen automatisch als mehrzeilig erkannt wird, dessen H&ouml;he gr&ouml;&szlig;er als 1 Zeile ist oder dessen Zeilenanzahl eindeutig gr&ouml;&szlig;er als 1 angegegen wurde, dann gelten standardm&auml;&szlig;ig die folgenden Styles: WS_VSCROLL, ES_WANTRETURN und ES_AUTOVSCROLL</p>
+    <p>Wenn ein Edit automatisch als einzeilig erkannt wird, dann wird standardm&auml;&szlig;ig ES_AUTOHSCROLL angewendet.</p></td>
   </tr>
 <tr>
   <td>Erzwungen</td>
@@ -262,12 +262,12 @@
 <tr>
   <td>ES_AUTOHSCROLL</td>
   <td>0x80</td>
-  <td>+/-Wrap für mehrzeilige Edit-, und +/-Limit für einzeilige Edit-Steuerelemente. Scrollt den Text automatisch um 10 Zeichen nach rechts, wenn der Benutzer ein Zeichen am Ende der Zeile eingibt. Wenn der Benutzer die ENTER-Taste drückt, dann scrollt das Steuerelement den Text wieder auf Position 0 zurück.</td>
+  <td>+/-Wrap f&uuml;r mehrzeilige Edit-, und +/-Limit f&uuml;r einzeilige Edit-Steuerelemente. Scrollt den Text automatisch um 10 Zeichen nach rechts, wenn der Benutzer ein Zeichen am Ende der Zeile eingibt. Wenn der Benutzer die ENTER-Taste dr&uuml;ckt, dann scrollt das Steuerelement den Text wieder auf Position 0 zur&uuml;ck.</td>
   </tr>
 <tr>
   <td>ES_AUTOVSCROLL</td>
   <td>0x40</td>
-  <td>Scrollt den Text eine Seite nach oben, wenn der Benutzer die ENTER-Taste in der letzten Zeile drückt.</td>
+  <td>Scrollt den Text eine Seite nach oben, wenn der Benutzer die ENTER-Taste in der letzten Zeile dr&uuml;ckt.</td>
 </tr>
 <tr>
   <td>ES_CENTER</td>
@@ -282,22 +282,22 @@
 <tr>
   <td>ES_NOHIDESEL</td>
   <td>0x100</td>
-  <td>Negiert das Standardverhalten eines Edit-Steuerelements. Standardmäßig wird die Markierung versteckt, wenn das Steuerelement den Eingabefokus verliert und die Markierung invertiert, wenn das Steuerelement den Eingabefokus erhält. Wenn der ES_NOHIDESEL-Style angegeben wird, dann wird der markierte Text invertiert, selbst wenn das Steuerelement keinen Fokus hat.</td>
+  <td>Negiert das Standardverhalten eines Edit-Steuerelements. Standardm&auml;&szlig;ig wird die Markierung versteckt, wenn das Steuerelement den Eingabefokus verliert und die Markierung invertiert, wenn das Steuerelement den Eingabefokus erh&auml;lt. Wenn der ES_NOHIDESEL-Style angegeben wird, dann wird der markierte Text invertiert, selbst wenn das Steuerelement keinen Fokus hat.</td>
 </tr>
 <tr>
   <td>ES_NUMBER</td>
   <td>0x2000</td>
-  <td>+/-Number. Hindert den Benutzer daran, irgendetwas außer Zahlen im Steuerelement einzugeben. </td>
+  <td>+/-Number. Hindert den Benutzer daran, irgendetwas au&szlig;er Zahlen im Steuerelement einzugeben. </td>
 </tr>
 <tr>
   <td>ES_OEMCONVERT</td>
   <td>0x400</td>
-  <td>Dieser Style ist für Edit-Steuerelemente nützlich, die Dateinamen enthalten.</td>
+  <td>Dieser Style ist f&uuml;r Edit-Steuerelemente n&uuml;tzlich, die Dateinamen enthalten.</td>
 </tr>
 <tr>
   <td>ES_MULTILINE</td>
   <td>0x4</td>
-  <td>+/-Multi. Ermöglicht ein mehrzeiliges Edit-Steuerelement. Standardmäßig wird ein einzeiliges Edit-Steuerelement verwendet.</td>
+  <td>+/-Multi. Erm&ouml;glicht ein mehrzeiliges Edit-Steuerelement. Standardm&auml;&szlig;ig wird ein einzeiliges Edit-Steuerelement verwendet.</td>
 </tr>
 <tr>
   <td>ES_PASSWORD</td>
@@ -317,12 +317,12 @@
 <tr>
   <td>ES_UPPERCASE</td>
   <td>0x8</td>
-  <td>+/-Uppercase. Wandelt alle Zeichen in Großbuchstaben um, wenn sie in das Edit-Steuerelement eingegeben werden.</td>
+  <td>+/-Uppercase. Wandelt alle Zeichen in Gro&szlig;buchstaben um, wenn sie in das Edit-Steuerelement eingegeben werden.</td>
 </tr>
 <tr>
   <td>ES_WANTRETURN</td>
   <td>0x1000</td>
-  <td>+/-WantReturn. Bestimmt, dass ein CR-Zeichen eingefügt wird, wenn der Benutzer die ENTER-Taste drückt, während er Text in ein mehrzeiliges Edit-Steuerelement eines Dialogfensters eingibt. Wenn dieser Style nicht angegeben wird, dann hat das Drücken der ENTER-Taste den gleichen Effekt wie das Drücken der Standard-Schaltfläche im Dialogfenster. Dieser Style funktioniert nicht in einem einzeiligen Edit-Steuerelement.</td>
+  <td>+/-WantReturn. Bestimmt, dass ein CR-Zeichen eingef&uuml;gt wird, wenn der Benutzer die ENTER-Taste dr&uuml;ckt, w&auml;hrend er Text in ein mehrzeiliges Edit-Steuerelement eines Dialogfensters eingibt. Wenn dieser Style nicht angegeben wird, dann hat das Dr&uuml;cken der ENTER-Taste den gleichen Effekt wie das Dr&uuml;cken der Standard-Schaltfl&auml;che im Dialogfenster. Dieser Style funktioniert nicht in einem einzeiligen Edit-Steuerelement.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -345,12 +345,12 @@
 <tr>
   <td>UDS_WRAP</td>
   <td>0x1</td>
-  <td>Benannte Option "Wrap". Das Steuerelement springt auf das entgegengesetzte Ende des Bereichs, wenn der Minimal- oder Maximalwert überschritten wird. Ohne <em>Wrap</em> stoppt das Steuerelement, wenn der Minimal- oder Maximalwert erreicht ist.</td>
+  <td>Benannte Option "Wrap". Das Steuerelement springt auf das entgegengesetzte Ende des Bereichs, wenn der Minimal- oder Maximalwert &uuml;berschritten wird. Ohne <em>Wrap</em> stoppt das Steuerelement, wenn der Minimal- oder Maximalwert erreicht ist.</td>
 </tr>
 <tr>
   <td>UDS_SETBUDDYINT</td>
   <td>0x2</td>
-  <td> Bewirkt, dass das UpDown-Steuerelement den Text des Buddy-Steuerelements setzt (mit der WM_SETTEXT-Nachricht), wenn die Position geändert wird. Wenn das Buddy-Steuerelement allerdings eine Listbox ist, dann wird stattdessen die aktuelle Auswahl der ListBox geändert. </td>
+  <td> Bewirkt, dass das UpDown-Steuerelement den Text des Buddy-Steuerelements setzt (mit der WM_SETTEXT-Nachricht), wenn die Position ge&auml;ndert wird. Wenn das Buddy-Steuerelement allerdings eine Listbox ist, dann wird stattdessen die aktuelle Auswahl der ListBox ge&auml;ndert. </td>
 </tr>
 <tr>
   <td>UDS_ALIGNRIGHT</td>
@@ -365,12 +365,12 @@
 <tr>
   <td>UDS_AUTOBUDDY</td>
   <td>0x10</td>
-  <td> Wählt automatisch das vorherige Steuerelement in der z-Reihenfolge als Buddy-Steuerelement des UpDown-Steuerelements aus.</td>
+  <td> W&auml;hlt automatisch das vorherige Steuerelement in der z-Reihenfolge als Buddy-Steuerelement des UpDown-Steuerelements aus.</td>
 </tr>
 <tr>
   <td>UDS_ARROWKEYS</td>
   <td>0x20</td>
-  <td> Erlaubt dem Benutzer, die obere und untere Pfeiltaste auf der Tastatur zu drücken, um die Position des UpDown-Steuerelements zu erhöhen oder zu verringern.</td>
+  <td> Erlaubt dem Benutzer, die obere und untere Pfeiltaste auf der Tastatur zu dr&uuml;cken, um die Position des UpDown-Steuerelements zu erh&ouml;hen oder zu verringern.</td>
 </tr>
 <tr>
   <td>UDS_HORZ</td>
@@ -385,7 +385,7 @@
 <tr>
   <td>UDS_HOTTRACK</td>
   <td>0x100</td>
-  <td> Bewirkt, dass das Steuerelement das "Hot Tracking"-Verhalten vorweist. Das heißt, die Schaltflächen des Steuerelements werden hervorgehoben, wenn sich die Maus darüber befindet. Dieser Style benötigt Microsoft Windows 98 oder Windows 2000. In Windows 95 NT4 wird dieser Style ignoriert. Dieser Style wird auch in Windows XP ignoriert, wenn er vom Desktop-Design überschrieben wird.</td>
+  <td> Bewirkt, dass das Steuerelement das "Hot Tracking"-Verhalten vorweist. Das hei&szlig;t, die Schaltfl&auml;chen des Steuerelements werden hervorgehoben, wenn sich die Maus dar&uuml;ber befindet. Dieser Style ben&ouml;tigt Microsoft Windows 98 oder Windows 2000. In Windows 95 NT4 wird dieser Style ignoriert. Dieser Style wird auch in Windows XP ignoriert, wenn er vom Desktop-Design &uuml;berschrieben wird.</td>
 </tr>
 <tr>
   <td>(hex)</td>
@@ -410,18 +410,18 @@
 <tr>
   <td>Erzwungen</td>
   <td>&nbsp;</td>
-  <td>SS_ICON für Icons und Cursor.<br> SS_BITMAP für verschiedene Bildtypen. </td>
+  <td>SS_ICON f&uuml;r Icons und Cursor.<br> SS_BITMAP f&uuml;r verschiedene Bildtypen. </td>
   </tr>
 <tr>
   <td>SS_REALSIZECONTROL</td>
   <td>0x40</td>
-  <td>[Windows XP oder höher] Passt die Bitmap auf die Größe des Steuerelements an.</td>
+  <td>[Windows XP oder h&ouml;her] Passt die Bitmap auf die Gr&ouml;&szlig;e des Steuerelements an.</td>
 </tr>
 <tr>
   <td>SS_CENTERIMAGE</td>
   <td>0x200</td>
-  <td> Zentriert die Bitmap im Steuerelement. Wenn die Bitmap zu groß ist, dann wird sie abgeschnitten. Wenn das Steuerelement eine Textzeile enthält, dann wird der Text in der verfügbaren Höhe des Steuerelements vertikal zentriert.
-    <p>Microsoft Windows XP: Dieser Style füllt nicht länger den verbleibenden Clientbereich mit der Farbe des Pixels in der linken oberen Ecke der Bitmap oder des Icons. Die ungenutzten Bereiche des Steuerelements enthalten die Hintergrundfarbe.</p></td>
+  <td> Zentriert die Bitmap im Steuerelement. Wenn die Bitmap zu gro&szlig; ist, dann wird sie abgeschnitten. Wenn das Steuerelement eine Textzeile enth&auml;lt, dann wird der Text in der verf&uuml;gbaren H&ouml;he des Steuerelements vertikal zentriert.
+    <p>Microsoft Windows XP: Dieser Style f&uuml;llt nicht l&auml;nger den verbleibenden Clientbereich mit der Farbe des Pixels in der linken oberen Ecke der Bitmap oder des Icons. Die ungenutzten Bereiche des Steuerelements enthalten die Hintergrundfarbe.</p></td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -434,8 +434,8 @@
 <tr>
   <td width="157">Standard</td>
   <td width="70">&nbsp;</td>
-  <td width="537"><p>BS_MULTILINE (außer für GroupBox, Button, CheckBox und Radio, deren Breite und Höhe weder direkt gesetzt wurde noch CR/LF-Zeichen im Text haben)</p>
-    <p>    WS_TABSTOP (außer für GroupBox) -- allerdings fehl den Radio-Schaltflächen außer dem ersten jeder Radio-Gruppe standardmäßig WS_TABSTOP. Darüber hinaus haben die Radio-Schaltflächen BS_NOTIFY, damit Doppelklicks erkannt werden können.</p></td>
+  <td width="537"><p>BS_MULTILINE (au&szlig;er f&uuml;r GroupBox, Button, CheckBox und Radio, deren Breite und H&ouml;he weder direkt gesetzt wurde noch CR/LF-Zeichen im Text haben)</p>
+    <p>    WS_TABSTOP (au&szlig;er f&uuml;r GroupBox) -- allerdings fehl den Radio-Schaltfl&auml;chen au&szlig;er dem ersten jeder Radio-Gruppe standardm&auml;&szlig;ig WS_TABSTOP. Dar&uuml;ber hinaus haben die Radio-Schaltfl&auml;chen BS_NOTIFY, damit Doppelklicks erkannt werden k&ouml;nnen.</p></td>
 </tr>
 <tr>
   <td width="157">Erzwungen</td>
@@ -450,7 +450,7 @@
 <tr>
   <td width="157">BS_PUSHLIKE</td>
   <td width="70">0x1000</td>
-  <td width="537">Lässt die Schaltfläche einer CheckBox oder eines Radio-Steuerelements wie eine Standard-Schaltfläche aussehen und agieren. Die Schaltfläche wirkt angehoben, wenn sie nicht gedrückt oder markiert ist oder versenkt, wenn sie gedrückt oder markiert ist.</td>
+  <td width="537">L&auml;sst die Schaltfl&auml;che einer CheckBox oder eines Radio-Steuerelements wie eine Standard-Schaltfl&auml;che aussehen und agieren. Die Schaltfl&auml;che wirkt angehoben, wenn sie nicht gedr&uuml;ckt oder markiert ist oder versenkt, wenn sie gedr&uuml;ckt oder markiert ist.</td>
 </tr>
 <tr>
   <td width="157">BS_RIGHT</td>
@@ -460,42 +460,42 @@
 <tr>
   <td width="157">BS_RIGHTBUTTON</td>
   <td width="70">0x20</td>
-  <td width="537">+Right (beinhaltet sowohl BS_RIGHT als auch BS_RIGHTBUTTON, wobei -Right nur BS_RIGHT entfernt, nicht BS_RIGHTBUTTON). Positioniert das Kästchen der CheckBox oder der Kreis des Radio-Steuerelements auf die rechte Seite der verfügbaren Steuerelementbreite.</td>
+  <td width="537">+Right (beinhaltet sowohl BS_RIGHT als auch BS_RIGHTBUTTON, wobei -Right nur BS_RIGHT entfernt, nicht BS_RIGHTBUTTON). Positioniert das K&auml;stchen der CheckBox oder der Kreis des Radio-Steuerelements auf die rechte Seite der verf&uuml;gbaren Steuerelementbreite.</td>
 </tr>
 <tr>
   <td>BS_BOTTOM </td>
   <td>0x800</td>
-  <td>Platziert den Text am unteren Rand der verfügbaren Steuerelementhöhe.</td>
+  <td>Platziert den Text am unteren Rand der verf&uuml;gbaren Steuerelementh&ouml;he.</td>
 </tr>
 <tr>
   <td>BS_CENTER </td>
   <td>0x300</td>
-  <td>+/-Center. Zentriert den Text horizontal in der verfügbaren Steuerelementbreite.</td>
+  <td>+/-Center. Zentriert den Text horizontal in der verf&uuml;gbaren Steuerelementbreite.</td>
 </tr>
 <tr>
   <td>BS_DEFPUSHBUTTON </td>
   <td>0x1</td>
-  <td>+/-Default. Erstellt eine Schaltfläche mit einem dicken, schwarzen Rand. Wenn sich die Schaltfläche in einem Dialogfenster befindet, dann kann der Benutzer diese Schaltfläche mit der ENTER-Taste auswählen, selbst wenn sie keinen Eingabefokus hat. Dieser Style ermöglicht dem Benutzer, schnell die wahrscheinlichste Option auszuwählen.</td>
+  <td>+/-Default. Erstellt eine Schaltfl&auml;che mit einem dicken, schwarzen Rand. Wenn sich die Schaltfl&auml;che in einem Dialogfenster befindet, dann kann der Benutzer diese Schaltfl&auml;che mit der ENTER-Taste ausw&auml;hlen, selbst wenn sie keinen Eingabefokus hat. Dieser Style erm&ouml;glicht dem Benutzer, schnell die wahrscheinlichste Option auszuw&auml;hlen.</td>
 </tr>
 <tr>
   <td>BS_MULTILINE </td>
   <td>0x2000</td>
-  <td>+/-Wrap. Bricht den Text in mehrere Zeilen um, wenn der Text aufgrund der verfügbaren Steuerelementbreite nicht in einer Zeile passt. Dadurch kann mit dem LF-Zeichen (`n) eine neue Zeile im Text begonnen werden.</td>
+  <td>+/-Wrap. Bricht den Text in mehrere Zeilen um, wenn der Text aufgrund der verf&uuml;gbaren Steuerelementbreite nicht in einer Zeile passt. Dadurch kann mit dem LF-Zeichen (`n) eine neue Zeile im Text begonnen werden.</td>
 </tr>
 <tr>
   <td>BS_TOP </td>
   <td>0x400</td>
-  <td>Platziert den Text am oberen Rand der verfügbaren Steuerelementhöhe.</td>
+  <td>Platziert den Text am oberen Rand der verf&uuml;gbaren Steuerelementh&ouml;he.</td>
 </tr>
 <tr>
   <td>BS_VCENTER </td>
   <td>0xC00</td>
-  <td>Zentriert den Text vertikal in der verfügbaren Steuerelementhöhe.</td>
+  <td>Zentriert den Text vertikal in der verf&uuml;gbaren Steuerelementh&ouml;he.</td>
 </tr>
 <tr>
   <td>BS_FLAT </td>
   <td>0x8000</td>
-  <td>Definiert, dass die Schaltfläche zweidimensional ist; die Standard-Schattierung für den 3D-Effekt wird nicht verwendet.</td>
+  <td>Definiert, dass die Schaltfl&auml;che zweidimensional ist; die Standard-Schattierung f&uuml;r den 3D-Effekt wird nicht verwendet.</td>
 </tr>
 </table>
 
@@ -524,27 +524,27 @@
 <tr>
   <td>CBS_DISABLENOSCROLL</td>
   <td>0x800</td>
-  <td>Zeigt eine deaktivierte vertikale Bildlaufleiste in der ListBox an, wenn sie nicht genug Elemente zum Scrollen enthält. Normalerweise wird die Bildlaufleiste ohne den Style versteckt, wenn die ListBox nicht genug Elemente enthält.</td>
+  <td>Zeigt eine deaktivierte vertikale Bildlaufleiste in der ListBox an, wenn sie nicht genug Elemente zum Scrollen enth&auml;lt. Normalerweise wird die Bildlaufleiste ohne den Style versteckt, wenn die ListBox nicht genug Elemente enth&auml;lt.</td>
 </tr>
 <tr>
   <td>CBS_LOWERCASE</td>
   <td>0x4000</td>
-  <td>+/-Lowercase. Wandelt alle Großbuchstaben im Edit-Steuerelement der ComboBox in Kleinbuchstaben um. </td>
+  <td>+/-Lowercase. Wandelt alle Gro&szlig;buchstaben im Edit-Steuerelement der ComboBox in Kleinbuchstaben um. </td>
 </tr>
 <tr>
   <td>CBS_NOINTEGRALHEIGHT</td>
   <td>0x400</td>
-  <td>Bestimmt, dass die ComboBox genau die Größe beibehält, die beim Erstellen der ComboBox festgelegt wurde. Üblicherweise passt Windows CE die Größe der ComboBox an, damit die Elemente komplett dargestellt werden.</td>
+  <td>Bestimmt, dass die ComboBox genau die Gr&ouml;&szlig;e beibeh&auml;lt, die beim Erstellen der ComboBox festgelegt wurde. &Uuml;blicherweise passt Windows CE die Gr&ouml;&szlig;e der ComboBox an, damit die Elemente komplett dargestellt werden.</td>
 </tr>
 <tr>
   <td>CBS_OEMCONVERT</td>
   <td>0x80</td>
-  <td>Wandelt den eingegebenen Text im Edit-Steuerelement vom Windows CE-Zeichensatz in den OEM-Zeichensatz um, und dann wieder in den Windows CE-Zeichensatz zurück. Dieser Style ist für ComboBox-Steuerelemente nützlich, die Dateinamen enthalten. Nur für ComboBox-Steuerelemente gültig, die mit dem CBS_DROPDOWN-Style erstellt wurden.</td>
+  <td>Wandelt den eingegebenen Text im Edit-Steuerelement vom Windows CE-Zeichensatz in den OEM-Zeichensatz um, und dann wieder in den Windows CE-Zeichensatz zur&uuml;ck. Dieser Style ist f&uuml;r ComboBox-Steuerelemente n&uuml;tzlich, die Dateinamen enthalten. Nur f&uuml;r ComboBox-Steuerelemente g&uuml;ltig, die mit dem CBS_DROPDOWN-Style erstellt wurden.</td>
 </tr>
 <tr>
   <td>CBS_SIMPLE</td>
   <td>0x1</td>
-  <td>+/-Simple (nur für ComboBox). Zeigt die Auswahlliste immer an. Die aktuelle Markierung in dieser Liste wird im Edit-Steuerelement angezeigt.</td>
+  <td>+/-Simple (nur f&uuml;r ComboBox). Zeigt die Auswahlliste immer an. Die aktuelle Markierung in dieser Liste wird im Edit-Steuerelement angezeigt.</td>
 </tr>
 <tr>
   <td>CBS_SORT</td>
@@ -554,7 +554,7 @@
 <tr>
   <td>CBS_UPPERCASE </td>
   <td>0x2000</td>
-  <td>+/-Uppercase. Wandelt alle Kleinbuchstaben im Edit-Steuerelement der ComboBox in Großbuchstaben um.</td>
+  <td>+/-Uppercase. Wandelt alle Kleinbuchstaben im Edit-Steuerelement der ComboBox in Gro&szlig;buchstaben um.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -572,17 +572,17 @@
 <tr>
   <td>Erzwungen</td>
   <td>&nbsp;</td>
-  <td>LBS_NOTIFY (unterstützt die Erkennung von Doppelklicks)</td>
+  <td>LBS_NOTIFY (unterst&uuml;tzt die Erkennung von Doppelklicks)</td>
 </tr>
 <tr>
   <td>LBS_DISABLENOSCROLL </td>
   <td>0x1000</td>
-  <td>Zeigt eine deaktivierte vertikale Bildlaufleiste in der ListBox an, wenn sie nicht genug Elemente zum Scrollen enthält. Normalerweise wird die Bildlaufleiste ohne den Style versteckt, wenn die ListBox nicht genug Elemente enthält.</td>
+  <td>Zeigt eine deaktivierte vertikale Bildlaufleiste in der ListBox an, wenn sie nicht genug Elemente zum Scrollen enth&auml;lt. Normalerweise wird die Bildlaufleiste ohne den Style versteckt, wenn die ListBox nicht genug Elemente enth&auml;lt.</td>
 </tr>
 <tr>
   <td>LBS_NOINTEGRALHEIGHT </td>
   <td>0x100</td>
-  <td>Bestimmt, dass die ListBox genau die Größe beibehält, die beim Erstellen der ListBox festgelegt wurde.</td>
+  <td>Bestimmt, dass die ListBox genau die Gr&ouml;&szlig;e beibeh&auml;lt, die beim Erstellen der ListBox festgelegt wurde.</td>
 </tr>
 <tr>
   <td>LBS_EXTENDEDSEL</td>
@@ -597,7 +597,7 @@
 <tr>
   <td>LBS_NOSEL </td>
   <td>0x4000</td>
-  <td>+/-ReadOnly. Bestimmt, dass der Benutzer die Strings der ListBox sehen, aber nicht auswählen kann.</td>
+  <td>+/-ReadOnly. Bestimmt, dass der Benutzer die Strings der ListBox sehen, aber nicht ausw&auml;hlen kann.</td>
 </tr>
 <tr>
   <td>LBS_SORT </td>
@@ -607,7 +607,7 @@
 <tr>
   <td>LBS_USETABSTOPS </td>
   <td>0x80</td>
-  <td>Ermöglicht einer ListBox, Tabulatorzeichen zu erkennen und umzusetzen, wenn deren Strings angezeigt werden. Standardmäßig werden die Tabstopps alle 32 DLU gesetzt. Eine Dialogeinheit (DLU) entspricht einem Viertel der Basisbreiteneinheit vom aktuellen Dialogfenster.</td>
+  <td>Erm&ouml;glicht einer ListBox, Tabulatorzeichen zu erkennen und umzusetzen, wenn deren Strings angezeigt werden. Standardm&auml;&szlig;ig werden die Tabstopps alle 32 DLU gesetzt. Eine Dialogeinheit (DLU) entspricht einem Viertel der Basisbreiteneinheit vom aktuellen Dialogfenster.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -630,17 +630,17 @@
 <tr>
   <td>LVS_ALIGNLEFT</td>
   <td>0x800</td>
-  <td>Elemente sind in der Ansicht für Icons und kleine Icons links ausgerichtet.</td>
+  <td>Elemente sind in der Ansicht f&uuml;r Icons und kleine Icons links ausgerichtet.</td>
 </tr>
 <tr>
   <td>LVS_ALIGNTOP</td>
   <td>0</td>
-  <td>Elemente werden an der Oberseite des ListView-Steuerelements in der Ansicht für Icons und kleine Icons ausgerichtet. Das wird standardmäßig verwendet. </td>
+  <td>Elemente werden an der Oberseite des ListView-Steuerelements in der Ansicht f&uuml;r Icons und kleine Icons ausgerichtet. Das wird standardm&auml;&szlig;ig verwendet. </td>
 </tr>
 <tr>
   <td>LVS_AUTOARRANGE</td>
   <td>0x100</td>
-  <td>Icons bleiben in der Ansicht für Icons und kleine Icons automatisch ausgerichtet.</td>
+  <td>Icons bleiben in der Ansicht f&uuml;r Icons und kleine Icons automatisch ausgerichtet.</td>
 </tr>
 <tr>
   <td>LVS_EDITLABELS</td>
@@ -650,7 +650,7 @@
 <tr>
   <td>LVS_ICON</td>
   <td>0</td>
-  <td>+Icon. Definiert die Ansicht für große Icons.</td>
+  <td>+Icon. Definiert die Ansicht f&uuml;r gro&szlig;e Icons.</td>
 </tr>
 <tr>
   <td>LVS_LIST</td>
@@ -660,32 +660,32 @@
 <tr>
   <td>LVS_NOCOLUMNHEADER</td>
   <td>0x4000</td>
-  <td>+/-Hdr. Verhindert die Anzeige von Spaltenüberschriften in der Report-Ansicht.</td>
+  <td>+/-Hdr. Verhindert die Anzeige von Spalten&uuml;berschriften in der Report-Ansicht.</td>
 </tr>
 <tr>
   <td>LVS_NOLABELWRAP</td>
   <td>0x80</td>
-  <td>Der Elementtext wird in der Icon-Ansicht nur auf einer Zeile angezeigt. Standardmäßig wird der Elementtext in der Icon-Ansicht umgebrochen.</td>
+  <td>Der Elementtext wird in der Icon-Ansicht nur auf einer Zeile angezeigt. Standardm&auml;&szlig;ig wird der Elementtext in der Icon-Ansicht umgebrochen.</td>
 </tr>
 <tr>
   <td>LVS_NOSCROLL</td>
   <td>0x2000</td>
-  <td>Bildlauf ist deaktiviert. Alle Elemente müssen sich im Client-Bereich befinden. Dieser Style ist nicht mit LVS_LIST oder LVS_REPORT kompatibel.</td>
+  <td>Bildlauf ist deaktiviert. Alle Elemente m&uuml;ssen sich im Client-Bereich befinden. Dieser Style ist nicht mit LVS_LIST oder LVS_REPORT kompatibel.</td>
 </tr>
 <tr>
   <td>LVS_NOSORTHEADER</td>
   <td>0x8000</td>
-  <td>+/-NoSortHdr. Spaltenüberschriften funktionieren nicht wie Schaltflächen. Mit diesem Style kann verhindert werden, dass eine Spaltenüberschrift eine Aktion ausführt (z. B. Sortieren).</td>
+  <td>+/-NoSortHdr. Spalten&uuml;berschriften funktionieren nicht wie Schaltfl&auml;chen. Mit diesem Style kann verhindert werden, dass eine Spalten&uuml;berschrift eine Aktion ausf&uuml;hrt (z. B. Sortieren).</td>
 </tr>
 <tr>
   <td>LVS_OWNERDATA</td>
   <td>0x1000</td>
-  <td>Dieser Style definiert ein virtuelles ListView-Steuerelement (wird nicht direkt von AutoHotkey unterstützt).</td>
+  <td>Dieser Style definiert ein virtuelles ListView-Steuerelement (wird nicht direkt von AutoHotkey unterst&uuml;tzt).</td>
 </tr>
 <tr>
   <td>LVS_OWNERDRAWFIXED</td>
   <td>0x400</td>
-  <td>Das übergeordnete Fenster kann Elemente der Report-Ansicht in Reaktion auf WM_DRAWITEM-Nachrichten zeichnen (wird nicht direkt von AutoHotkey unterstützt).</td>
+  <td>Das &uuml;bergeordnete Fenster kann Elemente der Report-Ansicht in Reaktion auf WM_DRAWITEM-Nachrichten zeichnen (wird nicht direkt von AutoHotkey unterst&uuml;tzt).</td>
 </tr>
 <tr>
   <td>LVS_REPORT</td>
@@ -695,7 +695,7 @@
 <tr>
   <td>LVS_SHAREIMAGELISTS</td>
   <td>0x40</td>
-  <td>Die <a href="../commands/ListView.htm#IL">Bildliste</a> wird nicht gelöscht, wenn das Steuerelement zerstört wird. Dieser Style ermöglicht die Verwendung von gleichen Bildlisten in mehreren ListView-Steuerelementen.</td>
+  <td>Die <a href="../commands/ListView.htm#IL">Bildliste</a> wird nicht gel&ouml;scht, wenn das Steuerelement zerst&ouml;rt wird. Dieser Style erm&ouml;glicht die Verwendung von gleichen Bildlisten in mehreren ListView-Steuerelementen.</td>
 </tr>
 <tr>
   <td>LVS_SHOWSELALWAYS</td>
@@ -705,17 +705,17 @@
 <tr>
   <td>LVS_SINGLESEL</td>
   <td>0x4</td>
-  <td>+/-Multi. Es kann nur ein Element zur selben Zeit ausgewählt werden. Standardmäßig können mehrere Elemente ausgewählt werden.</td>
+  <td>+/-Multi. Es kann nur ein Element zur selben Zeit ausgew&auml;hlt werden. Standardm&auml;&szlig;ig k&ouml;nnen mehrere Elemente ausgew&auml;hlt werden.</td>
 </tr>
 <tr>
   <td>LVS_SMALLICON</td>
   <td>0x2</td>
-  <td>+IconSmall. Definiert die Ansicht für kleine Icons.</td>
+  <td>+IconSmall. Definiert die Ansicht f&uuml;r kleine Icons.</td>
 </tr>
 <tr>
   <td>LVS_SORTASCENDING</td>
   <td>0x10</td>
-  <td>+/-Sort. Reihen werden in aufsteigender Reihenfolge sortiert, abhängig vom Inhalt des ersten Feldes.</td>
+  <td>+/-Sort. Reihen werden in aufsteigender Reihenfolge sortiert, abh&auml;ngig vom Inhalt des ersten Feldes.</td>
 </tr>
 <tr>
   <td>LVS_SORTDESCENDING</td>
@@ -725,88 +725,88 @@
 <tr>
   <td>LVS_EX_BORDERSELECT</td>
   <td>LV0x8000</td>
-  <td>Wenn ein Element markiert ist, dann ändert sich die Farbe des Rahmens anstelle des ganzen Elements (funktioniert möglicherweise nicht in aktuellen Betriebssystemen). </td>
+  <td>Wenn ein Element markiert ist, dann &auml;ndert sich die Farbe des Rahmens anstelle des ganzen Elements (funktioniert m&ouml;glicherweise nicht in aktuellen Betriebssystemen). </td>
 </tr>
 <tr>
   <td>LVS_EX_CHECKBOXES</td>
   <td>LV0x4</td>
-  <td><p>+/-Checked. Zeigt ein Kontrollkästchen bei jedem Element an. Mit diesem Style erstellt und setzt das Steuerelement eine Status-Bildliste mit zwei Bildern mithilfe von DrawFrameControl. Statusbild 1 ist ein nicht markiertes Kästchen und Statusbild 2 ein markiertes Kästchen. Wenn das Statusbild auf 0 gesetzt wird, dann werden alle Kontrollkästchen entfernt.</p>
-    <p>Windows XP oder höher: Kontrollkästchen sind in jeder ListView-Methode (außer Tile-Ansicht von Windows XP) sichtbar und funktional. Wenn ein Kontrollkästchen in der Tile-Ansicht angeklickt wird, dann wird nur das Element markiert und der Status nicht geändert.</p>    </td>
+  <td><p>+/-Checked. Zeigt ein Kontrollk&auml;stchen bei jedem Element an. Mit diesem Style erstellt und setzt das Steuerelement eine Status-Bildliste mit zwei Bildern mithilfe von DrawFrameControl. Statusbild 1 ist ein nicht markiertes K&auml;stchen und Statusbild 2 ein markiertes K&auml;stchen. Wenn das Statusbild auf 0 gesetzt wird, dann werden alle Kontrollk&auml;stchen entfernt.</p>
+    <p>Windows XP oder h&ouml;her: Kontrollk&auml;stchen sind in jeder ListView-Methode (au&szlig;er Tile-Ansicht von Windows XP) sichtbar und funktional. Wenn ein Kontrollk&auml;stchen in der Tile-Ansicht angeklickt wird, dann wird nur das Element markiert und der Status nicht ge&auml;ndert.</p>    </td>
 </tr>
 <tr>
   <td>LVS_EX_FLATSB</td>
   <td>LV0x100</td>
-  <td>Ermöglicht flache Bildlaufleisten in der Listenansicht.</td>
+  <td>Erm&ouml;glicht flache Bildlaufleisten in der Listenansicht.</td>
 </tr>
 <tr>
   <td>LVS_EX_FULLROWSELECT</td>
   <td>LV0x20</td>
-  <td>Wenn eine Reihe markiert wird, dann werden alle Felder hervorgehoben. Dieser Style steht nur in Verbindung mit dem LVS_REPORT-Style zur Verfügung.</td>
+  <td>Wenn eine Reihe markiert wird, dann werden alle Felder hervorgehoben. Dieser Style steht nur in Verbindung mit dem LVS_REPORT-Style zur Verf&uuml;gung.</td>
 </tr>
 <tr>
   <td>LVS_EX_GRIDLINES</td>
   <td>LV0x1</td>
-  <td>+/-Grid. Zeigt Gitterlinien zwischen den Reihen und Spalten an. Dieser Style steht nur in Verbindung mit dem LVS_REPORT-Style zur Verfügung.</td>
+  <td>+/-Grid. Zeigt Gitterlinien zwischen den Reihen und Spalten an. Dieser Style steht nur in Verbindung mit dem LVS_REPORT-Style zur Verf&uuml;gung.</td>
 </tr>
 <tr>
   <td>LVS_EX_HEADERDRAGDROP</td>
   <td>LV0x10</td>
-  <td>Ermöglicht die Neuanordnung von Spalten per Ziehen und Loslassen in einem ListView-Steuerelement. Dieser Style steht nur für ListView-Steuerelemente mit dem LVS_REPORT-Style zur Verfügung.</td>
+  <td>Erm&ouml;glicht die Neuanordnung von Spalten per Ziehen und Loslassen in einem ListView-Steuerelement. Dieser Style steht nur f&uuml;r ListView-Steuerelemente mit dem LVS_REPORT-Style zur Verf&uuml;gung.</td>
 </tr>
 <tr>
   <td>LVS_EX_INFOTIP</td>
   <td>LV0x400</td>
-  <td>Mit diesem Style wird die LVN_GETINFOTIP-Nachricht an den übergeordneten Ordner gesendet, bevor der ToolTip eines Elements angezeigt wird.</td>
+  <td>Mit diesem Style wird die LVN_GETINFOTIP-Nachricht an den &uuml;bergeordneten Ordner gesendet, bevor der ToolTip eines Elements angezeigt wird.</td>
 </tr>
 <tr>
   <td>LVS_EX_LABELTIP</td>
   <td>LV0x4000</td>
-  <td> Wenn einer teilweisen versteckten Bezeichnung im beliebigen ListView-Modus der Tooltip-Text fehlt, dann macht das ListView-Steuerelement die Bezeichnung komplett sichtbar. Wenn dieser Style nicht gesetzt ist, dann werden die teilweise versteckten Bezeichnungen nur in der Ansicht für große Icons komplett sichtbar gemacht. Benötigt Windows XP oder höher, oder Internet Explorer 5.0 oder höher. Hinweis: In einigen Windows-Versionen funktioniert dieser Style möglicherweise nicht richtig, wenn das GUI-Fenster immer im Vordergrund ist.</td>
+  <td> Wenn einer teilweisen versteckten Bezeichnung im beliebigen ListView-Modus der Tooltip-Text fehlt, dann macht das ListView-Steuerelement die Bezeichnung komplett sichtbar. Wenn dieser Style nicht gesetzt ist, dann werden die teilweise versteckten Bezeichnungen nur in der Ansicht f&uuml;r gro&szlig;e Icons komplett sichtbar gemacht. Ben&ouml;tigt Windows XP oder h&ouml;her, oder Internet Explorer 5.0 oder h&ouml;her. Hinweis: In einigen Windows-Versionen funktioniert dieser Style m&ouml;glicherweise nicht richtig, wenn das GUI-Fenster immer im Vordergrund ist.</td>
 </tr>
 <tr>
   <td>LVS_EX_MULTIWORKAREAS</td>
   <td>LV0x2000</td>
-  <td>Wenn das ListView-Steuerelement den LVS_AUTOARRANGE-Style hat, dann werden die Icons erst automatisch angeordnet, wenn beliebig viele Arbeitsbereiche definiert werden (siehe LVM_SETWORKAREAS). Für die Wirksamkeit muss dieser Style gesetzt werden, bevor beliebige Arbeitsbereiche definiert und beliebige Elemente zum Steuerelement hinzugefügt werden.</td>
+  <td>Wenn das ListView-Steuerelement den LVS_AUTOARRANGE-Style hat, dann werden die Icons erst automatisch angeordnet, wenn beliebig viele Arbeitsbereiche definiert werden (siehe LVM_SETWORKAREAS). F&uuml;r die Wirksamkeit muss dieser Style gesetzt werden, bevor beliebige Arbeitsbereiche definiert und beliebige Elemente zum Steuerelement hinzugef&uuml;gt werden.</td>
 </tr>
 <tr>
   <td>LVS_EX_ONECLICKACTIVATE</td>
   <td>LV0x40</td>
-  <td>Das ListView-Steuerelement sendet eine LVN_ITEMACTIVATE-Nachricht an das übergeordnete Fenster, falls der Benutzer ein Element anklickt. Dieser Style aktiviert auch das "Hot Tracking" im ListView-Steuerelement. Das heißt, das Element wird hervorgehoben (nicht markiert), wenn sich der Mauszeiger darüber befindet.</td>
+  <td>Das ListView-Steuerelement sendet eine LVN_ITEMACTIVATE-Nachricht an das &uuml;bergeordnete Fenster, falls der Benutzer ein Element anklickt. Dieser Style aktiviert auch das "Hot Tracking" im ListView-Steuerelement. Das hei&szlig;t, das Element wird hervorgehoben (nicht markiert), wenn sich der Mauszeiger dar&uuml;ber befindet.</td>
 </tr>
 <tr>
   <td>LVS_EX_REGIONAL</td>
   <td>LV0x200</td>
-  <td>Bestimmt den Fensterbereich des ListView-Steuerelements, um nur die Icons und den Text des Elements mithilfe von SetWindowRgn einzubeziehen. Jeder Bereich, der nicht zum Element gehört, wird vom Fensterbereich ausgeschlossen. Dieser Style steht nur für ListView-Steuerelemente mit dem LVS_ICON-Style zur Verfügung.</td>
+  <td>Bestimmt den Fensterbereich des ListView-Steuerelements, um nur die Icons und den Text des Elements mithilfe von SetWindowRgn einzubeziehen. Jeder Bereich, der nicht zum Element geh&ouml;rt, wird vom Fensterbereich ausgeschlossen. Dieser Style steht nur f&uuml;r ListView-Steuerelemente mit dem LVS_ICON-Style zur Verf&uuml;gung.</td>
 </tr>
 <tr>
   <td>LVS_EX_SIMPLESELECT</td>
   <td>LV0x100000</td>
-  <td>In der Icon-Ansicht werden die Status-Bilder des Steuerelements in die obere rechte Ecke der Darstellung eines großen Icons gesetzt. Bei allen anderen Ansichten ändert sich nichts. Wenn der Benutzer den Status mithilfe der Leertaste ändert, dann werden alle ausgewählten Elemente durchlaufen, nicht nur das fokussierte Element. Benötigt Windows XP oder höher. </td>
+  <td>In der Icon-Ansicht werden die Status-Bilder des Steuerelements in die obere rechte Ecke der Darstellung eines gro&szlig;en Icons gesetzt. Bei allen anderen Ansichten &auml;ndert sich nichts. Wenn der Benutzer den Status mithilfe der Leertaste &auml;ndert, dann werden alle ausgew&auml;hlten Elemente durchlaufen, nicht nur das fokussierte Element. Ben&ouml;tigt Windows XP oder h&ouml;her. </td>
 </tr>
 <tr>
   <td>LVS_EX_SUBITEMIMAGES</td>
   <td>LV0x2</td>
-  <td>Ermöglicht Bilder für Unterelemente. Dieser Style steht nur in Verbindung mit dem LVS_REPORT-Style zur Verfügung.</td>
+  <td>Erm&ouml;glicht Bilder f&uuml;r Unterelemente. Dieser Style steht nur in Verbindung mit dem LVS_REPORT-Style zur Verf&uuml;gung.</td>
 </tr>
 <tr>
   <td>LVS_EX_TRACKSELECT</td>
   <td>LV0x8</td>
-  <td>Ermöglicht die "Hot Tracking"-Markierung in einem ListView-Steuerelement. Das heißt, dass ein Element automatisch markiert wird, wenn sich der Mauszeiger für eine bestimmte Zeit über das Element befindet. Die Verzögerung kann mit einer LVM_SETHOVERTIME-Nachricht geändert werden. Dieser Style gilt für alle Styles des ListView-Steuerelements. Durch den Aufruf von SystemParametersInfo kann überprüft werden, ob "Hot Tracking" aktiv ist.</td>
+  <td>Erm&ouml;glicht die "Hot Tracking"-Markierung in einem ListView-Steuerelement. Das hei&szlig;t, dass ein Element automatisch markiert wird, wenn sich der Mauszeiger f&uuml;r eine bestimmte Zeit &uuml;ber das Element befindet. Die Verz&ouml;gerung kann mit einer LVM_SETHOVERTIME-Nachricht ge&auml;ndert werden. Dieser Style gilt f&uuml;r alle Styles des ListView-Steuerelements. Durch den Aufruf von SystemParametersInfo kann &uuml;berpr&uuml;ft werden, ob "Hot Tracking" aktiv ist.</td>
 </tr>
 <tr>
   <td>LVS_EX_TWOCLICKACTIVATE</td>
   <td>LV0x80</td>
-  <td>Das ListView-Steuerelement sendet eine LVN_ITEMACTIVATE-Nachricht an das übergeordnete Fenster, falls der Benutzer ein Element doppelt anklickt. Dieser Style aktiviert auch das "Hot Tracking" im ListView-Steuerelement. Das heißt, das Element wird hervorgehoben (nicht markiert), wenn sich der Mauszeiger darüber befindet.</td>
+  <td>Das ListView-Steuerelement sendet eine LVN_ITEMACTIVATE-Nachricht an das &uuml;bergeordnete Fenster, falls der Benutzer ein Element doppelt anklickt. Dieser Style aktiviert auch das "Hot Tracking" im ListView-Steuerelement. Das hei&szlig;t, das Element wird hervorgehoben (nicht markiert), wenn sich der Mauszeiger dar&uuml;ber befindet.</td>
 </tr>
 <tr>
   <td>LVS_EX_UNDERLINECOLD</td>
   <td>LV0x1000</td>
-  <td>Bewirkt, dass Elemente ohne "Hot Tracking" während ihrer Aktivierung mit unterstrichenem Text dargestellt werden. Dieser Style benötigt außerdem, dass LVS_EX_TWOCLICKACTIVATE gesetzt ist.</td>
+  <td>Bewirkt, dass Elemente ohne "Hot Tracking" w&auml;hrend ihrer Aktivierung mit unterstrichenem Text dargestellt werden. Dieser Style ben&ouml;tigt au&szlig;erdem, dass LVS_EX_TWOCLICKACTIVATE gesetzt ist.</td>
 </tr>
 <tr>
   <td>LVS_EX_UNDERLINEHOT</td>
   <td>LV0x800</td>
-  <td>Bewirkt, dass Elemente mit "Hot Tracking" während ihrer Aktivierung mit unterstrichenem Text dargestellt werden. Dieser Style benötigt außerdem, dass LVS_EX_ONECLICKACTIVATE oder LVS_EX_TWOCLICKACTIVATE gesetzt ist.</td>
+  <td>Bewirkt, dass Elemente mit "Hot Tracking" w&auml;hrend ihrer Aktivierung mit unterstrichenem Text dargestellt werden. Dieser Style ben&ouml;tigt au&szlig;erdem, dass LVS_EX_ONECLICKACTIVATE oder LVS_EX_TWOCLICKACTIVATE gesetzt ist.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -829,7 +829,7 @@
 <tr>
   <td>TVS_CHECKBOXES</td>
   <td>0x100</td>
-  <td>+/-Checked. Zeigt ein Kontrollkästchen neben jedem Element an.</td>
+  <td>+/-Checked. Zeigt ein Kontrollk&auml;stchen neben jedem Element an.</td>
 </tr>
 <tr>
   <td>TVS_DISABLEDRAGDROP</td>
@@ -844,12 +844,12 @@
 <tr>
   <td>TVS_FULLROWSELECT</td>
   <td>0x1000</td>
-  <td>Damit wird die komplette Reihe im TreeView-Steuerelement markiert. Die ganze Reihe des ausgewählten Elements wird hervorgehoben, daher wird sie markiert, sobald die Reihe irgendwo angeklickt wird. Dieser Style kann nicht mit dem TVS_HASLINES-Style verwendet werden.</td>
+  <td>Damit wird die komplette Reihe im TreeView-Steuerelement markiert. Die ganze Reihe des ausgew&auml;hlten Elements wird hervorgehoben, daher wird sie markiert, sobald die Reihe irgendwo angeklickt wird. Dieser Style kann nicht mit dem TVS_HASLINES-Style verwendet werden.</td>
 </tr>
 <tr>
   <td>TVS_HASBUTTONS</td>
   <td>0x1</td>
-  <td>+/-Buttons. Zeigt Plus- (+) und Minus-Schaltflächen (-) neben den Oberelementen. Wenn der Benutzer die Schaltfläche des Oberelements anklickt, dann wird eine Liste mit Unterelementen auf- oder zugeklappt. Um Schaltflächen für Elemente auf oberste Ebene des TreeView-Steuerelements anzuzeigen, muss zusätzlich TVS_LINESATROOT angegeben werden.</td>
+  <td>+/-Buttons. Zeigt Plus- (+) und Minus-Schaltfl&auml;chen (-) neben den Oberelementen. Wenn der Benutzer die Schaltfl&auml;che des Oberelements anklickt, dann wird eine Liste mit Unterelementen auf- oder zugeklappt. Um Schaltfl&auml;chen f&uuml;r Elemente auf oberste Ebene des TreeView-Steuerelements anzuzeigen, muss zus&auml;tzlich TVS_LINESATROOT angegeben werden.</td>
 </tr>
 <tr>
   <td>TVS_HASLINES</td>
@@ -859,7 +859,7 @@
 <tr>
   <td>TVS_INFOTIP</td>
   <td>0x800</td>
-  <td>Erhält ToolTip-Informationen, indem die TVN_GETINFOTIP-Nachricht gesendet wird.</td>
+  <td>Erh&auml;lt ToolTip-Informationen, indem die TVN_GETINFOTIP-Nachricht gesendet wird.</td>
 </tr>
 <tr>
   <td>TVS_LINESATROOT</td>
@@ -874,7 +874,7 @@
 <tr>
   <td>TVS_NONEVENHEIGHT</td>
   <td>0x4000</td>
-  <td>Setzt die Höhe der Elemente auf eine ungleiche Höhe mithilfe der TVM_SETITEMHEIGHT-Nachricht. Standardmäßig muss die Höhe der Elemente gleich sein.</td>
+  <td>Setzt die H&ouml;he der Elemente auf eine ungleiche H&ouml;he mithilfe der TVM_SETITEMHEIGHT-Nachricht. Standardm&auml;&szlig;ig muss die H&ouml;he der Elemente gleich sein.</td>
 </tr>
 <tr>
   <td>TVS_NOSCROLL</td>
@@ -894,12 +894,12 @@
 <tr>
   <td>TVS_SHOWSELALWAYS</td>
   <td>0x20</td>
-  <td>Bewirkt, dass ein ausgewähltes Element markiert bleibt, wenn das TreeView-Steuerelement den Fokus verliert.</td>
+  <td>Bewirkt, dass ein ausgew&auml;hltes Element markiert bleibt, wenn das TreeView-Steuerelement den Fokus verliert.</td>
 </tr>
 <tr>
   <td>TVS_SINGLEEXPAND</td>
   <td>0x400</td>
-  <td>    Bewirkt, dass das markierte Element aufgeklappt wird und nicht markierte Elemente zugeklappt werden. Wenn der Benutzer die STRG-Taste gedrückt hält, während ein Element markiert wird, dann wird das nicht markierte Element nicht zugeklappt.</td>
+  <td>    Bewirkt, dass das markierte Element aufgeklappt wird und nicht markierte Elemente zugeklappt werden. Wenn der Benutzer die STRG-Taste gedr&uuml;ckt h&auml;lt, w&auml;hrend ein Element markiert wird, dann wird das nicht markierte Element nicht zugeklappt.</td>
 </tr>
 <tr>
   <td>TVS_TRACKSELECT</td>
@@ -932,12 +932,12 @@
 <tr>
   <td>DTS_SHOWNONE</td>
   <td>0x2</td>
-  <td> Zeigt ein Kontrollkästchen im Steuerelement an, dass der Benutzer deaktivieren kann, damit kein Datum/Uhrzeit im Steuerelement ausgewählt ist. Sobald das Steuerelement kein Datum/Uhrzeit hat, ermittelt <a href="../commands/Gui.htm#Submit">Gui, Submit</a> und <a href="../commands/GuiControlGet.htm">GuiControlGet</a> einen leeren Wert (leerer String).</td>
+  <td> Zeigt ein Kontrollk&auml;stchen im Steuerelement an, dass der Benutzer deaktivieren kann, damit kein Datum/Uhrzeit im Steuerelement ausgew&auml;hlt ist. Sobald das Steuerelement kein Datum/Uhrzeit hat, ermittelt <a href="../commands/Gui.htm#Submit">Gui, Submit</a> und <a href="../commands/GuiControlGet.htm">GuiControlGet</a> einen leeren Wert (leerer String).</td>
 </tr>
 <tr>
   <td>DTS_SHORTDATEFORMAT</td>
   <td>0x0</td>
-  <td> Zeigt das Datum im Kurzformat an. So etwas wie 6/1/05 oder 6/1/2005 in einigen Gebietsschemen. In älteren Betriebssystemen wird das Jahr möglicherweise zweistellig angezeigt. Deshalb ist DTS_SHORTDATECENTURYFORMAT der Standard und nicht DTS_SHORTDATEFORMAT.</td>
+  <td> Zeigt das Datum im Kurzformat an. So etwas wie 6/1/05 oder 6/1/2005 in einigen Gebietsschemen. In &auml;lteren Betriebssystemen wird das Jahr m&ouml;glicherweise zweistellig angezeigt. Deshalb ist DTS_SHORTDATECENTURYFORMAT der Standard und nicht DTS_SHORTDATEFORMAT.</td>
 </tr>
 <tr>
   <td>DTS_LONGDATEFORMAT</td>
@@ -950,7 +950,7 @@
   <td> <a href="../commands/GuiControls.htm#DateTimeFormat">Format-Option</a> leer/weggelassen. Zeigt das Datum im Kurzformat mit vierstelligem Jahr an. So etwas wie Wednesday, June 01, 2005 in einigen Gebietsschemen. Wen die System-Version von
 
 
- Comctl32.dll älter als 5.8 ist, dann wird dieser Style nicht unterstützt und DTS_SHORTDATEFORMAT automatisch ersetzt. </td>
+ Comctl32.dll &auml;lter als 5.8 ist, dann wird dieser Style nicht unterst&uuml;tzt und DTS_SHORTDATEFORMAT automatisch ersetzt. </td>
 </tr>
 <tr>
   <td>DTS_TIMEFORMAT</td>
@@ -960,7 +960,7 @@
 <tr>
   <td>DTS_APPCANPARSE</td>
   <td>0x10</td>
-  <td>  Wird noch nicht unterstützt. Erlaubt der Anwendung, die Benutzereingabe zu analysieren und notwendige Schritte einzuleiten. Erlaubt dem Benutzer, den Text des Steuerelements innerhalb des Client-Bereichs zu bearbeiten, wenn F2 gedrückt wird. Das Steuerelement sendet DTN_USERSTRING-Nachrichten, sobald der Benutzer fertig ist.</td>
+  <td>  Wird noch nicht unterst&uuml;tzt. Erlaubt der Anwendung, die Benutzereingabe zu analysieren und notwendige Schritte einzuleiten. Erlaubt dem Benutzer, den Text des Steuerelements innerhalb des Client-Bereichs zu bearbeiten, wenn F2 gedr&uuml;ckt wird. Das Steuerelement sendet DTN_USERSTRING-Nachrichten, sobald der Benutzer fertig ist.</td>
 </tr>
 <tr>
   <td>DTS_RIGHTALIGN</td>
@@ -970,7 +970,7 @@
 <tr>
   <td>(Farben innerhalb des ausklappbaren Kalenders) </td>
   <td>&nbsp;</td>
-  <td>Die Farben der Tageszahlen innerhalb des ausklappbaren Kalenders beachten die Einstellung von <a href="../commands/Gui.htm#Font">Gui Font</a> oder der <a href="../commands/Gui.htm#OtherOptions">c-Option</a>. Um die Farben von anderen Bereichen des Kalenders zu ändern, befolgt dieses Beispiel:<br> Gui +LastFound<br> <a href="../commands/PostMessage.htm">SendMessage</a>, 0x1006, 4, 0xFFAA99, SysDateTimePick321 <em>; 0x1006 ist DTM_SETMCCOLOR. 4 ist MCSC_MONTHBK (Hintergrundfarbe). Die Farbe muss im BGR- anstelle vom RGB-Format angegeben werden (rote und blaue Komponenten sind vertauscht). </em></td>
+  <td>Die Farben der Tageszahlen innerhalb des ausklappbaren Kalenders beachten die Einstellung von <a href="../commands/Gui.htm#Font">Gui Font</a> oder der <a href="../commands/Gui.htm#OtherOptions">c-Option</a>. Um die Farben von anderen Bereichen des Kalenders zu &auml;ndern, befolgt dieses Beispiel:<br> Gui +LastFound<br> <a href="../commands/PostMessage.htm">SendMessage</a>, 0x1006, 4, 0xFFAA99, SysDateTimePick321 <em>; 0x1006 ist DTM_SETMCCOLOR. 4 ist MCSC_MONTHBK (Hintergrundfarbe). Die Farbe muss im BGR- anstelle vom RGB-Format angegeben werden (rote und blaue Komponenten sind vertauscht). </em></td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -993,7 +993,7 @@
 <tr>
   <td>MCS_DAYSTATE</td>
   <td>0x1</td>
-  <td> Das Steuerelement sendet MCN_GETDAYSTATE-Nachrichten, um Informationen anzufordern, welcher Tag fett dargestellt werden soll. [Wird noch nicht unterstützt]</td>
+  <td> Das Steuerelement sendet MCN_GETDAYSTATE-Nachrichten, um Informationen anzufordern, welcher Tag fett dargestellt werden soll. [Wird noch nicht unterst&uuml;tzt]</td>
 </tr>
 <tr>
   <td>MCS_MULTISELECT</td>
@@ -1001,12 +1001,12 @@
   <td>Benannte Option "Multi".
 
 
- Erlaubt dem Benutzer, einen Datumsbereich auszuwählen, anstatt nur ein Datum. Standardmäßig liegt der Maximum bei 366 Tage, der geändert werden kann, indem die MCM_SETMAXSELCOUNT-Nachricht ans Steuerelement gesendet wird. Zum Beispiel:<br> Gui +LastFound <br> <a href="../commands/PostMessage.htm">SendMessage</a>, 0x1004, 7, 0, SysMonthCal321 <em>; 7 Tage. 0x1004 ist MCM_SETMAXSELCOUNT.</em></td>
+ Erlaubt dem Benutzer, einen Datumsbereich auszuw&auml;hlen, anstatt nur ein Datum. Standardm&auml;&szlig;ig liegt der Maximum bei 366 Tage, der ge&auml;ndert werden kann, indem die MCM_SETMAXSELCOUNT-Nachricht ans Steuerelement gesendet wird. Zum Beispiel:<br> Gui +LastFound <br> <a href="../commands/PostMessage.htm">SendMessage</a>, 0x1004, 7, 0, SysMonthCal321 <em>; 7 Tage. 0x1004 ist MCM_SETMAXSELCOUNT.</em></td>
 </tr>
 <tr>
   <td>MCS_WEEKNUMBERS</td>
   <td>0x4</td>
-  <td> Zeigt die Wochennummern (1-52) an der linken Seite jeder Reihe an. Woche 1 wird als erste Woche definiert, die mindestens vier Tage enthält.</td>
+  <td> Zeigt die Wochennummern (1-52) an der linken Seite jeder Reihe an. Woche 1 wird als erste Woche definiert, die mindestens vier Tage enth&auml;lt.</td>
 </tr>
 <tr>
   <td>MCS_NOTODAYCIRCLE</td>
@@ -1021,7 +1021,7 @@
 <tr>
   <td>(Farben) </td>
   <td>&nbsp;</td>
-  <td>Die Farben der Tageszahlen innerhalb des Kalenders beachten die Einstellung von <a href="../commands/Gui.htm#Font">Gui Font</a> oder der <a href="../commands/Gui.htm#OtherOptions">c-Option</a>. Um die Farben von anderen Bereichen des Kalenders zu ändern, befolgt dieses Beispiel:<br> Gui +LastFound<br> <a href="../commands/PostMessage.htm">SendMessage</a>, 0x100A, 5, 0xFFAA99, SysMonthCal321 <em>; 0x100A ist MCM_SETCOLOR. 5 ist MCSC_TITLETEXT (Farbe des Titeltextes). Die Farbe muss im BGR- anstelle vom RGB-Format angegeben werden (rote und blaue Komponenten sind vertauscht).</em></td>
+  <td>Die Farben der Tageszahlen innerhalb des Kalenders beachten die Einstellung von <a href="../commands/Gui.htm#Font">Gui Font</a> oder der <a href="../commands/Gui.htm#OtherOptions">c-Option</a>. Um die Farben von anderen Bereichen des Kalenders zu &auml;ndern, befolgt dieses Beispiel:<br> Gui +LastFound<br> <a href="../commands/PostMessage.htm">SendMessage</a>, 0x100A, 5, 0xFFAA99, SysMonthCal321 <em>; 0x100A ist MCM_SETCOLOR. 5 ist MCSC_TITLETEXT (Farbe des Titeltextes). Die Farbe muss im BGR- anstelle vom RGB-Format angegeben werden (rote und blaue Komponenten sind vertauscht).</em></td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -1059,44 +1059,44 @@
 <tr>
   <td>TBS_AUTOTICKS</td>
   <td>0x1</td>
-  <td> Das Steuerelement zeigt eine Markierung für jeden Schritt im Wertebereich an. Verwendet +/-TickInterval für eine höhere Flexibilität. </td>
+  <td> Das Steuerelement zeigt eine Markierung f&uuml;r jeden Schritt im Wertebereich an. Verwendet +/-TickInterval f&uuml;r eine h&ouml;here Flexibilit&auml;t. </td>
 </tr>
 <tr>
   <td>TBS_ENABLESELRANGE</td>
   <td>0x20</td>
-  <td><p>Das Steuerelement zeigt nur einen Auswahlbereich an. Die Markierungen an der Start- und Endposition eines Auswahlbereichs werden als Dreiecke dargestellt (anstelle von vertikalen Strichen), und der Auswahlbereich ist hervorgehoben (Hervorhebung funktioniert möglicherweise nur, wenn das Design mithilfe von "Gui -theme" entfernt wird).</p>
+  <td><p>Das Steuerelement zeigt nur einen Auswahlbereich an. Die Markierungen an der Start- und Endposition eines Auswahlbereichs werden als Dreiecke dargestellt (anstelle von vertikalen Strichen), und der Auswahlbereich ist hervorgehoben (Hervorhebung funktioniert m&ouml;glicherweise nur, wenn das Design mithilfe von "Gui -theme" entfernt wird).</p>
     <p>Um den Auswahlbereich zu bestimmen, befolgt dieses Beispiel, wodurch die Startposition auf 55 und die Endposition auf 66 gesetzt wird:</p>    <p><a href="../commands/PostMessage.htm">SendMessage</a>, 1035, 1, 55, msctls_trackbar321, Fenstertitel<br> SendMessage, 1036, 1, 66, msctls_trackbar321, Fenstertitel<br>
       </p>    </td>
 </tr>
 <tr>
   <td>TBS_FIXEDLENGTH</td>
   <td>0x40</td>
-  <td>+/-Thick. Ermöglicht die Größenänderung der Positionsanzeige. </td>
+  <td>+/-Thick. Erm&ouml;glicht die Gr&ouml;&szlig;en&auml;nderung der Positionsanzeige. </td>
 </tr>
 <tr>
   <td>TBS_NOTHUMB</td>
   <td>0x80</td>
-  <td>Das Steuerelement enthält nicht die bewegliche Leiste.</td>
+  <td>Das Steuerelement enth&auml;lt nicht die bewegliche Leiste.</td>
 </tr>
 <tr>
   <td>TBS_NOTICKS</td>
   <td>0x10</td>
-  <td>+/-NoTicks. Das Steuerelement enthält keine Markierungen.</td>
+  <td>+/-NoTicks. Das Steuerelement enth&auml;lt keine Markierungen.</td>
 </tr>
 <tr>
   <td>TBS_TOOLTIPS</td>
   <td>0x100</td>
-  <td>+/-Tooltip. Das Steuerelement unterstützt ToolTips. Wenn ein Steuerelement mit diesem Style erstellt wird, dann wird standardmäßig noch ein ToolTip-Steuerelement erzeugt, dass die aktuelle Position des Schiebereglers anzeigt. Die Position des ToolTips kann mithilfe der TBM_SETTIPSIDE-Nachricht geändert werden. Windows 95 und NT4 benötigen Internet Explorer 3.0 oder höher, um diesen Style zu unterstützen.</td>
+  <td>+/-Tooltip. Das Steuerelement unterst&uuml;tzt ToolTips. Wenn ein Steuerelement mit diesem Style erstellt wird, dann wird standardm&auml;&szlig;ig noch ein ToolTip-Steuerelement erzeugt, dass die aktuelle Position des Schiebereglers anzeigt. Die Position des ToolTips kann mithilfe der TBM_SETTIPSIDE-Nachricht ge&auml;ndert werden. Windows 95 und NT4 ben&ouml;tigen Internet Explorer 3.0 oder h&ouml;her, um diesen Style zu unterst&uuml;tzen.</td>
 </tr>
 <tr>
   <td>TBS_REVERSED</td>
   <td>0x200</td>
-  <td>Leider hat dieser Style keine Auswirkung auf das aktuelle Verhalten des Steuerelements, daher ist seine Verwendung sinnlos (verwendet stattdessen +Invert in den Optionen des Steuerelements, um es umzukehren). Je nach Version des Betriebssystems benötigt dieser Style möglicherweise Internet Explorer 5.0 oder höher.</td>
+  <td>Leider hat dieser Style keine Auswirkung auf das aktuelle Verhalten des Steuerelements, daher ist seine Verwendung sinnlos (verwendet stattdessen +Invert in den Optionen des Steuerelements, um es umzukehren). Je nach Version des Betriebssystems ben&ouml;tigt dieser Style m&ouml;glicherweise Internet Explorer 5.0 oder h&ouml;her.</td>
 </tr>
 <tr>
   <td>TBS_DOWNISLEFT</td>
   <td>0x400</td>
-  <td>Leider hat dieser Style keine Auswirkung auf das aktuelle Verhalten des Steuerelements, daher ist seine Verwendung sinnlos. Je nach Version des Betriebssystems benötigt dieser Style möglicherweise Internet Explorer 5.01 oder höher.</td>
+  <td>Leider hat dieser Style keine Auswirkung auf das aktuelle Verhalten des Steuerelements, daher ist seine Verwendung sinnlos. Je nach Version des Betriebssystems ben&ouml;tigt dieser Style m&ouml;glicherweise Internet Explorer 5.01 oder h&ouml;her.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -1122,17 +1122,17 @@
   <td>+/-Smooth.
 
 
- Der Fortschrittsbalken zeigt den Fortschrittsstatus in einem glatten durchgehenden Balken anstelle eines segmentierten Balken an. Wenn dieser Style vorhanden ist, dann kehrt das Steuerelement in Windows XP oder höher automatisch zum klassischen Design zurück. Windows 95 und NT4 benötigen Internet Explorer 3.0 oder höher, um diese Option zu unterstützen.</td>
+ Der Fortschrittsbalken zeigt den Fortschrittsstatus in einem glatten durchgehenden Balken anstelle eines segmentierten Balken an. Wenn dieser Style vorhanden ist, dann kehrt das Steuerelement in Windows XP oder h&ouml;her automatisch zum klassischen Design zur&uuml;ck. Windows 95 und NT4 ben&ouml;tigen Internet Explorer 3.0 oder h&ouml;her, um diese Option zu unterst&uuml;tzen.</td>
 </tr>
 <tr>
   <td>PBS_VERTICAL</td>
   <td>0x4</td>
-  <td>+/-Vertical. Der Fortschrittsbalken zeigt den Fortschrittsstatus vertikal von unten nach oben an. Windows 95 und NT4 benötigen Internet Explorer 3.0 oder höher, um diese Option zu unterstützen.</td>
+  <td>+/-Vertical. Der Fortschrittsbalken zeigt den Fortschrittsstatus vertikal von unten nach oben an. Windows 95 und NT4 ben&ouml;tigen Internet Explorer 3.0 oder h&ouml;her, um diese Option zu unterst&uuml;tzen.</td>
 </tr>
 <tr>
   <td>PBS_MARQUEE</td>
   <td>0x8</td>
-  <td> <p>[Benötigt Windows XP oder höher] Jede Änderung der Position bewirkt, dass der Fortschrittsbalken auf seiner verfügbaren Länge weiter geschoben wird, bis das Ende erreicht ist, um in die entgegengesetzte Richtung fortzusetzen. Ein Balken mit diesem Style hat keine bestimmte Position. Jeder Versuch, seine Position zu ändern, verschiebt stattdessen den Balken um eine Stufe.</p>
+  <td> <p>[Ben&ouml;tigt Windows XP oder h&ouml;her] Jede &Auml;nderung der Position bewirkt, dass der Fortschrittsbalken auf seiner verf&uuml;gbaren L&auml;nge weiter geschoben wird, bis das Ende erreicht ist, um in die entgegengesetzte Richtung fortzusetzen. Ein Balken mit diesem Style hat keine bestimmte Position. Jeder Versuch, seine Position zu &auml;ndern, verschiebt stattdessen den Balken um eine Stufe.</p>
     <p>Dieser Style wird normalerweise verwendet, wenn die Zeit bis zur Fertigstellung einer laufenden Operation unbekannt ist.</p></td>
 </tr>
 </table>
@@ -1151,12 +1151,12 @@
 <tr>
   <td>Erzwungen</td>
   <td>&nbsp;</td>
-  <td>WS_CLIPSIBLINGS<br> TCS_OWNERDRAWFIXED: erzwingt je nach Bedarf an oder aus für die Hintergrundfarbe und/oder Textfarbe des Steuerelements. </td>
+  <td>WS_CLIPSIBLINGS<br> TCS_OWNERDRAWFIXED: erzwingt je nach Bedarf an oder aus f&uuml;r die Hintergrundfarbe und/oder Textfarbe des Steuerelements. </td>
 </tr>
 <tr>
   <td>TCS_SCROLLOPPOSITE</td>
   <td>0x1</td>
-  <td>Nicht benötigte Tabs werden auf die gegenüberliegende Seite des Steuerelements verschoben, wenn ein Tab ausgewählt ist.</td>
+  <td>Nicht ben&ouml;tigte Tabs werden auf die gegen&uuml;berliegende Seite des Steuerelements verschoben, wenn ein Tab ausgew&auml;hlt ist.</td>
   </tr>
 <tr>
   <td>TCS_BOTTOM </td>
@@ -1171,12 +1171,12 @@
 <tr>
   <td>TCS_MULTISELECT </td>
   <td>0x4 </td>
-  <td>Mehrere Tabs können ausgewählt werden, wenn <small>STRG</small> während des Klickens gedrückt gehalten wird. Dieser Style muss mit dem TCS_BUTTONS-Style verwendet werden.</td>
+  <td>Mehrere Tabs k&ouml;nnen ausgew&auml;hlt werden, wenn <small>STRG</small> w&auml;hrend des Klickens gedr&uuml;ckt gehalten wird. Dieser Style muss mit dem TCS_BUTTONS-Style verwendet werden.</td>
 </tr>
 <tr>
   <td>TCS_FLATBUTTONS </td>
   <td>0x8</td>
-  <td>Ausgewählte Tabs erscheinen im Hintergrund eingedrückt, während sich die restlichen Tabs scheinbar auf der gleichen Ebene des Hintergrunds befinden. Dieser Style beeinflusst nur Tab-Steuerelemente mit dem TCS_BUTTONS-Style.</td>
+  <td>Ausgew&auml;hlte Tabs erscheinen im Hintergrund eingedr&uuml;ckt, w&auml;hrend sich die restlichen Tabs scheinbar auf der gleichen Ebene des Hintergrunds befinden. Dieser Style beeinflusst nur Tab-Steuerelemente mit dem TCS_BUTTONS-Style.</td>
 </tr>
 <tr>
   <td>TCS_FORCEICONLEFT </td>
@@ -1197,19 +1197,19 @@
 <tr>
   <td>TCS_VERTICAL </td>
   <td>0x80</td>
-  <td><p><a name="tcs_vertical"></a>+/-Left oder +/-Right. Tabs erscheinen auf der linken Seite des Steuerelements, deren Text vertikal angezeigt wird. Dieser Style ist nur gültig, wenn er in Verbindung mit dem TCS_MULTILINE-Style verwendet wird. Damit die Tabs auf der rechten Seite des Steuerelements erscheinen, verwendet den TCS_RIGHT-Style.</p>
-    <p>Dieser Style zeigt die Tabs nicht richtig an, wenn eine benutzerdefinierte Hintergrundfarbe oder Textfarbe aktiv ist. Als Übergangslösung kann -Background und/oder cDefault in den Optionen des Tab-Steuerelements angegeben werden.</p>
+  <td><p><a name="tcs_vertical"></a>+/-Left oder +/-Right. Tabs erscheinen auf der linken Seite des Steuerelements, deren Text vertikal angezeigt wird. Dieser Style ist nur g&uuml;ltig, wenn er in Verbindung mit dem TCS_MULTILINE-Style verwendet wird. Damit die Tabs auf der rechten Seite des Steuerelements erscheinen, verwendet den TCS_RIGHT-Style.</p>
+    <p>Dieser Style zeigt die Tabs nicht richtig an, wenn eine benutzerdefinierte Hintergrundfarbe oder Textfarbe aktiv ist. Als &Uuml;bergangsl&ouml;sung kann -Background und/oder cDefault in den Optionen des Tab-Steuerelements angegeben werden.</p>
     </td>
 </tr>
 <tr>
   <td>TCS_BUTTONS </td>
   <td>0x100</td>
-  <td>+/-Buttons. Tabs erscheinen als Schaltflächen. Außerdem wird kein Rahmen um den Anzeigebereich gezeichnet.</td>
+  <td>+/-Buttons. Tabs erscheinen als Schaltfl&auml;chen. Au&szlig;erdem wird kein Rahmen um den Anzeigebereich gezeichnet.</td>
 </tr>
 <tr>
   <td>TCS_SINGLELINE </td>
   <td>0</td>
-  <td>+/-Wrap. Es wird nur eine Reihe mit Tabs angezeigt. Der Benutzer kann je nach Bedarf scrollen, um weitere Tabs zu sehen. Dieser Style wird standardmäßig verwendet.</td>
+  <td>+/-Wrap. Es wird nur eine Reihe mit Tabs angezeigt. Der Benutzer kann je nach Bedarf scrollen, um weitere Tabs zu sehen. Dieser Style wird standardm&auml;&szlig;ig verwendet.</td>
 </tr>
 <tr>
   <td>TCS_MULTILINE </td>
@@ -1219,7 +1219,7 @@
 <tr>
   <td>TCS_RIGHTJUSTIFY </td>
   <td>0</td>
-  <td>Das wird standardmäßig verwendet. Die Breite jeden Tabs wird je nach Bedarf erhöht, damit jede Reihe mit Tabs die gesamte Breite des Tab-Steuerelements füllt.
+  <td>Das wird standardm&auml;&szlig;ig verwendet. Die Breite jeden Tabs wird je nach Bedarf erh&ouml;ht, damit jede Reihe mit Tabs die gesamte Breite des Tab-Steuerelements f&uuml;llt.
     <p>Dieser Fenster-Style wird ignoriert, es sei denn, TCS_MULTILINE-Style wurde auch angegeben.</p></td>
 </tr>
 <tr>
@@ -1230,17 +1230,17 @@
 <tr>
   <td>TCS_RAGGEDRIGHT </td>
   <td>0x800</td>
-  <td>Reihen mit Tabs werden nicht gestreckt, um die gesamte Breite des Steuerelements zu füllen. Dieser Style wird standardmäßig verwendet.</td>
+  <td>Reihen mit Tabs werden nicht gestreckt, um die gesamte Breite des Steuerelements zu f&uuml;llen. Dieser Style wird standardm&auml;&szlig;ig verwendet.</td>
 </tr>
 <tr>
   <td>TCS_FOCUSONBUTTONDOWN </td>
   <td>0x1000</td>
-  <td>Das Tab-Steuerelement erhält den Eingabefokus, wenn es angeklickt wird.</td>
+  <td>Das Tab-Steuerelement erh&auml;lt den Eingabefokus, wenn es angeklickt wird.</td>
 </tr>
 <tr>
   <td>TCS_OWNERDRAWFIXED </td>
   <td>0x2000</td>
-  <td>Das übergeordnete Fenster ist für das Zeichnen der Tabs zuständig.</td>
+  <td>Das &uuml;bergeordnete Fenster ist f&uuml;r das Zeichnen der Tabs zust&auml;ndig.</td>
 </tr>
 <tr>
   <td>TCS_TOOLTIPS </td>
@@ -1250,7 +1250,7 @@
 <tr>
   <td>TCS_FOCUSNEVER </td>
   <td>0x8000</td>
-  <td>Das Tab-Steuerelement erhält nicht den Eingabefokus, wenn es angeklickt wird.</td>
+  <td>Das Tab-Steuerelement erh&auml;lt nicht den Eingabefokus, wenn es angeklickt wird.</td>
 </tr>
 </table>
 <p>&nbsp;</p>
@@ -1273,16 +1273,16 @@
 <tr>
   <td>SBARS_TOOLTIPS</td>
   <td>0x800</td>
-  <td><p>Zeigt ein ToolTip an, wenn sich der Mauszeiger über einen Bereich der Statusleiste befindet, der: 1) zu viel Text enthält, um vollständig angezeigt werden zu können; oder 2) ein Icon, aber kein Text hat.</p>
-    <p>Der Text des ToolTips kann wie folgt geändert werden:</p>
+  <td><p>Zeigt ein ToolTip an, wenn sich der Mauszeiger &uuml;ber einen Bereich der Statusleiste befindet, der: 1) zu viel Text enth&auml;lt, um vollst&auml;ndig angezeigt werden zu k&ouml;nnen; oder 2) ein Icon, aber kein Text hat.</p>
+    <p>Der Text des ToolTips kann wie folgt ge&auml;ndert werden:</p>
 <pre>Gui +LastFound
 SendMessage, 0x410, <strong>0</strong>, "Anzeigetext", msctls_statusbar321</pre>
-    <p>Die fette <strong>0</strong> ist die 0-basierende Bereichsnummer. Um einen beliebigen Bereich zu verwenden, verwendet 1 für den zweiten Bereich, 2 für den dritten Bereich und so weiter. HINWEIS: Der ToolTip wird möglicherweise in bestimmten Versionen des Betriebssystems nicht angezeigt.</p></td>
+    <p>Die fette <strong>0</strong> ist die 0-basierende Bereichsnummer. Um einen beliebigen Bereich zu verwenden, verwendet 1 f&uuml;r den zweiten Bereich, 2 f&uuml;r den dritten Bereich und so weiter. HINWEIS: Der ToolTip wird m&ouml;glicherweise in bestimmten Versionen des Betriebssystems nicht angezeigt.</p></td>
   </tr>
 <tr>
   <td>SBARS_SIZEGRIP</td>
   <td>0x100</td>
-  <td>Ermöglicht einen Größenziehpunkt auf der rechten Seite der Statusleiste. Der Größenziehpunkt entspricht einem Rahmen, der skalierbar ist; es ist ein rechteckiger Bereich, dass der Benutzer anklicken und ziehen kann, um das übergeordnete Fenster zu skalieren.</td>
+  <td>Erm&ouml;glicht einen Gr&ouml;&szlig;enziehpunkt auf der rechten Seite der Statusleiste. Der Gr&ouml;&szlig;enziehpunkt entspricht einem Rahmen, der skalierbar ist; es ist ein rechteckiger Bereich, dass der Benutzer anklicken und ziehen kann, um das &uuml;bergeordnete Fenster zu skalieren.</td>
 </tr>
 </table>
 </body>

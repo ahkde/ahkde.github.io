@@ -18,28 +18,28 @@ Random, , NewSeed</pre>
 <table class="info">
   <tr>
     <td>Ausgabevariable</td>
-    <td>Der Name der Variable, in der das Ergebnis gespeichert wird. Das Format der gespeicherten Fließkommazahlen wird durch <a href="SetFormat.htm">SetFormat</a> bestimmt.</td>
+    <td>Der Name der Variable, in der das Ergebnis gespeichert wird. Das Format der gespeicherten Flie&szlig;kommazahlen wird durch <a href="SetFormat.htm">SetFormat</a> bestimmt.</td>
   </tr>
   <tr>
     <td width="15%">Min</td>
-    <td width="85%">Die kleinste Zahl, die erzeugt werden kann, welche negativ, eine Fließkommazahl oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann. Wenn weggelassen, dann ist die kleinste Zahl 0. Der niedrigste zulässige Wert für Integer ist -2147483648, Fließkommazahlen hingegen haben keine Beschränkungen.</td>
+    <td width="85%">Die kleinste Zahl, die erzeugt werden kann, welche negativ, eine Flie&szlig;kommazahl oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann. Wenn weggelassen, dann ist die kleinste Zahl 0. Der niedrigste zul&auml;ssige Wert f&uuml;r Integer ist -2147483648, Flie&szlig;kommazahlen hingegen haben keine Beschr&auml;nkungen.</td>
   </tr>
   <tr>
     <td>Max</td>
-    <td>Die größte Zahl, die erzeugt werden kann, welche negativ, eine Fließkommazahl oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann. Wenn weggelassen, dann ist die größte Zahl 2147483647 (der größte zulässige Integer-Wert,  Fließkommazahlen hingegen haben keine Beschränkungen).</td>
+    <td>Die gr&ouml;&szlig;te Zahl, die erzeugt werden kann, welche negativ, eine Flie&szlig;kommazahl oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann. Wenn weggelassen, dann ist die gr&ouml;&szlig;te Zahl 2147483647 (der gr&ouml;&szlig;te zul&auml;ssige Integer-Wert,  Flie&szlig;kommazahlen hingegen haben keine Beschr&auml;nkungen).</td>
   </tr>
   <tr>
     <td>NewSeed</td>
-    <td><p>Dieser Modus erneuert den Startpunkt im Zufallszahlengenerator mit <em>NewSeed</em> (kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Das betrifft alle danach generierten Zufallszahlen. <em>NewSeed</em> ist ein Integer-Wert zwischen 0 und 4294967295 (0xFFFFFFFF). Dieses Verfahren kann die Qualität/Sicherheit von erzeugten Zufallszahlen verbessern, besonders wenn <em>NewSeed</em> eine wirkliche Zufallszahl ist, anstatt eine mit geringerer Qualität wie eine Pseudo-Zufallszahl. Im Allgemeinen muss dieses Verfahren nicht mehr als einmal durchgeführt werden.</p>
-      <p>Wenn das Neusetzen des Startpunkts nie vom Script durchgeführt wird, dann beginnt er bei niedrigwertigen 32-Bits vom 64-Bit-Wert, dass die Anzahl der 100-Nanosekunden-Intervalle seit 1. Januar 1601 ist. Dieser Wert wandert alle ~7.2 Minuten von 0 bis 4294967295.</p></td>
+    <td><p>Dieser Modus erneuert den Startpunkt im Zufallszahlengenerator mit <em>NewSeed</em> (kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Das betrifft alle danach generierten Zufallszahlen. <em>NewSeed</em> ist ein Integer-Wert zwischen 0 und 4294967295 (0xFFFFFFFF). Dieses Verfahren kann die Qualit&auml;t/Sicherheit von erzeugten Zufallszahlen verbessern, besonders wenn <em>NewSeed</em> eine wirkliche Zufallszahl ist, anstatt eine mit geringerer Qualit&auml;t wie eine Pseudo-Zufallszahl. Im Allgemeinen muss dieses Verfahren nicht mehr als einmal durchgef&uuml;hrt werden.</p>
+      <p>Wenn das Neusetzen des Startpunkts nie vom Script durchgef&uuml;hrt wird, dann beginnt er bei niedrigwertigen 32-Bits vom 64-Bit-Wert, dass die Anzahl der 100-Nanosekunden-Intervalle seit 1. Januar 1601 ist. Dieser Wert wandert alle ~7.2 Minuten von 0 bis 4294967295.</p></td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Dieser Befehl erzeugt eine Pseudo-Zufallszahl, die eine wahre Zufallszahl simuliert, aber in Wirklichkeit eine Zahl ist, die von einer komplizierten Formel abgeleitet wird, um das Bestimmen/Erraten der nächsten Zahl zu erschweren.</p>
-<p>Alle Zahlen im angegebenen Bereich haben ungefähr die gleiche Wahrscheinlichkeit, erzeugt zu werden (siehe aber "bekannte Einschränkungen" weiter unten).</p>
-<p>Wenn <em>Min</em> oder <em>Max</em> einen Dezimalpunkt enthält, dann ist das Endergebnis eine Fließkommazahl, abhängig vom eingestellten Format (<a href="SetFormat.htm">SetFormat</a>). Andernfalls wird das Ergebnis ein Integer sein.</p>
-<p>Bekannte Einschränkungen für Fließkommazahlen: 1) nur etwa 4294967296 verschiedene Zahlen können für jeden bestimmten Bereich erzeugt werden, alle anderen Zahlen im Bereich werden somit nie erzeugt, 2) gelegentlich kann ein Ergebnis etwas größer als der angegebene <em>Max</em>-Wert sein (zum Teil durch die Ungenauigkeit in Fließkommazahlen).</p>
+<p>Dieser Befehl erzeugt eine Pseudo-Zufallszahl, die eine wahre Zufallszahl simuliert, aber in Wirklichkeit eine Zahl ist, die von einer komplizierten Formel abgeleitet wird, um das Bestimmen/Erraten der n&auml;chsten Zahl zu erschweren.</p>
+<p>Alle Zahlen im angegebenen Bereich haben ungef&auml;hr die gleiche Wahrscheinlichkeit, erzeugt zu werden (siehe aber "bekannte Einschr&auml;nkungen" weiter unten).</p>
+<p>Wenn <em>Min</em> oder <em>Max</em> einen Dezimalpunkt enth&auml;lt, dann ist das Endergebnis eine Flie&szlig;kommazahl, abh&auml;ngig vom eingestellten Format (<a href="SetFormat.htm">SetFormat</a>). Andernfalls wird das Ergebnis ein Integer sein.</p>
+<p>Bekannte Einschr&auml;nkungen f&uuml;r Flie&szlig;kommazahlen: 1) nur etwa 4294967296 verschiedene Zahlen k&ouml;nnen f&uuml;r jeden bestimmten Bereich erzeugt werden, alle anderen Zahlen im Bereich werden somit nie erzeugt, 2) gelegentlich kann ein Ergebnis etwas gr&ouml;&szlig;er als der angegebene <em>Max</em>-Wert sein (zum Teil durch die Ungenauigkeit in Flie&szlig;kommazahlen).</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="SetFormat.htm">SetFormat</a></p>
 <h3>Beispiele</h3>
@@ -58,7 +58,7 @@ Random, rand, 0.0, 1.0</pre>
 <P class="J">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</P>
 <P>Do NOT use for CRYPTOGRAPHY without securely hashing several Returned values together, otherwise the generator state can be learned after reading 624 consecutive values.</P>
 <P>When you use this, send an email to: matumoto@math.keio.ac.jp with an appropriate reference to your work. It would be nice to CC: rjwagner@writeme.com and Cokus@math.washington.edu when you write.</P>
-<P><I>Das oben genannte wurde bereits für AutoHotkey getan, aber wenn der Random-Befehl in einer Anwendung für die Öffentlichkeit verwendet werden soll, dann sendet eine E-Mail an die oben genannten Leute, um ihnen zu danken.</I></P>
+<P><I>Das oben genannte wurde bereits f&uuml;r AutoHotkey getan, aber wenn der Random-Befehl in einer Anwendung f&uuml;r die &Ouml;ffentlichkeit verwendet werden soll, dann sendet eine E-Mail an die oben genannten Leute, um ihnen zu danken.</I></P>
 
 </body>
 </html>

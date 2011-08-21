@@ -10,29 +10,29 @@
 
 <h1>GroupDeactivate</h1>
 
-<p>Ähnelt <a href="GroupActivate.htm">GroupActivate</a>, nur wird das nächste Fenster aktiviert, welches <strong>nicht</strong> zur Gruppe gehört.</p>
+<p>&Auml;hnelt <a href="GroupActivate.htm">GroupActivate</a>, nur wird das n&auml;chste Fenster aktiviert, welches <strong>nicht</strong> zur Gruppe geh&ouml;rt.</p>
 
 <pre class="Syntax">GroupDeactivate, Gruppenname [, R] </pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Gruppenname</td>
-    <td width="85%">Der Name der Gruppe, ursprünglich von <a href="GroupAdd.htm">GroupAdd</a> definiert.</td>
+    <td width="85%">Der Name der Gruppe, urspr&uuml;nglich von <a href="GroupAdd.htm">GroupAdd</a> definiert.</td>
   </tr>
   <tr>
     <td>R</td>
-    <td>Damit wird festgelegt, ob das älteste oder das neueste Fenster außerhalb der Gruppe aktiviert wird, sobald kein Fenster der Gruppe aktiv ist. Wenn nicht vorhanden, dann wird immer das älteste Fenster außerhalb der Gruppe aktiviert. Mit dem Buchstaben R wird das neueste (zuletzt aktive) Fenster außerhalb der Gruppe aktiviert, aber mit der Bedingung, dass kein Fenster der Gruppe aktiv ist, wenn der Befehl ausgeführt wird. "R" ist beispielsweise nützlich, falls der Benutzer sich vorübergehend mit einer anderen Aufgabe beschäftigt. Kehrt er dann mittels <a href="GroupActivate.htm">GroupActivate</a>, <a href="GroupDeactivate.htm">GroupDeactivate</a> oder <a href="GroupClose.htm">GroupClose</a> zur Gruppe zurück, wird das am aktuellsten genutzte Fenster aktiviert.</td>
+    <td>Damit wird festgelegt, ob das &auml;lteste oder das neueste Fenster au&szlig;erhalb der Gruppe aktiviert wird, sobald kein Fenster der Gruppe aktiv ist. Wenn nicht vorhanden, dann wird immer das &auml;lteste Fenster au&szlig;erhalb der Gruppe aktiviert. Mit dem Buchstaben R wird das neueste (zuletzt aktive) Fenster au&szlig;erhalb der Gruppe aktiviert, aber mit der Bedingung, dass kein Fenster der Gruppe aktiv ist, wenn der Befehl ausgef&uuml;hrt wird. "R" ist beispielsweise n&uuml;tzlich, falls der Benutzer sich vor&uuml;bergehend mit einer anderen Aufgabe besch&auml;ftigt. Kehrt er dann mittels <a href="GroupActivate.htm">GroupActivate</a>, <a href="GroupDeactivate.htm">GroupDeactivate</a> oder <a href="GroupClose.htm">GroupClose</a> zur Gruppe zur&uuml;ck, wird das am aktuellsten genutzte Fenster aktiviert.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Dieser Befehl aktiviert das erste Fenster, das <strong>nicht</strong> mit den Spezifikationen der Fenstergruppe übereinstimmt. Beim nochmaligen Verwenden wird das nächste Fenster in der Reihe aktiviert und so weiter. Normalerweise wird dieser Befehl einem Hotkey zugewiesen, damit dieses Verhalten beim Drücken einer Taste automatisiert wird.</p>
-<p>Dieser Befehl ist nützlich, falls der Benutzer Lieblingsfenster hat, die immer vorhanden sein sollen. Durch das Hinzufügen dieser Fenster zu einer Gruppe kann der Benutzer mit dem Befehl GroupDeactivate jedes Fenster aufsuchen, das nicht zu den Favoriten gehört und dann entscheiden, ob dieses Fenster geschlossen werden soll oder nicht. Damit kann der Benutzer den Desktop im Gegensatz zur manuellen Vorgehensweise schnell aufräumen.</p>
-<p>Siehe <a href="GroupAdd.htm">GroupAdd</a> für mehr Details über Fenstergruppen.</p>
+<p>Dieser Befehl aktiviert das erste Fenster, das <strong>nicht</strong> mit den Spezifikationen der Fenstergruppe &uuml;bereinstimmt. Beim nochmaligen Verwenden wird das n&auml;chste Fenster in der Reihe aktiviert und so weiter. Normalerweise wird dieser Befehl einem Hotkey zugewiesen, damit dieses Verhalten beim Dr&uuml;cken einer Taste automatisiert wird.</p>
+<p>Dieser Befehl ist n&uuml;tzlich, falls der Benutzer Lieblingsfenster hat, die immer vorhanden sein sollen. Durch das Hinzuf&uuml;gen dieser Fenster zu einer Gruppe kann der Benutzer mit dem Befehl GroupDeactivate jedes Fenster aufsuchen, das nicht zu den Favoriten geh&ouml;rt und dann entscheiden, ob dieses Fenster geschlossen werden soll oder nicht. Damit kann der Benutzer den Desktop im Gegensatz zur manuellen Vorgehensweise schnell aufr&auml;umen.</p>
+<p>Siehe <a href="GroupAdd.htm">GroupAdd</a> f&uuml;r mehr Details &uuml;ber Fenstergruppen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="GroupAdd.htm">GroupAdd</a>, <a href="GroupActivate.htm">GroupActivate</a>, <a href="GroupClose.htm">GroupClose</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">GroupDeactivate, EigeneLieblingsfenster  <em>; Nicht favorisierte Fenster schließen.</em></pre>
+<pre class="NoIndent">GroupDeactivate, EigeneLieblingsfenster  <em>; Nicht favorisierte Fenster schlie&szlig;en.</em></pre>
 
 </body>
 </html>

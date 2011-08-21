@@ -49,10 +49,10 @@
     <td>Siehe <a href="#Suspend">DllCall-Beispiel</a> im untersten Abschnitt.</td>
   </tr>
 </table>
-<p>Addiert die gewünschten Werte. Zum Beispiel ist der Code eine <strong>9</strong> (Herunterfahren + Ausschalten = 1 + 8 = 9), um das System herunterzufahren und auszuschalten. Alternativ kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> wie 1+8 angegeben werden.</p>
-<p>Der "Erzwingen"-Wert (4) zwingt das System, alle offenen Anwendungen zu schließen. Sollte nur im Notfall verwendet werden, weil jede offene Anwendung dadurch Daten verlieren kann.</p>
-<p>Der "Ausschalten"-Wert fährt das System herunter und schaltet den Strom aus.</p>
-<p>Zusätzlich kann ein Script mit <a href="OnExit.htm">OnExit</a> erkennen, wann das System heruntergefahren wird oder der Benutzer sich abmeldet. </p>
+<p>Addiert die gew&uuml;nschten Werte. Zum Beispiel ist der Code eine <strong>9</strong> (Herunterfahren + Ausschalten = 1 + 8 = 9), um das System herunterzufahren und auszuschalten. Alternativ kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> wie 1+8 angegeben werden.</p>
+<p>Der "Erzwingen"-Wert (4) zwingt das System, alle offenen Anwendungen zu schlie&szlig;en. Sollte nur im Notfall verwendet werden, weil jede offene Anwendung dadurch Daten verlieren kann.</p>
+<p>Der "Ausschalten"-Wert f&auml;hrt das System herunter und schaltet den Strom aus.</p>
+<p>Zus&auml;tzlich kann ein Script mit <a href="OnExit.htm">OnExit</a> erkennen, wann das System heruntergefahren wird oder der Benutzer sich abmeldet. </p>
 <h3>Verwandte Befehle</h3>
 <p><a href="Run.htm">Run</a>, <a href="ExitApp.htm">ExitApp</a>, <a href="OnExit.htm">OnExit</a> </p>
 <h3>Beispiel</h3>
@@ -61,9 +61,9 @@ Shutdown, 6
 <a name="Suspend"></a>
 <em>; Ruft die API-Funktion "SetSuspendState" von Windows auf, um das System zu sperren oder im Ruhemodus zu versetzen.
 ; Windows 95/NT4: Da diese Funktion nicht vorhanden ist, hat der folgende Aufruf keine Wirkung.
-; Parameter #1: Übergibt 1 anstelle von 0, um den Ruhemodus zu aktivieren, anstatt zu sperren.
-; Parameter #2: Übergibt 1 anstelle von 0, um das System sofort ohne Nachfrage zu sperren.
-; Parameter #3: Übergibt 1 anstelle von 0, um alle Weck-Ereignisse zu deaktivieren.</em>
+; Parameter #1: &Uuml;bergibt 1 anstelle von 0, um den Ruhemodus zu aktivieren, anstatt zu sperren.
+; Parameter #2: &Uuml;bergibt 1 anstelle von 0, um das System sofort ohne Nachfrage zu sperren.
+; Parameter #3: &Uuml;bergibt 1 anstelle von 0, um alle Weck-Ereignisse zu deaktivieren.</em>
 DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)</pre>
 
 </body>
