@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>RegisterCallback</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,36 +17,36 @@
 <table class="info">
   <tr>
     <td>Adresse</td>
-    <td><span class="CommandSyntax">Bei Erfolg gibt RegisterCallback()</span> eine numerische Adresse zurÃ¼ck, die mit <a href="DllCall.htm">DllCall()</a> oder Ã„hnlichem aufgerufen werden kann. Bei Misserfolg wird ein leerer String zurÃ¼ckgegeben. Fehler treten auf, wenn der <em>Funktionsname</em>: 1) nicht existiert, 2) zu viele oder zu wenig Parameter entsprechend der <em>Parameteranzahl</em> akzeptiert oder 3) einen beliebigen <a href="../Functions.htm#ByRef">ByRef-Parameter</a> akzeptiert.</td>
+    <td><span class="CommandSyntax">Bei Erfolg gibt RegisterCallback()</span> eine numerische Adresse zurück, die mit <a href="DllCall.htm">DllCall()</a> oder Ähnlichem aufgerufen werden kann. Bei Misserfolg wird ein leerer String zurückgegeben. Fehler treten auf, wenn der <em>Funktionsname</em>: 1) nicht existiert, 2) zu viele oder zu wenig Parameter entsprechend der <em>Parameteranzahl</em> akzeptiert oder 3) einen beliebigen <a href="../Functions.htm#ByRef">ByRef-Parameter</a> akzeptiert.</td>
   </tr>
   <tr>
     <td>Funktionsname</td>
-    <td>Der Name einer <a href="../Functions.htm">Funktion</a>, welcher in AnfÃ¼hrungszeichen gesetzt werden muss, wenn er ein direkt vorhandener String ist. Diese Funktion wird automatisch aufgerufen, sobald die <em>Adresse</em> aufgerufen wird. Die Funktion ermittelt auch die Parameter, die an die <em>Adresse</em> Ã¼bergeben wurden.</td>
+    <td>Der Name einer <a href="../Functions.htm">Funktion</a>, welcher in Anführungszeichen gesetzt werden muss, wenn er ein direkt vorhandener String ist. Diese Funktion wird automatisch aufgerufen, sobald die <em>Adresse</em> aufgerufen wird. Die Funktion ermittelt auch die Parameter, die an die <em>Adresse</em> übergeben wurden.</td>
   </tr>
   <tr>
     <td>Optionen</td>
-    <td><p>Verwendet keine oder mehrere folgende WÃ¶rter. Die Optionen werden mit einem Leerzeichen getrennt (z.B. "C Fast").</p>
-    <p><strong><a name="Fast" id="Fast"></a>Fast</strong> oder <strong>F</strong>: Verhindert, dass jedes Mal ein neuer <a href="../misc/Threads.htm">Thread</a> gestartet wird, wenn der <em>Funktionsname</em> aufgerufen wird. Obwohl dies zu besseren Ergebnissen fÃ¼hrt, muss es vermieden werden, sobald der Thread, der von der <em>Adresse</em> aufgerufen wird, variiert (wenn das Callback beispielsweise von einer eingehenden Nachricht ausgelÃ¶st wird). Denn der <em>Funktionsname</em> wird in der Lage sein, global Einstellungen wie <a href="../misc/ErrorLevel.htm">ErrorLevel</a>, <a href="../Variables.htm#LastError">A_LastError</a> und das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> zu Ã¤ndern, immer wenn ein Thread gestartet wird, wÃ¤hrend er aufgerufen wird. FÃ¼r weitere Informationen, siehe <a href="#Threads">Bemerkungen</a>.</p>
-    <p><strong>CDecl</strong> oder <strong>C</strong>: Passt die <em>Adresse</em> an die "C"-Aufrufkonvention an. Das wird normalerweise weggelassen, da die Standard-Aufrufkonvention fÃ¼r Callbacks gebrÃ¤uchlicher ist.</p></td>
+    <td><p>Verwendet keine oder mehrere folgende Wörter. Die Optionen werden mit einem Leerzeichen getrennt (z.B. "C Fast").</p>
+    <p><strong><a name="Fast" id="Fast"></a>Fast</strong> oder <strong>F</strong>: Verhindert, dass jedes Mal ein neuer <a href="../misc/Threads.htm">Thread</a> gestartet wird, wenn der <em>Funktionsname</em> aufgerufen wird. Obwohl dies zu besseren Ergebnissen führt, muss es vermieden werden, sobald der Thread, der von der <em>Adresse</em> aufgerufen wird, variiert (wenn das Callback beispielsweise von einer eingehenden Nachricht ausgelöst wird). Denn der <em>Funktionsname</em> wird in der Lage sein, global Einstellungen wie <a href="../misc/ErrorLevel.htm">ErrorLevel</a>, <a href="../Variables.htm#LastError">A_LastError</a> und das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> zu ändern, immer wenn ein Thread gestartet wird, während er aufgerufen wird. Für weitere Informationen, siehe <a href="#Threads">Bemerkungen</a>.</p>
+    <p><strong>CDecl</strong> oder <strong>C</strong>: Passt die <em>Adresse</em> an die "C"-Aufrufkonvention an. Das wird normalerweise weggelassen, da die Standard-Aufrufkonvention für Callbacks gebräuchlicher ist.</p></td>
   </tr>
   <tr>
     <td>Parameteranzahl</td>
-    <td>Die Anzahl der Parameter, die dem Aufrufer von der <em>Adresse</em> Ã¼bergeben werden. Wenn ganz weggelassen, dann wird standardmÃ¤ÃŸig die Anzahl der vorgeschriebenen Parameter in der <a href="../Functions.htm#define">Definition</a> der <em>Funktionsname</em> verwendet. In jedem Fall sollte sichergestellt wird, dass der Aufrufer genau diese Anzahl von Parametern Ã¼bergibt.</td>
+    <td>Die Anzahl der Parameter, die dem Aufrufer von der <em>Adresse</em> übergeben werden. Wenn ganz weggelassen, dann wird standardmäßig die Anzahl der vorgeschriebenen Parameter in der <a href="../Functions.htm#define">Definition</a> der <em>Funktionsname</em> verwendet. In jedem Fall sollte sichergestellt wird, dass der Aufrufer genau diese Anzahl von Parametern übergibt.</td>
   </tr>
   <tr>
     <td>EventInfo</td>
-    <td>Eine Integer zwischen 0 und 4294967295, welche vom <em>Funktionsnamen</em> in <a href="../Variables.htm#EventInfo">A_EventInfo</a> gesehen wird, sobald sie mit dieser <em>Adresse</em> aufgerufen wird. Das ist nÃ¼tzlich, wenn der <em>Funktionsname</em> von mehreren <em>Adressen</em> aufgerufen wird. Wenn nicht vorhanden, dann standardmÃ¤ÃŸig die <em>Adresse</em>. Hinweis: Im Gegensatz zu anderen globalen Einstellungen wird A_EventInfo des <a href="../misc/Threads.htm">aktuellen Threads</a> nicht vom <a href="#Fast">schnellen Modus</a> gestÃ¶rt.</td>
+    <td>Eine Integer zwischen 0 und 4294967295, welche vom <em>Funktionsnamen</em> in <a href="../Variables.htm#EventInfo">A_EventInfo</a> gesehen wird, sobald sie mit dieser <em>Adresse</em> aufgerufen wird. Das ist nützlich, wenn der <em>Funktionsname</em> von mehreren <em>Adressen</em> aufgerufen wird. Wenn nicht vorhanden, dann standardmäßig die <em>Adresse</em>. Hinweis: Im Gegensatz zu anderen globalen Einstellungen wird A_EventInfo des <a href="../misc/Threads.htm">aktuellen Threads</a> nicht vom <a href="#Fast">schnellen Modus</a> gestört.</td>
   </tr>
 </table>
 
 <h3>Die Parameter der Callback-Funktion</h3>
-<p>Eine <a href="../Functions.htm">Funktion</a>, die einer Callback-Adresse zugewiesen ist, kann bis zu 31 Parameter akzeptieren. <a href="../Functions.htm#optional">Optionale Parameter</a> sind erlaubt und nÃ¼tzlich, wenn die Funktion von mehreren Aufrufern aufgerufen wird.</p>
-<p>Alle eingehenden Parameter sind Integer zwischen 0 und 4294967295. Wenn ein eingehender Parameter als signed Integer vorgesehen ist, dann kÃ¶nnen negative Zahlen mit dem folgenden Beispiel offenbart werden:</p>
+<p>Eine <a href="../Functions.htm">Funktion</a>, die einer Callback-Adresse zugewiesen ist, kann bis zu 31 Parameter akzeptieren. <a href="../Functions.htm#optional">Optionale Parameter</a> sind erlaubt und nützlich, wenn die Funktion von mehreren Aufrufern aufgerufen wird.</p>
+<p>Alle eingehenden Parameter sind Integer zwischen 0 und 4294967295. Wenn ein eingehender Parameter als signed Integer vorgesehen ist, dann können negative Zahlen mit dem folgenden Beispiel offenbart werden:</p>
 <pre>If wParam > 0x7FFFFFFF
     wParam := -(~wParam) - 1</pre>
 <p>Wenn ein eingehender Parameter vom Aufrufer als String vorgesehen ist, dann wird die aktuelle Adresse des Strings abgerufen. Um den String selbst abzurufen, verwendet <a href="StrPutGet.htm">StrGet</a>:</p>
 <pre>EigenerString := StrGet(EigenerParameter)  <em>; AHK_L 46+</em></pre>
-<p>Wenn ein eingehender Parameter die Adresse einer Struktur ist, dann kÃ¶nnen einzelne Elemente extrahiert werden, wenn die Schritte bei den <a href="DllCall.htm#struct">DllCall-Strukturen</a> befolgt werden.</p>
+<p>Wenn ein eingehender Parameter die Adresse einer Struktur ist, dann können einzelne Elemente extrahiert werden, wenn die Schritte bei den <a href="DllCall.htm#struct">DllCall-Strukturen</a> befolgt werden.</p>
 <p id="Indirect"><span class="ver">[AHK_L 60+]:</span> Ist die Funktion <a href="../Functions.htm#Variadic">variadisch</a>, dann wird der letzte Parameter der <i>Adresse</i> des ersten Callback-Parameters zugewiesen, welche nicht einem Script-Parameter zugeordnet ist. Zum Beispiel:</p>
 <pre>callback := RegisterCallback("Func", "F", 1)  <em>; Parameteranzahl muss angegeben werden.</em>
 Func("Funktion wurde direkt aufgerufen.")  <em>; Funktion direkt aufrufen.</em>
@@ -57,13 +57,13 @@ Func(params*) {
     Else
         MsgBox % <a href="../Functions.htm#NumGet">NumGet</a>(params+0, 0, "float")
 }</pre>
-<p>Die meisten Callbacks verwenden die <i>stdcall</i>-Aufrufkonvention, die eine feste Anzahl an Parametern voraussetzt. In diesen FÃ¤llen muss <i>Parameteranzahl</i> beim Erstellen des Callbacks angegeben werden. Die <i>Parameteranzahl</i> kann bei 64-Bit-Konstruktionen und bei <i>Cdecl</i>-Callbacks in 32-Bit-Konstruktionen weggelassen werden. In solchen FÃ¤llen erhalten alle optionalen Parameter ihre Standardwerte und werden zum Zweck der Berechnung der Adresse ignoriert, die in <i>params</i> gespeichert werden.</p>
-<h3>Was die Funktion <em>zurÃ¼ckgeben</em> sollte</h3>
-<p>Wenn die Funktion <a href="Return.htm">Return</a> ohne Parameter verwendet oder ein leerer Wert wie "" angegeben ist (oder Ã¼berhaupt nicht Return verwendet), dann wird 0 zum Aufrufer der <em>Adresse</em> zurÃ¼ckgeschickt. Ansonsten sollte die Funktion einen Integer zwischen -2147483648 und 4294967295 zurÃ¼ckgeben, die anschlieÃŸend zum Aufrufer der <em>Adresse</em> zurÃ¼ckgeschickt wird.</p>
+<p>Die meisten Callbacks verwenden die <i>stdcall</i>-Aufrufkonvention, die eine feste Anzahl an Parametern voraussetzt. In diesen Fällen muss <i>Parameteranzahl</i> beim Erstellen des Callbacks angegeben werden. Die <i>Parameteranzahl</i> kann bei 64-Bit-Konstruktionen und bei <i>Cdecl</i>-Callbacks in 32-Bit-Konstruktionen weggelassen werden. In solchen Fällen erhalten alle optionalen Parameter ihre Standardwerte und werden zum Zweck der Berechnung der Adresse ignoriert, die in <i>params</i> gespeichert werden.</p>
+<h3>Was die Funktion <em>zurückgeben</em> sollte</h3>
+<p>Wenn die Funktion <a href="Return.htm">Return</a> ohne Parameter verwendet oder ein leerer Wert wie "" angegeben ist (oder überhaupt nicht Return verwendet), dann wird 0 zum Aufrufer der <em>Adresse</em> zurückgeschickt. Ansonsten sollte die Funktion einen Integer zwischen -2147483648 und 4294967295 zurückgeben, die anschließend zum Aufrufer der <em>Adresse</em> zurückgeschickt wird.</p>
 <h3 id="Threads">Der Vergleich von Fast und Slow</h3>
-<p>Der Standard-/langsame Modus startet die Funktion mit Standardwerten von Einstellungen wie <a href="SendMode.htm">SendMode</a> und <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a>. Diese kÃ¶nnen im <a href="../Scripts.htm#auto">automatischen AusfÃ¼hrungsbereich</a> geÃ¤ndert werden.</p>
-<p>Im Gegensatz dazu Ã¼bernimmt der <a href="#Fast">schnelle Modus</a> die globalen Einstellungen, immer wenn ein <a href="../misc/Threads.htm">Thread</a> gestartet wird, wÃ¤hrend er aufgerufen wird. DarÃ¼ber hinaus werden Ã„nderungen der Funktion an den globalen Einstellungen (einschlieÃŸlich <a href="../misc/ErrorLevel.htm">ErrorLevel</a> und das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a>) fÃ¼r den <a href="../misc/Threads.htm">aktuellen Thread</a> wirksam. Folglich sollte der schnelle Modus nur verwendet werden, wenn genau bekannt ist, welche(n) Thread(s) die Funktion aufrufen wird.</p>
-<p>Um zu vermeiden, dass sie sich selbst unterbricht (oder von einem anderen Thread), verwendet <a href="Critical.htm">Critical</a> in der ersten Zeile von Callback. Dies ist jedoch nicht vollstÃ¤ndig effektiv, wenn die Funktion indirekt von einer eingehenden Nachricht kleiner als 0x312 aufgerufen wird (die ErhÃ¶hung des <a href="Critical.htm#Interval">Intervalls</a> in Critical kann helfen). DarÃ¼ber hinaus hindert <a href="Critical.htm">Critical</a> die Funktion nicht daran, sich indirekt selbst aufrufen zu kÃ¶nnen (z. B. <a href="PostMessage.htm">SendMessage</a> oder <a href="DllCall.htm">DllCall</a> aufrufen).</p>
+<p>Der Standard-/langsame Modus startet die Funktion mit Standardwerten von Einstellungen wie <a href="SendMode.htm">SendMode</a> und <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a>. Diese können im <a href="../Scripts.htm#auto">automatischen Ausführungsbereich</a> geändert werden.</p>
+<p>Im Gegensatz dazu übernimmt der <a href="#Fast">schnelle Modus</a> die globalen Einstellungen, immer wenn ein <a href="../misc/Threads.htm">Thread</a> gestartet wird, während er aufgerufen wird. Darüber hinaus werden Änderungen der Funktion an den globalen Einstellungen (einschließlich <a href="../misc/ErrorLevel.htm">ErrorLevel</a> und das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a>) für den <a href="../misc/Threads.htm">aktuellen Thread</a> wirksam. Folglich sollte der schnelle Modus nur verwendet werden, wenn genau bekannt ist, welche(n) Thread(s) die Funktion aufrufen wird.</p>
+<p>Um zu vermeiden, dass sie sich selbst unterbricht (oder von einem anderen Thread), verwendet <a href="Critical.htm">Critical</a> in der ersten Zeile von Callback. Dies ist jedoch nicht vollständig effektiv, wenn die Funktion indirekt von einer eingehenden Nachricht kleiner als 0x312 aufgerufen wird (die Erhöhung des <a href="Critical.htm#Interval">Intervalls</a> in Critical kann helfen). Darüber hinaus hindert <a href="Critical.htm">Critical</a> die Funktion nicht daran, sich indirekt selbst aufrufen zu können (z. B. <a href="PostMessage.htm">SendMessage</a> oder <a href="DllCall.htm">DllCall</a> aufrufen).</p>
 <h3>Speicher</h3>
 <p>Jede Verwendung von RegisterCallback() reserviert eine kleine Speichermenge (32 Bytes plus System-Overhead). Da das Betriebssystem diesen Speicher automatisch beim Beenden des Scripts freigibt, wird der Speicher von einer kleinen <em>festen</em> Anzahl von Callbacks nicht direkt freigegeben. Im Gegensatz dazu sollte ein Script, das RegisterCallback() unendlich oft aufruft, Folgendes bei unbenutzten Callbacks direkt aufrufen:</p>
 <pre>DllCall("GlobalFree", "Ptr", Adresse)</pre>
@@ -72,13 +72,13 @@ Func(params*) {
 <h3>Beispiele</h3>
 <pre class="NoIndent"><em>; Beispiel: Das Folgende ist ein funktionierendes Script, das eine Zusammenfassung aller Top-Level-Fenster angezeigt.</em>
 
-<em>; Zur Erhaltung der Performance und des Speichers wird RegisterCallback() nur einmal fÃ¼r ein bestimmtes Callback aufgerufen:</em>
+<em>; Zur Erhaltung der Performance und des Speichers wird RegisterCallback() nur einmal für ein bestimmtes Callback aufgerufen:</em>
 If not EnumAdresse  <em>; schneller Modus ist okay, weil er nur vom diesen Thread aufgerufen wird:</em>
     EnumAdresse := <strong>RegisterCallback</strong>("EnumWindowsProc", "Fast")
 
-DetectHiddenWindows On  <em>; Durch den schnellen Modus wird diese Einstellung auch fÃ¼r das Callback wirksam.</em>
+DetectHiddenWindows On  <em>; Durch den schnellen Modus wird diese Einstellung auch für das Callback wirksam.</em>
 
-<em>; Kontrolle an EnumWindows() Ã¼bergeben, die Callback mehrmals aufruft:</em>
+<em>; Kontrolle an EnumWindows() übergeben, die Callback mehrmals aufruft:</em>
 DllCall("EnumWindows", Ptr, EnumAdresse, Ptr, 0)
 MsgBox %Output%  <em>; Zeigt die gesammelten Informationen von Callback an.</em>
 
@@ -94,7 +94,7 @@ EnumWindowsProc(hwnd, lParam)
 <p>&nbsp;</p>
 <pre class="NoIndent"><em>; Beispiel: Das Folgende ist ein funktionierendes Script, dass demonstriert, wie ein GUI-Fenster in eine Unterklasse
 ; gesetzt wird, wenn WindowProc zu einem neuen WindowProc weitergeleitet wird. In diesem Fall wird die Hintergrundfarbe
-; des Text-Steuerelements auf eine benutzerdefinierte Farbe umgeÃ¤ndert.</em>
+; des Text-Steuerelements auf eine benutzerdefinierte Farbe umgeändert.</em>
 
 Texthintergrundfarbe := 0xFFBBBB  <em>; Eine benutzerdefinierte Farbe im BGR-Format.</em>
 Pinsel := DllCall("CreateSolidBrush", UInt, Texthintergrundfarbe)
@@ -103,10 +103,10 @@ Gui, Add, Text, HwndEigenerTextHwnd, Hier ein Text mit einer`nbenutzerdefinierte
 Gui +LastFound
 GuiHwnd := WinExist()
 
-<em>; 64-Bit-Scripts mÃ¼ssen SetWindowLongPtr anstelle von SetWindowLong aufrufen:</em>
+<em>; 64-Bit-Scripts müssen SetWindowLongPtr anstelle von SetWindowLong aufrufen:</em>
 SetWindowLong := A_PtrSize=8 ? "SetWindowLongPtr" : "SetWindowLong"
 
-WindowProcNew := <strong>RegisterCallback</strong>("WindowProc", ""  <em>; Verwendet "", um den schnellen Modus fÃ¼r die Unterklasse zu verhindern.</em>
+WindowProcNew := <strong>RegisterCallback</strong>("WindowProc", ""  <em>; Verwendet "", um den schnellen Modus für die Unterklasse zu verhindern.</em>
     , <strong>4</strong>, EigenerTextHwnd)  <em>; Parameteranzahl muss exakt angegeben werden, wenn der Ereignisinfo-Parameter vorhanden ist.</em>
 WindowProcOld := DllCall(SetWindowLong, Ptr, GuiHwnd, Int, -4  <em>; -4 ist GWL_WNDPROC</em>
     , Ptr, WindowProcNew, Ptr)  <em>; Wert muss auf Ptr oder UPtr anstelle von Int gesetzt werden.</em>
@@ -121,9 +121,9 @@ WindowProc(hwnd, uMsg, wParam, lParam)
     If (uMsg = 0x138 && lParam = A_EventInfo)  <em>; 0x138 ist WM_CTLCOLORSTATIC.</em>
     {
         DllCall("SetBkColor", UInt, wParam, Ptr, Texthintergrundfarbe)
-        Return Pinsel  <em>; Gibt HBRUSH zurÃ¼ck, um dem OS mitzuteilen, dass wir HDC Ã¤ndern.</em>
+        Return Pinsel  <em>; Gibt HBRUSH zurück, um dem OS mitzuteilen, dass wir HDC ändern.</em>
     }
-    <em>; Ansonsten (wenn nichts zurÃ¼ckgegeben wird) werden alle unbehandelten Ereignisse an dem originalen WindowProc Ã¼bergeben.</em>
+    <em>; Ansonsten (wenn nichts zurückgegeben wird) werden alle unbehandelten Ereignisse an dem originalen WindowProc übergeben.</em>
     Return DllCall("CallWindowProc", Ptr, WindowProcOld, Ptr, hwnd, UInt, uMsg, Ptr, wParam, Ptr, lParam)
 }
 

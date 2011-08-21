@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>IniDelete</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,7 +12,7 @@
 
 <p>Entfernt einen Wert von einer INI-Datei im Standardformat. </p>
 
-<pre class="Syntax">IniDelete, Dateiname, Sektion [, SchlÃ¼ssel]</pre>
+<pre class="Syntax">IniDelete, Dateiname, Sektion [, Schlüssel]</pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
@@ -21,22 +21,22 @@
   </tr>
   <tr>
     <td>Sektion</td>
-    <td>Name der Sektion in der INI-Datei. Solche Sektionen werden mit eckigen Klammern dargestellt (die Klammern dÃ¼rfen nicht in diesem Parameter stehen). </td>
+    <td>Name der Sektion in der INI-Datei. Solche Sektionen werden mit eckigen Klammern dargestellt (die Klammern dürfen nicht in diesem Parameter stehen). </td>
   </tr>
   <tr>
-    <td>SchlÃ¼ssel</td>
-    <td>Name des SchlÃ¼ssels in der INI-Datei. <strong>Wenn weggelassen, dann wird die ganze <em>Sektion</em> gelÃ¶scht.</strong></td>
+    <td>Schlüssel</td>
+    <td>Name des Schlüssels in der INI-Datei. <strong>Wenn weggelassen, dann wird die ganze <em>Sektion</em> gelöscht.</strong></td>
   </tr>
 </table>
 <h3>ErrorLevel</h3>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthÃ¤lt ErrorLevel eine 0. Wenn das Script allerdings vom Typ .aut (AutoIt v2) ist, dann wird ErrorLevel nicht geÃ¤ndert (aus GrÃ¼nden der KompatibilitÃ¤t).</p>
+<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0. Wenn das Script allerdings vom Typ .aut (AutoIt v2) ist, dann wird ErrorLevel nicht geändert (aus Gründen der Kompatibilität).</p>
 <h3>Bemerkungen</h3>
 <p>Eine typische INI-Datei sieht wie folgt aus:</p>
-<p>[Sektionsname]<br> SchlÃ¼ssel=Wert</p>
+<p>[Sektionsname]<br> Schlüssel=Wert</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="IniRead.htm">IniRead</a>, <a href="IniWrite.htm">IniWrite</a>, <a href="RegDelete.htm">RegDelete</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">IniDelete, C:\Temp\EigeneDatei.ini, Sektion2, SchlÃ¼ssel</pre>
+<pre class="NoIndent">IniDelete, C:\Temp\EigeneDatei.ini, Sektion2, Schlüssel</pre>
 
 </body>
 </html>

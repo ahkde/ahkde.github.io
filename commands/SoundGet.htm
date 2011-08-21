@@ -3,77 +3,77 @@
 <html>
 <head>
 <title>SoundGet</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>SoundGet</h1>
 
-<p>Ermittelt diverse Einstellungen eines Audioger√§ts (Stummschalten, Gesamtlautst√§rke usw.)</p>
+<p>Ermittelt diverse Einstellungen eines Audioger‰ts (Stummschalten, Gesamtlautst‰rke usw.)</p>
 
-<pre class="Syntax">SoundGet, Ausgabevariable [, Komponententyp, Kontrolltyp, Ger√§tenummer]</pre>
+<pre class="Syntax">SoundGet, Ausgabevariable [, Komponententyp, Kontrolltyp, Ger‰tenummer]</pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Ausgabevariable</td>
-    <td width="85%">Der Name der Variable, in der die abgerufene Einstellung gespeichert wird, welche entweder eine Flie√ükommazahl zwischen 0 und 100 oder das Wort ON oder OFF ist (nur f√ºr die <em>Kontrolltypen</em> ONOFF, MUTE, MONO, LOUDNESS, STEREOENH und BASSBOOST). Die Variable wird leer gemacht, wenn ein Problem beim Abrufen der Einstellung aufgetreten ist. Das Format der Flie√ükommazahl (eine Zahl mit Dezimalstellen) wird durch <a href="SetFormat.htm">SetFormat</a> festgelegt.</td>
+    <td width="85%">Der Name der Variable, in der die abgerufene Einstellung gespeichert wird, welche entweder eine Flieﬂkommazahl zwischen 0 und 100 oder das Wort ON oder OFF ist (nur f¸r die <em>Kontrolltypen</em> ONOFF, MUTE, MONO, LOUDNESS, STEREOENH und BASSBOOST). Die Variable wird leer gemacht, wenn ein Problem beim Abrufen der Einstellung aufgetreten ist. Das Format der Flieﬂkommazahl (eine Zahl mit Dezimalstellen) wird durch <a href="SetFormat.htm">SetFormat</a> festgelegt.</td>
   </tr>
   <tr>
     <td>Komponententyp</td>
-    <td><p>Wenn leer oder nicht vorhanden, dann wird standardm√§√üig das Wort ERROR verwendet. Ansonsten ist es ein folgendes Wort: MASTER (gleichbedeutend mit SPEAKERS), DIGITAL, LINE, MICROPHONE, SYNTH, CD, TELEPHONE, PCSPEAKER, WAVE, AUX, ANALOG, HEADPHONES oder N/A. Wenn das Audioger√§t den angegebenen <em>Komponententyp</em> nicht hat, dann kennzeichnet ErrorLevel das Problem.</p>
+    <td><p>Wenn leer oder nicht vorhanden, dann wird standardm‰ﬂig das Wort ERROR verwendet. Ansonsten ist es ein folgendes Wort: MASTER (gleichbedeutend mit SPEAKERS), DIGITAL, LINE, MICROPHONE, SYNTH, CD, TELEPHONE, PCSPEAKER, WAVE, AUX, ANALOG, HEADPHONES oder N/A. Wenn das Audioger‰t den angegebenen <em>Komponententyp</em> nicht hat, dann kennzeichnet ErrorLevel das Problem.</p>
       <p>Die Komponente mit der Bezeichnung Auxiliary kann in einigen Mixern nur mit ANALOG und nicht mit AUX aufgerufen werden.</p>
-    <p>Wenn ein Ger√§t mehrere Instanzen vom <em>Komponententyp</em> hat (zum Beispiel zwei vom Typ LINE), dann enth√§lt der erste Typ normalerweise die Wiedergabeeinstellungen und der zweite Typ die Aufnahmeeinstellungen. Um auf eine Instanz au√üer der Ersten zuzugreifen, f√ºgt dem Parameter einen Doppelpunkt und eine Nummer an. Zum Beispiel: Analog:2 ist die zweite Instanz der analogen Komponente.</p>    </td>
+    <p>Wenn ein Ger‰t mehrere Instanzen vom <em>Komponententyp</em> hat (zum Beispiel zwei vom Typ LINE), dann enth‰lt der erste Typ normalerweise die Wiedergabeeinstellungen und der zweite Typ die Aufnahmeeinstellungen. Um auf eine Instanz auﬂer der Ersten zuzugreifen, f¸gt dem Parameter einen Doppelpunkt und eine Nummer an. Zum Beispiel: Analog:2 ist die zweite Instanz der analogen Komponente.</p>    </td>
   </tr>
   <tr>
     <td>Kontrolltyp</td>
-    <td>Wenn leer oder nicht vorhanden, dann wird standardm√§√üig das Wort VOLUME verwendet. Ansonsten ist es ein folgendes Wort: VOLUME (oder VOL), ONOFF, MUTE, MONO, LOUDNESS, STEREOENH, BASSBOOST, PAN, QSOUNDPAN, BASS, TREBLE, EQUALIZER oder die Nummer eines g√ºltigen Kontrolltyps (siehe <a href="SoundSet.htm#Ex">Soundkartenanalyse-Script</a>). Wenn der <em>Komponententyp</em> den angegebenen <em>Kontrolltyp</em> nicht hat, dann kennzeichnet ErrorLevel das Problem.</td>
+    <td>Wenn leer oder nicht vorhanden, dann wird standardm‰ﬂig das Wort VOLUME verwendet. Ansonsten ist es ein folgendes Wort: VOLUME (oder VOL), ONOFF, MUTE, MONO, LOUDNESS, STEREOENH, BASSBOOST, PAN, QSOUNDPAN, BASS, TREBLE, EQUALIZER oder die Nummer eines g¸ltigen Kontrolltyps (siehe <a href="SoundSet.htm#Ex">Soundkartenanalyse-Script</a>). Wenn der <em>Komponententyp</em> den angegebenen <em>Kontrolltyp</em> nicht hat, dann kennzeichnet ErrorLevel das Problem.</td>
   </tr>
   <tr>
-    <td>Ger√§tenummer</td>
-    <td>Wenn dieser Parameter weggelassen wird, dann standardm√§√üig eine 1 (das erste Audioger√§t), welches in der Regel das Standardger√§t f√ºr die Aufnahme und Wiedergabe ist. Verwendet eine Zahl gr√∂√üer als 1, um ein anderes Audioger√§t zu bearbeiten. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
+    <td>Ger‰tenummer</td>
+    <td>Wenn dieser Parameter weggelassen wird, dann standardm‰ﬂig eine 1 (das erste Audioger‰t), welches in der Regel das Standardger‰t f¸r die Aufnahme und Wiedergabe ist. Verwendet eine Zahl grˆﬂer als 1, um ein anderes Audioger‰t zu bearbeiten. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
   </tr>
 </table>
 <h3>ErrorLevel</h3>
-<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 0 gesetzt, wenn der Befehl erfolgreich war. Ansonsten enth√§lt ErrorLevel einen folgenden Satz:</p>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 0 gesetzt, wenn der Befehl erfolgreich war. Ansonsten enth‰lt ErrorLevel einen folgenden Satz:</p>
 <table class="info" style="width:436px">
   <tr>
-    <td width="426">Invalid Control Type or Component Type (ung√ºltiger Kontrolltyp oder Komponententyp)</td>
+    <td width="426">Invalid Control Type or Component Type (ung¸ltiger Kontrolltyp oder Komponententyp)</td>
   </tr>
   <tr>
-    <td>Can't Open Specified Mixer (der angegebene Mixer konnte nicht ge√∂ffnet werden)</td>
+    <td>Can't Open Specified Mixer (der angegebene Mixer konnte nicht geˆffnet werden)</td>
   </tr>
   <tr>
-    <td>Mixer Doesn't Support This Component Type (der Mixer unterst√ºtzt nicht diesen Komponententyp)</td>
+    <td>Mixer Doesn't Support This Component Type (der Mixer unterst¸tzt nicht diesen Komponententyp)</td>
   </tr>
   <tr>
     <td>Mixer Doesn't Have That Many of That Component Type (der Mixer hat nicht so viele Komponententypen)</td>
   </tr>
   <tr>
-    <td>Component Doesn't Support This Control Type (die Komponente unterst√ºtzt nicht diesen Kontrolltyp)</td>
+    <td>Component Doesn't Support This Control Type (die Komponente unterst¸tzt nicht diesen Kontrolltyp)</td>
   </tr>
   <tr>
     <td>Can't Get Current Setting (aktuelle Einstellung konnte nicht ermittelt werden)</td>
   </tr>
 </table>
 <h3>Bemerkungen</h3>
-<p>In Windows Vista oder h√∂her ermittelt SoundGet die Einstellungen des Scripts und nicht des aktiven Fensters. Dieses Problem wird m√∂glicherweise in einer zuk√ºnftigen Version behoben. Als √úbergangsl√∂sung kann die Kompatibilit√§tseinstellung der Datei "AutoHotkey.exe" (oder des <a href="../Scripts.htm#ahk2exe">kompilierte Scripts</a>) auf "Windows XP" gesetzt werden.</p>
-<p>Um die Einsatzm√∂glichkeiten des installierten Audioger√§ts (Mixer) festzustellen (z. B. verf√ºgbare Komponenten- und Kontrolltypen), f√ºhrt das <a href="SoundSet.htm#Ex">Soundkartenanalyse-Script</a> aus.</p>
-<p>Verwendet <a href="SoundSet.htm">SoundSet</a>, um eine Einstellung zu √§ndern. </p>
+<p>In Windows Vista oder hˆher ermittelt SoundGet die Einstellungen des Scripts und nicht des aktiven Fensters. Dieses Problem wird mˆglicherweise in einer zuk¸nftigen Version behoben. Als ‹bergangslˆsung kann die Kompatibilit‰tseinstellung der Datei "AutoHotkey.exe" (oder des <a href="../Scripts.htm#ahk2exe">kompilierte Scripts</a>) auf "Windows XP" gesetzt werden.</p>
+<p>Um die Einsatzmˆglichkeiten des installierten Audioger‰ts (Mixer) festzustellen (z. B. verf¸gbare Komponenten- und Kontrolltypen), f¸hrt das <a href="SoundSet.htm#Ex">Soundkartenanalyse-Script</a> aus.</p>
+<p>Verwendet <a href="SoundSet.htm">SoundSet</a>, um eine Einstellung zu ‰ndern. </p>
 <h3>Verwandte Befehle</h3>
 <p><a href="SoundSet.htm">SoundSet</a>, <a href="SoundGetWaveVolume.htm">SoundGetWaveVolume</a>, <a href="SoundSetWaveVolume.htm">SoundSetWaveVolume</a>, <a href="SoundPlay.htm">SoundPlay</a></p>
 <h3>Beispiele</h3>
 <pre class="NoIndent">SoundGet, master_volume
-MsgBox, Gesamtlautst√§rke liegt bei %master_volume% Prozent.
+MsgBox, Gesamtlautst‰rke liegt bei %master_volume% Prozent.
 
 SoundGet, master_mute, , mute
-MsgBox, Gesamtlautst√§rke ist zurzeit %master_mute%.
+MsgBox, Gesamtlautst‰rke ist zurzeit %master_mute%.
 
 SoundGet, bass_level, Master, bass
 If ErrorLevel
     MsgBox, Fehlerbeschreibung: %ErrorLevel%
 Else
-    MsgBox, The BASS-Pegel f√ºr MASTER liegt bei %bass_level% Prozent.
+    MsgBox, The BASS-Pegel f¸r MASTER liegt bei %bass_level% Prozent.
 
 SoundGet, microphone_mute, Microphone, mute
 If microphone_mute = Off

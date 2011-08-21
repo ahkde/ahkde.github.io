@@ -3,45 +3,45 @@
 <html>
 <head>
 <title>ListLines</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>ListLines</h1>
 
-<p>Zeigt die aktuell ausgefÃ¼hrten Script-Zeilen an.</p>
+<p>Zeigt die aktuell ausgeführten Script-Zeilen an.</p>
 
 <pre class="Syntax">ListLines [, On|Off] </pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">On|Off</td>
-    <td width="85%"><p>Wenn leer oder nicht vorhanden, dann wird der Verlauf der aktuell ausgefÃ¼hrten Zeilen angezeigt. Seit v1.0.48.01 ist es mÃ¶glich, wahlweise On oder Off im ersten Parameter anzugeben. Dies wirkt sich wie folgt nur auf das Verhalten des <a href="../misc/Threads.htm">aktuellen Threads</a> aus:</p>
-      <p>On: FÃ¼gt danach ausgefÃ¼hrte Zeilen im Verlauf ein. Das ist der Standardwert fÃ¼r alle Scripts.</p>
-      <p>Off: LÃ¤sst danach ausgefÃ¼hrte Zeilen vom Verlauf weg.</p></td>
+    <td width="85%"><p>Wenn leer oder nicht vorhanden, dann wird der Verlauf der aktuell ausgeführten Zeilen angezeigt. Seit v1.0.48.01 ist es möglich, wahlweise On oder Off im ersten Parameter anzugeben. Dies wirkt sich wie folgt nur auf das Verhalten des <a href="../misc/Threads.htm">aktuellen Threads</a> aus:</p>
+      <p>On: Fügt danach ausgeführte Zeilen im Verlauf ein. Das ist der Standardwert für alle Scripts.</p>
+      <p>Off: Lässt danach ausgeführte Zeilen vom Verlauf weg.</p></td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>ListLines (ohne Parameter) entspricht der Auswahl des MenÃ¼elements "View->Lines most recently executed" im Hauptfenster. Es kann helfen, <a href="../Scripts.htm#debug">ein Script zu debuggen</a>.</p>
-<p>"ListLines Off/On" kann verwendet werden, um bestimmte Zeilen vom Verlauf wegzulassen, damit der Verlauf sich nicht zu schnell fÃ¼llt (z. B. bei einer Schleife mit schnellen Iterationen). "ListLines, Off" kann auÃŸerdem die Performance um einige Prozente verbessern.</p>
-<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter MenÃ¼punkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung fÃ¼r diesen Befehl. Die Voreinstellung lÃ¤sst sich Ã¤ndern, wenn dieser Befehl im automatischen AusfÃ¼hrungsbereich (am Anfang des Scripts) ausgefÃ¼hrt wird.</p>
-<p>Obwohl keine interne Variable "A_ListLines" vorhanden ist, kann eine Ã¤hnliche FunktionalitÃ¤t erreicht werden, indem Folgendes im Script eingefÃ¼gt wird:</p>
-<pre>ListLines(PassTrueToTurnOnOrFalseToTurnOff)  <em>; Gibt die vorherige Einstellung von ListLines zurÃ¼ck (vor diesem Aufruf).</em>
+<p>ListLines (ohne Parameter) entspricht der Auswahl des Menüelements "View->Lines most recently executed" im Hauptfenster. Es kann helfen, <a href="../Scripts.htm#debug">ein Script zu debuggen</a>.</p>
+<p>"ListLines Off/On" kann verwendet werden, um bestimmte Zeilen vom Verlauf wegzulassen, damit der Verlauf sich nicht zu schnell füllt (z. B. bei einer Schleife mit schnellen Iterationen). "ListLines, Off" kann außerdem die Performance um einige Prozente verbessern.</p>
+<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter Menüpunkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung für diesen Befehl. Die Voreinstellung lässt sich ändern, wenn dieser Befehl im automatischen Ausführungsbereich (am Anfang des Scripts) ausgeführt wird.</p>
+<p>Obwohl keine interne Variable "A_ListLines" vorhanden ist, kann eine ähnliche Funktionalität erreicht werden, indem Folgendes im Script eingefügt wird:</p>
+<pre>ListLines(PassTrueToTurnOnOrFalseToTurnOff)  <em>; Gibt die vorherige Einstellung von ListLines zurück (vor diesem Aufruf).</em>
 {
-    static sListLines := true  <em>; Die Standardeinstellung fÃ¼r alle Scripts ist "ListLines On".</em>
-    ListLines % PassTrueToTurnOnOrFalseToTurnOff ? "On" : "Off"  <em>; FÃ¼hrt ListLines bedingungslos aus, um nachfolgend ausgefÃ¼hrte Zeilen im log wegzulassen.</em>
+    static sListLines := true  <em>; Die Standardeinstellung für alle Scripts ist "ListLines On".</em>
+    ListLines % PassTrueToTurnOnOrFalseToTurnOff ? "On" : "Off"  <em>; Führt ListLines bedingungslos aus, um nachfolgend ausgeführte Zeilen im log wegzulassen.</em>
     ListLines_prev := sListLines
     sListLines := PassTrueToTurnOnOrFalseToTurnOff
     Return ListLines_prev
 }
 
 <em>; Um die obere Funktion anzuwenden:</em>
-prev_ListLines := ListLines(false)  <em>; ListLines wird vorÃ¼bergehend deaktiviert.
+prev_ListLines := ListLines(false)  <em>; ListLines wird vorübergehend deaktiviert.
 ; ...</em>
 ListLines(prev_ListLines)  <em>; Die vorherige Einstellung von ListLines wird wiederhergestellt.</em></pre>
-<p>ZusÃ¤tzlich beinhalten die internen Variablen <a href="../Variables.htm#LineNumber">A_LineNumber</a> und <a href="../Variables.htm#LineFile">A_LineFile</a> die aktuell ausgefÃ¼hrte Zeilennummer und den dazugehÃ¶rigen Dateinamen.</p>
+<p>Zusätzlich beinhalten die internen Variablen <a href="../Variables.htm#LineNumber">A_LineNumber</a> und <a href="../Variables.htm#LineFile">A_LineFile</a> die aktuell ausgeführte Zeilennummer und den dazugehörigen Dateinamen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="KeyHistory.htm">KeyHistory</a>, <a href="ListHotkeys.htm">ListHotkeys</a>, <a href="ListVars.htm">ListVars</a></p>
 <h3>Beispiel</h3>

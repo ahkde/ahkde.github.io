@@ -4,14 +4,14 @@
 <head>
 <title>UrlDownloadToFile</title>
 <meta name="description" content="Download any type of file via UrlDownloadToFile in this free scripting language. e.g. UrlDownloadToFile, http://www.anyorg.org/File.htm, c:\File.htm">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>UrlDownloadToFile</h1>
 
-<p>LÃ¤dt eine Datei aus dem Internet herunter.</p>
+<p>Lädt eine Datei aus dem Internet herunter.</p>
 
 <pre class="Syntax">UrlDownloadToFile, URL, Dateiname </pre>
 <h3>Parameter</h3>
@@ -22,23 +22,23 @@
   </tr>
   <tr>
     <td>Dateiname</td>
-    <td><p><strong>Inhalt in eine Datei herunterladen</strong>: Der Name der lokal erstellten Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist. Jede vorhandene Datei wird durch die neue Datei <strong>Ã¼berschrieben</strong>.</p>
-    <p><strong>Inhalt in eine Variable herunterladen</strong>: Es gibt eine aufrufbare Funktion, die in das Script eingefÃ¼gt werden kann: <a href="http://www.autohotkey.com/forum/topic10466.html">www.autohotkey.com/forum/topic10466.html</a>.</p></td>
+    <td><p><strong>Inhalt in eine Datei herunterladen</strong>: Der Name der lokal erstellten Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist. Jede vorhandene Datei wird durch die neue Datei <strong>überschrieben</strong>.</p>
+    <p><strong>Inhalt in eine Variable herunterladen</strong>: Es gibt eine aufrufbare Funktion, die in das Script eingefügt werden kann: <a href="http://www.autohotkey.com/forum/topic10466.html">www.autohotkey.com/forum/topic10466.html</a>.</p></td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthÃ¤lt ErrorLevel eine 0.</p>
+<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0.</p>
 <h3>Bemerkungen</h3>
-<p>Der Download ist mÃ¶glicherweise erfolgreich, selbst wenn die entfernt liegende Datei nicht existiert. Denn die meisten Webserver senden eine Fehlerseite anstelle der fehlenden Datei. Stattdessen wird daher einfach die Fehlerseite in <em>Dateiname</em> gespeichert.</p>
-<p>Internet Explorer 3 oder hÃ¶her muss installiert sein, damit diese Funktion korrekt arbeitet. Wenn Firewalls oder mehrere Netzwerkkarten vorhanden sind, dann schlÃ¤gt die Funktion mÃ¶glicherweise fehl. AuÃŸerdem kÃ¶nnen einige Webseiten solche Downloads blockieren.</p>
+<p>Der Download ist möglicherweise erfolgreich, selbst wenn die entfernt liegende Datei nicht existiert. Denn die meisten Webserver senden eine Fehlerseite anstelle der fehlenden Datei. Stattdessen wird daher einfach die Fehlerseite in <em>Dateiname</em> gespeichert.</p>
+<p>Internet Explorer 3 oder höher muss installiert sein, damit diese Funktion korrekt arbeitet. Wenn Firewalls oder mehrere Netzwerkkarten vorhanden sind, dann schlägt die Funktion möglicherweise fehl. Außerdem können einige Webseiten solche Downloads blockieren.</p>
 <p><strong>Caching</strong>:</p>
 <ul>
-  <li>Seit v1.0.44.07 wird die URL direkt vom entfernt liegenden Server abgerufen (also nie vom Cache des Internet Explorers). Um das Caching zuzulassen, setzt *0 vor der URL, gefolgt von einem Leerzeichen; zum Beispiel: *0 http://someorg.org. Die Null nach dem Sternchen kann mit einer gÃ¼ltigen dwFlags-Nummer ersetzt werden; fÃ¼r weitere Details, sucht auf <a href="http://www.microsoft.com">www.microsoft.com</a> nach InternetOpenUrl.</li>
-  <li>In allen vorherigen Versionen wird die Datei sobald wie mÃ¶glich direkt vom Cache abgerufen. Um das zu verhindern, verwendet einen Abfragestring am Ende der URL. Zum Beispiel: <em>http://www.someorg.org/doc.html?fakeParam=42.</em> Hinweis: Wenn die Datei mehrmals heruntergeladen wird, dann sollte der Abfragestring variieren.</li>
+  <li>Seit v1.0.44.07 wird die URL direkt vom entfernt liegenden Server abgerufen (also nie vom Cache des Internet Explorers). Um das Caching zuzulassen, setzt *0 vor der URL, gefolgt von einem Leerzeichen; zum Beispiel: *0 http://someorg.org. Die Null nach dem Sternchen kann mit einer gültigen dwFlags-Nummer ersetzt werden; für weitere Details, sucht auf <a href="http://www.microsoft.com">www.microsoft.com</a> nach InternetOpenUrl.</li>
+  <li>In allen vorherigen Versionen wird die Datei sobald wie möglich direkt vom Cache abgerufen. Um das zu verhindern, verwendet einen Abfragestring am Ende der URL. Zum Beispiel: <em>http://www.someorg.org/doc.html?fakeParam=42.</em> Hinweis: Wenn die Datei mehrmals heruntergeladen wird, dann sollte der Abfragestring variieren.</li>
 </ul>
 <p><strong>Proxies</strong>: UrlDownloadToFile wird einen Proxy-Server verwenden, um auf das Internet zuzugreifen, wenn dieser Proxy in den Einstellungen des Internet Explorers konfiguriert wurde.</p>
-<p><strong>FTP und Gopher</strong>: Ab v1.0.48.04 werden FTP- und Gopher-URLs unterstÃ¼tzt. Zum Beispiel:</p>
+<p><strong>FTP und Gopher</strong>: Ab v1.0.48.04 werden FTP- und Gopher-URLs unterstützt. Zum Beispiel:</p>
 <pre>UrlDownloadToFile, ftp://example.com/home/Eigene Datei.zip, C:\Eigener Ordner\Eigene Datei.zip  <em>; Anonym anmelden.</em>
 UrlDownloadToFile, ftp://user:pass@example.com:21/home/Eigene Datei.zip, C:\Eigener Ordner\Eigene Datei.zip  <em>; Bestimmten Benutzer anmelden.</em>
 UrlDownloadToFile, ftp://benutzer:passwort@beispiel.com/Eigenes Verzeichnis, C:\Verzeichnisliste.html  <em>; Ermittelt eine Verzeichnisauflistung im HTML-Format.</em></pre>

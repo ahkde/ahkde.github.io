@@ -3,42 +3,42 @@
 <html>
 <head>
 <title>SoundSetWaveVolume</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>SoundSetWaveVolume</h1>
 
-<p>Ã„ndert die Wave-WiedergabelautstÃ¤rke eines Audio-GerÃ¤ts.</p>
+<p>Ändert die Wave-Wiedergabelautstärke eines Audio-Geräts.</p>
 
-<pre class="Syntax">SoundSetWaveVolume, Prozentwert [, GerÃ¤tenummer]</pre>
+<pre class="Syntax">SoundSetWaveVolume, Prozentwert [, Gerätenummer]</pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Prozentwert</td>
-    <td width="85%">Eine Prozentzahl zwischen -100 und 100 (kann auch eine FlieÃŸkommazahl oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Wenn die Zahl mit einem Plus- oder Minuszeichen beginnt, dann wird die <strong>aktuelle LautstÃ¤rke</strong> mit der angegebenen Menge nach oben oder nach unten reguliert. Andernfalls wird die LautstÃ¤rke direkt auf dem angegebenen <em>Prozentwert</em> gesetzt.</td>
+    <td width="85%">Eine Prozentzahl zwischen -100 und 100 (kann auch eine Fließkommazahl oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Wenn die Zahl mit einem Plus- oder Minuszeichen beginnt, dann wird die <strong>aktuelle Lautstärke</strong> mit der angegebenen Menge nach oben oder nach unten reguliert. Andernfalls wird die Lautstärke direkt auf dem angegebenen <em>Prozentwert</em> gesetzt.</td>
   </tr>
   <tr>
-    <td>GerÃ¤tenummer</td>
-    <td>Wenn dieser Parameter weggelassen wird, dann standardmÃ¤ÃŸig eine 1 (das erste AudiogerÃ¤t), welches in der Regel das StandardgerÃ¤t fÃ¼r die Aufnahme und Wiedergabe ist. Verwendet eine Zahl grÃ¶ÃŸer als 1, um ein anderes AudiogerÃ¤t zu bearbeiten.</td>
+    <td>Gerätenummer</td>
+    <td>Wenn dieser Parameter weggelassen wird, dann standardmäßig eine 1 (das erste Audiogerät), welches in der Regel das Standardgerät für die Aufnahme und Wiedergabe ist. Verwendet eine Zahl größer als 1, um ein anderes Audiogerät zu bearbeiten.</td>
   </tr>
 </table>
 <h3>ErrorLevel</h3>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthÃ¤lt ErrorLevel eine 0.</p>
+<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0.</p>
 <h3>Bemerkungen</h3>
-<p><span class="CommandSyntax">SoundSetWaveVolume</span> wird zurzeit nur von Windows Vista und hÃ¶her unterstÃ¼tzt, wenn AutoHotkey.exe im XP-KompatibilitÃ¤tsmodus lÃ¤uft (dass wird mÃ¶glicherweise in einer zukÃ¼nftigen Version behoben). Eine MÃ¶glichkeit, die GesamtlautstÃ¤rke des Systems zu Ã¤ndern:</p>
-<pre>Send {Volume_Up}  <em>; ErhÃ¶ht die GesamtlautstÃ¤rke um 1 Stufe (normalerweise 5%).</em>
-Send {Volume_Down 3}  <em>; Verringert die GesamtlautstÃ¤rke um 3 Stufen.</em>
-Send {Volume_Mute}  <em>; GesamtlautstÃ¤rke stumm schalten bzw. Stummschaltung aufheben.</em></pre>
-<p>Die derzeitige Wave-WiedergabelautstÃ¤rke kann mit <a href="SoundGetWaveVolume.htm">SoundGetWaveVolume</a> ermittelt werden. Einstellungen wie GesamtlautstÃ¤rke, Synthesizer, Mikrofon, Stummschaltung, HÃ¶hen und Tiefen kÃ¶nnen mithilfe von <a href="SoundSet.htm">SoundSet</a> und <a href="SoundGet.htm">SoundGet</a> gesetzt oder abgerufen werden.</p>
-<p>Im Gegensatz zu <a href="SoundSet.htm">SoundSet</a> versucht dieser Befehl, die Balance zwischen den KanÃ¤len (z. B. links und rechts) zu bewahren, wenn die LautstÃ¤rke geÃ¤ndert wird.</p>
+<p><span class="CommandSyntax">SoundSetWaveVolume</span> wird zurzeit nur von Windows Vista und höher unterstützt, wenn AutoHotkey.exe im XP-Kompatibilitätsmodus läuft (dass wird möglicherweise in einer zukünftigen Version behoben). Eine Möglichkeit, die Gesamtlautstärke des Systems zu ändern:</p>
+<pre>Send {Volume_Up}  <em>; Erhöht die Gesamtlautstärke um 1 Stufe (normalerweise 5%).</em>
+Send {Volume_Down 3}  <em>; Verringert die Gesamtlautstärke um 3 Stufen.</em>
+Send {Volume_Mute}  <em>; Gesamtlautstärke stumm schalten bzw. Stummschaltung aufheben.</em></pre>
+<p>Die derzeitige Wave-Wiedergabelautstärke kann mit <a href="SoundGetWaveVolume.htm">SoundGetWaveVolume</a> ermittelt werden. Einstellungen wie Gesamtlautstärke, Synthesizer, Mikrofon, Stummschaltung, Höhen und Tiefen können mithilfe von <a href="SoundSet.htm">SoundSet</a> und <a href="SoundGet.htm">SoundGet</a> gesetzt oder abgerufen werden.</p>
+<p>Im Gegensatz zu <a href="SoundSet.htm">SoundSet</a> versucht dieser Befehl, die Balance zwischen den Kanälen (z. B. links und rechts) zu bewahren, wenn die Lautstärke geändert wird.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="SoundGetWaveVolume.htm">SoundGetWaveVolume</a>, <a href="SoundSet.htm">SoundSet</a>, <a href="SoundGet.htm">SoundGet</a>, <a href="SoundPlay.htm">SoundPlay</a></p>
 <h3>Beispiele</h3>
-<pre class="NoIndent">SoundSetWaveVolume, 50  <em>; Setzt auf halbe LautstÃ¤rke.</em>
-SoundSetWaveVolume, -10  <em>; Verringert die LautstÃ¤rke um 10 (z. B. 80 wird zu 70).</em>
-SoundSetWaveVolume, +20  <em>; ErhÃ¶ht die LautstÃ¤rke um 20.</em></pre>
+<pre class="NoIndent">SoundSetWaveVolume, 50  <em>; Setzt auf halbe Lautstärke.</em>
+SoundSetWaveVolume, -10  <em>; Verringert die Lautstärke um 10 (z. B. 80 wird zu 70).</em>
+SoundSetWaveVolume, +20  <em>; Erhöht die Lautstärke um 20.</em></pre>
 
 </body>
 </html>

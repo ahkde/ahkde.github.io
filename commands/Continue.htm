@@ -3,29 +3,29 @@
 <html>
 <head>
 <title>Continue</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Continue</h1>
 
-<p>Ãœberspringt den Rest der aktuellen <a href="Loop.htm">Schleife</a> und beginnt einen neuen Durchlauf. Nur in einer <a href="Loop.htm">Schleife</a> gÃ¼ltig.</p>
+<p>Überspringt den Rest der aktuellen <a href="Loop.htm">Schleife</a> und beginnt einen neuen Durchlauf. Nur in einer <a href="Loop.htm">Schleife</a> gültig.</p>
 
 <pre class="Syntax">Continue [, LoopLabel]</pre>
-<p><span class="ver">[AHK_L 59+]:</span> Wenn angegeben, kennzeichnet LoopLabel, fÃ¼r welche Schleife diese Anweisung gilt. Entweder mit dem Labelnamen oder der numerischen Verschachtelungsebene. Wenn nicht vorhanden oder 1, dann gilt diese Anweisung fÃ¼r die innerste Schleife, in dem sie eingeschlossen ist. LoopLabel muss ein konstanter Wert sein, d. h. Variablen und AusdrÃ¼cke werden nicht unterstÃ¼tzt.</p>
-<p>Continue verhÃ¤lt sich wie beim Erreichen einer schlieÃŸenden Klammer in der Schleife:</p>
+<p><span class="ver">[AHK_L 59+]:</span> Wenn angegeben, kennzeichnet LoopLabel, für welche Schleife diese Anweisung gilt. Entweder mit dem Labelnamen oder der numerischen Verschachtelungsebene. Wenn nicht vorhanden oder 1, dann gilt diese Anweisung für die innerste Schleife, in dem sie eingeschlossen ist. LoopLabel muss ein konstanter Wert sein, d. h. Variablen und Ausdrücke werden nicht unterstützt.</p>
+<p>Continue verhält sich wie beim Erreichen einer schließenden Klammer in der Schleife:</p>
 <ol>
-  <li><a href="../Variables.htm#Index">A_Index</a> wird um 1 erhÃ¶ht.</li>
-  <li>Der Rest der Schleife wird Ã¼bersprungen.</li>
-  <li>Die Bedingung einer Schleife (falls vorhanden) wird Ã¼berprÃ¼ft, ob sie erfÃ¼llt wird. In diesem Fall beginnt ein neuer Durchlauf; ansonsten endet die Schleife.</li>
+  <li><a href="../Variables.htm#Index">A_Index</a> wird um 1 erhöht.</li>
+  <li>Der Rest der Schleife wird übersprungen.</li>
+  <li>Die Bedingung einer Schleife (falls vorhanden) wird überprüft, ob sie erfüllt wird. In diesem Fall beginnt ein neuer Durchlauf; ansonsten endet die Schleife.</li>
 </ol>
-<p><a href="Break.htm">Break</a> und Continue sollten gegenÃ¼ber <a href="Goto.htm">Goto</a> immer vorgezogen werden, da sich Scripts damit einfacher lesen und pflegen lassen.</p>
+<p><a href="Break.htm">Break</a> und Continue sollten gegenüber <a href="Goto.htm">Goto</a> immer vorgezogen werden, da sich Scripts damit einfacher lesen und pflegen lassen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="Break.htm">Break</a>, <a href="Loop.htm">Loop</a>, <a href="Until.htm">Until</a>, <a href="While.htm">While-Loop</a>, <a href="For.htm">For-loop</a>, <a href="Block.htm">Blocks</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent"><em>; Dieses Beispiel zeigt 5 MsgBoxes an, jeweils fÃ¼r eine Zahl zwischen 6 und 10.
-; In den ersten 5 DurchlÃ¤ufen veranlasst der Befehl "continue"
+<pre class="NoIndent"><em>; Dieses Beispiel zeigt 5 MsgBoxes an, jeweils für eine Zahl zwischen 6 und 10.
+; In den ersten 5 Durchläufen veranlasst der Befehl "continue"
 ; immer einen Neustart des Durchlaufs, bevor die MsgBox-Zeile erreicht wird.</em>
 Loop, 10
 {
@@ -33,7 +33,7 @@ Loop, 10
         continue
     MsgBox %A_Index%
 }</pre>
-<pre class="NoIndent"><em>; Setzt die Ã¤uÃŸere Schleife fort.</em>
+<pre class="NoIndent"><em>; Setzt die äußere Schleife fort.</em>
 outer:
 Loop 3
 {
@@ -44,7 +44,7 @@ Loop 3
             <b>continue outer</b>  <em>; Gleichwertig mit <b>continue 2</b> oder <b>goto continue_outer</b>.</em>
         MsgBox %x%,%A_Index%
     }
-    continue_outer: <em>; FÃ¼r goto.</em>
+    continue_outer: <em>; Für goto.</em>
     ErrorLevel:=ErrorLevel <em>; Vor der Revision 57 konnten Labels nicht bis zum Ende eines Blocks verweisen.</em>
 }
 

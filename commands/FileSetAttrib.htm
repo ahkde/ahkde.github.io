@@ -3,21 +3,21 @@
 <html>
 <head>
 <title>FileSetAttrib</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>FileSetAttrib</h1>
 
-<p>Ã„ndert die Attribute von beliebig vielen Dateien oder Ordnern. Platzhalter werden unterstÃ¼tzt.</p>
+<p>Ändert die Attribute von beliebig vielen Dateien oder Ordnern. Platzhalter werden unterstützt.</p>
 
 <pre class="Syntax">FileSetAttrib, Attribute [, Dateimuster, OrdnerEinbeziehen?, Rekursiv?]</pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Attribute</td>
-    <td width="85%">Die Attribute, die geÃ¤ndert werden (siehe Bemerkungen).</td>
+    <td width="85%">Die Attribute, die geändert werden (siehe Bemerkungen).</td>
   </tr>
   <tr>
     <td>Dateimuster</td>
@@ -27,19 +27,19 @@
   <tr>
     <td>OrdnerEinbeziehen?</td>
     <td><p>0 (Standard) Ordner werden nicht mit einbezogen (nur Dateien). <br> 1 Alle Dateien und Ordner, die der musterbasierten Suche entsprechen, werden mit einbezogen.<br> 2 Nur Ordner werden mit einbezogen (keine Dateien). </p>
-      <p>Hinweis: Wenn das <I>Dateimuster</I> ein einzelner Ordner anstelle einer musterbasierten Suche ist, dann wird dieser immer mit einbezogen, unabhÃ¤ngig von den Einstellungen.</p>
+      <p>Hinweis: Wenn das <I>Dateimuster</I> ein einzelner Ordner anstelle einer musterbasierten Suche ist, dann wird dieser immer mit einbezogen, unabhängig von den Einstellungen.</p>
       <p>Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</p></td>
   </tr>
   <tr>
     <td>Rekursiv?</td>
-    <td><p>0 (Standard) Unterordner werden nicht rekursiv behandelt.<br> 1 Unterordner werden rekursiv behandelt, damit die enthaltenen Dateien und Unterordner mit einbezogen werden, wenn sie mit dem <em>Dateimuster</em> Ã¼bereinstimmen. Alle Unterordner werden rekursiv behandelt, nicht nur solche, die mit dem <em>Dateimuster</em> Ã¼bereinstimmen.  Allerdings werden Dateien und Ordner mit einem kompletten Pfad lÃ¤nger als 259 Zeichen ignoriert, als wÃ¼rde sie nicht existieren. Solche Dateien sind selten, weil normalerweise das Betriebssystem das Erstellen solcher Dateien verbietet.</p>
+    <td><p>0 (Standard) Unterordner werden nicht rekursiv behandelt.<br> 1 Unterordner werden rekursiv behandelt, damit die enthaltenen Dateien und Unterordner mit einbezogen werden, wenn sie mit dem <em>Dateimuster</em> übereinstimmen. Alle Unterordner werden rekursiv behandelt, nicht nur solche, die mit dem <em>Dateimuster</em> übereinstimmen.  Allerdings werden Dateien und Ordner mit einem kompletten Pfad länger als 259 Zeichen ignoriert, als würde sie nicht existieren. Solche Dateien sind selten, weil normalerweise das Betriebssystem das Erstellen solcher Dateien verbietet.</p>
       <p>Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</p></td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Bei <u>Problemen</u> enthÃ¤lt <a href="../misc/ErrorLevel.htm">ErrorLevel</a> die Anzahl an Dateien, die nicht geÃ¤ndert werden konnten, ansonsten wird ErrorLevel auf 0 gesetzt.</p>
-<p>Wenn Dateien gefunden wurden, enthÃ¤lt <a href="../Variables.htm#LastError">A_LastError</a> eine Null oder den RÃ¼ckgabewert der Systemfunktion GetLastError()-Funktion unmittelbar nach dem letzten Fehler. Ansonsten enthÃ¤lt A_LastError einen Fehlercode, der darauf hinweist, warum keine Dateien gefunden wurden.</p>
+<p>Bei <u>Problemen</u> enthält <a href="../misc/ErrorLevel.htm">ErrorLevel</a> die Anzahl an Dateien, die nicht geändert werden konnten, ansonsten wird ErrorLevel auf 0 gesetzt.</p>
+<p>Wenn Dateien gefunden wurden, enthält <a href="../Variables.htm#LastError">A_LastError</a> eine Null oder den Rückgabewert der Systemfunktion GetLastError()-Funktion unmittelbar nach dem letzten Fehler. Ansonsten enthält A_LastError einen Fehlercode, der darauf hinweist, warum keine Dateien gefunden wurden.</p>
 
 <h3>Bemerkungen</h3>
 <p>Der <em>Attribute</em>-Parameter besteht aus einer Sammlung von Operatoren und Attributsbuchstaben.</p>
@@ -58,8 +58,8 @@
     <td>Schaltet das Attribut um (auf dem entgegengesetzten Wert)</td>
   </tr>
 </table>
-<p><br> <em>Attributsbuchstaben</em>:<br> R = READONLY<br> A = ARCHIVE<br> S = SYSTEM<br> H = HIDDEN<br> N = NORMAL (nur gÃ¼ltig, wenn nicht mit anderen Attributen verwendet wird)<br> O = OFFLINE<br> T = TEMPORARY</p>
-<p>Hinweis: Derzeit kann die Komprimierung einer Datei mit diesem Befehl nicht geÃ¤ndert werden. </p>
+<p><br> <em>Attributsbuchstaben</em>:<br> R = READONLY<br> A = ARCHIVE<br> S = SYSTEM<br> H = HIDDEN<br> N = NORMAL (nur gültig, wenn nicht mit anderen Attributen verwendet wird)<br> O = OFFLINE<br> T = TEMPORARY</p>
+<p>Hinweis: Derzeit kann die Komprimierung einer Datei mit diesem Befehl nicht geändert werden. </p>
 <h3>Verwandte Befehle</h3>
 <p><a href="FileGetAttrib.htm">FileGetAttrib</a>, <a href="FileGetTime.htm">FileGetTime</a>, <a href="FileSetTime.htm">FileSetTime</a>, <a href="FileGetSize.htm">FileGetSize</a>, <a href="FileGetVersion.htm">FileGetVersion</a>, <a href="LoopFile.htm">dateilesende Schleife</a></p>
 <h3>Beispiele</h3>

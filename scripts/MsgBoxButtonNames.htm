@@ -2,34 +2,34 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>SchaltflÃ¤chennamen der MsgBox Ã¤ndern</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Schaltflächennamen der MsgBox ändern</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="/forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<h1>SchaltflÃ¤chennamen der MsgBox Ã¤ndern</h1>
+<h1>Schaltflächennamen der MsgBox ändern</h1>
 
-<p> Das ist ein funktionierendes Beispiel-Script, das einen Timer verwendet, um die Namen der SchaltflÃ¤chen in einem MsgBox-Dialogfenster zu Ã¤ndern. Auch wenn die SchaltflÃ¤chennamen geÃ¤ndert werden, benÃ¶tigt der IfMsgBox-Befehl weiterhin den ursprÃ¼nglichen Namen der SchaltflÃ¤che.
+<p> Das ist ein funktionierendes Beispiel-Script, das einen Timer verwendet, um die Namen der Schaltflächen in einem MsgBox-Dialogfenster zu ändern. Auch wenn die Schaltflächennamen geändert werden, benötigt der IfMsgBox-Befehl weiterhin den ursprünglichen Namen der Schaltfläche.
 </p>
 <p><a href="MsgBoxButtonNames.ahk">Dieses Script herunterladen</a> &nbsp;| &nbsp;<a href="index.htm">Andere Beispiel-Scripts</a> &nbsp;| &nbsp;<a href="http://www.autohotkey.com">Home</a></p>
 
 <pre class="NoIndent">#SingleInstance
 SetTimer, ChangeButtonNames, 50
-MsgBox, 4, HinzufÃ¼gen oder Entfernen, SchaltflÃ¤che auswÃ¤hlen:
+MsgBox, 4, Hinzufügen oder Entfernen, Schaltfläche auswählen:
 IfMsgBox, YES
-    MsgBox, HinzufÃ¼gen ausgewÃ¤hlt.
+    MsgBox, Hinzufügen ausgewählt.
 else
-    MsgBox, Entfernen ausgewÃ¤hlt.
+    MsgBox, Entfernen ausgewählt.
 return
 
 ChangeButtonNames:
-IfWinNotExist, HinzufÃ¼gen oder Entfernen
+IfWinNotExist, Hinzufügen oder Entfernen
     return  <em>; Warten.</em>
 SetTimer, ChangeButtonNames, off
 WinActivate
-ControlSetText, Button1, &HinzufÃ¼gen
+ControlSetText, Button1, &Hinzufügen
 ControlSetText, Button2, &Entfernen
 return
 

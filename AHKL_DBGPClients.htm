@@ -3,74 +3,74 @@
 <html>
 <head>
 <title>Debugging-Funktionen</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Debugger-Clients</h1>
 
-<p>AutoHotkey_L unterstÃ¼tzt zusÃ¤tzliche Debugging-Funktionen mittels <a href="http://xdebug.org/docs-dbgp.php">DBGp</a>, ein gewÃ¶hnliches Debugger-Protokoll fÃ¼r Sprachen und Debugger-UI-Kommunikation. Siehe <a href="Scripts.htm#idebug">Interaktives Debugging</a> fÃ¼r mehr Details. Einige BenutzeroberflÃ¤chen oder "Clients" sind auf dieser Seite aufgefÃ¼hrt, die kompatibel mit AutoHotkey_L sind.</p>
+<p>AutoHotkey_L unterstützt zusätzliche Debugging-Funktionen mittels <a href="http://xdebug.org/docs-dbgp.php">DBGp</a>, ein gewöhnliches Debugger-Protokoll für Sprachen und Debugger-UI-Kommunikation. Siehe <a href="Scripts.htm#idebug">Interaktives Debugging</a> für mehr Details. Einige Benutzeroberflächen oder "Clients" sind auf dieser Seite aufgeführt, die kompatibel mit AutoHotkey_L sind.</p>
 
 <h2>SciTE4AutoHotkey</h2>
-<p><a href="http://www.autohotkey.net/~fincs/SciTE4AutoHotkey_3/web/">SciTE4AutoHotkey</a> ist ein freier, <a href="http://www.scintilla.org/SciTE.html">SciTE</a>-basierter AutoHotkey-Script-Editor. ZusÃ¤tzlich zur DBGp-UnterstÃ¼tzung werden Syntaxhervorhebung, Calltips/Parameterinformation, automatische VervollstÃ¤ndigung sowieso weitere nÃ¼tzliche Bearbeitungsfunktionen und Script-Werkzeuge bereitgestellt.</p>
+<p><a href="http://www.autohotkey.net/~fincs/SciTE4AutoHotkey_3/web/">SciTE4AutoHotkey</a> ist ein freier, <a href="http://www.scintilla.org/SciTE.html">SciTE</a>-basierter AutoHotkey-Script-Editor. Zusätzlich zur DBGp-Unterstützung werden Syntaxhervorhebung, Calltips/Parameterinformation, automatische Vervollständigung sowieso weitere nützliche Bearbeitungsfunktionen und Script-Werkzeuge bereitgestellt.</p>
 <p>Das Debuggen umfasst:</p>
 <ul>
   <li>Haltepunkte.</li>
   <li>Run, Step Over/Into/Out.</li>
   <li>Aufrufliste anzeigen.</li>
   <li>Namen und Inhalte von lokalen/globalen Variablen auflisten.</li>
-  <li>Sobald sich die Maus Ã¼ber einer Variable befindet, wird deren Inhalt angezeigt.</li>
-  <li>Variableninhalte Ã¼berwachen und bearbeiten.</li>
+  <li>Sobald sich die Maus über einer Variable befindet, wird deren Inhalt angezeigt.</li>
+  <li>Variableninhalte überwachen und bearbeiten.</li>
   <li>Strukturen und Objekte anzeigen.</li>
 </ul>
 <p><a href="http://www.autohotkey.net/~fincs/SciTE4AutoHotkey_3/web/">http://www.autohotkey.net/~fincs/SciTE4AutoHotkey_3/web/</a></p>
 
 <h2>XDebugClient</h2>
-<p><a href="http://code.google.com/p/xdebugclient/">XDebugClient</a> ist ein einfacher Open-Source-Front-End-DBGp-Client auf Basis von <b>.NET Framework 2.0</b>. XDebugClient wurde ursprÃ¼nglich fÃ¼r PHP mit Xdebug entworfen, jedoch ist eine benutzerdefinierte Version weiter unten erhÃ¤ltlich, die mit AutoHotkey_L kompatibel ist.</p>
-<p><b>Ã„nderungen:</b></p>
+<p><a href="http://code.google.com/p/xdebugclient/">XDebugClient</a> ist ein einfacher Open-Source-Front-End-DBGp-Client auf Basis von <b>.NET Framework 2.0</b>. XDebugClient wurde ursprünglich für PHP mit Xdebug entworfen, jedoch ist eine benutzerdefinierte Version weiter unten erhältlich, die mit AutoHotkey_L kompatibel ist.</p>
+<p><b>Änderungen:</b></p>
 <ul>
   <li>Erlaubt der Debugger-Engine, auch andere Sprachen zu benachrichtigen.</li>
-  <li>Syntax-Hervorhebung von AutoHotkey hinzugefÃ¼gt.</li>
-  <li>Ãœberwacht automatisch eine Verbindung von der Debugger-Engine, anstatt darauf zu warten, bis der Benutzer <em>Start Listening</em> anklickt.</li>
-  <li>Eigenschaftswerte beim ersten Null-Zeichen werden abgeschnitten, da AutoHotkey_L derzeit den gesamten Inhalt der Variablen zurÃ¼ckgibt und XDebugClient keine geeignete Schnittstelle fÃ¼r die Anzeige von binÃ¤ren Inhalten hat.</li>
+  <li>Syntax-Hervorhebung von AutoHotkey hinzugefügt.</li>
+  <li>Überwacht automatisch eine Verbindung von der Debugger-Engine, anstatt darauf zu warten, bis der Benutzer <em>Start Listening</em> anklickt.</li>
+  <li>Eigenschaftswerte beim ersten Null-Zeichen werden abgeschnitten, da AutoHotkey_L derzeit den gesamten Inhalt der Variablen zurückgibt und XDebugClient keine geeignete Schnittstelle für die Anzeige von binären Inhalten hat.</li>
 </ul>
 <p><b>Download:</b> <a href="http://www.autohotkey.net/~Lexikos/AutoHotkey_L/XDebugClient.zip">Binary</a>; <a href="http://www.autohotkey.net/~Lexikos/AutoHotkey_L/XDebugClient_src.zip">Source Code</a> (siehe auch <a href="http://www.icsharpcode.net/">SharpDevelop</a>, <a href="http://sourceforge.net/projects/dockpanelsuite/">Dockpanel Suite</a> und <a href="http://www.codeproject.com/cs/miscctrl/treeviewadv.asp">Advanced Treeview</a>)</p>
 <p><b>Verwendung:</b></p>
 <ul>
   <li>XDebugClient starten.</li>
-  <li>AutoHotkey_L /Debug ausfÃ¼hren. XDebugClient sollte automatisch die Script-Datei Ã¶ffnen.</li>
+  <li>AutoHotkey_L /Debug ausführen. XDebugClient sollte automatisch die Script-Datei öffnen.</li>
   <li>Auf den linken Rand klicken, um zumindest einen Haltepunkt zu setzen.</li>
-  <li>Run im Debug-MenÃ¼ auswÃ¤hlen oder F5 drÃ¼cken.</li>
-  <li>Wenn die AusfÃ¼hrung an einem Haltepunkt ankommt, verwendet das Debug-MenÃ¼ oder Tastenkombinationen, um das Script zu durchlaufen oder wiederaufzunehmen.</li>
+  <li>Run im Debug-Menü auswählen oder F5 drücken.</li>
+  <li>Wenn die Ausführung an einem Haltepunkt ankommt, verwendet das Debug-Menü oder Tastenkombinationen, um das Script zu durchlaufen oder wiederaufzunehmen.</li>
 </ul>
 <p><b>Funktionen:</b></p>
 <ul>
-  <li>Syntax hervorgehoben, schreibgeschÃ¼tzte Ansicht des Quellcodes.</li>
+  <li>Syntax hervorgehoben, schreibgeschützte Ansicht des Quellcodes.</li>
   <li>Haltepunkte.</li>
   <li>Run, Step Over/Into/Out.</li>
   <li>Aufrufliste anzeigen.</li>
-  <li>Variablen Ã¼berprÃ¼fen - Variablenname auswÃ¤hlen, Rechtsklick, Inspect.</li>
+  <li>Variablen überprüfen - Variablenname auswählen, Rechtsklick, Inspect.</li>
 </ul>
 <p><b>Probleme:</b></p>
 <ul>
-  <li>Die BenutzeroberflÃ¤che reagiert nicht auf die Benutzereingaben, wÃ¤hrend das Script ausgefÃ¼hrt wird.</li>
-  <li>Keine Mechanismen verfÃ¼gbar, Variablen aufzulisten oder deren Werte zu setzen.</li>
+  <li>Die Benutzeroberfläche reagiert nicht auf die Benutzereingaben, während das Script ausgeführt wird.</li>
+  <li>Keine Mechanismen verfügbar, Variablen aufzulisten oder deren Werte zu setzen.</li>
 </ul>
 
-<h2>DBGp-Plugin fÃ¼r Notepad++</h2>
-<p>Ein DBGp-Client ist als Plugin fÃ¼r <a href="http://notepad-plus-plus.org/">Notepad++</a> verfÃ¼gbar. Es wurde fÃ¼r PHP entwickelt, aber funktioniert auch gut mit AutoHotkey_L.</p>
-<p><b>Download:</b> Siehe <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central#D">Verzeichnis fÃ¼r Notepad++-Plugins</a>.</p>
+<h2>DBGp-Plugin für Notepad++</h2>
+<p>Ein DBGp-Client ist als Plugin für <a href="http://notepad-plus-plus.org/">Notepad++</a> verfügbar. Es wurde für PHP entwickelt, aber funktioniert auch gut mit AutoHotkey_L.</p>
+<p><b>Download:</b> Siehe <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Plugin_Central#D">Verzeichnis für Notepad++-Plugins</a>.</p>
 <p><b>Verwendung:</b></p>
 <ul>
   <li>Notepad++ starten.</li>
   <li>DBGp-Plugin mittels <i>Erweiterungen</i>, <i>DBGp</i>, <i>Config ...</i> konfigurieren.
-    <p><b>Hinweis:</b> Dateizuordnung muss konfiguriert werden.  Die meisten Benutzer werden nicht aus der Ferne Debuggen, deshalb einfach ein HÃ¤kchen auf <i>Bypass all mapping (local windows setup)</i> setzen.</p>
+    <p><b>Hinweis:</b> Dateizuordnung muss konfiguriert werden.  Die meisten Benutzer werden nicht aus der Ferne Debuggen, deshalb einfach ein Häkchen auf <i>Bypass all mapping (local windows setup)</i> setzen.</p>
   </li>
   <li>Debugger-Fenster mithilfe der Werkzeugleiste oder <b>Erweiterungen</b>, <b>DBGp</b>, <b>Debugger</b> anzeigen lassen.</li>
-  <li>Script-Datei fÃ¼rs Debuggen Ã¶ffnen.</li>
+  <li>Script-Datei fürs Debuggen öffnen.</li>
   <li>Mindestens einen Haltepunkt setzen.</li>
-  <li>AutoHotkey_L /Debug ausfÃ¼hren.</li>
+  <li>AutoHotkey_L /Debug ausführen.</li>
   <li>Verwendet die Debugger-Werkzeugleiste oder Tastenkombinationen, um den Debugger zu steuern.</li>
 </ul>
 <p><b>Funktionen:</b></p>
@@ -79,29 +79,29 @@
   <li>Haltepunkte.</li>
   <li>Run, Step Over/Into/Out, Run to cursor, Stop.</li>
   <li>Lokale und globale Variablen anzeigen.</li>
-  <li>Benutzerdefinierte Variablen Ã¼berwachen.</li>
+  <li>Benutzerdefinierte Variablen überwachen.</li>
   <li>Aufrufliste anzeigen.</li>
-  <li>Maus Ã¼ber einer Variable positionieren, um deren Inhalt einzusehen.</li>
+  <li>Maus über einer Variable positionieren, um deren Inhalt einzusehen.</li>
   <li>Frei konfigurierbare Tastenkombinationen - Einstellungen, Tastatur ..., Plugin commands.</li>
 </ul>
 <p><b>Probleme:</b></p>
 <ul>
   <li>Das Positionieren einer Maus auf einen Variablennamen, bestehend aus einem Buchstaben, funktioniert nicht - Wenn zum Beispiel die Maus auf ein "a" positioniert wird, dann wird versucht, " a" oder "a " abzurufen.</li>
-  <li>Das Positionieren einer Maus auf Text versucht, eine Variable abzurufen, selbst wenn der Text ungÃ¼ltige Zeichen enthÃ¤lt.</li>
-  <li>Notepad++ wird instabil, wenn property_get fehlschlÃ¤gt, was besonders problematisch im Hinblick auf oben ist. Als ÃœbergangslÃ¶sung sendet AutoHotkey_L eine leere Eigenschaft anstelle eines Fehlercodes, wenn eine nicht vorhandene oder ungÃ¼ltige Variable angefordert wird.</li>
+  <li>Das Positionieren einer Maus auf Text versucht, eine Variable abzurufen, selbst wenn der Text ungültige Zeichen enthält.</li>
+  <li>Notepad++ wird instabil, wenn property_get fehlschlägt, was besonders problematisch im Hinblick auf oben ist. Als Übergangslösung sendet AutoHotkey_L eine leere Eigenschaft anstelle eines Fehlercodes, wenn eine nicht vorhandene oder ungültige Variable angefordert wird.</li>
 </ul>
 
 <h2>Script-basierte Clients</h2>
-<p>Eine Script-basierte <a href="http://www.autohotkey.net/~Lexikos/AutoHotkey_L/DBGP.ahk">DBGp-Bibliothek</a> und zwei einfache Clients sind fÃ¼r Entwicklungszwecke verfÃ¼gbar:</p><ul>
+<p>Eine Script-basierte <a href="http://www.autohotkey.net/~Lexikos/AutoHotkey_L/DBGP.ahk">DBGp-Bibliothek</a> und zwei einfache Clients sind für Entwicklungszwecke verfügbar:</p><ul>
   <li><a href="http://www.autohotkey.net/~Lexikos/AutoHotkey_L/dbgp_console.ahk">dbgp_console.ahk</a>: Einfacher Kommandozeilen-Client.</li>
   <li><a href="http://www.autohotkey.net/~Lexikos/AutoHotkey_L/dbgp_test.ahk">dbgp_test.ahk</a>: Veranschaulicht asynchrones Debuggen.</li>
 </ul>
 
 <h2>Kommandozeilen-Client</h2>
-<p>Ein Kommandozeilen-Client ist bei <a href="http://xdebug.org/">xdebug.org</a> erhÃ¤ltlich, das jedoch nicht fÃ¼r die meisten Benutzer geeignet ist, da es ein angemessenes VerstÃ¤ndnis fÃ¼r DBGp (das Protokoll) erfordert.</p>
+<p>Ein Kommandozeilen-Client ist bei <a href="http://xdebug.org/">xdebug.org</a> erhältlich, das jedoch nicht für die meisten Benutzer geeignet ist, da es ein angemessenes Verständnis für DBGp (das Protokoll) erfordert.</p>
 
 <h2>Andere</h2>
-<p>Es stehen eine Reihe von anderen DBGp-Clients zur VerfÃ¼gung, die jedoch noch nicht mit AutoHotkey_L getestet wurden. Eine Liste kann bei <a href="http://xdebug.org/docs/remote">Xdebug: Dokumentation</a> gefunden werden.</p>
+<p>Es stehen eine Reihe von anderen DBGp-Clients zur Verfügung, die jedoch noch nicht mit AutoHotkey_L getestet wurden. Eine Liste kann bei <a href="http://xdebug.org/docs/remote">Xdebug: Dokumentation</a> gefunden werden.</p>
 
 </body>
 </html>

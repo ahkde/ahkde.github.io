@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>WinGetClass</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -21,7 +21,7 @@
   </tr>
   <tr>
     <td>Fenstertitel</td>
-    <td>Der Titel oder Teiltitel des Fensters (das Ãœbereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die nÃ¤chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enthÃ¤lt und die nÃ¤chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschrÃ¤nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_pid %VarMitPID%</em></td>
+    <td>Der Titel oder Teiltitel des Fensters (das Übereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die nächsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enthält und die nächsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschränkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_pid %VarMitPID%</em></td>
   </tr>
   <tr>
     <td>Fenstertext</td>
@@ -29,17 +29,17 @@
   </tr>
   <tr>
     <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht berÃ¼cksichtigt.</td>
+    <td>Fenstertitel mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
   <tr>
     <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht berÃ¼cksichtigt.</td>
+    <td>Fenstertexte mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Nur der Klassenname wird abgerufen (das PrÃ¤fix "ahk_class" ist nicht in der <em>Ausgabevariable</em> enthalten).</p>
-<p>Fenstertitel und -texte sind von der GroÃŸ- und Kleinschreibung abhÃ¤ngig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
+<p>Nur der Klassenname wird abgerufen (das Präfix "ahk_class" ist nicht in der <em>Ausgabevariable</em> enthalten).</p>
+<p>Fenstertitel und -texte sind von der Groß- und Kleinschreibung abhängig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
 
 <h3>Verwandte Befehle</h3>
 <p><a href="WinGet.htm">WinGet</a>, <a href="WinGetTitle.htm">WinGetTitle</a></p>

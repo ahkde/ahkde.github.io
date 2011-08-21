@@ -3,31 +3,31 @@
 <html>
 <head>
 <title>SetWinDelay</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>SetWinDelay</h1>
 
-<p>Bestimmt die VerzÃ¶gerung, die nach jedem Fenster-Befehl wie <a href="WinActivate.htm">WinActivate</a> auftreten wird.</p>
+<p>Bestimmt die Verzögerung, die nach jedem Fenster-Befehl wie <a href="WinActivate.htm">WinActivate</a> auftreten wird.</p>
 
-<pre class="Syntax">SetWinDelay, VerzÃ¶gerung </pre>
+<pre class="Syntax">SetWinDelay, Verzögerung </pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
-    <td width="15%">VerzÃ¶gerung</td>
-    <td width="85%">Zeit in Millisekunden (kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Verwendet -1 fÃ¼r keine VerzÃ¶gerung und 0 fÃ¼r die kleinste mÃ¶gliche VerzÃ¶gerung. Wenn nicht gesetzt, dann wird eine StandardverzÃ¶gerung von 100 verwendet.</td>
+    <td width="15%">Verzögerung</td>
+    <td width="85%">Zeit in Millisekunden (kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Verwendet -1 für keine Verzögerung und 0 für die kleinste mögliche Verzögerung. Wenn nicht gesetzt, dann wird eine Standardverzögerung von 100 verwendet.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Eine kurze VerzÃ¶gerung (Ruhephase) erfolgt automatisch nach jedem Fenster-Befehl, auÃŸer bei <a href="IfWinActive.htm">IfWinActive</a> oder <a href="IfWinExist.htm">IfWinExist</a>. Das geschieht, um die ZuverlÃ¤ssigkeit der Scripts zu verbessern, weil ein Fenster manchmal eine kurze Ruhephase benÃ¶tigt, nachdem es erstellt, aktiviert, minimiert usw. wurde, damit die Chance besteht, sich selbst zu aktualisieren und auf dem nÃ¤chsten Befehl zu reagieren, der vom Script versuchsweise gesendet wird.</p>
-<p>Obwohl eine VerzÃ¶gerung von -1 (keine VerzÃ¶gerung) erlaubt ist, wird mindestens ein Wert von 0 empfohlen, um das Vertrauen zu stÃ¤rken, dass das Script auch unter hoher CPU-Auslastung noch richtig ausgefÃ¼hrt wird.</p>
-<p>Eine VerzÃ¶gerung von 0 fÃ¼hrt Sleep(0) intern aus, die den Rest der Script-Zeitscheibe fÃ¼r einen anderen Prozess zurÃ¼ckgibt. Wenn es keine gibt, dann ermÃ¶glicht Sleep(0) keine Ruhephase.</p>
-<p>Wenn die CPU langsam ist oder belastet wird, oder die Fensteranimation aktiviert ist, dann werden mÃ¶glicherweise hÃ¶here VerzÃ¶gerungswerte benÃ¶tigt. </p>
-<p>Die interne Variable <strong>A_WinDelay</strong> enthÃ¤lt die aktuelle Einstellung.</p>
-<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter MenÃ¼punkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung fÃ¼r diesen Befehl. Die Voreinstellung lÃ¤sst sich Ã¤ndern, wenn dieser Befehl im automatischen AusfÃ¼hrungsbereich (am Anfang des Scripts) ausgefÃ¼hrt wird.</p>
+<p>Eine kurze Verzögerung (Ruhephase) erfolgt automatisch nach jedem Fenster-Befehl, außer bei <a href="IfWinActive.htm">IfWinActive</a> oder <a href="IfWinExist.htm">IfWinExist</a>. Das geschieht, um die Zuverlässigkeit der Scripts zu verbessern, weil ein Fenster manchmal eine kurze Ruhephase benötigt, nachdem es erstellt, aktiviert, minimiert usw. wurde, damit die Chance besteht, sich selbst zu aktualisieren und auf dem nächsten Befehl zu reagieren, der vom Script versuchsweise gesendet wird.</p>
+<p>Obwohl eine Verzögerung von -1 (keine Verzögerung) erlaubt ist, wird mindestens ein Wert von 0 empfohlen, um das Vertrauen zu stärken, dass das Script auch unter hoher CPU-Auslastung noch richtig ausgeführt wird.</p>
+<p>Eine Verzögerung von 0 führt Sleep(0) intern aus, die den Rest der Script-Zeitscheibe für einen anderen Prozess zurückgibt. Wenn es keine gibt, dann ermöglicht Sleep(0) keine Ruhephase.</p>
+<p>Wenn die CPU langsam ist oder belastet wird, oder die Fensteranimation aktiviert ist, dann werden möglicherweise höhere Verzögerungswerte benötigt. </p>
+<p>Die interne Variable <strong>A_WinDelay</strong> enthält die aktuelle Einstellung.</p>
+<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter Menüpunkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung für diesen Befehl. Die Voreinstellung lässt sich ändern, wenn dieser Befehl im automatischen Ausführungsbereich (am Anfang des Scripts) ausgeführt wird.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="SetControlDelay.htm">SetControlDelay</a>, <a href="SetKeyDelay.htm">SetKeyDelay</a>,<a href="SetMouseDelay.htm"> SetMouseDelay</a>,<a href="SetBatchLines.htm"> SetBatchLines</a>, <a href="SendMode.htm">SendMode</a></p>
 <h3>Beispiel</h3>

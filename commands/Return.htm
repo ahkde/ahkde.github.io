@@ -3,14 +3,14 @@
 <html>
 <head>
 <title>Return</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Return</h1>
 
-<p>Bewirkt die RÃ¼ckkehr aus einer Subroutine, deren AusfÃ¼hrung vorher mittels <a href="../Functions.htm">Funktionsaufruf</a>, <a href="Gosub.htm">Gosub</a>, <a href="../Hotkeys.htm">Hotkey</a>-Aktivierung, <a href="GroupActivate.htm">GroupActivate</a> oder Ã„hnlichem angesprungen wurden ist. </p>
+<p>Bewirkt die Rückkehr aus einer Subroutine, deren Ausführung vorher mittels <a href="../Functions.htm">Funktionsaufruf</a>, <a href="Gosub.htm">Gosub</a>, <a href="../Hotkeys.htm">Hotkey</a>-Aktivierung, <a href="GroupActivate.htm">GroupActivate</a> oder Ähnlichem angesprungen wurden ist. </p>
 
 <pre class="Syntax">Return [, Ausdruck]</pre>
 <h3>Parameter</h3>
@@ -18,27 +18,27 @@
   <tr>
     <td width="15%">Ausdruck</td>
     <td width="85%"><p>Dieser Parameter sollte nur verwendet werden, wenn <em>Return</em> in einer <a href="../Functions.htm">Funktion</a> verwendet wird.</p>
-      <p>Da dieser Parameter ein <a href="../Variables.htm#Expressions">Ausdruck</a> ist, sind alle folgenden Beispiele gÃ¼ltig:</p>
+      <p>Da dieser Parameter ein <a href="../Variables.htm#Expressions">Ausdruck</a> ist, sind alle folgenden Beispiele gültig:</p>
 <pre>Return 3
 Return "direkt vorhandener String"
 Return EigeneVar
 Return i + 1
-Return true  <em>; Gibt 1 zurÃ¼ck, dass "wahr" bedeutet.</em>
-Return ElementzÃ¤hlung < Elementmaximum  <em>; Gibt einen wahren oder falschen Wert zurÃ¼ck.</em>
+Return true  <em>; Gibt 1 zurück, dass "wahr" bedeutet.</em>
+Return Elementzählung < Elementmaximum  <em>; Gibt einen wahren oder falschen Wert zurück.</em>
 Return FindColor(TargetColor)</pre>
-<p><strong>Bekannte EinschrÃ¤nkung</strong>: Aus GrÃ¼nden der AbwÃ¤rtskompatibilitÃ¤t und Benutzerfreundlichkeit sind die folgenden zwei Beispiele funktionsgemÃ¤ÃŸ identisch:</p>
+<p><strong>Bekannte Einschränkung</strong>: Aus Gründen der Abwärtskompatibilität und Benutzerfreundlichkeit sind die folgenden zwei Beispiele funktionsgemäß identisch:</p>
 <pre>Return EigeneVar
 Return %EigeneVar%</pre>
-<p>Mit anderen Worten wird eine Variable, umschlossen von Prozentzeichen, nicht als Ausdruck behandelt. Um diese EinschrÃ¤nkung zu umgehen, umschlieÃŸt es zusÃ¤tzlich mit Klammern, damit es unmissverstÃ¤ndlich ein Ausdruck ist. Zum Beispiel: <em>Return (%EigeneVar%)</em></p></td>
+<p>Mit anderen Worten wird eine Variable, umschlossen von Prozentzeichen, nicht als Ausdruck behandelt. Um diese Einschränkung zu umgehen, umschließt es zusätzlich mit Klammern, damit es unmissverständlich ein Ausdruck ist. Zum Beispiel: <em>Return (%EigeneVar%)</em></p></td>
   </tr>
 </table>
 <h3>Bemerkungen</h3>
-<p>Wenn von nichts zurÃ¼ckgekehrt werden kann, dann fÃ¼hrt <em>Return</em> stattdessen ein <a href="Exit.htm">Exit</a> aus.</p>
+<p>Wenn von nichts zurückgekehrt werden kann, dann führt <em>Return</em> stattdessen ein <a href="Exit.htm">Exit</a> aus.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="../Functions.htm">Funktionen</a>, <a href="Gosub.htm">Gosub</a>, <a href="Exit.htm">Exit</a>, <a href="ExitApp.htm">ExitApp</a>, <a href="GroupActivate.htm">GroupActivate</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">#z::
-MsgBox Der Hotkey Win+Z wurde gedrÃ¼ckt.
+MsgBox Der Hotkey Win+Z wurde gedrückt.
 Gosub EigeneSubroutine
 <strong>Return</strong>
 

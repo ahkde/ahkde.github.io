@@ -3,14 +3,14 @@
 <html>
 <head>
 <title>#Include</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>#Include / #IncludeAgain</h1>
 
-<p>Bewirkt, dass der Inhalt der angegebenen Datei exakt an dieser Position ausgefÃ¼hrt wird.</p>
+<p>Bewirkt, dass der Inhalt der angegebenen Datei exakt an dieser Position ausgeführt wird.</p>
 
 <pre class="Syntax">#Include DateiOderVerzeichnis
 #Include <Bibliotheksname>
@@ -19,31 +19,31 @@
 <table class="info">
   <tr>
     <td width="15%" height="24">DateiOderVerzeichnis</td>
-    <td width="85%"><p><strong>Datei:</strong> Der Name der eingefÃ¼gten Datei, die sich im Start- oder Arbeitsverzeichnis befindet, solange kein absoluter Pfad angegeben ist (auÃŸer bei <a href="../Scripts.htm#ahk2exe">ahk2exe</a>, das sich im eigenen Verzeichnis des Scripts befindet). Der Dateiname <strong>darf keine</strong> Variablenverweise (auÃŸer <a href="../Variables.htm#ScriptDir">%A_ScriptDir%</a>, <a href="../Variables.htm#AppData">%A_AppData%</a> und <a href="../Variables.htm#AppDataCommon">%A_AppDataCommon%</a>), AnfÃ¼hrungszeichen oder Platzhalter beinhalten. <a href="_EscapeChar.htm">Schutzsequenzen</a> auÃŸer Semikolon (<strong>`;</strong>) dÃ¼rfen weder verwendet werden, noch sind sie notwendig, da solche Zeichen (z. B. Prozentzeichen) direkt behandelt werden. Hinweis: <a href="SetWorkingDir.htm">SetWorkingDir</a> hat keine Auswirkung auf #Include, weil #Include verarbeitet wird, bevor das Script ausgefÃ¼hrt wird.</p>
-      <p><strong>Verzeichnis:</strong> Verwendet ein Verzeichnis anstelle einer Datei, um das Arbeitsverzeichnis zu Ã¤ndern, welches fÃ¼r alle nachfolgende Vorkommnisse von #Include und <a href="FileInstall.htm">FileInstall</a> gilt. Der Verzeichnisname darf keine Variablen beinhalten, auÃŸer <a href="../Variables.htm#ScriptDir">%A_ScriptDir%</a>, <a href="../Variables.htm#AppData">%A_AppData%</a> und <a href="../Variables.htm#AppDataCommon">%A_AppDataCommon%</a>. Hinweis: Wenn das Arbeitsverzeichnis auf diese Weise verÃ¤ndert wird, dann wird das anfÃ¤ngliche Arbeitsverzeichnis des Scripts nicht davon beeinflusst, wenn es ausgefÃ¼hrt wird (<a href="../Variables.htm#WorkingDir">A_WorkingDir</a>). Um das zu Ã¤ndern, verwendet <a href="SetWorkingDir.htm">SetWorkingDir</a> am Anfang des Scripts.</p></td>
+    <td width="85%"><p><strong>Datei:</strong> Der Name der eingefügten Datei, die sich im Start- oder Arbeitsverzeichnis befindet, solange kein absoluter Pfad angegeben ist (außer bei <a href="../Scripts.htm#ahk2exe">ahk2exe</a>, das sich im eigenen Verzeichnis des Scripts befindet). Der Dateiname <strong>darf keine</strong> Variablenverweise (außer <a href="../Variables.htm#ScriptDir">%A_ScriptDir%</a>, <a href="../Variables.htm#AppData">%A_AppData%</a> und <a href="../Variables.htm#AppDataCommon">%A_AppDataCommon%</a>), Anführungszeichen oder Platzhalter beinhalten. <a href="_EscapeChar.htm">Schutzsequenzen</a> außer Semikolon (<strong>`;</strong>) dürfen weder verwendet werden, noch sind sie notwendig, da solche Zeichen (z. B. Prozentzeichen) direkt behandelt werden. Hinweis: <a href="SetWorkingDir.htm">SetWorkingDir</a> hat keine Auswirkung auf #Include, weil #Include verarbeitet wird, bevor das Script ausgeführt wird.</p>
+      <p><strong>Verzeichnis:</strong> Verwendet ein Verzeichnis anstelle einer Datei, um das Arbeitsverzeichnis zu ändern, welches für alle nachfolgende Vorkommnisse von #Include und <a href="FileInstall.htm">FileInstall</a> gilt. Der Verzeichnisname darf keine Variablen beinhalten, außer <a href="../Variables.htm#ScriptDir">%A_ScriptDir%</a>, <a href="../Variables.htm#AppData">%A_AppData%</a> und <a href="../Variables.htm#AppDataCommon">%A_AppDataCommon%</a>. Hinweis: Wenn das Arbeitsverzeichnis auf diese Weise verändert wird, dann wird das anfängliche Arbeitsverzeichnis des Scripts nicht davon beeinflusst, wenn es ausgeführt wird (<a href="../Variables.htm#WorkingDir">A_WorkingDir</a>). Um das zu ändern, verwendet <a href="SetWorkingDir.htm">SetWorkingDir</a> am Anfang des Scripts.</p></td>
   </tr>
   <tr>
     <td>Bibliotheksname</td>
-    <td><span class="ver">[AHK_L 57+]:</span> Eine Bibliotheksdatei oder ein Funktionsname. Mit <code>#include <Bibliothek></code> und <code>#include <Bibliothek_Funktion></code> wird beispielsweise Bibliothek.ahk von einem <a href="../Functions.htm#lib">Ordner mit Funktionsbibliotheken</a> eingefÃ¼gt.</td>
+    <td><span class="ver">[AHK_L 57+]:</span> Eine Bibliotheksdatei oder ein Funktionsname. Mit <code>#include <Bibliothek></code> und <code>#include <Bibliothek_Funktion></code> wird beispielsweise Bibliothek.ahk von einem <a href="../Functions.htm#lib">Ordner mit Funktionsbibliotheken</a> eingefügt.</td>
   </tr>
 </table>
 <h3>Bemerkungen</h3>
-<p>Die #Include-Anweisung bewirkt, dass sich der Inhalt der eingefÃ¼gten Datei exakt an dieser Position befindet (als wÃ¤re die Datei kopiert und eingefÃ¼gt). Folglich kÃ¶nnen zwei isolierte Scripts in der Regel nicht zu einem funktionierenden Script zusammengefÃ¼gt werden (um das zu erreichen, siehe <a href="http://www.autohotkey.com/forum/topic18545.html">www.autohotkey.com/forum/topic18545.html</a>).</p>
-<p>#Include stellt sicher, dass der <em>Dateiname</em> nur einmal eingefÃ¼gt wird, selbst wenn mehrere EinfÃ¼gungen gefunden werden. Im Gegensatz dazu ermÃ¶glicht #IncludeAgain mehrere EinfÃ¼gungen derselben Datei, ansonsten ist diese Anweisung vergleichbar mit #Include.</p>
-<p>Der <em>Dateiname</em>-Parameter kann optional mit *i und einem Leerzeichen vorangestellt werden, damit das Programm jeden Fehler beim Laden der eingefÃ¼gten Datei ignoriert. Zum Beispiel: <em>#Include *i Spezialoptionen.ahk</em>. Diese Option sollte nur verwendet werden, wenn die Inhalte der eingefÃ¼gten Datei nicht unbedingt fÃ¼r die Operation des Hauptscripts erforderlich sind.</p>
-<p>Zeilen, die im Hauptfenster mit <a href="ListLines.htm">ListLines</a> oder mit dem MenÃ¼ "View-Lines" angezeigt werden, sind immer nach ihrer physischen Reihenfolge innerhalb des eigenen Scripts nummeriert. Mit anderen Worten erhÃ¶ht das EinfÃ¼gen einer neuen Datei die Zeilennummerierung des Hauptscripts um 1, nÃ¤mlich von der #Include-Zeile selbst (auÃŸer bei <a href="../Scripts.htm#ahk2exe">kompilierten Scripts</a>, da eingefÃ¼gte Dateien zu einem groÃŸen Script wÃ¤hrend der Kompilierung zusammenfÃ¼gt werden).</p>
-<p>#Include wird oft verwendet, um <a href="../Functions.htm">Funktionen</a> einer externen Datei zu laden. Im Gegensatz zu Subroutinen kÃ¶nnen <a href="../Functions.htm">Funktionen</a> ganz am Anfang des Scripts eingefÃ¼gt werden, ohne dabei den <a href="../Scripts.htm#auto">automatischen AusfÃ¼hrungsbereich</a> zu beeinflussen.</p>
-<p>Wie bei anderen Anweisungen kann #Include nicht bedingt ausgefÃ¼hrt werden. Mit anderen Worten funktioniert dieses Beispiel nicht:</p>
+<p>Die #Include-Anweisung bewirkt, dass sich der Inhalt der eingefügten Datei exakt an dieser Position befindet (als wäre die Datei kopiert und eingefügt). Folglich können zwei isolierte Scripts in der Regel nicht zu einem funktionierenden Script zusammengefügt werden (um das zu erreichen, siehe <a href="http://www.autohotkey.com/forum/topic18545.html">www.autohotkey.com/forum/topic18545.html</a>).</p>
+<p>#Include stellt sicher, dass der <em>Dateiname</em> nur einmal eingefügt wird, selbst wenn mehrere Einfügungen gefunden werden. Im Gegensatz dazu ermöglicht #IncludeAgain mehrere Einfügungen derselben Datei, ansonsten ist diese Anweisung vergleichbar mit #Include.</p>
+<p>Der <em>Dateiname</em>-Parameter kann optional mit *i und einem Leerzeichen vorangestellt werden, damit das Programm jeden Fehler beim Laden der eingefügten Datei ignoriert. Zum Beispiel: <em>#Include *i Spezialoptionen.ahk</em>. Diese Option sollte nur verwendet werden, wenn die Inhalte der eingefügten Datei nicht unbedingt für die Operation des Hauptscripts erforderlich sind.</p>
+<p>Zeilen, die im Hauptfenster mit <a href="ListLines.htm">ListLines</a> oder mit dem Menü "View-Lines" angezeigt werden, sind immer nach ihrer physischen Reihenfolge innerhalb des eigenen Scripts nummeriert. Mit anderen Worten erhöht das Einfügen einer neuen Datei die Zeilennummerierung des Hauptscripts um 1, nämlich von der #Include-Zeile selbst (außer bei <a href="../Scripts.htm#ahk2exe">kompilierten Scripts</a>, da eingefügte Dateien zu einem großen Script während der Kompilierung zusammenfügt werden).</p>
+<p>#Include wird oft verwendet, um <a href="../Functions.htm">Funktionen</a> einer externen Datei zu laden. Im Gegensatz zu Subroutinen können <a href="../Functions.htm">Funktionen</a> ganz am Anfang des Scripts eingefügt werden, ohne dabei den <a href="../Scripts.htm#auto">automatischen Ausführungsbereich</a> zu beeinflussen.</p>
+<p>Wie bei anderen Anweisungen kann #Include nicht bedingt ausgeführt werden. Mit anderen Worten funktioniert dieses Beispiel nicht:</p>
 <pre>If x = 1
-    #Include BeliebigeDatei.ahk  <em>; Die Zeile ist wirksam, unabhÃ¤ngig vom X-Wert.</em>
-    y = 2  <em>; Und diese Zeile bezieht sich auf das obere IF, da Anweisungen sich nicht auf IFs beziehen kÃ¶nnen.</em></pre>
-<p>Dateien kÃ¶nnen automatisch eingefÃ¼gt werden (ohne dabei #Include zu verwenden), wenn eine <a href="../Functions.htm#lib">Bibliotheksfunktion</a> mit dem Namen aufgerufen wird.</p>
+    #Include BeliebigeDatei.ahk  <em>; Die Zeile ist wirksam, unabhängig vom X-Wert.</em>
+    y = 2  <em>; Und diese Zeile bezieht sich auf das obere IF, da Anweisungen sich nicht auf IFs beziehen können.</em></pre>
+<p>Dateien können automatisch eingefügt werden (ohne dabei #Include zu verwenden), wenn eine <a href="../Functions.htm#lib">Bibliotheksfunktion</a> mit dem Namen aufgerufen wird.</p>
 <h3>Verwandte Befehle</h3>
 <p> <a href="../Functions.htm#lib">Funktionsbibliotheken</a>, <a href="../Functions.htm">Funktionen</a>, <a href="FileInstall.htm">FileInstall</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">#Include C:\Eigene Dokumente\Scripts\Tool-Subroutinen.ahk
-#Include %A_ScriptDir%  <em>; VerÃ¤ndert das Arbeitsverzeichnis aller nachfolgenden #Includes und FileInstalls.</em>
-#Include C:\Eigene Scripts  <em>; Wie oben, aber fÃ¼r ein direkt angegebenes Verzeichnis.</em></pre>
+#Include %A_ScriptDir%  <em>; Verändert das Arbeitsverzeichnis aller nachfolgenden #Includes und FileInstalls.</em>
+#Include C:\Eigene Scripts  <em>; Wie oben, aber für ein direkt angegebenes Verzeichnis.</em></pre>
 
 </body>
 </html>

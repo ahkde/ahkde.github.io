@@ -3,18 +3,18 @@
 <html>
 <head>
 <title>Break</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Break</h1>
 
-<p>Beendet bzw. verlÃ¤sst eine <a href="Loop.htm">Schleife</a>. Nur in einer <a href="Loop.htm">Schleife</a> gÃ¼ltig.</p>
+<p>Beendet bzw. verlässt eine <a href="Loop.htm">Schleife</a>. Nur in einer <a href="Loop.htm">Schleife</a> gültig.</p>
 
 <pre class="Syntax">Break [, LoopLabel]</pre>
-<p><span class="ver">[AHK_L 59+]:</span> Wenn angegeben, kennzeichnet LoopLabel, fÃ¼r welche Schleife diese Anweisung gilt. Entweder mit dem Labelnamen oder der numerischen Verschachtelungsebene. Wenn nicht vorhanden oder 1, dann gilt diese Anweisung fÃ¼r die innerste Schleife, in dem sie eingeschlossen ist. LoopLabel muss ein konstanter Wert sein, d. h. Variablen und AusdrÃ¼cke werden nicht unterstÃ¼tzt.</p>
-<p>Break und <a href="Continue.htm">Continue</a> sollten gegenÃ¼ber <a href="Goto.htm">Goto</a> immer vorgezogen werden, da sich Scripts damit einfacher lesen und pflegen lassen.</p>
+<p><span class="ver">[AHK_L 59+]:</span> Wenn angegeben, kennzeichnet LoopLabel, für welche Schleife diese Anweisung gilt. Entweder mit dem Labelnamen oder der numerischen Verschachtelungsebene. Wenn nicht vorhanden oder 1, dann gilt diese Anweisung für die innerste Schleife, in dem sie eingeschlossen ist. LoopLabel muss ein konstanter Wert sein, d. h. Variablen und Ausdrücke werden nicht unterstützt.</p>
+<p>Break und <a href="Continue.htm">Continue</a> sollten gegenüber <a href="Goto.htm">Goto</a> immer vorgezogen werden, da sich Scripts damit einfacher lesen und pflegen lassen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="Continue.htm">Continue</a>, <a href="Loop.htm">Loop</a>, <a href="While.htm">While-Loop</a>, <a href="For.htm">For-Loop</a>, <a href="Block.htm">Block</a> </p>
 <h3>Beispiel</h3>
@@ -27,7 +27,7 @@
     If var <= 5
         continue
 }</pre>
-<pre class="NoIndent"><em>; Unterbricht die Ã¤uÃŸere Schleife.</em>
+<pre class="NoIndent"><em>; Unterbricht die äußere Schleife.</em>
 <b>outer:</b>
 Loop 3
 {
@@ -39,7 +39,7 @@ Loop 3
         MsgBox %x%,%A_Index%
     }
 }
-break_outer: <em>; FÃ¼r goto.</em>
+break_outer: <em>; Für goto.</em>
 </pre>
 
 </body>

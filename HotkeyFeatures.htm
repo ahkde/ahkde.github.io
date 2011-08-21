@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>Erweiterte Hotkey-Funktionen - Maus- und Tastatur-Tastenkombinationen</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
@@ -11,31 +11,31 @@
 <body>
 <h1>Erweiterte Hotkey-Funktionen</h1>
 
-<p>Hinweis: Die meisten der folgenden Funktionen benÃ¶tigen Windows NT/2000/XP oder hÃ¶her.<br> <br> <u>Einige der am leichtesten erreichbaren Tasten</u> auf der Tastatur werden auch am wenigsten verwendet. Bringt die Tasten dazu, etwas Sinnvolles zu tun! Wenn zum Beispiel die rechte ALT-Taste selten verwendet wird, dann belegt sie neu, damit eine gewÃ¼nschte Aktion oft ausgefÃ¼hrt werden kann:</p>
+<p>Hinweis: Die meisten der folgenden Funktionen benötigen Windows NT/2000/XP oder höher.<br> <br> <u>Einige der am leichtesten erreichbaren Tasten</u> auf der Tastatur werden auch am wenigsten verwendet. Bringt die Tasten dazu, etwas Sinnvolles zu tun! Wenn zum Beispiel die rechte ALT-Taste selten verwendet wird, dann belegt sie neu, damit eine gewünschte Aktion oft ausgeführt werden kann:</p>
 <pre>RAlt::
-MsgBox Die rechte ALT-Taste wurde gedrÃ¼ckt.
+MsgBox Die rechte ALT-Taste wurde gedrückt.
 Return</pre>
-<p>Das oben genannte Beispiel funktioniert auch, ohne dabei die ursprÃ¼ngliche Funktion der rechten ALT-Taste zu verlieren, wenn sie als PrÃ¤fix fÃ¼r einen anderen Hotkey zugewiesen wird. Im unten genannten Beispiel wird die rechte ALT-Taste zum PrÃ¤fix, dass ihr automatisch erlaubt, <strong>alle</strong> anderen Tasten zu modifizieren, wie sie es normalerweise tun wÃ¼rde. Aber wenn die rechte ALT-Taste gedrÃ¼ckt und losgelassen wird, ohne dabei andere Tasten modifiziert zu haben, dann wird ihre Hotkey-Aktion (oben) sofort wirksam:</p>
+<p>Das oben genannte Beispiel funktioniert auch, ohne dabei die ursprüngliche Funktion der rechten ALT-Taste zu verlieren, wenn sie als Präfix für einen anderen Hotkey zugewiesen wird. Im unten genannten Beispiel wird die rechte ALT-Taste zum Präfix, dass ihr automatisch erlaubt, <strong>alle</strong> anderen Tasten zu modifizieren, wie sie es normalerweise tun würde. Aber wenn die rechte ALT-Taste gedrückt und losgelassen wird, ohne dabei andere Tasten modifiziert zu haben, dann wird ihre Hotkey-Aktion (oben) sofort wirksam:</p>
 <pre>RAlt & j::AltTab</pre>
 <p>&nbsp;</p>
-<p><u>Verwendet CTRL, ALT, SHIFT oder WIN nicht nur als Modifikatoren</u>; es kÃ¶nnen zwei <strong>beliebige</strong> Tasten oder Maustasten kombiniert werden, um einen benutzerdefinierten Hotkey zu formen. Zum Beispiel: Haltet Numpad0 gedrÃ¼ckt und drÃ¼ckt Numpad1, um einen Hotkey auszufÃ¼hren (Syntax: Numpad0 & Numpad1::); Haltet die Feststelltaste gedrÃ¼ckt und drÃ¼ckt eine weitere Taste oder Maustaste (Syntax: CapsLock & RButton::). In diesem Fall wird der Zustand der Feststelltaste (an oder aus) nicht geÃ¤ndert, falls damit ein Hotkey ausgefÃ¼hrt werden soll. Weitere Informationen kÃ¶nnen bei <a href="Hotkeys.htm#combo">benutzerdefinierten Tastenkombinationen</a> gefunden werden.</p>
+<p><u>Verwendet CTRL, ALT, SHIFT oder WIN nicht nur als Modifikatoren</u>; es können zwei <strong>beliebige</strong> Tasten oder Maustasten kombiniert werden, um einen benutzerdefinierten Hotkey zu formen. Zum Beispiel: Haltet Numpad0 gedrückt und drückt Numpad1, um einen Hotkey auszuführen (Syntax: Numpad0 & Numpad1::); Haltet die Feststelltaste gedrückt und drückt eine weitere Taste oder Maustaste (Syntax: CapsLock & RButton::). In diesem Fall wird der Zustand der Feststelltaste (an oder aus) nicht geändert, falls damit ein Hotkey ausgeführt werden soll. Weitere Informationen können bei <a href="Hotkeys.htm#combo">benutzerdefinierten Tastenkombinationen</a> gefunden werden.</p>
 <p>&nbsp;</p>
-<p><u><a name="AltTab"></a>Ersetzt das Mausrad</u> (oder irgendeine andere Taste) mit Alt-Tab. Klickt auf das Rad, um das MenÃ¼ anzuzeigen oder zu verstecken, und durch das MenÃ¼ zu schalten. Das Rad wird immer noch normal funktionieren, sobald das Alt-Tab-MenÃ¼ nicht sichtbar ist. Syntax:</p>
+<p><u><a name="AltTab"></a>Ersetzt das Mausrad</u> (oder irgendeine andere Taste) mit Alt-Tab. Klickt auf das Rad, um das Menü anzuzeigen oder zu verstecken, und durch das Menü zu schalten. Das Rad wird immer noch normal funktionieren, sobald das Alt-Tab-Menü nicht sichtbar ist. Syntax:</p>
 <pre>MButton::AltTabMenu
 WheelDown::AltTab
 WheelUp::ShiftAltTab</pre>
 <p>&nbsp;</p>
-<p><u>Wandelt eine Tastatur-Taste <strong>in</strong> eine Maustaste</u>, oder lasst eine Aktion wiederholend ausfÃ¼hren, wÃ¤hrend eine Taste oder Maustaste gedrÃ¼ckt gehalten wird. Siehe "<a href="misc/Remap.htm#RemapMouse">Neubelegung</a>" fÃ¼r weitere Beispiele.</p>
+<p><u>Wandelt eine Tastatur-Taste <strong>in</strong> eine Maustaste</u>, oder lasst eine Aktion wiederholend ausführen, während eine Taste oder Maustaste gedrückt gehalten wird. Siehe "<a href="misc/Remap.htm#RemapMouse">Neubelegung</a>" für weitere Beispiele.</p>
 <p>&nbsp;</p>
-<p><u>Hotkeys </u><u>kontextabhÃ¤ngig machen</u>: ErmÃ¶glicht einfach zu erreichende Hotkeys, Aktionen in AbhÃ¤ngigkeit vom Fenstertyp durchzufÃ¼hren. Im folgenden Beispiel fÃ¼hrt die rechte Steuerungstaste verschiedene Aktion aus, abhÃ¤ngig davon, ob der Editor oder der Rechner das aktive Fenster ist:</p>
+<p><u>Hotkeys </u><u>kontextabhängig machen</u>: Ermöglicht einfach zu erreichende Hotkeys, Aktionen in Abhängigkeit vom Fenstertyp durchzuführen. Im folgenden Beispiel führt die rechte Steuerungstaste verschiedene Aktion aus, abhängig davon, ob der Editor oder der Rechner das aktive Fenster ist:</p>
 <pre>#IfWinActive ahk_class Notepad
 RControl::WinMenuSelectItem, , , Datei, Speichern  <em>; Speichert die aktuelle Datei im Editor.</em>
 
 #IfWinActive Rechner
 RControl::Send, ^c!{tab}^v  <em>; Kopiert das Ergebnis vom Rechner in das vorherige aktive Fenster.</em></pre>
-<p>Siehe <a href="commands/_IfWinActive.htm">#IfWinActive</a> fÃ¼r weitere Details. </p>
+<p>Siehe <a href="commands/_IfWinActive.htm">#IfWinActive</a> für weitere Details. </p>
 <p>&nbsp;</p>
-<p><u>Hotstrings: Definiert AbkÃ¼rzungen, die erweitert werden, sobald sie eingegeben werden</u>. Es ist keine spezielle Ausbildung oder Programmiererfahrung notwendig.  Zum Beispiel wird ein Script mit folgenden Zeilen die AbkÃ¼rzungen ceo, cfo und btw erweitern, sobald sie eingegeben werden:</p>
+<p><u>Hotstrings: Definiert Abkürzungen, die erweitert werden, sobald sie eingegeben werden</u>. Es ist keine spezielle Ausbildung oder Programmiererfahrung notwendig.  Zum Beispiel wird ein Script mit folgenden Zeilen die Abkürzungen ceo, cfo und btw erweitern, sobald sie eingegeben werden:</p>
 <pre>::ceo::Chief Executive Officer
 ::cfo::Chief Financial Officer
 ::btw::by the way</pre>
@@ -44,12 +44,12 @@ RControl::Send, ^c!{tab}^v  <em>; Kopiert das Ergebnis vom Rechner in das vorher
 <p>&nbsp;</p>
 <p><strong><u>Interessantes zum Thema "Spiele":</u></strong></p>
 <ul>
-  <li>Um die Abnutzung der Finger zu reduzieren, verwendet nahezu <a href="KeyList.htm">jede Taste</a> als Hotkey, dazu zÃ¤hlen die Buchstaben, Pfeiltasten, Numpad-Tasten und auch die Modifikatoren selbst (CTRL/ALT/WIN/SHIFT).</li>
-  <li>Erstellt Maus-Hotkeys, dazu zÃ¤hlt die Mausrad-Taste (MButton) und das Drehen des Mausrads nach oben/unten oder links/rechts (WheelUp, WheelDown, WheelLeft und WheelRight). Es kann auch eine Tastatur-Taste mit einer Maustaste kombiniert werden. Zum Beispiel wird die rechte Steuerungstaste als ^RButton:: interpretiert.</li>
-  <li>Erstellt "durchlÃ¤ssige" Hotkeys. Zum Beispiel kann die linke Maustaste eine Hotkey-Aktion nur auslÃ¶sen, wenn der Klick selbst normal an das Spiel gesendet wurde (Syntax: ~LButton::).</li>
+  <li>Um die Abnutzung der Finger zu reduzieren, verwendet nahezu <a href="KeyList.htm">jede Taste</a> als Hotkey, dazu zählen die Buchstaben, Pfeiltasten, Numpad-Tasten und auch die Modifikatoren selbst (CTRL/ALT/WIN/SHIFT).</li>
+  <li>Erstellt Maus-Hotkeys, dazu zählt die Mausrad-Taste (MButton) und das Drehen des Mausrads nach oben/unten oder links/rechts (WheelUp, WheelDown, WheelLeft und WheelRight). Es kann auch eine Tastatur-Taste mit einer Maustaste kombiniert werden. Zum Beispiel wird die rechte Steuerungstaste als ^RButton:: interpretiert.</li>
+  <li>Erstellt "durchlässige" Hotkeys. Zum Beispiel kann die linke Maustaste eine Hotkey-Aktion nur auslösen, wenn der Klick selbst normal an das Spiel gesendet wurde (Syntax: ~LButton::).</li>
   <li>Verwendet Befehle wie <a href="commands/PixelSearch.htm">PixelSearch</a>, <a href="commands/PixelGetColor.htm">PixelGetColor</a> und <a href="commands/ImageSearch.htm">ImageSearch</a>, um Spielaktionen zu automatisieren.</li>
-  <li>Es ist mÃ¶glich, Hotkeys mithilfe eines <a href="commands/_UseHook.htm">Tastatur-Hooks</a> zu implementieren, der mÃ¶glicherweise zuverlÃ¤ssiger als andere Hotkey-Methoden ist, wÃ¤hrend die CPU in einem Spiel belastet wird. Der Hook ist mÃ¶glicherweise ebenso in der Lage, sÃ¤mtliche EinschrÃ¤nkungen eines Spiels beim Neubelegen von Aktionen zu Ã¼berschreiben.</li>
+  <li>Es ist möglich, Hotkeys mithilfe eines <a href="commands/_UseHook.htm">Tastatur-Hooks</a> zu implementieren, der möglicherweise zuverlässiger als andere Hotkey-Methoden ist, während die CPU in einem Spiel belastet wird. Der Hook ist möglicherweise ebenso in der Lage, sämtliche Einschränkungen eines Spiels beim Neubelegen von Aktionen zu überschreiben.</li>
 </ul>
-<p>Siehe den Abschnitt <a href="Hotkeys.htm">Hotkeys</a> fÃ¼r genauere Informationen.</p>
+<p>Siehe den Abschnitt <a href="Hotkeys.htm">Hotkeys</a> für genauere Informationen.</p>
 </body>
 </html>

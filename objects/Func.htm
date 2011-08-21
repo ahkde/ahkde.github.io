@@ -3,52 +3,52 @@
 <html>
 <head>
 <title>Funktionsobjekt</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Funktionsobjekt <span class="ver">[v1.1.00+]</span></h1>
 
-<p>ReprÃ¤sentiert eine benutzerdefinierte oder interne Funktion, die vom Script aufgerufen werden kann.</p>
+<p>Repräsentiert eine benutzerdefinierte oder interne Funktion, die vom Script aufgerufen werden kann.</p>
 
 <div class="methodShort" id="Call"><h2>Call</h2>
 <p>Ruft die Funktion auf.</p>
 <pre class="Syntax">Funktion.(<i>Parameter</i>)</pre>
-<p>Parameter und RÃ¼ckgabewerte werden durch die Funktion definiert.</p>
-<p>Diese Syntax ist auch gÃ¼ltig, wenn <i>Funktion</i> ein Funktionsname oder ein benutzerdefiniertes Objekt ist, das __Call implementiert.</p></div>
+<p>Parameter und Rückgabewerte werden durch die Funktion definiert.</p>
+<p>Diese Syntax ist auch gültig, wenn <i>Funktion</i> ein Funktionsname oder ein benutzerdefiniertes Objekt ist, das __Call implementiert.</p></div>
 
 <div class="methodShort" id="Name"><h2>Name</h2>
-<p>Gibt den Funktionsnamen zurÃ¼ck.</p>
+<p>Gibt den Funktionsnamen zurück.</p>
 <pre class="Syntax">Funktion.Name</pre>
 </div>
 
 <div class="methodShort" id="IsBuiltIn"><h2>IsBuiltIn</h2>
-<p>Gibt <i>wahr</i> zurÃ¼ck, falls die Funktion eine interne Funktion ist, ansonsten <i>falsch</i>.</p>
+<p>Gibt <i>wahr</i> zurück, falls die Funktion eine interne Funktion ist, ansonsten <i>falsch</i>.</p>
 <pre class="Syntax">Funktion.IsBuiltIn</pre>
 </div>
 
 <div class="methodShort" id="IsVariadic"><h2>IsVariadic</h2>
-<p>Gibt <i>wahr</i> zurÃ¼ck, falls die Funktion <a href="../Functions.htm#Variadic">variadisch</a> ist, ansonsten <i>falsch</i>.</p>
+<p>Gibt <i>wahr</i> zurück, falls die Funktion <a href="../Functions.htm#Variadic">variadisch</a> ist, ansonsten <i>falsch</i>.</p>
 <pre class="Syntax">Funktion.IsVariadic</pre>
 </div>
 
 <div class="methodShort" id="MinParams"><h2>MinParams</h2>
-<p>Gibt die Anzahl der benÃ¶tigten Parameter zurÃ¼ck.</p>
+<p>Gibt die Anzahl der benötigten Parameter zurück.</p>
 <pre class="Syntax">Funktion.MinParams</pre>
 </div>
 
 <div class="methodShort" id="MaxParams"><h2>MaxParams</h2>
-<p>Gibt die Anzahl der offiziell deklarierten Parameter einer benutzerdefinierten Funktion oder die maximale Anzahl der Parameter einer internen Funktion zurÃ¼ck.</p>
+<p>Gibt die Anzahl der offiziell deklarierten Parameter einer benutzerdefinierten Funktion oder die maximale Anzahl der Parameter einer internen Funktion zurück.</p>
 <pre class="Syntax">Funktion.MaxParams</pre>
-<p>Wenn die Funktion <a href="../Functions.htm#Variadic">variadisch</a> ist, dann kennzeichnet der RÃ¼ckgabewert die maximale Anzahl an Parametern, die von der Funktion akzeptiert werden kann, ohne einen Ãœberlauf zu riskieren.</p></div>
+<p>Wenn die Funktion <a href="../Functions.htm#Variadic">variadisch</a> ist, dann kennzeichnet der Rückgabewert die maximale Anzahl an Parametern, die von der Funktion akzeptiert werden kann, ohne einen Überlauf zu riskieren.</p></div>
 
 <div class="methodShort" id="IsByRef"><h2>IsByRef()</h2>
 <p>Damit kann festgestellt werden, ob der Parameter ein ByRef ist.</p>
 <pre class="Syntax">Funktion.IsByRef(ParamIndex)</pre>
 <table class="info">
-  <tr><td width="15%">ParamIndex</td><td width="85%">Optional: die 1-basierte Index eines Parameters. Wenn weggelassen, dann kennzeichnet der RÃ¼ckgabewert, ob die Funktion Ã¼berhaupt ByRef-Parameter hat.</td></tr>
-  <tr><td><b>RÃ¼ckgabe</b></td><td>Ein leerer String, wenn die Funktion eine interne Funktion ist oder <i>ParamIndex</i> ungÃ¼ltig ist, ansonsten kennzeichnet ein boolescher Wert, ob der Parameter ein ByRef ist.</td></tr>
+  <tr><td width="15%">ParamIndex</td><td width="85%">Optional: die 1-basierte Index eines Parameters. Wenn weggelassen, dann kennzeichnet der Rückgabewert, ob die Funktion überhaupt ByRef-Parameter hat.</td></tr>
+  <tr><td><b>Rückgabe</b></td><td>Ein leerer String, wenn die Funktion eine interne Funktion ist oder <i>ParamIndex</i> ungültig ist, ansonsten kennzeichnet ein boolescher Wert, ob der Parameter ein ByRef ist.</td></tr>
 </table>
 <p></p></div>
 
@@ -56,10 +56,10 @@
 <p>Damit kann festgestellt werden, ob der Parameter optional ist.</p>
 <pre class="Syntax">Funktion.IsOptional(ParamIndex)</pre>
 <table class="info">
-  <tr><td width="15%">ParamIndex</td><td width="85%">Optional: die 1-basierte Index eines Parameters. Wenn weggelassen, dann kennzeichnet der RÃ¼ckgabewert, ob die Funktion Ã¼berhaupt optionale Parameter hat.</td></tr>
-  <tr><td><b>RÃ¼ckgabe</b></td><td>Einen leeren String, wenn <i>ParamIndex</i> ungÃ¼ltig ist, ansonsten kennzeichnet ein boolescher Wert, ob der Parameter optional ist.</td></tr>
+  <tr><td width="15%">ParamIndex</td><td width="85%">Optional: die 1-basierte Index eines Parameters. Wenn weggelassen, dann kennzeichnet der Rückgabewert, ob die Funktion überhaupt optionale Parameter hat.</td></tr>
+  <tr><td><b>Rückgabe</b></td><td>Einen leeren String, wenn <i>ParamIndex</i> ungültig ist, ansonsten kennzeichnet ein boolescher Wert, ob der Parameter optional ist.</td></tr>
 </table>
-<p>Parameter mÃ¼ssen nicht offiziell deklariert werden, wenn die Funktion variadisch ist. Interne Funktionen werden unterstÃ¼tzt.</p></div>
+<p>Parameter müssen nicht offiziell deklariert werden, wenn die Funktion variadisch ist. Interne Funktionen werden unterstützt.</p></div>
 
 </body>
 </html>

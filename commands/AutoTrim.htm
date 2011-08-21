@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>AutoTrim</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,8 +17,8 @@
 <table class="info">
   <tr>
     <td width="15%">On|Off</td>
-    <td width="85%"><p>On: Bei einer Anweisung wie <a href="SetEnv.htm">Var1 = %Var2%</a> werden Leerzeichen und Tabulatoren am Anfang und Ende von Var2 entfernt. Das wird standardmÃ¤ÃŸig verwendet.</p>
-      <p><strong><a name="Off"></a>Off</strong>: Leerzeichen und Tabulatoren werden nicht entfernt. Allerdings werden direkt vorhandene Tabulatoren und Leerzeichen (einschlieÃŸlich `t) immer ausgelassen, unabhÃ¤ngig dieser Einstellung. Zum Beispiel: Die Anweisung <em>Var1 = `t%Var2%</em> ignoriert immer das `t-Zeichen. Um das zu verhindern, kann man folgendes Beispiel verwenden:</p>
+    <td width="85%"><p>On: Bei einer Anweisung wie <a href="SetEnv.htm">Var1 = %Var2%</a> werden Leerzeichen und Tabulatoren am Anfang und Ende von Var2 entfernt. Das wird standardmäßig verwendet.</p>
+      <p><strong><a name="Off"></a>Off</strong>: Leerzeichen und Tabulatoren werden nicht entfernt. Allerdings werden direkt vorhandene Tabulatoren und Leerzeichen (einschließlich `t) immer ausgelassen, unabhängig dieser Einstellung. Zum Beispiel: Die Anweisung <em>Var1 = `t%Var2%</em> ignoriert immer das `t-Zeichen. Um das zu verhindern, kann man folgendes Beispiel verwenden:</p>
       <pre>Var1 = <a href="../Variables.htm#Tab">%A_Tab%</a>%Var2%<a href="../Variables.htm#Space">%A_Space%</a>  <em>; AutoTrim muss OFF sein, damit es funktioniert.</em>
 Var1 := "`t" <strong>.</strong> Var2 <strong>.</strong> " "  <em>; AutoTrim spielt keine Rolle, weil diese Anweisung ein <a href="../Variables.htm#Expressions">Ausdruck</a> ist.</em></pre></td>
   </tr>
@@ -26,16 +26,16 @@ Var1 := "`t" <strong>.</strong> Var2 <strong>.</strong> " "  <em>; AutoTrim spie
 
 <h3>Bemerkungen</h3>
 <p>Wenn dieser Befehl vom Script nicht benutzt wird, ist die Voreinstellung On.</p>
-<p>Die interne Variable <strong>A_AutoTrim</strong> enthÃ¤lt die aktuelle Einstellung (On oder Off).</p>
+<p>Die interne Variable <strong>A_AutoTrim</strong> enthält die aktuelle Einstellung (On oder Off).</p>
 <p>Die internen Variablen <a href="../Variables.htm#Space">A_Space</a> und <a href="../Variables.htm#Tab">A_Tab</a> enthalten jeweils ein einzelnes Leerzeichen und ein einzelner Tabulator.</p>
-<p>AutoTrim beeinflusst nicht <a href="SetExpression.htm">Ausdruckzuweisungen</a> wie Var := " String ". Mit anderen Worten werden fÃ¼hrende und nachfolgende Leer- und Tabulatorzeichen in solchen FÃ¤llen immer beibehalten.</p>
-<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter MenÃ¼punkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung fÃ¼r diesen Befehl. Die Voreinstellung lÃ¤sst sich Ã¤ndern, wenn dieser Befehl im automatischen AusfÃ¼hrungsbereich (am Anfang des Scripts) ausgefÃ¼hrt wird.</p>
+<p>AutoTrim beeinflusst nicht <a href="SetExpression.htm">Ausdruckzuweisungen</a> wie Var := " String ". Mit anderen Worten werden führende und nachfolgende Leer- und Tabulatorzeichen in solchen Fällen immer beibehalten.</p>
+<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter Menüpunkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung für diesen Befehl. Die Voreinstellung lässt sich ändern, wenn dieser Befehl im automatischen Ausführungsbereich (am Anfang des Scripts) ausgeführt wird.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="SetEnv.htm">SetEnv</a></p>
 <h3>Beispiele</h3>
 <pre class="NoIndent">AutoTrim, off
-NewVar1 = %OldVar%  <em>; Hat AltVar fÃ¼hrende oder anhÃ¤ngende Leerzeichen, wird NeuVar sie auch haben.</em>
-NewVar2 = %A_Space%  <em>; Mit AutoTrim off lÃ¤sst sich auf diese Weise ein einzelnes Leerzeichen zuweisen.</em>
+NewVar1 = %OldVar%  <em>; Hat AltVar führende oder anhängende Leerzeichen, wird NeuVar sie auch haben.</em>
+NewVar2 = %A_Space%  <em>; Mit AutoTrim off lässt sich auf diese Weise ein einzelnes Leerzeichen zuweisen.</em>
 
 Var1 := "`t" <strong>.</strong> Var2 <strong>.</strong> " "  <em>; AutoTrim spielt keine Rolle, weil diese Anweisung ein <a href="../Variables.htm#Expressions">Ausdruck</a> ist.</em></pre>
 

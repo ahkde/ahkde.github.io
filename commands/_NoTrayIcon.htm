@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>#NoTrayIcon</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,9 +14,9 @@
 
 <pre class="Syntax">#NoTrayIcon </pre>
 <p>Mit dieser Anweisung irgendwo in einem Script wird das Anzeigen des Tray-Icons verhindert, wenn das Script gestartet wird (auch wenn das Script kompiliert ist).</p>
-<p>Wenn diese Anweisung fÃ¼r ein Script mit Hotkeys verwendet werden soll, dann kÃ¶nnte ein Hotkey mit dem <a href="ExitApp.htm">ExitApp</a>-Befehl verbunden werden. Ansonsten existiert kein einfacher Weg, das Programm zu beenden (ohne dabei den Computer neu zu starten oder den Prozess zu beenden). Zum Beispiel: #x::ExitApp</p>
-<p>Das Tray-Icon kann jederzeit wÃ¤hrend der AusfÃ¼hrung des Scripts mit dem Befehl <em><a href="Menu.htm">Menu</a>, Tray, Icon</em> oder <em><a href="Menu.htm">Menu</a>, Tray, NoIcon</em> ein- oder ausgeblendet werden. Der einzige Nachteil von <em><a href="Menu.htm">Menu</a>, Tray, NoIcon</em> am Anfang des Scripts ist, dass das Tray-Icon mÃ¶glicherweise kurz angezeigt wird, wenn das Script startet. Um dies zu verhindern, verwendet stattdessen #NoTrayIcon.</p>
-<p>Die interne Variable <strong>A_IconHidden</strong> enthÃ¤lt 1, wenn das Tray-Icon zurzeit versteckt ist, andernfalls 0.</p>
+<p>Wenn diese Anweisung für ein Script mit Hotkeys verwendet werden soll, dann könnte ein Hotkey mit dem <a href="ExitApp.htm">ExitApp</a>-Befehl verbunden werden. Ansonsten existiert kein einfacher Weg, das Programm zu beenden (ohne dabei den Computer neu zu starten oder den Prozess zu beenden). Zum Beispiel: #x::ExitApp</p>
+<p>Das Tray-Icon kann jederzeit während der Ausführung des Scripts mit dem Befehl <em><a href="Menu.htm">Menu</a>, Tray, Icon</em> oder <em><a href="Menu.htm">Menu</a>, Tray, NoIcon</em> ein- oder ausgeblendet werden. Der einzige Nachteil von <em><a href="Menu.htm">Menu</a>, Tray, NoIcon</em> am Anfang des Scripts ist, dass das Tray-Icon möglicherweise kurz angezeigt wird, wenn das Script startet. Um dies zu verhindern, verwendet stattdessen #NoTrayIcon.</p>
+<p>Die interne Variable <strong>A_IconHidden</strong> enthält 1, wenn das Tray-Icon zurzeit versteckt ist, andernfalls 0.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="Menu.htm">Menu</a>, <a href="ExitApp.htm">ExitApp</a></p>
 <h3>Beispiel</h3>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>FileReadLine</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,27 +17,27 @@
 <table class="info">
   <tr>
     <td>Ausgabevariable</td>
-    <td>Der Name der Variable, die den ermittelten Text enthÃ¤lt. </td>
+    <td>Der Name der Variable, die den ermittelten Text enthält. </td>
   </tr>
   <tr>
     <td width="15%">Dateiname</td>
-    <td width="85%">Der Name der Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist. Windows- und Unix-Formate werden unterstÃ¼tzt, d. h. die Zeilen einer Datei kÃ¶nnen mit CR-LF-Paaren (`r`n) oder nur mit LF-Zeichen (`n) enden.</td>
+    <td width="85%">Der Name der Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist. Windows- und Unix-Formate werden unterstützt, d. h. die Zeilen einer Datei können mit CR-LF-Paaren (`r`n) oder nur mit LF-Zeichen (`n) enden.</td>
   </tr>
   <tr>
     <td>Zeilennummer</td>
-    <td><p>Welche Zeile gelesen wird (1 fÃ¼r die Erste, 2 fÃ¼r die Zweite und so weiter). Das kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</p>
-    <p>Wenn die angegebene Zeilennummer grÃ¶ÃŸer als die Gesamtanzahl an Zeilen in der Datei ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt und die <em>Ausgabevariable</em> leer gemacht. Das geschieht auch, wenn die angegebene Zeilennummer die letzte Zeile in der Datei ist, aber diese Zeile leer ist und nicht mit einem Zeilenumbruch/CRLF endet.</p></td>
+    <td><p>Welche Zeile gelesen wird (1 für die Erste, 2 für die Zweite und so weiter). Das kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</p>
+    <p>Wenn die angegebene Zeilennummer größer als die Gesamtanzahl an Zeilen in der Datei ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt und die <em>Ausgabevariable</em> leer gemacht. Das geschieht auch, wenn die angegebene Zeilennummer die letzte Zeile in der Datei ist, aber diese Zeile leer ist und nicht mit einem Zeilenumbruch/CRLF endet.</p></td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Bei Erfolg wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 0 gesetzt. Ansonsten wird es auf 1 gesetzt und der ursprÃ¼ngliche Inhalt der <em>Ausgabevariable</em> nicht geÃ¤ndert.</p>
-<p>Die interne Variable <a href="../Variables.htm#LastError">A_LastError</a> enthÃ¤lt den RÃ¼ckgabewert der Systemfunktion GetLastError().</p>
+<p>Bei Erfolg wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 0 gesetzt. Ansonsten wird es auf 1 gesetzt und der ursprüngliche Inhalt der <em>Ausgabevariable</em> nicht geändert.</p>
+<p>Die interne Variable <a href="../Variables.htm#LastError">A_LastError</a> enthält den Rückgabewert der Systemfunktion GetLastError().</p>
 
 <h3>Bemerkungen</h3>
-<p>Es wird dringend empfohlen, diesen Befehl nur fÃ¼r kleine Dateien zu verwenden, oder in FÃ¤llen, in denen nur eine einzige Textzeile benÃ¶tigt wird. Um eine Vielzahl an Zeilen zu Ã¼berprÃ¼fen und zu bearbeiten (nacheinander), verwendet eine <a href="LoopReadFile.htm">dateilesende Schleife</a> fÃ¼r eine bessere Performance. Um eine ganze Datei in eine Variable einzulesen, verwendet <a href="FileRead.htm">FileRead</a>.</p>
-<p>Jedes fÃ¼hrende und nachfolgende Tabulator- und Leerzeichen in der Zeile wird in die <em>Ausgabevariable</em> geschrieben, nur das LF-Zeichen (`n) am Ende nicht. Tabulatoren und Leerzeichen kÃ¶nnen an beiden Enden jeder Variable entfernt werden, indem sie sich selbst zuweisen, wÃ¤hrend <a href="AutoTrim.htm">AutoTrim</a> aktiv ist (Standardeinstellung). Zum Beispiel: Zeile = %Zeile%</p>
-<p>Zeilen mit bis zu 65.534 Zeichen kÃ¶nnen gelesen werden. Wenn die LÃ¤nge einer Zeile Ã¼berschritten wird, kÃ¶nnen die restlichen Zeichen nicht mit diesem Befehl ermittelt werden (verwendet stattdessen <a href="FileRead.htm">FileRead</a> oder <a href="LoopReadFile.htm">dateilesende Schleife</a>).</p>
+<p>Es wird dringend empfohlen, diesen Befehl nur für kleine Dateien zu verwenden, oder in Fällen, in denen nur eine einzige Textzeile benötigt wird. Um eine Vielzahl an Zeilen zu überprüfen und zu bearbeiten (nacheinander), verwendet eine <a href="LoopReadFile.htm">dateilesende Schleife</a> für eine bessere Performance. Um eine ganze Datei in eine Variable einzulesen, verwendet <a href="FileRead.htm">FileRead</a>.</p>
+<p>Jedes führende und nachfolgende Tabulator- und Leerzeichen in der Zeile wird in die <em>Ausgabevariable</em> geschrieben, nur das LF-Zeichen (`n) am Ende nicht. Tabulatoren und Leerzeichen können an beiden Enden jeder Variable entfernt werden, indem sie sich selbst zuweisen, während <a href="AutoTrim.htm">AutoTrim</a> aktiv ist (Standardeinstellung). Zum Beispiel: Zeile = %Zeile%</p>
+<p>Zeilen mit bis zu 65.534 Zeichen können gelesen werden. Wenn die Länge einer Zeile überschritten wird, können die restlichen Zeichen nicht mit diesem Befehl ermittelt werden (verwendet stattdessen <a href="FileRead.htm">FileRead</a> oder <a href="LoopReadFile.htm">dateilesende Schleife</a>).</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="FileOpen.htm">FileOpen</a>/<a href="../objects/File.htm#ReadLine">File.ReadLine()</a>, <a href="FileRead.htm">FileRead</a>, <a href="FileAppend.htm">FileAppend</a>, <a href="LoopReadFile.htm">dateilesende Schleife</a>, <a href="IniRead.htm">IniRead</a> </p>
 <h3>Beispiel</h3>

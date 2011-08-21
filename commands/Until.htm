@@ -3,14 +3,14 @@
 <html>
 <head>
 <title>Until</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Until <span class="ver">[AHK_L 59+]</span></h1>
 
-<p>Eine Schleife, die ausgefÃ¼hrt wird, bis die angegebene Bedingung erfÃ¼llt wird.</p>
+<p>Eine Schleife, die ausgeführt wird, bis die angegebene Bedingung erfüllt wird.</p>
 
 <pre class="Syntax">Loop {
     ...
@@ -19,12 +19,12 @@
 <table class="info">
   <tr>
     <td width="15%">Ausdruck</td>
-    <td width="85%">Beliebiger gÃ¼ltiger <a href="../Variables.htm#Expressions">Ausdruck</a>.</td>
+    <td width="85%">Beliebiger gültiger <a href="../Variables.htm#Expressions">Ausdruck</a>.</td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Der Ausdruck wird nach jeder Iteration einmal ausgewertet, auch wenn <a href="Continue.htm">continue</a> verwendet wurde. Wenn die Auswertung des Ausdrucks falsch ist (ein leerer String oder die Zahl 0), dann wird die Schleife fortgesetzt, ansonsten wird die Schleife unterbrochen und die AusfÃ¼hrung bei der Zeile nach <i>Until</i> fortgesetzt.</p>
+<p>Der Ausdruck wird nach jeder Iteration einmal ausgewertet, auch wenn <a href="Continue.htm">continue</a> verwendet wurde. Wenn die Auswertung des Ausdrucks falsch ist (ein leerer String oder die Zahl 0), dann wird die Schleife fortgesetzt, ansonsten wird die Schleife unterbrochen und die Ausführung bei der Zeile nach <i>Until</i> fortgesetzt.</p>
 <p>Loop Until ist die Kurzfassung von:</p>
 <pre>Loop {
     ...
@@ -38,7 +38,7 @@ Until x > y</pre>
 <p><i>Until</i> kann kann mit Loop oder For verwendet werden. Zum Beispiel:</p>
 <pre>Loop, Read, %A_ScriptFullPath%
     Zeilen .= A_LoopReadLine . "`n"
-<b>Until</b> A_Index=5  <em>; Liest die ersten fÃ¼nf Zeilen.</em>
+<b>Until</b> A_Index=5  <em>; Liest die ersten fünf Zeilen.</em>
 MsgBox % Zeilen
 
 </pre>

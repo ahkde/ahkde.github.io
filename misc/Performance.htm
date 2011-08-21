@@ -3,31 +3,31 @@
 <html>
 <head>
 <title>Performance</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <h1>Script-Performance</h1>
 
-<p>Um die Performance zu maximieren, vermeidet die Verwendung von SetFormat (auÃŸer im <a href="../commands/SetFormat.htm#Fast">schnellen Modus</a>) und fÃ¼gt folgende Zeilen am Anfang des Scripts hinzu:</p>
+<p>Um die Performance zu maximieren, vermeidet die Verwendung von SetFormat (außer im <a href="../commands/SetFormat.htm#Fast">schnellen Modus</a>) und fügt folgende Zeilen am Anfang des Scripts hinzu:</p>
 <pre><a href="../commands/_NoEnv.htm">#NoEnv</a>
 <a href="../commands/SetBatchLines.htm">SetBatchLines -1</a>
 <a href="../commands/ListLines.htm">ListLines Off</a></pre>
-<p>DarÃ¼ber hinaus kÃ¶nnen die folgenden Befehle auch die Performance je nach Art des Scripts beeinflussen: <a href="../commands/SendMode.htm">SendMode</a>, <a href="../commands/SetKeyDelay.htm">SetKeyDelay</a>, <a href="../commands/SetMouseDelay.htm">SetMouseDelay</a>, <a href="../commands/SetWinDelay.htm">SetWinDelay</a>, <a href="../commands/SetControlDelay.htm">SetControlDelay</a> und <a href="../commands/SetDefaultMouseSpeed.htm">SetDefaultMouseSpeed</a>.</p>
+<p>Darüber hinaus können die folgenden Befehle auch die Performance je nach Art des Scripts beeinflussen: <a href="../commands/SendMode.htm">SendMode</a>, <a href="../commands/SetKeyDelay.htm">SetKeyDelay</a>, <a href="../commands/SetMouseDelay.htm">SetMouseDelay</a>, <a href="../commands/SetWinDelay.htm">SetWinDelay</a>, <a href="../commands/SetControlDelay.htm">SetControlDelay</a> und <a href="../commands/SetDefaultMouseSpeed.htm">SetDefaultMouseSpeed</a>.</p>
 <h3><strong>Interne Performance-Funktionen</strong></h3>
-<p>Jedes Script wird teilweise kompiliert, wÃ¤hrend es geladen und dessen Syntax Ã¼berprÃ¼ft wird. Neben der Verringerung des Speicherverbrauchs wird dadurch auch die Laufzeit-Performance deutlich verbessert.</p>
+<p>Jedes Script wird teilweise kompiliert, während es geladen und dessen Syntax überprüft wird. Neben der Verringerung des Speicherverbrauchs wird dadurch auch die Laufzeit-Performance deutlich verbessert.</p>
 <p>Hier die technischen Details des Optimierungsprozesses (Semi-Kompilierung):</p>
 <ul>
-  <li>Eingabe- und Ausgabevariablen (wenn deren Namen keine Referenzen auf anderen Variablen enthalten) und <a href="../commands/GroupAdd.htm">Gruppennamen</a> werden in Speicheradressen aufgelÃ¶st.</li>
-  <li><a href="../commands/Loop.htm">Schleifen</a>, <a href="../commands/Block.htm">BlÃ¶cke</a>, <a href="../commands/IfEqual.htm">IF</a>- und <a href="../commands/Else.htm">ELSE</a>-Anweisungen bekommen die Speicheradressen in Bezug auf ihre Sprungpunkte im Script.</li>
-  <li>Das Ziel jeden <a href="../Hotkeys.htm">Hotkey</a>-, <a href="../commands/Gosub.htm">Gosub</a>- und <a href="../commands/Goto.htm">Goto</a>-Befehls wird in eine Speicheradresse aufgelÃ¶st, solange es keine Variable ist.</li>
+  <li>Eingabe- und Ausgabevariablen (wenn deren Namen keine Referenzen auf anderen Variablen enthalten) und <a href="../commands/GroupAdd.htm">Gruppennamen</a> werden in Speicheradressen aufgelöst.</li>
+  <li><a href="../commands/Loop.htm">Schleifen</a>, <a href="../commands/Block.htm">Blöcke</a>, <a href="../commands/IfEqual.htm">IF</a>- und <a href="../commands/Else.htm">ELSE</a>-Anweisungen bekommen die Speicheradressen in Bezug auf ihre Sprungpunkte im Script.</li>
+  <li>Das Ziel jeden <a href="../Hotkeys.htm">Hotkey</a>-, <a href="../commands/Gosub.htm">Gosub</a>- und <a href="../commands/Goto.htm">Goto</a>-Befehls wird in eine Speicheradresse aufgelöst, solange es keine Variable ist.</li>
   <li>Jeder Befehlsname in der Sprungtabelle wird durch eine Adresse ersetzt.</li>
   <li>Jede Zeile wird vorher in eine Liste von Parametern aufgeteilt und jeder Parameter wird vorher in eine Liste von <a href="../Variables.htm">Variablen</a> aufgeteilt.</li>
-  <li>Jeder <a href="../Variables.htm#Expressions">Ausdruck</a> wird in Tokens Ã¼bersetzt und von Infix zu Postfix umgewandelt.</li>
-  <li>Jede Referenz auf einer <a href="../Variables.htm">Variable</a> oder <a href="../Functions.htm">Funktion</a> wird in eine Speicheradresse aufgelÃ¶st.</li>
-  <li>Direkt vorhandene Integer in AusdrÃ¼cken und Mathematik-/Vergleichsbefehle werden mit binÃ¤ren Integer-Werten ersetzt.</li>
+  <li>Jeder <a href="../Variables.htm#Expressions">Ausdruck</a> wird in Tokens übersetzt und von Infix zu Postfix umgewandelt.</li>
+  <li>Jede Referenz auf einer <a href="../Variables.htm">Variable</a> oder <a href="../Functions.htm">Funktion</a> wird in eine Speicheradresse aufgelöst.</li>
+  <li>Direkt vorhandene Integer in Ausdrücken und Mathematik-/Vergleichsbefehle werden mit binären Integer-Werten ersetzt.</li>
 </ul>
-<p>DarÃ¼ber hinaus werden binÃ¤re Zahlen wÃ¤hrend der Script-AusfÃ¼hrung in Variablen zwischengespeichert, um Umwandlungen zu/von Strings zu vermeiden. Siehe <a href="../commands/SetFormat.htm#Fast">SetFormat</a> fÃ¼r weitere Details.</p>
+<p>Darüber hinaus werden binäre Zahlen während der Script-Ausführung in Variablen zwischengespeichert, um Umwandlungen zu/von Strings zu vermeiden. Siehe <a href="../commands/SetFormat.htm#Fast">SetFormat</a> für weitere Details.</p>
 </body>
 </html>

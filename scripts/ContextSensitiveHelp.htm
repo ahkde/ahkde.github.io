@@ -2,27 +2,27 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>KontextabhÃ¤ngige Hilfe in einem beliebigen Editor - von Rajat</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Kontextabhängige Hilfe in einem beliebigen Editor - von Rajat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="/forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<h1>KontextabhÃ¤ngige Hilfe in einem beliebigen Editor - von Rajat</h1>
+<h1>Kontextabhängige Hilfe in einem beliebigen Editor - von Rajat</h1>
 
-<p> Damit kann mit Strg+2 (oder ein anderer Hotkey) die Hilfe-Dateiseite fÃ¼r den markierten AutoHotkey-Befehl oder SchlÃ¼sselwort angezeigt werden. Wenn nichts markiert ist, dann wird der Befehlsname vom Anfang der aktuellen Zeile extrahiert.
+<p> Damit kann mit Strg+2 (oder ein anderer Hotkey) die Hilfe-Dateiseite für den markierten AutoHotkey-Befehl oder Schlüsselwort angezeigt werden. Wenn nichts markiert ist, dann wird der Befehlsname vom Anfang der aktuellen Zeile extrahiert.
 </p>
 <p><a href="ContextSensitiveHelp.ahk">Dieses Script herunterladen</a> &nbsp;| &nbsp;<a href="index.htm">Andere Beispiel-Scripts</a> &nbsp;| &nbsp;<a href="http://www.autohotkey.com">Home</a></p>
 
-<pre class="NoIndent"><em>; Der unten genannte Hotkey nutzt die Zwischenablage, um die KompatibilitÃ¤t mit
-; den meisten Editoren zu gewÃ¤hrleisten (da ControlGet nicht immer funktioniert).
+<pre class="NoIndent"><em>; Der unten genannte Hotkey nutzt die Zwischenablage, um die Kompatibilität mit
+; den meisten Editoren zu gewährleisten (da ControlGet nicht immer funktioniert).
 ; Danach wird der originale Inhalt der Zwischenablage wiederhergestellt, jedoch als Klartext,
 ; was immer noch besser als gar nichts ist.</em>
 
 $^2::
-<em>; Die folgenden Werte sind nur wÃ¤hrend des Hotkey-Threads wirksam.
-; Deshalb ist es nicht notwendig, deren ursprÃ¼ngliche Werte wiederherzustellen,
+<em>; Die folgenden Werte sind nur während des Hotkey-Threads wirksam.
+; Deshalb ist es nicht notwendig, deren ursprüngliche Werte wiederherzustellen,
 ; weil das automatisch geschieht, sobald der Thread endet:</em>
 SetWinDelay 10
 SetKeyDelay 0
@@ -48,18 +48,18 @@ if ErrorLevel <> 0
         return
     }
 }
-C_Cmd = %clipboard%  <em>; FÃ¼hrende oder nachfolgende Tabulator- & Leerzeichen entfernen.</em>
-clipboard = %C_ClipboardPrev%  ; Die ursprÃ¼ngliche Zwischenablage fÃ¼r den Benutzer wiederherstellen.
+C_Cmd = %clipboard%  <em>; Führende oder nachfolgende Tabulator- & Leerzeichen entfernen.</em>
+clipboard = %C_ClipboardPrev%  ; Die ursprüngliche Zwischenablage für den Benutzer wiederherstellen.
 Loop, parse, C_Cmd, %A_Space%`,  <em>; Das erste Leerzeichen oder Komma kennzeichnet das Ende des Befehls.</em>
 {
     C_Cmd = %A_LoopField%
-    break <em>; d.h. wir benÃ¶tigen nur einen Durchlauf.</em>
+    break <em>; d.h. wir benötigen nur einen Durchlauf.</em>
 }
 IfWinNotExist, AutoHotkey Help
 {
     <em>; Den Standort von AutoHotkey ermitteln:</em>
     RegRead, ahk_dir, HKEY_LOCAL_MACHINE, SOFTWARE\AutoHotkey, InstallDir
-    if ErrorLevel  <em>; Nichts gefunden, so in anderen hÃ¤ufigen Standorten nachschauen.</em>
+    if ErrorLevel  <em>; Nichts gefunden, so in anderen häufigen Standorten nachschauen.</em>
     {
         if A_AhkPath
             SplitPath, A_AhkPath,, ahk_dir

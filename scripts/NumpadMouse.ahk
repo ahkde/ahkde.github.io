@@ -2,22 +2,22 @@
 ; http://www.autohotkey.com
 ; Mit diesem Script kann die Maus wie die echte Maus
 ; bewegt werden (vielleicht sogar einfacher bei einigen Aufgaben).
-; Es werden bis zu fÃ¼nf Maustasten sowie das Drehen
-; des Mausrades unterstÃ¼tzt  AuÃŸerdem kann damit die Bewegungsgeschwindigkeit,
+; Es werden bis zu fünf Maustasten sowie das Drehen
+; des Mausrades unterstützt  Außerdem kann damit die Bewegungsgeschwindigkeit,
 ; Genauigkeit und "Achseninversion" angepasst werden.
 
 /*
 o------------------------------------------------------------o
 |Tastatur-Ziffernblock als eine Maus verwenden               |
 (------------------------------------------------------------)
-| von deguix      / Eine Script-Datei fÃ¼r AutoHotkey 1.0.22+ |
+| von deguix      / Eine Script-Datei für AutoHotkey 1.0.22+ |
 |                    ----------------------------------------|
 |                                                            |
 |  Dieses Script ist ein Verwendungsbeispiel von AutoHotkey. |
 | Es verwendet die Neubelegung von Numpad-Tasten, um eine    |
 | Maus zu simulieren. Einige Funktionen sind die             |
 | Beschleunigung, womit die Mausgeschwindigkeit beim         |
-| lÃ¤ngeren Halten einer Taste erhÃ¶ht werden kann, und die    |
+| längeren Halten einer Taste erhöht werden kann, und die    |
 | Rotation, womit die Numpad-Maus "gedreht" werden kann.     |
 | Zum Beispiel NumPadDown als NumPadUp und umgekehrt.        |
 | Siehe nachfolgende Liste mit Tasten:                       |
@@ -56,7 +56,7 @@ o------------------------------------------------------------o
 | ^NumPad9/^NumPad3     | Inc./dec. wheel maximum speed per  |
 |                       | button press*.                     |
 | NumPad4/NumPad6       | Inc./dec. rotation angle to        |
-|                       | right in degrees. (i.e. 180Â° =     |
+|                       | right in degrees. (i.e. 180° =     |
 |                       | = inversed controls).              |
 |------------------------------------------------------------|
 | * = These options are affected by the mouse wheel speed    |
@@ -71,9 +71,9 @@ o------------------------------------------------------------o
 #MaxHotkeysPerInterval 500
 
 ; Mithilfe des Tastatur-Hooks werden die Numpad-Hotkeys implementiert
-; daran gehindert, von ANSI-Zeichenerzeugungen wie Ã  beeintrÃ¤chtigt zu
+; daran gehindert, von ANSI-Zeichenerzeugungen wie à beeinträchtigt zu
 ; werden.  Denn AutoHotkey erzeugt solche Zeichen,
-; sobald ALT gedrÃ¼ckt gehalten wird und mehrere Numpad-Tastatureingaben gesendet werden.
+; sobald ALT gedrückt gehalten wird und mehrere Numpad-Tastatureingaben gesendet werden.
 ; Hook-Hotkeys sind intelligent genug, solche Tastatureingaben zu ignorieren.
 #UseHook
 
@@ -92,8 +92,8 @@ MouseRotationAngle = 0
 
 ; ENDE DES KONFIGURATIONSBEREICHS
 
-; Notwendig oder TastendrÃ¼cke senden fÃ¤lschlicherweise ihre
-; natÃ¼rlichen Aktionen. Wie NumPadDiv wird manchmal "/" zum
+; Notwendig oder Tastendrücke senden fälschlicherweise ihre
+; natürlichen Aktionen. Wie NumPadDiv wird manchmal "/" zum
 ; Bildschirm gesendet.       
 #InstallKeybdHook
 
@@ -101,11 +101,11 @@ Temp = 0
 Temp2 = 0
 
 MouseRotationAnglePart = %MouseRotationAngle%
-; Durch 45Âº teilen, weil MouseMove nur ganze Zahlen unterstÃ¼tzt,
+; Durch 45º teilen, weil MouseMove nur ganze Zahlen unterstützt,
 ; und sobald die Mausrotation auf eine Zahl kleiner als 45 gesetzt wird,
-; erfolgen merkwÃ¼rdige Bewegungen.
+; erfolgen merkwürdige Bewegungen.
 ;
-; Zum Beispiel: 22,5Âº beim DrÃ¼cken von NumPadUp:
+; Zum Beispiel: 22,5º beim Drücken von NumPadUp:
 ; Zuerst wird die Maus nach oben bewegt, bis die Geschwindigkeit
 ; 1 erreicht.
 MouseRotationAnglePart /= 45
@@ -160,11 +160,11 @@ Hotkey, !Numpad3, ButtonWheelMaxSpeedDown
 Gosub, ~ScrollLock  ; Initialisieren, basierend auf dem aktuellen ScrollLock-Status.
 Return
 
-; UnterstÃ¼tzung fÃ¼r Tastenaktivierung
+; Unterstützung für Tastenaktivierung
 
 ~ScrollLock::
 ; Darauf warten, bis sie losgelassen wird, weil der Hook-Status ansonsten
-; beim DrÃ¼cken der Taste neu gesetzt wird, wodurch das Up-Ereignis unterdrÃ¼ckt wird,
+; beim Drücken der Taste neu gesetzt wird, wodurch das Up-Ereignis unterdrückt wird,
 ; folglich wird das Umschalten des ScrollLock-Status/Lichts verhindert:
 KeyWait, ScrollLock
 GetKeyState, ScrollLockState, ScrollLock, T
@@ -248,7 +248,7 @@ Else
 }
 Return
 
-; UnterstÃ¼tzung fÃ¼r Mausklicks
+; Unterstützung für Mausklicks
 
 ButtonLeftClick:
 GetKeyState, already_down_state, LButton
@@ -325,7 +325,7 @@ SetTimer, ButtonClickEnd, off
 MouseClick, %ButtonClick%,,, 1, 0, U
 Return
 
-; UnterstÃ¼tzung fÃ¼r die Mausbewegung
+; Unterstützung für die Mausbewegung
 
 ButtonSpeedUp:
 MouseSpeed++
@@ -377,7 +377,7 @@ If MouseRotationAnglePart >= 8
 	MouseRotationAnglePart = 0
 MouseRotationAngle = %MouseRotationAnglePart%
 MouseRotationAngle *= 45
-ToolTip, Mausrotationswinkel: %MouseRotationAngle%Â°
+ToolTip, Mausrotationswinkel: %MouseRotationAngle%°
 SetTimer, RemoveToolTip, 1000
 Return
 ButtonRotationAngleDown:
@@ -386,7 +386,7 @@ If MouseRotationAnglePart < 0
 	MouseRotationAnglePart = 7
 MouseRotationAngle = %MouseRotationAnglePart%
 MouseRotationAngle *= 45
-ToolTip, Mausrotationswinkel: %MouseRotationAngle%Â°
+ToolTip, Mausrotationswinkel: %MouseRotationAngle%°
 SetTimer, RemoveToolTip, 1000
 Return
 
@@ -620,7 +620,7 @@ MouseCurrentSpeed = %MouseSpeed%
 Button = 0
 Return
 
-; UnterstÃ¼tzung fÃ¼r die Mausradbewegung
+; Unterstützung für die Mausradbewegung
 
 ButtonWheelSpeedUp:
 MouseWheelSpeed++

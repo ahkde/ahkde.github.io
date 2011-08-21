@@ -3,14 +3,14 @@
 <html>
 <head>
 <title>SetWorkingDir</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>SetWorkingDir</h1>
 
-<p>Ã„ndert das Arbeitsverzeichnis des Scripts. </p>
+<p>Ändert das Arbeitsverzeichnis des Scripts. </p>
 
 <pre class="Syntax">SetWorkingDir, Verzeichnisname</pre>
 <h3>Parameter</h3>
@@ -22,12 +22,12 @@
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthÃ¤lt ErrorLevel eine 0.</p>
+<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0.</p>
 <h3>Bemerkungen</h3>
 <p>Das Arbeitsverzeichnis des Scripts ist das Standardverzeichnis, dass verwendet wird, um auf Dateien und Ordner zuzugreifen, wenn kein absoluter Pfad angegeben wurde. Im folgenden Beispiel wird davon ausgegangen, das sich die Datei <em>Dateiname.txt</em> in %A_WorkingDir% befindet: <a href="FileAppend.htm">FileAppend</a>, Eine Textzeile., Dateiname.txt</p>
-<p>Das ursprÃ¼ngliche Arbeitsverzeichnis des Scripts wird davon bestimmt, wie es gestartet wurde. Wenn zum Beispiel ein Script mittels einer VerknÃ¼pfung gestartet wird (beispielsweise im StartmenÃ¼), dann wird das Arbeitsverzeichnis vom Feld "AusfÃ¼hren in" in den Eigenschaften der VerknÃ¼pfung bestimmt.</p>
+<p>Das ursprüngliche Arbeitsverzeichnis des Scripts wird davon bestimmt, wie es gestartet wurde. Wenn zum Beispiel ein Script mittels einer Verknüpfung gestartet wird (beispielsweise im Startmenü), dann wird das Arbeitsverzeichnis vom Feld "Ausführen in" in den Eigenschaften der Verknüpfung bestimmt.</p>
 <p>Damit ein Script seinen Ordner bedingungslos als Arbeitsverzeichnis verwendet, schreibt Folgendes in die erste Zeile:<br> SetWorkingDir %A_ScriptDir%</p>
-<p>Sobald geÃ¤ndert tritt das neue Arbeitsverzeichnis sofort und global in Kraft. Alle unterbrochene, <a href="Pause.htm">pausierte</a> und neu ausgefÃ¼hrte <a href="../misc/Threads.htm">Threads</a> sind davon betroffen, einschlieÃŸlich <a href="SetTimer.htm">Timers</a>.</p>
+<p>Sobald geändert tritt das neue Arbeitsverzeichnis sofort und global in Kraft. Alle unterbrochene, <a href="Pause.htm">pausierte</a> und neu ausgeführte <a href="../misc/Threads.htm">Threads</a> sind davon betroffen, einschließlich <a href="SetTimer.htm">Timers</a>.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="../Variables.htm#WorkingDir">A_WorkingDir</a>, <a href="../Variables.htm#ScriptDir">A_ScriptDir</a>, <a href="FileSelectFolder.htm">FileSelectFolder</a></p>
 <h3>Beispiel</h3>

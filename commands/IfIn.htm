@@ -3,64 +3,64 @@
 <html>
 <head>
 <title>If Variable [not] in/contains Wert1,Wert2,...</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>If Variable [not] in Wert1,Wert2,...<br> If Variable [not] contains Wert1,Wert2,...</h1>
 
-<p>ÃœberprÃ¼ft, ob der Inhalt der <a href="../Variables.htm">Variable</a> mit einem Element aus der Liste Ã¼bereinstimmt.</p>
+<p>Überprüft, ob der Inhalt der <a href="../Variables.htm">Variable</a> mit einem Element aus der Liste übereinstimmt.</p>
 
-<pre class="Syntax">If <i>Variable</i> in <i>Ãœbereinstimmungsliste</i>
-If <i>Variable</i> not in <i>Ãœbereinstimmungsliste<br></i>
-If <i>Variable</i> contains <i>Ãœbereinstimmungsliste</i>
-If <i>Variable</i> not contains <i>Ãœbereinstimmungsliste</i></pre>
+<pre class="Syntax">If <i>Variable</i> in <i>Übereinstimmungsliste</i>
+If <i>Variable</i> not in <i>Übereinstimmungsliste<br></i>
+If <i>Variable</i> contains <i>Übereinstimmungsliste</i>
+If <i>Variable</i> not contains <i>Übereinstimmungsliste</i></pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Variable</td>
-    <td width="85%">Name der <a href="../Variables.htm">Variable</a>, dessen Inhalt Ã¼berprÃ¼ft wird. Bei dem Operator "in" ist eine exakte Ãœbereinstimmung mit einem Element aus der Liste notwendig. Bei dem Operator "contains" verhÃ¤lt sich die Ãœbereinstimmung toleranter: sobald die <em>Variable</em> ein Element aus der Liste als Teilstring enthÃ¤lt.</td>
+    <td width="85%">Name der <a href="../Variables.htm">Variable</a>, dessen Inhalt überprüft wird. Bei dem Operator "in" ist eine exakte Übereinstimmung mit einem Element aus der Liste notwendig. Bei dem Operator "contains" verhält sich die Übereinstimmung toleranter: sobald die <em>Variable</em> ein Element aus der Liste als Teilstring enthält.</td>
   </tr>
   <tr>
-    <td>Ãœbereinstimmungsliste</td>
-    <td><p>Eine kommagetrennte Liste aus Strings, die mit dem Inhalt der <em>Variable</em> verglichen werden. <strong>Alle Leer- und Tabulatorzeichen um Trennkommas sind bedeutend</strong>, d. h. sie sind ein Teil des Ã¼bereinstimmenden Strings. Zum Beispiel: Wenn die <em>Ãœbereinstimmungsliste</em> <em>ABC , XYZ</em> enthÃ¤lt, dann muss die <em>Variable</em> fÃ¼r eine Ãœbereinstimmung entweder ABC mit nachfolgendem Leerzeichen oder XYZ mit fÃ¼hrendem Leerzeichen enthalten.</p>
-      <p>Zwei aufeinanderfolgende Kommas bilden ein direkt vorhandenes Komma. Das folgende Beispiel erstellt ein direkt vorhandenes Komma nach dem Wort string1: <em>If Variable In string1,,,string2</em>. Ebenso enthÃ¤lt die folgende Liste nur ein einzelnes Element mit einem direkt vorhandenen Komma dazwischen: <em>If Variable In single,,item</em>. FÃ¼r das HinzufÃ¼gen eines leeren Elements muss das erste Zeichen ein Komma sein: <em>If Variable In ,string1,string2</em> (wenn der Operator "contains" verwendet wird, dann ist die Ãœbereinstimmung mit einem leeren Element immer erfolgreich, da ein leerer String immer in einem String gefunden wird).</p>
-      <p>Da die Elemente in der <em>Ãœbereinstimmungsliste</em> nicht als einzelne Parameter behandelt werden, kann sich die komplette Liste in einer Variable befinden. In der Tat muss sich alles oder ein Teil davon in der Variable befinden, wenn eine LÃ¤nge von 16383 Ã¼berschritten wird (die maximale LÃ¤nge einer Script-Zeile). Zum Beispiel kÃ¶nnte die <em>Ãœbereinstimmungsliste</em> aus %List1%,%List2%,%List3% bestehen, jede Liste enthÃ¤lt eine lange Liste mit Elementen.</p>
-      <p>Jedes einzelne Element in einer Liste, das lÃ¤nger als 16384 Zeichen ist, behandelt die zusÃ¤tzlichen Zeichen als ein neues Element. Daher ist es das Beste, solche Elemente zu vermeiden.</p></td>
+    <td>Übereinstimmungsliste</td>
+    <td><p>Eine kommagetrennte Liste aus Strings, die mit dem Inhalt der <em>Variable</em> verglichen werden. <strong>Alle Leer- und Tabulatorzeichen um Trennkommas sind bedeutend</strong>, d. h. sie sind ein Teil des übereinstimmenden Strings. Zum Beispiel: Wenn die <em>Übereinstimmungsliste</em> <em>ABC , XYZ</em> enthält, dann muss die <em>Variable</em> für eine Übereinstimmung entweder ABC mit nachfolgendem Leerzeichen oder XYZ mit führendem Leerzeichen enthalten.</p>
+      <p>Zwei aufeinanderfolgende Kommas bilden ein direkt vorhandenes Komma. Das folgende Beispiel erstellt ein direkt vorhandenes Komma nach dem Wort string1: <em>If Variable In string1,,,string2</em>. Ebenso enthält die folgende Liste nur ein einzelnes Element mit einem direkt vorhandenen Komma dazwischen: <em>If Variable In single,,item</em>. Für das Hinzufügen eines leeren Elements muss das erste Zeichen ein Komma sein: <em>If Variable In ,string1,string2</em> (wenn der Operator "contains" verwendet wird, dann ist die Übereinstimmung mit einem leeren Element immer erfolgreich, da ein leerer String immer in einem String gefunden wird).</p>
+      <p>Da die Elemente in der <em>Übereinstimmungsliste</em> nicht als einzelne Parameter behandelt werden, kann sich die komplette Liste in einer Variable befinden. In der Tat muss sich alles oder ein Teil davon in der Variable befinden, wenn eine Länge von 16383 überschritten wird (die maximale Länge einer Script-Zeile). Zum Beispiel könnte die <em>Übereinstimmungsliste</em> aus %List1%,%List2%,%List3% bestehen, jede Liste enthält eine lange Liste mit Elementen.</p>
+      <p>Jedes einzelne Element in einer Liste, das länger als 16384 Zeichen ist, behandelt die zusätzlichen Zeichen als ein neues Element. Daher ist es das Beste, solche Elemente zu vermeiden.</p></td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Der Vergleich erfolgt immer alphabetisch, nicht numerisch. Zum Beispiel stimmt der String "11" nicht mit dem Listenelement "11.0" Ã¼bereinstimmen.</p>
-<p>Der Operator "contains" ist das gleiche wie <a href="IfInString.htm">IfInString/IfNotInString</a>, aber mit der Ausnahme, dass die Mehrfachsuche von Strings unterstÃ¼tzt wird (einer stimmt Ã¼berein).</p>
-<p>In diesem Fall kann <em><em><a href="StringCaseSense.htm">StringCaseSense On</a></em></em> verwendet werden, um den Vergleich abhÃ¤ngig von der GroÃŸ- bzw. Kleinschreibung zu machen.</p>
-<p>Wenn <em>Ãœbereinstimmungsliste</em> lang ist, dann kann die Liste in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern kÃ¶nnten.</p>
-<p><strong>Die Operatoren "between", "is", "in" und "contains" werden in <a href="../Variables.htm#Expressions">AusdrÃ¼cken</a> nicht unterstÃ¼tzt.</strong></p>
+<p>Der Vergleich erfolgt immer alphabetisch, nicht numerisch. Zum Beispiel stimmt der String "11" nicht mit dem Listenelement "11.0" übereinstimmen.</p>
+<p>Der Operator "contains" ist das gleiche wie <a href="IfInString.htm">IfInString/IfNotInString</a>, aber mit der Ausnahme, dass die Mehrfachsuche von Strings unterstützt wird (einer stimmt überein).</p>
+<p>In diesem Fall kann <em><em><a href="StringCaseSense.htm">StringCaseSense On</a></em></em> verwendet werden, um den Vergleich abhängig von der Groß- bzw. Kleinschreibung zu machen.</p>
+<p>Wenn <em>Übereinstimmungsliste</em> lang ist, dann kann die Liste in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern könnten.</p>
+<p><strong>Die Operatoren "between", "is", "in" und "contains" werden in <a href="../Variables.htm#Expressions">Ausdrücken</a> nicht unterstützt.</strong></p>
 <h3>Verwandte Befehle</h3>
 <p><a href="IfBetween.htm">If Variable between</a>, <a href="IfEqual.htm">IfEqual/Greater/Less</a>, <a href="IfInString.htm">IfInString</a>, <a href="StringCaseSense.htm">StringCaseSense</a>, <a href="Block.htm"> Blocks</a>, <a href="Else.htm">Else</a></p>
 <h3>Beispiele</h3>
 <pre class="NoIndent">If Variable in exe,bat,com
-    MsgBox Die Datei ist ausfÃ¼hrbar.
+    MsgBox Die Datei ist ausführbar.
 
 If Variable in 1,2,3,5,7,11 <em>; Leerzeichen vermeiden.</em>
     MsgBox %Variable% ist eine kleine Primzahl.
 
 If Variable contains 1,3  <em>; Die Werte werden als Strings verglichen, nicht als Zahlen.</em>
-    MsgBox Variable enthÃ¤lt die Zahl 1 oder 3 (Variable kann eine 1, 3, 10, 21, 23, etc. sein)
+    MsgBox Variable enthält die Zahl 1 oder 3 (Variable kann eine 1, 3, 10, 21, 23, etc. sein)
 
-If Variable in %Ãœbereinstimmungsliste%
+If Variable in %Übereinstimmungsliste%
     MsgBox %Variable% ist in der Liste.
 
 InputBox, UserInput, JA oder NEIN eingeben
 If UserInput not in ja,nein
-    MsgBox Ihre Eingabe ist ungÃ¼ltig.
+    MsgBox Ihre Eingabe ist ungültig.
 
 WinGetTitle, aktiv_titel, A
 If aktiv_titel contains Address List.txt,Customer List.txt
-    MsgBox Ein gewÃ¼nschtes Fenster ist aktiv.
+    MsgBox Ein gewünschtes Fenster ist aktiv.
 If aktiv_titel not contains metapad,Notepad
-    MsgBox Aber die Datei wurde nicht mit Metapad oder Notepad geÃ¶ffnet.</pre>
+    MsgBox Aber die Datei wurde nicht mit Metapad oder Notepad geöffnet.</pre>
 
 </body>
 </html>

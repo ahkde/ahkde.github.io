@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>FormatTime</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
@@ -26,24 +26,24 @@
   </tr>
   <tr>
     <td>YYYYMMDD...</td>
-    <td>Wenn dieser Parameter nicht vorhanden ist, dann wird das aktuelle Datum und die aktuelle Uhrzeit verwendet. Ansonsten kÃ¶nnen die vorderen oder alle Teile eines Zeitstempels im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format angegeben werden. Wenn der Datums- und/oder Uhrzeitbereich ungÃ¼ltig ist (z. B. der 29. Februar eines Nicht-Schaltjahrs) dann wird das Datum und/oder die Uhrzeit in der <em>Ausgabevariable</em> weggelassen. Obwohl nur Jahre zwischen 1601 und 9999 unterstÃ¼tzt werden, kann eine formatierte Uhrzeit in frÃ¼heren Jahren immer noch erzeugt werden, solange der Uhrzeitbereich gÃ¼ltig ist.</td>
+    <td>Wenn dieser Parameter nicht vorhanden ist, dann wird das aktuelle Datum und die aktuelle Uhrzeit verwendet. Ansonsten können die vorderen oder alle Teile eines Zeitstempels im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format angegeben werden. Wenn der Datums- und/oder Uhrzeitbereich ungültig ist (z. B. der 29. Februar eines Nicht-Schaltjahrs) dann wird das Datum und/oder die Uhrzeit in der <em>Ausgabevariable</em> weggelassen. Obwohl nur Jahre zwischen 1601 und 9999 unterstützt werden, kann eine formatierte Uhrzeit in früheren Jahren immer noch erzeugt werden, solange der Uhrzeitbereich gültig ist.</td>
   </tr>
   <tr>
     <td width="15%">Format</td>
-    <td width="85%"><p>Wenn nicht vorhanden, dann wird standardmÃ¤ÃŸig die Uhrzeit gefolgt vom langen Datumsformat verwendet, beide abhÃ¤ngig vom aktuellen Gebietsschema des Benutzers. Zum Beispiel: 10:24 Freitag, 30. April 2010</p>
-      <p>Ansonsten kÃ¶nnen beliebig viele der unten genannten Datum-Zeit-Formate mit direkten Leer- und Satzzeichen dazwischen angegeben werden (Kommas mÃ¼ssen nicht geschÃ¼tzt werden, sie kÃ¶nnen wie gewohnt verwendet werden). Beachtet im folgenden Beispiel, dass das M groÃŸgeschrieben werden muss: d.M.yyyy h:mm:tt</p></td>
+    <td width="85%"><p>Wenn nicht vorhanden, dann wird standardmäßig die Uhrzeit gefolgt vom langen Datumsformat verwendet, beide abhängig vom aktuellen Gebietsschema des Benutzers. Zum Beispiel: 10:24 Freitag, 30. April 2010</p>
+      <p>Ansonsten können beliebig viele der unten genannten Datum-Zeit-Formate mit direkten Leer- und Satzzeichen dazwischen angegeben werden (Kommas müssen nicht geschützt werden, sie können wie gewohnt verwendet werden). Beachtet im folgenden Beispiel, dass das M großgeschrieben werden muss: d.M.yyyy h:mm:tt</p></td>
   </tr>
 </table>
 
-<h3>Datumsformate <span class="red">(abhÃ¤ngig von GroÃŸ/-Kleinschreibung)</span></h3>
+<h3>Datumsformate <span class="red">(abhängig von Groß/-Kleinschreibung)</span></h3>
 <table class="info">
   <tr>
     <td>d</td>
-    <td>Monatstag ohne fÃ¼hrende Null (1 - 31)</td>
+    <td>Monatstag ohne führende Null (1 - 31)</td>
   </tr>
   <tr>
     <td>dd</td>
-    <td>Monatstag mit fÃ¼hrender Null (01 - 31)</td>
+    <td>Monatstag mit führender Null (01 - 31)</td>
   </tr>
   <tr>
     <td width="15%">ddd</td>
@@ -51,15 +51,15 @@
   </tr>
   <tr>
     <td>dddd</td>
-    <td>VollstÃ¤ndiger Name des Wochentags in der aktuellen Benutzersprache (z. B. Montag)</td>
+    <td>Vollständiger Name des Wochentags in der aktuellen Benutzersprache (z. B. Montag)</td>
   </tr>
   <tr>
     <td>M</td>
-    <td>Monat ohne fÃ¼hrende Null (1 - 12)</td>
+    <td>Monat ohne führende Null (1 - 12)</td>
   </tr>
   <tr>
     <td>MM</td>
-    <td>Monat mit fÃ¼hrender Null (01 - 12)</td>
+    <td>Monat mit führender Null (01 - 12)</td>
   </tr>
   <tr>
     <td>MMM</td>
@@ -67,15 +67,15 @@
   </tr>
   <tr>
     <td>MMMM</td>
-    <td>VollstÃ¤ndiger Monatsname in der aktuellen Benutzersprache (z. B. Januar)</td>
+    <td>Vollständiger Monatsname in der aktuellen Benutzersprache (z. B. Januar)</td>
   </tr>
   <tr>
     <td>y</td>
-    <td>Jahr ohne Jahrhundert, ohne fÃ¼hrende Null (0 - 99)</td>
+    <td>Jahr ohne Jahrhundert, ohne führende Null (0 - 99)</td>
   </tr>
   <tr>
     <td>yy</td>
-    <td>Jahr ohne Jahrhundert, mit fÃ¼hrender Null (00 - 99)</td>
+    <td>Jahr ohne Jahrhundert, mit führender Null (00 - 99)</td>
   </tr>
   <tr>
     <td>yyyy</td>
@@ -83,81 +83,81 @@
   </tr>
   <tr>
     <td>gg</td>
-    <td>Periode/Epoche, abhÃ¤ngig vom aktuellen Gebietsschema des Benutzers (z. B.: n. Chr.)</td>
+    <td>Periode/Epoche, abhängig vom aktuellen Gebietsschema des Benutzers (z. B.: n. Chr.)</td>
   </tr>
 </table>
-<h3>Zeitformate <span class="red">(abhÃ¤ngig von GroÃŸ/-Kleinschreibung)</span></h3>
+<h3>Zeitformate <span class="red">(abhängig von Groß/-Kleinschreibung)</span></h3>
 <table class="info">
   <tr>
     <td>h</td>
-    <td>Stunden ohne fÃ¼hrende Null; 12-Stunden-Format (1 - 12)</td>
+    <td>Stunden ohne führende Null; 12-Stunden-Format (1 - 12)</td>
   </tr>
   <tr>
     <td>hh</td>
-    <td>Stunden mit fÃ¼hrender Null; 12-Stunden-Format (01 - 12)</td>
+    <td>Stunden mit führender Null; 12-Stunden-Format (01 - 12)</td>
   </tr>
   <tr>
     <td width="15%">H</td>
-    <td width="85%">Stunden ohne fÃ¼hrende Null; 24-Stunden-Format (0 - 23)</td>
+    <td width="85%">Stunden ohne führende Null; 24-Stunden-Format (0 - 23)</td>
   </tr>
   <tr>
     <td>HH</td>
-    <td>Stunden mit fÃ¼hrender Null; 24-Stunden-Format (00 - 23)</td>
+    <td>Stunden mit führender Null; 24-Stunden-Format (00 - 23)</td>
   </tr>
   <tr>
     <td>m</td>
-    <td>Minuten ohne fÃ¼hrende Null (0 - 59)</td>
+    <td>Minuten ohne führende Null (0 - 59)</td>
   </tr>
   <tr>
     <td>mm</td>
-    <td>Minuten mit fÃ¼hrender Null (00 - 59)</td>
+    <td>Minuten mit führender Null (00 - 59)</td>
   </tr>
   <tr>
     <td>s</td>
-    <td>Sekunden ohne fÃ¼hrende Null (0 - 59)</td>
+    <td>Sekunden ohne führende Null (0 - 59)</td>
   </tr>
   <tr>
     <td>ss</td>
-    <td>Sekunden mit fÃ¼hrender Null (00 - 59)</td>
+    <td>Sekunden mit führender Null (00 - 59)</td>
   </tr>
   <tr>
     <td>t</td>
-    <td>Einzelnes Zeichen fÃ¼r die Zeitangabe, wie A oder P (abhÃ¤ngig vom Gebietsschema)</td>
+    <td>Einzelnes Zeichen für die Zeitangabe, wie A oder P (abhängig vom Gebietsschema)</td>
   </tr>
   <tr>
     <td>tt</td>
-    <td>Mehrere Zeichen fÃ¼r die Zeitangabe, wie AM oder PM (abhÃ¤ngig vom Gebietsschema)</td>
+    <td>Mehrere Zeichen für die Zeitangabe, wie AM oder PM (abhängig vom Gebietsschema)</td>
   </tr>
 </table>
-<h3>Folgende Formate kÃ¶nnen nur <span class="red">einzeln</span> verwendet werden, also ohne andere Formate oder Texte im <em>Format</em>-Parameter. Diese Formate sind nicht von GroÃŸ- und Kleinschreibung abhÃ¤ngig.</h3>
+<h3>Folgende Formate können nur <span class="red">einzeln</span> verwendet werden, also ohne andere Formate oder Texte im <em>Format</em>-Parameter. Diese Formate sind nicht von Groß- und Kleinschreibung abhängig.</h3>
 <table class="info">
   <tr>
     <td>(Leer)</td>
-    <td>Das <em>Format</em> leer lassen, um standardmÃ¤ÃŸig die Uhrzeit gefolgt vom langen Datumsformat zu verwendet. Zum Beispiel: 10:24 Freitag, 30. April 2010</td>
+    <td>Das <em>Format</em> leer lassen, um standardmäßig die Uhrzeit gefolgt vom langen Datumsformat zu verwendet. Zum Beispiel: 10:24 Freitag, 30. April 2010</td>
   </tr>
   <tr>
     <td>Time</td>
-    <td>Zeitdarstellung, abhÃ¤ngig vom aktuellen Gebietsschema des Benutzers (z. B. 12:04)</td>
+    <td>Zeitdarstellung, abhängig vom aktuellen Gebietsschema des Benutzers (z. B. 12:04)</td>
   </tr>
   <tr>
     <td width="15%">ShortDate</td>
-    <td width="85%">Kurzes Datumsformat, abhÃ¤ngig vom aktuellen Gebietsschema des Benutzers (z. B. 30.04.2010)</td>
+    <td width="85%">Kurzes Datumsformat, abhängig vom aktuellen Gebietsschema des Benutzers (z. B. 30.04.2010)</td>
   </tr>
   <tr>
     <td>LongDate</td>
-    <td>Langes Datumsformat, abhÃ¤ngig vom aktuellen Gebietsschema des Benutzers (z. B. Freitag, 30. April 2010)</td>
+    <td>Langes Datumsformat, abhängig vom aktuellen Gebietsschema des Benutzers (z. B. Freitag, 30. April 2010)</td>
   </tr>
   <tr>
     <td>YearMonth</td>
-    <td>Jahr und Monat, abhÃ¤ngig von der Systemeinstellung in Windows (z. B. April 2010) </td>
+    <td>Jahr und Monat, abhängig von der Systemeinstellung in Windows (z. B. April 2010) </td>
   </tr>
   <tr>
     <td>YDay</td>
-    <td>Jahrestag ohne fÃ¼hrende Nullen (1 - 366)</td>
+    <td>Jahrestag ohne führende Nullen (1 - 366)</td>
   </tr>
   <tr>
     <td>YDay0</td>
-    <td>Jahrestag mit fÃ¼hrenden Nullen (001 - 366)</td>
+    <td>Jahrestag mit führenden Nullen (001 - 366)</td>
   </tr>
   <tr>
     <td>WDay</td>
@@ -165,23 +165,23 @@
   </tr>
   <tr>
     <td>YWeek</td>
-    <td>Das vollstÃ¤ndige Jahr und die Wochennummer nach ISO 8601. Zum Beispiel: 201017 Wenn die Woche den 1. Januar, sowie vier oder mehr Tage des neuen Jahres hat, dann wird sie als Woche 1 betrachtet. Ansonsten ist sie die letzte Woche des vorherigen Jahres und die nachfolgende Woche die Woche 1. Folglich sind sowohl der 4. Januar als auch der erste Donnerstag im Januar immer in der 1. Woche.</td>
+    <td>Das vollständige Jahr und die Wochennummer nach ISO 8601. Zum Beispiel: 201017 Wenn die Woche den 1. Januar, sowie vier oder mehr Tage des neuen Jahres hat, dann wird sie als Woche 1 betrachtet. Ansonsten ist sie die letzte Woche des vorherigen Jahres und die nachfolgende Woche die Woche 1. Folglich sind sowohl der 4. Januar als auch der erste Donnerstag im Januar immer in der 1. Woche.</td>
   </tr>
 </table>
-<h3>ZusÃ¤tzliche Optionen</h3>
-<p>Die folgenden Optionen kÃ¶nnen nach dem Zeitstempel im <em>YYYYMMDDHH24MISS</em>-Parameter erfolgen (wenn kein Zeitstempel vorhanden ist, dann kÃ¶nnen diese Optionen auch alleine stehen). Beachtet in dem folgenden Beispiel das Fehlen der Kommas zwischen den Optionen:</p>
+<h3>Zusätzliche Optionen</h3>
+<p>Die folgenden Optionen können nach dem Zeitstempel im <em>YYYYMMDDHH24MISS</em>-Parameter erfolgen (wenn kein Zeitstempel vorhanden ist, dann können diese Optionen auch alleine stehen). Beachtet in dem folgenden Beispiel das Fehlen der Kommas zwischen den Optionen:</p>
 <pre>FormatTime, Ausgabevariable, 20100430 LSys D1 D4</pre>
 <p><strong>R</strong>: Umkehren. Das Datum steht vor der Zeit (nur sinnvoll, wenn <em>Format</em> leer ist).</p>
-<p><strong>Ln</strong>: Wenn diese Option <em>nicht</em> vorhanden ist, dann wird das aktuelle Gebietsschema des Benutzers verwendet, den Text zu formatieren. Mit LSys kann stattdessen das aktuelle Gebietsschema des Betriebssystems verwendet werden. FÃ¼r die Verwendung eines bestimmten Gebietsschemas kann der Buchstabe L mit einer dezimalen der hexadezimalen <a href="http://www.microsoft.com">Gebietsschema-Kennnummer</a> (LCID) angegeben werden. FÃ¼r Informationen, wie ein LCID aufgebaut wird, siehe <a href="http://www.microsoft.com">http://www.microsoft.de</a> mit folgendem Suchbegriff: Locale IDs</p>
-<p><strong>Dn</strong>: Datumsoptionen. Ersetzt <strong>n</strong> mit einer folgenden Zahl:<br> 0: Standardoptionen erzwingen. Damit tritt auch das kurze Datumsformat in Kraft. <br> 1: Kurzes Datumsformat verwenden (nur sinnvoll, wenn das <em>Format</em> leer ist; nicht kompatibel mit 2 und 8).<br> 2: Langes Datumsformat verwenden (nur sinnvoll, wenn das <em>Format</em> leer ist; nicht kompatibel mit 1 und 8).<br> 4: Alternativen Kalender verwenden (wenn vorhanden).<br> 8: Jahr-Monat-Format verwenden (nur sinnvoll, wenn das <em>Format</em> leer ist; nicht kompatibel mit 1 und 2). BenÃ¶tigt Windows 2000 oder hÃ¶her.<br> 0x10: FÃ¼gt Markierungen fÃ¼r die rechtslÃ¤ufige Leserichtung hinzu. BenÃ¶tigt Windows 2000 oder hÃ¶her.<br> 0x20: FÃ¼gt Markierungen fÃ¼r die linkslÃ¤ufige Leserichtung hinzu. BenÃ¶tigt Windows 2000 oder hÃ¶her.<br> 0x80000000: Ignoriert die Benutzereinstellung des Standard-Datumsformats im Betriebssystem. <br> 0x40000000: Verwendet den ANSI-Zeichensatz anstelle vom lokalen Zeichensatz.</p>
+<p><strong>Ln</strong>: Wenn diese Option <em>nicht</em> vorhanden ist, dann wird das aktuelle Gebietsschema des Benutzers verwendet, den Text zu formatieren. Mit LSys kann stattdessen das aktuelle Gebietsschema des Betriebssystems verwendet werden. Für die Verwendung eines bestimmten Gebietsschemas kann der Buchstabe L mit einer dezimalen der hexadezimalen <a href="http://www.microsoft.com">Gebietsschema-Kennnummer</a> (LCID) angegeben werden. Für Informationen, wie ein LCID aufgebaut wird, siehe <a href="http://www.microsoft.com">http://www.microsoft.de</a> mit folgendem Suchbegriff: Locale IDs</p>
+<p><strong>Dn</strong>: Datumsoptionen. Ersetzt <strong>n</strong> mit einer folgenden Zahl:<br> 0: Standardoptionen erzwingen. Damit tritt auch das kurze Datumsformat in Kraft. <br> 1: Kurzes Datumsformat verwenden (nur sinnvoll, wenn das <em>Format</em> leer ist; nicht kompatibel mit 2 und 8).<br> 2: Langes Datumsformat verwenden (nur sinnvoll, wenn das <em>Format</em> leer ist; nicht kompatibel mit 1 und 8).<br> 4: Alternativen Kalender verwenden (wenn vorhanden).<br> 8: Jahr-Monat-Format verwenden (nur sinnvoll, wenn das <em>Format</em> leer ist; nicht kompatibel mit 1 und 2). Benötigt Windows 2000 oder höher.<br> 0x10: Fügt Markierungen für die rechtsläufige Leserichtung hinzu. Benötigt Windows 2000 oder höher.<br> 0x20: Fügt Markierungen für die linksläufige Leserichtung hinzu. Benötigt Windows 2000 oder höher.<br> 0x80000000: Ignoriert die Benutzereinstellung des Standard-Datumsformats im Betriebssystem. <br> 0x40000000: Verwendet den ANSI-Zeichensatz anstelle vom lokalen Zeichensatz.</p>
 <p><strong>Tn</strong>: Zeitoptionen. Ersetzt <strong>n</strong> mit einer folgenden Zahl:<br> 0: Standardoptionen erzwingen. Minuten und Sekunden werden dadurch auch angezeigt.<br> 1: Minuten und Sekunden werden weggelassen.<br> 2: Sekunden werden weggelassen. <br> 4: Zeitangabe (z. B. AM/PM) wird weggelassen.<br> 8: Das 24-Stunden-Format wird bevorzugt.<br> 12: Kombination aus 4 und 8.<br> 0x80000000: Ignoriert die Benutzereinstellung des Standard-Zeitformats im Betriebssystem. <br> 0x40000000: Verwendet den ANSI-Zeichensatz anstelle vom lokalen Zeichensatz.</p>
-<p><strong>Hinweis</strong>: Dn und Tn kÃ¶nnen wie in diesem Beispiel mehrmals wiederholt werden, um mehrere Optionen zu aktivieren: FormatTime, Ausgabevariable, 20040228 D2 D4 T1 T8</p>
+<p><strong>Hinweis</strong>: Dn und Tn können wie in diesem Beispiel mehrmals wiederholt werden, um mehrere Optionen zu aktivieren: FormatTime, Ausgabevariable, 20040228 D2 D4 T1 T8</p>
 <h3 id="Remarks">Bemerkungen</h3>
-<p>Um Buchstaben und Zahlen direkt vom <em>Format</em> in die <em>Ausgabevariable</em> zu Ã¼bertragen, sollten sie wie in diesem Beispiel mit Hochkommas umschlossen werden: 'Datum:' MM/dd/yy 'Zeit:' hh:mm:ss tt</p>
-<p>Nicht-alphanumerische Zeichen wie Leerzeichen, Tabulatoren, LF-Zeichen (`n), SchrÃ¤gstriche, Doppelpunkte, Kommas und andere Satzzeichen mÃ¼ssen nicht von Hochkommas umschlossen werden. Die Ausnahme ist das Hochkomma selbst: Zur Darstellung dieses Zeichens mÃ¼ssen vier aufeinanderfolgende Hochkommas ('''') verwendet werden, oder nur zwei, wenn das Hochkomma sich bereits innerhalb von zwei Ã¤uÃŸeren Hochkommas befindet.</p>
-<p>Wenn das <em>Format</em> Datum- und Zeitelemente enthÃ¤lt, dann dÃ¼rfen sie nicht vermischt werden. Mit anderen Worten sollte der String in zwei HÃ¤lften aufgeteilt werden: Zeit in die eine HÃ¤lfte und Datum in die andere HÃ¤lfte. Der Formatstring "hh yyyy mm" beispielsweise liefert nicht das erwartete Ergebnis, weil sich ein Datumselement zwischen zwei Zeitelementen befindet.</p>
-<p> Wenn das <em>Format</em> einen numerischen Monatstag (d oder dd) gefolgt von einem vollstÃ¤ndigen Monatsnamen (MMMM) enthÃ¤lt, dann wird der Genitiv des Monatsnamens verwendet (wenn die Sprache einen Genitiv besitzt).</p>
-<p>Wenn das <em>Format</em> mehr als 2000 Zeichen enthÃ¤lt, dann wird die <em>Ausgabevariable</em> leer gemacht.</p>
+<p>Um Buchstaben und Zahlen direkt vom <em>Format</em> in die <em>Ausgabevariable</em> zu übertragen, sollten sie wie in diesem Beispiel mit Hochkommas umschlossen werden: 'Datum:' MM/dd/yy 'Zeit:' hh:mm:ss tt</p>
+<p>Nicht-alphanumerische Zeichen wie Leerzeichen, Tabulatoren, LF-Zeichen (`n), Schrägstriche, Doppelpunkte, Kommas und andere Satzzeichen müssen nicht von Hochkommas umschlossen werden. Die Ausnahme ist das Hochkomma selbst: Zur Darstellung dieses Zeichens müssen vier aufeinanderfolgende Hochkommas ('''') verwendet werden, oder nur zwei, wenn das Hochkomma sich bereits innerhalb von zwei äußeren Hochkommas befindet.</p>
+<p>Wenn das <em>Format</em> Datum- und Zeitelemente enthält, dann dürfen sie nicht vermischt werden. Mit anderen Worten sollte der String in zwei Hälften aufgeteilt werden: Zeit in die eine Hälfte und Datum in die andere Hälfte. Der Formatstring "hh yyyy mm" beispielsweise liefert nicht das erwartete Ergebnis, weil sich ein Datumselement zwischen zwei Zeitelementen befindet.</p>
+<p> Wenn das <em>Format</em> einen numerischen Monatstag (d oder dd) gefolgt von einem vollständigen Monatsnamen (MMMM) enthält, dann wird der Genitiv des Monatsnamens verwendet (wenn die Sprache einen Genitiv besitzt).</p>
+<p>Wenn das <em>Format</em> mehr als 2000 Zeichen enthält, dann wird die <em>Ausgabevariable</em> leer gemacht.</p>
 <p>Addition und Subtraktion von Datum und Uhrzeit erfolgt mittels <a href="EnvAdd.htm">EnvAdd</a> und <a href="EnvSub.htm">EnvSub</a>.</p>
 <h3>Verwandte Befehle</h3>
 <p>Um einen <em>formatierten</em> Datum/Zeit-String <em>ins</em> <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format umzuwandeln, siehe <a href="http://www.autohotkey.com/forum/topic20405.html">Forumsbeitrag: "Date Parser"</a></p>
@@ -211,25 +211,25 @@ MsgBox %Zeitstring%
 FormatTime, Jahreswoche, 20050101, YWeek
 MsgBox Der 1. Januar 2005 hat das folgende Jahr und die Wochennummer nach ISO: %Jahreswoche%</pre>
 <p>&nbsp;</p>
-<pre class="NoIndent"><em>; Ã„ndert den Zeitstempel einer Datei:</em>
-FileSelectFile, Dateiname, 3,, Datei auswÃ¤hlen,
-wenn Dateiname =  <em>; Der Benutzer hat keine Datei ausgewÃ¤hlt.</em>
+<pre class="NoIndent"><em>; Ändert den Zeitstempel einer Datei:</em>
+FileSelectFile, Dateiname, 3,, Datei auswählen,
+wenn Dateiname =  <em>; Der Benutzer hat keine Datei ausgewählt.</em>
     Return
 FileGetTime, Dateizeitstempel, %Dateiname%
-FormatTime, Dateizeitstempel, %Dateizeitstempel%   <em>; Da der letzte Parameter entfÃ¤llt, wird das lange Datumsformat und Uhrzeit angezeigt.</em>
-MsgBox die ausgewÃ¤hlte Datei wurde zuletzt am %Dateizeitstempel% modifiziert.</pre>
+FormatTime, Dateizeitstempel, %Dateizeitstempel%   <em>; Da der letzte Parameter entfällt, wird das lange Datumsformat und Uhrzeit angezeigt.</em>
+MsgBox die ausgewählte Datei wurde zuletzt am %Dateizeitstempel% modifiziert.</pre>
 <p>&nbsp;</p>
 <pre class="NoIndent"><em>; Die folgende Funktion wandelt Sekunden in
 ; Stunden, Minuten und Sekunden um (hh:mm:ss-Format).</em>
 
-MsgBox % FormatSeconds(7384)  <em>; 7384 = 2 Stunden + 3 Minuten + 4 Sekunden. RÃ¼ckgabewert: 2:03:04</em>
+MsgBox % FormatSeconds(7384)  <em>; 7384 = 2 Stunden + 3 Minuten + 4 Sekunden. Rückgabewert: 2:03:04</em>
 
 FormatSeconds(Sekundenanzahl)  <em>; Wandelt eine Zahl ins hh:mm:ss-Format um.</em>
 {
     Zeit = 19990101  <em>; *Mitternacht* eines beliebigen Datums.</em>
     Zeit += %Sekundenanzahl%, seconds
     FormatTime, mmss, %Zeit%, mm:ss
-    Return Sekundenanzahl//3600 ":" mmss  <em>; Diese Methode wird verwendet, um mehr als 24 Stunden im Abschnittswert zu unterstÃ¼tzen.</em>
+    Return Sekundenanzahl//3600 ":" mmss  <em>; Diese Methode wird verwendet, um mehr als 24 Stunden im Abschnittswert zu unterstützen.</em>
 }</pre>
 
 </body>

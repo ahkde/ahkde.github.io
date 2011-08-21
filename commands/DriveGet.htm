@@ -3,21 +3,21 @@
 <html>
 <head>
 <title>DriveGet</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>DriveGet</h1>
 
-<p>Ermittelt unterschiedliche Informationen Ã¼ber die Laufwerke eines Computers. </p>
+<p>Ermittelt unterschiedliche Informationen über die Laufwerke eines Computers. </p>
 
 <pre class="Syntax">DriveGet, Ausgabevariable, Befehl [, Wert]</pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">Ausgabevariable</td>
-    <td width="85%"><p>Der Name der Variable, in der der RÃ¼ckgabewert vom <em>Befehl</em> gespeichert wird.</p></td>
+    <td width="85%"><p>Der Name der Variable, in der der Rückgabewert vom <em>Befehl</em> gespeichert wird.</p></td>
   </tr>
   <tr>
     <td>Befehl, Wert</td>
@@ -27,23 +27,23 @@
 </table>
 
 <h3>Befehl, Wert</h3>
-<p>Die Parameter <em>Befehl</em> und <em>Wert</em> sind voneinander abhÃ¤ngig und kÃ¶nnen wie folgt verwendet werden. Wenn ein Problem auftritt, dann wird <em>Ausgabevariable</em> leer gemacht und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt.</p>
-<p><strong>List [, Typ]</strong>: <em>Ausgabevariable</em> enthÃ¤lt die Buchstaben aller verfÃ¼gbaren Laufwerke. Zum Beispiel: ACDEZ. Wenn der <em>Typ</em> nicht vorhanden ist, dann werden alle Laufwerksarten abgerufen. Andernfalls sollte der <em>Typ</em> ein folgendes Wort sein, um nur bestimmte Laufwerksarten zu ermitteln: CDROM, REMOVABLE, FIXED, NETWORK, RAMDISK, UNKNOWN.</p>
-<p><strong>Capacity (oder Cap), Pfad</strong>: Ruft die GesamtkapazitÃ¤t vom <em>Pfad</em> (z. B. C:\) in Megabyte ab. Mit <a href="DriveSpaceFree.htm">DriveSpaceFree</a> kann der freie Speicher ermittelt werden. </p>
-<p><strong>Filesystem (oder FS), Laufwerk</strong>: Ermittelt das Dateisystem vom <em>Laufwerk</em>, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe (gefolgt von einem Doppelpunkt und einem Backslash) oder ein UNC-Name (z. B. \server1\share1) ist. <em>Ausgabevariable</em> wird ein folgendes Wort enthalten: FAT, FAT32, NTFS, CDFS (fÃ¼r eine CD), UDF (fÃ¼r eine DVD). <em>Ausgabevariable</em> will wird leer gemacht und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, wenn das Laufwerk kein formatiertes Medium enthÃ¤lt.</p>
-<p><strong>Label, Laufwerk</strong>: Ermittelt die DatentrÃ¤gerbezeichnung vom <em>Laufwerk</em>, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe (gefolgt von einem Doppelpunkt und einem Backslash) oder ein UNC-Name (z. B. \server1\share1) ist. Zum Ã„ndern der aktuellen Bezeichnung, siehe folgendes Beispiel: <a href="Drive.htm">Drive</a>, Label, C:, EigenesLabel</p>
-<p><strong>Serial, Laufwerk</strong>: Ermittelt die DatentrÃ¤gerseriennummer vom <em>Laufwerk</em>, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe (gefolgt von einem Doppelpunkt und einem Backslash) oder ein UNC-Name (z. B. \server1\share1) ist. Siehe <a href="SetFormat.htm">SetFormat</a>, wie die Nummer in hexadezimal konvertieren werden kann.</p>
+<p>Die Parameter <em>Befehl</em> und <em>Wert</em> sind voneinander abhängig und können wie folgt verwendet werden. Wenn ein Problem auftritt, dann wird <em>Ausgabevariable</em> leer gemacht und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt.</p>
+<p><strong>List [, Typ]</strong>: <em>Ausgabevariable</em> enthält die Buchstaben aller verfügbaren Laufwerke. Zum Beispiel: ACDEZ. Wenn der <em>Typ</em> nicht vorhanden ist, dann werden alle Laufwerksarten abgerufen. Andernfalls sollte der <em>Typ</em> ein folgendes Wort sein, um nur bestimmte Laufwerksarten zu ermitteln: CDROM, REMOVABLE, FIXED, NETWORK, RAMDISK, UNKNOWN.</p>
+<p><strong>Capacity (oder Cap), Pfad</strong>: Ruft die Gesamtkapazität vom <em>Pfad</em> (z. B. C:\) in Megabyte ab. Mit <a href="DriveSpaceFree.htm">DriveSpaceFree</a> kann der freie Speicher ermittelt werden. </p>
+<p><strong>Filesystem (oder FS), Laufwerk</strong>: Ermittelt das Dateisystem vom <em>Laufwerk</em>, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe (gefolgt von einem Doppelpunkt und einem Backslash) oder ein UNC-Name (z. B. \server1\share1) ist. <em>Ausgabevariable</em> wird ein folgendes Wort enthalten: FAT, FAT32, NTFS, CDFS (für eine CD), UDF (für eine DVD). <em>Ausgabevariable</em> will wird leer gemacht und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, wenn das Laufwerk kein formatiertes Medium enthält.</p>
+<p><strong>Label, Laufwerk</strong>: Ermittelt die Datenträgerbezeichnung vom <em>Laufwerk</em>, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe (gefolgt von einem Doppelpunkt und einem Backslash) oder ein UNC-Name (z. B. \server1\share1) ist. Zum Ändern der aktuellen Bezeichnung, siehe folgendes Beispiel: <a href="Drive.htm">Drive</a>, Label, C:, EigenesLabel</p>
+<p><strong>Serial, Laufwerk</strong>: Ermittelt die Datenträgerseriennummer vom <em>Laufwerk</em>, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe (gefolgt von einem Doppelpunkt und einem Backslash) oder ein UNC-Name (z. B. \server1\share1) ist. Siehe <a href="SetFormat.htm">SetFormat</a>, wie die Nummer in hexadezimal konvertieren werden kann.</p>
 <p><strong>Type, Pfad</strong>: Ermittelt den Typ des Laufwerks im <em>Pfad</em>: Unknown, Removable, Fixed, Network, CDROM, RAMDisk.</p>
-<p><strong>Status, Pfad</strong>: Ermittelt den Status des Laufwerks im <em>Pfad</em>: Unknown (kÃ¶nnte auf unformatiert/RAW hindeuten), Ready, NotReady (typisch fÃ¼r WechseldatentrÃ¤ger, die keine Medien enthalten), Invalid (<em>Pfad</em> existiert nicht, ein Netzwerk-Laufwerk ist zurzeit nicht erreichbar, usw.)</p>
-<p><strong>StatusCD [, Laufwerk]</strong>: Ermittelt den Medienstatus eines CD- oder DVD-Laufwerks, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe gefolgt von einem Doppelpunkt ist (wenn das <em>Laufwerk</em> nicht vorhanden ist, dann wird das Standard-CD/DVD-Laufwerk verwendet). <em>Ausgabevariable</em> wird leer gemacht, wenn der Status nicht ermittelt werden kann. Ansonsten enthÃ¤lt sie einen folgenden String:</p>
+<p><strong>Status, Pfad</strong>: Ermittelt den Status des Laufwerks im <em>Pfad</em>: Unknown (könnte auf unformatiert/RAW hindeuten), Ready, NotReady (typisch für Wechseldatenträger, die keine Medien enthalten), Invalid (<em>Pfad</em> existiert nicht, ein Netzwerk-Laufwerk ist zurzeit nicht erreichbar, usw.)</p>
+<p><strong>StatusCD [, Laufwerk]</strong>: Ermittelt den Medienstatus eines CD- oder DVD-Laufwerks, wobei das <em>Laufwerk</em> ein Laufwerksbuchstabe gefolgt von einem Doppelpunkt ist (wenn das <em>Laufwerk</em> nicht vorhanden ist, dann wird das Standard-CD/DVD-Laufwerk verwendet). <em>Ausgabevariable</em> wird leer gemacht, wenn der Status nicht ermittelt werden kann. Ansonsten enthält sie einen folgenden String:</p>
 <table class="info">
   <tr>
     <td width="15%">not ready</td>
-    <td width="85%">Auf das Laufwerk kann noch nicht zugegriffen werden, da sie vielleicht an einer Schreib-Operation beteiligt ist. Bekannte EinschrÃ¤nkung: "not ready" tritt auch auf, wenn das Laufwerk eine DVD anstelle einer CD enthÃ¤lt.</td>
+    <td width="85%">Auf das Laufwerk kann noch nicht zugegriffen werden, da sie vielleicht an einer Schreib-Operation beteiligt ist. Bekannte Einschränkung: "not ready" tritt auch auf, wenn das Laufwerk eine DVD anstelle einer CD enthält.</td>
   </tr>
   <tr>
     <td>open</td>
-    <td>Das Laufwerk enthÃ¤lt kein Medium oder ist offen.</td>
+    <td>Das Laufwerk enthält kein Medium oder ist offen.</td>
   </tr>
   <tr>
     <td>playing</td>
@@ -59,21 +59,21 @@
   </tr>
   <tr>
     <td>stopped</td>
-    <td>Das Laufwerk enthÃ¤lt eine CD, aber es wird zurzeit nicht darauf zugegriffen.</td>
+    <td>Das Laufwerk enthält eine CD, aber es wird zurzeit nicht darauf zugegriffen.</td>
   </tr>
 </table>
-<p>Dieser Befehl funktioniert wahrscheinlich nicht mit einem Netzwerk- oder CD/DVD-Laufwerk; in solchen FÃ¤llen wird die <em>Ausgabevariable</em> leer gemacht und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt.</p>
-<p>Wenn das Laufwerk vor Kurzem geschlossen wurde, dann kann es eine VerzÃ¶gerung geben, bevor der Befehl ausgefÃ¼hrt wird.</p>
-<p>Mit dem Befehl <a href="Drive.htm">Drive</a> kann das Laufwerk geÃ¶ffnet oder geschlossen werden.</p>
+<p>Dieser Befehl funktioniert wahrscheinlich nicht mit einem Netzwerk- oder CD/DVD-Laufwerk; in solchen Fällen wird die <em>Ausgabevariable</em> leer gemacht und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt.</p>
+<p>Wenn das Laufwerk vor Kurzem geschlossen wurde, dann kann es eine Verzögerung geben, bevor der Befehl ausgeführt wird.</p>
+<p>Mit dem Befehl <a href="Drive.htm">Drive</a> kann das Laufwerk geöffnet oder geschlossen werden.</p>
 <h3>ErrorLevel</h3>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthÃ¤lt ErrorLevel eine 0.</p>
+<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0.</p>
 <h3>Bemerkungen</h3>
 <p>Einige dieser Befehle akzeptieren auch eine Netzwerkfreigabe im <em>Pfad</em> (z. B. \\EigenerServer\EigeneFreigabe\).</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="Drive.htm">Drive</a>, <a href="DriveSpaceFree.htm">DriveSpaceFree</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent"><em>; Das ist ein funktionierendes Beispiel-Script.</em>
-FileSelectFolder, Ordner, , 3, Laufwerk zur ÃœberprÃ¼fung auswÃ¤hlen:
+FileSelectFolder, Ordner, , 3, Laufwerk zur Überprüfung auswählen:
 If Ordner =
     Return
 DriveGet, list, list
@@ -84,7 +84,7 @@ DriveGet, label, label, %folder%
 DriveGet, serial, serial, %folder%
 DriveGet, type, type, %folder%
 DriveGet, status, status, %folder%
-MsgBox Alle Laufwerke: %list%`nAusgewÃ¤hlt: %folder%`nTyp: %type%`nStatus: %status%`nSpeicherkapazitÃ¤t (in MB): %cap% M`nFreier Speicher (in MB): %free% M`nDateisystem: %fs%`nBezeichnung: %label%`nSeriennummer: %serial%</pre>
+MsgBox Alle Laufwerke: %list%`nAusgewählt: %folder%`nTyp: %type%`nStatus: %status%`nSpeicherkapazität (in MB): %cap% M`nFreier Speicher (in MB): %free% M`nDateisystem: %fs%`nBezeichnung: %label%`nSeriennummer: %serial%</pre>
 
 </body>
 </html>
