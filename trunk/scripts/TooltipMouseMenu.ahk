@@ -1,15 +1,15 @@
-; ToolTip-MausmenÃ¼ (benÃ¶tigt XP/2k/NT) -- von Rajat
+; ToolTip-Mausmenü (benötigt XP/2k/NT) -- von Rajat
 ; http://www.autohotkey.com
-; Dieses Script zeigt ein aufklappbares MenÃ¼ beim kurzen
-; DrÃ¼cken der mittleren Maustaste an.  Ein MenÃ¼punkt kann mit einem Linksklick ausgewÃ¤hlt werden.
-; Das MenÃ¼ wird geschlossen, sobald auÃŸerhalb des MenÃ¼s mit der linken Maustaste geklickt wird.  Als aktuelle Verbesserung
-; kann der Inhalt des MenÃ¼s geÃ¤ndert werden, abhÃ¤ngig davon,
+; Dieses Script zeigt ein aufklappbares Menü beim kurzen
+; Drücken der mittleren Maustaste an.  Ein Menüpunkt kann mit einem Linksklick ausgewählt werden.
+; Das Menü wird geschlossen, sobald außerhalb des Menüs mit der linken Maustaste geklickt wird.  Als aktuelle Verbesserung
+; kann der Inhalt des Menüs geändert werden, abhängig davon,
 ; welcher Fenstertyp aktiv ist (Notepad und Word wurden hier als Beispiele verwendet).
 
-; Hier kann ein beliebiger Titel fÃ¼r das MenÃ¼ angegeben werden:
+; Hier kann ein beliebiger Titel für das Menü angegeben werden:
 MenuTitle = -=-=-=-=-=-=-=-
 
-; Damit wird die Druckdauer der Maustaste bestimmt, bis das MenÃ¼ angezeigt wird:
+; Damit wird die Druckdauer der Maustaste bestimmt, bis das Menü angezeigt wird:
 UMDelay = 20
 
 SetFormat, float, 00
@@ -19,21 +19,21 @@ SetTitleMatchMode, 2
 
 
 ;___________________________________________
-;_____MenÃ¼-Definitionen______________________
+;_____Menü-Definitionen______________________
 
-; Hier kÃ¶nnen die MenÃ¼punkte erstellt oder bearbeitet werden.
-; Es dÃ¼rfen keine Leerzeichen im SchlÃ¼ssel-/Wert-/Bereichssnamen verwendet werden.
+; Hier können die Menüpunkte erstellt oder bearbeitet werden.
+; Es dürfen keine Leerzeichen im Schlüssel-/Wert-/Bereichssnamen verwendet werden.
 
-; Mach dir keine Sorgen Ã¼ber die Reihenfolge, das MenÃ¼ wird sortiert.
+; Mach dir keine Sorgen über die Reihenfolge, das Menü wird sortiert.
 
 MenuItems = Editor/Rechner/Bereich 3/Bereich 4/Bereich 5
 
 
 ;___________________________________________
-;______Hier dynamische MenÃ¼punkte_______________
+;______Hier dynamische Menüpunkte_______________
 
 ; Syntax:
-;     Dyn# = MenÃ¼punkt|Fenstertitel
+;     Dyn# = Menüpunkt|Fenstertitel
 
 Dyn1 = MS Word|- Microsoft Word
 Dyn2 = Editor II|- Editor
@@ -44,9 +44,9 @@ Exit
 
 
 ;___________________________________________
-;_____MenÃ¼bereiche__________________________
+;_____Menübereiche__________________________
 
-; Hier kÃ¶nnen die MenÃ¼bereiche erstellt oder bearbeitet werden.
+; Hier können die Menübereiche erstellt oder bearbeitet werden.
 
 Editor:
 Run, Notepad.exe
@@ -57,15 +57,15 @@ Run, Calc
 Return
 
 Bereich3:
-MsgBox, 3 ausgewÃ¤hlt
+MsgBox, 3 ausgewählt
 Return
 
 Bereich4:
-MsgBox, 4 ausgewÃ¤hlt
+MsgBox, 4 ausgewählt
 Return
 
 Bereich5:
-MsgBox, 5 ausgewÃ¤hlt
+MsgBox, 5 ausgewählt
 Return
 
 MSWord:
@@ -92,7 +92,7 @@ Loop
 IfLess, HowLong, %UMDelay%, Return
 
 
-; Dynamisches MenÃ¼ vorbereiten
+; Dynamisches Menü vorbereiten
 DynMenu =
 Loop
 {
@@ -108,25 +108,25 @@ Loop
 }
 
 
-; Sortiertes HauptmenÃ¼ mit dynamisches MenÃ¼ verbinden
+; Sortiertes Hauptmenü mit dynamisches Menü verbinden
 Sort, MenuItems, D/
 TempMenu = %MenuItems%%DynMenu%
 
 
-; FrÃ¼here EintrÃ¤ge entfernen
+; Frühere Einträge entfernen
 Loop
 {
 	IfEqual, MenuItem%a_index%,, Break
 	MenuItem%a_index% =
 }
 
-; Neue EintrÃ¤ge erstellen
+; Neue Einträge erstellen
 Loop, Parse, TempMenu, /
 {
 	MenuItem%a_index% = %a_loopfield%
 }
 
-; Das MenÃ¼ erstellen
+; Das Menü erstellen
 Menu = %MenuTitle%
 Loop
 {
@@ -155,7 +155,7 @@ IfWinNotActive, %MenuTitle%
 MouseGetPos, mX, mY
 ToolTip
 mY -= 3		; Platz, bevor die erste Zeile startet
-mY /= 13	; BenÃ¶tigter Platz jeder Zeile
+mY /= 13	; Benötigter Platz jeder Zeile
 IfLess, mY, 1, Return
 IfGreater, mY, %numItems%, Return
 StringTrimLeft, TargetSection, MenuItem%mY%, 0

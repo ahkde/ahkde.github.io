@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>WinWait</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,7 +17,7 @@
 <table class="info">
   <tr>
     <td width="15%">Fenstertitel</td>
-    <td width="85%"><p>Der Titel oder Teiltitel des Fensters (das Ãœbereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschrÃ¤nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p>
+    <td width="85%"><p>Der Titel oder Teiltitel des Fensters (das Übereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschränkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p>
     <p>Der <em>Fenstertitel</em> kann nur leer gelassen werden, wenn der <em>Fenstertext</em>, die <em>Titelausnahme</em> oder <em>Textausnahme</em> vorhanden ist.</p></td>
   </tr>
   <tr>
@@ -30,21 +30,21 @@
   </tr>
   <tr>
     <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht berÃ¼cksichtigt.</td>
+    <td>Fenstertitel mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
   <tr>
     <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht berÃ¼cksichtigt.</td>
+    <td>Fenstertexte mit diesem Wert werden nicht berücksichtigt.</td>
   </tr>
 </table>
 
 <h3>ErrorLevel</h3>
-<p>Wenn die Wartezeit abgelaufen ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthÃ¤lt ErrorLevel eine 0. </p>
+<p>Wenn die Wartezeit abgelaufen ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enthält ErrorLevel eine 0. </p>
 <h3>Bemerkungen</h3>
-<p>Wenn ein passendes Fenster zustande kommt, dann wartet der Befehl nicht, bis die <em>Sekunden</em> abgelaufen sind. Stattdessen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> sofort auf 0 gesetzt, das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> aktualisiert und das Script weiter ausgefÃ¼hrt.</p>
-<p>WÃ¤hrend der Befehl in einem Wartezustand ist, kÃ¶nnen neue <a href="../misc/Threads.htm">Threads</a> mittels <a href="../Hotkeys.htm">Hotkey</a>, <a href="Menu.htm">benutzerdefinierte MenÃ¼eintrÃ¤ge</a> oder <a href="SetTimer.htm">Timer</a> gestartet werden.</p>
-<p>Wenn ein anderer <a href="../misc/Threads.htm">Thread</a> den Inhalt der Variable(n) verÃ¤ndert, die fÃ¼r die Parameter des Befehls verwenden wurden, dann sieht dieser Befehl die VerÃ¤nderung nicht. Er verwendet weiterhin den Titel und Text, die original in den Variablen vorhandenen sind, wenn der Befehl wartet.</p>
-<p>Fenstertitel und -texte sind von der GroÃŸ- und Kleinschreibung abhÃ¤ngig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
+<p>Wenn ein passendes Fenster zustande kommt, dann wartet der Befehl nicht, bis die <em>Sekunden</em> abgelaufen sind. Stattdessen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> sofort auf 0 gesetzt, das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> aktualisiert und das Script weiter ausgeführt.</p>
+<p>Während der Befehl in einem Wartezustand ist, können neue <a href="../misc/Threads.htm">Threads</a> mittels <a href="../Hotkeys.htm">Hotkey</a>, <a href="Menu.htm">benutzerdefinierte Menüeinträge</a> oder <a href="SetTimer.htm">Timer</a> gestartet werden.</p>
+<p>Wenn ein anderer <a href="../misc/Threads.htm">Thread</a> den Inhalt der Variable(n) verändert, die für die Parameter des Befehls verwenden wurden, dann sieht dieser Befehl die Veränderung nicht. Er verwendet weiterhin den Titel und Text, die original in den Variablen vorhandenen sind, wenn der Befehl wartet.</p>
+<p>Fenstertitel und -texte sind von der Groß- und Kleinschreibung abhängig. Solange <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist, werden versteckte Fenster nicht wahrgenommen.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="WinWaitActive.htm">WinWaitActive</a>, <a href="WinWaitClose.htm">WinWaitClose</a>, <a href="IfWinExist.htm">IfWinExist</a>, <a href="IfWinActive.htm">IfWinActive</a>, <a href="Process.htm">Process</a>, <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a>, <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a></p>
 <h3>Beispiel</h3>
@@ -52,7 +52,7 @@
 WinWait, Unbenannt - Editor, , 3
 If ErrorLevel
 {
-    MsgBox, Zeit von WinWait Ã¼berschritten.
+    MsgBox, Zeit von WinWait überschritten.
     Return
 }
 Else

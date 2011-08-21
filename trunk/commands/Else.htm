@@ -3,26 +3,26 @@
 <html>
 <head>
 <title>Else</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Else</h1>
 
-<p>Verweist auf Befehle, welche durchzufÃ¼hren sind, wenn eine If-Bedingung nicht erfÃ¼llt wird. Wenn mehrere Befehle vorhanden sind, dann mÃ¼ssen sie von einem <a href="Block.htm">Block</a> (geschweifte Klammern) umschlossen werden. </p>
+<p>Verweist auf Befehle, welche durchzuführen sind, wenn eine If-Bedingung nicht erfüllt wird. Wenn mehrere Befehle vorhanden sind, dann müssen sie von einem <a href="Block.htm">Block</a> (geschweifte Klammern) umschlossen werden. </p>
 
 <pre class="Syntax">Else</pre>
 <h3>Bemerkungen</h3>
-<p>Jedes ELSE muss mit einer vorherigen IF-Anweisung assoziiert werden. Ein ELSE gehÃ¶rt immer einer nÃ¤chstgelegenen nicht beanspruchten IF-Anweisung, es sei denn, <a href="Block.htm">Block</a> wird dazu verwendet, dieses Verhalten zu Ã¤ndern.</p>
-<p>Auf der gleichen Zeile nach ELSE kann ein beliebiger Befehl folgen. Das wird hÃ¤ufig bei "Else If"-Konstruktionen verwendet (siehe Beispiele unten).</p>
-<p>Wenn <a href="IfEqual.htm">IF</a> oder ELSE mehrere Zeilen enthalten, dann mÃ¼ssen diese von geschweiften Klammern umschlossen werden. Wenn allerdings nur eine Zeile vorhanden ist, dann sind die Klammern optional. Zum Beispiel:</p>
-<pre>If count > 0  <em>; Klammern sind in der nÃ¤chsten Zeile nicht notwendig, weil es nur eine Zeile ist.</em>
-    MsgBox OK drÃ¼cken`, um Prozess fortzufahren.
-Else  <em>; Klammern mÃ¼ssen fÃ¼r den unteren Abschnitt verwendet werden, weil mehrere Zeilen vorhanden sind.</em>
+<p>Jedes ELSE muss mit einer vorherigen IF-Anweisung assoziiert werden. Ein ELSE gehört immer einer nächstgelegenen nicht beanspruchten IF-Anweisung, es sei denn, <a href="Block.htm">Block</a> wird dazu verwendet, dieses Verhalten zu ändern.</p>
+<p>Auf der gleichen Zeile nach ELSE kann ein beliebiger Befehl folgen. Das wird häufig bei "Else If"-Konstruktionen verwendet (siehe Beispiele unten).</p>
+<p>Wenn <a href="IfEqual.htm">IF</a> oder ELSE mehrere Zeilen enthalten, dann müssen diese von geschweiften Klammern umschlossen werden. Wenn allerdings nur eine Zeile vorhanden ist, dann sind die Klammern optional. Zum Beispiel:</p>
+<pre>If count > 0  <em>; Klammern sind in der nächsten Zeile nicht notwendig, weil es nur eine Zeile ist.</em>
+    MsgBox OK drücken`, um Prozess fortzufahren.
+Else  <em>; Klammern müssen für den unteren Abschnitt verwendet werden, weil mehrere Zeilen vorhanden sind.</em>
 {
     WinClose Unbenannt - Editor
-    MsgBox Keine EintrÃ¤ge vorhanden.
+    MsgBox Keine Einträge vorhanden.
 }</pre>
 <p>Der <a href="Block.htm#otb">One True Brace (OTB)-Stil</a> kann gegebenenfalls bei einem "Else" verwendet werden. Zum Beispiel:</p>
 <pre>If IsDone {
@@ -33,7 +33,7 @@ Else  <em>; Klammern mÃ¼ssen fÃ¼r den unteren Abschnitt verwendet werden, weil m
     ...
 }</pre>
 <h3>Verwandte Befehle</h3>
-<p>Siehe <a href="Block.htm">Blocks</a>. Auch jeder IF-Befehl kann ELSE verwenden, einschlieÃŸlich <a href="IfWinActive.htm">IfWinActive</a>, <a href="IfWinExist.htm">IfWinExist</a>, <a href="IfMsgBox.htm">IfMsgBox</a>, <a href="IfInString.htm">IfInString</a>, <a href="IfBetween.htm">IfBetween</a>, <a href="IfIn.htm">IfIn</a>, <a href="IfEqual.htm">IF</a>, und <a href="IfExpression.htm">IF (Ausdruck)</a>.</p>
+<p>Siehe <a href="Block.htm">Blocks</a>. Auch jeder IF-Befehl kann ELSE verwenden, einschließlich <a href="IfWinActive.htm">IfWinActive</a>, <a href="IfWinExist.htm">IfWinExist</a>, <a href="IfMsgBox.htm">IfMsgBox</a>, <a href="IfInString.htm">IfInString</a>, <a href="IfBetween.htm">IfBetween</a>, <a href="IfIn.htm">IfIn</a>, <a href="IfEqual.htm">IF</a>, und <a href="IfExpression.htm">IF (Ausdruck)</a>.</p>
 <h3>Beispiele</h3>
 <pre class="NoIndent">IfWinExist, Unbenannt - Editor
 {

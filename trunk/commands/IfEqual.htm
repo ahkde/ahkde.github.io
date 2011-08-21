@@ -3,14 +3,14 @@
 <html>
 <head>
 <title>If/IfEqual/IfNotEqual/IfLess/IfLessOrEqual/IfGreater/IfGreaterOrEqual</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>If/IfEqual/IfNotEqual/IfLess/IfLessOrEqual/IfGreater/IfGreaterOrEqual</h1>
 
-<p>Befehl(e), die ausgefÃ¼hrt werden, wenn der Vergleich einer <a href="../Variables.htm">Variable</a> mit einem Wert WAHR ist. Wenn mehrere Befehle vorhanden sind, dann mÃ¼ssen sie von einem <a href="Block.htm">Block</a> (geschweifte Klammern) umschlossen werden.</p>
+<p>Befehl(e), die ausgeführt werden, wenn der Vergleich einer <a href="../Variables.htm">Variable</a> mit einem Wert WAHR ist. Wenn mehrere Befehle vorhanden sind, dann müssen sie von einem <a href="Block.htm">Block</a> (geschweifte Klammern) umschlossen werden.</p>
 
 <pre class="Syntax">IfEqual, Variable, Wert (If Variable = Wert)
 IfNotEqual, Variable, Wert (If Variable <> Wert) (!= kann statt <> verwendet werden)
@@ -34,29 +34,29 @@ Siehe auch: <a href="IfInString.htm">IfInString</a></pre>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Wenn sowohl die <em>Variable</em> als auch der <em>Wert</em> numerisch sind, dann werden sie als Zahlen anstatt als Strings verglichen. Ansonsten werden sie alphabetisch als Strings verglichen (d. h. die alphabetische Reihenfolge bestimmt, ob die <em>Variable</em> grÃ¶ÃŸer, gleich oder kleiner als der <em>Wert</em> ist).</p>
-<p>Wenn IF oder <a href="Else.htm">ELSE</a> mehrere Zeilen enthÃ¤lt, dann mÃ¼ssen diese Zeilen mit Klammern umschlossen werden. Zum Beispiel:</p>
+<p>Wenn sowohl die <em>Variable</em> als auch der <em>Wert</em> numerisch sind, dann werden sie als Zahlen anstatt als Strings verglichen. Ansonsten werden sie alphabetisch als Strings verglichen (d. h. die alphabetische Reihenfolge bestimmt, ob die <em>Variable</em> größer, gleich oder kleiner als der <em>Wert</em> ist).</p>
+<p>Wenn IF oder <a href="Else.htm">ELSE</a> mehrere Zeilen enthält, dann müssen diese Zeilen mit Klammern umschlossen werden. Zum Beispiel:</p>
 <pre>If count <= 0
 {
     WinClose Unbenannt - Editor
     MsgBox Keine Elemente vorhanden.
 }</pre>
 <p>Wenn allerdings nur eine Zeile vorhanden ist, dann sind die Klammern optional.</p>
-<p>Ein anderer Befehl kann nur auf derselben Zeile der IF-Anweisung stehen, wenn der Befehlsnamen-Style verwendet wird. Mit anderen Worten sind diese gÃ¼ltig:</p>
+<p>Ein anderer Befehl kann nur auf derselben Zeile der IF-Anweisung stehen, wenn der Befehlsnamen-Style verwendet wird. Mit anderen Worten sind diese gültig:</p>
 <pre>IfEqual, x, 1, Sleep, 1
 IfGreater, x, 1, EnvAdd, x, 2</pre>
-<p>Aber diese sind nicht gÃ¼ltig:</p>
+<p>Aber diese sind nicht gültig:</p>
 <pre>If x = 1 Sleep 1
 IfGreater, x, 1, x += 2</pre>
-<p>Der <a href="IfExpression.htm#otb">One True Brace (OTB)-Style</a> kann <strong>nicht</strong> mit dieser Art von If-Anweisung verwendet werden. OTB kann nur mit If-AusdrÃ¼cken verwendet werden.</p>
-<p>Ein weiterer Befehl <a href="IfBetween.htm">If Variable [not] between Untergrenze and Obergrenze</a> Ã¼berprÃ¼ft, ob eine Variable zwischen zwei Werten liegt. <a href="IfIn.htm">If Variable [not] in Wert1,Wert2</a> Ã¼berprÃ¼ft, ob der Inhalt einer Variable in einer Liste von Werten vorhanden ist. </p>
+<p>Der <a href="IfExpression.htm#otb">One True Brace (OTB)-Style</a> kann <strong>nicht</strong> mit dieser Art von If-Anweisung verwendet werden. OTB kann nur mit If-Ausdrücken verwendet werden.</p>
+<p>Ein weiterer Befehl <a href="IfBetween.htm">If Variable [not] between Untergrenze and Obergrenze</a> überprüft, ob eine Variable zwischen zwei Werten liegt. <a href="IfIn.htm">If Variable [not] in Wert1,Wert2</a> überprüft, ob der Inhalt einer Variable in einer Liste von Werten vorhanden ist. </p>
 <h3>Verwandte Befehle</h3>
-<p><a href="IfExpression.htm">IF (Ausdruck)</a>, <a href="StringCaseSense.htm">StringCaseSense</a>, <a href="SetExpression.htm">Zuweisungsausdruck (:=)</a>, <a href="IfIn.htm">If Variable in/contains Ãœbereinstimmungsliste</a>, <a href="IfBetween.htm">If Variable between</a>, <a href="IfInString.htm">IfInString</a>, <a href="Block.htm">Blocks</a>, <a href="Else.htm">Else</a></p>
+<p><a href="IfExpression.htm">IF (Ausdruck)</a>, <a href="StringCaseSense.htm">StringCaseSense</a>, <a href="SetExpression.htm">Zuweisungsausdruck (:=)</a>, <a href="IfIn.htm">If Variable in/contains Übereinstimmungsliste</a>, <a href="IfBetween.htm">If Variable between</a>, <a href="IfInString.htm">IfInString</a>, <a href="Block.htm">Blocks</a>, <a href="Else.htm">Else</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">If counter >= 1
     Sleep, 10
 
-If counter >=1   <em>; Wenn IF mehrere Zeilen hat, dann mÃ¼ssen diese Zeilen mit Klammern umschlossen werden:</em>
+If counter >=1   <em>; Wenn IF mehrere Zeilen hat, dann müssen diese Zeilen mit Klammern umschlossen werden:</em>
 {
     WinClose, Unbenannt - Editor
     Sleep 10

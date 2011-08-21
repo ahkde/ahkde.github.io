@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>StringGetPos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,7 +13,7 @@
 <p>Ermittelt die Position des angegebenen Teilstrings in einem String.</p>
 
 <pre class="Syntax">StringGetPos, Ausgabevariable, Eingabevariable, Suchtext [, L#|R#, Offset]
-Position := <a href="../Functions.htm#InStr">InStr</a>(Heuhaufen, Nadel [, Zeichengenauigkeit, Startposition]) <em>; Siehe <a href="../Functions.htm#InStr">InStr()-Funktion</a> f√ºr Details.</em></pre>
+Position := <a href="../Functions.htm#InStr">InStr</a>(Heuhaufen, Nadel [, Zeichengenauigkeit, Startposition]) <em>; Siehe <a href="../Functions.htm#InStr">InStr()-Funktion</a> f¸r Details.</em></pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
@@ -22,20 +22,20 @@ Position := <a href="../Functions.htm#InStr">InStr</a>(Heuhaufen, Nadel [, Zeich
   </tr>
   <tr>
     <td>Eingabevariable</td>
-    <td>Name der Variable, dessen Inhalt durchsucht wird. Umschlie√üt den Namen erst mit Prozentzeichen, wenn der <em>Inhalt</em> der Variable als Name verwendet werden soll.</td>
+    <td>Name der Variable, dessen Inhalt durchsucht wird. Umschlieﬂt den Namen erst mit Prozentzeichen, wenn der <em>Inhalt</em> der Variable als Name verwendet werden soll.</td>
   </tr>
   <tr>
     <td>Suchtext</td>
-    <td>Text, der gesucht wird. Die √úbereinstimmung ist erst von der Gro√ü- bzw. Kleinschreibung abh√§ngig, wenn <a href="StringCaseSense.htm">StringCaseSense</a> aktiv ist. </td>
+    <td>Text, der gesucht wird. Die ‹bereinstimmung ist erst von der Groﬂ- bzw. Kleinschreibung abh‰ngig, wenn <a href="StringCaseSense.htm">StringCaseSense</a> aktiv ist. </td>
   </tr>
   <tr>
     <td>L#|R#</td>
-    <td><p>Damit wird beeinflusst, welches Vorkommen gefunden wird, wenn der <em>Suchtext</em> mehrmals in der <em>Eingabevariable</em> vorkommt. Wenn dieser Parameter weggelassen wird, dann beginnt die Suche f√ºr die erste √úbereinstimmung in der <em>Eingabevariable</em> von links. Wenn dieser Parameter den Wert 1 oder den Buchstaben R enth√§lt, dann beginnt die Suche in der <em>Eingabevariable</em> von rechts und wird dann nach links weitergef√ºhrt, bis die erste √úbereinstimmung gefunden wird.</p>
-      <p>Um eine beliebige √úbereinstimmung zu finden, verwendet den Buchstaben L oder R, gefolgt von der Vorkommensnummer. Zum Beispiel wird mit r4 das vierte Vorkommen von rechts gefunden. Hinweis: Wenn die Nummer kleiner gleich 0 ist, dann wird keine √úbereinstimmung gefunden.</p>    </td>
+    <td><p>Damit wird beeinflusst, welches Vorkommen gefunden wird, wenn der <em>Suchtext</em> mehrmals in der <em>Eingabevariable</em> vorkommt. Wenn dieser Parameter weggelassen wird, dann beginnt die Suche f¸r die erste ‹bereinstimmung in der <em>Eingabevariable</em> von links. Wenn dieser Parameter den Wert 1 oder den Buchstaben R enth‰lt, dann beginnt die Suche in der <em>Eingabevariable</em> von rechts und wird dann nach links weitergef¸hrt, bis die erste ‹bereinstimmung gefunden wird.</p>
+      <p>Um eine beliebige ‹bereinstimmung zu finden, verwendet den Buchstaben L oder R, gefolgt von der Vorkommensnummer. Zum Beispiel wird mit r4 das vierte Vorkommen von rechts gefunden. Hinweis: Wenn die Nummer kleiner gleich 0 ist, dann wird keine ‹bereinstimmung gefunden.</p>    </td>
   </tr>
   <tr>
     <td>Offset</td>
-    <td>Die Anzahl der Zeichen an der linken oder rechten Seite (abh√§ngig vom vorherigen Parameter), die √ºbersprungen werden. Wenn nicht vorhanden, dann standardm√§√üig eine 0. Mit dem folgenden Beispiel beginnt die Suche ab dem 10. Zeichen von links: StringGetPos, Ausgabevariable, Eingabevariable, abc, , 9. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
+    <td>Die Anzahl der Zeichen an der linken oder rechten Seite (abh‰ngig vom vorherigen Parameter), die ¸bersprungen werden. Wenn nicht vorhanden, dann standardm‰ﬂig eine 0. Mit dem folgenden Beispiel beginnt die Suche ab dem 10. Zeichen von links: StringGetPos, Ausgabevariable, Eingabevariable, abc, , 9. Dieser Parameter kann ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein.</td>
   </tr>
 </table>
 
@@ -43,12 +43,12 @@ Position := <a href="../Functions.htm#InStr">InStr</a>(Heuhaufen, Nadel [, Zeich
 <p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 1 gesetzt, wenn der angegebene <em>Suchtext</em> nicht in der <em>Eingabevariable</em> vorkommt, ansonsten auf 0.</p>
 <h3>Bemerkungen</h3>
 <p>Im Gegensatz zu <a href="StringMid.htm">StringMid</a> und <a href="../Functions.htm#InStr">InStr()</a> ist bei StringGetPos die Position 0 das erste Zeichen.</p>
-<p>Die abgerufene Position bezieht sich immer auf das erste Zeichen der <em>Eingabevariable</em>, unabh√§ngig davon, ob <em>L#|R#</em> und/oder <em>Offset</em> angegeben ist. Wenn zum Beispiel der String "abc" in 123abc789 gefunden wird, dann ist die gemeldete Position immer 3, unabh√§ngig von der Methode, mit der der String gefunden wurde.</p>
+<p>Die abgerufene Position bezieht sich immer auf das erste Zeichen der <em>Eingabevariable</em>, unabh‰ngig davon, ob <em>L#|R#</em> und/oder <em>Offset</em> angegeben ist. Wenn zum Beispiel der String "abc" in 123abc789 gefunden wird, dann ist die gemeldete Position immer 3, unabh‰ngig von der Methode, mit der der String gefunden wurde.</p>
 <p>Wenn der angegebene <em>Suchtext</em> nicht in der <em>Eingabevariable</em> vorkommt, dann wird die <em>Ausgabevariable</em> auf -1 und <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt.</p>
 <p>Verwendet <a href="SplitPath.htm">SplitPath</a>, um einen Dateipfad einfacher in Verzeichnis, Dateinamen und Erweiterung aufzuteilen.</p>
-<p>Die internen Variablen <a href="../Variables.htm">A_Space</a> und <a href="../Variables.htm">A_Tab</a> enthalten jeweils ein einzelnes Leerzeichen und ein einzelnes Tabulator-Zeichen. Sie sind n√ºtzlich, um Leerzeichen und Tabulatoren einzeln oder am Anfang oder Ende des <em>Suchstrings</em> zu suchen.</p>
+<p>Die internen Variablen <a href="../Variables.htm">A_Space</a> und <a href="../Variables.htm">A_Tab</a> enthalten jeweils ein einzelnes Leerzeichen und ein einzelnes Tabulator-Zeichen. Sie sind n¸tzlich, um Leerzeichen und Tabulatoren einzeln oder am Anfang oder Ende des <em>Suchstrings</em> zu suchen.</p>
 <h3>Verwandte Befehle</h3>
-<p><a href="../Functions.htm#InStr">InStr()</a>, <a href="RegExMatch.htm">RegExMatch()</a>, <a href="IfInString.htm">IfInString</a>, <a href="IfIn.htm">If Variable in/contains √úbereinstimmungsliste</a>, <a href="StringCaseSense.htm">StringCaseSense</a>, <a href="StringReplace.htm">StringReplace</a>, <a href="SplitPath.htm">SplitPath</a>, <a href="StringLeft.htm">StringLeft</a>, <a href="StringLeft.htm">StringRight</a>, <a href="StringMid.htm">StringMid</a>, <a href="StringTrimLeft.htm">StringTrimLeft</a>, <a href="StringTrimLeft.htm">StringTrimRight</a>, <a href="StringLen.htm">StringLen</a>, <a href="StringLower.htm">StringLower</a>, <a href="StringLower.htm">StringUpper</a>, <a href="IfIs.htm">If Variable is Typ</a> </p>
+<p><a href="../Functions.htm#InStr">InStr()</a>, <a href="RegExMatch.htm">RegExMatch()</a>, <a href="IfInString.htm">IfInString</a>, <a href="IfIn.htm">If Variable in/contains ‹bereinstimmungsliste</a>, <a href="StringCaseSense.htm">StringCaseSense</a>, <a href="StringReplace.htm">StringReplace</a>, <a href="SplitPath.htm">SplitPath</a>, <a href="StringLeft.htm">StringLeft</a>, <a href="StringLeft.htm">StringRight</a>, <a href="StringMid.htm">StringMid</a>, <a href="StringTrimLeft.htm">StringTrimLeft</a>, <a href="StringTrimLeft.htm">StringTrimRight</a>, <a href="StringLen.htm">StringLen</a>, <a href="StringLower.htm">StringLower</a>, <a href="StringLower.htm">StringUpper</a>, <a href="IfIs.htm">If Variable is Typ</a> </p>
 <p><br> <strong>Beispiele</strong></p>
 <pre class="NoIndent">Heuhaufen = abcdefghijklmnopqrs
 Nadel = def
@@ -57,9 +57,9 @@ If Pos >= 0
     MsgBox, Der String wurde auf Position %Pos% gefunden.</pre>
 <p>&nbsp;</p>
 <pre class="NoIndent"><em>; Beispiel #2:
-; Teilt den vollst√§ndigen Pfadnamen einer Datei in einzelne Komponenten auf.
+; Teilt den vollst‰ndigen Pfadnamen einer Datei in einzelne Komponenten auf.
 ; Beachtet, dass die Verwendung von <a href="StringSplit.htm">StringSplit</a> oder einer <a href="LoopParse.htm">Parsing-Schleife</a> einfacher ist, daher dient das Folgende nur als Veranschaulichung.</em>
-FileSelectFile, Datei, , , Dateinamen in einem tief verschachtelten Ordner ausw√§hlen:
+FileSelectFile, Datei, , , Dateinamen in einem tief verschachtelten Ordner ausw‰hlen:
 If Datei <>
 {
     StringLen, Pos_vorher, Datei
@@ -70,10 +70,10 @@ If Datei <>
         <strong>StringGetPos</strong>, Pos, Datei, \, R%A_Index%
         If ErrorLevel
             break
-        L√§nge := Pos_vorher - Pos - 1
+        L‰nge := Pos_vorher - Pos - 1
         Pos_vorher := Pos
-        Pos += 2  <em>; F√ºr die Verwendung mit StringMid anpassen.</em>
-        StringMid, Pfad_Komponente, Datei, %Pos%, %L√§nge%
+        Pos += 2  <em>; F¸r die Verwendung mit StringMid anpassen.</em>
+        StringMid, Pfad_Komponente, Datei, %Pos%, %L‰nge%
         MsgBox Pfadkomponente #%a_index% (von rechts) ist:`n%Pfad_Komponente%
     }
 }</pre>

@@ -2,22 +2,22 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Einfache Fensterverschiebung (benÃ¶tigt XP/2k/NT)</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Einfache Fensterverschiebung (benötigt XP/2k/NT)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="/forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<h1>Einfache Fensterverschiebung (benÃ¶tigt XP/2k/NT)</h1>
+<h1>Einfache Fensterverschiebung (benötigt XP/2k/NT)</h1>
 
-<p> Normalerweise kann ein Fenster nur verschoben werden, wenn die Titelleiste angeklickt wird. Dieses Script erweitert diese Funktion, sodass jeder Punkt in einem Fenster angeklickt werden kann. Um diesen Modus zu aktivieren, haltet die Feststelltaste oder die mittlere Maustaste beim Klicken gedrÃ¼ckt und verschiebt das Fenster danach zur gewÃ¼nschten Position.
+<p> Normalerweise kann ein Fenster nur verschoben werden, wenn die Titelleiste angeklickt wird. Dieses Script erweitert diese Funktion, sodass jeder Punkt in einem Fenster angeklickt werden kann. Um diesen Modus zu aktivieren, haltet die Feststelltaste oder die mittlere Maustaste beim Klicken gedrückt und verschiebt das Fenster danach zur gewünschten Position.
 </p>
 <p><a href="EasyWindowDrag.ahk">Dieses Script herunterladen</a> &nbsp;| &nbsp;<a href="index.htm">Andere Beispiel-Scripts</a> &nbsp;| &nbsp;<a href="http://www.autohotkey.com">Home</a></p>
 
 <pre class="NoIndent"><em>; Hinweis: Die Feststelltaste oder mittlere Maustaste kann optional losgelassen werden, nachdem
-; die Maustaste gedrÃ¼ckt wurde, anstatt die Taste die ganze Zeit gedrÃ¼ckt zu halten.
-; Dieses Script benÃ¶tigt v1.0.25+.</em>
+; die Maustaste gedrückt wurde, anstatt die Taste die ganze Zeit gedrückt zu halten.
+; Dieses Script benötigt v1.0.25+.</em>
 
 ~MButton & LButton::
 CapsLock & LButton::
@@ -37,7 +37,7 @@ if EWD_LButtonState = U  <em>; Taste wurde losgelassen, daher ist das Ziehen abg
     return
 }
 GetKeyState, EWD_EscapeState, Escape, P
-if EWD_EscapeState = D  <em>; Escape wurde gedrÃ¼ckt, daher wird das Ziehen abgebrochen.</em>
+if EWD_EscapeState = D  <em>; Escape wurde gedrückt, daher wird das Ziehen abgebrochen.</em>
 {
     SetTimer, EWD_WatchMouse, off
     WinMove, ahk_id %EWD_MouseWin%,, %EWD_OriginalPosX%, %EWD_OriginalPosY%
@@ -48,9 +48,9 @@ if EWD_EscapeState = D  <em>; Escape wurde gedrÃ¼ckt, daher wird das Ziehen abge
 CoordMode, Mouse
 MouseGetPos, EWD_MouseX, EWD_MouseY
 WinGetPos, EWD_WinX, EWD_WinY,,, ahk_id %EWD_MouseWin%
-SetWinDelay, -1   <em>; Fenster wird schneller/flÃ¼ssiger verschoben.</em>
+SetWinDelay, -1   <em>; Fenster wird schneller/flüssiger verschoben.</em>
 WinMove, ahk_id %EWD_MouseWin%,, EWD_WinX + EWD_MouseX - EWD_MouseStartX, EWD_WinY + EWD_MouseY - EWD_MouseStartY
-EWD_MouseStartX := EWD_MouseX  <em>; FÃ¼r den nÃ¤chsten Timer-Aufruf auf diese Subroutine aktualisieren.</em>
+EWD_MouseStartX := EWD_MouseX  <em>; Für den nächsten Timer-Aufruf auf diese Subroutine aktualisieren.</em>
 EWD_MouseStartY := EWD_MouseY
 return
 

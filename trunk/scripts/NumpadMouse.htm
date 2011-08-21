@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>Tastatur-Ziffernblock als eine Maus verwenden -- von deguix</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="/forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
@@ -16,7 +16,7 @@ PRE {font-family:Andale Mono, Courier New, Monospace;}
 
 <h1>Tastatur-Ziffernblock als eine Maus verwenden -- von deguix</h1>
 
-<p> Mit diesem Script kann die Maus wie die echte Maus bewegt werden (vielleicht sogar einfacher bei einigen Aufgaben). Es werden bis zu fÃ¼nf Maustasten sowie das Drehen des Mausrades unterstÃ¼tzt.  AuÃŸerdem kann damit die Bewegungsgeschwindigkeit, Genauigkeit und "Achseninversion" angepasst werden.
+<p> Mit diesem Script kann die Maus wie die echte Maus bewegt werden (vielleicht sogar einfacher bei einigen Aufgaben). Es werden bis zu fünf Maustasten sowie das Drehen des Mausrades unterstützt.  Außerdem kann damit die Bewegungsgeschwindigkeit, Genauigkeit und "Achseninversion" angepasst werden.
 </p>
 <p><a href="NumpadMouse.ahk">Dieses Script herunterladen</a> &nbsp;| &nbsp;<a href="index.htm">Andere Beispiel-Scripts</a> &nbsp;| &nbsp;<a href="http://www.autohotkey.com">Home</a></p>
 
@@ -24,13 +24,13 @@ PRE {font-family:Andale Mono, Courier New, Monospace;}
 o------------------------------------------------------------o
 |Tastatur-Ziffernblock als eine Maus verwenden               |
 (------------------------------------------------------------)
-| von deguix      / Eine Script-Datei fÃ¼r AutoHotkey 1.0.22+ |
+| von deguix      / Eine Script-Datei für AutoHotkey 1.0.22+ |
 |                    ----------------------------------------|
 |                                                            |
 |  Dieses Script ist ein Verwendungsbeispiel von AutoHotkey. | | Es verwendet die Neubelegung von Numpad-Tasten, um eine    |
 | Maus zu simulieren. Einige Funktionen sind die             |
 | Beschleunigung, womit die Mausgeschwindigkeit beim         |
-| lÃ¤ngeren Halten einer Taste erhÃ¶ht werden kann, und die    |
+| längeren Halten einer Taste erhöht werden kann, und die    |
 | Rotation, womit die Numpad-Maus "gedreht" werden kann. |
 | Zum Beispiel NumPadDown als NumPadUp und umgekehrt. |
 | Siehe nachfolgende Liste mit Tasten:           |
@@ -84,9 +84,9 @@ o------------------------------------------------------------o
 #MaxHotkeysPerInterval 500
 
 <em>; Mithilfe des Tastatur-Hooks werden die Numpad-Hotkeys implementiert
-; daran gehindert, von ANSI-Zeichenerzeugungen wie &agrave; beeintrÃ¤chtigt zu
+; daran gehindert, von ANSI-Zeichenerzeugungen wie &agrave; beeinträchtigt zu
 ; werden.  Denn AutoHotkey erzeugt solche Zeichen,
-; sobald ALT gedrÃ¼ckt gehalten wird und mehrere Numpad-Tastatureingaben gesendet werden.
+; sobald ALT gedrückt gehalten wird und mehrere Numpad-Tastatureingaben gesendet werden.
 ; Hook-Hotkeys sind intelligent genug, solche Tastatureingaben zu ignorieren.</em>
 #UseHook
 
@@ -104,8 +104,8 @@ MouseRotationAngle = 0
 
 <em>; ENDE DES KONFIGURATIONSBEREICHS</em>
 
-<em>; Notwendig oder TastendrÃ¼cke senden fÃ¤lschlicherweise ihre
-; natÃ¼rlichen Aktionen. Wie NumPadDiv wird manchmal "/" zum
+<em>; Notwendig oder Tastendrücke senden fälschlicherweise ihre
+; natürlichen Aktionen. Wie NumPadDiv wird manchmal "/" zum
 ; Bildschirm gesendet.       </em>
 #InstallKeybdHook
 
@@ -113,11 +113,11 @@ Temp = 0
 Temp2 = 0
 
 MouseRotationAnglePart = %MouseRotationAngle%
-<em>; Durch 45 teilen&ordm;, weil MouseMove nur ganze Zahlen unterstÃ¼tzt,
+<em>; Durch 45 teilen&ordm;, weil MouseMove nur ganze Zahlen unterstützt,
 ; und sobald die Mausrotation auf eine Zahl kleiner als 45 gesetzt wird,&ordm;
-; erfolgen merkwÃ¼rdige Bewegungen.
+; erfolgen merkwürdige Bewegungen.
 ;
-; Zum Beispiel: 22.5&ordm; beim DrÃ¼cken von NumPadUp:
+; Zum Beispiel: 22.5&ordm; beim Drücken von NumPadUp:
 ; Zuerst wird die Maus nach oben bewegt, bis die Geschwindigkeit
 ; 1 erreicht.</em>
 MouseRotationAnglePart /= 45
@@ -172,11 +172,11 @@ Hotkey, !Numpad3, ButtonWheelMaxSpeedDown
 Gosub, ~ScrollLock  <em>; Initialisieren, basierend auf dem aktuellen ScrollLock-Status.</em>
 return
 
-<em>; UnterstÃ¼tzung fÃ¼r Tastenaktivierung</em>
+<em>; Unterstützung für Tastenaktivierung</em>
 
 ~ScrollLock::
 <em>; Darauf warten, bis sie losgelassen wird, weil der Hook-Status ansonsten
-; beim DrÃ¼cken der Taste neu gesetzt wird, wodurch das Up-Ereignis unterdrÃ¼ckt wird,
+; beim Drücken der Taste neu gesetzt wird, wodurch das Up-Ereignis unterdrückt wird,
 ; folglich wird das Umschalten des ScrollLock-Status/Lichts verhindert:</em>
 KeyWait, ScrollLock
 GetKeyState, ScrollLockState, ScrollLock, T
@@ -260,7 +260,7 @@ else
 }
 return
 
-<em>; UnterstÃ¼tzung fÃ¼r Mausklicks</em>
+<em>; Unterstützung für Mausklicks</em>
 
 ButtonLeftClick:
 GetKeyState, already_down_state, LButton
@@ -337,7 +337,7 @@ SetTimer, ButtonClickEnd, off
 MouseClick, %ButtonClick%,,, 1, 0, U
 return
 
-<em>; UnterstÃ¼tzung fÃ¼r die Mausbewegung</em>
+<em>; Unterstützung für die Mausbewegung</em>
 
 ButtonSpeedUp:
 MouseSpeed++
@@ -632,7 +632,7 @@ MouseCurrentSpeed = %MouseSpeed%
 Button = 0
 return
 
-<em>;UnterstÃ¼tzung fÃ¼r die Mausradbewegung</em>
+<em>;Unterstützung für die Mausradbewegung</em>
 
 ButtonWheelSpeedUp:
 MouseWheelSpeed++

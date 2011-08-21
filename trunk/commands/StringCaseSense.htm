@@ -3,38 +3,38 @@
 <html>
 <head>
 <title>StringCaseSense</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>StringCaseSense</h1>
 
-<p>Bestimmt, ob String-Vergleiche von der Gro√ü- und Kleinschreibung abh√§ngig sind (standardm√§√üig nicht abh√§ngig). </p>
+<p>Bestimmt, ob String-Vergleiche von der Groﬂ- und Kleinschreibung abh‰ngig sind (standardm‰ﬂig nicht abh‰ngig). </p>
 
 <pre class="Syntax">StringCaseSense, On|Off|Locale</pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
     <td width="15%">On|Off|Locale</td>
-    <td width="85%"><p>On: String-Vergleiche sind von der Gro√ü- und Kleinschreibung abh√§ngig. Diese Einstellung f√ºhrt auch dazu, dass der <a href="../Variables.htm#equal">Gleichheitszeichenoperator f√ºr Ausdr√ºcke (=)</a> und der Modus f√ºr die Unabh√§ngigkeit von Gro√ü- und Kleinschreibung in der <a href="../Functions.htm#InStr">InStr()-Funktion</a> die unten beschriebene <em>Locale</em>-Methode verwenden.</p>
-      <p><strong>Off</strong> (Standard): Gro√übuchstaben A-Z sind mit ihren Kleinbuchstaben identisch. Das ist der Standardwert f√ºr alle Scripts aufgrund der Abw√§rtskompatibilit√§t und Performance (<em>Locale</em> ist 1- bis 8-mal langsamer als <em>Off</em> je nach Art der Strings, die verglichen werden).</p>
-      <p><strong><a name="Locale"></a>Locale</strong> <span class="ver">[v1.0.43.03+]:</span> String-Vergleiche sind nach den Regeln des aktuellen Gebietsschemas des Benutzers <strong>nicht</strong> von der Gro√ü- und Kleinschreibung abh√§ngig. Bei den meisten englischen und westeurop√§ischen Gebietsschemen sind die Gro√übuchstaben A-Z und Buchstaben wie √Ñ und √ú identisch mit ihren Kleinbuchstaben.</p>
+    <td width="85%"><p>On: String-Vergleiche sind von der Groﬂ- und Kleinschreibung abh‰ngig. Diese Einstellung f¸hrt auch dazu, dass der <a href="../Variables.htm#equal">Gleichheitszeichenoperator f¸r Ausdr¸cke (=)</a> und der Modus f¸r die Unabh‰ngigkeit von Groﬂ- und Kleinschreibung in der <a href="../Functions.htm#InStr">InStr()-Funktion</a> die unten beschriebene <em>Locale</em>-Methode verwenden.</p>
+      <p><strong>Off</strong> (Standard): Groﬂbuchstaben A-Z sind mit ihren Kleinbuchstaben identisch. Das ist der Standardwert f¸r alle Scripts aufgrund der Abw‰rtskompatibilit‰t und Performance (<em>Locale</em> ist 1- bis 8-mal langsamer als <em>Off</em> je nach Art der Strings, die verglichen werden).</p>
+      <p><strong><a name="Locale"></a>Locale</strong> <span class="ver">[v1.0.43.03+]:</span> String-Vergleiche sind nach den Regeln des aktuellen Gebietsschemas des Benutzers <strong>nicht</strong> von der Groﬂ- und Kleinschreibung abh‰ngig. Bei den meisten englischen und westeurop‰ischen Gebietsschemen sind die Groﬂbuchstaben A-Z und Buchstaben wie ƒ und ‹ identisch mit ihren Kleinbuchstaben.</p>
   </tr>
 	</td>
 </table>
 
 <h3>Bemerkungen</h3>
-<p>Diese Einstellung gilt f√ºr:</p>
+<p>Diese Einstellung gilt f¸r:</p>
 <ul>
-  <li><a href="../Variables.htm#equal">Vergleichsoperatoren f√ºr Ausdr√ºcke</a> (au√üer ==). Da jedoch der <a href="../Variables.htm#equal">Gleichheitszeichenoperator (=)</a> immer unabh√§ngig von der Gro√ü- und Kleinschreibung ist, verwendet es den <em>Locale</em>-Modus, wenn <em><em>StringCaseSense</em></em> aktiv ist, wie beim Modus f√ºr die Unabh√§ngigkeit von Gro√ü- und Kleinschreibung in der <a href="../Functions.htm#InStr">InStr()-Funktion</a>.</li>
-  <li><a href="IfInString.htm">IfInString</a>, <a href="StringGetPos.htm">StringGetPos</a> und <a href="../Functions.htm#InStr">InStr()</a>. Allerdings wird InStr() davon nicht beeinflusst, wenn der dazugeh√∂rige <em><em>Zeichengenauigkeit</em></em>-Parameter wahr ist.</li>
+  <li><a href="../Variables.htm#equal">Vergleichsoperatoren f¸r Ausdr¸cke</a> (auﬂer ==). Da jedoch der <a href="../Variables.htm#equal">Gleichheitszeichenoperator (=)</a> immer unabh‰ngig von der Groﬂ- und Kleinschreibung ist, verwendet es den <em>Locale</em>-Modus, wenn <em><em>StringCaseSense</em></em> aktiv ist, wie beim Modus f¸r die Unabh‰ngigkeit von Groﬂ- und Kleinschreibung in der <a href="../Functions.htm#InStr">InStr()-Funktion</a>.</li>
+  <li><a href="IfInString.htm">IfInString</a>, <a href="StringGetPos.htm">StringGetPos</a> und <a href="../Functions.htm#InStr">InStr()</a>. Allerdings wird InStr() davon nicht beeinflusst, wenn der dazugehˆrige <em><em>Zeichengenauigkeit</em></em>-Parameter wahr ist.</li>
   <li><a href="StringReplace.htm">StringReplace</a></li>
-  <li><a href="IfIn.htm">If Variable in/contains √úbereinstimmungsliste</a>, <a href="IfBetween.htm">If Variable between</a> und <a href="IfEqual.htm">IfEqual und der Rest der Familie</a>.</li>
+  <li><a href="IfIn.htm">If Variable in/contains ‹bereinstimmungsliste</a>, <a href="IfBetween.htm">If Variable between</a> und <a href="IfEqual.htm">IfEqual und der Rest der Familie</a>.</li>
   <li><span class="ver">[AHK_L 42+]:</span> <a href="IfIs.htm">If Variable is [not] Typ</a> beachtet nur das Gebietsschema des Betriebssystems, wenn der <i>Locale</i>-Modus aktiv ist.</li>
 </ul>
-<p>Die interne Variable <strong>A_StringCaseSense</strong> enth√§lt die aktuelle Einstellung (On, Off oder Locale).</p>
-<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter Men√ºpunkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung f√ºr diesen Befehl. Die Voreinstellung l√§sst sich √§ndern, wenn dieser Befehl im automatischen Ausf√ºhrungsbereich (am Anfang des Scripts) ausgef√ºhrt wird.</p>
+<p>Die interne Variable <strong>A_StringCaseSense</strong> enth‰lt die aktuelle Einstellung (On, Off oder Locale).</p>
+<p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter Men¸punkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Voreinstellung f¸r diesen Befehl. Die Voreinstellung l‰sst sich ‰ndern, wenn dieser Befehl im automatischen Ausf¸hrungsbereich (am Anfang des Scripts) ausgef¸hrt wird.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="IfEqual.htm">IfEqual</a>, <a href="IfInString.htm">IfInString</a>, <a href="IfBetween.htm">If Variable between</a>, <a href="StringReplace.htm">StringReplace </a>, <a href="StringGetPos.htm">StringGetPos</a></p>
 <h3>Beispiel</h3>

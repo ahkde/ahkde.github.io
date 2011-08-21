@@ -3,22 +3,22 @@
 <html>
 <head>
 <title>IfMsgBox</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>IfMsgBox</h1>
 
-<p>ÃœberprÃ¼ft, welche SchaltflÃ¤che der Benutzer wÃ¤hrend eines <a href="MsgBox.htm">MsgBox</a>-Befehls betÃ¤tigt hat.</p>
+<p>Überprüft, welche Schaltfläche der Benutzer während eines <a href="MsgBox.htm">MsgBox</a>-Befehls betätigt hat.</p>
 
-<pre class="Syntax">IfMsgBox, SchaltflÃ¤che </pre>
+<pre class="Syntax">IfMsgBox, Schaltfläche </pre>
 <h3>Parameter</h3>
 <table class="info">
   <tr>
-    <td width="15%">SchaltflÃ¤che</td>
-    <td width="85%"><p>Ein folgender Text reprÃ¤sentiert die SchaltflÃ¤che, die der Benutzer in der <a href="MsgBox.htm">MsgBox</a> gedrÃ¼ckt hat:</p>
-      <p>Yes (Ja)<br> No (Nein)<br> OK<br> Cancel (Abbrechen)<br> Abort (Abbrechen)<br> Ignore (Ignorieren)<br> Retry (Wiederholen)<br> Continue (Weiter)<span class="ver">[v1.0.44.08+]</span><br> TryAgain (Wiederholen)<span class="ver">[v1.0.44.08+]</span><br> Timeout (wenn MsgBox die <a href="MsgBox.htm#Timeout">Zeit Ã¼berschreitet</a>)</p>
+    <td width="15%">Schaltfläche</td>
+    <td width="85%"><p>Ein folgender Text repräsentiert die Schaltfläche, die der Benutzer in der <a href="MsgBox.htm">MsgBox</a> gedrückt hat:</p>
+      <p>Yes (Ja)<br> No (Nein)<br> OK<br> Cancel (Abbrechen)<br> Abort (Abbrechen)<br> Ignore (Ignorieren)<br> Retry (Wiederholen)<br> Continue (Weiter)<span class="ver">[v1.0.44.08+]</span><br> TryAgain (Wiederholen)<span class="ver">[v1.0.44.08+]</span><br> Timeout (wenn MsgBox die <a href="MsgBox.htm#Timeout">Zeit überschreitet</a>)</p>
     </td>
   </tr>
 </table>
@@ -26,11 +26,11 @@
 <h3>Verwandte Befehle</h3>
 <p><a href="MsgBox.htm">MsgBox</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">MsgBox, 4, , Weiter?, 5  <em>; 5-sekÃ¼ndliche ZeitÃ¼berschreitung.</em>
+<pre class="NoIndent">MsgBox, 4, , Weiter?, 5  <em>; 5-sekündliche Zeitüberschreitung.</em>
 IfMsgBox, No
-    Return  <em>; Benutzer hat die "Nein"-SchaltflÃ¤che betÃ¤tigt.</em>
+    Return  <em>; Benutzer hat die "Nein"-Schaltfläche betätigt.</em>
 IfMsgBox, Timeout
-    Return <em>; d. h. "Nein", wenn ZeitÃ¼berschreitung.
+    Return <em>; d. h. "Nein", wenn Zeitüberschreitung.
 ; Ansonsten weiter:</em>
 ...</pre>
 

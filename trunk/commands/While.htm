@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>While-Loop</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,21 +17,21 @@
 <table class="info">
   <tr>
     <td width="15%">Ausdruck</td>
-    <td width="85%">Beliebiger gÃ¼ltiger <a href="../Variables.htm#Expressions">Ausdruck</a>. Zum Beispiel: <em>while x < y</em></td>
+    <td width="85%">Beliebiger gültiger <a href="../Variables.htm#Expressions">Ausdruck</a>. Zum Beispiel: <em>while x < y</em></td>
   </tr>
 </table>
 
 <h3>Bemerkungen</h3>
-<p> Der Ausdruck wird vor jeder Iteration einmal ausgewertet. Wenn der Ausdruck als wahr gewertet wird (jedes beliebige Ergebnis, nur nicht ein leerer String oder eine 0), dann wird der SchleifenkÃ¶rper ausgefÃ¼hrt, ansonsten springt die AusfÃ¼hrung auf die Zeile nach dem SchleifenkÃ¶rper.</p>
-<p>Nach einer While-Schleife erfolgt fÃ¼r gewÃ¶hnlich ein <a href="Block.htm">Block</a>, der eine Sammlung an Anweisungen enthÃ¤lt, um den <em>SchleifenkÃ¶rper</em> zu formen. Allerdings benÃ¶tigt eine Schleife mit nur einer Anweisung keinen Block (in diesem Fall zÃ¤hlt ein "If" und das dazugehÃ¶rige "Else" als eine Anweisung).</p>
-<p><a name="otb"></a>Der One True Brace (OTB)-Stil kann optional eingesetzt werden, d. h. die Ã¶ffnende Klammer darf auf derselben Zeile des Befehls stehen. Zum Beispiel: <em>while x < y {</em></p>
-<p>Die interne Variable <strong>A_Index</strong> enthÃ¤lt die Nummer des aktuellen Schleifendurchlaufs. Die Variable enthÃ¤lt eine 1, wenn der Ausdruck oder KÃ¶rper der Schleife zum ersten Mal ausgefÃ¼hrt wird. Zum zweiten Mal enthÃ¤lt sie eine 2, und so weiter. Wenn eine innere Schleife durch eine Ã¤uÃŸere Schleife eingeschlossen ist, dann hat die innere Schleife Vorrang. A_Index funktioniert in jeder Schleifenvariante, enthÃ¤lt aber auÃŸerhalb eine 0.</p>
-<p>Wie bei allen Schleifen kann <a href="Break.htm">Break</a> verwendet werden, um die Schleife vorzeitig zu beenden. AuÃŸerdem kann <a href="Continue.htm">Continue</a> verwendet werden, um den Rest der aktuellen Iteration zu Ã¼berspringen, wobei A_Index um 1 erhÃ¶ht und der Ausdruck der While-Schleife neu ausgewertet wird. Wenn noch wahr, dann beginnt ein neuer Durchlauf; ansonsten endet die Schleife.</p>
-<p>Besondere Schleifen: Schleifen kÃ¶nnen verwendet werden, um Dateien, Ordner oder RegistrierungseintrÃ¤ge zu ermitteln (jeweils eins). Siehe <a href="LoopFile.htm">dateilesende Schleife</a> und <a href="LoopReg.htm">Registrierung-Schleife</a> fÃ¼r Details. DarÃ¼ber hinaus agieren <a href="LoopReadFile.htm">dateilesende Schleifen</a> mit dem kompletten Inhalt einer Datei, Zeile fÃ¼r Zeile. SchlieÃŸlich agieren <a href="LoopParse.htm">Parsing-Schleifen</a> mit bestimmten Feldern innerhalb eines abgegrenzten Strings.</p>
+<p> Der Ausdruck wird vor jeder Iteration einmal ausgewertet. Wenn der Ausdruck als wahr gewertet wird (jedes beliebige Ergebnis, nur nicht ein leerer String oder eine 0), dann wird der Schleifenkörper ausgeführt, ansonsten springt die Ausführung auf die Zeile nach dem Schleifenkörper.</p>
+<p>Nach einer While-Schleife erfolgt für gewöhnlich ein <a href="Block.htm">Block</a>, der eine Sammlung an Anweisungen enthält, um den <em>Schleifenkörper</em> zu formen. Allerdings benötigt eine Schleife mit nur einer Anweisung keinen Block (in diesem Fall zählt ein "If" und das dazugehörige "Else" als eine Anweisung).</p>
+<p><a name="otb"></a>Der One True Brace (OTB)-Stil kann optional eingesetzt werden, d. h. die öffnende Klammer darf auf derselben Zeile des Befehls stehen. Zum Beispiel: <em>while x < y {</em></p>
+<p>Die interne Variable <strong>A_Index</strong> enthält die Nummer des aktuellen Schleifendurchlaufs. Die Variable enthält eine 1, wenn der Ausdruck oder Körper der Schleife zum ersten Mal ausgeführt wird. Zum zweiten Mal enthält sie eine 2, und so weiter. Wenn eine innere Schleife durch eine äußere Schleife eingeschlossen ist, dann hat die innere Schleife Vorrang. A_Index funktioniert in jeder Schleifenvariante, enthält aber außerhalb eine 0.</p>
+<p>Wie bei allen Schleifen kann <a href="Break.htm">Break</a> verwendet werden, um die Schleife vorzeitig zu beenden. Außerdem kann <a href="Continue.htm">Continue</a> verwendet werden, um den Rest der aktuellen Iteration zu überspringen, wobei A_Index um 1 erhöht und der Ausdruck der While-Schleife neu ausgewertet wird. Wenn noch wahr, dann beginnt ein neuer Durchlauf; ansonsten endet die Schleife.</p>
+<p>Besondere Schleifen: Schleifen können verwendet werden, um Dateien, Ordner oder Registrierungseinträge zu ermitteln (jeweils eins). Siehe <a href="LoopFile.htm">dateilesende Schleife</a> und <a href="LoopReg.htm">Registrierung-Schleife</a> für Details. Darüber hinaus agieren <a href="LoopReadFile.htm">dateilesende Schleifen</a> mit dem kompletten Inhalt einer Datei, Zeile für Zeile. Schließlich agieren <a href="LoopParse.htm">Parsing-Schleifen</a> mit bestimmten Feldern innerhalb eines abgegrenzten Strings.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="Until.htm">Until</a>, <a href="Break.htm">Break</a>, <a href="Continue.htm">Continue</a>, <a href="Block.htm">Blocks</a>, <a href="Loop.htm">Loop</a>, <a href="For.htm">For-Loop</a>, <a href="LoopFile.htm">Loop (Dateien & Ordner)</a>, <a href="LoopReg.htm">Registrierungsdatenbank-Loop</a>, <a href="LoopReadFile.htm">dateilesende Schleife</a>, <a href="LoopParse.htm">Parsing-Loop</a>, <a href="IfExpression.htm">If (Ausdruck)</a></p>
 <h3>Beispiele</h3>
-<pre class="NoIndent"><em>; Wenn der Benutzer mit der linken Maustaste zieht, dann zeigt ein ToolTip die GrÃ¶ÃŸe des Ziehbereichs an.</em>
+<pre class="NoIndent"><em>; Wenn der Benutzer mit der linken Maustaste zieht, dann zeigt ein ToolTip die Größe des Ziehbereichs an.</em>
 
 CoordMode, Mouse, Screen
 
