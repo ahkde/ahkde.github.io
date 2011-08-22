@@ -31,7 +31,7 @@
       <p>Um daher eine Variable direkt zu verkleinern, gebt deren Speicher mit <code>VarSetCapacity(Var, 0)</code> frei und verwendet danach <code>VarSetCapacity(Var, NeueKapazit&auml;t)</code>, oder lasst sie einfach nach Bedarf automatisch um 0 erweitern.</p>
       <p>Aus Gr&uuml;nden der Performance k&ouml;nnte das Freigeben einer Variable mit einer Kapazit&auml;t kleiner als 64 Zeichen (128 Bytes in Unicode-Versionen) nicht funktionieren, weil deren Speicher permanenter Art ist. In diesem Fall wird die aktuelle Kapazit&auml;t anstelle von 0 zur&uuml;ckgegeben.</p>
       <p>Aus Gr&uuml;nden der Performance wird der Speicher einer Variable mit einer Kapazit&auml;t kleiner als 4096 Bytes nicht freigegeben, sobald ein leerer String gespeichert wird (z. B. <code>Var := ""</code>). Allerdings kann sie mit <code>VarSetCapacity(Var, 0)</code> freigegeben werden.</p>
-      <p><a name="neg1"></a>Seit v1.0.44.03 kann mit -1 f&uuml;r <em>Ben&ouml;tigteKapazit&auml;t</em> die intern gespeicherte L&auml;nge der Variable auf die L&auml;nge des aktuellen Inhalts aktualisiert werden. Besonders n&uuml;tzlich, wenn die Variable indirekt ge&auml;ndert wurde, wie die &Uuml;bergabe deren <a href="../Variables.htm#amp">Adresse</a> mithilfe von <a href="DllCall.htm">DllCall()</a>. In diesem Modus gibt VarSetCapacity() die L&auml;nge in Bytes anstelle der Kapazit&auml;t zur&uuml;ck.</p></td>
+      <p><a name="neg1"></a>Seit v1.0.44.03 kann mit -1 f&uuml;r <em>Ben&ouml;tigteKapazit&auml;t</em> die intern gespeicherte String-L&auml;nge der Variable auf die L&auml;nge des aktuellen Inhalts aktualisiert werden. Besonders n&uuml;tzlich, wenn die Variable indirekt ge&auml;ndert wurde, wie die &Uuml;bergabe deren <a href="../Variables.htm#amp">Adresse</a> mithilfe von <a href="DllCall.htm">DllCall()</a>. In diesem Modus gibt VarSetCapacity() die L&auml;nge in Bytes anstelle der Kapazit&auml;t zur&uuml;ck.</p></td>
   </tr>
   <tr>
     <td>F&uuml;llbyte</td>
@@ -45,13 +45,54 @@
 <h3>Verwandte Befehle</h3>
 <p><a href="DllCall.htm">DllCall</a>, <a href="_MaxMem.htm">#MaxMem</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">VarSetCapacity(EigeneVar, 10240000)  <em>; ~10 MB</em>
+<pre class="NoIndent"><em>; Optimieren, indem gen&uuml;gend Speicherplatz f&uuml;r EigeneVar bereitgestellt wird.</em>
+VarSetCapacity(EigeneVar, 10240000)  <em>; ~10 MB</em>
 Loop
 {
     ...
     EigeneVar = %EigeneVar%%StringF&uuml;rVerkettung%
     ...
 }</pre>
+
+<pre class="NoIndent"><em>; Erforderlichen Zwischenspeicher f&uuml;r einen String berechnen.</em>
+bytes_per_char := A_IsUnicode ? 2 : 1
+max_chars := 500
+max_bytes := max_chars * bytes_per_char
+
+Loop 2
+{
+    <em>; Speicher f&uuml;r die Verwendung von DllCall reservieren.</em>
+    VarSetCapacity(buf, max_bytes)
+
+    if A_Index = 1
+        <em>; Die Variable indirekt mit DllCall &auml;ndern.</em>
+        DllCall("wsprintf", <span class="red">"ptr", &amp;buf</span>, "str", "0x%08x", "uint", 4919)
+    else
+        <em>; "str" verwenden, um die L&auml;nge automatisch zu aktualisieren:</em>
+        DllCall("wsprintf", <span class="blue">"str", buf</span>, "str", "0x%08x", "uint", 4919)
+
+    <em>; Einen String verketten, um zu zeigen, warum die L&auml;nge aktualisiert werden muss:</em>
+    wrong_str := buf . "&lt;end&gt;"
+    wrong_len := StrLen(buf)
+
+    <em>; L&auml;nge der Variable aktualisieren.</em>
+    VarSetCapacity(buf, -1)
+
+    right_str := buf . "&lt;end&gt;"
+    right_len := StrLen(buf)
+
+    MsgBox,
+    (
+    Vor der Aktualisierung
+      String: %wrong_str%
+      L&auml;nge: %wrong_len%
+
+    Nach der Aktualisierung
+      String: %right_str%
+      L&auml;nge: %right_len%
+    )
+}
+</pre>
 
 </body>
 </html>
