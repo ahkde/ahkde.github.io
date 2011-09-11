@@ -862,8 +862,12 @@
           <param name="Local" value="docs\commands\RegisterCallback.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Strings mit Abhängigkeit von Groß-/Kleinschreibung">
+          <param name="Name" value="Strings in Abhängigkeit von Groß-/Kleinschreibung">
           <param name="Local" value="docs\commands\StringCaseSense.htm">
+        </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Catch">
+          <param name="Local" value="docs/commands/Catch.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Ceil()">
@@ -1248,6 +1252,10 @@
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Else">
           <param name="Local" value="docs\commands\Else.htm">
+        </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Enumerator-Objekt">
+          <param name="Local" value="docs/objects/Enumerator.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="EnvAdd">
@@ -3043,6 +3051,10 @@
           <param name="Name" value="Threads">
           <param name="Local" value="docs\misc\Threads.htm">
         </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Throw">
+          <param name="Local" value="docs/commands/Throw.htm">
+        </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="time">
           <param name="Local" value="docs\commands\IfIs.htm">
@@ -3103,6 +3115,10 @@
           <param name="Name" value="Trim()">
           <param name="Local" value="docs\commands\Trim.htm">
         </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Try">
+          <param name="Local" value="docs/commands/Try.htm">
+        </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Tutorial">
           <param name="Local" value="docs\Tutorial.htm">
@@ -3154,6 +3170,10 @@
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Unicode-Text und -Zwischenablage">
           <param name="Local" value="docs\commands\Transform.htm">
+        </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Until">
+          <param name="Local" value="docs/commands/Until.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="UpDown-Steuerelemente (GUI)">
