@@ -78,10 +78,12 @@ Loop, docs\*.htm, 0, 1
 		; pre tags von Sonderfall ausschließen
 
 		If (s1 ~= "exclude")
-		{
 			s2	:= "<pre>" s2 "</pre>"
-			file:= RegExReplace(file, preg_quote(s), s2)
-		}
+
+		; Klammer "}" in Vorlagesyntax
+
+		If (s1 ~= "class=""Syntax""")
+			s2	:= RegExReplace(s2, "}", "&#125;")
 
 		; Kommentare
 
@@ -95,17 +97,11 @@ Loop, docs\*.htm, 0, 1
 		; ----------------------------------------------------------------------
 		
 		If (s1 ~= "class=""Syntax""")
-		{
-			; Klammer "}" in Vorlagesyntax
-			s2	:= RegExReplace(s2, "(?>=})}(?=})", "&#125;")
 			s2	:= "{{Code_Gelb|1=" RegExReplace(s2, "\n", "<br>") "}}"
-			file:= RegExReplace(file, preg_quote(s), s2)
-		}
 		Else
-		{
 			s2 := "`n!!SPACE!!" RegExReplace(s2, "\n", "`n!!SPACE!!") "`n"
-			file := RegExReplace(file, preg_quote(s), s2)
-		}
+
+		file := RegExReplace(file, preg_quote(s), s2)
 	}
 
 	; Leerzeichen vom Anfang und Ende entfernen
@@ -126,12 +122,12 @@ Loop, docs\*.htm, 0, 1
 
 		; Nur body-Bereich abarbeiten
 
-		If (line ~= "<(/|)body[^<]*>")
+		If (line ~= "i)<(/|)body[^<]*>")
 		{
 			parsing := !parsing
 			continue
 		}
-		If (!line or !parsing)
+		If !parsing
 			continue
 
 		; Tags durchgehen
@@ -197,12 +193,13 @@ Loop, docs\*.htm, 0, 1
 
 	; Nachkorrekturen
 
+	content := RegExReplace(content, "^\n+|\n+$") ; 
 	content := RegExReplace(content, "\n\n\n+", "`n`n")
 	content := RegExReplace(content, "\n+(\||!)", "`n$1")	; table
 
 	; Wiki-Einstellungen
 
-	content .= "`n__NOTOC__"
+	content .= "`n`n__NOTOC__"
 
 	; Wiki-Datei erstellen
 
