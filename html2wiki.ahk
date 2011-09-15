@@ -166,7 +166,7 @@ Loop, docs\*.htm, 0, 1
 
 		If (name = "Hotstrings.wiki")
 			line := RegExReplace(line, "<((/|)em)>", "&lt;$1&gt;")
-		If (name = "StringSplit.wiki")
+		If (name = "StringSplit.wiki" or name = "LoopParse.wiki")
 			line := RegExReplace(line, "<(br)>", "&lt;$1&gt;")
 		If (name = "Transform.wiki")
 		{
