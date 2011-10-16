@@ -20,16 +20,16 @@ Loop, docs\*.htm, 0, 1
 
 	; Bestimmte Tags benötigen Zeilenumbruch davor oder danach
 
-	lf_back		:= "table|tr|/tr|/td|/th|ul|/ul|ol|/ol|/p"
-	lf_front	:= "table|/table|tr|/tr|td|th|ul|/ul|ol|/ol|p|/p"
+	lf_back		:= "table|tr|/tr|/td|/th|/p|/ol|ol|/ul|ul|/li"
+	lf_front	:= "table|/table|tr|/tr|td|th|p|/p|/ol|ol|/ul|ul"
 	file		:= RegExReplace(file, "i)(<(?:" lf_back ")\b[^<]*>)(?!\n)", "$1`n")
 	file		:= RegExReplace(file, "i)(?<!\n)(<(?:" lf_front ")\b[^<]*>)", "`n$1")
 
 	; Bestimmte Tags benötigen keinen Zeilenumbruch davor oder danach
 
-	not_lf_back	:= "caption|pre|ol|ul"
+	not_lf_back	:= "caption|pre"
 	not_lf_front:= "/pre"
-	file		:= RegExReplace(file, "i)(<(?:" not_lf_back ")\b[^<]*>)\s+", "$1")
+	file		:= RegExReplace(file, "i)(<(?:" not_lf_back ")\b[^<]*>)\n+", "$1")
 	file		:= RegExReplace(file, "i)\s+(<(?:" not_lf_front ")\b[^<]*>)", "$1")
 
 	; Bestimmte Tags brauchen Leerzeile davor oder danach
@@ -39,7 +39,7 @@ Loop, docs\*.htm, 0, 1
 	file	:= RegExReplace(file, "i)(<(?:" nl_back ")\b[^<]*>)(?!\n\n)", "$1`n`n")
 	file	:= RegExReplace(file, "i)(?<!\n\n)(<(?:" nl_front ")\b[^<]*>)", "`n`n$1")
 
-	; nowiki
+	; Zeichen/String von Wiki-Formatierung ausschließen
 
 	file := RegExReplace(file, "(\||''+|\[\[|\]\])", "<nowiki>$1</nowiki>")
 	file := RegExReplace(file, "(?:<p>|\n)\K(#|\*)(?=\w)", "<nowiki>$1</nowiki>")
@@ -67,6 +67,7 @@ Loop, docs\*.htm, 0, 1
 			x1 := RegExReplace(x1, "\n+", "<br>")
 			s1 := RegExReplace(s1, preg_quote(x),  x1)
 		}
+
 		file := RegExReplace(file, preg_quote(s), "<li>" s1 "</li>")
 	}
 
@@ -99,7 +100,8 @@ Loop, docs\*.htm, 0, 1
 		If (s1 ~= "class=""Syntax""")
 			s2	:= "{{Code_Gelb|1=" RegExReplace(s2, "\n", "<br>") "}}"
 		Else
-			s2 := "`n!!SPACE!!" RegExReplace(s2, "\n", "`n!!SPACE!!") "`n"
+			s2 := "!!SPACE!!" RegExReplace(s2, "\n", "`n!!SPACE!!")
+
 
 		file := RegExReplace(file, preg_quote(s), s2)
 	}
@@ -197,6 +199,11 @@ Loop, docs\*.htm, 0, 1
 	content := RegExReplace(content, "\n\n\n+", "`n`n")
 	content := RegExReplace(content, "\n+(\||!)", "`n$1")	; table
 
+	; Zeilen entfernen
+
+	content := RegExReplace(content, "!!REMOVE!!\n")
+
+
 	; Wiki-Einstellungen
 
 	content .= "`n`n__NOTOC__"
@@ -274,13 +281,23 @@ Tag(match)
 	; Aufzählung
 	; --------------------------------------------------------------------------
 	If (tag.label = "ol")
+	{
 		countchar .= "#"
+		line := RegExReplace(line, preg_quote(match), "!!REMOVE!!")
+	}
 	If (tag.label = "ul")
+	{
 		countchar .= "*"
+		line := RegExReplace(line, preg_quote(match), "!!REMOVE!!")
+	}
 	If (tag.label ~= "/(ol|ul)")
 		countchar := SubStr(countchar, 1, -1)
 	If (tag.label = "li")
+	{
+		; If InStr(line, "pre")
+		; 	Msgbox, % line
 		line := RegExReplace(line, preg_quote(match), countchar " ")
+	}
 	; --------------------------------------------------------------------------
 	; Links
 	; --------------------------------------------------------------------------
