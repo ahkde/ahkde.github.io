@@ -865,7 +865,7 @@
           <param name="Name" value="Strings in Abhängigkeit von Groß-/Kleinschreibung">
           <param name="Local" value="docs\commands\StringCaseSense.htm">
         </OBJECT>
-        <LI> <OBJECT type="text/sitemap">
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Catch">
           <param name="Local" value="docs/commands/Catch.htm">
         </OBJECT>
@@ -1253,7 +1253,7 @@
           <param name="Name" value="Else">
           <param name="Local" value="docs\commands\Else.htm">
         </OBJECT>
-        <LI> <OBJECT type="text/sitemap">
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Enumerator-Objekt">
           <param name="Local" value="docs/objects/Enumerator.htm">
         </OBJECT>
@@ -1332,6 +1332,10 @@
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="ExtractInteger -">
           <param name="Local" value="docs/Functions.htm#NumGet">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="False">
+          <param name="Local" value="docs/Variables.htm#Boolean">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="FAQ (Häufig gestellte Fragen)">
@@ -1981,7 +1985,7 @@
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Label">
-          <param name="Local" value="docs\commands\Gosub.htm">
+          <param name="Local" value="docs\misc\Labels.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="zuletzt gefundenes Fenster">
@@ -3059,7 +3063,7 @@
           <param name="Name" value="Threads">
           <param name="Local" value="docs\misc\Threads.htm">
         </OBJECT>
-        <LI> <OBJECT type="text/sitemap">
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Throw">
           <param name="Local" value="docs/commands/Throw.htm">
         </OBJECT>
@@ -3123,7 +3127,11 @@
           <param name="Name" value="Trim()">
           <param name="Local" value="docs\commands\Trim.htm">
         </OBJECT>
-        <LI> <OBJECT type="text/sitemap">
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="True">
+          <param name="Local" value="docs/Variables.htm#Boolean">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Try">
           <param name="Local" value="docs/commands/Try.htm">
         </OBJECT>
@@ -3179,7 +3187,7 @@
           <param name="Name" value="Unicode-Text und -Zwischenablage">
           <param name="Local" value="docs\commands\Transform.htm">
         </OBJECT>
-        <LI> <OBJECT type="text/sitemap">
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Until">
           <param name="Local" value="docs/commands/Until.htm">
         </OBJECT>
