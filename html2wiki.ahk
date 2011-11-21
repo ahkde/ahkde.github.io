@@ -54,8 +54,9 @@ Loop, docs\*.htm, 0, 1
 		pos2 := 1
 		While (pos2 := RegExMatch(s1, "i)\s*<pre\b.*?>(.*?)</pre>\s*", x, pos2 + StrLen(x1)))
 		{
-			x1 := RegExReplace(x1, "<.*?>") ; Formatierungen aufheben
-			x1 := "<pre exclude>" RegExReplace(x1, "\n|<br>", "&#10;") "</pre>"
+			x1 := RegExReplace(x1, "\n|<br>", "&#10;") ; Sonderbehandlung für Zeilenumbrüche 
+			x1 := RegExReplace(x1, "<.*?>") ; restliche Formatierungen aufheben
+			x1 := "<pre exclude>" x1 "</pre>" ; Ausschlussmarkierung
 			s1 := RegExReplace(s1, "\s*" preg_quote(x),  x1)
 		}
 		
@@ -293,11 +294,7 @@ Tag(match)
 	If (tag.label ~= "/(ol|ul)")
 		countchar := SubStr(countchar, 1, -1)
 	If (tag.label = "li")
-	{
-		; If InStr(line, "pre")
-		; 	Msgbox, % line
 		line := RegExReplace(line, preg_quote(match), countchar " ")
-	}
 	; --------------------------------------------------------------------------
 	; Links
 	; --------------------------------------------------------------------------
@@ -307,8 +304,10 @@ Tag(match)
 
 		; Dateinamenerweiterung
 		If RegExMatch(tag.href, "\.\w+(?=(#|$))", extension)
-			If (extension ~= "\.(ahk|zip)")
+		{
+			If (extension ~= "\.(ahk|zip)") and !(tag.href ~= "(http|https|ftp):")
 				tag.href := main_site tag.href
+		}
 
 		; Externer Link
 		If (tag.href ~= "(http|https|ftp):")
