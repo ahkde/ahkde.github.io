@@ -271,7 +271,7 @@ Tag(match)
 		style .= tag.style ? "; " tag.style  "; " : ""
 		style .= main_class ? "{{" main_class "_" tag.label "}}" : ""
 		replace := (style ? "style=""" style """ " : "") tag.misc
-		line := RegExReplace(line, preg_quote(match), "| " (replace ? replace " | " : ""))
+		line := RegExReplace(line, preg_quote(match), "! " (replace ? replace " | " : ""))
 	}
 	If (tag.label = "/table")
 	{
@@ -360,6 +360,13 @@ Tag(match)
 		line := RegExReplace(line, preg_quote(match), "`n{{" tag.label "|1=")
 	If (tag.label ~= "/h\d")
 		line := RegExReplace(line, preg_quote(match), "}}`n")
+	; --------------------------------------------------------------------------
+	; Tastendarstellung
+	; --------------------------------------------------------------------------
+	If (tag.label = "kbd")
+		line := RegExReplace(line, preg_quote(match), "{{Taste|")
+	If (tag.label = "/kbd")
+		line := RegExReplace(line, preg_quote(match), "}}")
 	; --------------------------------------------------------------------------
 	; Sonderfall: Versionierung für wiki (AHKL_ChangeLog.htm)
 	; --------------------------------------------------------------------------
