@@ -159,7 +159,7 @@ Loop, docs\*.htm, 0, 1
 
 		; Restliche Tags entfernen
 
-		line := RegExReplace(line, "i)<(/|)(td|th|li|tr|a|caption|p|!--|ol|ul)\b[^<]*?>")
+		line := RegExReplace(line, "i)<(/|)(td|th|li|tr|a|caption|p|!--|ol|ul|tbody)\b[^<]*?>")
 
 		; Entities entfernen
 
