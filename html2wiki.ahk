@@ -1,16 +1,44 @@
 #NoEnv
 #SingleInstance force
-#persistent
 SetBatchLines, -1
+
+; Kategorien ermitteln
+
+site := GetCategories()
+
+; Ausnahmen: mehrere index
+
+index := {"docs"			: "Hauptseite"
+		, "docs\commands"	: "Alphabetischer Befehls- und Funktionsindex"
+		, "docs\scripts"	: "Script-Beispiele"}
+
+; Wiki-Ordner löschen
+
+FileRemoveDir, wiki
+
+;Progress
+
+Loop, docs\*.htm, 0, 1
+	Total := A_Index
+SysGet, Mon, MonitorWorkArea
+Progress, % "B R1-" Total " H50 W300 C0 X" MonRight - 300 " Y" MonBottom - 50
+
+; Prozess beginnen
 
 Loop, docs\*.htm, 0, 1
 {
 	parsing		:= 0
 	countchar	:= ""
 	content 	:= ""
-	path	:= RegExReplace(A_LoopFileDir, "docs", "wiki")
-	name	:= RegExReplace(A_LoopFileName, "\." A_LoopFileExt, ".wiki")
-	TrayTip, % "HTML in Wiki umwandeln", % name
+
+	name := RegExReplace(A_LoopFileName, "\." A_LoopFileExt)
+
+	; Mehrere index
+
+	If (name = "index")
+		name := index[A_LoopFileDir]
+
+	Progress, %A_Index%, %A_Index%/%Total% - %name%
 
 	file	:= FileOpen(A_LoopFileFullPath, "r`n").read()
 
@@ -167,11 +195,11 @@ Loop, docs\*.htm, 0, 1
 
 		; Darstellung von bestimmten Tags beibehalten
 
-		If (name = "Hotstrings.wiki")
+		If (name = "Hotstrings")
 			line := RegExReplace(line, "<((/|)em)>", "&lt;$1&gt;")
-		If (name = "StringSplit.wiki" or name = "LoopParse.wiki")
+		If (name = "StringSplit" or name = "LoopParse")
 			line := RegExReplace(line, "<(br)>", "&lt;$1&gt;")
-		If (name = "Transform.wiki")
+		If (name = "Transform")
 		{
 			line := RegExReplace(line, "\Q""<> in &quot;&<>\E", """&<> in &quot;&amp;&lt;&gt;")
 			line := RegExReplace(line, "&", "&amp;")
@@ -187,7 +215,7 @@ Loop, docs\*.htm, 0, 1
 
 	; Sonderfall: Progress.htm Farbtabelle
 
-	If (name = "Progress.wiki")
+	If (name = "Progress")
 	{
 		search	:= "\| width=""16"" \| <img src=""\.\./images/clr/(.*?)\.gif"">"
 		replace	:= "| bgcolor=""$1"" style=""{{color_td}}"" |"
@@ -204,21 +232,35 @@ Loop, docs\*.htm, 0, 1
 
 	content := RegExReplace(content, "!!REMOVE!!\n")
 
+	; Internen Inhaltsverzeichnis unterdrücken
 
-	; Wiki-Einstellungen
+	content .= "`n`n__NOTOC__`n"
 
-	content .= "`n`n__NOTOC__"
+	; catn setzen
+
+	maincat := 	(A_LoopFileDir ~= "commands") 	? "Befehl"
+			: 	(A_LoopFileDir ~= "misc")		? "Sonstiges"
+			:	(A_LoopFileDir ~= "objects")	? "Objekt"
+			:	(A_LoopFileDir ~= "scripts")	? "Script"
+			:	""
+
+	If maincat
+		content .= "`n[[cat:" maincat "]]"
+
+	For k, cat in site[name]
+		If (cat != " ")
+			content .= "`n[[cat:" cat "]]"
 
 	; Wiki-Datei erstellen
 
-	If !FileExist(path)
-		FileCreateDir, % path
-	FileOpen(path "\" name, "w`n", "UTF-8").Write(content)
+	If !FileExist("wiki")
+		FileCreateDir, % "wiki"
+	FileOpen("wiki\" name ".wiki", "w`n", "UTF-8").Write(content)
 }
 
 Tag(match)
 {
-	global line, countchar, name
+	global line, countchar, name, index
 	static main_class
 	; --------------------------------------------------------------------------
 	; Tag-Informationen aus match extrahieren
@@ -236,6 +278,7 @@ Tag(match)
 			match_temp			:= RegExReplace(match_temp, preg_quote(s))
 		}
 	}
+
 	If RegExMatch(match_temp, "s)<" tag.label "(.*)>", s)
 		tag.misc	:= Trim(s1)
 	; --------------------------------------------------------------------------
@@ -300,17 +343,28 @@ Tag(match)
 	; --------------------------------------------------------------------------
 	If (tag.label = "a" and tag.href)
 	{
-		main_site := "http://www.autohotkey.net/~Ragnar/"
+		; Aufteilen
+
+		tag.href := {full: tag.href}
+		If RegExMatch(tag.href.full, "#.*", s)
+		{
+			tag.href.anchor := s
+			tag.href.full := SubStr(tag.href.full, 1, -StrLen(s))
+		}
+		path := RegExReplace(tag.href.full, "/", "\")
+		SplitPath, path, filename, dir, ext, namenoext
+		tag.href.filename 	:= filename
+		tag.href.dir 		:= dir
+		tag.href.ext 		:= ext
+		tag.href.namenoext	:= namenoext
 
 		; Dateinamenerweiterung
-		If RegExMatch(tag.href, "\.\w+(?=(#|$))", extension)
-		{
-			If (extension ~= "\.(ahk|zip)") and !(tag.href ~= "(http|https|ftp):")
-				tag.href := main_site tag.href
-		}
+
+		If (tag.href.ext ~= "ahk|zip") and !tag.href.dir
+			tag.href.full := "http://www.autohotkey.net/~Ragnar/" tag.href.filename
 
 		; Externer Link
-		If (tag.href ~= "(http|https|ftp):")
+		If (tag.href.full ~= "(http|https|ftp):")
 		{
 			If RegExMatch(line, preg_quote(match) "(.*?)</a>", s)
 			{
@@ -318,7 +372,8 @@ Tag(match)
 				; then you must use the HTML special character syntax, i.e. &#93; 
 				; otherwise the MediaWiki software will prematurely interpret this 
 				; as the end of the external link.
-				replace := "[" tag.href  " " RegExReplace(s1, "\]", "&#93;") "]"
+				s1 := RegExReplace(s1, "\]", "&#93;")
+				replace := "[" tag.href.full tag.href.anchor " " s1 "]"
 				line := RegExReplace(line, preg_quote(s), replace)
 			}
 		}
@@ -327,21 +382,20 @@ Tag(match)
 			; Interner Link
 			If RegExMatch(line, preg_quote(match) "(.*?)</a>", s)
 			{
-				; Dateinamenerweiterung entfernen
-				link := RegExReplace(tag.href, preg_quote(extension))
-				; Name der zukünftigen Wikiseite extrahieren
-				link := RegExReplace(link, "^.*?([^/\\]*?)$", "$1")
 				; Sonderfall: Anweisungen
-				link := RegExReplace(link, "^_", ".")
+				link := RegExReplace(tag.href.namenoext tag.href.anchor, "^_", ".")
 			 	; Sonderfall: Index-Verlinkung
-			 	If (tag.href = "commands/index.htm")
-			 		link := "Alphabetischer Befehls- und Funktionsindex"
-			 	If (tag.href = "../index.htm")
-			 		link := "Hauptseite"
-			 	If (tag.href = "scripts/" or tag.href = "index.htm")
-			 		link := "Script-Beispiele"
+			 	If (tag.href.filename = "index.htm")
+			 	or (!tag.href.filename and !tag.href.anchor)
+			 	{
+			 		If !tag.href.dir
+			 			link := index[A_LoopFileDir]
+			 		Else If (tag.href.dir = "..")
+			 			link := index["docs"]
+			 		Else
+			 			link := index["docs\" tag.href.dir]
+			 	}
 				replace := "[[" (link == s1 ? link : link "|" s1) "]]"
-				
 				line := RegExReplace(line, preg_quote(s), replace)
 			}
 		}
@@ -403,4 +457,78 @@ preg_quote(str)
 	While (char := SubStr(chars, pos++, 1))
 		str	:= RegExReplace(str, "\" char, "\" char)
 	Return str
+}
+
+GetCategories()
+{
+	cat := [], site := {}, scan := 0
+
+	catlist := {"Grundlagen und Syntax" 	: "Grundlage"
+			,	"Objekte" 					: "Objektverwaltung"
+			,	"Zu AutoHotkey_L wechseln"	: "AutoHotkey_L"
+			,	"Umgebungsverwaltung" 		: "Systemumgebung"
+			,	"Natives Code-Interop"		: "Interoperabilität"
+			,	"COM" 						: "COM"
+			,	"Datei-, Verzeichnis- und Laufwerksverwaltung": "Dateiverwaltung"
+			,	"Ablaufsteuerung" 			: "Ablaufsteuerung"
+			,	"If-Befehle" 				: "Bedingte Anweisung"
+			,	"Loop-Befehle" 				: "Anweisungswiederholung"
+			,	"Interne Funktionen"		: "Interne Funktion"
+			,	"GUI, MsgBox, InputBox &amp; weitere Dialogfenster": "Benutzeroberfläche"
+			,	"Maus und Tastatur"			: "Eingabegerätesteuerung"
+			,	"Hotkeys und Hotstrings"	: " "
+			,	"Mathematik" 				: "Berechnung"
+			,	"Bildschirmverwaltung" 		: "Bildschirmverwaltung"
+			,	"Sonstige Befehle"			: " "
+			,	"Prozessverwaltung" 		: "Prozessverwaltung"
+			,	"Registrierungsverwaltung" 	: "Registrierungsverwaltung"
+			,	"Sound-Befehle" 			: "Soundverwaltung"
+			,	"Stringverwaltung" 			: "Stringverwaltung"
+			,	"Fensterverwaltung" 		: "Fensterverwaltung"
+			,	"Steuerelemente" 			: "Steuerelementverwaltung"
+			,	"Fenstergruppen" 			: "Fenstergruppenverwaltung"
+			,	"#Direktiven" 				: "Direktive"}
+
+	Loop, Read, Table of Contents.hhc
+	{
+		If RegExMatch(A_LoopReadLine, "i)<param name=""Name"" value=""(.*)"">", s)
+		{
+			If catlist[s1]
+			{
+				scan++
+				cat[scan] := catlist[s1]
+			}
+		}
+
+		If scan
+		{
+			If RegExMatch(A_LoopReadLine, "i)<param name=""Local"" value=""(.*)"">", s)
+			{
+				skip := 0
+				path := RegExReplace(s1, "#.*")
+				path := RegExReplace(path, "/", "\")
+				SplitPath, path,,,, namenoext
+				For k, v in site[namenoext]
+				{
+					If (v = cat[scan])
+					{
+						skip := 1
+						Break
+					}
+				}
+				If !skip
+				{
+					site[namenoext] := []
+					site[namenoext].Insert(cat[scan])
+				}
+			}
+		}
+
+		If RegExMatch(A_LoopReadLine, "i)</ul>")
+		{
+			cat[scan].Remove()
+			scan--
+		}
+	}
+	Return % site
 }
