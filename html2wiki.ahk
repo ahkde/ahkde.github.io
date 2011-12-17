@@ -245,11 +245,11 @@ Loop, docs\*.htm, 0, 1
 			:	""
 
 	If maincat
-		content .= "`n[[cat:" maincat "]]"
+		content .= "`n[[Kategorie:" maincat "]]"
 
 	For k, cat in site[name]
 		If (cat != " ")
-			content .= "`n[[cat:" cat "]]"
+			content .= "`n[[Kategorie:" cat "]]"
 
 	; Wiki-Datei erstellen
 
@@ -510,6 +510,9 @@ GetCategories()
 				SplitPath, path,,,, namenoext
 				For k, v in site[namenoext]
 				{
+					If InStr(namenoext, "Include")
+						MsGBox, % v
+
 					If (v = cat[scan])
 					{
 						skip := 1
@@ -518,7 +521,8 @@ GetCategories()
 				}
 				If !skip
 				{
-					site[namenoext] := []
+					If !IsObject(site[namenoext])
+						site[namenoext] := []
 					site[namenoext].Insert(cat[scan])
 				}
 			}
