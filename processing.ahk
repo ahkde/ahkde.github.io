@@ -47,7 +47,10 @@ RegExMatch(Titel, "AutoWikiBrowser - Default\.xml - (.*)", s)
 Artikel := RegExReplace(s1, "\.", "_")
 FileRead, Inhalt, % "wiki/" Artikel ".wiki"
 If ErrorLevel
+{
+	Originalname := RegExReplace(Originalname, " ", "_")
 	FileRead, Inhalt, % "wiki/" Originalname ".wiki"
+}
 If !ErrorLevel
 {
 	Datei := FileOpen("iofile.txt", "w")
