@@ -510,9 +510,6 @@ GetCategories()
 				SplitPath, path,,,, namenoext
 				For k, v in site[namenoext]
 				{
-					If InStr(namenoext, "Include")
-						MsGBox, % v
-
 					If (v = cat[scan])
 					{
 						skip := 1

@@ -45,6 +45,8 @@ FileReadLine, Originalname, liste.txt, % Zeile
 WinGetTitle, Titel, AutoWikiBrowser
 RegExMatch(Titel, "AutoWikiBrowser - Default\.xml - (.*)", s)
 Artikel := RegExReplace(s1, "\.", "_")
+If (Artikel = "Hauptseite") ; Ausnahme überspringen
+	Return
 FileRead, Inhalt, % "wiki/" Artikel ".wiki"
 If ErrorLevel
 {
