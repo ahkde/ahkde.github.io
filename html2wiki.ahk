@@ -474,7 +474,7 @@ GetCategories()
 			,	"If-Befehle" 				: "Bedingte Anweisung"
 			,	"Loop-Befehle" 				: "Anweisungswiederholung"
 			,	"Interne Funktionen"		: "Interne Funktion"
-			,	"GUI, MsgBox, InputBox &amp; weitere Dialogfenster": "Benutzeroberfläche"
+			,	"GUI, MsgBox, InputBox & weitere Dialogfenster": "Benutzeroberfläche"
 			,	"Maus und Tastatur"			: "Eingabegerätesteuerung"
 			,	"Hotkeys und Hotstrings"	: " "
 			,	"Mathematik" 				: "Berechnung"
