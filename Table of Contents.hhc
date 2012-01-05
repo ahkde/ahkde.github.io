@@ -22,11 +22,11 @@
           <param name="Local" value="docs\Tutorial.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="FAQ (Häufig gestellte Fragen)">
+          <param name="Name" value="Häufig gestellte Fragen">
           <param name="Local" value="docs\FAQ.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Befehls- und Funktionsindex">
+          <param name="Name" value="Befehle und Funktionen">
           <param name="Local" value="docs\commands\index.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -46,7 +46,7 @@
               <param name="Local" value="docs\Hotkeys.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Hotstrings & Automatisches Ersetzen">
+              <param name="Name" value="Hotstrings">
               <param name="Local" value="docs\Hotstrings.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -54,7 +54,7 @@
               <param name="Local" value="docs\misc\Remap.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Tastenliste (Tastatur, Maus, Joystick)">
+              <param name="Name" value="Tastenliste">
               <param name="Local" value="docs\KeyList.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -121,7 +121,7 @@
         </OBJECT>
         <UL>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Neue Funktionen von AutoHotkey_L">
+              <param name="Name" value="Neue Funktionen">
               <param name="Local" value="docs\AHKL_Features.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -221,7 +221,7 @@
             </UL>
         </UL>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Datei-, Verzeichnis- und Laufwerksverwaltung">
+          <param name="Name" value="Dateiverwaltung">
         </OBJECT>
         <UL>
             <LI><OBJECT type="text/sitemap">
@@ -637,7 +637,7 @@
             </OBJECT>
         </UL>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="GUI, MsgBox, InputBox & weitere Dialogfenster">
+          <param name="Name" value="GUI & Dialogfenster">
         </OBJECT>
         <UL>
             <LI><OBJECT type="text/sitemap">
@@ -665,11 +665,11 @@
               <param name="Local" value="docs\commands\GuiControlGet.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Gui-ListView-Steuerelement">
+              <param name="Name" value="ListView">
               <param name="Local" value="docs\commands\ListView.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Gui-TreeView-Steuerelement">
+              <param name="Name" value="TreeView">
               <param name="Local" value="docs\commands\TreeView.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -701,7 +701,7 @@
               <param name="Local" value="docs\commands\Progress.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="SplashTextOn/SplashTextOff">
+              <param name="Name" value="SplashTextOn/Off">
               <param name="Local" value="docs\commands\SplashTextOn.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -808,7 +808,7 @@
               <param name="Local" value="docs\commands\ControlClick.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="ControlSend/ControlSendRaw">
+              <param name="Name" value="ControlSend/Raw">
               <param name="Local" value="docs\commands\ControlSend.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -820,7 +820,7 @@
               <param name="Local" value="docs\commands\GetKeyState.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Tastenliste (Tastatur, Maus, Joystick)">
+              <param name="Name" value="Tastenliste">
               <param name="Local" value="docs\KeyList.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -852,7 +852,7 @@
               <param name="Local" value="docs\commands\MouseMove.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="Send/SendRaw/SendInput/SendPlay/SendEvent">
+              <param name="Name" value="Send/Raw/Input/Play/Event">
               <param name="Local" value="docs\commands\Send.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -1095,7 +1095,7 @@
               <param name="Local" value="docs\commands\IfInString.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="If Variable [not] in/contains Übereinstimmungsliste">
+              <param name="Name" value="If Var [not] in/contains Liste">
               <param name="Local" value="docs\commands\IfIn.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -1159,7 +1159,7 @@
               <param name="Local" value="docs\commands\StringSplit.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="StringTrimLeft/StringTrimRight">
+              <param name="Name" value="StringTrimLeft/Right">
               <param name="Local" value="docs\commands\StringTrimLeft.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -1220,7 +1220,7 @@
                   <param name="Local" value="docs\commands\ControlMove.htm">
                 </OBJECT>
                 <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="ControlSend/ControlSendRaw">
+                  <param name="Name" value="ControlSend/Raw">
                   <param name="Local" value="docs\commands\ControlSend.htm">
                 </OBJECT>
                 <LI><OBJECT type="text/sitemap">
@@ -1278,11 +1278,11 @@
               <param name="Local" value="docs\commands\DetectHiddenWindows.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="IfWinActive/IfWinNotActive">
+              <param name="Name" value="IfWin[Not]Active">
               <param name="Local" value="docs\commands\IfWinActive.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="IfWinExist/IfWinNotExist">
+              <param name="Name" value="IfWin[Not]Exist">
               <param name="Local" value="docs\commands\IfWinExist.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -1358,7 +1358,7 @@
               <param name="Local" value="docs\commands\WinMinimize.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="WinMinimizeAll/WinMinimizeAllUndo">
+              <param name="Name" value="WinMinimizeAll/Undo">
               <param name="Local" value="docs\commands\WinMinimizeAll.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -1386,7 +1386,7 @@
               <param name="Local" value="docs\commands\WinWait.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="WinWaitActive/WinWaitNotActive">
+              <param name="Name" value="WinWait[Not]Active">
               <param name="Local" value="docs\commands\WinWaitActive.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -1443,7 +1443,7 @@
               <param name="Local" value="docs\commands\_IfTimeout.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
-              <param name="Name" value="#Include/#IncludeAgain">
+              <param name="Name" value="#Include/Again">
               <param name="Local" value="docs\commands\_Include.htm">
             </OBJECT>
             <LI><OBJECT type="text/sitemap">
