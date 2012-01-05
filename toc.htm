@@ -35,7 +35,7 @@
      else 
      { 
 	if (showError) 
-     alert("Operation failed!\r\rCross frame communication is blocked. Please check your browser security settings or try another browser."); 
+     alert("Operation fehlgeschlagen!\r\rKommunikation zwischen den Frames blockiert. Bitte überprüft die Sicherheitseinstellungen des Browsers oder probiert einen anderen Browser aus."); 
      return ""; 
      } 
   } 
@@ -84,7 +84,7 @@ function GetFullLink(promptUser)
         return url;
 
       //Show URL in prompt and give option to goto the URL
-      url = prompt("Absolute address. Click OK to load this URL in the browser", url)
+      url = prompt("Absolute Adresse. Klickt auf OK, um diese URL im Browser zu öffnen.", url)
       if ((url != "") && (url != null))
         top.location.href= url;
   }
@@ -150,11 +150,11 @@ function GetFullLink(promptUser)
         </div>
         <div class="treeNode">
           <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-          <a href="docs/FAQ.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">FAQ (Häufig gestellte Fragen)</a>
+          <a href="docs/FAQ.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Häufig gestellte Fragen</a>
         </div>
         <div class="treeNode">
           <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-          <a href="docs/commands/index.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Befehls- und Funktionsindex</a>
+          <a href="docs/commands/index.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Befehle und Funktionen</a>
         </div>
         <div class="treeNode">
           <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -174,7 +174,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/Hotstrings.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Hotstrings & Automatisches Ersetzen</a>
+              <a href="docs/Hotstrings.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Hotstrings</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -182,7 +182,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/KeyList.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Tastenliste (Tastatur, Maus, Joystick)</a>
+              <a href="docs/KeyList.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Tastenliste</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -250,7 +250,7 @@ function GetFullLink(promptUser)
           <div class="treeSubnodesHidden">
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/AHKL_Features.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Neue Funktionen von AutoHotkey_L</a>
+              <a href="docs/AHKL_Features.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Neue Funktionen</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -354,7 +354,7 @@ function GetFullLink(promptUser)
         </div>
         <div class="treeNode">
           <img src="treenodeplus.gif" class="treeLinkImage" onclick="expandCollapse(this.parentNode)" alt="">
-          <span style="cursor: pointer;" onclick="expandCollapse(this.parentNode)">Datei-, Verzeichnis- und Laufwerksverwaltung</span>
+          <span style="cursor: pointer;" onclick="expandCollapse(this.parentNode)">Dateiverwaltung</span>
           <div class="treeSubnodesHidden">
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -772,7 +772,7 @@ function GetFullLink(promptUser)
         </div>
         <div class="treeNode">
           <img src="treenodeplus.gif" class="treeLinkImage" onclick="expandCollapse(this.parentNode)" alt="">
-          <span style="cursor: pointer;" onclick="expandCollapse(this.parentNode)">GUI, MsgBox, InputBox & weitere Dialogfenster</span>
+          <span style="cursor: pointer;" onclick="expandCollapse(this.parentNode)">GUI & Dialogfenster</span>
           <div class="treeSubnodesHidden">
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -800,11 +800,11 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/ListView.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Gui-ListView-Steuerelement</a>
+              <a href="docs/commands/ListView.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">ListView</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/TreeView.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Gui-TreeView-Steuerelement</a>
+              <a href="docs/commands/TreeView.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">TreeView</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -836,7 +836,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/SplashTextOn.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">SplashTextOn/SplashTextOff</a>
+              <a href="docs/commands/SplashTextOn.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">SplashTextOn/Off</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -944,7 +944,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/ControlSend.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">ControlSend/ControlSendRaw</a>
+              <a href="docs/commands/ControlSend.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">ControlSend/Raw</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -956,7 +956,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/KeyList.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Tastenliste (Tastatur, Maus, Joystick)</a>
+              <a href="docs/KeyList.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Tastenliste</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -988,7 +988,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/Send.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Send/SendRaw/SendInput/SendPlay/SendEvent</a>
+              <a href="docs/commands/Send.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">Send/Raw/Input/Play/Event</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1238,7 +1238,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/IfIn.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">If Variable [not] in/contains Übereinstimmungsliste</a>
+              <a href="docs/commands/IfIn.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">If Var [not] in/contains Liste</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1302,7 +1302,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/StringTrimLeft.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">StringTrimLeft/StringTrimRight</a>
+              <a href="docs/commands/StringTrimLeft.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">StringTrimLeft/Right</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1364,7 +1364,7 @@ function GetFullLink(promptUser)
                 </div>
                 <div class="treeNode">
                   <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-                  <a href="docs/commands/ControlSend.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">ControlSend/ControlSendRaw</a>
+                  <a href="docs/commands/ControlSend.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">ControlSend/Raw</a>
                 </div>
                 <div class="treeNode">
                   <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1424,11 +1424,11 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/IfWinActive.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">IfWinActive/IfWinNotActive</a>
+              <a href="docs/commands/IfWinActive.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">IfWin[Not]Active</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/IfWinExist.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">IfWinExist/IfWinNotExist</a>
+              <a href="docs/commands/IfWinExist.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">IfWin[Not]Exist</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1504,7 +1504,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/WinMinimizeAll.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">WinMinimizeAll/WinMinimizeAllUndo</a>
+              <a href="docs/commands/WinMinimizeAll.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">WinMinimizeAll/Undo</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1532,7 +1532,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/WinWaitActive.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">WinWaitActive/WinWaitNotActive</a>
+              <a href="docs/commands/WinWaitActive.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">WinWait[Not]Active</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
@@ -1590,7 +1590,7 @@ function GetFullLink(promptUser)
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
-              <a href="docs/commands/_Include.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">#Include/#IncludeAgain</a>
+              <a href="docs/commands/_Include.htm" target="right" class="treeUnselected" onclick="clickAnchor(this)">#Include/Again</a>
             </div>
             <div class="treeNode">
               <img src="treenodedot.gif" class="treeNoLinkImage" alt="">
