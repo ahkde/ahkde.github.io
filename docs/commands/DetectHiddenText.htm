@@ -1,35 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>DetectHiddenText</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>DetectHiddenText</h1>
 
-<p>Bestimmt, ob versteckte Texte in einem Fenster entdeckt werden k&ouml;nnen. Das beeinflusst Befehle wie IfWinExist und WinActivate.</p>
+<p>Bestimmt, ob versteckte Texte in einem Fenster entdeckt werden k&ouml;nnen. Das beeinflusst Befehle wie WinExist und WinActivate.</p>
 
 <pre class="Syntax">DetectHiddenText, On|Off </pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">On|Off</td>
-    <td width="85%"><p>On: Standardeinstellung f&uuml;r Nicht-AutoIt-v2-Scripts (z. B. .ahk, .ini). Versteckter Text wird erkannt.</p>
-      <p>Off: Standardeinstellung f&uuml;r AutoIt-v2-Scripts. Versteckter Text wird nicht erkannt.</p></td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>On|Off</dt>
+    <dd><p>On: Versteckter Text wird erkannt. Das ist die Standardeinstellung.<br></p>
+      <p>Off: Versteckter Text wird nicht erkannt.</p></dd>
+  
+</dl>
 
 <h3>Bemerkungen</h3>
-<p>"Versteckter Text" ist ein Begriff, der sich auf Steuerelemente eines Fenster bezieht, die unsichtbar ist. Deren Texte sind somit auch "versteckt". Das Ausschalten von DetectHiddenText kann n&uuml;tzlich sein, falls es darum geht, die Unterschiede zwischen einem Multipane- und Multitab-Fenster zu erkennen. Mithilfe von Windows Spy kann ermittelt werden, welcher Text vom aktiven Fenster versteckt ist. Alle Befehle, die einen <em>Fenstertext</em>-Parameter akzeptieren, werden durch diese Einstellung sowie auch durch <a href="WinActivate.htm">WinActivate</a>, <a href="IfWinActive.htm">IfWinActive</a>, <a href="WinWait.htm">WinWait</a> und <a href="IfWinExist.htm">IfWinExist</a> beeinflusst.</p>
+<p>"Versteckter Text" ist ein Begriff, der sich auf Steuerelemente eines Fenster bezieht, die unsichtbar ist. Deren Texte sind somit auch "versteckt". Das Ausschalten von DetectHiddenText kann n&uuml;tzlich sein, falls es darum geht, die Unterschiede zwischen einem Multipane- und Multitab-Fenster zu erkennen. Mithilfe von Windows Spy kann ermittelt werden, welcher Text vom aktiven Fenster versteckt ist. Alle Befehle, die einen <em>Fenstertext</em>-Parameter akzeptieren, werden durch diese Einstellung sowie auch durch <a href="WinActivate.htm">WinActivate</a>, <a href="WinActive.htm">WinActive</a>, <a href="WinWait.htm">WinWait</a> und <a href="WinExist.htm">WinExist</a> beeinflusst.</p>
 <p>Die interne Variable <strong>A_DetectHiddenText</strong> enth&auml;lt die aktuelle Einstellung (On oder Off).</p>
 <p>Jeder neu gestartete <a href="../misc/Threads.htm">Thread</a> (z. B. ein <a href="../Hotkeys.htm">Hotkey</a>, ein <a href="Menu.htm">benutzerdefinierter Men&uuml;punkt</a> oder eine <a href="SetTimer.htm">zeitlich festgelegte</a> Subroutine) beginnt mit der Standardeinstellung des Befehls. Diese Standardeinstellung kann ge&auml;ndert werden, indem dieser Befehl im automatischen Ausf&uuml;hrungsbereich (am Anfang des Scripts) verwendet wird.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="DetectHiddenWindows.htm">DetectHiddenWindows</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">DetectHiddenText, off</pre>
-
-</body>
-</html>
+</body></html>

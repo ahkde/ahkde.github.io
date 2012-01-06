@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>#IfWinActive / #IfWinExist</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -18,20 +17,18 @@
 #IfWinNotExist [, Fenstertitel, Fenstertext]
 <a href="_If.htm">#If [, Ausdruck]</a></pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Fenstertitel</td>
-    <td width="85%">Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> im <a href="../Scripts.htm#auto">automatischen Ausf&uuml;hrungsbereich</a> bestimmt). Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Die Schl&uuml;sselw&ouml;rter <a href="../LastFoundWindow.htm#id">"ahk_pid" und "ahk_id"</a> werden auch unterst&uuml;tzt, aber bei #IfWin normalerweise indirekt mit <a href="GroupAdd.htm">GroupAdd</a> (alternativ kann <a href="Hotkey.htm">"Hotkey IfWin"</a> verwendet werden). Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
-  </tr>
-  <tr>
-    <td>Fenstertext</td>
-    <td>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</td>
-  </tr>
-  <tr>
-    <td>Titelausnahme<br> Textausnahme</td>
-    <td>Diese Parameter werden <strong>nicht</strong> unterst&uuml;tzt, k&ouml;nnen aber indirekt verwendet werden, wenn <em>ahk_group EigeneGruppe</em> im <em>Fenstertitel</em> angegeben ist (wobei die <em>EigeneGruppe</em> mit dem <a href="GroupAdd.htm">GroupAdd</a>-Befehl erstellt wird, der Titel- und Textausnahme unterst&uuml;tzt).</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Fenstertitel</dt>
+    <dd><p>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> im <a href="../Scripts.htm#auto">automatischen Ausf&uuml;hrungsbereich</a> bestimmt). Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Die Schl&uuml;sselw&ouml;rter <a href="../LastFoundWindow.htm#id">"ahk_pid" und "ahk_id"</a> werden auch unterst&uuml;tzt, aber bei #IfWin normalerweise indirekt mit <a href="GroupAdd.htm">GroupAdd</a> (alternativ kann <a href="Hotkey.htm">"Hotkey IfWin"</a> verwendet werden). Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p></dd>
+ 
+    <dt>Fenstertext</dt>
+    <dd><p>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</p></dd>
+ 
+    <dt>Titelausnahme<br> Textausnahme</dt>
+    <dd><p>Diese Parameter werden <strong>nicht</strong> unterst&uuml;tzt, k&ouml;nnen aber indirekt verwendet werden, wenn <em>ahk_group EigeneGruppe</em> im <em>Fenstertitel</em> angegeben ist (wobei die <em>EigeneGruppe</em> mit dem <a href="GroupAdd.htm">GroupAdd</a>-Befehl erstellt wird, der Titel- und Textausnahme unterst&uuml;tzt).</p></dd>
+  
+</dl>
 
 <h3>Grundlagen zur Bedienung</h3>
 <p>Mit #IfWin-Direktiven k&ouml;nnen kontextabh&auml;ngige <a href="../Hotkeys.htm">Hotkeys</a> und <a href="../Hotstrings.htm">Hotstrings</a> einfach erstellt werden. Zum Beispiel:</p>
@@ -41,7 +38,7 @@
 <p>Um die Kontextabh&auml;ngigkeit zu deaktivieren, verwendet #IfWin ohne Parameter. Zum Beispiel:</p>
 <pre>#IfWinActive</pre>
 <p>Wenn #IfWin deaktiviert ist (oder nie im Script verwendet wird), werden alle <a href="../Hotkeys.htm">Hotkeys</a> und <a href="../Hotstrings.htm">Hotstrings</a> f&uuml;r alle Fenster aktiviert (solange sie nicht durch den <a href="Suspend.htm">Suspend</a>- oder <a href="Hotkey.htm">Hotkey</a>-Befehl deaktiviert sind).</p>
-<p>Wenn ein Maus- oder Tastatur-Hotkey mit #IfWin deaktiviert ist, erfolgt die urspr&uuml;ngliche Funktion; d. h. der Hotkey wird im aktiven Fenster ausgef&uuml;hrt, als g&auml;be es nicht so ein Hotkey. Es gibt zwei Ausnahmen: 1) Windows 95/98/Me: Das Dr&uuml;cken eines IfWin-deaktivierten Hotkeys hat kein Effekt (auch nicht mit der urspr&uuml;nglichen Funktion); 2) Joystick-Hotkeys: obwohl #IfWin funktioniert, kann nicht verhindert werden, dass andere Programme das Dr&uuml;cken eines Joystick-Buttons ber&uuml;cksichtigen.</p>
+<p>Wenn ein Maus- oder Tastatur-Hotkey mit #IfWin deaktiviert ist, erfolgt die urspr&uuml;ngliche Funktion; d. h. der Hotkey wird im aktiven Fenster ausgef&uuml;hrt, als g&auml;be es nicht so ein Hotkey. Dabei gilt folgende Ausnahme f&uuml;r Joystick-Hotkeys: Obwohl #IfWin funktioniert, kann dennoch nicht verhindert werden, dass andere Programme das Dr&uuml;cken eines Joystick-Buttons ber&uuml;cksichtigen.</p>
 <p>#IfWin kann auch verwendet werden, um das Verhalten einer gew&ouml;hnlichen Taste (z. B. Enter oder Leertaste) zu &auml;ndern. Das ist besonders n&uuml;tzlich, wenn ein bestimmtes Fenster die Taste ignoriert oder unerw&uuml;nschte Aktionen durchf&uuml;hrt. Zum Beispiel:</p>
 <pre>#IfWinActive Erinnerung ahk_class #32770  <em>; Das Erinnerungsfenster im Outlook.</em>
 Enter::Send !o  <em>; Eine ausgew&auml;hlte Erinnerung wird mit der Enter-Taste ge&ouml;ffnet, anstatt zu warten.</em>
@@ -66,24 +63,20 @@ Return</pre>
 <p>Alternativ kann eine <a href="GroupAdd.htm">Fenstergruppe</a> mit <em>#IfWinActive ahk_group EigeneGruppe</em> verwendet werden.</p>
 <p>Um Hotkey-Varianten dynamisch zu erstellen (w&auml;hrend das Script ausgef&uuml;hrt wird), siehe <a href="Hotkey.htm#IfWin">"Hotkey IfWin"</a>.</p>
 <h3 id="gen">Allgemeine Bemerkungen</h3>
-<p>#IfWin stellt auch die urspr&uuml;ngliche Funktion der Pr&auml;fixtasten gegebenenfalls wieder her (eine <a href="../Hotkeys.htm#prefix">Pr&auml;fixtaste</a> ist zum Beispiel die "a"-Taste im Hotkey "a & b"). Das passiert, sobald keine aktivierten Hotkeys f&uuml;r ein bestimmtes Pr&auml;fix vorhanden sind.</p>
+<p>#IfWin stellt auch die urspr&uuml;ngliche Funktion der Pr&auml;fixtasten gegebenenfalls wieder her (eine <a href="../Hotkeys.htm#prefix">Pr&auml;fixtaste</a> ist zum Beispiel die "a"-Taste im Hotkey "a &amp; b"). Das passiert, sobald keine aktivierten Hotkeys f&uuml;r ein bestimmtes Pr&auml;fix vorhanden sind.</p>
 <p>Wenn mit Gosub oder Goto ein Hotkey- oder Hotstring-Label ausgef&uuml;hrt wird, dann wird die oberste Variante im Script verwendet.</p>
 <p>Wenn ein Hotkey zurzeit mit #IfWin deaktiviert ist, dann erscheint die Taste oder Maustaste in der Type-Spalte von <a href="KeyHistory.htm">KeyHistory</a> mit einem "#"-Zeichen. Das kann helfen, ein Script zu debuggen.</p>
-<p>Variablenverweise (z. B. %Var%) werden aktuell nicht unterst&uuml;tzt. Daher m&uuml;ssen Prozentzeichen mit einem <a href="_EscapeChar.htm">Schutzzeichen</a> vorangestellt werden (`%), damit sie zuk&uuml;nftig unterst&uuml;tzt werden. Direkte Kommas m&uuml;ssen auch mit einem Schutzzeichen vorangestellt werden (`,), damit zus&auml;tzliche Parameter zuk&uuml;nftig hinzugef&uuml;gt werden k&ouml;nnen. Als &Uuml;bergangsl&ouml;sung k&ouml;nnen <a href="GroupAdd.htm">GroupAdd</a> und <a href="../LastFoundWindow.htm#group">ahk_group</a> verwendet werden.</p>
+<p>Variablenverweise (z. B. %Var%) werden aktuell nicht unterst&uuml;tzt. Daher m&uuml;ssen Prozentzeichen mit einem <a href="../misc/EscapeChar.htm">Schutzzeichen</a> vorangestellt werden (`%), damit sie zuk&uuml;nftig unterst&uuml;tzt werden. Direkte Kommas m&uuml;ssen auch mit einem Schutzzeichen vorangestellt werden (`,), damit zus&auml;tzliche Parameter zuk&uuml;nftig hinzugef&uuml;gt werden k&ouml;nnen. Als &Uuml;bergangsl&ouml;sung k&ouml;nnen <a href="GroupAdd.htm">GroupAdd</a> und <a href="../LastFoundWindow.htm#group">ahk_group</a> verwendet werden.</p>
 <p>Ein Label, dem ein Hotkey mit dem <a href="Hotkey.htm">Hotkey-Befehl</a> zugewiesen ist, wird nicht direkt von #IfWin beeinflusst. Stattdessen wird das oberste #IfWin im Script (falls vorhanden) f&uuml;r alle Hotkeys verwendet, die mit dem Hotkey-Befehl erstellt wurden (solange "<a href="Hotkey.htm#IfWin">Hotkey IfWin</a>" nicht verwendet wurde, um das zu &auml;ndern).</p>
 <p><a href="../Hotkeys.htm#alttab">Alt-Tab-Hotkeys</a> sind nicht von #IfWin betroffen: sie sind f&uuml;r alle Fenster g&uuml;ltig.</p>
 <p>Das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> wird von #IfWinActive/Exist gesetzt (aber nicht von IfWin<em>Not</em>Active/<em>Not</em>Exist). Zum Beispiel:</p>
 <pre>#IfWinExist ahk_class Notepad
 #n::WinActivate  <em>; Aktiviert das zuletzt gefundene Fenster.</em></pre>
-<p>Die <a href="_EscapeChar.htm">Schutzsequenzen</a> `s und `t k&ouml;nnen verwenden werden, wenn f&uuml;hrende oder nachfolgende Leerzeichen/Tabulatoren in einem Parameter von #IfWin ben&ouml;tigt werden.</p>
-<p>Aus Performance-Gr&uuml;nden &uuml;berwacht #IfWin nicht st&auml;ndig, ob das angegebene Fenster aktiviert oder vorhanden ist. Stattdessen werden &uuml;bereinstimmende Fenster nur gesucht, wenn der Benutzer ein Hotkey oder Hotstring dr&uuml;ckt. Stimmt kein Fenster &uuml;berein, k&ouml;nnen Tastatur- oder Mauseingaben unver&auml;ndert an das aktive Fenster &uuml;bergeben werden (au&szlig;er in Windows 95/98/Me).</p>
-<p>Windows 95/98/Me: Wenn die erste Variante des Hotkeys ein $-Pr&auml;fix hat, dann werden alle Varianten "sich selbstst&auml;ndig versenden". Damit wird die M&ouml;glichkeit bereitgestellt, dass ein Hotkey wenigstens seine urspr&uuml;ngliche Funktion ausf&uuml;hren kann. Zum Beispiel:</p>
-<pre>$^a::Send ^a  <em>; Die erste Variante muss ein $-Pr&auml;fix haben, damit sie sich selbstst&auml;ndig in Windows 9x versenden kann.</em>
-#IfWinActive ahk_class Notepad
-^a::MsgBox Strg-A wurde gedr&uuml;ckt, w&auml;hrend der Editor aktiv ist.</pre>
+<p>Die <a href="../misc/EscapeChar.htm">Schutzsequenzen</a> `s und `t k&ouml;nnen verwenden werden, wenn f&uuml;hrende oder nachfolgende Leerzeichen/Tabulatoren in einem Parameter von #IfWin ben&ouml;tigt werden.</p>
+<p>Aus Performance-Gr&uuml;nden &uuml;berwacht #IfWin nicht st&auml;ndig, ob das angegebene Fenster aktiviert oder vorhanden ist. Stattdessen werden &uuml;bereinstimmende Fenster nur gesucht, wenn der Benutzer ein Hotkey oder Hotstring dr&uuml;ckt. Stimmt kein Fenster &uuml;berein, k&ouml;nnen Tastatur- oder Mauseingaben unver&auml;ndert an das aktive Fenster &uuml;bergeben werden.</p>
 <p>Fenstertitel und -texte sind von der Gro&szlig;- und Kleinschreibung abh&auml;ngig. Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenWindows.htm">DetectHiddenText</a> aktiv ist.</p>
 <h3>Verwandte Befehle</h3>
-<p><a href="_If.htm">#If <i>Ausdruck</i></a>, <a href="Hotkey.htm">Hotkey-Befehl</a>, <a href="../Hotkeys.htm">Hotkeys</a>, <a href="../Hotstrings.htm">Hotstrings</a>, <a href="Suspend.htm">Suspend</a>, <a href="IfWinActive.htm">IfWinActive</a>, <a href="IfWinExist.htm">IfWinExist</a>, <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a>, <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a></p>
+<p><a href="_If.htm">#If <i>Ausdruck</i></a>, <a href="Hotkey.htm">Hotkey-Befehl</a>, <a href="../Hotkeys.htm">Hotkeys</a>, <a href="../Hotstrings.htm">Hotstrings</a>, <a href="Suspend.htm">Suspend</a>, <a href="WinActive.htm">WinActive</a>, <a href="WinExist.htm">WinExist</a>, <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a>, <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a></p>
 <h3>Beispiele</h3>
 <pre class="NoIndent">#IfWinActive ahk_class Notepad
 ^!a::MsgBox Strg-Alt-A wurde w&auml;hrend des aktiven Editors gedr&uuml;ckt.  <em>; Dieser Hotkey ist unwirksam, wenn er in einem anderen Fenster gedr&uuml;ckt wird (und wird "durchgegeben").</em>
@@ -92,5 +85,5 @@ Return</pre>
 #IfWinActive
 #c::MsgBox Win+C wurde w&auml;hrend des inaktiven Editors gedr&uuml;ckt.</pre>
 
-</body>
-</html>
+
+</body></html>

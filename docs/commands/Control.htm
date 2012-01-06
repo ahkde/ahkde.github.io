@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Control</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,33 +13,28 @@
 
 <pre class="Syntax">Control, Befehl [, Wert, Steuerelement, Fenstertitel, Fenstertext, Titelausnahme, Textausnahme]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Befehl, Wert </td>
-    <td>Siehe untere Liste.</td>
-  </tr>
-  <tr>
-    <td width="15%">Steuerelement</td>
-    <td width="85%"><p>M&ouml;glich ist entweder ClassNN (Klassenname und Instanznummer des Steuerelements) oder Name/Text des Steuerelements, die beide mit Windows Spy ermittelt werden k&ouml;nnen. Wenn Name/Text verwendet wird, wird das &Uuml;bereinstimmungsverhalten mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt. Wenn dieser Parameter leer ist, wird das oberste Steuerelement des Fensters benutzt.</p>
-    <p>F&uuml;r das HWND eines Steuerelements (Windows Handle) wird der <em>Steuerelement</em>-Parameter leer gelassen und <em>ahk_id %SteuerelementHwnd%</em> im <em>Fenstertitel</em>-Parameter angegeben (funktioniert auch bei versteckten Steuerelementen, selbst wenn <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist). Das HWND eines Steuerelements wird &uuml;blicherweise mittels <a href="ControlGet.htm#Hwnd">ControlGet Hwnd</a>, <a href="MouseGetPos.htm">MouseGetPos</a> oder <a href="DllCall.htm">DllCall</a> abgerufen.</p></td>
-  </tr>
-  <tr>
-    <td>Fenstertitel</td>
-    <td>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
-  </tr>
-  <tr>
-    <td>Fenstertext</td>
-    <td>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</td>
-  </tr>
-  <tr>
-    <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-  <tr>
-    <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Befehl, Wert </dt>
+    <dd><p>Siehe untere Liste.</p></dd>
+ 
+    <dt>Steuerelement</dt>
+    <dd><p>M&ouml;glich ist entweder ClassNN (Klassenname und Instanznummer des Steuerelements) oder Name/Text des Steuerelements, die beide mit Windows Spy ermittelt werden k&ouml;nnen. Wenn Name/Text verwendet wird, wird das &Uuml;bereinstimmungsverhalten mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt. Wenn dieser Parameter leer ist, wird das oberste Steuerelement des Fensters benutzt.</p>
+    <p>F&uuml;r das HWND eines Steuerelements (Windows Handle) wird der <em>Steuerelement</em>-Parameter leer gelassen und <em>ahk_id %SteuerelementHwnd%</em> im <em>Fenstertitel</em>-Parameter angegeben (funktioniert auch bei versteckten Steuerelementen, selbst wenn <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist). Das HWND eines Steuerelements wird &uuml;blicherweise mittels <a href="ControlGet.htm#Hwnd">ControlGet Hwnd</a>, <a href="MouseGetPos.htm">MouseGetPos</a> oder <a href="DllCall.htm">DllCall</a> abgerufen.</p></dd>
+ 
+    <dt>Fenstertitel</dt>
+    <dd><p>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p></dd>
+ 
+    <dt>Fenstertext</dt>
+    <dd><p>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</p></dd>
+ 
+    <dt>Titelausnahme</dt>
+    <dd><p>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+ 
+    <dt>Textausnahme</dt>
+    <dd><p>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+  
+</dl>
 
 <h3>Befehl, Wert</h3>
 <p>Die Parameter <em>Befehl</em> und <em>Wert</em> sind voneinander abh&auml;ngig und k&ouml;nnen wie folgt verwendet werden.</p>
@@ -50,7 +44,7 @@
 <p><strong>Disable</strong>: Deaktiviert oder "ergraut" ein Steuerelement.</p>
 <p><strong>Show</strong>: Steuerelement einblenden, wenn es zuvor ausgeblendet wurde.</p>
 <p><strong>Hide</strong>: Steuerelement ausblenden. Au&szlig;erdem ist es m&ouml;glich, die Tastenkombination des Steuerelements (unterstrichener Buchstabe) mit "Control Disable" zu unterbinden.</p>
-<p><strong>Style, N </strong> <u>oder</u> <strong>ExStyle, N</strong>: &Auml;ndert jeweils den Style oder Extended Style eines Steuerelements. Wenn das erste Zeichen in <strong>N</strong> ein Plus- oder Minuszeichen ist, dann wird der Style in <strong>N</strong> jeweils hinzugef&uuml;gt bzw. entfernt. Wenn das erste Zeichen in <B>N</B> ein Zirkumflex (^) ist, dann wird der Style jeweils auf den entgegengesetzten Zustand gesetzt. Wenn das erste Zeichen in <strong>N</strong> eine Ziffer ist, dann wird der Style des Steuerelements komplett &uuml;berschrieben. <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 1 gesetzt, wenn das Fenster/Steuerelement nicht gefunden wird oder wenn der Style nicht benutzt werden darf (was h&auml;ufig in Windows 9x auftritt).</p>
+<p><strong>Style, N </strong> <u>oder</u> <strong>ExStyle, N</strong>: &Auml;ndert jeweils den Style oder Extended Style eines Steuerelements. Wenn das erste Zeichen in <strong>N</strong> ein Plus- oder Minuszeichen ist, dann wird der Style in <strong>N</strong> jeweils hinzugef&uuml;gt bzw. entfernt. Wenn das erste Zeichen in <b>N</b> ein Zirkumflex (^) ist, dann wird der Style jeweils auf den entgegengesetzten Zustand gesetzt. Wenn das erste Zeichen in <strong>N</strong> eine Ziffer ist, dann wird der Style des Steuerelements komplett &uuml;berschrieben. <a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird auf 1 gesetzt, wenn das Fenster/Steuerelement nicht gefunden wird oder wenn der Style nicht benutzt werden darf (was h&auml;ufig in Windows 9x auftritt).</p>
 <p>Bestimmte Style-&Auml;nderungen ben&ouml;tigen eine grafische Aktualisierung des Fensters mit Hilfe von <a href="WinSet.htm">WinSet Redraw</a>. Au&szlig;erdem bietet die <a href="../misc/Styles.htm">Style-Tabelle</a> noch weitere Style-Nummern. Zum Beispiel:</p>
 <pre>Control, Style, ^0x800000, Edit1, Fenstertitel  <em>; Setzt den WS_BORDER-Style auf den entgegengesetzten Zustand.</em></pre>
 <p><strong>ShowDropDown</strong>: &Ouml;ffnet die ComboBox, damit die Auswahlm&ouml;glichkeiten sichtbar werden.</p>
@@ -67,7 +61,7 @@ SendMessage, 0x130C, <span class="red">5</span>,, SysTabControl321, Fenstertitel
 <p><strong>EditPaste, String</strong>: <em>String</em> wird in einem Eingabefeld nach dem Text-Cursor eingef&uuml;gt (Der Inhalt der <a href="../misc/Clipboard.htm">Zwischenablage</a> ist davon nicht betroffen).</p>
 <h3>ErrorLevel</h3>
 <p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, bei Misserfolg eine Ausnahme auszul&ouml;sen. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>   
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enth&auml;lt ErrorLevel eine 0.</p>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird bei Misserfolg auf 1 und bei Erfolg auf 0 gesetzt.</p>
 <h3>Bemerkungen</h3>
 <p>Um die Zuverl&auml;ssigkeit des Befehls zu verbessern, erfolgt automatisch eine Verz&ouml;gerung nach jeder Verwendung (au&szlig;er bei <em>Style</em> und <em>ExStyle</em>). Diese Verz&ouml;gerung kann mit <a href="SetControlDelay.htm">SetControlDelay</a> ge&auml;ndert werden.</p>
 <p>Zur Erfassung des Steuerelementnamens unter dem Mauszeiger wird <a href="MouseGetPos.htm">MouseGetPos</a> verwendet.</p>
@@ -76,7 +70,20 @@ SendMessage, 0x130C, <span class="red">5</span>,, SysTabControl321, Fenstertitel
 <h3>Verwandte Befehle</h3>
 <p><a href="SetControlDelay.htm">SetControlDelay</a>, <a href="ControlGet.htm">ControlGet</a>, <a href="GuiControl.htm">GuiControl</a>, <a href="ControlGetText.htm">ControlGetText</a>, <a href="ControlSetText.htm">ControlSetText</a>, <a href="ControlMove.htm">ControlMove</a>, <a href="ControlGetPos.htm">ControlGetPos</a>, <a href="ControlClick.htm">ControlClick</a>, <a href="ControlFocus.htm">ControlFocus</a>, <a href="ControlSend.htm">ControlSend</a>, <a href="WinSet.htm">WinSet</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">Control, HideDropDown, , ComboBox1, Beliebiger Fenstertitel</pre>
-
-</body>
-</html>
+<h4>Funktionssyntax</h4>
+<pre class="NoIndent">Send("#r")		<em>; &Ouml;ffnet das Dialogfenster "Ausf&uuml;hren".</em>
+WinWaitActive("ahk_class #32770")		<em>; Wartet darauf, dass das Dialogfenster erscheint.</em>
+Control("ShowDropDown", "", "ComboBox1")	<em>; &Ouml;ffnet die DropDown-Liste. Der vierte Parameter wird weggelassen, damit das zuletzt gefundene Fenster verwendet wird.</em>
+Sleep(2000)		
+Control("HideDropDown", "", "ComboBox1")	<em>; Schlie&szlig;t die DropDown-Liste.</em>
+Sleep(1000)		
+Send("{Esc}")		<em>; Schlie&szlig;t das Dialogfenster.</em></pre>
+<h4>Befehlssyntax</h4>
+<pre class="NoIndent">Send, #r		<em>; &Ouml;ffnet das Dialogfenster "Ausf&uuml;hren".</em>
+WinWaitActive, ahk_class #32770		<em>; Wartet darauf, dass das Dialogfenster erscheint.</em>
+Control, ShowDropDown,, ComboBox1	<em>; &Ouml;ffnet die DropDown-Liste. Der vierte Parameter wird weggelassen, damit das zuletzt gefundene Fenster verwendet wird.</em>
+Sleep, 2000
+Control, HideDropDown,, ComboBox1,	<em>; Schlie&szlig;t die DropDown-Liste.</em>
+Sleep, 1000
+Send, {Esc}		<em>; Schlie&szlig;t das Dialogfenster.</em></pre>
+</body></html>

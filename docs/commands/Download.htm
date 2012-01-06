@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Download</title>
+<meta name="description" content="Download any type of file via Download in this free scripting language. e.g. Download, http://www.anyorg.org/File.htm, c:\File.htm">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>Download</h1>
+
+<p>L&auml;dt eine Datei aus dem Internet herunter.</p>
+
+<pre class="Syntax">Download, URL, Dateiname </pre>
+<h3>Parameter</h3>
+<dl>
+  
+    <dt>URL</dt>
+    <dd><p>URL der Datei, die heruntergeladen werden soll. Mit http://someorg.org beispielsweise wird die Willkommensseite der Organisation abgerufen. </p></dd>
+ 
+    <dt>Dateiname</dt>
+    <dd><p><strong>In eine Datei herunterladen</strong>: Der Name der lokal erstellten Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist. Jede vorhandene Datei wird durch die neue Datei <strong>&uuml;berschrieben</strong>.</p>
+    <p><strong>In eine Variable herunterladen</strong>: Siehe unteres Beispiel. F&uuml;r alternative Methoden, siehe folgenden Forumsbeitrag: <a href="http://www.autohotkey.com/forum/topic10466.html">www.autohotkey.com/forum/topic10466.html</a>.</p></dd>
+  
+</dl>
+
+<h3>ErrorLevel</h3>
+<p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, bei Misserfolg eine Ausnahme auszul&ouml;sen. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird bei Misserfolg auf 1 und bei Erfolg auf 0 gesetzt.</p>
+<h3>Bemerkungen</h3>
+<p>Es kann sein, dass bei dem Versuch, eine nicht vorhandene Datei herunterzuladen, der Download scheinbar trotzdem erfolgreich war. Das liegt daran, dass die meisten Webserver f&uuml;r die fehlende Datei eine Fehlerseite senden. Daher wird stattdessen einfach die Fehlerseite in <em>Dateiname</em> gespeichert.</p>
+<p>Firewalls oder mehrere Netzwerkkarten k&ouml;nnten bewirken, dass diese Funktion fehlschl&auml;gt. Au&szlig;erdem k&ouml;nnen einige Webseiten solche Downloads blockieren.</p>
+<p><strong>Caching</strong>:
+  Standardm&auml;&szlig;ig wird die URL direkt vom entfernt liegenden Server abgerufen (also nie vom Cache des Internet Explorers). Um das Caching zuzulassen, setzt *0 vor der URL, gefolgt von einem Leerzeichen; zum Beispiel: <em>*0 http://someorg.org</em>. Die Null nach dem Sternchen kann mit einer g&uuml;ltigen dwFlags-Nummer ersetzt werden; sucht f&uuml;r weitere Details in <a href="http://www.microsoft.com">www.microsoft.com</a> nach InternetOpenUrl.</p>
+<p><strong>Proxies</strong>: Falls ein Proxy-Server in den Einstellungen des Internet Explorers konfiguriert wurde, wird dieser verwendet.</p>
+<p><strong>FTP- und Gopher-URLs</strong> werden auch unterst&uuml;tzt. Zum Beispiel:</p>
+<pre>Download, ftp://example.com/home/Datei.zip, C:\Eigener Ordner\Datei.zip  <em>; Anonym anmelden.</em>
+Download, ftp://user:pass@example.com:21/home/Datei.zip, C:\Eigener Ordner\Datei.zip  <em>; Bestimmten Benutzer anmelden.</em>
+Download, ftp://user:pass@example.com/Verzeichnis, C:\Liste.html  <em>; L&auml;dt eine Liste im HTML-Format runter.</em></pre>
+<h3>Verwandte Befehle</h3>
+<p><a href="FileRead.htm">FileRead</a>, <a href="FileCopy.htm">FileCopy</a></p>
+<h3>Beispiele</h3>
+<pre class="NoIndent">Download, http://l.autohotkey.net/version.txt, C:\AutoHotkey_L Aktuellste Version.txt
+Download, http://someorg.org/archive.zip, C:\Someorg-Archiv.zip</pre>
+<pre id="WHR" class="NoIndent"><em>; Beispiel: Text in eine Variable herunterladen:</em>
+whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+whr.Open("GET", "http://l.autohotkey.net/version.txt")
+whr.Send()
+version := whr.ResponseText
+MsgBox % version
+</pre>
+</body></html>

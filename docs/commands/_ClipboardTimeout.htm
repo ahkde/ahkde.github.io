@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>#ClipboardTimeout</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,12 +13,12 @@
 
 <pre class="Syntax">#ClipboardTimeout Millisekunden</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Millisekunden</td>
-    <td width="85%">Die L&auml;nge des Intervalls in Millisekunden. Verwendet -1, damit es unendlich lang versucht wird. Verwendet 0, damit nur ein Versuch durchgef&uuml;hrt wird. Scripts, die diese Direktive nicht enthalten, verwenden eine Zeit&uuml;berschreitung von 1000 ms.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Millisekunden</dt>
+    <dd><p>Die L&auml;nge des Intervalls in Millisekunden. Verwendet -1, damit es unendlich lang versucht wird. Verwendet 0, damit nur ein Versuch durchgef&uuml;hrt wird. Scripts, die diese Direktive nicht enthalten, verwenden eine Zeit&uuml;berschreitung von 1000 ms.</p></dd>
+  
+</dl>
 <h3>Bemerkungen</h3>
 <p>Einige Anwendungen halten die Zwischenablage f&uuml;r einen langen Zeitraum offen, weil sie vielleicht eine gro&szlig;e Datenmenge schreiben oder lesen. In solchen F&auml;llen kann die Einstellung erh&ouml;ht werden, damit das Script l&auml;nger wartet, bevor es aufgibt und eine Fehlermeldung anzeigt.</p>
 <p>Diese Einstellungen gelten f&uuml;r alle <a href="../misc/Clipboard.htm">Clipboard</a>-Operationen, die Einfachsten davon sind die folgenden Beispiele:<br> Var = %Clipboard%<br> Clipboard = Neuer Text</p>
@@ -29,6 +28,4 @@
 <p><a href="../misc/Clipboard.htm">Clipboard</a>, <a href="Thread.htm">Thread</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">#ClipboardTimeout 2000</pre>
-
-</body>
-</html>
+</body></html>

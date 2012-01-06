@@ -20,79 +20,70 @@
   <li><a href="#cap">Kapazit&auml;t und Speicher einer Variable</a></li>
 </ul>
 <h2 id="Intro"><a name="Variables"></a>Variablen</h2>
-<p><strong>Variablentypen</strong>: AutoHotkey besitzt keine direkt definierten Variablentypen. Sobald eine Variable nur Ziffern enth&auml;lt (optional mit einem Dezimalpunkt), wird sie bei einer mathematischen Operation oder bei einem Vergleich automatisch als Zahl interpretiert. Zur Verbesserung der Performance werden die Zahlen intern zwischengespeichert, um Konvertierungen von/in Strings zu vermeiden.</p>
+<p><strong>Variablentypen</strong>: AutoHotkey besitzt keine direkt definierten Variablentypen. Stattdessen kann jede Variable einen String, einen Integer, eine Flie&szlig;kommazahl oder einen Verweis auf ein Objekt enthalten. Dar&uuml;ber hinaus werden Zahlen je nach Bedarf automatisch in oder von Strings umgewandelt. Die <a href="commands/Type.htm">Type</a>-Funktion kann dazu verwendet werden, den aktuellen Typ eines Wertes zu ermitteln.</p>
 <p><strong>G&uuml;ltigkeitsbereiche und Deklarationen von Variablen</strong>: Mit Ausnahme von <a href="Functions.htm#Locals">lokalen Variablen</a> in Funktionen sind alle Variablen global; das hei&szlig;t, dass deren Inhalt jederzeit vom Script gelesen oder ge&auml;ndert werden kann. Au&szlig;er den genannten Ausnahmen auf der <a href="Functions.htm#Global">Funktionsseite</a> m&uuml;ssen Variablen nicht deklariert werden; sie stehen zur Verf&uuml;gung, sobald sie verwendet werden (au&szlig;erdem ist jede Variable anfangs leer).</p>
-<p id="Variable_names"><strong>Variablennamen</strong>: Variablennamen sind nicht von der Gro&szlig;- und Kleinschreibung abh&auml;ngig (zum Beispiel ist <em>AktuellesDatum</em> das Gleiche wie <em>aktuellesdatum</em>). Variablennamen d&uuml;rfen bis zu 253 Zeichen lang sein und nur aus Buchstaben, Zahlen und folgenden Satzzeichen bestehen: # _ @ $</p>
-<p>Aufgrund von Stilkonventionen ist es generell besser, Variablen nur mit Buchstaben, Zahlen und Unterstriche zu benennen (zum Beispiel: <em>PositionZeiger</em>, <em>Gesamt_Elemente</em> und <em>Eintrag_ist_g&uuml;ltig</em>). Dieser Stil erm&ouml;glicht Menschen, die mit anderen Programmiersprachen vertraut sind, das Script besser zu verstehen. Sobald au&szlig;erdem dieselben Stilkonventionen von anderen Sprachen in AutoHotkey verwendet werden, ist es dadurch m&ouml;glicherweise einfacher, eigene Scripts erneut lesen zu k&ouml;nnen.</p>
-<p>Auch wenn ein Variablenname vollst&auml;ndig aus Ziffern bestehen kann, sollte das in der Regel nur f&uuml;r <a href="Scripts.htm#cmd">eingehende Befehlszeilenparameter</a> verwendet werden. Solche numerischen Namen k&ouml;nnen nicht in <a href="#Expressions">Ausdr&uuml;cken</a> verwendet werden, weil sie dort als Zahlen anstatt als Variablen angesehen werden.</p>
+<p id="Variable_names"><strong>Variablennamen</strong>: Variablennamen sind nicht von der Gro&szlig;- und Kleinschreibung abh&auml;ngig (zum Beispiel ist <em>AktuellesDatum</em> das Gleiche wie <em>aktuellesdatum</em>). Variablennamen d&uuml;rfen bis zu 253 Zeichen lang sein und nur aus Buchstaben, Zahlen, Unterstriche und Nicht-ASCII-Zeichen bestehen. Variablennamen d&uuml;rfen nicht mit einer Ziffer beginnen.</p>
 <p>Da die W&ouml;rter <em>AND</em>, <em>OR</em> und <em>NOT</em> als <a href="#Operators">Operatoren</a> in Ausdr&uuml;cken benutzt werden, sollten sie in der Regel nicht als Variablennamen verwendet werden. Solche Namen in einem Ausdruck verhindern eine angemessene Auswertung.</p>
-<p><strong>Werte in Variablen speichern</strong>: F&uuml;r das Speichern eines Strings oder einer Zahl in eine Variable gibt es zwei Methoden: traditionell und Ausdruck. Die traditionelle Methode verwendet den <a href="commands/SetEnv.htm">Gleichheitszeichenoperator (=)</a>, um direkte Strings <strong>ohne Anf&uuml;hrungszeichen</strong> oder Variablen mit umschlie&szlig;enden Prozentzeichen zuzuweisen. Zum Beispiel:</p>
-<pre>EigeneZahl = 123
-EigenerString = Das ist ein direkter String.
-KopieVonVar = %Var%  <em>; Beim Verwenden des Operators "=" werden Prozentzeichen ben&ouml;tigt, um den Inhalt einer Variable abzurufen.</em></pre>
-<p>Die Ausdrucksmethode hingegen verwendet den <a href="commands/SetExpression.htm">Doppelpunkt-Gleich-Operator (:=)</a> zum Speichern von Zahlen, Strings <strong>in Anf&uuml;hrungszeichen</strong> und andere Arten von <a href="#Expressions">Ausdr&uuml;cken</a>. Die folgenden Beispiele sind mit den vorherigen Beispielen funktionsgem&auml;&szlig; identisch:</p>
+<p><strong>Werte in Variablen speichern</strong>: Verwendet zum Speichern eines Wertes in eine Variable den <a href="commands/SetExpression.htm">Doppelpunkt-Gleich-Operator (:=)</a>, gefolgt von einer Zahl, einem String in Anf&uuml;hrungszeichen oder einem beliebig anderen <a href="#Expressions">Ausdruckstypen</a>. Zum Beispiel:</p>
 <pre>EigeneZahl := 123
 EigenerString := "Das ist ein direkter String."
-KopieVonVar := Var  <em>; Im Gegensatz zum oberen &Auml;quivalent werden Prozentzeichen nicht beim Operator ":=" verwendet.</em></pre>
-<p>Die letztere Methode wird aufgrund der Eindeutigkeit von vielen bevorzugt, au&szlig;erdem unterst&uuml;tzt sie eine <a href="#Expressions">Ausdruckssyntax</a>, die nahezu mit der Syntax vieler anderer Sprachen identisch ist.</p>
-<p>Wie wahrscheinlich bereits vermutet, gibt es zwei Methoden, um den Inhalt einer Variable zu leeren:</p>
-<pre>EigeneVar =
-EigeneVar := ""</pre>
-<p>Die nebeneinanderliegenden Anf&uuml;hrungszeichen sollten nur beim Operator ":=" verwendet werden, da ansonsten beim Operator "=" zwei direkte Anf&uuml;hrungszeichen in die Variable gespeichert werden w&uuml;rden.</p>
-<p><strong>Die Inhalte von Variablen abrufen</strong>: Im Gegensatz zu den oben genannten Methoden gibt es auch zwei Methoden zum Abrufen von Werten: traditionell und Ausdruck. Bei der traditionellen Methode muss jeder Variablenname in Prozentzeichen gesetzt werden, um den Inhalt abzurufen. Zum Beispiel:</p>
-<pre><a href="commands/MsgBox.htm">MsgBox</a> Die Variable namens Var enth&auml;lt %Var%.
-KopieVonVar = %Var%</pre>
-<p>Bei der Ausdrucksmethode hingegen werden die Prozentzeichen um den Variablennamen weggelassen, daf&uuml;r aber in Anf&uuml;hrungszeichen gesetzt. Die folgenden Beispiele sind &Auml;quivalente der vorherigen Beispiele:</p>
-<pre>MsgBox <strong>%</strong> "Die Variable namens Var enth&auml;lt " . Var . "."  <em>; Ein Punkt wird verwendet, um zwei Strings zu verketten (verbinden).</em>
 KopieVonVar := Var</pre>
-<p>In der MsgBox-Zeile dar&uuml;ber wird ein Prozent- und Leerzeichen verwendet, um den Parameter vom traditionellen Modus auf den Ausdrucksmodus zu wechseln. Das ist notwendig, weil die traditionelle Methode standardm&auml;&szlig;ig von allen Befehlen verwendet wird (wenn nicht anders beschrieben). Allerdings akzeptieren bestimmte Parameter von einigen Befehlen bereits Ausdr&uuml;cke, wobei das f&uuml;hrende Prozentzeichen erlaubt, aber nicht notwendig ist. Die folgenden drei Beispiele verhalten sich identisch, da der erste Parameter von <a href="commands/Sleep.htm">Sleep</a> ausdrucksf&auml;hig ist:</p>
-<pre>Sleep MillisekundenWarten
-Sleep %MillisekundenWarten%
-Sleep % MillisekundenWarten</pre>
-<p><strong>Vergleich von Variablen</strong>: Siehe unteren Abschnitt "Ausdr&uuml;cke" f&uuml;r wichtige Hinweise &uuml;ber verschiedenen Vergleichsarten, insbesondere dar&uuml;ber, wann die Klammern verwendet werden.</p>
+<p>Variablen, denen keinen Wert zugewiesen wird, enthalten standardm&auml;&szlig;ig einen leeren String. Um den Inhalt einer Variable daher zu l&ouml;schen, weist ihr einfach einen leeren String zu:</p>
+<pre>EigeneVar := ""</pre>
+<p>Au&szlig;erdem kann einer Variable ein Wert indirekt zugewiesen werden, indem sie als <em>Ausgabevariable</em> eines Befehls verwendet wird. Zum Beispiel:</p>
+<pre><a href="commands/WinGetTitle.htm">WinGetTitle</a> <strong>Titel</strong>, A</pre>
+<p><strong>Die Inhalte von Variablen abrufen</strong>: Um den Inhalt einer Variable in einen String einzuf&uuml;gen, umschlie&szlig;t den Variablennamen mit Prozentzeichen. Zum Beispiel:</p>
+<pre><a href="commands/MsgBox.htm">MsgBox</a>, Die Variable namens Var enth&auml;lt %Var%.
+MsgBox("Die Variable namens Var enth&auml;lt %Var%.")</pre>
+<p>Das schlie&szlig;ende Prozentzeichen kann weggelassen werden, solange das Zeichen nach dem Variablenverweis nicht in einem Variablennamen verwendet werden kann, wie z. B. ein Satzzeichen. Zum Beispiel:</p>
+<pre>MsgBox Die Variable namens Var enth&auml;lt %Var.
+</pre>
+<p>In einem Ausdruck k&ouml;nnen die Prozentzeichen bei Variablenverweisen hingegen weggelassen werden (anders als bei einem String in Anf&uuml;hrungszeichen). Zum Beispiel:<br></p>
+<pre>MsgBox("Die Summe von X und Y ist " . (X + Y))  <em>; Ein Punkt wird verwendet, um zwei Strings zu verketten (verbinden).</em>
+</pre>
+<p><strong>Vergleich von Variablen</strong>: Siehe unteren Abschnitt "Ausdr&uuml;cke" f&uuml;r wichtige Hinweise &uuml;ber verschiedene Vergleichsarten.</p>
 <h2 id="Expressions">Ausdr&uuml;cke</h2>
 <p>Ausdr&uuml;cke werden verwendet, um eine oder mehrere Operationen mit mehreren Variablen, direkte Strings und/oder direkte Zahlen durchzuf&uuml;hren.</p>
 <p>Variablennamen werden in einem Ausdruck nicht in Prozentzeichen gesetzt (au&szlig;er Arrays und anderen <a href="#ref">Doppelverweise</a>). Folglich m&uuml;ssen Strings in Anf&uuml;hrungszeichen gesetzt werden, um sie von Variablen zu unterscheiden. Zum Beispiel:</p>
 <pre>if (AktuelleEinstellung &gt; 100 or Fundfarbe &lt;&gt; "Blau")
     MsgBox Die Einstellung ist zu hoch oder falsche Farbe vorhanden.</pre>
-<p>Im obigen Beispiel wurde "Blau" in Anf&uuml;hrungszeichen gesetzt, weil es sich hierbei um einen String handelt. Um ein <em>tats&auml;chliches</em> Anf&uuml;hrungszeichen innerhalb eines Strings einzuf&uuml;gen, verwendet zwei aufeinanderfolgende Anf&uuml;hrungszeichen wie in diesem Beispiel zweimal gezeigt: "Sie sagte: <span class="red">""</span>Ein Apfel am Tag.<span class="red">""</span>"</p>
-<p><strong>Wichtig</strong>: Eine If-Anweisung mit einem Ausdruck unterscheidet sich von einer <a href="commands/IfEqual.htm">traditionellen If-Anweisung</a> wie <em>If Fundfarbe &lt;&gt; Blau</em>, wenn das Zeichen nach dem Wort "If" eine offene Klammer ist. Obwohl das in der Regel erreicht wird, indem der komplette Ausdruck in Klammern gesetzt wird, ist das beispielsweise auch mit <em>If (x &gt; 0) and (y &gt; 0)</em> m&ouml;glich. Dar&uuml;ber hinaus kann die offene Klammer komplett weggelassen werden, wenn das erste Element nach dem Wort "If" ein <a href="Functions.htm">Funktionsaufruf</a> oder ein Operator wie "not" oder "!" ist.</p>
-<p><strong>Leere Strings</strong>: Um einen leeren String in einem Ausdruck anzugeben, verwendet zwei aufeinanderfolgende Anf&uuml;hrungszeichen. Zum Beispiel ist die Anweisung <em>if (EigeneVar &lt;&gt; "")</em> wahr, wenn <em>EigeneVar</em> nicht leer ist. Allerdings werden zwei aufeinanderfolgende Anf&uuml;hrungszeichen in einer <a href="commands/IfEqual.htm">traditionellen If-Anweisung</a> direkt behandelt. Zum Beispiel ist die Anweisung <em>if EigeneVar = ""</em> nur wahr, wenn <em>EigeneVar</em> zwei Anf&uuml;hrungszeichen enth&auml;lt. Um daher zu &uuml;berpr&uuml;fen, ob eine Variable in einer traditionellen If-Anweisung leer ist, verwendet wie in diesem Beispiel einfach nur = oder &lt;&gt;: <em>if Var =</em></p>
-<p>Zus&auml;tzlich ergibt ein ung&uuml;ltiger Ausdruck wie (x +* 3) einen leeren String.</p>
+<p>Im obigen Beispiel wurde "Blau" in Anf&uuml;hrungszeichen gesetzt, weil es sich hierbei um einen String handelt. Hochkommas (') und Anf&uuml;hrungszeichen (") haben die gleiche Funktionsweise, aber mit der Ausnahme, dass ein String in Hochkommas direkte Anf&uuml;hrungszeichen enthalten kann und umgekehrt. Um daher ein <em>tats&auml;chliches</em> Anf&uuml;hrungszeichen/Hochkomma innerhalb eines direkten Strings einzuf&uuml;gen, <a href="misc/EscapeChar.htm">sch&uuml;tzt</a> es oder umschlie&szlig;t den String jeweils mit dem anderen Zeichen. Zum Beispiel:</p>
+<pre>MsgBox % "Sie sagte: <span class="red">`"</span>Ein Apfel am Tag.<span class="red">`"</span>"
+MsgBox % <span class="red">'</span>Sie sagte: "Ein Apfel am Tag."<span class="red">'</span></pre>
+<p><strong>Leere Strings</strong>: Um einen leeren String in einem Ausdruck anzugeben, verwendet zwei aufeinanderfolgende Anf&uuml;hrungszeichen. Zum Beispiel ist die Anweisung <em>if (EigeneVar &lt;&gt; "")</em> wahr, wenn <em>EigeneVar</em> nicht leer ist.<em></em></p>
+<p>In diesem Zusammenhang ergibt ein ung&uuml;ltiger Ausdruck wie (x +* 3) einen leeren String.</p>
 <p><strong>Das Ergebnis eines Ausdrucks speichern</strong>: Um ein Ergebnis einer Variable zuzuweisen, verwendet den <a href="commands/SetExpression.htm">Operator ":="</a>. Zum Beispiel:</p>
 <pre>Nettopreis := Preis * (1 - Rabatt/100)</pre>
 <p id="Boolean"><strong>Boolesche Werte</strong>: Damit ein Ausdruck als wahr oder falsch gewertet wird (wie z. B. bei einer IF-Anweisung), wird ein leeres Ergebnis oder ein Ergebnis mit 0 als falsch und der Rest als wahr angesehen. Zum Beispiel ist die Anweisung "if Elementz&auml;hlung" nur dann falsch, wenn Elementz&auml;hlung leer oder 0 ist. Ebenso erm&ouml;glicht die Anweisung "if not Elementz&auml;hlung" das Gegenteil.</p>
-<p>Operatoren wie NOT/AND/OR/&gt;/=/&lt; erzeugen automatisch einen wahren oder falschen Wert: sie erzeugen eine 1 f&uuml;r wahr und 0 f&uuml;r falsch. Im folgenden Ausdruck wird der <em>Fertig</em>-Variable zum Beispiel eine 1 zugewiesen, wenn eine der beiden Bedingungen erf&uuml;llt ist:</p>
+<p>Operatoren wie NOT/&gt;/=/&lt; erzeugen automatisch einen wahren oder falschen Wert: sie erzeugen eine 1 f&uuml;r wahr und 0 f&uuml;r falsch. Allerdings erzeugen die Operatoren AND und OR immer einen der Eingabewerte. Im folgenden Beispiel wird der <em>Fertig</em>-Variable eine 1 zugewiesen, wenn A_Index gr&ouml;&szlig;er als 5 ist, oder ansonsten der Wert von <em>Gefunden</em>:</p>
 <pre>Fertig := A_Index &gt; 5 or Gefunden</pre>
 <p>Wie bereits oben angedeutet kann eine Variable dazu verwendet werden, einen falschen Wert zu beinhalten, indem sie einfach leer gemacht oder ihr eine 0 zugewiesen wird. Der Vorteil davon ist, dass die Kurzanweisung "if Fertig" zur &Uuml;berpr&uuml;fung verwendet werden kann, ob die Fertig-Variable wahr oder falsch ist.</p>
-<p><a name="True"></a><a name="False"></a>Die W&ouml;rter <em>True</em> und <em>False</em> sind interne Variablen, die eine 1 und eine 0 enthalten. Sie k&ouml;nnen verwendet werden, um ein Script besser lesbar zumachen, z. B.:</p>
+<p><a name="True"></a><a name="False"></a>In einem Ausdruck werden die Schl&uuml;sselw&ouml;rter <em>True</em> und <em>False</em> in 1 und 0 aufgel&ouml;st. Sie k&ouml;nnen verwendet werden, um ein Script besser lesbar zumachen, z. B.:</p>
 <pre>Zeichengenauigkeit := false
 Suchfortsetzung := true</pre>
-<p><strong>Integer und Flie&szlig;kommazahlen</strong>: Innerhalb eines Ausdrucks werden Zahlen als Flie&szlig;kommazahlen angesehen, sobald sie einen Dezimalpunkt enthalten, ansonsten sind sie Integer. Sobald bei den meisten Operatoren wie Addition und Multiplikation eine der Eingaben eine Flie&szlig;kommazahl ist, dann ist das Ergebnis auch eine Flie&szlig;kommazahl.</p>
-<p>Innerhalb von Ausdr&uuml;cken sowie auch Nicht-Ausdr&uuml;cken k&ouml;nnen Zahlen im hexadezimalen oder dezimalen Format geschrieben werden. Hexadezimalzahlen beginnen mit dem 0x-Pr&auml;fix. Zum Beispiel ist <em>Sleep 0xFF</em> gleichwertig mit <em>Sleep 255</em>. Seit v1.0.46.11 werden Flie&szlig;kommazahlen in wissenschaftlichen Notationen erkannt; aber nur, wenn sie einen Dezimalpunkt enthalten (z. B. 1<strong>.</strong>0e4 und -2<strong>.</strong>1E-4).</p>
-<p><strong>Einen Ausdruck erzwingen</strong>: Ein Ausdruck kann in einem Parameter erzwungen werden (au&szlig;er bei Ausgabe- oder Eingabevariablen wie z. B. in <a href="commands/StringLen.htm">StringLen</a>), sobald der Ausdruck ein Prozent- und Leerzeichen (oder Tabulator) davor hat. Diese Technik wird h&auml;ufig verwendet, um auf <a href="misc/Arrays.htm">Arrays</a> zuzugreifen. Zum Beispiel:</p>
-<pre><a href="commands/FileAppend.htm">FileAppend</a>, <strong>%</strong> EigenerArray%i%, Eigene Datei.txt
-<a href="commands/MsgBox.htm">MsgBox</a> <strong>%</strong> "Die Variable EigeneVar enth&auml;lt " . EigeneVar . "."
-<a href="commands/Loop.htm">Loop</a> <strong>%</strong> Iterationen + 1
+<p><strong>Integer und Flie&szlig;kommazahlen</strong>: Innerhalb eines Ausdrucks werden Zahlen als Flie&szlig;kommazahlen angesehen, sobald sie einen Dezimalpunkt oder eine wissenschaftliche Notation enthalten, ansonsten sind sie Integer. Sobald bei den meisten Operatoren wie Addition und Multiplikation eine der Eingaben eine Flie&szlig;kommazahl ist, dann ist das Ergebnis auch eine Flie&szlig;kommazahl.</p>
+<p>Innerhalb von Ausdr&uuml;cken sowie auch Nicht-Ausdr&uuml;cken k&ouml;nnen Zahlen im hexadezimalen oder dezimalen Format geschrieben werden. Hexadezimalzahlen beginnen mit dem 0x-Pr&auml;fix. Zum Beispiel ist <em>Sleep 0xFF</em> gleichwertig mit <em>Sleep 255</em>. Flie&szlig;kommazahlen k&ouml;nnen optional als wissenschaftlichen Notation geschrieben werden, mit oder ohne Dezimalpunkt (z. B. 1e4 oder -2.1E-4).</p>
+<p><strong>Einen Ausdruck erzwingen</strong>: Ein Ausdruck kann in einem Parameter erzwungen werden (au&szlig;er in einem Ausgabevariable<a href="commands/StrLen.htm"></a>-Parameter), sobald der Ausdruck ein Prozent- und Leerzeichen (oder Tabulator) davor hat. Zum Beispiel:</p>
+<pre><a href="commands/MsgBox.htm">MsgBox</a> <strong>%</strong> "Die Variable EigeneVar enth&auml;lt " . EigeneVar . "."
 <a href="commands/WinSet.htm">WinSet</a>, Transparent, <strong>%</strong> X + 100
 <a href="commands/WinSet.htm">Control</a>, Choose, <strong>%</strong> AktuelleAuswahl - 1</pre>
 <h2 id="Operators">Operatoren in Ausdr&uuml;cken</h2>
 <p>Operatoren mit gleicher Priorit&auml;t wie Multiplizieren (*) und Dividieren (/) werden von links nach rechts ausgewertet, sofern nicht anders unten angegeben. Ein Operator mit niedrigerer Priorit&auml;t wie Addieren (+) wird hingegen erst <em>nach</em> einem h&ouml;heren Operator wie Multiplizieren (*) ausgewertet. Zum Beispiel wird 3 + 2 * 2 als 3 + (2 * 2) ausgewertet. Klammern k&ouml;nnen verwendet werden, um die Priorit&auml;t wie in diesem Beispiel zu &uuml;berschreiben: (3 + 2) * 2</p>
-<p>Soweit nicht anders unten angegeben wird jeder leere Wert (String) in einer mathematischen Operation <strong>nicht</strong> als 0 angesehen. Stattdessen wird es als Fehler behandelt, wodurch dieser Teil des Ausdrucks als leerer String gewertet wird. Wenn zum Beispiel die Variable X leer ist, dann ist das Ergebnis von Ausdruck X+1 leer, anstatt 1.</p>
+<p>Jeder leere Wert (String) in einer mathematischen Operation wird <strong>nicht</strong> als 0 angesehen. Stattdessen wird es als Fehler behandelt, wodurch dieser Teil des Ausdrucks als leerer String gewertet wird. Wenn zum Beispiel die Variable X leer ist, dann ist das Ergebnis von Ausdruck X+1 leer, anstatt 1.</p>
 <h3>Ausdrucksoperatoren (in absteigender Priorit&auml;t)</h3>
 <table class="info">
   <tbody>
 <tr id="ref">
-    <td style="white-space:nowrap" align="center"><strong>%Var%</strong></td>
+    <td style="white-space: nowrap;" align="center"><strong>%Var%</strong></td>
     <td>
 <p>Sobald eine Variable innerhalb eines Ausdrucks von Prozentzeichen umschlossen ist (z. B. %Var%), dann wird davon ausgegangen, dass sie den Namen oder Teilnamen einer anderen Variable <u>enth&auml;lt</u> (falls so eine Variable nicht vorhanden ist, wird %Var% in einen leeren String aufgel&ouml;st). Das wird h&auml;ufig dazu verwendet, auf <a href="misc/Arrays.htm#pseudo">Pseudo-Array</a>-Elemente wie im folgenden Beispiel zu verweisen:</p>
       <pre>Var := EigenerArray%A_Index% + 100</pre>
-      <p>Aus Gr&uuml;nden der Abw&auml;rtskompatibilit&auml;t werden Befehlsparameter, die ein Ausdruck sein k&ouml;nnen, die Prozentzeichen eines isolierten Namens in Prozentzeichen (z. B. %Var%, aber nicht Array%i%) ignorieren. Das kann verhindert werden, indem die Referenz von Klammern umschlossen wird; z. B. <code>Sleep (%Var%)</code></p>
-      <p><span class="ver">[AHK_L 52+]:</span> Zus&auml;tzlich zu den normalen Variablen kann %Var% in eine <a href="#env">Umgebungsvariable</a>, die Zwischenablage oder eine <a href="#BuiltIn">reservierte/schreibgesch&uuml;tzte Variable</a> aufgel&ouml;st werden. Vor Revision 52 ergab %Var% in diesen F&auml;llen eine leeren String.</p></td>
+      <p>Das schlie&szlig;ende Prozentzeichen kann weggelassen werden, solange das Zeichen nach dem Variablenverweis nicht in einem Variablennamen verwendet werden kann.</p>
+      <p>%Var% kann auch in eine <a href="#BuiltIn">interne Variable</a> aufgel&ouml;st werden.</p></td>
   </tr>
   <tr>
     <td align="center"><strong>x.y</strong></td>
-    <td><span class="ver">[AHK_L 31+]:</span> <strong>Auf ein Objekt zugreifen</strong>. Abrufen oder Setzen eines Werts, oder Aufrufen einer Methode von Objekt <i>x</i>, wobei <i>y</i> ein direkter Wert ist. Siehe <a href="Objects.htm#Usage_Objects">Objekt-Syntax</a>.</td>
+    <td><span class="ver">[AHK_L 31+]:</span> <strong>Objektzugriff</strong>. Abrufen oder Setzen eines Werts, oder Aufrufen einer Methode von Objekt <i>x</i>, wobei <i>y</i> ein direkter Wert ist. Siehe <a href="Objects.htm#Usage_Objects">Objekt-Syntax</a>.</td>
   </tr>
   <tr id="IncDec">
     <td align="center"><strong>++<br> --</strong></td>
@@ -109,21 +100,21 @@ Suchfortsetzung := true</pre>
       <p><strong>Logisches NICHT (!)</strong>: Wenn der Operand leer oder 0 ist, dann ist das Ergebnis bei einem logischen NICHT eine 1, also "wahr". Ansonsten ist das Ergebnis eine 0 (falsch). Zum Beispiel: <em>!x or !(y and z)</em>. Hinweis: Das Wort NOT ist gleichbedeutend mit <strong>!</strong>, au&szlig;er dass <strong>!</strong> eine h&ouml;here Priorit&auml;t hat. Seit v1.0.46 sind aufeinanderfolgende einstellige Operatoren wie <em><strong>!!</strong>Var</em> erlaubt, weil sie von rechts nach links ausgewertet werden.</p>
       <p><strong>Bitweises NICHT (~)</strong>: Dadurch wird jedes Bit des Operanden umgekehrt. Wenn der Operand eine Flie&szlig;kommazahl ist, dann wird sie vor der Berechnung auf einen Integer gek&uuml;rzt. Wenn der Operand zwischen 0 und 4294967295 (0xffffffff) liegt, dann wird diese Zahl als ein <u>unsigned</u> 32-Bit-Wert behandelt. Ansonsten wird diese Zahl als ein <u>signed</u> 64-Bit-Wert behandelt. Zum Beispiel wird ~0xf0f zu 0xfffff0f0 (4294963440) ausgewertet.</p>
       <p><a name="amp"></a><strong>Adresse (&amp;)</strong>: <em>&amp;EigeneVar</em> ermittelt die Adresse des Speicherinhalts von <em>EigeneVar</em>, die typischerweise bei <a href="commands/DllCall.htm#struct">DllCall-Strukturen</a> verwendet wird. <em>&amp;EigeneVar</em> deaktiviert au&szlig;erdem das Zwischenspeichern von Bin&auml;rzahlen in dieser Variable, wodurch die Performance verringert wird, wenn sie jemals f&uuml;r Berechnungen oder numerische Vergleiche gebraucht wird. Das Zwischenspeichern einer Variable wird wieder aktiviert, sobald sich ihre Adresse &auml;ndert (z. B. durch <a href="commands/VarSetCapacity.htm">VarSetCapacity()</a>).</p>
-      <p><strong>Dereferenzierung (*)</strong>: Bei <em>*Ausdruck</em> wird angenommen, dass der <em>Ausdruck</em> in eine numerische Speicheradresse aufgel&ouml;st wird; dabei wird das Byte auf dieser Adresse als eine Zahl zwischen 0 und 255 ermittelt (0 wird immer abgerufen, sobald die Adresse 0 ist; jede andere ung&uuml;ltige Adresse sollte vermieden werden, weil ansonsten das Script abst&uuml;rzen kann). Allerdings ist <a href="Functions.htm#NumGet">NumGet()</a> beim Abrufen von bin&auml;ren Zahlen besser geeignet.</p></td>
+      <p><strong>Dereferenzierung (*)</strong>: Bei <em>*Ausdruck</em> wird angenommen, dass der <em>Ausdruck</em> in eine numerische Speicheradresse aufgel&ouml;st wird; dabei wird das Byte auf dieser Adresse als eine Zahl zwischen 0 und 255 ermittelt (0 wird immer abgerufen, sobald die Adresse 0 ist; jede andere ung&uuml;ltige Adresse sollte vermieden werden, weil ansonsten das Script abst&uuml;rzen kann). Allerdings ist <a href="commands/NumGet.htm">NumGet()</a> beim Abrufen von bin&auml;ren Zahlen besser geeignet.</p></td>
   </tr>
   <tr>
     <td align="center"><strong>*<br> /<br> //</strong></td>
     <td>
 <p><strong>Multiplizieren (*)</strong>: Das Ergebnis ist ein Integer, wenn beide Eingaben Integer sind, ansonsten ist es eine Flie&szlig;kommazahl.</p>
-      <p><a name="divide"></a><strong>Echtes Dividieren (/)</strong>: Im Gegensatz zu <a href="commands/EnvDiv.htm">EnvDiv</a> ergibt die echte Division eine Flie&szlig;kommazahl, selbst wenn beide Eingaben Integer sind. Zum Beispiel ergibt 3/2 eine 1.5 anstelle von 1, und 4/2 ergibt 2.0 anstelle von 2.</p>
+      <p><a name="divide"></a><strong>Echtes Dividieren (/)</strong>: Die echte Division erzeugt auch dann eine Flie&szlig;kommazahl, wenn beide Eingaben Integer sind. Zum Beispiel erzeugt 3/2 das Ergebnis 1.5 anstelle von 1, und 4/2 das Ergebnis 2.0 anstelle von 2.</p>
       <p><strong><a name="FloorDivide"></a>Floor-Dividieren (//)</strong>: Der Doppel-Schr&auml;gstrich-Operator verwendet Integer-Division f&uuml;r eine hohe Performance, wenn die zwei Eingaben Integer sind. Zum Beispiel ergibt 5//3 eine 1 und 5//-3 eine -1. Wenn eine der beiden Eingaben eine Flie&szlig;kommazahl ist, dann erfolgt eine Flie&szlig;komma-Division, au&szlig;erdem wird das Ergebnis auf den n&auml;chsten linken Integer gek&uuml;rzt. Zum Beispiel ergibt 5//30 eine 10 und 50//-3 eine -20. Auch wenn das Ergebnis dieser Flie&szlig;komma-Division ein Integer ist, enth&auml;lt es eine Flie&szlig;kommazahl, die als solches angesehen wird, sobald es anderweitig verwendet wird. F&uuml;r Modulo, siehe <a href="Functions.htm#Mod">mod()</a>.</p>
-    <p>Die Operatoren <a href="commands/EnvMult.htm">*=</a> und <a href="commands/EnvDiv.htm">/=</a> Operatoren sind Abk&uuml;rzungen f&uuml;r das Multiplizieren oder Dividieren des Werts in einer Variable mit einem anderen Wert. Zum Beispiel erzeugt <em>Var*=2</em> das gleiche Ergebnis wie <em>Var:=Var*2</em> (obwohl das Vorherige bessere Performance erzielt).</p>
+    <p>Die Operatoren <a href="#AssignOp">*=</a> und <a href="#AssignOp">/=</a> Operatoren sind Abk&uuml;rzungen f&uuml;r das Multiplizieren oder Dividieren des Werts in einer Variable mit einem anderen Wert. Zum Beispiel erzeugt <em>Var*=2</em> das gleiche Ergebnis wie <em>Var:=Var*2</em> (obwohl das Vorherige bessere Performance erzielt).</p>
     <p>Division durch 0 ergibt ein leeres Ergebnis (leerer String).</p></td>
   </tr>
   <tr>
     <td align="center"><strong>+<br> - </strong></td>
     <td>
-<p><strong>Addieren (+)</strong> und <strong>Subtrahieren (-)</strong>. Au&szlig;erdem sind die Operatoren <strong><a href="commands/EnvAdd.htm">+=</a></strong> und <strong><a href="commands/EnvSub.htm">-=</a></strong> Abk&uuml;rzungen f&uuml;r das Erh&ouml;hen oder Verringern einer Variable. Zum Beispiel erzeugt <em>Var+=2</em> das gleiche Ergebnis wie <em>Var:=Var+2</em> (obwohl das Vorherige bessere Performance erzielt). Ebenso kann der Wert einer Variable um 1 erh&ouml;ht oder verringert werden, wenn <a href="#IncDec">Var++, Var--, ++Var oder --Var</a> verwendet wird.</p>
+<p><strong>Addieren (+)</strong> und <strong>Subtrahieren (-)</strong>. Au&szlig;erdem sind die Operatoren <strong><a href="#AssignOp">+=</a></strong> und <strong><a href="#AssignOp">-=</a></strong> Abk&uuml;rzungen f&uuml;r das Erh&ouml;hen oder Verringern einer Variable. Zum Beispiel erzeugt <em>Var+=2</em> das gleiche Ergebnis wie <em>Var:=Var+2</em> (obwohl das Vorherige bessere Performance erzielt). Ebenso kann der Wert einer Variable um 1 erh&ouml;ht oder verringert werden, wenn <a href="#IncDec">Var++, Var--, ++Var oder --Var</a> verwendet wird.</p>
     </td>
   </tr>
   <tr id="bitwise">
@@ -147,23 +138,31 @@ Suchfortsetzung := true</pre>
   </tr>
   <tr id="compare">
     <td align="center"><strong>&gt;&nbsp;&nbsp;&nbsp;&lt;<br> &gt;= &lt;=</strong></td>
-    <td><strong>Gr&ouml;&szlig;er (&gt;)</strong>, <strong>kleiner (&lt;)</strong>, <strong>gr&ouml;&szlig;er gleich (&gt;=)</strong> und <strong>kleiner gleich (&lt;=)</strong>. Wenn eine der beiden Eingaben keine Zahl ist, dann werden beide in alphabetischer Reihenfolge verglichen (in diesem Fall wird ein direkter String in Anf&uuml;hrungszeichen wie "55" immer als nicht-numerisch angesehen). Der Vergleich ist erst von der Gro&szlig;- bzw. Kleinschreibung abh&auml;ngig, wenn <a href="commands/StringCaseSense.htm">StringCaseSense</a> aktiv ist. Siehe auch: <a href="commands/Sort.htm">Sort</a></td>
+    <td><strong>Gr&ouml;&szlig;er (&gt;)</strong>, <strong>kleiner (&lt;)</strong>, <strong>gr&ouml;&szlig;er gleich (&gt;=)</strong> und <strong>kleiner gleich (&lt;=)</strong>. Wenn eine der beiden Eingaben nicht numerisch ist (oder beides Strings sind), werden beide in alphabetischer Reihenfolge verglichen. Zum Beispiel ist 2 &lt; "10" <em>wahr</em>, w&auml;hrend "2" &lt; "10" <em>falsch</em> ist. Der Vergleich ist erst von der Gro&szlig;- bzw. Kleinschreibung abh&auml;ngig, wenn <a href="commands/StringCaseSense.htm">StringCaseSense</a> aktiv ist. Siehe auch: <a href="commands/Sort.htm">Sort</a></td>
   </tr>
   <tr id="equal">
     <td align="center"><strong>=<br> ==<br> &lt;&gt; != </strong></td>
-    <td><strong>Gleich (=) </strong>, <strong>zeichengenau gleich (==) </strong> und <strong>ungleich (&lt;&gt;</strong> oder <strong>!=)</strong>. Die Operatoren <strong>!=</strong> und <strong>&lt;&gt;</strong> sind funktionsgem&auml;&szlig; identisch. Der Operator <strong>==</strong> verh&auml;lt sich identisch zu <strong>=</strong>, es sei denn, eine der beiden Eingaben ist keine Zahl, in diesem Fall ist <strong>==</strong> immer von der Gro&szlig;- und Kleinschreibung abh&auml;ngig und <strong>=</strong> immer nicht von der Gro&szlig;- und Kleinschreibung abh&auml;ngig (abh&auml;ngig von <a href="commands/StringCaseSense.htm">StringCaseSense</a>). <strong>&lt;&gt;</strong> und <strong>!=</strong> hingegen ber&uuml;cksichtigen den Befehl <a href="commands/StringCaseSense.htm">StringCaseSense</a>. Hinweis: In diesem Fall wird ein direkter String in Anf&uuml;hrungszeichen wie "55" immer als nicht-numerisch angesehen.</td>
+    <td><strong>Gleich (=) </strong>, <strong>zeichengenau gleich (==) </strong> und <strong>ungleich (&lt;&gt;</strong> oder <strong>!=)</strong>. Die Operatoren <strong>!=</strong> und <strong>&lt;&gt;</strong> sind funktionsgem&auml;&szlig; identisch. Der Operator <strong>==</strong> verh&auml;lt sich identisch zu <strong>=</strong>, es sei denn, eine der beiden Eingaben ist nicht numerisch (oder beide Strings), in diesem Fall ist <strong>==</strong> immer von der Gro&szlig;- und Kleinschreibung abh&auml;ngig und <strong>=</strong> immer von der Gro&szlig;- und Kleinschreibung unabh&auml;ngig (abh&auml;ngig von <a href="commands/StringCaseSense.htm">StringCaseSense</a>). <strong>&lt;&gt;</strong> und <strong>!=</strong> hingegen ber&uuml;cksichtigen den Befehl <a href="commands/StringCaseSense.htm">StringCaseSense</a>.<br></td>
   </tr>
-  <tr>
+  <tr id="not">
     <td align="center"><strong>NOT</strong></td>
     <td><strong>Logisches NICHT</strong>. Das Gleiche wie der <strong>!</strong>-Operator, nur mit geringerer Priorit&auml;t. Zum Beispiel ist <em>not (x = 3 or y = 3)</em> das Gleiche wie <em> <strong>!</strong>(x = 3 or y = 3)</em></td>
   </tr>
-  <tr>
+  <tr id="and">
     <td align="center"><strong>AND<br> &amp;&amp; </strong></td>
-    <td>Beide sind ein <strong>logisches UND</strong>. Zum Beispiel: <em>x &gt; 3 and x &lt; 10</em>. Zur Verbesserung der Performance wird die <a href="Functions.htm#ShortCircuit">Kurzschlussauswertung</a> angewandt. Au&szlig;erdem wird eine Zeile, die mit AND/OR/&amp;&amp;/|| (oder mit jedem anderen Operator) beginnt, automatisch an die dar&uuml;berliegende Zeile <a href="Scripts.htm#continuation">angeh&auml;ngt</a>.</td>
+    <td>
+<p>Beide sind ein <strong>logisches UND</strong>. Zum Beispiel: <em>x &gt; 3 and x &lt; 10</em>.</p>
+    <p>Wenn im Ausdruck <em>x and y</em> das x <a href="Functions.htm#ShortCircuit">wahr</a> ist, dann ist y das Ergebnis. Ansonsten ist x das Ergebnis und die Auswertung von y nicht weiter relevant. Zur Verbesserung der Performance wird die <a href="Functions.htm#ShortCircuit">Kurzschlussauswertung</a> angewandt. Obwohl das Ergebnis nicht auf eine boolesche 0 und 1 begrenzt ist, kann es dennoch wie jeder andere Ausdruck als <a href="#Boolean">boolescher</a> Wert interpretiert werden. Das hei&szlig;t, dass das Ergebnis nur wahr ist, wenn beide Eingaben auch wahr sind.<br></p>
+    <p>Au&szlig;erdem wird eine Zeile, die mit AND/OR/&amp;&amp;/|| (oder mit jedem anderen Operator) beginnt, automatisch an die dar&uuml;berliegende Zeile <a href="Scripts.htm#continuation">angeh&auml;ngt</a>.</p></td>
   </tr>
-  <tr>
+  <tr id="or">
     <td align="center"><strong>OR<br> || </strong></td>
-    <td>Beide sind ein <strong>logisches ODER</strong>. Zum Beispiel: <em>x &lt;= 3 or x &gt;= 10</em>.  Zur Verbesserung der Performance wird die <a href="Functions.htm#ShortCircuit">Kurzschlussauswertung</a> angewandt.</td>
+    <td>
+<p>Beide sind ein <strong>logisches ODER</strong>. Zum Beispiel: <em>x &lt;= 3 or x &gt;= 10</em>.</p>
+    <p>Wenn im Ausdruck <em>x or y</em> das x <a href="Functions.htm#ShortCircuit">falsch</a>
+ ist, dann ist y das Ergebnis. Ansonsten ist x das Ergebnis und die 
+Auswertung von y nicht weiter relevant. Zur Verbesserung der Performance
+ wird die <a href="Functions.htm#ShortCircuit">Kurzschlussauswertung</a> angewandt. Obwohl das Ergebnis nicht auf eine boolesche 0 und 1 begrenzt ist, kann es dennoch wie jeder andere Ausdruck als <a href="Variables.htm#Boolean">boolescher</a> Wert interpretiert werden. Das hei&szlig;t, dass das Ergebnis wahr ist, wenn eine der beiden Eingaben auch wahr sind.</p></td>
   </tr>
   <tr id="ternary">
     <td align="center"><strong>?:<br></strong></td>
@@ -176,19 +175,12 @@ Suchfortsetzung := true</pre>
 <p><strong>Zuweisung</strong>. F&uuml;hrt eine Operation auf den Inhalt einer Variable aus und speichert das Ergebnis wieder in dieselbe Variable (aber in den Versionen vor 1.0.46 konnten diese nur als Operator ganz links auf der Zeile verwendet werden, au&szlig;erdem wurden nur die ersten f&uuml;nf Operatoren unterst&uuml;tzt). Der einfachste Zuweisungsoperator ist <a href="commands/SetExpression.htm">Doppelpunkt-Gleich (:=)</a>, der das Ergebnis eines Ausdrucks in eine Variable speichert. F&uuml;r die Beschreibung anderer Operatoren, siehe weiter unten. Zum Beispiel f&uuml;hrt <em>Variable //= 2</em> eine <a href="#FloorDivide">Floor-Division</a> aus, um die <em>Variable</em> mit 2 zu teilen, danach wird das Ergebnis wieder in die <em>Variable</em> gespeichert. Ebenso ist <em>Variable <strong>.=</strong> "abc"</em> gleichwertig mit <em>Variable := Variable <strong>.</strong> "abc"</em>.</p>
       <p>Im Gegensatz zu den meisten anderen Operatoren werden Zuweisungen von rechts nach links ausgewertet. Folglich wird mit einer Zeile wie <em>Variable1 := Variable2 := 0</em> zuerst der <em>Variable2</em> eine 0 zugewiesen und danach der <em>Variable1</em> die <em>Variable2</em> zugewiesen.</p>
     <p>Sobald eine Zuweisung als Eingabe f&uuml;r einen anderen Operator verwendet wird, ist der Wert die Variable selbst. Zum Beispiel ist der Ausdruck <em>(Variable+=2) &gt; 50</em> wahr, wenn der gerade erh&ouml;hte Wert in der <em>Variable</em> gr&ouml;&szlig;er als 50 ist. Dadurch kann eine Zuweisung mittels <a href="Functions.htm#ByRef">ByRef</a> &uuml;bergeben oder ihre <a href="#amp">Adresse</a> &uuml;bernommen werden; zum Beispiel: <em>&amp;(x:="abc")</em>.</p>
-    <p>Die Priorit&auml;t des Zuweisungsoperators wird automatisch erh&ouml;ht, um ein Syntaxfehler zu unterdr&uuml;cken oder intuitiveres Verhalten bereitzustellen. Zum Beispiel: <em>not x:=y</em> wird wie <em>not (x:=y)</em> ausgewertet. Ebenso wird <em>++Var := X</em> wie <em>++(Var := X)</em> ausgewertet; und <em> Z&gt;0 ? X:=2 : Y:=2</em> wie <em>Z&gt;0 ? (X:=2) : (Y:=2) ausgewertet.</em></p>
-    <p>Bekannte Einschr&auml;nkungen, verursacht durch die Abw&auml;rtskompatibilit&auml;t (diese k&ouml;nnen in einer zuk&uuml;nftigen Version behoben werden):<br></p>
-<ol>
-<li>Sobald "<strong>/=</strong>" der Operator ganz links in einem Ausdruck ist und nicht zu einem <a href="#comma">Ausdruck mit mehreren Anweisungen</a> geh&ouml;rt, dann erfolgt die <a href="#FloorDivide">Floor-Division</a>, es sei denn, eine der Eingaben ist eine Flie&szlig;kommazahl (ansonsten wird bei "<strong>/=</strong>" die <a href="#divide">echte Division</a> durchgef&uuml;hrt)</li>
-<li><a href="commands/EnvAdd.htm">Datum/Zeit-Berechnung</a> wird nur von "<strong>+=</strong>" und "<strong>-=</strong>" unterst&uuml;tzt, wenn dieser Operator ganz links auf der Zeile ist</li>
-<li>Die Operatoren "<strong>+=</strong>", "<strong>-=</strong>" und "*=" behandeln leere Variablen als 0, aber nur solange sie alleine auf einer Zeile stehen; zum Beispiel erzeugen sowohl "<em>y:=1, x+=1</em>" als auch "<em>MsgBox % x-=3</em>" ein leeres Ergebnis, sobald x leer ist.</li></ol>
-<p></p></td>
-  </tr>
-  <tr id="comma">
-    <td align="center"><strong>,</strong></td>
+    <p>Die Priorit&auml;t des Zuweisungsoperators wird automatisch erh&ouml;ht, um ein Syntaxfehler zu unterdr&uuml;cken oder intuitiveres Verhalten bereitzustellen. Zum Beispiel wird <em>not x:=y</em> wie <em>not (x:=y)</em> ausgewertet. Ebenso wird <em>++Var := X</em> wie <em>++(Var := X)</em> ausgewertet; und <em> Z&gt;0 ? X:=2 : Y:=2</em> wie <em>Z&gt;0 ? (X:=2) : (Y:=2)</em> ausgewertet.</p></td></tr>
+<tr id="comma">
+<td align="center"><strong>,</strong></td>
     <td>
-<p><strong>Komma (mehrere Anweisungen)</strong> <span class="ver">[v1.0.46+]</span>. Kommas k&ouml;nnen verwendet werden, um mehrere Teilausdr&uuml;cke auf einer Zeile zu schreiben. Das wird h&auml;ufig dazu verwendet, mehrere Zuweisungen oder Funktionsaufrufe zu gruppieren.  Zum Beispiel: <em>x:=1<strong>,</strong> y+=2<strong>,</strong> ++index, func()</em>. Solche Anweisungen werden von links nach rechts ausgef&uuml;hrt. Hinweis: Eine Zeile, die mit einem Komma (oder mit jedem anderen Operator) beginnt, wird automatisch an die dar&uuml;berliegende Zeile <a href="Scripts.htm#continuation">angeh&auml;ngt</a>. Siehe auch: <a href="#CommaPerf">Komma-Performance</a>.</p>
-      <p>Seit v1.0.46.01 wird das Gleichheitszeichen als <a href="commands/SetExpression.htm">Zuweisung (:=)</a> behandelt, sobald unmittelbar nach einem Komma eine Variable und ein Gleichheitszeichen erfolgen. Die folgende Beispiele sind Zuweisungen: <em>x:=1, y=2, a=b=c</em></p></td>
+<p><strong>Komma (Mehrfachanweisung)</strong> <span class="ver">[v1.0.46+]</span>. Kommas k&ouml;nnen verwendet werden, um mehrere Teilausdr&uuml;cke auf einer Zeile zu schreiben. Das wird h&auml;ufig dazu verwendet, mehrere Zuweisungen oder Funktionsaufrufe zu gruppieren.  Zum Beispiel: <em>x:=1<strong>,</strong> y+=2<strong>,</strong> ++index, func()</em>. Solche Anweisungen werden von links nach rechts ausgef&uuml;hrt. Hinweis: Eine Zeile, die mit einem Komma (oder mit jedem anderen Operator) beginnt, wird automatisch an die dar&uuml;berliegende Zeile <a href="Scripts.htm#continuation">angeh&auml;ngt</a>. Siehe auch: <a href="#CommaPerf">Komma-Performance</a>.</p>
+      <p>Wenn eine Mehrfachanweisung innerhalb eines anderen Ausdrucks verwendet wird, dann wird zuerst jeder Teilausdruck ausgewertet und danach der letzte Teilausdruck ganz rechts als Endergebnis genommen. Zum Beispiel wird mit <code>x := (++y, 1)</code> y um 1 erh&ouml;ht und in x die Zahl 1 gespeichert.<br></p></td>
   </tr>
   <tr>
     <td align="center">
@@ -219,9 +211,9 @@ Suchfortsetzung := true</pre>
   <li>Sonderzeichen: <a href="#Space">A_Space</a>, <a href="#Tab">A_Tab</a></li>
   <li>Script-Eigenschaften: <a href="#CommandLine">Befehlszeilenparameter</a>, <a href="#WorkingDir">A_WorkingDir</a>, <a href="#ScriptDir">A_ScriptDir</a>, <a href="#ScriptName">A_ScriptName</a>, <a href="#prop">(...mehr...)</a></li>
   <li>Datum und Zeit: <a href="#YYYY">A_YYYY</a>, <a href="#MM">A_MM</a>, <a href="#DD">A_DD</a>, <a href="#Hour">A_Hour</a>, <a href="#Min">A_Min</a>, <a href="#Sec">A_Sec</a>, <a href="#date">(...mehr...)</a></li>
-  <li>Script-Einstellungen: <a href="#IsSuspended">A_IsSuspended</a>, <a href="#BatchLines">A_BatchLines</a>, <a href="#TitleMatchMode">A_TitleMatchMode</a>, <a href="#settings">(...mehr...)</a> </li>
+  <li>Script-Einstellungen: <a href="#IsSuspended">A_IsSuspended</a>, <a href="#TitleMatchMode">A_TitleMatchMode</a>, <a href="#settings">(...mehr...)</a> </li>
   <li>Abwesenheit des Benutzers: <a href="#TimeIdle">A_TimeIdle</a>, <a href="#TimeIdlePhysical">A_TimeIdlePhysical</a></li>
-  <li>GUI-Fenster und Men&uuml;leisten: <a href="#Gui">A_Gui</a>, <a href="#GuiControl">A_GuiControl</a>, <a href="#GuiEvent">A_GuiEvent</a>, <a href="#EventInfo">A_EventInfo</a></li>
+  <li>GUI-Fenster und Men&uuml;leisten: <a href="MsgBoxResult">A_MsgBoxResult</a>, <a href="#Gui">A_Gui</a>, <a href="#GuiControl">A_GuiControl</a>, <a href="#GuiEvent">A_GuiEvent</a>, <a href="#EventInfo">A_EventInfo</a></li>
   <li>Hotkeys, Hotstrings und benutzerdefinierte Men&uuml;punkte: <a href="#ThisHotkey">A_ThisHotkey</a>, <a href="#EndChar">A_EndChar</a>, <a href="#ThisMenuItem">A_ThisMenuItem</a>, <a href="#h">(...mehr...)</a></li>
   <li>Betriebssystem und Benutzerinformationen: <a href="#OSVersion">A_OSVersion</a>, <a href="#Screen">A_ScreenWidth</a>, <a href="#Screen">A_ScreenHeight</a>, <a href="#os">(...mehr...)</a></li>
   <li>Sonstiges: <a href="#Cursor">A_Cursor</a>, <a href="#Caret">A_CaretX</a>, <a href="#Caret">A_CaretY</a>, <a href="misc/Clipboard.htm">Clipboard</a>, <a href="misc/Clipboard.htm#ClipboardAll">ClipboardAll</a>, <a href="misc/ErrorLevel.htm">ErrorLevel</a></li>
@@ -232,27 +224,31 @@ Suchfortsetzung := true</pre>
   <tbody>
 <tr id="Space">
     <td>A_Space</td>
-    <td>Diese Variable enth&auml;lt ein einzelnes Leerzeichen. Siehe <a href="commands/AutoTrim.htm">AutoTrim</a> f&uuml;r weitere Details.</td>
+    <td>Diese Variable enth&auml;lt ein einzelnes Leerzeichen.</td>
   </tr>
   <tr id="Tab">
     <td>A_Tab</td>
-    <td>Diese Variable enth&auml;lt ein einzelnes Tabulatorzeichen. Siehe <a href="commands/AutoTrim.htm">AutoTrim</a> f&uuml;r weitere Details.</td>
+    <td>Diese Variable enth&auml;lt ein einzelnes Tabulatorzeichen.</td>
   </tr>
 </tbody></table>
 <h3 id="prop">Script-Eigenschaften</h3>
 <table class="info">
   <tbody>
 <tr id="CommandLine">
-    <td>1, 2, 3, etc. </td>
-    <td>Diese Variablen werden automatisch erstellt, sobald ein Script mit Befehlszeilenparametern gestartet wird. Sie k&ouml;nnen wie normale Variablennamen ge&auml;ndert oder abgerufen werden (zum Beispiel: %1%). Dar&uuml;ber hinaus enth&auml;lt %0% die Anzahl an &uuml;bergebenen Parametern (0 wenn keine). Weitere Informationen k&ouml;nnen bei <a href="Scripts.htm#cmd">Befehlszeilenparameter</a> gefunden werden.</td>
+    <td>Args </td>
+    <td>Diese globale Variable enth&auml;lt einen <a href="Objects.htm#Usage_Simple_Arrays">Array</a> mit Befehlszeilenparametern, falls vorhanden; ansonsten wird sie nicht definiert. Im Gegensatz zu allen anderen internen Variablen muss diese Variable erst <a href="Functions.htm#Global">deklariert</a> werden, bevor sie in einer Funktion verwendet werden kann (es sei denn, die Funktion ist im <a href="Functions.htm#AssumeGlobal">Modus f&uuml;r die globale Ansicht</a>). F&uuml;r Details, siehe "<a href="Scripts.htm#cmd">Befehlszeilenparameter an einem Script &uuml;bergeben</a>".</td>
   </tr>
   <tr id="WorkingDir">
     <td>A_WorkingDir</td>
-    <td>Das aktuelle Arbeitsverzeichnis des Scripts, wo auf Dateien standardm&auml;&szlig;ig zugegriffen wird. Der letzte Backslash ist nur enthalten, wenn es ein Hauptverzeichnis ist. Zwei Beispiele: C:\ and C:\Eigene Dokumente. Verwendet <a href="commands/SetWorkingDir.htm">SetWorkingDir</a>, um das Arbeitsverzeichnis zu &auml;ndern.</td>
+    <td>Das aktuelle Arbeitsverzeichnis des Scripts, in der die Dateien standardm&auml;&szlig;ig ausgef&uuml;hrt werden. Der letzte Backslash ist nur enthalten, wenn es ein Hauptverzeichnis ist. Zwei Beispiele: C:\ and C:\Eigene Dokumente. Verwendet <a href="commands/SetWorkingDir.htm">SetWorkingDir</a>, um das Arbeitsverzeichnis zu &auml;ndern. A_WorkingDir ist standardm&auml;&szlig;ig A_ScriptDir, unabh&auml;ngig davon, wie das Script gestartet wurde.<br></td>
+  </tr>
+    <tr id="InitialWorkingDir">
+    <td>A_InitialWorkingDir</td>
+    <td>Das anf&auml;ngliche Arbeitsverzeichnis des Scripts, abh&auml;ngig davon, wie das Script gestartet wurde. Wenn es zum Beispiel &uuml;ber eine Verkn&uuml;pfung gestartet wurde (z. B. eine aus dem Startmen&uuml;), dann gilt das anf&auml;ngliche Arbeitsverzeichnis aus dem Feld "Ausf&uuml;hren in", das sich in den Eigenschaften der Verkn&uuml;pfung befindet.<br></td>
   </tr>
   <tr id="ScriptDir">
     <td>A_ScriptDir</td>
-    <td>Der vollst&auml;ndige Pfad des Verzeichnisses, wo sich das aktuelle Script befindet. Aus Gr&uuml;nden der Abw&auml;rtskompatibilit&auml;t mit AutoIt-v2 ist der letzte Backslash <strong>nur bei .aut-Scripts enthalten</strong> (selbst f&uuml;r Hauptverzeichnisse). Zum Beispiel bei <strong>.aut</strong>-Scripts: C:\Eigene Dokumente\.</td>
+    <td>Der vollst&auml;ndige Pfad des Verzeichnisses, auf der sich das aktuelle Script befindet. Ein nachfolgender Backslash ist nicht enthalten.</td>
   </tr>
   <tr id="ScriptName">
     <td>A_ScriptName</td>
@@ -349,7 +345,7 @@ Suchfortsetzung := true</pre>
   </tr>
   <tr id="YWeek">
     <td>A_YWeek</td>
-    <td>Aktuelles Jahr und Wochennummer (z. B. 200453) nach ISO 8601. Um das Jahr von der Woche zu trennen, verwendet <em><a href="commands/StringLeft.htm">StringLeft</a>, Jahr, A_YWeek, 4</em> und <em><a href="commands/StringLeft.htm">StringRight</a>, Woche, A_YWeek, 2</em>. Genaue Definition von A_YWeek: Wenn die Woche den 1. Januar, sowie vier oder mehr Tage des neuen Jahres hat, dann wird sie als Woche 1 betrachtet. Ansonsten ist sie die letzte Woche des vorherigen Jahres und die nachfolgende Woche die Woche 1.</td>
+    <td>Aktuelles Jahr und Wochennummer (z. B. 200453) nach ISO 8601. Um das Jahr von der Woche zu trennen, verwendet <a href="Functions.htm#SubStr">SubStr</a>. Genaue Definition von A_YWeek: Wenn die Woche den 1. Januar, sowie vier oder mehr Tage des neuen Jahres hat, dann wird sie als Woche 1 betrachtet. Ansonsten ist sie die letzte Woche des vorherigen Jahres und die nachfolgende Woche die Woche 1.</td>
   </tr>
   <tr id="Hour">
     <td>A_Hour</td>
@@ -370,7 +366,7 @@ Suchfortsetzung := true</pre>
   </tr>
   <tr id="Now">
     <td>A_Now</td>
-    <td>Die aktuelle Ortszeit im <a href="commands/FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format. Hinweis: Datum- und Zeitberechnung kann mithilfe von <a href="commands/EnvAdd.htm">EnvAdd</a> und <a href="commands/EnvSub.htm">EnvSub</a> durchgef&uuml;hrt werden. Au&szlig;erdem kann <a href="commands/FormatTime.htm">FormatTime</a> das Datum und/oder Zeit in Bezug auf das aktuelle Gebietsschema oder den aktuellen Einstellungen formatieren.</td>
+    <td>Die aktuelle Ortszeit im <a href="commands/FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format. Hinweis: Datum- und Zeitberechnung kann mithilfe von <a href="commands/DateAdd.htm">DateAdd</a> und <a href="commands/DateDiff.htm">DateDiff</a> durchgef&uuml;hrt werden. Au&szlig;erdem kann <a href="commands/FormatTime.htm">FormatTime</a> das Datum und/oder Zeit in Bezug auf das aktuelle Gebietsschema oder den aktuellen Einstellungen formatieren.</td>
   </tr>
   <tr id="NowUTC">
     <td>A_NowUTC</td>
@@ -408,10 +404,6 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
     <td>A_IsCritical<br> <span class="ver">[v1.0.48+]</span></td>
     <td>Enth&auml;lt 0, wenn <a href="commands/Critical.htm">Critical</a> f&uuml;r den <a href="misc/Threads.htm">aktuellen Thread</a> deaktiviert ist. Ansonsten enth&auml;lt sie ein Integer gr&ouml;&szlig;er als 0, n&auml;mlich die <a href="commands/Critical.htm#Interval">Nachrichten&uuml;berpr&uuml;fungsfrequenz</a> von Critical. Da "Critical 0" den kritischen Status entfernt, kann der aktuelle Status von Critical mithilfe von <em>Alt_IsCritical := A_IsCritical</em> gespeichert und sp&auml;ter mit <em>Critical% Alt_IsCritical%</em> wiederhergestellt werden.</td>
   </tr>
-  <tr id="BatchLines">
-    <td>A_BatchLines</td>
-    <td>(gleichbedeutend mit A_NumBatchLines) Der aktuell gesetzte Wert von <a href="commands/SetBatchLines.htm">SetBatchLines</a>. Beispiele: 200 oder 10ms (je nach Format).</td>
-  </tr>
   <tr id="TitleMatchMode">
     <td>A_TitleMatchMode</td>
     <td>Der aktuell gesetzte Modus von <a href="commands/SetTitleMatchMode.htm">SetTitleMatchMode</a>: 1, 2, 3 oder RegEx.</td>
@@ -428,10 +420,6 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
     <td>A_DetectHiddenText</td>
     <td>Der aktuell gesetzte Modus (On oder Off) von <a href="commands/DetectHiddenText.htm">DetectHiddenText</a>.</td>
   </tr>
-  <tr id="AutoTrim">
-    <td>A_AutoTrim</td>
-    <td>Der aktuell gesetzte Modus (On oder Off) von <a href="commands/AutoTrim.htm">AutoTrim</a>. </td>
-  </tr>
   <tr id="StringCaseSense">
     <td>A_StringCaseSense</td>
     <td>Der aktuell gesetzte Modus (On, Off oder Locale) von <a href="commands/StringCaseSense.htm">StringCaseSense</a>. </td>
@@ -439,14 +427,6 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
   <tr id="FileEncoding">
     <td>A_FileEncoding</td>
     <td><span class="ver">[AHK_L 46+]</span> Enth&auml;lt die Standardkodierung f&uuml;r verschiedene Befehle; siehe <a href="commands/FileEncoding.htm">FileEncoding</a>.</td>
-  </tr>
-  <tr id="FormatInteger">
-    <td>A_FormatInteger</td>
-    <td>Das aktuell gesetzte Integer-Format (H oder D) von <a href="commands/SetFormat.htm">SetFormat</a>. <span class="ver">[AHK_L 42+]:</span> Kann auch ein kleingeschriebenes h enthalten.</td>
-  </tr>
-  <tr id="FormatFloat">
-    <td>A_FormatFloat</td>
-    <td>Das aktuell gesetzte Flie&szlig;kommazahlenformat von <a href="commands/SetFormat.htm">SetFormat</a>. </td>
   </tr>
   <tr id="KeyDelay">
     <td>A_KeyDelay</td>
@@ -501,6 +481,10 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
 <h3>GUI-Fenster und Men&uuml;leisten</h3>
 <table class="info">
   <tbody>
+<tr id="MsgBoxResult">
+    <td>A_MsgBoxResult</td>
+    <td><br></td>
+  </tr>
 <tr id="Gui">
     <td>A_Gui</td>
     <td>Name oder Nummer des <a href="commands/Gui.htm">GUI</a>-Fensters, das den <a href="misc/Threads.htm">aktuellen Thread</a> gestartet hat. Diese Variable ist leer, es sei denn, ein GUI-Steuerelement, ein Men&uuml;leistenpunkt oder ein Ereignis wie GuiClose/GuiEscape hat den aktuellen Thread gestartet.</td>
@@ -591,7 +575,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
 <table class="info">
   <tbody>
 <tr>
-    <td>ComSpec<br> <span class="ver">[v1.0.43.08+]</span></td>
+    <td>A_ComSpec<br> <span class="ver">[v1.0.43.08+]</span></td>
     <td><a name="ComSpec" id="ComSpec"></a>Enth&auml;lt denselben String wie die ComSpec-Umgebungsvariable (z. B. C:\Windows\system32\cmd.exe). Diese Variable wird oft mit <a href="commands/Run.htm">Run/RunWait</a> verwendet. Hinweis: Das Pr&auml;fix A_ ist bei dieser Variable nicht vorhanden.</td>
   </tr>
   <tr id="Temp">
@@ -601,19 +585,9 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
 <li>die <a href="#env">Umgebungsvariable</a> TMP, TEMP oder USERPROFILE</li>
 <li>das Windows-Verzeichnis. <a href="#WorkingDir">A_WorkingDir</a> in Windows 9x, wenn weder TMP noch TEMP existiert</li></ol></td>
   </tr>
-  <tr>
-    <td>A_OSType</td>
-    <td> <a name="OSType"></a>Der Typ des aktuell ausgef&uuml;hrten Betriebssystems.&nbsp; Entweder WIN32_WINDOWS (d. h. Windows 95/98/ME) oder WIN32_NT (d. h. Windows NT4/2000/XP/2003/Vista/7).</td>
-  </tr>
-  <tr>
+  <tr id="OSVersion">
     <td>A_OSVersion</td>
-    <td> 
-<p><a name="OSVersion"></a>Einer der folgenden Strings: WIN_7 <span class="ver">[ben&ouml;tigt AHK_L 42+]</span>, WIN_VISTA <span class="ver">[ben&ouml;tigt v1.0.44.13+]</span>, WIN_2003, WIN_XP, WIN_2000, WIN_NT4, WIN_95, WIN_98, WIN_ME. Zum Beispiel:</p>
-      <pre><em>; Hinweis: Keine Leerzeichen um Kommas.</em><br>If A_OSVersion in WIN_NT4,WIN_95,WIN_98,WIN_ME
-{
-    MsgBox Dieser Script ben&ouml;tigt Windows 2000/XP oder h&ouml;her.
-    ExitApp
-}</pre></td>
+    <td>Die Versionsnummer des Betriebssystems im Format "<em>Hauptnummer.Nebennummer.Buildnummer</em>". Zum Beispiel ist Windows 7 SP1 die Versionsnummer 6.1.7601.</td>
   </tr>
   <tr id="PtrSize">
     <td>A_PtrSize</td>
@@ -637,8 +611,8 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
     <td>Das Windows-Verzeichnis. Zum Beispiel: C:\Windows</td>
   </tr>
   <tr id="ProgramFiles">
-    <td>A_ProgramFiles<br> oder ProgramFiles</td>
-    <td>Das Programmverzeichnis (z. B. C:\Programme). Seit v1.0.43.08 kann das Pr&auml;fix A_ weggelassen werden, um den Wechsel auf <a href="commands/_NoEnv.htm">#NoEnv</a> zu erleichtern.</td>
+    <td>A_ProgramFiles<br></td>
+    <td>Das Programmverzeichnis (z. B. C:\Programme).</td>
   </tr>
   <tr id="AppData">
     <td>A_AppData<br> <span class="ver">[v1.0.43.09+]</span></td>
@@ -770,17 +744,13 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
 </tbody></table>
 
 <h2 id="env">Vergleich von Umgebungsvariablen und normalen Variablen</h2>
-<p>Umgebungsvariablen werden vom Betriebssystem verwaltet. Diese k&ouml;nnen in der Eingabeaufforderung aufgelistet werden, indem SET eingegeben und die Eingabetaste gedr&uuml;ckt wird.</p>
+<p>Umgebungsvariablen werden vom Betriebssystem verwaltet. Diese k&ouml;nnen in der Eingabeaufforderung aufgelistet werden, indem SET eingegeben und die Eingabetaste gedr&uuml;ckt wird. Verwendet <a href="commands/EnvGet.htm">EnvGet</a> oder <a href="commands/EnvSet.htm">EnvSet</a>, um eine Umgebungsvariable abzurufen oder zu setzen.<br></p>
 <p>Mithilfe von <a href="commands/EnvSet.htm">EnvSet</a> kann ein Script eine neue Umgebungsvariable erstellen oder den Inhalt einer bestehenden Umgebungsvariable &auml;ndern. Allerdings sind solche Erg&auml;nzungen und &Auml;nderungen nicht &ouml;ffentlich; sie werden nicht vom Rest des Systems erkannt. Eine Ausnahme bildet ein Script, das <a href="commands/Run.htm">Run</a> oder <a href="commands/Run.htm">RunWait</a> verwendet, um ein Programm auszuf&uuml;hren (oder auch ein anderes Script): solche Programme erben die Umgebungsvariablen des &uuml;bergeordneten Scripts einschlie&szlig;lich der privaten Umgebungsvariablen.</p>
-<p>Seit v1.0.43.08 ist es empfehlenswert, dass alle neuen Scripts die Umgebungsvariablen wie <em>Path</em> mithilfe des folgenden Beispiels abrufen:</p>
-<pre><a href="commands/EnvGet.htm">EnvGet, Ausgabevariable, Path</a>  <em>; Zur Erl&auml;uterung, siehe <a href="commands/_NoEnv.htm">#NoEnv</a>.</em></pre>
 <h2 id="cap">Kapazit&auml;t und Speicher einer Variable</h2>
 <ul>
-  <li>Jede Variable kann bis zu 64 MB Text enthalten (dieses Limit kann mit <a href="commands/_MaxMem.htm">#MaxMem</a> erh&ouml;ht werden).</li>
-  <li>Sobald einer Variable ein neuer String &uuml;bergeben wird, der l&auml;nger als der aktuelle Inhalt ist, dann wird automatisch zus&auml;tzlicher Systemspeicher reserviert.</li>
+<li>Sobald einer Variable ein neuer String &uuml;bergeben wird, der l&auml;nger als der aktuelle Inhalt ist, dann wird automatisch zus&auml;tzlicher Systemspeicher reserviert.</li>
   <li>Der Speicher einer gro&szlig;en Variable kann freigegeben werden, wenn ihr nichts zugewiesen wird (z. B. Variable = "").</li>
   <li>Es k&ouml;nnen beliebige viele Variablen erstellt werden. Das Programm ist so konzipiert, mehrere Millionen Variablen ohne deutlichen R&uuml;ckgang der Performance zu unterst&uuml;tzen.</li>
   <li>Befehle, Funktionen und Ausdr&uuml;cke, die numerische Eingaben akzeptieren, unterst&uuml;tzen generell eine Genauigkeit von 15 Ziffern f&uuml;r Flie&szlig;kommazahlen. F&uuml;r Integer werden 64-Bit signed Werte von -9223372036854775808 (-0x8000000000000000) bis 9223372036854775807 (0x7FFFFFFFFFFFFFFF) unterst&uuml;tzt. Alle Integer-Konstanten au&szlig;erhalb dieses Bereichs werden nicht unterst&uuml;tzt und f&uuml;hren m&ouml;glicherweise zu widerspr&uuml;chlichen Ergebnissen. Arithmetische Operationen auf Integer werden hingegen bei &Uuml;berlauf entgegengesetzt (z. B. 0x7FFFFFFFFFFFFFFF + 1 = -0x8000000000000000).</li>
 </ul>
-
 </body></html>

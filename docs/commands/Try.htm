@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Try</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,7 +12,7 @@
 <p>Sch&uuml;tzt eine oder mehrere Anweisungen (Befehle oder Ausdr&uuml;cke) vor Laufzeitfehler und Ausnahmen, die vom <a href="Throw.htm">Throw</a>-Befehl ausgel&ouml;st wurden.</p>
 
 <pre class="Syntax">Try <i>Anweisung</i></pre>
-<pre class="Syntax" style="line-height: 100%">Try
+<pre class="Syntax" style="line-height: 100%;">Try
 {
     <i>Anweisungen</i>
 }</pre>
@@ -51,7 +50,7 @@ HelloWorld()  <em>; Immer erfolgreich.</em>
 MakeToast()  <em>; Immer Fehlschlag.</em>
 {
     <em>; Springt sofort zur Fehlerbehandlung des Try-Blocks:</em>
-    <a href="Throw.htm">throw</a> A_ThisFunc &quot; ist nicht implementiert, sorry&quot;
+    <a href="Throw.htm">throw</a> A_ThisFunc " ist nicht implementiert, sorry"
 }
 </pre>
 
@@ -75,15 +74,15 @@ catch
 
 try
 {
-    obj := <a href="ComObjCreate.htm">ComObjCreate</a>(&quot;<a href="http://msdn.microsoft.com/en-us/library/aa227633(v=vs.60).aspx">ScriptControl</a>&quot;)
-    obj.ExecuteStatement(&quot;MsgBox &quot;&quot;Das ist ein eingebettetes VBScript&quot;&quot;&quot;)
+    obj := <a href="ComObjCreate.htm">ComObjCreate</a>("<a href="http://msdn.microsoft.com/en-us/library/aa227633%28v=vs.60%29.aspx">ScriptControl</a>")
+    obj.ExecuteStatement("MsgBox ""Das ist ein eingebettetes VBScript""")
     obj.InvalidMethod() <em>; Diese Zeile erzeugt einen Laufzeitfehler.</em>
 }
 catch e
 {
     <em>; F&uuml;r mehr Details &uuml;ber das Objekt in e, siehe <a href="Catch.htm#RuntimeErrors">Catch</a>.</em>
-    MsgBox, 16,, % &quot;Ausnahme ausgel&ouml;st!`n`nWas: &quot; e.what &quot;`nDatei: &quot; e.file
-        . &quot;`nZeile: &quot; e.line &quot;`nMeldung: &quot; e.message &quot;`nExtra: &quot; e.extra
+    MsgBox, 16,, % "Ausnahme ausgel&ouml;st!`n`nWas: " e.what "`nDatei: " e.file
+        . "`nZeile: " e.line "`nMeldung: " e.message "`nExtra: " e.extra
 }
 </pre>
 
@@ -110,6 +109,4 @@ Beispiel2()
     Random, o, 1, 2
     throw o
 }</pre>
-
-</body>
-</html>
+</body></html>

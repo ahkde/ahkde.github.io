@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>OnExit</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,12 +13,12 @@
 
 <pre class="Syntax">OnExit [, Label]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Label</td>
-    <td width="85%">Wenn weggelassen, dann wird das Script normal beendet. Verwendet ansonsten den Namen des <a href="../misc/Labels.htm">Labels</a>, der ausgef&uuml;hrt wird (als neuer <a href="../misc/Threads.htm">Thread</a>), wenn das Script beendet wird.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Label</dt>
+    <dd><p>Wenn weggelassen, dann wird das Script normal beendet. Verwendet ansonsten den Namen des <a href="../misc/Labels.htm">Labels</a>, der ausgef&uuml;hrt wird (als neuer <a href="../misc/Threads.htm">Thread</a>), wenn das Script beendet wird.</p></dd>
+  
+</dl>
 
 <p><strong>WICHTIG:</strong> Da die angegebene Subroutine aufgerufen wird, anstatt das Script zu beenden, dann muss die Subroutine den Befehl <a href="ExitApp.htm">ExitApp</a> je nach Bedarf verwenden. Alternativ (wie in den Beispielen weiter unten) kann die OnExit-Subroutine eine <a href="MsgBox.htm">MsgBox</a> anzeigen, um die Best&auml;tigung des Benutzers einzufordern - nur wenn der Benutzer Ja dr&uuml;ckt, wird ExitApp ausgef&uuml;hrt, um sich selbst zu schlie&szlig;en.</p>
 <h3>Bemerkungen</h3>
@@ -31,7 +30,8 @@
 <p>Sobald die OnExit-Subroutine von einem Exit-Versuch aufgerufen wird, werden die Standardwerte in den Einstellungen wie <a href="SendMode.htm">SendMode</a> verwendet. Diese k&ouml;nnen im <a href="../Scripts.htm#auto">automatischen Ausf&uuml;hrungsbereich</a> ge&auml;ndert werden.</p>
 <p>Die interne Variable <strong>A_ExitReason</strong> bleibt leer, solange die OnExit-Subroutine nicht ausgef&uuml;hrt wird oder noch nicht mindestens einmal von einem vorherigen Exit-Versuch aufgerufen wurde. Wenn nicht leer, dann ein folgendes Wort:</p>
 <table class="info">
-  <tr>
+  <tbody>
+<tr>
     <td>Logoff</td>
     <td><a name="logoff"></a>Der Benutzer meldet sich ab.</td>
   </tr>
@@ -45,7 +45,7 @@
   </tr>
   <tr>
     <td>Error</td>
-    <td>Ein Laufzeitfehler entsteht, wenn das Script keine Hotkeys hat und nicht <a href="_Persistent.htm">persistent</a> ist. Ein Laufzeitfehler tritt zum Beispiel auf, wenn <a href="Run.htm">Run/RunWait</a> nicht in der Lage ist, das angegebene Programm oder Dokument zu &ouml;ffnen.</td>
+    <td>Ein Laufzeitfehler entsteht in einem Script, das nicht <a href="../Scripts.htm#persistent">persistent</a> ist. Ein Laufzeitfehler tritt zum Beispiel auf, wenn <a href="Run.htm">Run/RunWait</a> nicht in der Lage ist, das angegebene Programm oder Dokument zu &ouml;ffnen.</td>
   </tr>
   <tr>
     <td>Menu</td>
@@ -63,10 +63,10 @@
     <td>Single</td>
     <td>Das Script wird aufgrund von <a href="_SingleInstance.htm">#SingleInstance</a> mit einer neuen Instanz von sich selbst ersetzt. </td>
   </tr>
-</table>
+</tbody></table>
 
 <h3>Verwandte Befehle</h3>
-<p><a href="OnMessage.htm">OnMessage()</a>, <a href="RegisterCallback.htm">RegisterCallback()</a>, <a href="../misc/Clipboard.htm#OnClipboardChange">OnClipboardChange</a>, <a href="ExitApp.htm">ExitApp</a>, <a href="Shutdown.htm">Shutdown</a>, <a href="_Persistent.htm">#Persistent</a>, <a href="../misc/Threads.htm">Threads</a>, <a href="Gosub.htm">Gosub</a>, <a href="Return.htm">Return</a>, <a href="Menu.htm">Menu</a></p>
+<p><a href="OnMessage.htm">OnMessage()</a>, <a href="RegisterCallback.htm">RegisterCallback()</a>, <a href="../misc/Clipboard.htm#OnClipboardChange">OnClipboardChange</a>, <a href="ExitApp.htm">ExitApp</a>, <a href="Shutdown.htm">Shutdown</a>, <a href="../misc/Threads.htm">Threads</a>, <a href="Gosub.htm">Gosub</a>, <a href="Return.htm">Return</a>, <a href="Menu.htm">Menu</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">#Persistent  <em>; F&uuml;r Demonstrationszwecke wird das Script aufrecht erhalten, wenn der Benutzer "Nein" ausgew&auml;hlt hat.</em>
 OnExit, ExitSub
@@ -76,10 +76,10 @@ ExitSub:
 If A_ExitReason not in Logoff,Shutdown  <em>; Vermeidet Leerzeichen um Kommas in dieser Zeile.</em>
 {
     MsgBox, 4, , M&ouml;chten Sie das Script wirklich beenden?
-    IfMsgBox, No
+    If A_MsgBoxResult = "No"
         Return
 }
 ExitApp  <em>; Damit ein OnExit-Script sich selbst schlie&szlig;en kann, muss ExitApp in der OnExit-Subroutine verwendet werden.</em></pre>
 
-</body>
-</html>
+
+</body></html>

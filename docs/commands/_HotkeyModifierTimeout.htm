@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>#HotkeyModifierTimeout</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,12 +13,12 @@
 
 <pre class="Syntax">#HotkeyModifierTimeout Millisekunden</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Millisekunden</td>
-    <td width="85%">Die L&auml;nge des Intervalls in Millisekunden. Der Wert kann -1 sein, damit es nie zur Zeit&uuml;berschreitung kommt (Modifikatoren werden immer wieder nach hinten verschoben), oder 0, damit es immer zur Zeit&uuml;berschreitung kommt (Modifikatoren werden nicht hinten verschoben). </td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Millisekunden</dt>
+    <dd><p>Die L&auml;nge des Intervalls in Millisekunden. Der Wert kann -1 sein, damit es nie zur Zeit&uuml;berschreitung kommt (Modifikatoren werden immer wieder nach hinten verschoben), oder 0, damit es immer zur Zeit&uuml;berschreitung kommt (Modifikatoren werden nicht hinten verschoben).</p></dd>
+  
+</dl>
 <h3>Bemerkungen</h3>
 <p>Diese Direktive <strong>muss nicht</strong> verwendet werden, wenn:</p>
 <ul>
@@ -31,7 +30,7 @@
 <p>Die Zeit&uuml;berschreitung sollte auf einen Wert gesetzt werden, der kleiner als die Zeitmenge ist, die der Benutzer ben&ouml;tigt, Modifikatoren eines Hotkeys zudr&uuml;cken, bis sie wieder losgelassen werden. Ansonsten wird der gedr&uuml;ckte Zustand von den Modifikatoren m&ouml;glicherweise wiederhergestellt, auch wenn der Benutzer sie nicht physisch dr&uuml;ckt.</p>
 <p>Die Notwendigkeit dieser Direktive kann wie folgt reduziert oder beseitigt werden:</p>
 <ul>
-  <li>Installiert den Tastatur-Hook mit der Zeile <a href="_InstallKeybdHook.htm">#InstallKeybdHook</a> irgendwo im Script (der Hook wird allerdings nicht von Win9x unterst&uuml;tzt).</li>
+  <li>Installiert den Tastatur-Hook mit der Zeile <a href="_InstallKeybdHook.htm">#InstallKeybdHook</a> irgendwo im Script.</li>
   <li>Verwendet die Methoden <a href="Send.htm#SendInput">SendInput</a> oder <a href="Send.htm#SendPlay">SendPlay</a> anstelle der traditionellen Methode <a href="Send.htm#SendEvent">SendEvent</a>.</li>
   <li>Wenn die traditionelle Methode <a href="Send.htm#SendEvent">SendEvent</a> verwendet wird, dann reduziert <a href="SetKeyDelay.htm">SetKeyDelay</a> von 0 auf -1, damit die Tastatureingaben schneller gesendet werden.</li>
 </ul>
@@ -40,6 +39,4 @@
 <p><a href="GetKeyState.htm">GetKeyState</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">#HotkeyModifierTimeout 100</pre>
-
-</body>
-</html>
+</body></html>

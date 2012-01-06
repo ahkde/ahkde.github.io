@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>StrPut / StrGet</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -16,12 +15,12 @@
 StrPut(String, Adresse [, L&auml;nge] [, Kodierung = <i>Keine</i> ] )
 StrGet(Adresse [, L&auml;nge] [, Kodierung= <i>Keine</i> ] )</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr><td width="15%">String</td><td width="85%">Ein beliebiger String. Zahlen werden auch akzeptiert.</td></tr>
-  <tr><td>Adresse</td><td>Die Adresse, an der der String geschrieben oder gelesen wird.</td></tr>
-  <tr><td>L&auml;nge</td><td>Die maximale Anzahl der zu lesenden/schreibenden Zeichen, einschlie&szlig;lich der Null-Terminator je nach Bedarf.  Siehe R&uuml;ckgabewert.</td></tr>
-  <tr><td>Kodierung</td><td>Die Quellkodierung f&uuml;r StrGet oder Zielkodierung f&uuml;r StrPut, zum Beispiel: "UTF-8", "UTF-16" oder "CP936".  Wenn die <em>Adresse</em> und <em>L&auml;nge</em> nicht angegeben ist, dann muss eine numerische Kennung mit "CP" vorangestellt werden.  Verwendet einen leeren String oder "CP0", um den Standard-ANSI-Zeichensatz des Systems zu benutzen.</td></tr>
-</table>
+<dl>
+  <dt>String</dt><dd><p>Ein beliebiger String. Zahlen werden auch akzeptiert.</p></dd>
+  <dt>Adresse</dt><dd><p>Die Adresse, an der der String geschrieben oder gelesen wird.</p></dd>
+  <dt>L&auml;nge</dt><dd><p>Die maximale Anzahl der zu lesenden/schreibenden Zeichen, einschlie&szlig;lich der Null-Terminator je nach Bedarf.  Siehe R&uuml;ckgabewert.</p></dd>
+  <dt>Kodierung</dt><dd><p>Die Quellkodierung f&uuml;r StrGet oder Zielkodierung f&uuml;r StrPut, zum Beispiel: "UTF-8", "UTF-16" oder "CP936".  Wenn die <em>Adresse</em> und <em>L&auml;nge</em> nicht angegeben ist, dann muss eine numerische Kennung mit "CP" vorangestellt werden.  Verwendet einen leeren String oder "CP0", um den Standard-ANSI-Zeichensatz des Systems zu benutzen.</p></dd>
+</dl>
 
 <h3>R&uuml;ckgabewert</h3>
 <p>Bei ung&uuml;ltigen Parametern wird ein leerer String zur&uuml;ckgegeben.</p>
@@ -50,8 +49,6 @@ StrA := StrGet(AdresseA, 0)         <em>; Fehler</em></pre>
         <em>; StrPut gibt die Zeichenanzahl zur&uuml;ck, aber VarSetCapacity ben&ouml;tigt Bytes.</em>
         * ((Kodierung = "utf-16" || Kodierung = "cp1200") ? 2 : 1) )
     <em>; Kopiert oder wandelt den String um.</em>
-    Return StrPut(String, &Variable, Kodierung)
+    Return StrPut(String, &amp;Variable, Kodierung)
 }</pre>
-
-</body>
-</html>
+</body></html>

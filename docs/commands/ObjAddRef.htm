@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ObjAddRef() / ObjRelease()</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -15,12 +14,12 @@
 
 <pre class="Syntax">ObjAddRef(Ptr)<br>ObjRelease(Ptr)</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Ptr</td>
-    <td>Ein nicht verwalteter Pointer eines Objekts oder einer COM-Schnittstelle.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Ptr</dt>
+    <dd><p>Ein nicht verwalteter Pointer eines Objekts oder einer COM-Schnittstelle.</p></dd>
+  
+</dl>
 
 <h3>R&uuml;ckgabewert</h3>
 <p>Diese Funktionen geben die neue Referenzz&auml;hlung zur&uuml;ck. Dieser Wert sollte <b>nur</b> f&uuml;r das Debugging verwendet werden.</p>
@@ -40,7 +39,7 @@ ptr2 := ObjectToPointer(obj)
 ObjectToPointer(obj) {
     If !IsObject(obj)
         Return ""
-    ptr := &obj
+    ptr := &amp;obj
 
     ObjAddRef(ptr)
     Return ptr
@@ -52,6 +51,4 @@ ObjRelease(ptr2)
 ObjRelease(ptr1)
 
 </pre>
-
-</body>
-</html>
+</body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>StrSplit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>StrSplit</h1>
+
+<p>Teilt einen String in mehrere Teilstrings (<a href="../Objects.htm#Usage_Simple_Arrays">Array</a>) auf, abh&auml;ngig davon, welche Begrenzer angegeben sind.</p>
+
+<pre class="Syntax">Array := StrSplit(String [, Begrenzer, ZeichenAuslassen])</pre>
+<h3>Parameter</h3>
+<dl>
+
+    <dt>String</dt>
+    <dd><p>Ein String, der aufgeteilt wird.</p></dd>
+ 
+    <dt>Begrenzer</dt>
+    <dd><p>Wenn leer oder nicht vorhanden, dann wird jedes Zeichen im Eingabestring als Teilstring angesehen.</p>
+      <p>Andernfalls kann der <em>Begrenzer</em> entweder ein einzelner String oder ein Array mit Strings sein, die als Abgrenzungen zwischen den Teilstrings dienen. Da die Begrenzer nicht zu den Teilstrings geh&ouml;ren, werden sie nie in den R&uuml;ckgabe-Array eingef&uuml;gt. Sollte sich im Eingabestring zwischen zwei Begrenzer nichts befinden, wird das entsprechende Array-Element leer gemacht.</p>
+      <p>Zum Beispiel: Mit <code>","</code> wird der String jeweils bei einem Komma geteilt. Ebenso wird mit <code>[A_Tab, A_Space]</code> jeweils ein neues Array-Element erstellt, sobald sich Leer- oder Tabulatorzeichen im Eingabestring befinden.</p></dd>
+ 
+    <dt>ZeichenAuslassen</dt>
+    <dd><p>Eine optionale Liste von Zeichen (abh&auml;ngig von Gro&szlig;- und Kleinschreibung), die am Anfang und Ende jedes Array-Elements ausgeschlossen werden. Wenn <em>ZeichenAuslassen</em> zum Beispiel <code>" `t"</code> enth&auml;lt, werden Leer- oder Tabulatorzeichen am Anfang und Ende (aber nicht in der Mitte) jeden Elements entfernt.</p>
+    <p>Wenn der <em>Begrenzer</em> leer ist, wird mit <em>ZeichenAuslassen</em> gekennzeichnet, welche Zeichen im Array ausgelassen werden.</p></dd>
+  
+</dl>
+
+<h3>Bemerkungen</h3>
+<p>Unsichtbare Zeichen wie Leerzeichen und Tabulatoren werden beibehalten, solange sie nicht in den Parametern <em>Begrenzer</em> und <em>ZeichenAuslassen</em> vorkommen. Tabulatoren und Leerzeichen k&ouml;nnen an beiden Enden jeder Variable entfernt werden, indem <a href="Trim.htm">Trim</a> verwendet wird. Zum Beispiel: var := Trim(var)</p>
+<p>Um einen String im CSV-Format (kommagetrennten Werte) aufzuteilen, verwendet eine <a href="LoopParse.htm">Parsing-Schleife</a>, da sie &uuml;ber eine interne CSV-Handhabung verf&uuml;gt.</p>
+<p>Um die Felder vor dem Aufteilen neu anzuordnen, verwendet den Befehl <a href="Sort.htm">Sort</a>.</p>
+<p>Wenn es unn&ouml;tig ist, Teilstrings dauerhaft im Speicher abzulegen, zieht eine <a href="LoopParse.htm">Parsing-Schleife</a> in Betracht, besonders wenn der Eingabestring sehr gro&szlig; ist, um viel Speicherplatz zu sparen. Zum Beispiel:</p>
+<pre>Farben = rot,gr&uuml;n,blau
+Loop, parse, Farben, `,
+    MsgBox Farbnummer %A_Index% ist %A_LoopField%.</pre>
+<h3>Verwandte Befehle</h3>
+<p><a href="LoopParse.htm">Parsing-Schleife</a>, <a href="../misc/Arrays.htm">Arrays</a>, <a href="Sort.htm">Sort</a>, <a href="SplitPath.htm">SplitPath</a>, <a href="../Functions.htm#InStr">InStr</a>, <a href="../Functions.htm#SubStr">SubStr</a>, <a href="../Functions.htm#StrLen">StrLen</a>, <a href="StrLower.htm">StrLower</a>, <a href="StrLower.htm">StrUpper</a>, <a href="StrReplace.htm">StrReplace</a></p>
+<h3>Beispiele</h3>
+<pre class="NoIndent">TestString := "Das ist ein Test."
+W&ouml;rterArray := StrSplit(TestString, A_Space, ".")  <em>; Punkte weglassen.</em>
+MsgBox("Das vierte Wort ist " W&ouml;rterArray[4]).
+
+Farben := "rot,gr&uuml;n,blau"
+FarbArray := StrSplit(Farben, ",")
+Loop FarbArray.MaxIndex()
+{
+    Farbe := FarbArray[a_index]
+    MsgBox, Farbnummer %a_index% ist %Farbe%.
+}</pre>
+</body></html>

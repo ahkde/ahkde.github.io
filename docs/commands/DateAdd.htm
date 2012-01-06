@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>DateAdd</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>DateAdd</h1>
+
+<p>Addiert oder subtrahiert Zeit von einem <a href="FileSetTime.htm#YYYYMMDD">Datum-Zeit</a>-Wert.</p>
+
+<pre class="Syntax">Ausgabevariable := DateAdd(DatumZeit, Zeit, Zeiteinheit)
+</pre>
+<h3>Parameter</h3>
+<dl>
+  
+    <dt>DatumZeit</dt>
+    <dd><p>Ein Datum-Zeit-Stempel im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format.</p></dd>
+ 
+    <dt>Zeit</dt>
+    <dd><p>Die Zeitmenge als Integer oder Flie&szlig;kommazahl, die addiert wird. Mit einer negativen Zahl wird eine Subtraktion erreicht.</p></dd>
+ 
+    <dt>Zeiteinheit</dt>
+    <dd><p>Die Bedeutung des <em>Zeit</em>-Parameters. Die <em>Zeiteinheit</em> enth&auml;lt entweder Seconds, Minutes, Hours oder Days (oder jeweils nur den ersten Buchstaben).</p></dd>
+  
+</dl>
+
+<h3>R&uuml;ckgabewert</h3>
+<p>Sobald <em>DatumZeit</em> einen ung&uuml;ltigen Zeitstempel oder ein Jahr vor 1601 enth&auml;lt, oder <em>Zeit</em> nicht numerisch ist, wird ein leerer String zur&uuml;ckgegeben, um den Fehler zu kennzeichnen.</p>
+<p>Ansonsten wird ein Zeitstempel im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format zur&uuml;ckgegeben.<br></p>
+<h3>Bemerkungen</h3>
+<p>Die interne Variable <strong>A_Now</strong> enth&auml;lt die aktuelle Ortszeit im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format.</p>
+<p>Zur Berechnung der Differenz zwischen zwei Zeitstempeln kann <a href="DateDiff.htm">DateDiff</a> verwendet werden.</p>
+<h3>Verwandte Befehle</h3>
+<p><a href="DateDiff.htm">DateDiff</a>, <a href="FileGetTime.htm">FileGetTime</a>, <a href="FormatTime.htm">FormatTime</a></p>
+<h3>Beispiel</h3>
+<pre class="NoIndent"><em>; Das Datum nach genau 31 Tagen berechnen.</em>
+Sp&auml;ter := DateAdd(A_Now, 31, "days")
+MsgBox % FormatTime(Sp&auml;ter)</pre>
+</body></html>

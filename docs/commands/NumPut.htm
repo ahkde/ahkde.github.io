@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>NumPut</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>NumPut</h1>
+<p>Speichert die Zahl im Bin&auml;rformat auf die angegebene Adresse + Offset.</p>
+<pre class="Syntax">NumPut(Zahl, VarOderAdresse [, Offset = 0][, Typ = "UPtr"])</pre>
+
+<h3>Parameter</h3>
+<dl>
+
+  <dt>Zahl<br></dt>
+  <dd><p>Die zu speichernde Zahl.</p></dd>
+
+  <dt>VarOderAdresse</dt>
+  <dd><p>Eine Speicheradresse oder Variable. Wenn <em>VarOderAdresse</em> eine Variable wie <code>EigeneVar</code> ist und die Variable weder eine reine Zahl noch ein Objekt enth&auml;lt, dann wird dieser Wert wie <code>&amp;EigeneVar</code> &uuml;bergeben. Allerdings f&uuml;hrt das Weglassen von "&amp;" zu besseren Ergebnissen und stellt sicher, dass die Zieladresse <a href="VarSetCapacity.htm">g&uuml;ltig</a> ist.</p></dd>
+
+  <dt>Offset</dt>
+  <dd><p>Ein Offset (in Bytes), der mit <em>VarOderAdresse</em> addiert wird, um die Zieladresse zu bestimmen.</p></dd>
+
+  <dt>Typ</dt>
+  <dd><p>Einer der folgenden Strings (standardm&auml;&szlig;ig UPtr, wenn weggelassen):<br>
+      UInt, Int, Int64, Short, UShort, Char, UChar, Double, Float, Ptr oder UPtr</p>
+      <p>Im Gegensatz zu DllCall m&uuml;ssen diese in Anf&uuml;hrungszeichen gesetzt werden, wenn sie als direkte Strings verwendet werden.</p>
+      <p>Siehe <a href="DllCall.htm#types">DllCall-Typen</a> f&uuml;r Details.</p></dd>
+
+</dl>
+
+<h3>R&uuml;ckgabewert</h3>
+<p>Falls die Zieladresse ung&uuml;ltig ist, wird ein leerer String 
+zur&uuml;ckgegeben. Allerdings k&ouml;nnen einige ung&uuml;ltige Adressen als solche 
+nicht erkannt werden, folglich kann das zu unerkl&auml;rlichem Verhalten f&uuml;hren.</p>
+<p>Ansonsten wird die Adresse, die sich rechts neben dem geschriebenen Element befindet, zur&uuml;ckgegeben. Dieser R&uuml;ckgabewert wird h&auml;ufig dazu verwendet, mehrere verschiedene Zahlentypen hintereinander zu schreiben, wie z. B. in eine Struktur f&uuml;r DllCall.</p>
+
+<h3>Bemerkungen</h3>
+<p>Falls ein Integer aufgrund seiner &Uuml;berl&auml;nge nicht in den angegebenen <em>Typ</em> passt, werden seine h&ouml;chstwertigen Bytes ignoriert. Zum Beispiel w&uuml;rde mit <code>NumPut(257, var, 0, "Char")</code> die Zahl 1 gespeichert.</p>
+<p>Falls nur drei Parameter vorhanden sind, kann der dritte Parameter sowohl <em>Offset</em> als auch <em>Typ</em> sein. Zum Beispiel ist&nbsp; <code>NumPut(x, var, "int")</code> g&uuml;ltig.</p>
+
+<h3>Verwandte Befehle<br></h3>
+<p><a href="NumGet.htm">NumGet</a>, <a href="DllCall.htm">DllCall</a>, <a href="VarSetCapacity.htm">VarSetCapacity</a></p>
+
+
+
+
+</body></html>

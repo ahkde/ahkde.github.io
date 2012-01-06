@@ -1,8 +1,7 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AutoHotkey-Tutorial - Starten eines Programms oder Dokuments (Fortsetzung)</title>
 <link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
 <link href="css/default.css" rel="stylesheet" type="text/css">
@@ -21,7 +20,7 @@ return</pre>
 <pre>#c::Run, %comspec% /k, C:\Eigene Dokumente</pre>
 <p>Im oberen Beispiel ist <a href="Variables.htm#ComSpec">comspec</a> eine interne Variable, die bei normalen Betriebssystemen in "C:\Windows\system32\cmd.exe" aufgel&ouml;st wird.</p>
 <p>Um Parameter zu &uuml;bergeben, f&uuml;gt sie unmittelbar nach dem Namen des Programms oder Dokuments an. Zum Beispiel:</p>
-<pre>Run, %comspec% /c dir >"Ausgabedatei.txt", C:\Eigene Dokumente
+<pre>Run, %comspec% /c dir &gt;"Ausgabedatei.txt", C:\Eigene Dokumente
 Run, Notepad.exe "C:\Eigene Dokumente\Adressliste.txt"
 Run, "<a href="Variables.htm#AhkPath">%A_AhkPath%</a>" "C:\Scripts\Test-Script.ahk" param1 "param2 mit Leerzeichen" param3</pre>
 <p>Im zweiten und dritten oberen Beispiel wurden Parameter, die Leerzeichen enthalten, in Anf&uuml;hrungszeichen gesetzt, dass in der Regel den sichersten Schutz bietet. Das Arbeitsverzeichnis hingegen sollte nicht in Anf&uuml;hrungszeichen gesetzt werden, selbst wenn es wie im ersten oben genannten Beispiel Leerzeichen enth&auml;lt.</p>
@@ -33,5 +32,4 @@ Run, print "C:\Adressliste.txt"</pre>
 MsgBox, %ErrorLevel%</pre>
 <p>Weitere Informationen &uuml;ber das Starten von Programmen und Dokumenten k&ouml;nnen in <a href="commands/Run.htm">Run/RunWait</a> gefunden werden.</p>
 <p><a href="Tutorial.htm">Zur&uuml;ck zum Inhaltsverzeichnis des Tutorials</a></p>
-</body>
-</html>
+</body></html>

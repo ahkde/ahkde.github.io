@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Throw</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,20 +13,20 @@
 
 <pre class="Syntax">Throw [, Ausdruck]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Ausdruck</td>
-    <td width="85%"><p>Ein Wert, der in die Ausgabevariable von <a href="Catch.htm">Catch</a> gespeichert wird.</p>
+<dl>
+  
+    <dt>Ausdruck</dt>
+    <dd><p>Ein Wert, der in die Ausgabevariable von <a href="Catch.htm">Catch</a> gespeichert wird.</p>
       <p>Da dieser Parameter ein <a href="../Variables.htm#Expressions">Ausdruck</a> ist, sind alle folgenden Beispiele g&uuml;ltig:</p>
 <pre>throw 3
-throw &quot;direkter String&quot;
+throw "direkter String"
 throw EigeneVar
 throw i + 1
-throw { what: &quot;Benutzerdefinierter Fehler&quot;, file: A_LineFile, line: A_LineNumber } <em>; Übergibt ein <a href="../objects/Object.htm">Objekt</a></em></pre>
+throw { what: "Benutzerdefinierter Fehler", file: A_LineFile, line: A_LineNumber } <em>; &Uuml;bergibt ein <a href="../objects/Object.htm">Objekt</a></em></pre>
 <p>Dieser Parameter ist immer ein Ausdruck, daher sollten Variablenverweise nicht von <a href="../FAQ.htm#percent">Prozentzeichen</a> umschlossen werden, au&szlig;er f&uuml;r <a href="../Variables.htm#ref">Doppeldereferenzen</a>.</p>
-<p><span class="ver">[v1.1.05+]:</span> Wenn weggelassen, dann wird ein Ausnahmeobjekt mit einer Standardnachricht ausgel&ouml;st.</p></td>
-  </tr>
-</table>
+<p><span class="ver">[v1.1.05+]:</span> Wenn weggelassen, dann wird ein Ausnahmeobjekt mit einer Standardnachricht ausgel&ouml;st.</p></dd>
+  
+</dl>
 
 <h3 id="Exception">Exception(Meldung [, Was, Extra])</h3>
 <p>Erstellt ein <a href="Catch.htm#RuntimeErrors">Ausnahme</a>-Objekt.</p>
@@ -45,6 +44,4 @@ SchlechtProgrammierteFunktion() {
 <p><a href="Try.htm">Try</a>, <a href="Catch.htm">Catch</a></p>
 <h3>Beispiele</h3>
 <p>Siehe <a href="Try.htm#Examples">Try</a>.</p>
-
-</body>
-</html>
+</body></html>

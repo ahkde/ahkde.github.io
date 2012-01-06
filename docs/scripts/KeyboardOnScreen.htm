@@ -166,7 +166,7 @@ k_ASCII = 45
 Loop
 {
     Transform, k_char, Chr, %k_ASCII%
-    StringUpper, k_char, k_char
+    StrUpper, k_char, k_char
     if k_char not in &lt;,&gt;,^,~,Å,`,
         Hotkey, ~*%k_char%, k_KeyPress
         <em>; Mit dem oberen Sternchenpr&auml;fix wird die Taste erkannt, unabh&auml;ngig davon,</em>
@@ -211,8 +211,8 @@ return
 ~*Enter::
 ~*Tab::
 k_KeyPress:
-StringReplace, k_ThisHotkey, A_ThisHotkey, ~
-StringReplace, k_ThisHotkey, k_ThisHotkey, *
+StrReplace, k_ThisHotkey, A_ThisHotkey, ~
+StrReplace, k_ThisHotkey, k_ThisHotkey, *
 SetTitleMatchMode, 3  <em>; Verhindert, dass die Tasten T und B nicht mit Tabulator und R&uuml;cktaste (Backspace) verwechselt werden.</em>
 ControlClick, %k_ThisHotkey%, ahk_id %k_ID%, , LEFT, 1, D
 KeyWait, %k_ThisHotkey%

@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Else</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -16,7 +15,7 @@
 <h3>Bemerkungen</h3>
 <p>Jedes ELSE muss mit einer IF-Anweisung in Verbindung gebracht werden. Ein ELSE geh&ouml;rt immer der n&auml;chstgelegenen unbeanspruchten IF-Anweisung dar&uuml;ber, es sei denn, <a href="Block.htm">Block</a> wird dazu verwendet, dieses Verhalten zu &auml;ndern.</p>
 <p>Auf der gleichen Zeile nach ELSE kann ein beliebiger Befehl folgen. Das wird h&auml;ufig bei "Else If"-Konstruktionen verwendet (siehe Beispiele unten).</p>
-<p>Wenn <a href="IfEqual.htm">IF</a> oder ELSE mehrere Zeilen enthalten, dann m&uuml;ssen diese von geschweiften Klammern umschlossen werden. Wenn allerdings nur eine Zeile vorhanden ist, dann sind die Klammern optional. Zum Beispiel:</p>
+<p>Wenn <a href="IfExpression.htm">IF</a> oder ELSE mehrere Zeilen enthalten, dann m&uuml;ssen diese von geschweiften Klammern umschlossen werden. Wenn allerdings nur eine Zeile vorhanden ist, dann sind die Klammern optional. Zum Beispiel:</p>
 <pre>If count &gt; 0  <em>; Klammern sind in der n&auml;chsten Zeile nicht notwendig, weil es nur eine Zeile ist.</em>
     MsgBox OK dr&uuml;cken`, um Prozess fortzufahren.
 Else  <em>; Klammern m&uuml;ssen f&uuml;r den unteren Abschnitt verwendet werden, weil mehrere Zeilen vorhanden sind.</em>
@@ -33,9 +32,9 @@ Else  <em>; Klammern m&uuml;ssen f&uuml;r den unteren Abschnitt verwendet werden
     ...
 }</pre>
 <h3>Verwandte Befehle</h3>
-<p>Siehe <a href="Block.htm">Blocks</a>. Auch jeder IF-Befehl kann ELSE verwenden, einschlie&szlig;lich <a href="IfWinActive.htm">IfWinActive</a>, <a href="IfWinExist.htm">IfWinExist</a>, <a href="IfMsgBox.htm">IfMsgBox</a>, <a href="IfInString.htm">IfInString</a>, <a href="IfBetween.htm">IfBetween</a>, <a href="IfIn.htm">IfIn</a>, <a href="IfEqual.htm">IF</a>, und <a href="IfExpression.htm">IF (Ausdruck)</a>.</p>
+<p><a href="Block.htm">Blöcke</a>, <a href="IfExpression.htm">If (Ausdruck)</a></p>
 <h3>Beispiele</h3>
-<pre class="NoIndent">IfWinExist, Unbenannt - Editor
+<pre class="NoIndent">If WinExist("Unbenannt - Editor")
 {
     WinActivate
     Send Das ist ein Test.{Enter}
@@ -63,6 +62,4 @@ IfEqual, y, 1, Gosub, b1
     Sleep, 1
     Gosub, b2
 }</pre>
-
-</body>
-</html>
+</body></html>

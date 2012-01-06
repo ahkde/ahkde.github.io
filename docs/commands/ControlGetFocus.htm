@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ControlGetFocus</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,28 +13,24 @@
 
 <pre class="Syntax">ControlGetFocus, Ausgabevariable [, Fenstertitel, Fenstertext, Titelausnahme, Textausnahme]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Ausgabevariable</td>
-    <td width="85%"><p>Der Name der Variable, in der die Bezeichnung des Steuerelements gespeichert wird. Die Bezeichnung selbst besteht aus den Klassennamen des Steuerelements, gefolgt von einer laufenden Nummer innerhalb des &uuml;bergeordneten Fensters, z. B. Button12.</p>    </td>
-  </tr>
-  <tr>
-    <td>Fenstertitel</td>
-    <td>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
-  </tr>
-  <tr>
-    <td>Fenstertext</td>
-    <td>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</td>
-  </tr>
-  <tr>
-    <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-  <tr>
-    <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Ausgabevariable</dt>
+    <dd><p>Der Name der Variable, in der die Bezeichnung des Steuerelements gespeichert wird. Die Bezeichnung selbst besteht aus den Klassennamen des Steuerelements, gefolgt von einer laufenden Nummer innerhalb des &uuml;bergeordneten Fensters, z. B. Button12.</p></dd>
+ 
+    <dt>Fenstertitel</dt>
+    <dd><p>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p></dd>
+ 
+    <dt>Fenstertext</dt>
+    <dd><p>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</p></dd>
+ 
+    <dt>Titelausnahme</dt>
+    <dd><p>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+ 
+    <dt>Textausnahme</dt>
+    <dd><p>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+  
+</dl>
 
 <h3>ErrorLevel</h3>
 <p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, bei Misserfolg eine Ausnahme auszul&ouml;sen. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>
@@ -48,13 +43,13 @@
 ; Dieses Script ben&ouml;tigt Windows 98, NT 4.0 SP3+ oder h&ouml;her.</em>
 GuiThreadInfoSize = 48
 VarSetCapacity(GuiThreadInfo, GuiThreadInfoSize)
-<a href="../Functions.htm#NumPut">NumPut</a>(GuiThreadInfoSize, GuiThreadInfo, 0)
+<a href="NumPut.htm">NumPut</a>(GuiThreadInfoSize, GuiThreadInfo, 0)
 If not DllCall("GetGUIThreadInfo", uint, 0, str, GuiThreadInfo)
 {
     MsgBox GetGUIThreadInfo() hat einen Fehler entdeckt.
     Return
 }
-FocusedHWND := <a href="../Functions.htm#NumGet">NumGet</a>(GuiThreadInfo, 12)  <em>; Ermittelt das hwndFocus-Feld aus der Struktur.</em>
+FocusedHWND := <a href="NumGet.htm">NumGet</a>(GuiThreadInfo, 12)  <em>; Ermittelt das hwndFocus-Feld aus der Struktur.</em>
 MsgBox % "Die ahk_id (HWND) des fokussierten Steuerelements ist " . FocusedHWND
 <em>; Diese ID kann f&uuml;r alle Steuerelement-Befehle verwendet werden.  Zum Beispiel:
 ; ControlGetText, Ausgabevariable,, ahk_id %FocusedHWND%</em></pre>
@@ -67,6 +62,4 @@ If ErrorLevel
     MsgBox, Das Fenster existiert nicht oder hat keine Steuerelemente mit Eingabefokus.
 Else
     MsgBox, Steuerelement mit Eingabefokus = %Ausgabevariable%</pre>
-
-</body>
-</html>
+</body></html>

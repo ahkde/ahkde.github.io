@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ComObjArray()</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -15,21 +14,20 @@
 <pre class="Syntax">ArrayObj := ComObjArray(Variablentyp, Anzahl1 [, Anzahl2, ... Anzahl8])</pre>
 
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Variablentyp</td>
-    <td>Der Basistyp des Arrays (das VARTYPE jeden Array-Elements). Das VARTYPE ist auf eine Teilmenge der Variantentypen beschr&auml;nkt. Weder das VT_ARRAY- noch VT_BYREF-Flag kann gesetzt werden. VT_EMPTY und VT_NULL sind keine g&uuml;ltigen Basistypen f&uuml;r das Array. Alle anderen Typen sind g&uuml;ltig.
-    <p>Siehe <a href="ComObjType.htm">ComObjType</a> f&uuml;r eine Liste von m&ouml;glichen Werten.</p></td>
-  </tr>
-  <tr>
-    <td>Anzahl<i>N</i></td>
-    <td>Die Gr&ouml;&szlig;e jeder Dimension. Es werden Arrays mit bis zu 8 Dimensionen unterst&uuml;tzt.</td>
-  </tr>
-  <tr>
-    <td>ArrayObj</td>
-    <td>Ein Wrapper-Objekt mit dem SafeArray.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Variablentyp</dt>
+    <dd><p>Der Basistyp des Arrays (das VARTYPE jeden Array-Elements). Das VARTYPE ist auf eine Teilmenge der Variantentypen beschr&auml;nkt. Weder das VT_ARRAY- noch VT_BYREF-Flag kann gesetzt werden. VT_EMPTY und VT_NULL sind keine g&uuml;ltigen Basistypen f&uuml;r das Array. Alle anderen Typen sind g&uuml;ltig.
+    </p>
+<p>Siehe <a href="ComObjType.htm">ComObjType</a> f&uuml;r eine Liste von m&ouml;glichen Werten.</p></dd>
+ 
+    <dt>Anzahl<i>N</i></dt>
+    <dd><p>Die Gr&ouml;&szlig;e jeder Dimension. Es werden Arrays mit bis zu 8 Dimensionen unterst&uuml;tzt.</p></dd>
+ 
+    <dt>ArrayObj</dt>
+    <dd><p>Ein Wrapper-Objekt mit dem SafeArray.</p></dd>
+  
+</dl>
 
 <h3>Methoden</h3>
 <p>Array-Wrapper-Objekte unterst&uuml;tzen die folgenden Methoden:</p>
@@ -40,8 +38,8 @@
 
 <h3>Allgemeine Bemerkungen</h3>
 <p>Array-Wrapper-Objekte k&ouml;nnen auch von COM-Methoden und <a href="ComObjActive.htm">ComObjActive</a> zur&uuml;ckgegeben werden. Scripts k&ouml;nnen feststellen, ob ein Wert ein Array wie folgt ist:</p>
-<pre>If ComObjType(<i>obj</i>) & 0x2000
-    MsgBox % "Array-Subtyp: " . ComObjType(obj) & 0xfff
+<pre>If ComObjType(<i>obj</i>) &amp; 0x2000
+    MsgBox % "Array-Subtyp: " . ComObjType(obj) &amp; 0xfff
 Else
     MsgBox Kein Array.</pre>
 <p>Es werden Arrays mit bis zu 8 Dimensionen unterst&uuml;tzt.</p>
@@ -86,6 +84,4 @@ Loop 3 {
 MsgBox % arr[2, 3]
 
 </pre>
-
-</body>
-</html>
+</body></html>

@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>#SingleInstance</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,24 +13,23 @@
 
 <pre class="Syntax">#SingleInstance [force|ignore|off]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">force|ignore|off</td>
-    <td width="85%"><p>Dieser Parameter bestimmt, was geschieht, wenn ein Script gestartet wird, w&auml;hrend eine fr&uuml;here Instanz von ihr bereits aktiv ist:</p>
+<dl>
+  
+    <dt>force|ignore|off</dt>
+    <dd><p>Dieser Parameter bestimmt, was geschieht, wenn ein Script gestartet wird, w&auml;hrend eine fr&uuml;here Instanz von ihr bereits aktiv ist:</p>
       <p>Das Wort FORCE &uuml;berspringt das Dialogfenster und ersetzt die alte Instanz automatisch, vergleichbar mit dem <a href="Reload.htm">Reload</a>-Befehl.</p>
       <p>Das Wort IGNORE &uuml;berspringt das Dialogfenster und erh&auml;lt die alte Instanz aufrecht. Das hei&szlig;t, dass der Versuch unterdr&uuml;ckt wird, ein laufendes Script zu starten.</p>
       <p>Das Wort OFF erlaubt mehrere Instanzen des Scripts, damit sie gleichzeitig ausgef&uuml;hrt werden k&ouml;nnen.</p>
-      <p>Wenn der Parameter nicht vorhanden ist, wird ein Dialogfenster mit der Anfrage anzeigt, ob die alte Instanz erhalten bleiben soll oder mit einer neuen Instanz ersetzt werden soll.</p></td>
-  </tr>
-</table>
+      <p>Wenn dieser Parameter weggelassen wird, gilt standardm&auml;&szlig;ig FORCE.<br></p></dd>
+  
+</dl>
 <h3>Bemerkungen</h3>
-<p>Ein Script mit <a href="../Hotkeys.htm">Hotkeys</a>, <a href="../Hotstrings.htm">Hotstrings</a>, <a href="_Persistent.htm">#Persistent</a>, <a href="OnMessage.htm">OnMessage()</a> oder <a href="Gui.htm">Gui</a> ist standardm&auml;&szlig;ig eine Einzelinstanz (Dialogfenster & Eingabeaufforderung). Andere Scripts erlauben standardm&auml;&szlig;ig mehrere Instanzen. Dieses Verhalten kann wie oben beschrieben deaktiviert oder ge&auml;ndert werden.</p>
+<p>Falls diese Direktive nicht verwendet wird, wird ein Dialogfenster mit der Anfrage anzeigt, ob die alte Instanz 
+erhalten bleiben soll oder mit einer neuen ersetzt werden soll.</p>
 <h3>Verwandte Befehle</h3>
-<p><a href="Reload.htm">Reload</a>, <a href="_Persistent.htm">#Persistent</a></p>
+<p><a href="Reload.htm">Reload</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">#SingleInstance force
 #SingleInstance ignore
 #SingleInstance off</pre>
-
-</body>
-</html>
+</body></html>

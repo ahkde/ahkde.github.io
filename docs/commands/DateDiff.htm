@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>DateDiff</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>DateDiff</h1>
+
+<p>Vergleicht zwei <a href="FileSetTime.htm#YYYYMMDD">Datum-Zeit</a>-Werte und gibt deren Differenz zur&uuml;ck.</p>
+
+<pre class="Syntax">Ausgabevariable := DateDiff(DatumZeit1, DatumZeit2, Zeiteinheit)
+</pre>
+<h3>Parameter</h3>
+<dl>
+  
+    <dt>DatumZeit1,<br>DatumZeit2<br></dt>
+    <dd><p>Datum-Zeit-Stempel im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format.</p>
+        <p>Wenn <em>DatumZeit1</em> fr&uuml;her als <em>DatumZeit2</em> ist, dann ist das Ergebnis eine negative Zahl.<br></p>
+    </dd>
+  
+    <dt>Zeiteinheit</dt>
+    <dd><p>Die Einheit zur Bemessung der Differenz. Die <em>Zeiteinheit</em> enth&auml;lt entweder Seconds, Minutes, Hours oder Days (oder jeweils nur den ersten Buchstaben).</p></dd>
+  
+</dl>
+
+<h3>R&uuml;ckgabewert</h3>
+<p>Sobald <em>DatumZeit</em> einen ung&uuml;ltigen Zeitstempel oder ein Jahr vor 1601 enth&auml;lt, oder <em>Zeit</em> nicht numerisch ist, wird ein leerer String zur&uuml;ckgegeben, um den Fehler zu kennzeichnen.</p>
+<p>Ansonsten ist der R&uuml;ckgabewert die Differenz zwischen zwei Zeitstempeln - in der angegebenen Einheit von <em>Zeiteinheit</em>. Das Ergebnis wird immer auf den n&auml;chsten Integer <em>abgerundet</em>. Wenn 
+beispielsweise die aktuelle Differenz zwischen zwei Zeitstempeln 
+1.999 Tage ist, dann wird die Ausgabe auf 1 Tag gesetzt. F&uuml;r eine h&ouml;here
+ Genauigkeit muss Seconds in <em>Zeiteinheit</em> verwendet und das Ergebnis durch 60.0, 3600.0 oder 86400.0 geteilt werden.</p>
+<h3>Bemerkungen</h3>
+<p>Die interne Variable <strong>A_Now</strong> enth&auml;lt die aktuelle Ortszeit im <a href="FileSetTime.htm#YYYYMMDD">YYYYMMDDHH24MISS</a>-Format.</p>
+<p>Zur genauen Bestimmung der verstrichenen Zeit zwischen zwei Ereignissen wird die <a href="../Variables.htm#TickCount">A_TickCount-Methode</a> verwendet, weil A_TickCount eine Pr&auml;zision im Millisekundenbereich unterst&uuml;tzt.</p>
+<p>F&uuml;r das Addieren oder Subtrahieren von Sekunden, Minuten, Stunden oder Tagen einer bestimmten Zahl mit einem Zeitstempel wird <a href="DateAdd.htm">DateAdd</a> verwendet (mit einer negativen Zahl wird eine Subtraktion erreicht).</p>
+<h3>Verwandte Befehle</h3>
+<p><a href="DateAdd.htm">DateAdd</a>, <a href="FileGetTime.htm">FileGetTime</a>, <a href="FormatTime.htm">FormatTime</a></p>
+<h3>Beispiel</h3>
+<pre class="NoIndent">Variable1 := "20050126"
+Variable2 := "20040126"
+Differenz := DateDiff(Variable1, Variable2, "days")
+MsgBox %Differenz%  <em>; Das Ergebnis ist 366, da 2004 ein Schaltjahr ist.</em></pre>
+</body></html>

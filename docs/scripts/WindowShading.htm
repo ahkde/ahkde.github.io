@@ -41,7 +41,7 @@ Loop, Parse, ws_IDList, |
         <em>; &Uuml;bereinstimmung gefunden, daher sollte das Fenster wiederhergestellt werden (aufrollen):</em>
         StringTrimRight, ws_Height, ws_Window%ws_ID%, 0
         WinMove, ahk_id %ws_ID%,,,,, %ws_Height%
-        StringReplace, ws_IDList, ws_IDList, |%ws_ID%
+        StrReplace, ws_IDList, ws_IDList, |%ws_ID%
         return
     }
 }

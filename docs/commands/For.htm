@@ -13,21 +13,18 @@
 
 <pre class="Syntax">For Schl&uuml;ssel [, Wert] in Ausdruck</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tbody>
-<tr>
-    <td width="15%">Schl&uuml;ssel</td>
-    <td width="85%">Der Name der Variable, in der der Schl&uuml;ssel zu Beginn jeder Iteration (Wiederholung) gespeichert wird.</td>
-  </tr>
-  <tr>
-    <td>Wert</td>
-    <td>Der Name der Variable, in der der Wert des aktuellen Schl&uuml;ssels gespeichert wird.</td>
-  </tr>
-  <tr>
-    <td>Ausdruck</td>
-    <td>Ein <a href="../Variables.htm#Expressions">Ausdruck</a>, der auf einem Objekt hinausl&auml;uft, oder einer Variable, die ein Objekt enth&auml;lt.</td>
-  </tr>
-</tbody></table>
+<dl>
+ 
+    <dt>Schl&uuml;ssel</dt>
+    <dd><p>Der Name der Variable, in der der Schl&uuml;ssel zu Beginn jeder Iteration (Wiederholung) gespeichert wird.</p></dd>
+ 
+    <dt>Wert</dt>
+    <dd><p>Der Name der Variable, in der der Wert des aktuellen Schl&uuml;ssels gespeichert wird.</p></dd>
+ 
+    <dt>Ausdruck</dt>
+    <dd><p>Ein <a href="../Variables.htm#Expressions">Ausdruck</a>, der auf einem Objekt hinausl&auml;uft, oder einer Variable, die ein Objekt enth&auml;lt.</p></dd>
+  
+</dl>
 
 <h3>Bemerkungen</h3>
 <p>Der <i>Ausdruck</i> wird nur einmal ausgewertet, bevor die Schleife beginnt. Ist das Ergebnis kein Objekt, springt die Ausf&uuml;hrung sofort zur Zeile nach dem Schleifenblock; ansonsten wird die <code>NewEnum()</code>-Methode des Objekts aufgerufen, um ein <a href="../objects/Enumerator.htm"><i>Enumerator</i></a>-Objekt zu erzeugen. Zu Beginn jeder Iteration wird die <a href="../objects/Enumerator.htm#Next">Next()</a>-Methode des Enumerators verwendet, um das n&auml;chste Schl&uuml;ssel-Wert-Paar zu ermitteln. Wenn Next() eine 0 oder einen leeren String zur&uuml;ckgibt, wird die Schleife beendet.</p>

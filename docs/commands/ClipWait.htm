@@ -13,17 +13,15 @@
 
 <pre class="Syntax">ClipWait [, Wartezeit, 1]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tbody>
-<tr>
-    <td width="15%">Wartezeit</td>
-    <td width="85%">Wenn sie weggelassen wird, wartet der Befehl unendlich lang. Andernfalls wartet der Befehl die angegebenen Sekunden (kann einen Dezimalpunkt enthalten oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein). Der Wert 0 entspricht 0.5.</td>
-  </tr>
-  <tr>
-    <td>1<br>    </td>
-    <td>Wenn dieser Parameter weggelassen wird, dann wartet der Befehl gezielt auf Texte oder Dateien, die in der Zwischenablage erscheinen. Falls dieser Parameter eine 1 enth&auml;lt (kann auch ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein), wartet der Befehl auf Daten beliebiger Art, die in der Zwischenablage erscheinen.</td>
-  </tr>
-</tbody></table>
+<dl>
+ 
+    <dt>Wartezeit</dt>
+    <dd><p>Wenn dieser Parameter weggelassen wird, wartet der Befehl unendlich lang. Andernfalls wartet der Befehl die angegebenen Sekunden (kann einen Dezimalpunkt enthalten). Der Wert 0 entspricht 0.5.</p></dd>
+ 
+    <dt>1<br>    </dt>
+    <dd><p>Wenn dieser Parameter weggelassen wird, dann wartet der Befehl gezielt auf Texte oder Dateien, die in der Zwischenablage erscheinen. Falls dieser Parameter eine 1 enth&auml;lt, wartet der Befehl auf Daten beliebiger Art, die in der Zwischenablage erscheinen.</p></dd>
+  
+</dl>
 
 <h3>ErrorLevel</h3>
 <p>Wenn die Wartezeit abl&auml;uft, wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt. Andernfalls wird ErrorLevel auf 0 gesetzt, wenn die Zwischenablage Daten enth&auml;lt.</p>

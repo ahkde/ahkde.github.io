@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>MouseClick</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,35 +13,30 @@
 
 <pre class="Syntax">MouseClick [, Taste, X, Y, Klickanzahl, Geschwindigkeit, D|U, R]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Taste</td>
-    <td><p>Die zu klickende Taste: Left (Standard), Right, Middle (oder einfach nur die ersten Buchstaben); oder die 4. oder 5. Maustaste (X1 oder X2), die ab Windows 2000/XP unterst&uuml;tzt werden. Zum Beispiel: <em>MouseClick, X1</em>. Dieser Parameter kann weggelassen werden, damit standardm&auml;&szlig;ig Left verwendet wird.</p>
+<dl>
+  
+    <dt>Taste</dt>
+    <dd><p>Die zu klickende Taste: Left (Standard), Right, Middle (oder einfach nur die ersten Buchstaben); oder die 4. oder 5. Maustaste (X1 oder X2), die ab Windows 2000/XP unterst&uuml;tzt werden. Zum Beispiel: <em>MouseClick, X1</em>. Dieser Parameter kann weggelassen werden, damit standardm&auml;&szlig;ig Left verwendet wird.</p>
       <p><u>Mausrad drehen</u>: Windows NT/2000/XP oder h&ouml;her: Um das Mausrad nach oben zu drehen (vom Benutzer weg), verwendet man WheelUp oder WU; Um das Mausrad nach unten zu drehen (auf dem Benutzer zu), verwendet man WheelDown oder WD. Seit v1.0.48 k&ouml;nnen auch WheelLeft (WL) oder WheelRight (WR) verwendet werden (funktioniert nicht bei Betriebssystemen, die &auml;lter als Windows Vista sind). Mit der <em>Klickanzahl</em> kann die Anzahl der Rasterungen zum Drehen des Rades bestimmt werden.</p>
-      <p>Wenn der Benutzer die linken und rechten Maustasten mittels der Systemsteuerung vertauscht hat, dann kann das automatisch mit dem <a href="Click.htm">Click-Befehl</a> ausgeglichen werden.</p></td>
-  </tr>
-  <tr>
-    <td>X, Y </td>
-    <td>Die X/Y-Koordinaten der neuen Mausposition, bevor ein Klicken erfolgt (k&ouml;nnen <a href="../Variables.htm#Expressions">Ausdr&uuml;cke</a> sein). Koordinaten beziehen sich auf das aktive Fenster, es sei denn, <a href="CoordMode.htm">CoordMode</a> wurde dazu verwendet, dass zu &auml;ndern. Wenn nicht vorhanden, dann wird die aktuelle Position des Zeigers verwendet.</td>
-  </tr>
-  <tr>
-    <td>Klickanzahl</td>
-    <td>Die Anzahl der Mausklicks, welches auch ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann.&nbsp; Wenn nicht vorhanden, dann erfolgt nur ein Mausklick. </td>
-  </tr>
-  <tr>
-    <td width="15%">Geschwindigkeit</td>
-    <td width="85%"><p>Die Bewegungsgeschwindigkeit der Maus von 0 (am schnellsten) bis 100 (am langsamsten), welches auch ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann.&nbsp; Hinweis: mit der Geschwindigkeit von 0 wird die Maus sofort bewegt.&nbsp; Wenn weggelassen, dann wird die Standard-Geschwindigkeit von <a href="SetDefaultMouseSpeed.htm">SetDefaultMouseSpeed</a> ??(wenn nicht vorhanden, dann die 2) verwendet.</p>
-      <p><em>Geschwindigkeit</em> wird bei der <a href="SendMode.htm">SendInput- oder SendPlay-Methode</a> ignoriert: damit wird die Maus sofort bewegt (obwohl <a href="SetMouseDelay.htm">SetMouseDelay</a> einen Modus hat, der f&uuml;r SendPlay gilt). Um die Maus sichtbar langsamer zu bewegen (z. B. f&uuml;r ein Script, dass eine Demonstration f&uuml;r das Publikum vorf&uuml;hrt), verwendet <em><a href="Send.htm#Click">SendEvent {Click 100, 200}</a></em> oder <em><a href="SendMode.htm">SendMode Event</a></em> (optional in Verbindung mit <a href="BlockInput.htm">BlockInput</a>).</p></td>
-  </tr>
-  <tr>
-    <td>D|U</td>
-    <td><p>Wenn dieser Parameter weggelassen wird, dann besteht jeder Klick aus einem "down"-Ereignis, gefolgt von einem "up"-Ereignis. Alternativ:<br> D = Maustaste wird gedr&uuml;ckt, aber nicht losgelassen (das hei&szlig;t, es wird ein Down-Ereignis erzeugt). <br> U = Maustaste wird losgelassen (das hei&szlig;t, es wird ein Up-Ereignis erzeugt).</p>      </td>
-  </tr>
-  <tr>
-    <td>R</td>
-    <td>Wenn dieser Parameter den Buchstabe R enth&auml;lt, dann werden X- und Y-Koordinaten als Offsets von der aktuellen Mausposition behandelt. In anderen Worten wird der Zeiger von seiner aktuellen Position um X Pixel nach rechts (nach links ist negativ) und um Y Pixel nach unten (nach oben ist negativ) verschoben.</td>
-  </tr>
-</table>
+      <p>Wenn der Benutzer die linken und rechten Maustasten mittels der Systemsteuerung vertauscht hat, dann kann das automatisch mit dem <a href="Click.htm">Click-Befehl</a> ausgeglichen werden.</p></dd>
+ 
+    <dt>X, Y </dt>
+    <dd><p>Die X/Y-Koordinaten der neuen Mausposition, bevor ein Klicken erfolgt. Koordinaten beziehen sich auf das aktive Fenster, es sei denn, <a href="CoordMode.htm">CoordMode</a> wurde dazu verwendet, dass zu &auml;ndern. Wenn nicht vorhanden, dann wird die aktuelle Position des Zeigers verwendet.</p></dd>
+ 
+    <dt>Klickanzahl</dt>
+    <dd><p>Die Anzahl der Mausklicks.&nbsp; Wenn nicht vorhanden, dann erfolgt nur ein Mausklick. </p></dd>
+ 
+    <dt>Geschwindigkeit</dt>
+    <dd><p>Die Bewegungsgeschwindigkeit der Maus von 0 (am schnellsten) bis 100 (am langsamsten).&nbsp; Hinweis: mit der Geschwindigkeit von 0 wird die Maus sofort bewegt. Wenn weggelassen, dann wird die Standard-Geschwindigkeit von <a href="SetDefaultMouseSpeed.htm">SetDefaultMouseSpeed</a> (wenn nicht vorhanden, dann die 2) verwendet.</p>
+      <p><em>Geschwindigkeit</em> wird bei der <a href="SendMode.htm">SendInput- oder SendPlay-Methode</a> ignoriert: damit wird die Maus sofort bewegt (obwohl <a href="SetMouseDelay.htm">SetMouseDelay</a> einen Modus hat, der f&uuml;r SendPlay gilt). Um die Maus sichtbar langsamer zu bewegen (z. B. f&uuml;r ein Script, dass eine Demonstration f&uuml;r das Publikum vorf&uuml;hrt), verwendet <em><a href="Send.htm#Click">SendEvent {Click 100, 200}</a></em> oder <em><a href="SendMode.htm">SendMode Event</a></em> (optional in Verbindung mit <a href="BlockInput.htm">BlockInput</a>).</p></dd>
+ 
+    <dt>D|U</dt>
+    <dd><p>Wenn dieser Parameter weggelassen wird, dann besteht jeder Klick aus einem "down"-Ereignis, gefolgt von einem "up"-Ereignis. Alternativ:<br> D = Maustaste wird gedr&uuml;ckt, aber nicht losgelassen (das hei&szlig;t, es wird ein Down-Ereignis erzeugt). <br> U = Maustaste wird losgelassen (das hei&szlig;t, es wird ein Up-Ereignis erzeugt).</p></dd>
+ 
+    <dt>R</dt>
+    <dd><p>Wenn dieser Parameter den Buchstabe R enth&auml;lt, dann werden X- und Y-Koordinaten als Offsets von der aktuellen Mausposition behandelt. In anderen Worten wird der Zeiger von seiner aktuellen Position um X Pixel nach rechts (nach links ist negativ) und um Y Pixel nach unten (nach oben ist negativ) verschoben.</p></dd>
+  
+</dl>
 
 <h3>Bemerkungen</h3>
 <p>Dieser Befehl verwendet die vordefinierte Methode von <a href="SendMode.htm">SendMode</a>.</p>
@@ -56,8 +50,7 @@
 Send, {Control down}
 MouseClick, left, 55, 233
 Send, {Control up}</pre>
-<pre>
-<em>; Beispiel #2:</em>
+<pre><em>; Beispiel #2:</em>
 Send, {Shift down}
 MouseClick, left, 55, 233
 Send, {Shift up}</pre>
@@ -83,6 +76,4 @@ MouseClick, right, 200, 300
 <em>; Hier sind zwei Hotkeys, die das Drehen des Mausrads simulieren:</em>
 #up::MouseClick, WheelUp, , , 2  <em>; 2 Rasterungen drehen.</em>
 #down::MouseClick, WheelDown, , , 2</pre>
-
-</body>
-</html>
+</body></html>

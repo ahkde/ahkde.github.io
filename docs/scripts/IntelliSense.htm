@@ -87,10 +87,10 @@ Loop, Read, %ahk_dir%\Extras\Editors\Syntax\Commands.txt
     else  <em>; Eine Anweisung/ein Befehl ohne Parameter.</em>
         I_CurrCmd = %A_LoopReadLine%
 
-    StringReplace, I_CurrCmd, I_CurrCmd, [,, All
-    StringReplace, I_CurrCmd, I_CurrCmd, %A_Space%,, All
-    StringReplace, I_FullCmd, I_FullCmd, ``n, `n, All
-    StringReplace, I_FullCmd, I_FullCmd, ``t, `t, All
+    StrReplace, I_CurrCmd, I_CurrCmd, [,, All
+    StrReplace, I_CurrCmd, I_CurrCmd, %A_Space%,, All
+    StrReplace, I_FullCmd, I_FullCmd, ``n, `n, All
+    StrReplace, I_FullCmd, I_FullCmd, ``t, `t, All
 
     <em>; Arrays mit Befehlsnamen und vollst&auml;ndige Befehlssyntax erstellen:</em>
     I_Cmd%A_Index% = %I_CurrCmd%
@@ -129,8 +129,8 @@ Loop
     }
 
     <em>; Jede vorhandene Einr&uuml;ckung ersetzen:</em>
-    StringReplace, I_Word, I_Word, %A_Space%,, All
-    StringReplace, I_Word, I_Word, %A_Tab%,, All
+    StrReplace, I_Word, I_Word, %A_Space%,, All
+    StrReplace, I_Word, I_Word, %A_Tab%,, All
     if I_Word =
         Continue
 
@@ -192,7 +192,7 @@ if I_ThisCmd =  <em>; Stattdessen wird die aktuellste Benutzereingabe verwendet.
 <em>; Der obere Befehl bestimmt das "zuletzt gefundene" Fenster, das unten verwendet wird:</em>
 WinActivate
 WinWaitActive
-StringReplace, I_ThisCmd, I_ThisCmd, #, {#}  <em>; F&uuml;hrende # ersetzen, falls vorhanden.</em>
+StrReplace, I_ThisCmd, I_ThisCmd, #, {#}  <em>; F&uuml;hrende # ersetzen, falls vorhanden.</em>
 Send, !n{home}+{end}%I_HelpOn%{enter}
 return
 

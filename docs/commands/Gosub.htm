@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Gosub</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,12 +13,12 @@
 
 <pre class="Syntax">Gosub, Label</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Label</td>
-    <td width="85%">Name des <a href="../misc/Labels.htm">Labels</a> (auch <a href="../Hotkeys.htm">Hotkey</a>- oder <a href="../Hotstrings.htm#label">Hotstring-Label</a>), das ausgef&uuml;hrt werden soll, bis ein Return oder Exit erreicht wird. Mit <a href="Return.htm">Return</a> springt das Script zum ersten Befehl nach dem Gosub, um die Ausf&uuml;hrung fortzusetzen. Mit <a href="Exit.htm">Exit</a> wird das <a href="../misc/Threads.htm">aktuelle Script</a> beendet.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Label</dt>
+    <dd><p>Name des <a href="../misc/Labels.htm">Labels</a> (auch <a href="../Hotkeys.htm">Hotkey</a>- oder <a href="../Hotstrings.htm#label">Hotstring-Label</a>), das ausgef&uuml;hrt werden soll, bis ein Return oder Exit erreicht wird. Mit <a href="Return.htm">Return</a> springt das Script zum ersten Befehl nach dem Gosub, um die Ausf&uuml;hrung fortzusetzen. Mit <a href="Exit.htm">Exit</a> wird das <a href="../misc/Threads.htm">aktuelle Script</a> beendet.</p></dd>
+  
+</dl>
 
 <h3>Bemerkungen</h3>
 <p>Wie bei den meisten Parametern von Befehlen kann <em>Label</em> eine <a href="../Variables.htm">Variablenreferenz</a> enthalten (z. B. %EigenesLabel%). In diesem Fall wird der Name in der Variable als Ziel benutzt. Allerdings wird dadurch die Performance ein wenig beeintr&auml;chtigt, weil das Ziel-Label jedes Mal neu eingelesen werden muss, anstatt nur einmal, wenn das Script geladen wird.</p>
@@ -37,6 +36,4 @@ Return
 Label1:
 MsgBox, Die Label1-Subroutine l&auml;uft gerade.
 Return</pre>
-
-</body>
-</html>
+</body></html>

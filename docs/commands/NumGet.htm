@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>NumGet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>NumGet</h1>
+<p>Gibt die bin&auml;re Zahl zur&uuml;ck, die sich auf der Adresse + Offset befindet.<br></p>
+<pre class="Syntax">Zahl := NumGet(VarOderAdresse [, Offset = 0][, Typ = "UPtr"])</pre>
+
+<h3>Parameter</h3>
+<dl>
+
+  <dt>VarOderAdresse</dt>
+  <dd><p>Eine Speicheradresse oder Variable. Wenn <em>VarOderAdresse</em> eine Variable wie <code>EigeneVar</code> ist und die Variable weder eine reine Zahl noch ein Objekt enth&auml;lt, dann wird dieser Wert wie <code>&amp;EigeneVar</code> &uuml;bergeben. Allerdings f&uuml;hrt das Weglassen von "&amp;" zu besseren Ergebnissen und stellt sicher, dass die Zieladresse <a href="VarSetCapacity.htm">g&uuml;ltig</a> ist.</p></dd>
+
+  <dt>Offset</dt>
+  <dd><p>Ein Offset (in Bytes), der mit <em>VarOderAdresse</em> addiert wird, um die Zieladresse zu bestimmen.</p></dd>
+
+  <dt>Typ</dt>
+  <dd><p>Einer der folgenden Strings (standardm&auml;&szlig;ig UPtr, wenn weggelassen):<br>
+      UInt, Int, Int64, Short, UShort, Char, UChar, Double, Float, Ptr oder UPtr</p>
+      <p>Im Gegensatz zu DllCall m&uuml;ssen diese in Anf&uuml;hrungszeichen gesetzt werden, wenn sie als direkte Strings verwendet werden.</p>
+      <p>Siehe <a href="DllCall.htm#types">DllCall-Typen</a> f&uuml;r Details.</p></dd>
+
+</dl>
+
+<h3>R&uuml;ckgabewert</h3>
+<p>Falls die Zieladresse ung&uuml;ltig ist, wird ein leerer String zur&uuml;ckgegeben. Allerdings k&ouml;nnen einige ung&uuml;ltige Adressen als solche nicht erkannt werden, dass folglich zu unerkl&auml;rlichem Verhalten f&uuml;hren kann.</p>
+<p>Ansonsten wird die Zahl, die sich auf der angegebenen Adresse + Offset befindet, zur&uuml;ckgegeben.</p>
+
+<h3>Bemerkungen</h3>
+<p>Falls nur zwei Parameter vorhanden sind, kann der zweite Parameter sowohl <em>Offset</em> als auch <em>Typ</em> sein. Zum Beispiel ist&nbsp; <code>NumGet(var, "int")</code> g&uuml;ltig.</p>
+
+<h3>Verwandte Befehle<br></h3>
+<p><a href="NumPut.htm">NumPut</a>, <a href="DllCall.htm">DllCall</a>, <a href="VarSetCapacity.htm">VarSetCapacity</a></p>
+
+
+
+
+</body></html>

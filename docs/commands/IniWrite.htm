@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>IniWrite</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,30 +13,25 @@
 
 <pre class="Syntax">IniWrite, Wert, Dateiname, Sektion [, Schl&uuml;ssel] </pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Wert</td>
-    <td>
-      <p>String oder Nummer, rechts vom Gleichheitszeichen (=) des <em>Schl&uuml;ssels</em> stehen. Wenn der Text lang ist, dann kann dieser in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern k&ouml;nnten.</p>
-      <p><span class="ver">[AHK_L 57+]:</span> Wenn der <i>Schl&uuml;ssel</i> weggelassen wird, dann sollte dieser Parameter den kompletten Inhalt einer Sektion enthalten (ohne [Sektionsname]-Kopf), damit dieser in die INI-Datei geschrieben werden kann.</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="15%">Dateiname</td>
-    <td width="85%">Der Name der Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist.</td>
-  </tr>
-  <tr>
-    <td>Sektion</td>
-    <td>Name der Sektion in der INI-Datei. Solche Sektionen werden mit eckigen Klammern dargestellt (die Klammern d&uuml;rfen nicht in diesem Parameter stehen).</td>
-  </tr>
-  <tr>
-    <td>Schl&uuml;ssel</td>
-    <td>Name des Schl&uuml;ssels in der INI-Datei.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Wert</dt>
+    <dd><p>String oder Nummer, rechts vom Gleichheitszeichen (=) des <em>Schl&uuml;ssels</em> stehen. Wenn der Text lang ist, dann kann dieser in mehreren kurzen Zeilen aufgeteilt werden (<a href="../Scripts.htm#continuation">Fortsetzungsbereich</a>), die die Lesbarkeit und Wartbarkeit verbessern k&ouml;nnten.</p>
+      <p><span class="ver">[AHK_L 57+]:</span> Wenn der <i>Schl&uuml;ssel</i> weggelassen wird, dann sollte dieser Parameter den kompletten Inhalt einer Sektion enthalten (ohne [Sektionsname]-Kopf), damit dieser in die INI-Datei geschrieben werden kann.</p></dd>
+ 
+    <dt>Dateiname</dt>
+    <dd><p>Der Name der Datei, die sich im <a href="../Variables.htm#WorkingDir">A_WorkingDir</a>-Verzeichnis befindet, solange kein absoluter Pfad angegeben ist.</p></dd>
+ 
+    <dt>Sektion</dt>
+    <dd><p>Name der Sektion in der INI-Datei. Solche Sektionen werden mit eckigen Klammern dargestellt (die Klammern d&uuml;rfen nicht in diesem Parameter stehen).</p></dd>
+ 
+    <dt>Schl&uuml;ssel</dt>
+    <dd><p>Name des Schl&uuml;ssels in der INI-Datei.</p></dd>
+  
+</dl>
 <h3>ErrorLevel</h3>
 <p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, bei Misserfolg eine Ausnahme auszul&ouml;sen. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>
-<p>Bei Problemen wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enth&auml;lt ErrorLevel eine 0. Wenn das Script allerdings vom Typ .aut (AutoIt v2) ist, dann wird ErrorLevel nicht ge&auml;ndert (aus Gr&uuml;nden der Kompatibilit&auml;t).</p>
+<p><a href="../misc/ErrorLevel.htm">ErrorLevel</a> wird bei Misserfolg auf 1 und bei Erfolg auf 0 gesetzt.<br></p>
 <h3>Bemerkungen</h3>
 <p>Eine typische INI-Datei sieht wie folgt aus:</p>
 <pre>[Sektionsname]
@@ -49,5 +43,5 @@ Schl&uuml;ssel=Wert</pre>
 <h3>Beispiel</h3>
 <pre class="NoIndent">IniWrite, Das ist ein neuer Wert, C:\Temp\EigeneDatei.ini, Sektion2, Schl&uuml;ssel</pre>
 
-</body>
-</html>
+
+</body></html>

@@ -11,15 +11,15 @@
 <h2>1.0.48.05 - 25. September 2009</h2>
 <p>Absturz von <a href="commands/PostMessage.htm">SendMessage und PostMessage</a> behoben, wenn wParam oder lParam weggelassen wird (fehlerhaft seit 1.0.48.04). [Danke, Lexikos]</p>
 <h2>1.0.48.04 - 25. September 2009</h2>
-<p>Fehler in <a href="commands/StringSplit.htm">StringSplit</a> behoben, damit er wieder richtig in <a href="Functions.htm">Funktionen</a> eines <a href="Scripts.htm#ahk2exe">kompilierten Scripts</a> funktioniert (fehlerhaft seit 1.0.35.01). [Danke, engunneer &amp; Lexikos]</p>
+<p>Fehler in <a href="commands/StrSplit.htm">StrSplit</a> behoben, damit er wieder richtig in <a href="Functions.htm">Funktionen</a> eines <a href="Scripts.htm#ahk2exe">kompilierten Scripts</a> funktioniert (fehlerhaft seit 1.0.35.01). [Danke, engunneer &amp; Lexikos]</p>
 <p>Fehler in <a href="commands/Send.htm#SendPlayDetail">SendPlay</a> behoben, damit er nicht mehr auf das Loslassen der Win-Taste warten muss, bevor eine L-Tasteneingabe gesendet wird (fehlerhaft seit 1.0.48.01). [Danke, Lexikos]</p>
 <p>Fehler mit <a href="Variables.htm#EndChar">A_EndChar</a> behoben, damit sie g&uuml;ltig ist, wenn die <a href="Hotstrings.htm#b0">B0-Option</a> vorhanden ist, und leer ist, wenn kein <a href="Hotstrings.htm#EndChars">Endzeichen</a> vorhanden ist (fehlerhaft seit 1.0.44.09). [Danke, Al2000]</p>
 <p>Fehler mit <a href="commands/FormatTime.htm">FormatTime</a> behoben, damit ein g&uuml;ltiger Zeitstempel zur&uuml;ckgegeben wird, selbst wenn der angegebene Monat au&szlig;erhalb des Bereichs liegt (fehlerhaft seit 1.0.48.00). [Danke, silveredge78]</p>
-<p>Fehler mit <a href="commands/FileCreateDir.htm">FileCreateDir</a> behoben, damit ein f&uuml;hrender Backslash unterst&uuml;tzt wird, selbst wenn es nur der eine Backslash ist; z. B. \Verzeichnis. [Danke, jaco0646]</p>
+<p>Fehler mit <a href="commands/DirCreate.htm">DirCreate</a> behoben, damit ein f&uuml;hrender Backslash unterst&uuml;tzt wird, selbst wenn es nur der eine Backslash ist; z. B. \Verzeichnis. [Danke, jaco0646]</p>
 <p>Fehler mit <a href="commands/GuiControl.htm">GuiControl</a>/<a href="commands/GuiControlGet.htm">GuiControlGet</a>/<a href="commands/Gui.htm">Gui</a>/<a href="commands/PostMessage.htm">SendMessage</a> behoben, damit sie zuverl&auml;ssig funktionieren, selbst wenn sie eine <a href="commands/RegisterCallback.htm">Callback</a>- oder <a href="commands/OnMessage.htm">OnMessage</a>-Funktion ausl&ouml;sen. [Danke, Lexikos]</p>
 <p>Fehler mit <a href="commands/RegExMatch.htm">RegExMatch()</a> behoben, damit nicht zu wenige Ersetzungen erzeugt werden, falls nach einer &Uuml;bereinstimmung mit einem leeren String eine &Uuml;bereinstimmung mit einem nicht leeren String erfolgt.</p>
 <p>"While()" wird nun als <a href="commands/While.htm">Schleife</a> erkannt und nicht mehr als <a href="Functions.htm">Funktion</a>. [Danke, Crash&amp;Burn]</p>
-<p><a href="commands/UrlDownloadToFile.htm">URLDownloadToFile</a> verbessert, um FTP und Gopher zu unterst&uuml;tzen. [Danke, Lexikos]</p>
+<p><a href="commands/Download.htm">Download</a> verbessert, um FTP und Gopher zu unterst&uuml;tzen. [Danke, Lexikos]</p>
 <p><a href="commands/FileAppend.htm#stdout">stdout/Sternchen-Modus</a> von FileAppend verbessert, um sofort in die Standardausgabe zu schreiben. [Danke, Lexikos]</p>
 <p>Zus&auml;tzliche Unterst&uuml;tzung f&uuml;r "If % Ausdruck". [Danke, kenomby]</p>
 <h2>1.0.48.03 - 3. Mai 2009</h2>
@@ -80,7 +80,7 @@
 <p>RegEx/PCRE von 7.0 auf 7.4 aktualisiert. Eine Zusammenfassung der wichtigsten &Auml;nderungen kann auf <a href="http://www.pcre.org/news.txt">www.pcre.org/news.txt</a> gefunden werden. Alle Details der &Auml;nderungen und Fehlerbehebungen k&ouml;nnen auf <a href="http://www.pcre.org/changelog.txt">www.pcre.org/changelog.txt</a> gefunden werden.</p>
 <p>GUI-Steuerelement "<a href="commands/GuiControls.htm#Tab2">Tab2</a>" hinzugef&uuml;gt, dass seltene Fehler beim Neuzeichnen im originalen "Tab"-Steuerelement behebt (z. B. ein GUI-Fenster mithilfe eines Klicks auf eine Steuerelement-Bildlaufleiste aktivieren). Das urspr&uuml;ngliche Tab-Steuerelement wird f&uuml;r die Abw&auml;rtskompatibilit&auml;t beibehalten, weil "Tab2" nach seine Steuerelemente in die Navigationsreihenfolge der Tab-Taste hinzugef&uuml;gt wird. [Danke, Xander]</p>
 <h2>1.0.47.04 - 28. August 2007</h2>
-<p>Fehler mit <a href="Hotkeys.htm#keyup">Up-Tasten-Hotkeys</a> wie "a up::" behoben, um das Dr&uuml;cken der "a"-Taste erst zu blockieren, wenn die <a href="commands/_IfWinActive.htm">#IfWin-Kriterien</a> des Hotkeys erf&uuml;llt werden. [Danke, Roland]</p>
+<p>Fehler mit <a href="Hotkeys.htm#keyup">Up-Tasten-Hotkeys</a> wie "a up::" behoben, um das Dr&uuml;cken der "a"-Taste erst zu blockieren, wenn die <a href="commands/_WinActive.htm">#IfWin-Kriterien</a> des Hotkeys erf&uuml;llt werden. [Danke, Roland]</p>
 <p>Fehler mit der Funktion <a href="Functions.htm#Round">Round(Variable, NegativeZahl)</a> behoben, die durch eine 1 in selten F&auml;llen deaktiviert war. [Danke, Icarus]</p>
 <p>Absturz von Scripts behoben, die wegen einer verwaisten IF-Anweisung mit einem Syntaxfehler endeten (fehlerhaft seit 1.0.47.00). [Danke, msgbox vom deutschen Forum]</p>
 <p>Fehler-Dialogfenster von "GetClipboardData" beseitigt. Stattdessen wird ein leerer String ermittelt, wenn die Daten innerhalb der <a href="commands/_ClipboardTimeout.htm">#ClipboardTimeout</a>-Periode nicht abrufbar sind. [Danke, ManaUser &amp; Sean]</p>
@@ -121,7 +121,7 @@
 <h2>1.0.46.14 - 2. Mai 2007</h2>
 <p>requireAdministrator-Flag dem Installer hinzugef&uuml;gt, um eine Warnmeldung in Windows Vista zu verhindern. [Danke, Roussi Nikolov]</p>
 <h2>1.0.46.13 - 1. Mai 2007</h2>
-<p>Fehler mit <a href="Hotkeys.htm">Hotkeys</a> wie <strong>*x</strong> behoben, damit sie ausgef&uuml;hrt werden, selbst wenn <strong>x</strong> auch ein Hotkey ist, der aufgrund von <a href="commands/_IfWinActive.htm">#IfWin</a> verhindert wird. [Danke, Joy2DWorld &amp; Engunneer]</p>
+<p>Fehler mit <a href="Hotkeys.htm">Hotkeys</a> wie <strong>*x</strong> behoben, damit sie ausgef&uuml;hrt werden, selbst wenn <strong>x</strong> auch ein Hotkey ist, der aufgrund von <a href="commands/_WinActive.htm">#IfWin</a> verhindert wird. [Danke, Joy2DWorld &amp; Engunneer]</p>
 <p><a href="Functions.htm#optional">Optionale Parameter</a> verbessert, damit sie direkt vorhandene Strings bzw. Strings mit Anf&uuml;hrungszeichen als Standardwerte akzeptieren.</p>
 <p><a href="Functions.htm#ByRef">ByRef-Parameter</a> mit der F&auml;higkeit erweitert, <a href="Functions.htm#optional">optional</a> zu sein (d. h. sie k&ouml;nnen Standardwerte akzeptieren). [Danke, Corrupt]</p>
 <h2>1.0.46.12 - 24. April 2007</h2>
@@ -131,7 +131,7 @@
 <p>Fehler mit Fenstertitel wie "ahk_id %ControlHwnd%" im FindString/Choice/List von <a href="commands/ControlGet.htm">ControlGet</a>, und im Add/Delete/Choose von <a href="commands/Control.htm">Control</a> behoben. [Danke, Freighter &amp; PhiLho]</p>
 <p>Flie&szlig;komma-Unterst&uuml;tzung verbessert, um eine wissenschaftliche Notation zu erkennen; z. B. 1.2e-5 (der Dezimalpunkt ist zwingend erforderlich). Ebenso wurde "<a href="commands/SetFormat.htm#sci">SetFormat Float</a>" mit der Option erweitert, eine wissenschaftliche Notation auszugeben. [Danke, Laszlo]</p>
 <h2>1.0.46.10 - 22. M&auml;rz 2007</h2>
-<p>Fehler mit <a href="commands/StringSplit.htm">StringSplit</a> innerhalb von lokal-angenommenen <a href="Functions.htm">Funktionen</a> behoben, damit ein lokales <a href="misc/Arrays.htm">Array</a> erstellt wird, selbst wenn AusgabeArray0 global anstelle von lokal vorhanden ist. [Danke, KZ]</p>
+<p>Fehler mit <a href="commands/StrSplit.htm">StrSplit</a> innerhalb von lokal-angenommenen <a href="Functions.htm">Funktionen</a> behoben, damit ein lokales <a href="misc/Arrays.htm">Array</a> erstellt wird, selbst wenn AusgabeArray0 global anstelle von lokal vorhanden ist. [Danke, KZ]</p>
 <p>Die <a href="commands/ListView.htm#ItemChanged">Element-&auml;ndernde Benachrichtigung ("I")</a> verbessert, um mithilfe von ErrorLevel zu kennzeichnen, ob das Element ausgew&auml;hlt/nicht mehr ausgew&auml;hlt ist, fokussiert/nicht mehr fokussiert ist und/oder markiert/nicht mehr markiert ist. [Danke, foom]</p>
 <p>Eine zus&auml;tzliche Sicherheitsstufe f&uuml;r <a href="Scripts.htm#ahk2exe">kompilierte Scripts</a> hinzugef&uuml;gt. Es wird empfohlen, Scripts mit sensiblen Daten oder Quellcodes mit der <a href="Scripts.htm#ahk2exeCmd">/NoDecompile-Option</a> neu zu kompilieren.</p>
 <h2>1.0.46.09 - 4. M&auml;rz 2007</h2>
@@ -146,7 +146,7 @@
 <p><a href="commands/DllCall.htm">DllCall</a> verbessert, um einen Integer anstelle eines Funktionsnamens zu unterst&uuml;tzen, die als Adresse eines Funktionsaufrufs interpretiert wird. [Danke, Sean]</p>
 <h2>1.0.46.07 - 23. Januar 2007</h2>
 <p>Absturz von falsch benannten <a href="misc/Arrays.htm">dynamischen Variablen</a> auf der linken Seite einer Zuweisung mit einem Gleichheitszeichen behoben (fehlerhaft seit v1.0.45). [Danke, PhiLho]</p>
-<p>Fehler mit der "Option 2" von <a href="commands/FileMoveDir.htm">FileMoveDir</a> behoben, damit sie richtig funktioniert, selbst wenn das Verzeichnis sowohl umbenannt als auch verschoben wurde. [Danke, bugmenot]</p>
+<p>Fehler mit der "Option 2" von <a href="commands/DirMove.htm">DirMove</a> behoben, damit sie richtig funktioniert, selbst wenn das Verzeichnis sowohl umbenannt als auch verschoben wurde. [Danke, bugmenot]</p>
 <p>Fehler behoben, wodurch ein Variable-<a href="Functions.htm#ByRef">ByRef</a> nicht &uuml;bergeben werden konnte, wenn der gleiche Ausdruck von leer auf nicht-leer ge&auml;ndert wurde (falls <a href="commands/_NoEnv.htm">#NoEnv</a> abwesend ist). [Danke, Joy2DWorld]</p>
 <p><a href="commands/DllCall.htm#LastError">A_LastError</a> von DllCall ge&auml;ndert, um nur die &Auml;nderungen vom Script und nicht von AutoHotkey selbst widerzuspiegeln. [Danke, Azerty]</p>
 <h2>1.0.46.06 - 16. Januar 2007</h2>
@@ -164,7 +164,7 @@
 <h2>1.0.46.03 - 18. Dezember 2006</h2>
 <p>Fehler mit der Sortierung von Flie&szlig;kommazahlen im <a href="commands/ListView.htm">ListView</a> behoben, um die korrekte Reihenfolge zu erzeugen. [Danke, oldbrother/Goyyah/Laszlo]</p>
 <h2>1.0.46.02 - 17. Dezember 2006</h2>
-<p>Fehler mit <a href="Variables.htm#env">Umgebungsvariablen</a> behoben, damit sie richtig als Eingabevariablen f&uuml;r verschiedene Befehle funktionieren, wie z. B. <a href="commands/StringLen.htm">StringLen</a> und <a href="commands/StringReplace.htm">StringReplace</a> (fehlerhaft seit 1.0.44.14). [Danke, Camarade_Tux]</p>
+<p>Fehler mit <a href="Variables.htm#env">Umgebungsvariablen</a> behoben, damit sie richtig als Eingabevariablen f&uuml;r verschiedene Befehle funktionieren, wie z. B. <a href="commands/StrLen.htm">StrLen</a> und <a href="commands/StrReplace.htm">StrReplace</a> (fehlerhaft seit 1.0.44.14). [Danke, Camarade_Tux]</p>
 <h2>1.0.46.01 - 15. Dezember 2006</h2>
 <p><strong>HINWEIS:</strong> Obwohl diese Version ausgiebig getestet wurde, wurden mehrere systemnahe Verbesserungen vorgenommen. Wenn der Benutzer irgendwelche aufgabenkritische Scripts hat, dann sollte er sie nochmals &uuml;berpr&uuml;fen und/oder einige Wochen warten, bis einige Bugs behoben wurden.</p>
 <p>Fehler mit kommagetrennte <a href="Functions.htm#DeclareInit">Deklarationsinitialisierungen</a> wie "<em>local x = 1, y = 2</em>" behoben, damit sie funktionieren, selbst wenn unmittelbar darunter eine IF/ELSE/LOOP-Anweisung erfolgt.</p>
@@ -201,10 +201,10 @@
 <p>Fehler mit <a href="Functions.htm">Funktionen</a> behoben, die sich selbst aufrufen und ihren <a href="Functions.htm#Locals">lokalen Variablen</a> das Ergebnis zuweisen (fehlerhaft seit v1.0.45). [Danke, bjennings]</p>
 <p>Absturz von Scripts behoben, die <a href="misc/RegEx-QuickRef.htm">regul&auml;re Ausdr&uuml;cke</a> mit Kompilierungsfehler enthalten. [Danke, PhiLho]</p>
 <p>Fehler mit <a href="commands/GuiControl.htm">GuiControl</a> behoben, damit <a href="commands/GuiControls.htm#Checkbox">CheckBox</a>-Steuerelemente erst in den dreifachen Zustand umgewandelt werden, wenn es erforderlich ist. [Danke, JBensimon]</p>
-<p><a href="commands/UrlDownloadToFile.htm">URLDownloadToFile</a> ge&auml;ndert, damit ein User-Agent von "AutoHotkey" anstelle eines leeren Strings f&uuml;r den Server angek&uuml;ndigt wird. [Danke, jaco0646]</p>
+<p><a href="commands/Download.htm">Download</a> ge&auml;ndert, damit ein User-Agent von "AutoHotkey" anstelle eines leeren Strings f&uuml;r den Server angek&uuml;ndigt wird. [Danke, jaco0646]</p>
 <p><a href="Scripts.htm#continuation">Fortsetzungsbereiche</a> verbessert, damit Semikolon-Kommentare innerhalb des Bereichs mithilfe des Optionwortes <em>Comments</em> unterst&uuml;tzt werden.</p>
 <h2>1.0.45.02 - 8. November 2006</h2>
-<p>Fehler mit <a href="commands/StringLower.htm">StringUpper</a> und <a href="commands/StringLower.htm">StringLower</a> behoben, damit sie funktionieren, falls die Ausgabevariable die Zwischenablage ist (fehlerhaft seit v1.0.45). [Danke, songsoverruins]</p>
+<p>Fehler mit <a href="commands/StrLower.htm">StrUpper</a> und <a href="commands/StrLower.htm">StrLower</a> behoben, damit sie funktionieren, falls die Ausgabevariable die Zwischenablage ist (fehlerhaft seit v1.0.45). [Danke, songsoverruins]</p>
 <p>Fehler mit den Hotkeys ~Alt, ~Control und ~Shift behoben, damit sie beim Dr&uuml;cken anstatt beim Loslassen ausgef&uuml;hrt werden (fehlerhaft seit v1.0.44).<br> Hintergrund: Ohne das Tilde-Zeichen werden Alt/Strg/Umschalt beim Loslassen ausgef&uuml;hrt, um die &Uuml;bernahme von der linken und rechten Taste zu verhindern. Aber ein bestimmter linker/rechter Hotkey wie LAlt oder RShift wird beim Dr&uuml;cken ausgef&uuml;hrt.</p>
 <h2>1.0.45.01 - 7. November 2006</h2>
 <p>Fehler mit <a href="commands/FileReadLine.htm">FileReadLine</a> und <a href="commands/FileSelectFile.htm">FileSelectFile</a> behoben, damit sie nicht abst&uuml;rzen oder sich falsch verhalten, falls sie von anderen <a href="misc/Threads.htm">Threads</a> unterbrochen werden (fehlerhaft seit v1.0.45). [Danke, toralf]</p>
@@ -215,7 +215,7 @@
 <h2>1.0.45 - 4. November 2006</h2>
 <p><strong>HINWEIS:</strong> Obwohl diese Version ausgiebig getestet wurde und voraussichtlich kein vorhandenes Script unbrauchbar wird, wurden mehrere systemnahe Verbesserungen vorgenommen. Wenn der Benutzer irgendwelche aufgabenkritische Scripts hat, dann sollte er sie nochmals &uuml;berpr&uuml;fen und/oder einige Wochen warten, bis einige Bugs behoben wurden.</p>
 <p>Zus&auml;tzliche Unterst&uuml;tzung f&uuml;r <a href="misc/RegEx-QuickRef.htm">regul&auml;re Ausdr&uuml;cke</a> mithilfe von <a href="commands/RegExMatch.htm">RegExMatch()</a>, <a href="commands/RegExReplace.htm">RegExReplace()</a> und <a href="commands/SetTitleMatchMode.htm#RegEx">SetTitleMatchMode RegEx</a>. [Danke, Philip Hazel &amp; PhiLho]</p>
-<p>Verbesserte Performance und Speichernutzung von <a href="commands/StringReplace.htm">StringReplace</a>.</p>
+<p>Verbesserte Performance und Speichernutzung von <a href="commands/StrReplace.htm">StrReplace</a>.</p>
 <p>Verbesserte Performance des <a href="commands/SetExpression.htm">":="-Operators</a> f&uuml;r Ausdr&uuml;cke und Funktionen mit langen Strings.</p>
 <p><a href="commands/ControlClick.htm">ControlClick</a> mit der neuen Option "NA" erweitert, die das Aktivieren des Zielfensters verhindert (dieser Modus verbessert auch die Zuverl&auml;ssigkeit in einigen F&auml;llen). Dar&uuml;ber hinaus ist dokumentiert, dass <a href="commands/SetControlDelay.htm">SetControlDelay -1</a> die Zuverl&auml;ssigkeit von ControlClick in einigen F&auml;llen verbessern kann. [Danke, nnesori]</p>
 <p><a href="commands/GuiControls.htm#Button">GUI-Schaltfl&auml;chen</a> verwenden nun standardm&auml;&szlig;ig "<a href="commands/Gui.htm#Wrap">keinen Zeilenumbruch</a>", wenn keine Breite, H&ouml;he oder CR/LF-Zeichen angegeben wurde. Dadurch k&ouml;nnen Anzeigeprobleme von Schaltfl&auml;chen bei bestimmten Desktop-Themen gel&ouml;st werden.</p>

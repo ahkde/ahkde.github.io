@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Deref</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>Deref <span class="ver">[v2]</span></h1>
+<p>Erweitert Variablenverweise und <a href="_EscapeChar.htm">Schutzsequenzen</a>, die sich in anderen Variablen befinden.</p>
+<pre class="Syntax">Deref, Ausgabevariable, String</pre>
+
+<h3>Parameter</h3>
+<dl>
+
+  <dt>Ausgabevariable</dt>
+  <dd><p>Der Name der Variable, in der das Ergebnis gespeichert wird.</p></dd>
+
+  <dt>String</dt>
+  <dd><p>Ein String, der Variablenverweise und/oder Schutzsequenzen enth&auml;lt.</p></dd>
+
+</dl>
+
+<h3>Bemerkung<br></h3>
+<p>Jeder falsch formatierte Variablenverweis wird vom erweiterten Ergebnis ausgeschlossen. Das Gleiche gilt auch, wenn sich die <em>Ausgabevariable</em> in sich selbst erweitert. Das hei&szlig;t, dass Verweise auf die <em>Ausgabevariable</em> innerhalb der String-Variablen von der Erweiterung ausgeschlossen werden (beachtet allerdings, dass der <em>String</em> selbst die <em>%Ausgabevariable%</em> <span style="text-decoration: underline;">sein</span> kann).</p>
+<p>Innerhalb einer <a href="../Functions.htm">Funktion</a> kann jeder Variablenverweis im <em>String</em> in eine lokale oder globale Variable aufgel&ouml;st werden. Hierbei gelten die Standardregeln f&uuml;r die G&uuml;ltigkeitsbereiche der Variablen.</p>
+
+<h3>Beispiele</h3>
+<pre class="NoIndent">Variable1 := "Test"
+Variable2 := Chr(37) "Variable1"  <em>; Chr(37) ist %</em>
+<strong>Deref</strong> Ausgabevariable, %Variable2%
+MsgBox %Ausgabevariable%  <em>; Zeigt "Test"</em>
+</pre>
+</body></html>

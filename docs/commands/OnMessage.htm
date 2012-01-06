@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>OnMessage</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,20 +13,18 @@
 
 <pre class="Syntax">OnMessage(Nachrichtennummer [, "Funktionsname", MaxThreads])</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Nachrichtennummer</td>
-    <td width="85%">Anzahl an Nachrichten zwischen 0 und 4294967295 (0xFFFFFFFF), die &uuml;berwacht oder abgefragt werden. Wenn es nicht erw&uuml;nscht ist, eine <a href="../misc/SendMessageList.htm">Systemnachricht</a> zu &uuml;berwachen (eine unter 0x400), verwendet eine Nummer gr&ouml;&szlig;er als 4096 (0x1000). Dadurch werden St&ouml;rungen mit Nachrichten der aktuellen oder zuk&uuml;nftigen Versionen von AutoHotkey reduziert, die intern verwendet werden.</td>
-  </tr>
-  <tr>
-    <td>Funktionsname</td>
-    <td>Der Name einer <a href="../Functions.htm">Funktion</a>, welcher in Anf&uuml;hrungszeichen gesetzt werden muss, wenn er ein direkt vorhandener String ist. Diese Funktion wird automatisch aufgerufen, wenn das Script eine <em>Nachrichtennummer</em> empf&auml;ngt. Diesen und den n&auml;chsten Parameter weglassen, um den Namen der Funktion zu ermitteln, welcher zurzeit die <em>Nachrichtennummer</em> &uuml;berwacht (leer, wenn nicht vorhanden). Verwendet einen leeren String ("") oder eine leere Variable, um die &Uuml;berwachung der <em>Nachrichtennummer</em> zu deaktivieren.</td>
-  </tr>
-  <tr>
-    <td>MaxThreads<br> <span class="ver">[v1.0.47+]</span></td>
-    <td><a name="MaxThreads"></a>Dieser Integer wird normalerweise weggelassen, um die &Uuml;berwachungsfunktion auf einen <a href="../misc/Threads.htm">Thread</a> zu begrenzen. F&uuml;r gew&ouml;hnlich am besten, weil sonst das Script die Nachrichten nicht in chronologischer Reihenfolge bearbeitet, sobald die &Uuml;berwachungsfunktion sich selbst unterbricht. Daher kann im Gegensatz zu den <em>MaxThreads</em> der Befehl <em>Critical</em> als Alternative verwendet werden, wie <a href="#Critical">unten</a> beschrieben.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Nachrichtennummer</dt>
+    <dd><p>Anzahl an Nachrichten zwischen 0 und 4294967295 (0xFFFFFFFF), die &uuml;berwacht oder abgefragt werden. Wenn es nicht erw&uuml;nscht ist, eine <a href="../misc/SendMessageList.htm">Systemnachricht</a> zu &uuml;berwachen (eine unter 0x400), verwendet eine Nummer gr&ouml;&szlig;er als 4096 (0x1000). Dadurch werden St&ouml;rungen mit Nachrichten der aktuellen oder zuk&uuml;nftigen Versionen von AutoHotkey reduziert, die intern verwendet werden.</p></dd>
+ 
+    <dt>Funktionsname</dt>
+    <dd><p>Der Name einer <a href="../Functions.htm">Funktion</a>, welcher in Anf&uuml;hrungszeichen gesetzt werden muss, wenn er ein direkt vorhandener String ist. Diese Funktion wird automatisch aufgerufen, wenn das Script eine <em>Nachrichtennummer</em> empf&auml;ngt. Diesen und den n&auml;chsten Parameter weglassen, um den Namen der Funktion zu ermitteln, welcher zurzeit die <em>Nachrichtennummer</em> &uuml;berwacht (leer, wenn nicht vorhanden). Verwendet einen leeren String ("") oder eine leere Variable, um die &Uuml;berwachung der <em>Nachrichtennummer</em> zu deaktivieren.</p></dd>
+ 
+    <dt>MaxThreads<br> <span class="ver">[v1.0.47+]</span></dt>
+    <dd><p><a name="MaxThreads"></a>Dieser Integer wird normalerweise weggelassen, um die &Uuml;berwachungsfunktion auf einen <a href="../misc/Threads.htm">Thread</a> zu begrenzen. F&uuml;r gew&ouml;hnlich am besten, weil sonst das Script die Nachrichten nicht in chronologischer Reihenfolge bearbeitet, sobald die &Uuml;berwachungsfunktion sich selbst unterbricht. Daher kann im Gegensatz zu den <em>MaxThreads</em> der Befehl <em>Critical</em> als Alternative verwendet werden, wie <a href="#Critical">unten</a> beschrieben.</p></dd>
+  
+</dl>
 
 <h3>R&uuml;ckgabewerte</h3>
 <p>Wenn der <em>Funktionsname</em> und die <em>MaxThreads</em> weglassen werden, dann wird der Name der Funktion zur&uuml;ckgegeben, welcher zurzeit die <em>Nachrichtennummer</em> &uuml;berwacht (leer, wenn nicht vorhanden). Es werden jedoch keine &Auml;nderungen vorgenommen.</p>
@@ -61,7 +58,7 @@ MsgParentWindow := WinExist()  <em>; Damit wird die eindeutige ID des Fensters g
 <h3 id="Remarks">Allgemeine Bemerkungen</h3>
 <p>Im Gegensatz zu einem normalen Funktionsaufruf ruft der Empfang einer &uuml;berwachten Nachricht die Funktion als neuen <a href="../misc/Threads.htm">Thread</a> auf. Deshalb startet die Funktion mit den Standardwerten f&uuml;r die Einstellungen wie <a href="SendMode.htm">SendMode</a> und <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a>. Diese k&ouml;nnen im <a href="../Scripts.htm#auto">automatischen Ausf&uuml;hrungsbereich</a> ge&auml;ndert werden.</p>
 <p>Nachrichten, die an einem Steuerelement mit SendMessage gesendet werden, werden nicht &uuml;berwacht, weil das System diese Nachrichten direkt zum Steuerelement hinter den Kulissen leitet. Das ist selten ein Problem f&uuml;r systemgesteuerte Nachrichten, weil die meisten von ihnen mit PostMessage gesendet werden.</p>
-<p>Jedes Script, das OnMessage irgendwo aufruft, wird automatisch <a href="_Persistent.htm">persistent</a>. Es kommt auch erst einzeln vor, wenn <a href="_SingleInstance.htm">#SingleInstance</a> verwendet wird.</p>
+<p>Jedes Script mit aktiven Meldungs&uuml;berwachungen wird automatisch <a href="../Scripts.htm#persistent">persistent</a>. Das hei&szlig;t, dass das Script erst beendet wird, wenn <a href="ExitApp.htm">ExitApp</a> verwendet wird.</p>
 <p><a name="Critical"></a>Wenn eine Nachricht eintrifft, w&auml;hrend die Funktion noch durch einen fr&uuml;heren Empfang der gleichen Nachricht l&auml;uft, dann wird die Funktion nicht erneut aufgerufen (au&szlig;er wenn die <a href="#MaxThreads">MaxThreads</a> gr&ouml;&szlig;er als 1 sind), stattdessen wird die Nachricht nicht &uuml;berwacht. Wenn dies unerw&uuml;nscht ist, dann kann eine Nachricht gr&ouml;&szlig;er gleich 0x312 zwischengespeichert werden, bis die Funktion komplett ausgef&uuml;hrt wird, wenn <a href="Critical.htm">Critical</a> in der ersten Zeile steht. Alternativ bewirkt <a href="Thread.htm">Thread Interrupt</a> das Gleiche, solange die Funktion genug Zeit hat, sich zu beenden. Eine Nachricht kleiner als 0x312 kann hingegen nicht mit Critical oder "Thread Interrupt" zwischengespeichert werden (allerdings kann Critical seit v1.0.46 helfen, weil dadurch die Nachrichten <a href="Critical.htm#Interval">weniger h&auml;ufig</a> &uuml;berpr&uuml;ft werden, damit die Funktion mehr Zeit hat, sich zu beenden). Der einzige Weg, um zu garantieren, dass solche Nachrichten nicht verpasst werden, ist sicherzustellen, dass die Funktion unter 6 Millisekunden beendet wird (obwohl diese Grenze mittels <a href="Critical.htm#Interval"><em>Critical 30</em></a> angehoben werden kann). Zum Beispiel kann daf&uuml;r ein zuk&uuml;nftiger Thread in die Warteschlange gesetzt werden, wenn eine &uuml;berwachte Nachricht gr&ouml;&szlig;er als 0x312 an das eigene Script <a href="PostMessage.htm">gesendet</a> wird. Die Funktion dieser Nachricht sollte <a href="Critical.htm">Critical</a> in der ersten Zeile verwenden, damit die Nachrichten zur Sicherheit zwischengespeichert werden.</p>
 <p>Wenn eine &uuml;berwachte Nachricht kleiner als 0x312 empfangen wird, w&auml;hrend das Script absolut unterbrechungsfrei ist (z. B. w&auml;hrend ein <a href="Menu.htm">Men&uuml;</a> angezeigt wird, <a href="SetKeyDelay.htm">KeyDelay</a>/<a href="SetMouseDelay.htm">MouseDelay</a> im Gange ist oder die Zwischenablage <a href="_ClipboardTimeout.htm">offen</a> ist), dann wird die Funktion der Nachricht nicht aufgerufen und &uuml;berwacht.  Eine &uuml;berwachte Nachricht gr&ouml;&szlig;er gleich 0x312 wird hingegen in diesen unterbrechungsfreien Perioden zwischengespeichert, das hei&szlig;t, dass die Funktion aufgerufen wird, sobald das Script wieder unterbrechbar ist.</p>
 <p>Wenn eine &uuml;berwachte Nachricht kleiner als 0x312 eintrifft, w&auml;hrend das Script aufgrund der Einstellungen in <a href="Thread.htm">Thread Interrupt</a> oder <a href="Critical.htm">Critical</a> unterbrechungsfrei ist, dann wird der aktuelle Thread unterbrochen, damit die Funktion aufgerufen werden kann. Eine &uuml;berwachte Nachricht gr&ouml;&szlig;er gleich 0x312 wird hingegen zwischengespeichert, bis der Thread beendet oder unterbrechbar wird.</p>
@@ -83,7 +80,7 @@ Return
 
 WM_LBUTTONDOWN(wParam, lParam)
 {
-    X := lParam & 0xFFFF
+    X := lParam &amp; 0xFFFF
     Y := lParam &gt;&gt; 16
     If A_GuiControl
         Control := "`n(im Steuerelement " . A_GuiControl . ")"
@@ -105,15 +102,13 @@ Return
 WM_QUERYENDSESSION(wParam, lParam)
 {
     ENDSESSION_LOGOFF = 0x80000000
-    If (lParam & ENDSESSION_LOGOFF)  <em>; Benutzer meldet sich ab.</em>
+    If (lParam &amp; ENDSESSION_LOGOFF)  <em>; Benutzer meldet sich ab.</em>
         EventType = Logoff
     Else  <em>; System wird entweder heruntergefahren oder neu gestartet.</em>
         EventType = Shutdown
     MsgBox, 4,, %EventType% im Gange.  Erlauben?
-    IfMsgBox Yes
-        Return true  <em>; Erlaubt dem OS, herunterzufahren/abzumelden.</em>
-    Else
-        Return false  <em>; Herunterfahren/Abmelden wird abgebrochen.</em>
+    <em>; Das OS kann erst weiter heruntergefahren/abgemeldet werden, wenn der Benutzer JA dr&uuml;ckt.</em>
+    Return A_MsgBoxResult = "Yes"
 }</pre>
 
 <pre class="NoIndent"><em>; Beispiel: Damit empf&auml;ngt ein Script eine benutzerdefinierte Nachricht und bis zu zwei Zahlen von einigen anderen Scripts oder Programme
@@ -176,12 +171,12 @@ WM_COPYDATA_Senden(ByRef StringSenden, ByRef Empf&auml;ngertitel)  <em>; ByRef s
     <em>; Zuerst wird das cbData-Element der Struktur auf die Gr&ouml;&szlig;e des Strings gesetzt, einschlie&szlig;lich dem Null-Terminator.</em>
     Gr&ouml;&szlig;eInBytes := (StrLen(StringSenden) + 1) * (A_IsUnicode ? 2 : 1)
     NumPut(Gr&ouml;&szlig;eInBytes, CopyDataStruct, A_PtrSize)  <em>; OS setzt voraus, dass das getan werden muss.</em>
-    NumPut(&StringSenden, CopyDataStruct, 2)  <em>; lpData zeigt auf dem String selbst.</em>
+    NumPut(&amp;StringSenden, CopyDataStruct, 2)  <em>; lpData zeigt auf dem String selbst.</em>
     DetectHiddenWindows_Vorher := A_DetectHiddenWindows
     TitleMatchMode_Vorher := A_TitleMatchMode
     DetectHiddenWindows On
     SetTitleMatchMode 2
-    SendMessage, 0x4a, 0, &CopyDataStruct,, %Empf&auml;ngertitel%  <em>; 0x4a ist WM_COPYDATA. Verwendet Send, nicht Post.</em>
+    SendMessage, 0x4a, 0, &amp;CopyDataStruct,, %Empf&auml;ngertitel%  <em>; 0x4a ist WM_COPYDATA. Verwendet Send, nicht Post.</em>
     DetectHiddenWindows %DetectHiddenWindows_Vorher%  <em>; Stellt die urspr&uuml;ngliche Einstellung wieder her.</em>
     SetTitleMatchMode %TitleMatchMode_Vorher%         <em>; Das Gleiche.</em>
     Return ErrorLevel  <em>; Die Antwort von SendMessage zur&uuml;ckgeben.</em>
@@ -189,6 +184,4 @@ WM_COPYDATA_Senden(ByRef StringSenden, ByRef Empf&auml;ngertitel)  <em>; ByRef s
 
 <pre class="NoIndent"><em>; Beispiel: Siehe <a href="../scripts/WinLIRC.htm">WinLIRC-Client-Script</a>, wie OnMessage() verwendet werden kann,
 ; um Meldungen zu empfangen, wenn Daten in einer Netzwerkverbindung angekommen sind.</em></pre>
-
-</body>
-</html>
+</body></html>

@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Script-Kompatibilit&auml;t</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -33,23 +32,39 @@ VarSetCapacity(native_var, t_size(size_in_chars))  <em>; siehe <a href="#NumPutG
 <h3 id="DllCall">DllCall</h3>
 <p>Beim Verwenden des "Str"-Typs ist der String im urspr&uuml;nglichen Format der aktuellen Version. Da einige Funktionen m&ouml;glicherweise Strings in einem bestimmten Format ben&ouml;tigen oder zur&uuml;ckgeben, stehen die folgenden Stringtypen zur Verf&uuml;gung:</p>
 <table class="info">
-  <tr><th></th><th>Zeichengr&ouml;&szlig;e</th><th>C / Win32-Typen</th><th>Kodierung</th></tr>
-  <tr><td class="Syntax" style="text-align:center">WStr</td><td style="text-align:center">16-Bit</td><td>wchar_t*, WCHAR*, LPWSTR, LPCWSTR</td><td>UTF-16</td></tr>
-  <tr><td class="Syntax" style="text-align:center">AStr</td><td style="text-align:center">8-Bit</td><td>char*, CHAR*, LPSTR, LPCSTR</td><td>ANSI (der Standard-ANSI-Zeichensatz des Systems)</td></tr>
-  <tr><td class="Syntax" style="text-align:center">Str</td><td style="text-align:center">--</td><td>TCHAR*, LPTSTR, LPCTSTR</td><td>Entspricht <b>WStr</b> in Unicode-Versionen und <b>Astr</b> in ANSI-Versionen.</td></tr>
-</table>
+  <tbody>
+<tr><th><br></th><th>Zeichengr&ouml;&szlig;e</th><th>C / Win32-Typen</th><th>Kodierung</th></tr>
+  <tr>
+<td class="Syntax" style="text-align:center">WStr</td>
+<td style="text-align:center">16-Bit</td>
+<td>wchar_t*, WCHAR*, LPWSTR, LPCWSTR</td>
+<td>UTF-16</td></tr>
+  <tr>
+<td class="Syntax" style="text-align:center">AStr</td>
+<td style="text-align:center">8-Bit</td>
+<td>char*, CHAR*, LPSTR, LPCSTR</td>
+<td>ANSI (der Standard-ANSI-Zeichensatz des Systems)</td></tr>
+  <tr>
+<td class="Syntax" style="text-align:center">Str</td>
+<td style="text-align:center">--</td>
+<td>TCHAR*, LPTSTR, LPCTSTR</td>
+<td>Entspricht <b>WStr</b> in Unicode-Versionen und <b>Astr</b> in ANSI-Versionen.</td></tr>
+</tbody></table>
 <br>
 <p>Wenn "Str" oder das Gegenst&uuml;ck der aktuellen Version als ein Parameter verwendet wird, dann wird die Adresse des Strings oder der Variable an die Funktion &uuml;bergeben, ansonsten wird stattdessen eine tempor&auml;re Kopie des Strings im gew&uuml;nschten Format erstellt und &uuml;bergeben. Funktionen k&ouml;nnen eine tempor&auml;re Kopie &auml;ndern, <b>d&uuml;rfen aber nicht</b> auf der rechten Seite des 0-Terminators schreiben. Allgemein gilt, dass "AStr" und "WStr" nicht f&uuml;r Ausgabeparameter verwendet werden sollten.</p>
 <p><b>Hinweis:</b> "AStr" und "WStr" sind f&uuml;r Parameter und R&uuml;ckgabewerte von Funktionen gleichberechtigt.</p>
 <p>Wenn ein Script eine Funktion mithilfe von DllCall aufruft, die einen String als Parameter akzeptiert, dann muss einer der folgenden Ans&auml;tze ber&uuml;cksichtigt werden:</p>
 <ol>
   <li>Falls sowohl die Unicode- (W) als auch ANSI-Version (A) von der Funktion verf&uuml;gbar sind, dann ruft jeweils die passende Funktion f&uuml;r die aktuelle Version auf. Im folgenden Beispiel ist "DeleteFile" intern als "DeleteFileA" oder "DeleteFileW" bekannt. Da "DeleteFile" selbst nicht wirklich existiert, versucht DllCall automatisch, "A" oder "W" f&uuml;r die aktuelle Version zu setzen:
-  <pre>DllCall("DeleteFile", "Ptr", &amp;Dateiname)
+  
+<pre>DllCall("DeleteFile", "Ptr", &amp;Dateiname)
 DllCall("DeleteFile", "Str", Dateiname)</pre>
   <p>In diesem Beispiel wird <code>&amp;Dateiname</code> die Adresse des Strings wie sie ist &uuml;bergeben, damit die Funktion einen String im gleichen Format wie der "Str"-Typ erwarten muss. Beachtet, dass "UInt" anstelle von "Ptr" in AutoHotkey Basic verwendet werden muss, jedoch der resultierende Code m&ouml;glicherweise nicht 64-Bit-kompatibel ist.
-  <p><b>Hinweis:</b> Wenn die Funktion nicht wie angegeben zu finden ist, dann wird AutoHotkey_L das "A"- oder "W"-Suffix unabh&auml;ngig von der DLL anf&uuml;gen. AutoHotkey Basic wird allerdings den "A"-Suffix nur f&uuml;r Funktionen von User32.dll, Kernel32.dll, ComCtl32.dll oder Gdi32.dll anf&uuml;gen.</p></li>
+  </p>
+<p><b>Hinweis:</b> Wenn die Funktion nicht wie angegeben zu finden ist, dann wird AutoHotkey_L das "A"- oder "W"-Suffix unabh&auml;ngig von der DLL anf&uuml;gen. AutoHotkey Basic wird allerdings den "A"-Suffix nur f&uuml;r Funktionen von User32.dll, Kernel32.dll, ComCtl32.dll oder Gdi32.dll anf&uuml;gen.</p></li>
   <li>Wenn die Funktion nur einen bestimmten Stringtyp als Eingabevariable akzeptiert, dann kann das Script den entsprechenden Stringtypen verwenden:
-  <pre>DllCall("DeleteFileA", "AStr", Dateiname)
+  
+<pre>DllCall("DeleteFileA", "AStr", Dateiname)
 DllCall("DeleteFileW", "WStr", Dateiname)</pre></li>
   <li>Wenn die Funktion einen String &auml;ndern muss (in einem nicht urspr&uuml;nglichen Format), dann muss das Script einen Zwischenspeicher wie <a href="#VarSetCapacity">oben</a> beschrieben bereitstellen und dessen Adresse an die Funktion &uuml;bergeben. Wenn der Parameter eine Eingabevariable akzeptiert, dann muss das Script den Eingabestring in das entsprechende Format mithilfe von <a href="commands/StrPutGet.htm">StrPut</a> umwandeln.</li>
 </ol>
@@ -68,7 +83,7 @@ NumPut(<i>n</i>th_char, Variable, t_size(<i>n</i>-1), t_char())
 t_char() {
     Return A_IsUnicode ? "UShort" : "Char"
 }
-t_size(char_count=1) {
+t_size(char_count:=1) {
     Return A_IsUnicode ? char_count : char_count*2
 }</pre>
 
@@ -107,7 +122,7 @@ dwProcessId := NumGet(pi, A_PtrSize*2 + 4, "UInt")
 <p>Die Zeichen [ ] und ? sind nicht l&auml;nger in Variablennamen g&uuml;ltig. Folglich ben&ouml;tigt ? (wird in tern&auml;ren Operationen verwendet) nicht l&auml;nger ein Leerzeichen auf jeder Seite.  Siehe auch <a href="Objects.htm#Syntax">Objektsyntax</a>.</p>
 
 <h3 id="Validation">Syntaxvalidierung</h3>
-<p>Befehlsnamen m&uuml;ssen mit einem Leerzeichen, Tabulator oder Komma terminiert werden.  Im Gegensatz zu AutoHotkey Basic umgehen die folgenden Zeichen nicht diese Anforderung: <code>&lt;&gt;:+-*/!~&amp;|^[]</code>. Folglich werden Syntaxfehler wie <code>MsgBox< foo</code> und <code>If!foo</code>, w&auml;hrend der Ladezeit abgefangen und nicht als <code>MsgBox,< foo</code> oder <code>If !foo</code> interpretiert.</p>
+<p>Befehlsnamen m&uuml;ssen mit einem Leerzeichen, Tabulator oder Komma terminiert werden.  Im Gegensatz zu AutoHotkey Basic umgehen die folgenden Zeichen nicht diese Anforderung: <code>&lt;&gt;:+-*/!~&amp;|^[]</code>. Folglich werden Syntaxfehler wie <code>MsgBox&lt; foo</code> und <code>If!foo</code>, w&auml;hrend der Ladezeit abgefangen und nicht als <code>MsgBox,&lt; foo</code> oder <code>If !foo</code> interpretiert.</p>
 
 <h3 id="Transform">Transform</h3>
 <p>Einige Unterbefehle von <i>Transform</i> wurden in der <b>Unicode</b>-Version ge&auml;ndert:</p>
@@ -140,5 +155,5 @@ dwProcessId := NumGet(pi, A_PtrSize*2 + 4, "UInt")
 </ul>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</body>
-</html>
+
+</body></html>

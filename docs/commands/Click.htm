@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Click</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,7 +12,8 @@
 <p>Klickt mit einer Maustaste auf bestimmte Koordinaten. Kann auch eine Maustaste gedr&uuml;ckt halten, das Mausrad drehen oder die Maus bewegen.</p>
 <p>Gebr&auml;uchliche Beispiele zur Verwendung des Befehls (alle Kommas sind optional):</p>
 <table class="info">
-  <tr>
+  <tbody>
+<tr>
     <td width="110">Click</td>
     <td>Klickt mit der linken Maustaste einmal auf die aktuelle Position des Mauszeigers.</td>
   </tr>
@@ -39,13 +39,13 @@
   </tr>
   <tr>
     <td>Click %x% %y% </td>
-    <td>Da <a href="../Variables.htm#Expressions">Ausdr&uuml;cke</a> nicht unterst&uuml;tzt werden, m&uuml;ssen Variablen mit Prozentzeichen umschlossen werden. </td>
+    <td>Variablen sollten mit Prozentzeichen umschlossen werden. </td>
   </tr>
-</table>
+</tbody></table>
 <p>Es k&ouml;nnen beliebig viele Elemente nach dem Wort <em>Click</em> erfolgen. Alle Elemente m&uuml;ssen durch ein Leerzeichen, Tabulator und/oder Komma voneinander getrennt werden. Die Reihenfolge der Elemente ist unwichtig, mit Ausnahme von <em>ClickCount</em>, welches auf der rechten Seite der Koordinaten stehen muss (wenn die Koordinaten vorhanden sind).</p>
 <p><strong>X, Y</strong>: Die X/Y-Koordinaten der neuen Mausposition, bevor ein Klicken erfolgt. Die Koordinaten beziehen sich auf das aktive Fenster, es sei denn, <a href="CoordMode.htm">CoordMode</a> wurde dazu verwendet, dass zu &auml;ndern. Wenn sie weggelassen werden, wird die aktuelle Position des Zeigers verwendet.</p>
 <p><strong>Maustaste:</strong> Left (Standard), Right, Middle (oder jeweils nur der erste Buchstabe); oder die 4. oder 5. Maustaste (X1 oder X2), die ab Windows 2000/XP unterst&uuml;tzt werden. HINWEIS: Im Gegensatz zu <a href="MouseClick.htm">MouseClick</a> verhalten sich die linken und rechten Maustasten immer gleich, selbst wenn der Benutzer die Tasten mittels der Systemsteuerung vertauscht hat.</p>
-<p><strong>Mausrad</strong> (funktioniert nicht in Windows 9x): Um das Mausrad nach oben zu drehen (vom Benutzer weg), verwendet man WheelUp oder WU; Um das Mausrad nach unten zu drehen (auf dem Benutzer zu), verwendet man WheelDown oder WD. Seit v1.0.48 k&ouml;nnen auch WheelLeft (WL) oder WheelRight (WR) verwendet werden (funktioniert nicht bei Betriebssystemen, die &auml;lter als Windows Vista sind). Mit <em>ClickCount</em> (siehe unten) kann die Anzahl der Rasterungen zum Drehen des Rades bestimmt werden. Allerdings wird <em>ClickCount</em> h&ouml;her als 1 bei einigen Anwendungen nicht unterst&uuml;tzt. Daf&uuml;r kann eine <a href="Loop.htm">Schleife</a> wie folgt verwendet werden:</p>
+<p><strong>Mausrad</strong>: Um das Mausrad nach oben zu drehen (vom Benutzer weg), verwendet man WheelUp oder WU; Um das Mausrad nach unten zu drehen (auf dem Benutzer zu), verwendet man WheelDown oder WD. Seit v1.0.48 k&ouml;nnen auch WheelLeft (WL) oder WheelRight (WR) verwendet werden (funktioniert nicht bei Betriebssystemen, die &auml;lter als Windows Vista sind). Mit <em>ClickCount</em> (siehe unten) kann die Anzahl der Rasterungen zum Drehen des Rades bestimmt werden. Allerdings wird <em>ClickCount</em> h&ouml;her als 1 bei einigen Anwendungen nicht unterst&uuml;tzt. Daf&uuml;r kann eine <a href="Loop.htm">Schleife</a> wie folgt verwendet werden:</p>
 <pre>Loop 5
     Click WheelUp</pre>
 <p><strong>ClickCount</strong>: Bestimmt die Anzahl an Mausklicks (Beispiel: <em>Click 2</em> ... <em>Click 100, 200, 2)</em>. Wenn es weggelassen wird, erfolgt nur ein Mausklick. Wenn Koordinaten angegeben sind, muss <em>ClickCount</em> nach ihnen erscheinen. Mit einer 0 wird die Maus ohne Klick verschoben (zum Beispiel: <em>Click 100, 200, 0)</em>.</p>
@@ -71,6 +71,4 @@ Click 100, 200 right  <em>; Klickt mit der rechten Maustaste.</em>
 Click 2  <em>; F&uuml;hrt einen Doppelklick aus.</em>
 Click down  <em>; H&auml;lt die linke Maustaste gedr&uuml;ckt.</em>
 Click up right  <em>; L&auml;sst die rechte Maustaste los.</em></pre>
-
-</body>
-</html>
+</body></html>

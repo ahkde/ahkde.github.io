@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Enumerator</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -18,17 +17,29 @@
 <p>Ermittelt das n&auml;chste Element (auch mehrere) in einer Enumeration.</p>
 <pre class="Syntax">Enum.Next(Ausgabevariable1 [, Ausgabevariable2, ...])</pre>
 <table class="info">
-  <tr><td width="15%">Ausgabevariable1, Ausgabevariable2</td><td width="85%">Ermittelt einen umsetzungsspezifischen Wert.</td></tr>
-  <tr><td>...</td><td>Zus&auml;tzliche Parameter, falls unterst&uuml;tzt.</td></tr>
-  <tr><td><b>R&uuml;ckgabe</b></td><td>Ein Integer ungleich 0 bei Erfolg; eine 0, falls keine Elemente &uuml;brig sind; oder ein leerer String, wenn die Parameter falsch waren.</td></tr>
-</table>
+  <tbody>
+<tr>
+<td width="15%">Ausgabevariable1, Ausgabevariable2</td>
+<td width="85%">Ermittelt einen umsetzungsspezifischen Wert.</td></tr>
+  <tr>
+<td>...</td>
+<td>Zus&auml;tzliche Parameter, falls unterst&uuml;tzt.</td></tr>
+  <tr>
+<td><b>R&uuml;ckgabe</b></td>
+<td>Ein Integer ungleich 0 bei Erfolg; eine 0, falls keine Elemente &uuml;brig sind; oder ein leerer String, wenn die Parameter falsch waren.</td></tr>
+</tbody></table>
 
 <h3>Objekt</h3>
 <p>Zur&uuml;ckgegebene Enumeratoren von <a href="Object.htm#NewEnum">ObjNewEnum()</a> werden f&uuml;r jeden Schl&uuml;ssel-Wert-Paar einmal aufgerufen, und erlauben bis zu zwei Parameter:</p>
 <table class="info">
-  <tr><td width="15%">Ausgabevariable1</td><td width="85%">Ermittelt den <b>Schl&uuml;ssel</b> in einem Schl&uuml;ssel-Wert-Paar.</td></tr>
-  <tr><td>Ausgabevariable2</td><td>Ermittelt den <b>Wert</b> in Bezug auf <i>Ausgabevariable1</i>.</td></tr>
-</table>
+  <tbody>
+<tr>
+<td width="15%">Ausgabevariable1</td>
+<td width="85%">Ermittelt den <b>Schl&uuml;ssel</b> in einem Schl&uuml;ssel-Wert-Paar.</td></tr>
+  <tr>
+<td>Ausgabevariable2</td>
+<td>Ermittelt den <b>Wert</b> in Bezug auf <i>Ausgabevariable1</i>.</td></tr>
+</tbody></table>
 <p>Schl&uuml;ssel-Wert-Paare werden in einer umsetzungsdefinierten Reihenfolge zur&uuml;ckgegeben. Das hei&szlig;t, dass sie typischerweise nicht in derselben Reihenfolge zur&uuml;ckgegeben werden, wie sie vorher zugewiesen wurden. Vorhandene Schl&uuml;ssel-Wert-Paare k&ouml;nnen w&auml;hrend der Enumeration ge&auml;ndert werden, aber das Einsetzen oder Entfernen von Schl&uuml;sseln kann dazu f&uuml;hren, dass einige Datens&auml;tze &uuml;bersprungen oder mehrfach enumeriert werden.</p>
 
 <h3>Verwandte Befehle</h3>
@@ -51,6 +62,4 @@ MsgBox % s
 
 </pre>
 </div>
-
-</body>
-</html>
+</body></html>

@@ -38,9 +38,13 @@ Return</pre>
   <li>Die <a href="commands/_Hotstring.htm">#Hotstring</a>-Direktive, die alle Hotstrings danach beeinflusst. Das folgende Beispiel aktiviert die Optionen C und R:
   
 
+
+
 <pre>#Hotstring <strong>c r</strong></pre></li>
   <li>Optionen im ersten Doppelpunkt-Paar eines Hotstrings einf&uuml;gen. Das folgende Beispiel aktiviert die Optionen C und * f&uuml;r einen Hotstring:
   
+
+
 
 <pre>:<strong>c*</strong>:j@::john@somedomain.com <em>; Abh&auml;ngig von Gro&szlig;- und Kleinschreibung, und "Endzeichen sind nicht notwendig".</em></pre></li>
 </ol>
@@ -86,7 +90,7 @@ Siehe <a href="Scripts.htm#continuation">Fortsetzungsbereich</a>, wie diese Stan
 )</pre>
 <p>Ein Fortsetzungsbereich bewirkt au&szlig;erdem, dass der Hotstring standardm&auml;&szlig;ig den <a href="#raw">Raw-Modus</a> verwendet. Dieses Sonderverhalten kann nur &uuml;berschrieben werden, wenn in jedem Hotstring, der ein Fortsetzungsbereich hat, die <a href="#raw">r0-Option</a>  angegeben wird (z. B. <em>:r0:text1::</em>).</p>
 <h2><a name="variant" id="variant"></a>Kontextabh&auml;ngige Hotstrings</h2>
-<p>Die Direktiven <a href="commands/_IfWinActive.htm">#IfWinActive/Exist</a> k&ouml;nnen verwendet werden, um ausgew&auml;hlte Hotstrings kontextabh&auml;ngig zu machen. Solche Hotstrings senden unterschiedliche Ersatztexte, f&uuml;hren unterschiedliche Aktionen aus oder machen &uuml;berhaupt nichts, abh&auml;ngig vom Typ des Fensters, das aktiv oder vorhanden ist. Zum Beispiel:</p>
+<p>Die Direktiven <a href="commands/_WinActive.htm">#IfWinActive/Exist</a> k&ouml;nnen verwendet werden, um ausgew&auml;hlte Hotstrings kontextabh&auml;ngig zu machen. Solche Hotstrings senden unterschiedliche Ersatztexte, f&uuml;hren unterschiedliche Aktionen aus oder machen &uuml;berhaupt nichts, abh&auml;ngig vom Typ des Fensters, das aktiv oder vorhanden ist. Zum Beispiel:</p>
 <pre>#IfWinActive ahk_class Notepad
 ::btw::Dieser Ersatztext wird nur im Editor erscheinen.
 #IfWinActive
@@ -101,14 +105,13 @@ Siehe <a href="Scripts.htm#continuation">Fortsetzungsbereich</a>, wie diese Stan
 <pre>:*:bzw::beziehungsweise `</pre>
 <p><a name="NoMouse"></a>Bei einem Links- oder Rechtsklick wird die Hotstring-Erkennung wieder zur&uuml;ckgesetzt. Das hei&szlig;t, dass das Script auf einen v&ouml;llig neuen Hotstring wartet und dabei alle vorherigen Benutzereingaben beseitigt (falls das unerw&uuml;nscht ist, verwendet die Zeile <a href="commands/_Hotstring.htm"><em>#Hotstring NoMouse</em></a> irgendwo im Script). Dieses Verhalten geh&ouml;rt zum Standard, da bei einem Klick normalerweise der Text-Cursor verschoben oder der Tastaturfokus auf ein neues Steuerelement/Feld gesetzt wird. In solchen F&auml;llen ist es meist w&uuml;nschenswert, ein Hotstring auch dann auszuf&uuml;hren, wenn die <a href="#Question">Fragezeichen-Option</a> fehlt, oder die Ausf&uuml;hrung zu verhindern, wenn die Benutzereingabe nach einem versehentlichen Mausklick eine g&uuml;ltige Abk&uuml;rzung mit der vorherigen Benutzereingabe erzeugt.</p>
 <p>Die interne Variable <strong>A_EndChar</strong> enth&auml;lt das Endzeichen, das verwendet wurde, um den aktuellsten Hotstring ohne Automatisches Ersetzen auszul&ouml;sen. Falls kein Endzeichen ben&ouml;tigt wurde (wegen der <a href="#asterisk">*-Option</a>), wird sie leer sein. <em>A_EndChar</em> ist f&uuml;r das Erstellen von Hotstrings n&uuml;tzlich, die den Send-Befehl verwenden oder deren Verhalten sich je nach eingegebenem Endzeichen unterscheiden soll. Um das Endzeichen selbst zu senden, verwendet <em>SendRaw %A_EndChar%</em> (hierbei wird <a href="commands/Send.htm">SendRaw</a> verwendet, weil Zeichen wie !{} nicht richtig mit einem normalen Send-Befehl gesendet werden).</p>
-<p>Obwohl Kommas, Prozentzeichen und einzelne Doppelpunkte innerhalb von Hotstring-Definitionen nicht <a href="commands/_EscapeChar.htm">gesch&uuml;tzt</a> werden m&uuml;ssen, ben&ouml;tigen Akzente und Semikolons ein Leerzeichen oder einen Tabulator auf der linken Seite. Siehe <a href="commands/_EscapeChar.htm">Schutzsequenzen</a> f&uuml;r eine vollst&auml;ndige Liste.</p>
-<p>Obwohl die Sonderzeichen des <a href="commands/Send.htm">Send-Befehls</a> wie {Enter} beim <a href="#auto">Automatischen Ersetzen</a> unterst&uuml;tzt werden (solange die <a href="#raw">Raw-Option</a> nicht verwendet wird), verwenden Hotstring-Abk&uuml;rzungen selbst nicht diese Sonderzeichen. Verwendet stattdessen `n f&uuml;r die ENTER-Taste und `t (oder ein direktes Tabulatorzeichen) f&uuml;r die TAB-Taste (siehe <a href="commands/_EscapeChar.htm">Schutzsequenzen</a> f&uuml;r eine vollst&auml;ndige Liste). Zum Beispiel wird der Hotstring <em>:*:ab`t::</em> ausgel&ouml;st, sobald "ab" mit einem Tabulator danach eingegeben wird.</p>
+<p>Obwohl Kommas, Prozentzeichen und einzelne Doppelpunkte innerhalb von Hotstring-Definitionen nicht <a href="misc/EscapeChar.htm">gesch&uuml;tzt</a> werden m&uuml;ssen, ben&ouml;tigen Akzente und Semikolons ein Leerzeichen oder einen Tabulator auf der linken Seite. Siehe <a href="misc/EscapeChar.htm">Schutzsequenzen</a> f&uuml;r eine vollst&auml;ndige Liste.</p>
+<p>Obwohl die Sonderzeichen des <a href="commands/Send.htm">Send-Befehls</a> wie {Enter} beim <a href="#auto">Automatischen Ersetzen</a> unterst&uuml;tzt werden (solange die <a href="#raw">Raw-Option</a> nicht verwendet wird), verwenden Hotstring-Abk&uuml;rzungen selbst nicht diese Sonderzeichen. Verwendet stattdessen `n f&uuml;r die ENTER-Taste und `t (oder ein direktes Tabulatorzeichen) f&uuml;r die TAB-Taste (siehe <a href="misc/EscapeChar.htm">Schutzsequenzen</a> f&uuml;r eine vollst&auml;ndige Liste). Zum Beispiel wird der Hotstring <em>:*:ab`t::</em> ausgel&ouml;st, sobald "ab" mit einem Tabulator danach eingegeben wird.</p>
 <p>Innerhalb von Hotstring-Definitionen werden Leerzeichen und Tabulatoren direkt behandelt. Zum Beispiel erzeugen die folgenden Beispiele zwei unterschiedliche Ergebnisse:
 </p>
 <pre>::bzw::beziehungsweise
 ::bzw:: beziehungsweise
 </pre>
-<p></p>
 <p>Jede Hotstring-Abk&uuml;rzung sollte nicht l&auml;nger als 40 Zeichen sein. Das Programm warnt den Benutzer, sobald diese L&auml;nge &uuml;berschritten wird. Die L&auml;nge des Ersatztextes hingegen ist auf ca. 5000 Zeichen begrenzt, wenn der <a href="#SendMode">Sendemodus</a> standardm&auml;&szlig;ig SendInput ist. Diese Grenze kann auf 16383 Zeichen erh&ouml;ht werden, sobald eine der anderen <a href="#SendMode">Sendemethoden</a> verwendet wird. Weiterhin ist es m&ouml;glich, eine unbegrenzte Anzahl an Zeichen zu senden, wenn <a href="commands/Send.htm#SendPlayDetail"><em>SendPlay %EigeneVariable%</em></a> in der Hotstring-Definition verwendet wird.</p>
 <p>Die Reihenfolge, in der die Hotstrings definiert werden, bestimmt ihre relative Priorit&auml;t zueinander. Das hei&szlig;t, sobald mehr als ein Hotstring mit der eigenen Eingabe &uuml;bereinstimmt, nur der Hotstring wirksam wird, der als erster im Script aufgelistet ist. Verwandtes Thema: <a href="#variant">Kontextabh&auml;ngige Hotstrings.</a></p>
 <p>Das R&uuml;cksetzen mit der R&uuml;cktaste wird zum Zweck der Hotstring-Erkennung ber&uuml;cksichtigt. Allerdings bewirkt das Verwenden von Pfeiltasten, Bild-Auf, Bild-Ab, Pos1 und Ende innerhalb eines Editors, dass der Hotstring-Erkennungsprozess zur&uuml;ckgesetzt wird. Das hei&szlig;t, dass das Script auf einen v&ouml;llig neuen Hotstring wartet.</p>
@@ -122,7 +125,7 @@ Siehe <a href="Scripts.htm#continuation">Fortsetzungsbereich</a>, wie diese Stan
 <ul>
   <li>Sie werden vom <a href="commands/Suspend.htm">Suspend</a>-Befehl beeinflusst.</li>
   <li>Sie ber&uuml;cksichtigen <a href="commands/_MaxThreads.htm">#MaxThreads</a> und <a href="commands/_MaxThreadsPerHotkey.htm">#MaxThreadsPerHotkey</a> (aber nicht <a href="commands/_MaxThreadsBuffer.htm">#MaxThreadsBuffer</a>).</li>
-  <li>Scripts, die Hotstrings enthalten, sind automatisch <a href="commands/_Persistent.htm">persistent</a>.</li>
+  <li>Scripts, die Hotstrings enthalten, sind automatisch <a href="Scripts.htm#persistent">persistent</a>.</li>
   <li>Hotstrings ohne Automatisches Ersetzen werden einen neuen <a href="misc/Threads.htm">Thread</a> erstellen, sobald sie ausgef&uuml;hrt werden. Dar&uuml;ber hinaus werden sie die internen Hotkey-Variablen wie <a href="Variables.htm#ThisHotkey">A_ThisHotkey</a> aktualisiert.</li>
 </ul>
 <p>Bekannte Einschr&auml;nkung: In bestimmten Java-Anwendungen st&ouml;ren Hotstrings m&ouml;glicherweise die F&auml;higkeit des Benutzers, diakritische Buchstaben einzugeben (mithilfe toter Tasten).  Als &Uuml;bergangsl&ouml;sung kann <a href="commands/Suspend.htm">Suspend</a> vor&uuml;bergehend aktiviert werden (das alle Hotstrings deaktiviert).</p>
@@ -134,9 +137,8 @@ Siehe <a href="Scripts.htm#continuation">Fortsetzungsbereich</a>, wie diese Stan
 ; (n&auml;mlich Textverarbeitungsprogramme).  Speichert den aktuellen Inhalt der Zwischenablage,
 ; damit sie sp&auml;ter wiederhergestellt werden kann. Obwohl nur Klartext davon betroffen ist,
 ; ist das immer noch besser als gar nichts:</em>
-AutoTrim Off  <em>; Damit die Zwischenablage jedes f&uuml;hrende und nachfolgende unsichtbare Zeichen beh&auml;lt.</em>
-ClipboardOld = %ClipboardAll%
-Clipboard =  <em>; Muss anfangs leer sein, damit die Erkennung funktioniert.</em>
+ClipboardOld := ClipboardAll
+Clipboard := ""  <em>; Muss anfangs leer sein, damit die Erkennung funktioniert.</em>
 Send ^c
 ClipWait 1
 If ErrorLevel  <em>; ClipWait hat die Zeit &uuml;berschritten.</em>
@@ -144,19 +146,19 @@ If ErrorLevel  <em>; ClipWait hat die Zeit &uuml;berschritten.</em>
 <em>; Ersetzt CRLF und/oder LF mit `n f&uuml;r die Verwendung in einem Hotstring im Raw-Modus:
 ; Das gleiche erfolgt auch f&uuml;r jedes andere Zeichen,
 ; dass ansonsten m&ouml;glicherweise ein Problem im Raw-Modus ist:</em>
-StringReplace, Hotstring, Clipboard, ``, ````, All  <em>; Damit wird jede St&ouml;rung mit den Angaben darunter unterdr&uuml;ckt.</em>
-StringReplace, Hotstring, Hotstring, `r`n, ``r, All  <em>; Die Verwendung von `r funktioniert in MS Word usw. besser als `n.</em>
-StringReplace, Hotstring, Hotstring, `n, ``r, All
-StringReplace, Hotstring, Hotstring, %A_Tab%, ``t, All
-StringReplace, Hotstring, Hotstring, `;, ```;, All
-Clipboard = %ClipboardOld%  <em>; Stellt den vorherigen Inhalt der Zwischenablage wieder her.
+StrReplace, Hotstring, % Clipboard, ``, ````  <em>; Damit wird jede St&ouml;rung mit den Angaben darunter unterdr&uuml;ckt.</em>
+StrReplace, Hotstring, % Hotstring, `r`n, ``r  <em>; Die Verwendung von `r funktioniert in MS Word usw. besser als `n.</em>
+StrReplace, Hotstring, % Hotstring, `n, ``r
+StrReplace, Hotstring, % Hotstring, % A_Tab, ``t
+StrReplace, Hotstring, % Hotstring, `;, ```;
+Clipboard := ClipboardOld  <em>; Stellt den vorherigen Inhalt der Zwischenablage wieder her.
 ; Damit wird der Text-Cursor der InputBox an einer geeigneteren Position verschoben:</em>
 SetTimer, MoveCaret, 10
 <em>; Zeigt die InputBox f&uuml;r den Standard-Hotstring an:</em>
-InputBox, Hotstring, Neuer Hotstring, Schreibt eine entsprechende Abk&uuml;rzung am angegebenen Text-Cursor. Der Ersatztext kann je nach Bedarf auch angepasst werden.`n`nBeispieleintrag: :R:bzw`::beziehungsweise,,,,,,,, :R:`::%Hotstring%
+InputBox, Hotstring, Neuer Hotstring, Schreibt eine entsprechende Abk&uuml;rzung am angegebenen Text-Cursor. Der Ersatztext kann je nach Bedarf auch angepasst werden.`n`nBeispieleintrag: :R:bzw`::beziehungsweise, , :R`:::%Hotstring%
 If ErrorLevel  <em>; Der Benutzer hat Abbrechen gedr&uuml;ckt.</em>
     Return
-IfInString, Hotstring, :R`:::
+If InStr(Hotstring, ":R`:::")
 {
     MsgBox Es wurde keine Abk&uuml;rzung angegeben. Der Hotstring wurde nicht hinzugef&uuml;gt.
     Return
@@ -166,11 +168,11 @@ FileAppend, `n%Hotstring%, %A_ScriptFullPath%  <em>; Ein `n am Anfang einf&uuml;
 Reload
 Sleep 200 <em>; Wenn erfolgreich, dann schlie&szlig;t Reload diese Instanz w&auml;hrend Sleep, die Zeile darunter wird also nie erreicht.</em>
 MsgBox, 4,, Der aktuell eingef&uuml;gte Hotstring wurde scheinbar nicht richtig formatiert.  Soll das Script ge&ouml;ffnet werden, damit es bearbeitet werden kann? Beachtet, dass der betroffene Hotstring ganz unten ist.
-IfMsgBox, Yes, Edit
+If A_MsgBoxResult = "Yes"<br>    Edit
 Return
 
 MoveCaret:
-IfWinNotActive, Neuer Hotstring
+If !WinActive("Neuer Hotstring")
     Return
 <em>; Verschiebt ansonsten den Text-Cursor der InputBox auf eine Position, wo der Benutzer die Abk&uuml;rzung eintragen kann.</em>
 Send {Home}{Right 3}

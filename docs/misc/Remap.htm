@@ -12,15 +12,10 @@
 
 <h1>Neubelegung von Tasten</h1>
 
-<h2>Einf&uuml;hrung</h2>
-<p>Diese hier beschriebene Funktion wird weder f&uuml;r Joysticks unterst&uuml;tzt noch funktioniert sie in Windows 95/98/Me. Daf&uuml;r gibt es folgende Alternativmethoden:</p>
-<ul>
-  <li><a href="#Win9x">Neubelegung in Windows 9x</a></li>
-  <li><a href="RemapJoystick.htm">Joystick-Neubelegung</a></li>
-</ul>
-<p><strong>Einschr&auml;nkung</strong>: Die unten beschriebene Neubelegungsfunktion von AutoHotkey ist in der Regel nicht so eindeutig und effektiv wie das direkte Neubelegen der Windows-Registrierung. F&uuml;r die Vor- und Nachteile der einzelnen Ans&auml;tze, siehe <a href="#registry">Neubelegung mit der Registrierung</a>.</p>
+<h2>Einf&uuml;hrung</h2><strong>Einschr&auml;nkung</strong>: Die unten beschriebene Neubelegungsfunktion von AutoHotkey ist in der Regel nicht so eindeutig und effektiv wie das direkte Neubelegen der Windows-Registrierung. F&uuml;r die Vor- und Nachteile der einzelnen Ans&auml;tze, siehe <a href="#registry">Neubelegung mit der Registrierung</a>.
+
+
 <h2 id="Remap">Tastatur und Maus neu belegen</h2>
-<p></p>
 <h3>Neubelegung der Tastatur</h3>
 <p>Die Syntax f&uuml;r die interne Neubelegungsfunktion lautet <span class="Syntax">Originaltaste::Zieltaste</span>. Sobald zum Beispiel ein <a href="../Scripts.htm">Script</a> folgende Zeile enth&auml;lt, verh&auml;lt sich die Taste <kbd>A</kbd> wie die Taste <kbd>B</kbd>:</p>
 <pre>a::b</pre>
@@ -29,7 +24,6 @@
 b::a</pre>
 <p>In den oberen Beispielen sollten wenn m&ouml;glich Kleinbuchstaben verwendet werden, weil dabei auch die entsprechenden Gro&szlig;buchstaben neu belegt werden (das hei&szlig;t, dass Gro&szlig;buchstaben gesendet werden, sobald die Feststelltaste aktiv ist oder die Umschalt-Taste gedr&uuml;ckt gehalten wird). Falls auf der rechten Seite hingegen ein Gro&szlig;buchstabe angegeben ist, wird die Gro&szlig;schreibung erzwungen. Zum Beispiel erzeugt die folgende Zeile ein gro&szlig;geschriebenes B, wenn "a" oder "A" eingegeben wird (solange die Feststelltaste deaktiviert ist):</p>
 <pre>a::B <br></pre>
-<p></p>
 <h3><a name="RemapMouse"></a>Neubelegung der Maus</h3>
 <p>Um stattdessen die Maus neu zu belegen, verwendet die gleiche Methode. Zum Beispiel:</p>
 <table class="info">
@@ -80,7 +74,7 @@ b::a</pre>
 <p>Die oben genannten Beispiele k&ouml;nnen ausprobiert werden, indem sie in einer neuen Textdatei z. B. namens "Remap.ahk" kopiert werden und die Datei danach ausgef&uuml;hrt wird.</p>
 <p>In der <a href="../KeyList.htm">Tastenliste</a> k&ouml;nnen alle Tastennamen der Tastatur und Maus gefunden werden.</p>
 <h2>Bemerkungen</h2>
-<p>Mit den Direktiven <a href="../commands/_IfWinActive.htm">#IfWinActive/Exist</a> k&ouml;nnen die Neubelegungen nur f&uuml;r bestimmte Fenster g&uuml;ltig gemacht werden. Zum Beispiel:</p>
+<p>Mit den Direktiven <a href="../commands/_WinActive.htm">#IfWinActive/Exist</a> k&ouml;nnen die Neubelegungen nur f&uuml;r bestimmte Fenster g&uuml;ltig gemacht werden. Zum Beispiel:</p>
 <pre>#IfWinActive ahk_class Notepad
 a::b  <em>; Im Editor verh&auml;lt sich die Taste "a" wie die Taste "b".</em>
 #IfWinActive  <em>; Alle nachfolgenden Neubelegungen und Hotkeys gelten f&uuml;r alle Fenster.</em></pre>
@@ -113,6 +107,11 @@ Return</pre>
   <li>Sobald <kbd>LStrg</kbd> die Originaltaste und <kbd>Alt</kbd> die Zieltaste ist, wird die Zeile <code>Send {Blind}{LAlt DownTemp}</code> mit <code>Send {Blind}<strong>{LCtrl Up}</strong>{LAlt DownTemp}</code> ersetzt. Das Gleiche gilt, wenn <kbd>RStrg</kbd> das Original ist, jedoch ohne {RCtrl up}.</li>
   <li>Sobald eine Tastatur-Taste mit einer Maustaste (z. B. <code>RCtrl::RButton</code>) neu belegt wird, verwenden die oben genannten Hotkeys SetMouseDelay anstelle von SetKeyDelay. Dar&uuml;ber hinaus wird der erste oben genannte Hotkey mit folgendem ersetzt, um die automatische Wiederholung von Maustasten zu verhindern:
     
+
+
+
+
+
 
 
 
@@ -215,21 +214,12 @@ Return</pre>
   <li>Die Neubelegung mit der Registrierung ist relativ permanent: es wird ein Neustart ben&ouml;tigt, um die &Auml;nderungen wirksam oder r&uuml;ckg&auml;ngig zu machen.</li>
   <li>Die Auswirkung ist global: es k&ouml;nnen keine Neubelegungen f&uuml;r bestimmte Benutzer, Anwendungen oder Gebietsschemen erstellt werden.</li>
   <li>Es k&ouml;nnen keine Tastatureingaben gesendet werden, die durch <kbd>Umschalt</kbd>, <kbd>Strg</kbd>, <kbd>Alt</kbd> oder <kbd>AltGr</kbd> modifiziert werden. Zum Beispiel kann ein Kleinbuchstabe nicht mit einem Gro&szlig;buchstaben neu belegt werden.</li>
-  <li>Es wird nicht von Windows 95/98/Me unterst&uuml;tzt (AutoHotkey erm&ouml;glicht eine <a href="#Win9x">eingeschr&auml;nkte Neubelegung in Win9x</a>).</li>
-  <li>Es wird nur die Tastatur unterst&uuml;tzt (AutoHotkey erm&ouml;glicht eine <a href="#RemapMouse">Neubelegung der Maus</a> und einige&nbsp;<a href="Remap.htm#Win9x">eingeschr&auml;nkte</a><a href="RemapJoystick.htm"> Joystick-Neubelegungen</a>).</li>
+<li>Es wird nur die Tastatur unterst&uuml;tzt (AutoHotkey erm&ouml;glicht eine <a href="#RemapMouse">Neubelegung der Maus</a> und einige&nbsp;<a href="Remap.htm#Win9x">eingeschr&auml;nkte</a><a href="RemapJoystick.htm"> Joystick-Neubelegungen</a>).</li>
 </ul>
 <p><strong>Wie &Auml;nderungen an der Registrierung vorgenommen werden k&ouml;nnen:</strong> Es gibt mindestens zwei Methoden, um Tasten mittels Registrierung neu zu belegen:</p>
 <ol>
   <li>Verwendet ein Programm wie <a href="http://webpages.charter.net/krumsick/">KeyTweak</a> (Freeware), um Tasten visuell neu belegen zu k&ouml;nnen. Dieses Programm &auml;ndert automatisch die Registrierung f&uuml;r euch. </li>
   <li>Tasten k&ouml;nnen manuell neu belegt werden, indem eine .reg-Datei (Klartext) erstellt und in die Registrierung geladen wird. Siehe dazu <a href="http://www.autohotkey.com/forum/post-56216.html#56216">www.autohotkey.com/forum/post-56216.html#56216</a>.</li>
-</ol>
-<h2 id="alt"><a name="Win9x"></a>Neubelegungsmethode f&uuml;r Windows 95/98/Me</h2>
-<p>Es wird empfohlen, hierbei <a href="../commands/Send.htm">Send</a> und <a href="../commands/KeyWait.htm">KeyWait</a> zu verwenden. Zum Beispiel erm&ouml;glicht der folgende Hotkey, dass sich die Taste <kbd>A</kbd> wie <kbd>&larr;</kbd> verh&auml;lt:</p>
-<pre>a::
-Send {Left down}  <em>; H&auml;lt die linke Pfeiltaste gedr&uuml;ckt.</em>
-KeyWait a  <em>; Wartet, bis die Taste losgelassen wird.</em>
-Send {Left up}  <em>; L&auml;sst die linke Pfeiltaste los.</em>
-Return</pre>
-<h2>Verwandte Befehle</h2>
+</ol><h2>Verwandte Befehle</h2>
 <p><a href="../KeyList.htm#Joystick">Tastenliste</a>, <a href="../commands/GetKeyState.htm">GetKeyState</a>, <a href="RemapJoystick.htm">Neubelegung eines Joysticks</a></p>
 </body></html>

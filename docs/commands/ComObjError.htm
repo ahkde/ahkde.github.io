@@ -14,16 +14,15 @@
 
 <pre class="Syntax">Aktiviert := ComObjError(Aktivieren)</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Aktivieren</td>
-    <td>Ein boolescher Wert (True oder False). Optional.</td>
-  </tr>
-  <tr>
-    <td>Aktiviert</td>
-    <td><span class="ver">[v1.0.91+]:</span> Enth&auml;lt die Einstellung, welche vor dem Funktionsaufruf aktiv war.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Aktivieren</dt>
+    <dd><p>Ein boolescher Wert (True oder False). Optional.</p></dd>
+ 
+    <dt>Aktiviert</dt>
+    <dd><p><span class="ver">[v1.0.91+]:</span> Enth&auml;lt die Einstellung, welche vor dem Funktionsaufruf aktiv war.</p></dd>
+  
+</dl>
 
 <h3>Allgemeine Bemerkungen</h3>
 <p>Nach dem Zugriff auf ein COM-Objekt enth&auml;lt <a href="../Variables.htm#LastError">A_LastError</a> den HRESULT-Code, der von der <a href="http://msdn.microsoft.com/en-us/library/ms221479.aspx">IDispatch::Invoke</a>-Funktion des COM-Objekts zur&uuml;ckgegeben wurde. Scripts k&ouml;nnen ihre eigene Fehlerbehandlung durch den Aufruf von <code>ComObjError(false)</code> implementieren, um Fehlermeldungen zu deaktivieren und A_LastError hinzuziehen.</p>

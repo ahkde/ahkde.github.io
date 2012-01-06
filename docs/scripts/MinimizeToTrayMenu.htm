@@ -139,8 +139,8 @@ Loop, %mwt_MaxWindows%
         <em>; &Uuml;bereinstimmung gefunden, also nicht eindeutig.</em>
         <em>; Zuerst wird das 0x von der Hexadezimalen Zahl entfernt, um Platz im Men&uuml; zu sparen:</em>
         StringTrimLeft, mwt_ActiveIDShort, mwt_ActiveID, 2
-        StringLen, mwt_ActiveIDShortLength, mwt_ActiveIDShort
-        StringLen, mwt_ActiveTitleLength, mwt_ActiveTitle
+        StrLen, mwt_ActiveIDShortLength, mwt_ActiveIDShort
+        StrLen, mwt_ActiveTitleLength, mwt_ActiveTitle
         mwt_ActiveTitleLength += %mwt_ActiveIDShortLength%
         mwt_ActiveTitleLength += 1 <em>; +1 ist das Leerzeichen zwischen Titel & ID.</em>
         if mwt_ActiveTitleLength > %mwt_MaxLength%

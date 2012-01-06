@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>StrReplace</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>StrReplace</h1>
+
+<p>Ersetzt den angegebenen Teilstring mit einem neuen String.</p>
+
+<pre class="Syntax">StrReplace, Ausgabevariable, Heuhaufen, Suchtext [, Ersatztext, AusgabeAnzahl, Limit = -1] </pre>
+<h3>Parameter</h3>
+<dl>
+  
+    <dt>Ausgabevariable</dt>
+    <dd><p>Der Name der Variable, in der das Ergebnis des Ersatzprozesses gespeichert wird. </p></dd>
+ 
+    <dt>Heuhaufen</dt>
+    <dd><p>Der String, dessen Inhalt durchsucht und ersetzt wird.</p></dd>
+ 
+    <dt>Suchtext</dt>
+    <dd><p>Der String, der gesucht wird. Die &Uuml;bereinstimmung ist erst von der Gro&szlig;- bzw. Kleinschreibung abh&auml;ngig, wenn <a href="StringCaseSense.htm">StringCaseSense</a> aktiv ist. </p></dd>
+ 
+    <dt>Ersatztext</dt>
+    <dd><p>Der <em>Suchtext</em> wird mit diesem Text ersetzt. Sobald dieser Parameter weggelassen wird, wird der <em>Suchtext</em> mit einem leeren String ersetzt. Das hei&szlig;t, dass der Text in der <em>Ausgabevariable</em> weggelassen wird.</p></dd>
+ 
+    <dt>AusgabeAnzahl</dt>
+    <dd><p>Der Name einer Variable ohne Anf&uuml;hrungszeichen, in der die Anzahl gespeichert wird, wie oft der <em>Heuhaufen</em> ersetzt wurde (0, wenn niemals).</p></dd>
+
+    <dt>Limit</dt>
+    <dd><p>Sollte <em>Limit</em> weggelassen werden, wird standardm&auml;&szlig;ig -1 verwendet, um <strong>alle</strong> Vorkommen des gefundenen Musters im <em>Heuhaufen</em> zu ersetzen. Ansonsten kann bestimmt werden, wie oft der <em>Heuhaufen</em> ersetzt werden darf. Der Teil des <em>Heuhaufens</em> rechts neben dem zuletzt ersetzten Vorkommen bleibt unver&auml;ndert.<br></p></dd>
+
+</dl><h3>Bemerkungen</h3>
+<p>Die internen Variablen <a href="../Variables.htm">A_Space</a> und <a href="../Variables.htm">A_Tab</a> enthalten jeweils ein einzelnes Leerzeichen und ein einzelnes Tabulator-Zeichen. Sie sind n&uuml;tzlich, um Leerzeichen und Tabulatoren einzeln oder am Anfang oder Ende des <em>Suchstrings</em> zu suchen.</p>
+<h3>Verwandte Befehle</h3>
+<p><a href="RegExReplace.htm">RegExReplace()</a>, <a href="StringCaseSense.htm">StringCaseSense</a>, <a href="../Functions.htm#InStr">InStr</a>, <a href="../Functions.htm#SubStr">SubStr</a>, <a href="../Functions.htm#StrLen">StrLen</a>, <a href="StrLower.htm">StrLower</a>, <a href="StrLower.htm">StrUpper</a></p>
+<h3>Beispiele</h3>
+<pre class="NoIndent"><em>; Entfernt alle CR+LF-Paare in der Zwischenablage:</em>
+StrReplace, Clipboard, Clipboard, `r`n, , All
+
+<em>; Ersetzt alle Leerzeichen mit Pluszeichen:</em>
+StrReplace, NeuerStr, AlterStr, %A_SPACE%, +, All
+
+<em>; Entfernt alle leeren Zeilen im Text einer Variable:</em>
+Loop
+{
+    StrReplace, EigenerStr, EigenerStr, `r`n`r`n, `r`n, UseErrorLevel
+    If ErrorLevel = 0  <em>; Ersetzen nicht mehr notwendig.</em>
+        break
+}</pre>
+</body></html>

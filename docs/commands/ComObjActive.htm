@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ComObjActive()</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -25,36 +24,32 @@
 DispPtr := ComObjUnwrap(ComObject)</pre>
 
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>CLSID</td>
-    <td>CLSID oder eine visuell lesbare ProgID des COM-Objekts.</td>
-  </tr>
-  <tr>
-    <td>ComObject</td>
-    <td>COM-Objekt, das mit der <a href="../Objects.htm#Usage_Objects">Objekt-Syntax</a> verwendet werden kann.</td>
-  </tr>
-  <tr>
-    <td>Variablentyp</td>
-    <td>Ein Integer-Wert, der den Typ des Wertes kennzeichnet. Siehe <a href="ComObjType.htm#vt">ComObjType()</a> f&uuml;r eine Liste von Typen.</td>
-  </tr>
-  <tr>
-    <td>Wert</td>
-    <td>Ein Wert, der eingepackt wird. Zurzeit werden nur Integer- oder Pointer-Werte unterst&uuml;tzt.</td>
-  </tr>
-  <tr>
-    <td>Flags</td>
-    <td>Flags beeinflussen das Verhalten dieser Funktion und des Wrapper-Objekts (siehe unten).</td>
-  </tr>
-  <tr>
-    <td>DispPtr</td>
-    <td>Unbearbeiteter IDispatch-Pointer.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>CLSID</dt>
+    <dd><p>CLSID oder eine visuell lesbare ProgID des COM-Objekts.</p></dd>
+ 
+    <dt>ComObject</dt>
+    <dd><p>COM-Objekt, das mit der <a href="../Objects.htm#Usage_Objects">Objekt-Syntax</a> verwendet werden kann.</p></dd>
+ 
+    <dt>Variablentyp</dt>
+    <dd><p>Ein Integer-Wert, der den Typ des Wertes kennzeichnet. Siehe <a href="ComObjType.htm#vt">ComObjType()</a> f&uuml;r eine Liste von Typen.</p></dd>
+ 
+    <dt>Wert</dt>
+    <dd><p>Ein Wert, der eingepackt wird. Zurzeit werden nur Integer- oder Pointer-Werte unterst&uuml;tzt.</p></dd>
+ 
+    <dt>Flags</dt>
+    <dd><p>Flags beeinflussen das Verhalten dieser Funktion und des Wrapper-Objekts (siehe unten).</p></dd>
+ 
+    <dt>DispPtr</dt>
+    <dd><p>Unbearbeiteter IDispatch-Pointer.</p></dd>
+  
+</dl>
 
 <h3 id="Flags">Flags</h3>
 <table class="info">
-  <tr>
+  <tbody>
+<tr>
     <td>&nbsp;0&nbsp;</td>
     <td>Standardverhalten. <a href="http://msdn.microsoft.com/en-us/library/ms691379.aspx">AddRef</a> wird automatisch bei einem IUnknown- und IDispatch-Pointer aufgerufen, daher sollte der Aufrufer <a href="ObjAddRef.htm">ObjRelease</a> verwenden, um die Kopie des Pointers je nach Bedarf freizugeben.</td>
   </tr>
@@ -62,7 +57,7 @@ DispPtr := ComObjUnwrap(ComObject)</pre>
     <td>&nbsp;1&nbsp;</td>
     <td>&Uuml;bernimmt einen IUnknown-, IDispatch- oder SAFEARRAY-Pointer. AddRef wird nicht aufgerufen. Wenn das Wrapper-Objekt einen SAFEARRAY enth&auml;lt (ohne VT_BYREF), dann wird <a href="http://msdn.microsoft.com/en-us/library/ms221702.aspx">SafeArrayDestroy</a> automatisch aufgerufen, wenn das Wrapper-Objekt freigegeben wird.</td>
   </tr>
-</table>
+</tbody></table>
 
 <h3 id="Remarks">Allgemeine Bemerkungen</h3>
 <p>ComObjActive ist <i>polymorph</i>, d. h. jeder Funktionsaufruf, der mit "ComObj" beginnt und nicht mit den anderen COM-Funktionen &uuml;bereinstimmt, ruft auch ComObjActive auf. Zum Beispiel sind <code>ComObj(9, DispPtr)</code> und <code>ComObjActive(DispPtr)</code> das gleiche wie <code>ComObjEnwrap(DispPtr)</code>. Dieses Verhalten k&ouml;nnte jedoch in einer zuk&uuml;nftigen Version ge&auml;ndert werden (oder neue Funktionen implementiert werden), daher ist es am besten, nur die hier aufgef&uuml;hrten Formen zu verwenden, wobei zus&auml;tzlich gilt, dass "ComObject" anstelle von ComObjEnwrap oder ComObjParameter verwendet werden kann.</p>
@@ -94,7 +89,7 @@ MsgBox % var[]
 ;   "ComVar[]" ermittelt den Wert.
 ;   "ComVar[] := Wert" bestimmt den Wert.
 ;   ComVar.ref ermittelt ein ByRef-Objekt, damit es zur COM-Funktion &uuml;bergeben werden kann.</em>
-ComVar(Type=0xC)
+ComVar(Type:=0xC)
 {
     static <a href="../Objects.htm#Custom_Objects">base</a> := { __Get: "ComVarGet", __Set: "ComVarSet", __Delete: "ComVarDel" }
     <em>; Erstellt ein Array von 1 VARIANT.  Diese Methode erlaubt dem eingebauten Code,
@@ -120,6 +115,4 @@ ComVarDel(cv) { <em>; Wird aufgerufen, wenn das Objekt freigegeben wird.
 
 
 </pre>
-
-</body>
-</html>
+</body></html>

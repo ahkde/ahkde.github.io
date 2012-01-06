@@ -29,12 +29,12 @@
 <p>Das Programm l&auml;dt das Script Zeile f&uuml;r Zeile in den Speicher. Jede Zeile kann bis zu 16383 Zeichen lang sein. W&auml;hrend des Ladevorgangs wird das Script <a href="misc/Performance.htm">optimiert</a> und seine G&uuml;ltigkeit &uuml;berpr&uuml;ft. Syntaxfehler werden angezeigt, und m&uuml;ssen behoben werden, bevor das Script ausgef&uuml;hrt werden kann.</p>
 <h2><a name="auto" id="auto"></a>Der obere Bereich des Scripts (automatischer Ausf&uuml;hrungsbereich)</h2>
 <p>Nachdem das Script geladen wurde, beginnt dessen Ausf&uuml;hrung bei der ersten Zeile und wird fortgesetzt, bis ein <a href="commands/Return.htm">Return</a>, <a href="commands/Exit.htm">Exit</a>, <a href="Hotkeys.htm">Hotkey-/Hotstring-Label</a> oder das physische Ende erreicht wird (je nachdem was zuerst kommt). Dieser obere Bereich des Scripts wird auch als <em>automatischer Ausf&uuml;hrungsbereich</em> bezeichnet.</p>
-<p>Ein Script, das weder <a href="commands/_Persistent.htm">persistent</a> noch <a href="Hotkeys.htm">Hotkeys</a>, <a href="Hotstrings.htm">Hotstrings</a>, <a href="commands/OnMessage.htm">OnMessage</a> und <a href="commands/Gui.htm">GUI</a> enth&auml;lt, wird beendet, sobald der automatische Ausf&uuml;hrungsbereich durchgef&uuml;hrt wurde. Ansonsten l&auml;uft es im Leerlauf und reagiert auf Ereignisse wie Hotkeys, Hotstrings, <a href="commands/Gui.htm#label">GUI-Ereignisse</a>, <a href="commands/Menu.htm">benutzerdefinierte Men&uuml;punkte</a> und <a href="commands/SetTimer.htm">Timer</a>.</p>
-<p>Jeder <a href="misc/Threads.htm">Thread</a>, der durch <a href="Hotkeys.htm">Hotkeys</a>, <a href="Hotstrings.htm">Hotstrings</a>, <a href="commands/Menu.htm"> Men&uuml;punkte</a>, <a href="commands/Gui.htm#label">GUI-Ereignisse</a> oder <a href="commands/SetTimer.htm">Timer</a> gestartet wird, beginnt mit Standardwerten von den folgenden Attributen, die im automatischen Ausf&uuml;hrungsbereich bestimmt wurden. Bei unbestimmten Attributen gelten die Standardeinstellungen (wie jeweils in den folgenden Seiten dokumentiert): <a href="commands/DetectHiddenWindows.htm">DetectHiddenWindows</a>, <a href="commands/DetectHiddenText.htm">DetectHiddenText</a>, <a href="commands/SetTitleMatchMode.htm">SetTitleMatchMode</a>, <a href="commands/SetBatchLines.htm">SetBatchLines</a>, <a href="commands/SendMode.htm">SendMode</a>, <a href="commands/SetKeyDelay.htm">SetKeyDelay</a>, <a href="commands/SetMouseDelay.htm">SetMouseDelay</a>, <a href="commands/SetWinDelay.htm">SetWinDelay</a>, <a href="commands/SetControlDelay.htm">SetControlDelay</a>, <a href="commands/SetDefaultMouseSpeed.htm">SetDefaultMouseSpeed</a>, <a href="commands/CoordMode.htm">CoordMode</a>, <a href="commands/SetStoreCapslockMode.htm">SetStoreCapslockMode</a>, <a href="commands/AutoTrim.htm">AutoTrim</a>, <a href="commands/SetFormat.htm">SetFormat</a>, <a href="commands/StringCaseSense.htm">StringCaseSense</a>, <a href="commands/Thread.htm">Thread</a> und <a href="commands/Critical.htm">Critical</a>.</p>
+<p>Ein Script ohne <a href="Hotkeys.htm">Hotkeys</a>, <a href="Hotstrings.htm">Hotstrings</a>, sichtbare <a href="commands/Gui.htm">GUIs</a>, <a href="commands/OnMessage.htm">Meldungs&uuml;berwachungen</a>, aktive <a href="commands/SetTimer.htm">Timer</a> und benutzerdefinierte Tray-<a href="commands/Menu.htm">Men&uuml;punkte</a> wird beendet, sobald der automatische Ausf&uuml;hrungsbereich durchgef&uuml;hrt wurde. Ansonsten l&auml;uft es im Leerlauf weiter und reagiert auf Ereignisse wie Hotkeys, Hotstrings, <a href="commands/Gui.htm#label">GUI-Ereignisse</a>, <a href="commands/Menu.htm">benutzerdefinierte Men&uuml;punkte</a> und <a href="commands/SetTimer.htm">Timer</a>. Sollten sich jedoch diese Bedingungen nach Durchf&uuml;hrung des automatischen Ausf&uuml;hrungsbereichs &auml;ndern (wenn zum Beispiel der letzte Timer deaktiviert wird), k&ouml;nnte das Script beendet werden, sobald der zuletzt laufende Thread endet oder das letzte GUI geschlossen wird. </p>
+<p>Jeder <a href="misc/Threads.htm">Thread</a>, der durch <a href="Hotkeys.htm">Hotkeys</a>, <a href="Hotstrings.htm">Hotstrings</a>, <a href="commands/Menu.htm"> Men&uuml;punkte</a>, <a href="commands/Gui.htm#label">GUI-Ereignisse</a> oder <a href="commands/SetTimer.htm">Timer</a> gestartet wird, beginnt mit Standardwerten von den folgenden Attributen, die im automatischen Ausf&uuml;hrungsbereich bestimmt wurden. Bei unbestimmten Attributen gelten die Standardeinstellungen (wie jeweils in den folgenden Seiten dokumentiert): <a href="commands/DetectHiddenWindows.htm">DetectHiddenWindows</a>, <a href="commands/DetectHiddenText.htm">DetectHiddenText</a>, <a href="commands/SetTitleMatchMode.htm">SetTitleMatchMode</a>, <a href="commands/SetBatchLines.htm">SetBatchLines</a>, <a href="commands/SendMode.htm">SendMode</a>, <a href="commands/SetKeyDelay.htm">SetKeyDelay</a>, <a href="commands/SetMouseDelay.htm">SetMouseDelay</a>, <a href="commands/SetWinDelay.htm">SetWinDelay</a>, <a href="commands/SetControlDelay.htm">SetControlDelay</a>, <a href="commands/SetDefaultMouseSpeed.htm">SetDefaultMouseSpeed</a>, <a href="commands/CoordMode.htm">CoordMode</a>, <a href="commands/SetStoreCapslockMode.htm">SetStoreCapslockMode</a>, <a href="commands/StringCaseSense.htm">StringCaseSense</a>, <a href="commands/Thread.htm">Thread</a> und <a href="commands/Critical.htm">Critical</a>.</p>
 <p>Falls das Ausf&uuml;hren des automatischen Ausf&uuml;hrungsbereichs zu lange dauert (oder nie beendet wird), werden die Standardwerte der oben genannten Einstellungen nach 100 Millisekunden automatisch wirksam. Wenn der automatische Ausf&uuml;hrungsbereich doch noch vollst&auml;ndig ausgef&uuml;hrt wird (wenn &uuml;berhaupt), werden die Standardwerte nochmals auf die aktuellen Werte aktualisiert. Daher ist es besser, die Standardeinstellungen im oberen Bereich des Scripts zu &auml;ndern, das <a href="Hotkeys.htm">Hotkeys</a>, <a href="Hotstrings.htm">Hotstrings</a>, <a href="commands/SetTimer.htm">Timer</a> oder <a href="commands/Menu.htm">benutzerdefinierte Men&uuml;punkte</a> enth&auml;lt. Beachtet au&szlig;erdem, dass jeder <a href="misc/Threads.htm">Thread</a> seine eigene Sammlung von den oben genannten Einstellungen aufbewahrt. &Auml;nderungen an diesen Einstellungen beeinflussen keine anderen <a href="misc/Threads.htm">Threads</a>.</p>
 <h2 id="esc">Schutzsequenzen</h2>
-<p>Das Standard-<a href="commands/_EscapeChar.htm">Schutzzeichen</a> von AutoHotkey ist ein Akzent (`), das sich auf der deutschen Tastatur direkt links neben der R&uuml;cktaste befindet. Sobald dieses Zeichen anstelle des Backslashs verwendet wird, sind doppelte Backslashs in Dateipfaden nicht l&auml;nger notwendig.</p>
-<p>Da Kommas und Prozentzeichen eine besondere Bedeutung in der AutoHotkey-Sprache haben, verwendet <code>`,</code> f&uuml;r ein direktes Komma und <code>`%</code> f&uuml;r ein direktes Prozentzeichen. Bei einer <a href="commands/MsgBox.htm">MsgBox</a> und beim letzten Parameter eines Befehls m&uuml;ssen Kommas nicht gesch&uuml;tzt werden. Siehe <a href="commands/_EscapeChar.htm">#EscapeChar</a> f&uuml;r eine komplette Liste von Schutzsequenzen.</p>
+<p>Das Standard-<a href="misc/EscapeChar.htm">Schutzzeichen</a> von AutoHotkey ist ein Akzent (`), das sich auf der deutschen Tastatur direkt links neben der R&uuml;cktaste befindet. Sobald dieses Zeichen anstelle des Backslashs verwendet wird, sind doppelte Backslashs in Dateipfaden nicht l&auml;nger notwendig.</p>
+<p>Da Kommas und Prozentzeichen eine besondere Bedeutung in der AutoHotkey-Sprache haben, verwendet <code>`,</code> f&uuml;r ein direktes Komma und <code>`%</code> f&uuml;r ein direktes Prozentzeichen. Bei einer <a href="commands/MsgBox.htm">MsgBox</a> und beim letzten Parameter eines Befehls m&uuml;ssen Kommas nicht gesch&uuml;tzt werden. Verwandtes: <a href="misc/EscapeChar.htm">Schutzsequenzen</a>.</p>
 <p>Au&szlig;erdem werden bestimmte Sonderzeichen mithilfe von Schutzsequenzen erzeugt. Folgende werden hierbei h&auml;ufig verwendet: `t (Tabulator), `n (LF-Zeichen) und `r (CR-Zeichen).</p>
 <p>Tipp: Es ist m&ouml;glich, das erste Komma eines Befehls wegzulassen (au&szlig;er wenn der erste Parameter leer ist oder mit := oder = beginnt, oder der Befehl am Anfang eines <a href="#continuation">Fortsetzungsbereichs</a> alleine vorkommt). Zum Beispiel:</p>
 <pre>MsgBox Das ist ok.
@@ -50,7 +50,6 @@ MsgBox, Diese Zeile wurde auskommentiert (deaktiviert).
 MsgBox, Diese auch.
 */</em></pre>
 <p>Da Kommentare beim Ausf&uuml;hren eines Scripts ignoriert werden, haben sie keinen Einfluss auf die Performance oder Speicherauslastung.</p>
-<p>Das Standard-Kommentarzeichen (Semikolon) kann mithilfe von <a href="commands/_CommentFlag.htm">#CommentFlag</a> mit einem anderen Zeichen oder String ausgewechselt werden.</p>
 <h2 id="continuation">Eine lange Zeile in mehreren kurzen Zeilen aufteilen</h2>
 <p>Lange Zeilen k&ouml;nnen in mehreren kurzen Zeilen aufgeteilt werden, um die Lesbarkeit und Wartbarkeit zu verbessern. Dabei wird nicht die Ausf&uuml;hrungsgeschwindigkeit des Scripts verringert, weil diese Zeilen im Speicher zusammengef&uuml;hrt werden, sobald das Script ausgef&uuml;hrt wird.</p>
 <p><strong>Methode #1</strong>: Eine Zeile, die mit "and", "or",  ||, &amp;&amp;, einem Komma oder einem <a href="Variables.htm#concat">Punkt</a> beginnt, wird automatisch mit der oberen Zeile zusammengef&uuml;hrt (seit v1.0.46 gilt das auch f&uuml;r <a href="Variables.htm#Operators">Ausdrucksoperatoren</a>, au&szlig;er ++ und --). Im folgenden Beispiel wird die zweite Zeile an der Ersten angef&uuml;gt, weil sie mit einem Komma beginnt:</p>
@@ -82,24 +81,27 @@ Eine Textzeile.
 <i>Standardm&auml;&szlig;ig</i> werden Variablenverweise wie %Var% in den Variableninhalt aufgel&ouml;st.
 ), C:\Eigene Datei.txt</pre>
 <p>In den obigen Beispielen werden mehrere Zeilen durch die obere und untere Klammer abgegrenzt. Auch bekannt als <em>Fortsetzungsbereich</em>. Beachtet, dass die Zeile nach der schlie&szlig;enden Klammer den letzten Parameter von <a href="commands/FileAppend.htm">FileAppend</a> enth&auml;lt. Diese Methode ist optional; in dieser Form wird das Komma als Parametertrennung anstatt als direktes Komma angesehen.</p>
+<p id="continuation_defaults">Standardm&auml;&szlig;ig verhalten sich Anf&uuml;hrungszeichen innerhalb des Fortsetzungsbereichs so, als wurden sie bereits gesch&uuml;tzt (das hei&szlig;t, dass sie als direkte Zeichen interpretiert werden). Dar&uuml;ber hinaus werden f&uuml;hrende Leer- und Tabulatorzeichen entfernt, basierend auf die Einr&uuml;ckung der ersten Zeile innerhalb des Fortsetzungsbereichs. Falls die erste Zeile solche Zeichen vermischt, wird nur der erste Zeichentyp als Einr&uuml;ckung behandelt. Wenn eine Zeile au&szlig;er der ersten oder mit falschen Zeichen einger&uuml;ckt wird, bleiben alle f&uuml;hrenden unsichtbaren Zeichen auf dieser Zeile erhalten.<br></p>
 <p>Das Standardverhalten eines Fortsetzungsbereichs kann &uuml;berschrieben werden, indem eine oder mehrere der folgenden Optionen rechts neben der &ouml;ffnenden Klammer eingef&uuml;gt werden. Falls mehr als eine Option vorhanden ist, trennt diese jeweils mit einem Leerzeichen. Zum Beispiel: ( LTrim Join| %</p>
 <p><strong><a name="Join"></a>Join</strong>: Bestimmt, wie die Zeilen zusammengef&uuml;hrt werden. Beim Weglassen dieser Option erfolgt nach jeder Zeile au&szlig;er der letzten ein LF-Zeichen (`n). Falls nur das Wort <em>Join</em> vorhanden ist, werden die Zeilen ohne Zeichen zusammengef&uuml;hrt. Ansonsten k&ouml;nnen unmittelbar nach dem Wort <em>Join</em> maximal 15 Zeichen erfolgen. Zum Beispiel wird mit <code>Join`s</code> ein Leerzeichen nach jeder Zeile au&szlig;er der letzten eingef&uuml;gt (<strong>`s</strong> ist ein direktes Leerzeichen - eine besondere Schutzsequenz, die nur von <em>Join</em> erkannt werden kann). Ein weiteres Beispiel ist <em>Join`r`n</em>, das CR+LF zwischen den Zeilen einf&uuml;gt. Ebenso wird mit <em>Join|</em> ein senkrechter Strich dazwischen eingef&uuml;gt. Damit auch die letzte Zeile mit einem Join-String endet, f&uuml;gt unmittelbar vor der schlie&szlig;enden Klammer eine leere Zeile ein.</p>
-<p><strong><a name="LTrim"></a>LTrim</strong>: Entfernt Leer- und Tabulatorzeichen am Zeilenanfang. Diese werden haupts&auml;chlich verwendet, um den Fortsetzungsbereich einzur&uuml;cken. Au&szlig;erdem kann diese Option f&uuml;r mehrere Fortsetzungsbereiche geltend gemacht werden, indem <em>#LTrim</em> selbst auf einer Zeile angegeben wird. <em>#LTrim</em> ist von der Position abh&auml;ngig: es beeinflusst nur Fortsetzungsbereiche, die sich darunter befinden. Die Einstellung kann mithilfe von <em>#LTrim Off</em> deaktiviert werden.</p>
-<p><strong>RTrim0</strong> (RTrim gefolgt von einer 0): Verhindert, dass Leerzeichen und Tabulatoren am Zeilenende entfernt werden.</p>
+<p><strong><a name="LTrim"></a>LTrim</strong>: Entfernt alle Leer- und Tabulatorzeichen am Zeilenanfang. Das ist normalerweise wegen dem <a href="#continuation_defaults">"intelligenten" Standardverhalten</a> nicht notwendig.</p>
+<p><strong>LTrim0</strong> (LTrim mit einer 0 danach): Verhindert, dass Leer- und Tabulatorzeichen am Zeilenanfang entfernt werden.</p>
+<p><strong>RTrim0</strong> (RTrim mit einer 0 danach): Verhindert, dass Leer- und Tabulatorzeichen am Zeilenende entfernt werden.</p>
 <p><strong><a name="CommentOption"></a>Comments</strong> (oder <strong>Comment</strong> oder <strong>Com</strong> oder <strong>C</strong>) <span class="ver">[v1.0.45.03+]</span>: Erm&ouml;glicht <a href="#Comments">Semikolon-Kommentare</a> innerhalb des Fortsetzungsbereichs (aber nicht /*..*/). Solche Kommentare werden im zusammengef&uuml;hrten Ergebnis komplett ignoriert (sowie alle links vorkommenden Leerzeichen und Tabulatoren), anstatt als direkter Text behandelt zu werden. Kommentare k&ouml;nnen auf der rechten Seite einer Zeile oder auf einer neuen Zeile vorkommen.</p>
-<p><strong>%</strong> (Prozentzeichen): Verhindert Variablenverweise im Fortsetzungsbereich. Dadurch m&uuml;ssen Prozentzeichen nicht <a href="commands/_EscapeChar.htm">gesch&uuml;tzt</a> werden, um sie direkt anzuzeigen. Diese Option wird nicht ben&ouml;tigt, wenn Prozentzeichen bereits direkt behandelt werden, wie bei <a href="Hotstrings.htm">einzeiligen Hotstrings</a>.</p>
+<p id="QuotesOption"><strong>Quotes</strong> (oder <strong>Q</strong>): Stellt die F&auml;higkeit wieder her, Strings in Anf&uuml;hrungszeichen zu terminieren, wenn ein Ausdruck im Fortsetzungsbereich verwendet wird.</p>
+<p><strong>%</strong> (Prozentzeichen): Verhindert Variablenverweise im Fortsetzungsbereich. Dadurch m&uuml;ssen Prozentzeichen nicht <a href="misc/EscapeChar.htm">gesch&uuml;tzt</a> werden, um sie direkt anzuzeigen. Diese Option wird nicht ben&ouml;tigt, wenn Prozentzeichen bereits direkt behandelt werden, wie bei <a href="Hotstrings.htm">einzeiligen Hotstrings</a>.</p>
 <p><strong>,</strong> (Komma): Behandelt Kommas als Trennzeichen, anstatt als direkte Kommas. Diese selten verwendete Option ist nur f&uuml;r Kommas zwischen Befehlsparametern notwendig, weil sie in <a href="Functions.htm">Funktionsaufrufen</a> keine Rolle spielen. Au&szlig;erdem wandelt diese Option nur die Kommas um, die tats&auml;chlich Parameter trennen. Das hei&szlig;t, sobald der letzte Befehlsparameter erreicht wird (oder keine Parameter vorhanden sind), werden nachfolgende Kommas als direkte Kommas behandelt, unabh&auml;ngig dieser Option.</p>
-<p><a name="accent"></a><strong>`</strong> (Akzent): Behandelt jeden Akzent direkt, anstatt als <a href="commands/_EscapeChar.htm">Schutzzeichen</a>. Dadurch wird auch verhindert, dass Kommas und Prozentzeichen direkt und einzeln gesch&uuml;tzt werden k&ouml;nnen. Dar&uuml;ber hinaus wird die &Uuml;bersetzung von direkten Schutzsequenzen wie `r und `t unterdr&uuml;ckt.</p>
+<p><a name="accent"></a><strong>`</strong> (Akzent): Behandelt jeden Akzent direkt, anstatt als <a href="misc/EscapeChar.htm">Schutzzeichen</a>. Dadurch wird auch verhindert, dass Kommas und Prozentzeichen direkt und einzeln gesch&uuml;tzt werden k&ouml;nnen. Dar&uuml;ber hinaus wird die &Uuml;bersetzung von direkten Schutzsequenzen wie `r und `t unterdr&uuml;ckt.</p>
 <p><a name="non-continuation"></a><strong>)</strong> <span class="ver">[v1.1.01+]</span>: Sobald eine schlie&szlig;ende Klammer als Option verwendet wird (und nicht im Parameter der <a href="#Join">Join</a>-Option vorkommt), wird die Zeile als Ausdruck interpretiert, anstatt als Beginn eines Fortsetzungsbereichs. Dadurch funktionieren Ausdr&uuml;cke wie <code>(x.y)[z]()</code>, ohne dabei die &ouml;ffnende Klammer sch&uuml;tzen zu m&uuml;ssen.</p>
 <p><u>Bemerkungen</u></p>
-<p><a href="commands/_EscapeChar.htm">Schutzsequenzen</a> wie `n (LF) und `t (Tabulator) werden innerhalb des Fortsetzungsbereichs unterst&uuml;tzt, solange die <a href="#accent">Akzent-Option (`)</a> nicht vorhanden ist.</p>
+<p><a href="misc/EscapeChar.htm">Schutzsequenzen</a> wie `n (LF) und `t (Tabulator) werden innerhalb des Fortsetzungsbereichs unterst&uuml;tzt, solange die <a href="#accent">Akzent-Option (`)</a> nicht vorhanden ist.</p>
 <p>Wie bereits erw&auml;hnt, sind die Kommentare im Fortsetzungsbereich erst g&uuml;ltig, wenn <a href="#CommentOption">Comment-Option</a> vorhanden ist. Allerdings d&uuml;rfen Kommentare in den unteren und oberen Zeilen des Bereichs eingef&uuml;gt werden. Zum Beispiel:</p>
 <pre>FileAppend<strong>,</strong>   <em>; Kommentar.
 ; Kommentar.</em>
 ( LTrim Join    <em>; Kommentar.</em>
     &nbsp;; Das ist <strong>kein</strong> Kommentar; es ist direkt vorhanden. F&uuml;gt das Wort <i>Comments</i> in der Zeile dar&uuml;ber ein, damit es ein Kommentar wird.
 ), C:\Datei.txt   <em>; Kommentar.</em></pre>
-<p>Folglich m&uuml;ssen Semikolons innerhalb eines Fortsetzungsbereichs nie <a href="commands/_EscapeChar.htm">gesch&uuml;tzt</a> werden.</p>
+<p>Folglich m&uuml;ssen Semikolons innerhalb eines Fortsetzungsbereichs nie <a href="misc/EscapeChar.htm">gesch&uuml;tzt</a> werden.</p>
 <p>Ein Fortsetzungsbereich kann keine Zeile erzeugen, deren L&auml;nge 16.383 Zeichen &uuml;berschreitet (Beim Versuch erscheint eine Warnmeldung, sobald das Script gestartet wird). Als &Uuml;bergangsl&ouml;sung k&ouml;nnen mehrere Verkettungen in eine Variable durchgef&uuml;hrt werden. Zum Beispiel:</p>
 <pre>Var =
 (
@@ -125,14 +127,44 @@ FileAppend, %Var%, C:\Eigene Datei.txt</pre>
 
 
 
+
+
+
+
+
+
+
+
+
+
 <pre>Ahk2Exe.exe /in Script.ahk [/out Script.exe] [/icon Icon.ico] [/bin AutoHotkeySC.bin] [/mpress 0oder1]</pre>
   Zum Beispiel:
 
 
 
 
+
+
+
+
+
+
+
+
+
+
 <pre>Ahk2exe.exe /in "Script.ahk" /icon "Icon.ico"</pre>
 Verwendung:
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -180,30 +212,28 @@ Verwendung:
 <td><a name="CPn"></a>/CP<i>n</i></td>
 <td><span class="ver">[AHK_L 51+]:</span> &Uuml;berschreibt den Standard-Zeichensatz, der zum Lesen der Script-Dateien verwendet wird. Weitere Details k&ouml;nnen in "<a href="#cp">Zeichensatz einer Script-Datei</a>" gefunden werden.</td></tr>
 </tbody></table>
-<p><a name="defaultfile"></a><strong>Script-Dateiname:</strong> Kann weggelassen werden, falls keine <em>Script-Parameter</em> vorhanden sind. Dabei wird eine Datei standardm&auml;&szlig;ig auf einer der folgenden Standorte ausgef&uuml;hrt (oder erstellt, falls der Benutzer der Anfrage zustimmt):</p>
+<p><a name="defaultfile"></a><strong>Script-Dateiname:</strong> Kann weggelassen werden, falls keine <em>Script-Parameter</em> vorhanden sind. Dabei wird eine Datei standardm&auml;&szlig;ig auf einem der folgenden Standorte ausgef&uuml;hrt (oder erstellt, falls der Benutzer die Anfrage zustimmt):</p>
 <p><span class="ver">[AHK_L 51+]:</span> <code>%AhkExeDir%\%AhkExeName%.ahk</code> oder <code><a href="Variables.htm#MyDocuments">%A_MyDocuments%</a>\%AhkExeName%.ahk</code>, wobei <em>%AhkExeDir%</em> und <em>%AhkExeName%</em> mit dem Verzeichnis und Dateinamen der ausf&uuml;hrbaren Datei ohne ".exe" ersetzt wird, die zum Ausf&uuml;hren des Scripts ben&ouml;tigt werden.</p>
 <p><span class="ver">[Fr&uuml;here Versionen]:</span> <code>AutoHotkey.ini</code> (im aktuellen Arbeitsverzeichnis) oder <code><a href="Variables.htm#MyDocuments">%A_MyDocuments%</a>\AutoHotkey.ahk</code>.</p>
-<p><strong>Script-Parameter:</strong> Ein oder mehrere Strings, die an das Script &uuml;bergeben werden sollen, jeder durch Leerzeichen getrennt. Jeder Parameter, der Leerzeichen enth&auml;lt, sollte in Anf&uuml;hrungszeichen gesetzt werden. Ein Anf&uuml;hrungszeichen kann durch Voranstellen eines Backslashs (\") direkt &uuml;bergeben werden. Folglich wird jeder nachfolgende Schr&auml;gstrich in einem zitierten Parameter (wie <code>"C:\Eigene Dokumente<span class="red">\"</span></code>) als direktes Anf&uuml;hrungszeichen behandelt (das hei&szlig;t, dass das Script den String <code>C:\Eigene Dokumente<span class="red">"</span></code> erhalten wird). Um solche Anf&uuml;hrungszeichen zu entfernen, verwendet <code><a href="commands/StringReplace.htm">StringReplace</a>, 1, 1, <span class="red">"</span>,, All</code>.</p>
-<p>Das Script versteht eingehende Parameter als <a href="Variables.htm">Variablen</a> %1%, %2% und so weiter. Dar&uuml;ber hinaus enth&auml;lt %0% die Anzahl an &uuml;bergebenen Parametern (0, wenn keine). Allerdings k&ouml;nnen diese Variablen nicht direkt in einem Ausdruck verwiesen werden, weil sie sonst als Zahlen anstatt als Variablen interpretiert werden. Das folgende Beispiel beendet das Script, falls zu wenig Parameter &uuml;bergeben wurden:</p>
-<pre>if 0 &lt; 3  <em>; Die linke Seite einer <a href="commands/IfEqual.htm">If-Anweisung ohne Ausdruck</a> ist immer der Name einer Variable.</em>
+<p><strong>Script-Parameter:</strong> Ein oder mehrere Strings, die an das Script &uuml;bergeben werden sollen, jeder durch Leerzeichen getrennt. Jeder Parameter, der Leerzeichen enth&auml;lt, sollte in Anf&uuml;hrungszeichen gesetzt werden. Ein Anf&uuml;hrungszeichen kann durch Voranstellen eines Backslashs (\") direkt &uuml;bergeben werden. Folglich wird jeder nachfolgende Schr&auml;gstrich in einem zitierten Parameter (wie <code>"C:\Eigene Dokumente<span class="red">\"</span></code>) als direktes Anf&uuml;hrungszeichen behandelt (das hei&szlig;t, dass das Script den String <code>C:\Eigene Dokumente<span class="red">"</span></code> erhalten wird). Um solche Anf&uuml;hrungszeichen zu entfernen, verwendet <code><a href="commands/StrReplace.htm">StrReplace</a>, 1, 1, <span class="red">"</span>,, All</code>.</p>
+<p>Eingehende Parameter, falls vorhanden, werden als Array in die globale <a href="Variables.htm#CommandLine">Args</a>-Variable gespeichert. Diese k&ouml;nnen dann mit dem <a href="Objects.htm#Usage_Simple_Arrays">Array-Syntax</a> abgerufen werden. Das folgende Beispiel beendet das Script, falls zu wenig Parameter &uuml;bergeben wurden:</p>
+<pre>argc := Args.MaxIndex()<br>if argc &lt; 3
 {
-    MsgBox Das Script ben&ouml;tigt mindestens 3 eingehende Parameter, jedoch kamen nur %0% an.
+    MsgBox Das Script ben&ouml;tigt mindestens 3 eingehende Parameter, jedoch kamen nur %argc% an.
     ExitApp
 }</pre>
 <p>Falls die Anzahl an &uuml;bergebenen Parametern variiert (wenn der Benutzer zum Beispiel mit der Maus mehrere Dateien auf ein Script zieht und ablegt), dann kann das folgende Beispiel verwendet werden, um sie einzeln zu extrahieren:</p>
-<pre>Loop, %0%  <em>; F&uuml;r jeden Parameter:</em>
+<pre>Loop Args.MaxIndex()  <em>; F&uuml;r jeden Parameter:</em>
 {
-    param := %A_Index%  <em>; Ruft den Inhalt der Variable ab, deren Name in A_Index enthalten ist.</em>
+    param := Args[A_Index]
     MsgBox, 4,, Parameternummer %A_Index% ist %param%.  Weiter?
-    IfMsgBox, No
-        break
-}</pre>
+}<br>Until A_MsgBoxResult = "No"<br></pre>
 <p>Wenn die Parameter Dateinamen sind, kann folgendes Beispiel verwendet werden, um sie in zeichengenaue lange Namen umzuwandeln (wie im Dateisystem gespeichert), einschlie&szlig;lich des vollst&auml;ndigen/absoluten Pfads:</p>
-<pre>Loop %0%  <em>; F&uuml;r jeden Parameter (oder abgelegte Datei auf ein Script):</em>
+<pre>Loop Args.MaxIndex()  <em>; F&uuml;r jeden Parameter (oder abgelegte Datei auf ein Script):</em>
 {
-    Pfadangabe := %A_Index%  <em>; Ruft den Inhalt der Variable ab, deren Name in A_Index enthalten ist.</em>
-    Loop %Pfadangabe%, 1
-        LangerPfad = %A_LoopFileLongPath%
+    Pfadangabe := Args[A_Index]
+    Loop Files, %Pfadangabe%, FD  <em>; einschlie&szlig;lich Dateien und Verzeichnisse.</em>
+        LangerPfad := A_LoopFilePath
     MsgBox Der zeichengenaue lange Pfadname der Datei `n%Pfadangabe%`n ist:`n%LangerPfad%
 }</pre>
 <p>Bekannte Einschr&auml;nkung: das Ziehen von Dateien auf eine .ahk-Datei kann fehlschlagen, wenn 8.3-Namen (Kurznamen) in einem NTFS-Dateisystem deaktiviert wurden. Als &Uuml;bergangsl&ouml;sung kann das Script <a href="#ahk2exe">kompiliert</a> werden, um die Dateien danach auf die resultierende EXE-Datei zu ziehen.</p>

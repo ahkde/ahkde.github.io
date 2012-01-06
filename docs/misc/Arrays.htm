@@ -64,7 +64,7 @@ for index, element in Array <em>; Empfohlener Ansatz in den meisten F&auml;llen.
 
 <h2 id="pseudo">Pseudo-Arrays</h2>
 <p>Pseudo-Arrays sind meistens konzeptionell: Jedes Array ist eigentlich nur eine Sammlung von durchnummerierten <a href="../Variables.htm">Variablen</a> oder <a href="../Functions.htm">Funktionen</a>, die als <em>Elemente</em> des Arrays wahrgenommen werden. In AutoHotkey werden diese Elemente in keiner Weise miteinander verkn&uuml;pft.</p>
-<p>Zus&auml;tzlich zu Befehlen wie <a href="../commands/StringSplit.htm">StringSplit</a> und "<a href="../commands/WinGet.htm">WinGet List</a>", die Arrays erstellen, k&ouml;nnen auch Befehle zur Erstellung eines Arrays verwendet werden, die eine Ausgabevariable akzeptieren oder einen Wert in eine Variable speichern. Das einfachste Beispiel daf&uuml;r ist der <a href="../commands/SetExpression.htm">Zuweisungsoperator (:=)</a>, wie unten dargestellt:</p>
+<p>Zus&auml;tzlich zu Befehlen wie <a href="../commands/StrSplit.htm">StrSplit</a> und "<a href="../commands/WinGet.htm">WinGet List</a>", die Arrays erstellen, k&ouml;nnen auch Befehle zur Erstellung eines Arrays verwendet werden, die eine Ausgabevariable akzeptieren oder einen Wert in eine Variable speichern. Das einfachste Beispiel daf&uuml;r ist der <a href="../commands/SetExpression.htm">Zuweisungsoperator (:=)</a>, wie unten dargestellt:</p>
 <pre>Array%j% := A_LoopField</pre>
 <p>Au&szlig;erdem sind auch mehrdimensionale Arrays m&ouml;glich, indem ein beliebiges Trennzeichen zwischen den Indexen verwendet wird. Zum Beispiel:</p>
 <pre>Array%j%_%k% := A_LoopReadLine</pre>
@@ -85,7 +85,7 @@ Loop %ArrayAnzahl%
     <em>; Alternativ kann auch der "%"-Pr&auml;fix verwendet werden, damit ein MsgBox oder andere Befehle <a href="../Variables.htm#Expressions">ausdrucksf&auml;hig</a> sind:</em>
     MsgBox % "Elementnummer" . A_Index . " ist " . Array%A_Index%
 }</pre>
-<p>Ein &auml;hnliches Konzept wird mit <a href="../Functions.htm#NumPut">NumPut()</a> und <a href="../Functions.htm#NumGet">NumGet()</a> erreicht, mit denen mehrere Zahlen im Bin&auml;rformat gespeichert oder abgerufen werden k&ouml;nnen. Das ist besonders hilfreich, falls die Performance und/oder Speicherauslastung von entscheidender Bedeutung sind.</p>
+<p>Ein &auml;hnliches Konzept wird mit <a href="../commands/NumPut.htm">NumPut()</a> und <a href="../commands/NumGet.htm">NumGet()</a> erreicht, mit denen mehrere Zahlen im Bin&auml;rformat gespeichert oder abgerufen werden k&ouml;nnen. Das ist besonders hilfreich, falls die Performance und/oder Speicherauslastung von entscheidender Bedeutung sind.</p>
 
 
 

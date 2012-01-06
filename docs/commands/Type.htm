@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1>Type</h1>
+<p>Ermittelt den genauen Typ des Wertes.</p>
+<pre class="Syntax">Ausgabevariable := Type(Wert)</pre>
+
+<h3>R&uuml;ckgabewert</h3>
+<p>Der R&uuml;ckgabewert ist ein String, der den Typ des <em>Wertes</em> kennzeichnet. Folgende Werte k&ouml;nnen enthalten sein:</p>
+<ul>
+  <li>String</li>
+  <li>Integer</li>
+  <li>Float</li>
+  <li>Object</li>
+</ul>
+<p>Falls der <em>Wert</em> ein Objekt ist, k&ouml;nnte der R&uuml;ckgabewert entweder "Object" oder ein speziellerer interner Typ wie "<a href="../Objects.htm#Function_References">Func</a>", "<a href="../objects/File.htm">FileObject</a>" oder "<a href="ComObjCreate.htm">ComObject</a>" sein. Zur &Uuml;berpr&uuml;fung eines beliebigen Objekttyps kann <a href="../Objects.htm">IsObject(Wert)</a> verwendet werden.</p>
+
+<h3>Bemerkungen</h3>
+<p>Diese Funktion sollte normalerweise nicht verwendet werden, um festzustellen, ob ein Wert numerisch ist, weil numerische <em>Strings</em> sowohl in mathematischen Ausdr&uuml;cken als auch bei den meisten internen Funktionen g&uuml;ltig sind. In einigen F&auml;llen jedoch ist der genaue Typ eines Wertes von gr&ouml;&szlig;erer Wichtigkeit. Wenn zum Beispiel&nbsp;<a href="NumPut.htm">NumPut</a> eine Variable &uuml;bergeben wird, die einen puren Integer enth&auml;lt (keinen numerischen String), dann wird anstelle der Variablenadresse der Integer verwendet.</p>
+
+<h3>Beispiele</h3>
+<pre class="NoIndent">a := 1, b := 2.0, c := "3"
+MsgBox % Type(a)  <em>; Integer</em>
+MsgBox % Type(b)  <em>; Float</em>
+MsgBox % Type(c)  <em>; String</em>
+</pre>
+</body></html>

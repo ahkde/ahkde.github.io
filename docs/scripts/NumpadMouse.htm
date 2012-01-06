@@ -425,7 +425,7 @@ If Button &lt;&gt; 0
         MouseCurrentSpeed = %MouseSpeed%
     }
 }
-StringReplace, Button, A_ThisHotkey, *
+StrReplace, Button, A_ThisHotkey, *
 
 ButtonAccelerationStart:
 If MouseAccelerationSpeed >= 1
@@ -733,7 +733,7 @@ If Button &lt;&gt; 0
         MouseWheelCurrentSpeed = %MouseWheelSpeed%
     }
 }
-StringReplace, Button, A_ThisHotkey, *
+StrReplace, Button, A_ThisHotkey, *
 
 ButtonWheelAccelerationStart:
 If MouseWheelAccelerationSpeed >= 1

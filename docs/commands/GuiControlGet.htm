@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>GuiControlGet</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,27 +13,24 @@
 
 <pre class="Syntax">GuiControlGet, Ausgabevariable [, Unterbefehl, SteuerelementID, Param4]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Ausgabevariable</td>
-    <td>Der Name der Variable, in der das Ergebnis gespeichert wird. Wenn der Befehl nicht ausgef&uuml;hrt werden kann (siehe ErrorLevel unten), dann ist diese Variable leer.</td>
-  </tr>
-  <tr>
-    <td>Unterbefehl</td>
-    <td>Siehe untere Liste.</td>
-  </tr>
-  <tr>
-    <td width="15%">SteuerelementID</td>
-    <td width="85%"><p>Wenn leer oder nicht vorhanden, dann verh&auml;lt sich der Parameter wie Ausgabevariable. Beispielsweise ist <em>GuiControlGet, EigenesEdit</em> das gleiche wie <em>GuiControlGet, EigenesEdit,, EigenesEdit</em>.</p>
+<dl>
+  
+    <dt>Ausgabevariable</dt>
+    <dd><p>Der Name der Variable, in der das Ergebnis gespeichert wird. Wenn der Befehl nicht ausgef&uuml;hrt werden kann (siehe ErrorLevel unten), dann ist diese Variable leer.</p></dd>
+ 
+    <dt>Unterbefehl</dt>
+    <dd><p>Siehe untere Liste.</p></dd>
+ 
+    <dt>SteuerelementID</dt>
+    <dd><p>Wenn leer oder nicht vorhanden, dann verh&auml;lt sich der Parameter wie Ausgabevariable. Beispielsweise ist <em>GuiControlGet, EigenesEdit</em> das gleiche wie <em>GuiControlGet, EigenesEdit,, EigenesEdit</em>.</p>
       <p>Wenn das Ziel-Steuerelement eine zugewiesene Variable hat, dann kann der Name der Variable als <em>SteuerelementID</em> angegeben werden (diese Methode hat Vorrang vor der n&auml;chsten Methode). Daher ist es am besten, dem Steuerelement eine Variable zuzuweisen, auf das sp&auml;ter mit GuiControl oder GuiControlGet zugegriffen wird, selbst wenn es nicht eingabef&auml;hig ist (z. B. GroupBox oder Text).</p>
     <p>Ansonsten ist die <em>SteuerelementID</em> entweder die ClassNN (Klassenname und Instanznummer des Steuerelements) oder der Name/Text des Steuerelements, die beide mit Windows Spy ermittelt werden k&ouml;nnen. Wenn Name/Text verwendet wird, wird das &Uuml;bereinstimmungsverhalten mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt. Hinweis: Der Dateiname eines Picture-Steuerelements kann auch als <em>SteuerelementID</em> verwendet werden.</p>
-      <p><span class="ver">[v1.1.04+]:</span> <em>SteuerelementID</em> kann das <a href="Gui.htm#HwndOutputVar">HWND</a> des Steuerelements sein.</p></td>
-  </tr>
-  <tr>
-    <td>Param4</td>
-    <td>Dieser Parameter kann weggelassen werden, solange er nicht von einem Unterbefehl aus der unteren Liste ben&ouml;tigt wird.</td>
-  </tr>
-</table>
+      <p><span class="ver">[v1.1.04+]:</span> <em>SteuerelementID</em> kann das <a href="Gui.htm#HwndOutputVar">HWND</a> des Steuerelements sein.</p></dd>
+ 
+    <dt>Param4</dt>
+    <dd><p>Dieser Parameter kann weggelassen werden, solange er nicht von einem Unterbefehl aus der unteren Liste ben&ouml;tigt wird.</p></dd>
+  
+</dl>
 
 <h3>ErrorLevel</h3>
 <p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, bei Misserfolg eine Ausnahme auszul&ouml;sen. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>
@@ -77,6 +73,4 @@ GuiControlGet, Inhalt,, EigenesEdit  <em>;  Gleiche wie oben, nur dass eine nich
 GuiControlGet, EigeneCheckBox1 <em>; Ermittelt 1, wenn markiert, 0, wenn nicht markiert.</em>
 GuiControlGet, EigeneCheckBox1,,, Text  <em>; Ermittelt die Bezeichnung/den Text des Kontrollk&auml;stchens.</em>
 GuiControlGet, Pic, Pos, Static4  <em>; Die Position/Gr&ouml;&szlig;e wird in PicX, PicY, PicW, und PicH gespeichert.</em></pre>
-
-</body>
-</html>
+</body></html>

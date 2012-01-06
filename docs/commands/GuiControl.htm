@@ -13,24 +13,20 @@
 
 <pre class="Syntax">GuiControl, Unterbefehl, SteuerelementID [, Param3] </pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tbody>
-<tr>
-    <td>Unterbefehl</td>
-    <td>Siehe untere Liste.</td>
-  </tr>
-  <tr>
-    <td width="15%">SteuerelementID</td>
-    <td width="85%">
-<p>Wenn das Ziel-Steuerelement eine zugewiesene Variable hat, dann kann der Name der Variable als <em>SteuerelementID</em> angegeben werden (diese Methode hat Vorrang vor der n&auml;chsten Methode). Daher ist es am besten, dem Steuerelement eine Variable zuzuweisen, auf das sp&auml;ter mit GuiControl oder GuiControlGet zugegriffen wird, selbst wenn es nicht eingabef&auml;hig ist (z. B. GroupBox oder Text).</p>
+<dl>
+ 
+    <dt>Unterbefehl</dt>
+    <dd><p>Siehe untere Liste.</p></dd>
+ 
+    <dt>SteuerelementID</dt>
+    <dd><p>Wenn das Ziel-Steuerelement eine zugewiesene Variable hat, dann kann der Name der Variable als <em>SteuerelementID</em> angegeben werden (diese Methode hat Vorrang vor der n&auml;chsten Methode). Daher ist es am besten, dem Steuerelement eine Variable zuzuweisen, auf das sp&auml;ter mit GuiControl oder GuiControlGet zugegriffen wird, selbst wenn es nicht eingabef&auml;hig ist (z. B. GroupBox oder Text).</p>
       <p>Ansonsten ist die <em>SteuerelementID</em> entweder die ClassNN (Klassenname und Instanznummer des Steuerelements) oder der Name/Text des Steuerelements, die beide mit Windows Spy ermittelt werden k&ouml;nnen. Wenn Name/Text verwendet wird, wird das &Uuml;bereinstimmungsverhalten mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt. Hinweis: Der Dateiname eines Picture-Steuerelements kann auch als <em>SteuerelementID</em> verwendet werden.</p>
-      <p><span class="ver">[v1.1.04+]:</span> <em>SteuerelementID</em> kann das <a href="Gui.htm#HwndOutputVar">HWND</a> des Steuerelements sein.</p></td>
-  </tr>
-  <tr>
-    <td>Param3</td>
-    <td>Dieser Parameter kann weggelassen werden, solange er nicht von einem Unterbefehl aus der unteren Liste ben&ouml;tigt wird.</td>
-  </tr>
-</tbody></table>
+      <p><span class="ver">[v1.1.04+]:</span> <em>SteuerelementID</em> kann das <a href="Gui.htm#HwndOutputVar">HWND</a> des Steuerelements sein.</p></dd>
+ 
+    <dt>Param3</dt>
+    <dd><p>Dieser Parameter kann weggelassen werden, solange er nicht von einem Unterbefehl aus der unteren Liste ben&ouml;tigt wird.</p></dd>
+  
+</dl>
 
 <h3>ErrorLevel</h3>
 <p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, bei Misserfolg eine Ausnahme auszul&ouml;sen. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>

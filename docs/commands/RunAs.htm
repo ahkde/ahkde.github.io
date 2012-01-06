@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>RunAs</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,21 +13,18 @@
 
 <pre class="Syntax">RunAs [, Benutzer, Passwort, Dom&auml;ne] </pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">Benutzer</td>
-    <td width="85%">Wenn alle Parameter weggelassen werden, dann wird die RunAs-Funktion deaktiviert, welches das Standardverhalten von <a href="Run.htm">Run</a> und <a href="Run.htm">RunWait</a> wiederherstellt. Ansonsten enth&auml;lt dieser Parameter den Benutzernamen, der f&uuml;r neu erstellte Prozesse gilt. </td>
-  </tr>
-  <tr>
-    <td>Passwort</td>
-    <td>Passwort des <em>Benutzers</em>.</td>
-  </tr>
-  <tr>
-    <td>Dom&auml;ne</td>
-    <td><p>Dom&auml;ne des <em>Benutzers</em>. Um das lokale Konto zu verwenden, lasst diesen Parameter leer. Wenn das nicht funktioniert, versucht @DeinComputerName.</p>
-    </td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Benutzer</dt>
+    <dd><p>Wenn alle Parameter weggelassen werden, dann wird die RunAs-Funktion deaktiviert, welches das Standardverhalten von <a href="Run.htm">Run</a> und <a href="Run.htm">RunWait</a> wiederherstellt. Ansonsten enth&auml;lt dieser Parameter den Benutzernamen, der f&uuml;r neu erstellte Prozesse gilt. </p></dd>
+ 
+    <dt>Passwort</dt>
+    <dd><p>Passwort des <em>Benutzers</em>.</p></dd>
+ 
+    <dt>Dom&auml;ne</dt>
+    <dd><p>Dom&auml;ne des <em>Benutzers</em>. Um das lokale Konto zu verwenden, lasst diesen Parameter leer. Wenn das nicht funktioniert, versucht @DeinComputerName.</p></dd>
+  
+</dl>
 <h3>Bemerkungen</h3>
 <p>Nur Windows XP/2000 oder h&ouml;her werden unterst&uuml;tzt. Dieser Befehl hat keine Auswirkung auf andere Betriebssysteme.
 
@@ -44,6 +40,4 @@ NT4-Benutzer sollten stattdessen den SU-Befehl aus dem NT Resource Kit installie
 <pre class="NoIndent">RunAs, Administrator, EigenesPasswort
 Run, RegEdit.exe
 RunAs  <em>; Normales Verhalten wiederherstellen.</em></pre>
-
-</body>
-</html>
+</body></html>

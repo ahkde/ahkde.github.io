@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Pause</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -15,24 +14,23 @@
 <pre class="Syntax">#p::Pause <em>; Win+P einmal dr&uuml;cken, um Script zu pausieren. Nochmal dr&uuml;cken, um die Pause aufzuheben.</em>
 Pause [, On|Off|Toggle, DarunterLiegendenThreadEinbeziehen?]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td width="15%">On|Off|Toggle</td>
-    <td width="85%"><p>Wenn leer oder nicht vorhanden, dann standardm&auml;&szlig;ig Toggle. Ansonsten ein folgendes Wort angeben:</p>
+<dl>
+  
+    <dt>On|Off|Toggle</dt>
+    <dd><p>Wenn leer oder nicht vorhanden, dann standardm&auml;&szlig;ig Toggle. Ansonsten ein folgendes Wort angeben:</p>
       <p>Toggle: Pausiert den <a href="../misc/Threads.htm">aktuellen Thread</a>, es sei denn, der Thread darunter ist pausiert, in diesem Fall wird die Pause vom darunter liegenden Thread aufgehoben.</p>
       <p>On: Pausiert den aktuellen Thread.</p>
       <p>Off: Wenn der Thread unter dem aktuellen Thread pausiert ist, dann wird dessen Pause aufgehoben, wenn er wieder aufgenommen wird. Ansonsten hat der Befehl keine Wirkung.<br>
-</p></td>
-  </tr>
-  <tr>
-    <td>DarunterLiegendenThreadEinbeziehen?</td>
-    <td><p>Dieser Parameter wird bei "Pause Off" ignoriert, weil dabei immer der darunter liegende Thread bearbeitet wird. Bei den anderen wird er ignoriert, es sei denn, Pause ist aktiviert (auch &uuml;ber Toggle).</p>
+</p></dd>
+ 
+    <dt>DarunterLiegendenThreadEinbeziehen?</dt>
+    <dd><p>Dieser Parameter wird bei "Pause Off" ignoriert, weil dabei immer der darunter liegende Thread bearbeitet wird. Bei den anderen wird er ignoriert, es sei denn, Pause ist aktiviert (auch &uuml;ber Toggle).</p>
       <p>Verwendet eine folgende Zahl:</p>
       <p><strong>0</strong> (oder weggelassen): Der Befehl pausiert den aktuellen Thread; das hei&szlig;t, dass dieser Thread jetzt den Pause-Befehl ausf&uuml;hrt.</p>
     <p><strong>1</strong>: Der Befehl setzt den Thread unter dem aktuellen Thread auf pausiert, damit der ausgef&uuml;hrte Befehl beendet wird (falls vorhanden), wenn er wieder aufgenommen wird. Gebt danach einen pausierten Zustand an. Wenn kein Thread unter dem aktuellen Thread ist, dann wird das Script selbst pausiert, wodurch <a href="SetTimer.htm">Timer</a> gestoppt werden (entspricht das Ausw&auml;hlen vom Men&uuml;punkt "Pause Script", w&auml;hrend das Script keine Threads hat).</p>
-    <p>Hinweis: <a href="../Variables.htm#IsPaused">A_IsPaused</a> enth&auml;lt den Zustand von Pause des darunter liegenden Threads.</p></td>
-  </tr>
-</table>
+    <p>Hinweis: <a href="../Variables.htm#IsPaused">A_IsPaused</a> enth&auml;lt den Zustand von Pause des darunter liegenden Threads.</p></dd>
+  
+</dl>
 
 <h3>Bemerkungen</h3>
 <p>Im Gegensatz zum Befehl <a href="Suspend.htm">Suspend</a> (der <a href="../Hotkeys.htm">Hotkeys</a> und <a href="../Hotstrings.htm">Hotstrings</a> deaktiviert) wird der <a href="../misc/Threads.htm">aktuelle Thread</a> blockiert, wenn Pause aktiviert ist. Als Nebeneffekt ist jeder darunter liegende unterbrochene Thread unt&auml;tig.</p>
@@ -46,6 +44,4 @@ Pause [, On|Off|Toggle, DarunterLiegendenThreadEinbeziehen?]</pre>
 <h3>Beispiele</h3>
 <pre class="NoIndent">Pause::Pause  <em>; Die Pause-Funktion wird der Pause-Taste zugewiesen ...</em>
 #p::Pause  <em>; ... oder der Tastenkombination Win+p zugewiesen.</em></pre>
-
-</body>
-</html>
+</body></html>

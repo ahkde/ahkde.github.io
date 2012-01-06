@@ -99,7 +99,7 @@ Loop, Read, %f_FavoritesFile%
         Menu, Favorites, Add
     else
     {
-        StringSplit, f_line, A_LoopReadLine, `;
+        StrSplit, f_line, A_LoopReadLine, `;
         f_line1 = %f_line1%  <em>; F&uuml;hrende und nachfolgende Leerzeichen entfernen.</em>
         f_line2 = %f_line2%  <em>; F&uuml;hrende und nachfolgende Leerzeichen entfernen.</em>
         <em>; Referenzen auf Variablen innerhalb jeden Feldes aufl&ouml;sen, und</em>

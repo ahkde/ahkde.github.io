@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ComObjConnect()</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,20 +12,17 @@
 <pre class="Syntax">ComObjConnect(ComObject [, Pr&auml;fix])</pre>
 
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>ComObject</td>
-    <td>Ein Objekt, das Ereignisse ausl&ouml;st.</td>
-  </tr>
-  <tr>
-    <td>Pr&auml;fix</td>
-    <td>
-      <p>Ein Pr&auml;fix f&uuml;r den Ereignisnamen, um festzustellen, welche Funktion aufgerufen werden soll, wenn ein Ereignis auftritt.</p>
+<dl>
+  
+    <dt>ComObject</dt>
+    <dd><p>Ein Objekt, das Ereignisse ausl&ouml;st.</p></dd>
+ 
+    <dt>Pr&auml;fix</dt>
+    <dd><p>Ein Pr&auml;fix f&uuml;r den Ereignisnamen, um festzustellen, welche Funktion aufgerufen werden soll, wenn ein Ereignis auftritt.</p>
       <p>Wenn es weggelassen wird, dann wird das Objekt "getrennt", d. h. das Script empf&auml;ngt nicht l&auml;nger Benachrichtigungen von dessen Ereignissen.</p>
-      <p><span class="ver">[v1.1.01+]:</span> Dieser Parameter kann ein definiertes Objekt vom Script sein. Beim Ausl&ouml;sen eines Ereignisses wird die entsprechende Methode aufgerufen. Der erste Parameter, der f&uuml;r gew&ouml;hnlich der versteckte <code>this</code>-Parameter ist, bezieht sich auf das script-definierte Objekt und nicht auf das COM-Objekt. Um jedes Ereignis ohne Methodendefinition abzufangen, definiert eine <a href="../Objects.htm#Meta_Functions">__Call-Meta-Funktion</a>.</p>
-    </td>
-  </tr>
-</table>
+      <p><span class="ver">[v1.1.01+]:</span> Dieser Parameter kann ein definiertes Objekt vom Script sein. Beim Ausl&ouml;sen eines Ereignisses wird die entsprechende Methode aufgerufen. Der erste Parameter, der f&uuml;r gew&ouml;hnlich der versteckte <code>this</code>-Parameter ist, bezieht sich auf das script-definierte Objekt und nicht auf das COM-Objekt. Um jedes Ereignis ohne Methodendefinition abzufangen, definiert eine <a href="../Objects.htm#Meta_Functions">__Call-Meta-Funktion</a>.</p></dd>
+  
+</dl>
 
 <h3 id="Usage">Verwendung</h3>
 <p>Zur effektiven Nutzung von ComObjConnect m&uuml;ssen zuerst Funktionen in das Script geschrieben werden, um relevante Ereignisse zu bearbeiten. Solche Funktionen, auch "Event-Handler" genannt, haben die folgende Struktur:</p>
@@ -46,8 +42,7 @@
 <p><a href="ComObjCreate.htm">ComObjCreate</a>, <a href="ComObjGet.htm">ComObjGet</a>, <a href="ComObjActive.htm">ComObjActive</a>, <a href="ComObjError.htm">ComObjError</a>, <a href="http://msdn.microsoft.com/en-us/library/ccxe1xe6.aspx">WScript.ConnectObject (MSDN)</a></p>
 
 <h3 id="Examples">Beispiele</h3>
-<pre class="NoIndent">
-ie := ComObjCreate("<a href="http://msdn.microsoft.com/en-us/library/aa752084.aspx">InternetExplorer.Application</a>")
+<pre class="NoIndent">ie := ComObjCreate("<a href="http://msdn.microsoft.com/en-us/library/aa752084.aspx">InternetExplorer.Application</a>")
 
 <em>; Verbindet Ereignisse mit entsprechenden Script-Funktionen, die den Pr&auml;fix "IE_" haben.</em>
 <b>ComObjConnect</b>(ie, "IE_")
@@ -71,6 +66,4 @@ ie.Navigate("http://l.autohotkey.net/")
 }
 
 </pre>
-
-</body>
-</html>
+</body></html>

@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>StatusBarWait</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,41 +13,34 @@
 
 <pre class="Syntax">StatusBarWait [, Leistentext, Sekunden, Bereichsnummer, Fenstertitel, Fenstertext, Intervall, Titelausnahme, Textausnahme] </pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Leistentext</td>
-    <td><p>Der Text oder Teiltext, auf dem gewartet wird, bis er auftaucht. Standardm&auml;&szlig;ig leer, das hei&szlig;t,  es wird auf die Statusleiste gewartet, bis sie leer ist. Der Text ist von der Gro&szlig;-/Kleinschreibung abh&auml;ngig und das &Uuml;bereinstimmungsverhalten wird von <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt, &auml;hnlich dem <em>Fenstertitel</em> unten.</p>
-    <p>Um stattdessen darauf zuwarten, bis der Leistentext <em>ge&auml;ndert</em> wird, verwendet jeweils <a href="StatusBarGetText.htm">StatusBarGetText</a> in einer Schleife oder das RegEx-Beispiel am unteren Ende der Seite.</p></td>
-  </tr>
-  <tr>
-    <td>Sekunden</td>
-    <td>Die zuwartende Anzahl an Sekunden (kann ein Dezimalpunkt enthalten oder ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein), bevor das Zeitlimit &uuml;berschritten wird, wodurch <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt wird. Standardm&auml;&szlig;ig leer, das hei&szlig;t, es wird unendlich lang gewartet. Der Wert 0 entspricht 0.5.</td>
-  </tr>
-  <tr>
-    <td>Bereichsnummer</td>
-    <td>Welche Bereichsnummer der Leiste abgerufen wird (kann auch ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann). Standard ist 1, f&uuml;r gew&ouml;hnlich der Bereich mit dem interessantesten Text.</td>
-  </tr>
-  <tr>
-    <td width="15%">Fenstertitel</td>
-    <td width="85%">Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
-  </tr>
-  <tr>
-    <td>Fenstertext</td>
-    <td>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</td>
-  </tr>
-  <tr>
-    <td>Intervall</td>
-    <td>Wie oft die Statusleiste &uuml;berpr&uuml;ft wird, w&auml;hrend der Befehl wartet (in Millisekunden), was auch ein <a href="../Variables.htm#Expressions">Ausdruck</a> sein kann. 50 ist Standard. </td>
-  </tr>
-  <tr>
-    <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-  <tr>
-    <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Leistentext</dt>
+    <dd><p>Der Text oder Teiltext, auf dem gewartet wird, bis er auftaucht. Standardm&auml;&szlig;ig leer, das hei&szlig;t,  es wird auf die Statusleiste gewartet, bis sie leer ist. Der Text ist von der Gro&szlig;-/Kleinschreibung abh&auml;ngig und das &Uuml;bereinstimmungsverhalten wird von <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt, &auml;hnlich dem <em>Fenstertitel</em> unten.</p>
+    <p>Um stattdessen darauf zuwarten, bis der Leistentext <em>ge&auml;ndert</em> wird, verwendet jeweils <a href="StatusBarGetText.htm">StatusBarGetText</a> in einer Schleife oder das RegEx-Beispiel am unteren Ende der Seite.</p></dd>
+ 
+    <dt>Sekunden</dt>
+    <dd><p>Die zuwartende Anzahl an Sekunden (kann ein Dezimalpunkt enthalten), bevor das Zeitlimit &uuml;berschritten wird, wodurch <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt wird. Standardm&auml;&szlig;ig leer, das hei&szlig;t, es wird unendlich lang gewartet. Der Wert 0 entspricht 0.5.</p></dd>
+ 
+    <dt>Bereichsnummer</dt>
+    <dd><p>Welche Bereichsnummer der Leiste abgerufen wird. Standard ist 1, f&uuml;r gew&ouml;hnlich der Bereich mit dem interessantesten Text.</p></dd>
+ 
+    <dt>Fenstertitel</dt>
+    <dd><p>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die anderen 3 Fensterparameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p></dd>
+ 
+    <dt>Fenstertext</dt>
+    <dd><p>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</p></dd>
+ 
+    <dt>Intervall</dt>
+    <dd><p>Wie oft die Statusleiste &uuml;berpr&uuml;ft wird, w&auml;hrend der Befehl wartet (in Millisekunden). 50 ist Standard. </p></dd>
+ 
+    <dt>Titelausnahme</dt>
+    <dd><p>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+ 
+    <dt>Textausnahme</dt>
+    <dd><p>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+  
+</dl>
 
 <h3>ErrorLevel</h3>
 <p><span class="ver">[v1.1.04+]</span> Dieser Befehl ist in der Lage, eine Ausnahme auszul&ouml;sen, falls die Statusleiste nicht zugreifbar ist. F&uuml;r mehr Informationen, siehe <a href="Catch.htm#RuntimeErrors">Laufzeitfehler</a>.</p>
@@ -83,6 +75,4 @@ IfWinExist A  <em>; Setzt das zuletzt gefundene Fenster auf das aktive Fenster.<
    StatusBarGetText, <span class="red">Originaltext
 </span>   StatusBarWait, ^(?!^\Q<span class="red">%Originaltext%</span>\E$)  <em>; Dieser regul&auml;re Ausdruck wartet auf eine &Auml;nderung des Textes.</em>
 }</pre>
-
-</body>
-</html>
+</body></html>

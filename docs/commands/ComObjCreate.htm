@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ComObjCreate()</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -13,16 +12,15 @@
 <pre class="Syntax">ComObject := ComObjCreate(CLSID [, IID])</pre>
 
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>CLSID</td>
-    <td>CLSID oder eine visuell lesbare ProgID des COM-Objekts.</td>
-  </tr>
-  <tr>
-    <td>IID</td>
-    <td><span class="ver">[v1.0.96.00+]:</span> Der Bezeichner einer Schnittstelle, die das Objekt unterst&uuml;tzt.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>CLSID</dt>
+    <dd><p>CLSID oder eine visuell lesbare ProgID des COM-Objekts.</p></dd>
+ 
+    <dt>IID</dt>
+    <dd><p><span class="ver">[v1.0.96.00+]:</span> Der Bezeichner einer Schnittstelle, die das Objekt unterst&uuml;tzt.</p></dd>
+  
+</dl>
 
 <h3>R&uuml;ckgabewert</h3>
 <p>Bei einem Fehler wird ein leerer String zur&uuml;ckgegeben.</p>
@@ -34,12 +32,9 @@
 
 <h3>Beispiele</h3>
 <p>F&uuml;r eine st&auml;ndig wachsende Liste von Beispielen, siehe folgenden Forenbeitrag: <a href="http://www.autohotkey.com/forum/topic61509.html">http://www.autohotkey.com/forum/topic61509.html</a>.</p>
-<pre class="NoIndent">
-ie := <b>ComObjCreate</b>("InternetExplorer.Application")
+<pre class="NoIndent">ie := <b>ComObjCreate</b>("InternetExplorer.Application")
 ie.Visible := true  <em>; Funktioniert bekanntlich nicht mit IE7.</em>
 ie.Navigate("http://l.autohotkey.net/")
 
 </pre>
-
-</body>
-</html>
+</body></html>

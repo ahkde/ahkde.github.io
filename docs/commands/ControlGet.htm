@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>ControlGet</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,40 +13,34 @@
 
 <pre class="Syntax">ControlGet, Ausgabevariable, Befehl [, Wert, Steuerelement, Fenstertitel, Fenstertext, Titelausnahme, Textausnahme]</pre>
 <h3>Parameter</h3>
-<table class="info">
-  <tr>
-    <td>Ausgabevariable</td>
-    <td>Der Name der Variable, in der der R&uuml;ckgabewert vom <em>Befehl</em> gespeichert wird.</td>
-  </tr>
-  <tr>
-    <td>Befehl, Wert </td>
-    <td>Siehe untere Liste.
-    </td>
-  </tr>
-  <tr>
-    <td width="15%">Steuerelement</td>
-    <td width="85%"><p>M&ouml;glich ist entweder ClassNN (Klassenname und Instanznummer des Steuerelements) oder Name/Text des Steuerelements, die beide mit Windows Spy ermittelt werden k&ouml;nnen. Wenn Name/Text verwendet wird, wird das &Uuml;bereinstimmungsverhalten mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt. Wenn dieser Parameter leer ist, wird das oberste Steuerelement des Fensters benutzt.</p>
-    <p>F&uuml;r das HWND eines Steuerelements (Windows Handle) wird der <em>Steuerelement</em>-Parameter leer gelassen und <em>ahk_id %SteuerelementHwnd%</em> im <em>Fenstertitel</em>-Parameter angegeben (funktioniert auch bei versteckten Steuerelementen, selbst wenn <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist). Das HWND eines Steuerelements wird &uuml;blicherweise mittels <a href="ControlGet.htm#Hwnd">ControlGet Hwnd</a>, <a href="MouseGetPos.htm">MouseGetPos</a> oder <a href="DllCall.htm">DllCall</a> abgerufen.</p></td>
-  </tr>
-  <tr>
-    <td>Fenstertitel</td>
-    <td>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></td>
-  </tr>
-  <tr>
-    <td>Fenstertext</td>
-    <td>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</td>
-  </tr>
-  <tr>
-    <td>Titelausnahme</td>
-    <td>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-  <tr>
-    <td>Textausnahme</td>
-    <td>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</td>
-  </tr>
-</table>
+<dl>
+  
+    <dt>Ausgabevariable</dt>
+    <dd><p>Der Name der Variable, in der der R&uuml;ckgabewert vom <em>Befehl</em> gespeichert wird.</p></dd>
+ 
+    <dt>Befehl, Wert </dt>
+    <dd><p>Siehe untere Liste.
+    </p></dd>
+ 
+    <dt>Steuerelement</dt>
+    <dd><p>M&ouml;glich ist entweder ClassNN (Klassenname und Instanznummer des Steuerelements) oder Name/Text des Steuerelements, die beide mit Windows Spy ermittelt werden k&ouml;nnen. Wenn Name/Text verwendet wird, wird das &Uuml;bereinstimmungsverhalten mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt. Wenn dieser Parameter leer ist, wird das oberste Steuerelement des Fensters benutzt.</p>
+    <p>F&uuml;r das HWND eines Steuerelements (Windows Handle) wird der <em>Steuerelement</em>-Parameter leer gelassen und <em>ahk_id %SteuerelementHwnd%</em> im <em>Fenstertitel</em>-Parameter angegeben (funktioniert auch bei versteckten Steuerelementen, selbst wenn <a href="DetectHiddenWindows.htm">DetectHiddenWindows</a> deaktiviert ist). Das HWND eines Steuerelements wird &uuml;blicherweise mittels <a href="ControlGet.htm#Hwnd">ControlGet Hwnd</a>, <a href="MouseGetPos.htm">MouseGetPos</a> oder <a href="DllCall.htm">DllCall</a> abgerufen.</p></dd>
+ 
+    <dt>Fenstertitel</dt>
+    <dd><p>Der Titel oder Teiltitel des Fensters (das &Uuml;bereinstimmungsverhalten wird mit <a href="SetTitleMatchMode.htm">SetTitleMatchMode</a> bestimmt). Wenn dieser und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das <a href="../LastFoundWindow.htm">zuletzt gefundene Fenster</a> verwendet. Wenn dieser den Buchstaben A enth&auml;lt und die n&auml;chsten 3 Parameter nicht vorhanden sind, dann wird das aktive Fenster verwendet. Bei Verwendung einer Fensterklasse muss ahk_class ExakterKlassenname angegeben werden (wird von Windows Spy angezeigt). Bei Verwendung einer <a href="Process.htm">Prozess-Kennung (PID)</a> muss ahk_pid %VariableMitPID% angegeben werden. Bei Verwendung einer <a href="GroupAdd.htm">Fenstergruppe</a> muss ahk_group Gruppenname angegeben werden. Bei Verwendung einer <a href="WinGet.htm">eindeutigen ID-Nummer</a> eines Fensters muss ahk_id %VariableMitID% angegeben werden. Die Suche kann durch Angabe <a href="../LastFoundWindow.htm#multi">mehrerer Kriterien</a> eingeschr&auml;nkt werden. Zum Beispiel: <em>Eigene Datei.txt ahk_class Notepad</em></p></dd>
+ 
+    <dt>Fenstertext</dt>
+    <dd><p>Wenn vorhanden, dann muss dieser Parameter einen Teil der einzelnen Textelemente des Fensters enthalten (wird von Windows Spy angezeigt). Versteckte Textelemente werden erfasst, wenn <a href="DetectHiddenText.htm">DetectHiddenText</a> aktiv ist.</p></dd>
+ 
+    <dt>Titelausnahme</dt>
+    <dd><p>Fenstertitel mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+ 
+    <dt>Textausnahme</dt>
+    <dd><p>Fenstertexte mit diesem Wert werden nicht ber&uuml;cksichtigt.</p></dd>
+  
+</dl>
 
-<h3>Befehl, Wert</h3>
+<h3 id="Subcommands">Befehl, Wert</h3>
 <p>Die Parameter <em>Befehl</em> und <em>Wert</em> sind voneinander abh&auml;ngig und k&ouml;nnen wie folgt verwendet werden.</p>
 <p><strong><a name="List"></a>List</strong>: Ermittelt eine Liste mit Eintr&auml;gen von ListView, ListBox, ComboBox, oder DropDownList.</p>
 <p><u>ListView</u>: Das bekannteste Beispiel f&uuml;r ListView ist die Liste mit Dateien und Ordnern vom Explorer (der Desktop ist auch ein ListView). Die Syntax f&uuml;r eine ListView-Abfrage ist:</p>
@@ -55,7 +48,7 @@
 <p>Wenn der <em>Optionen</em>-Parameter leer oder nicht vorhanden ist, dann wird der ganze Text vom Steuerelement abgerufen. Jede Reihe, au&szlig;er der Letzten, endet mit einem LF (`n). Innerhalb jeder Reihe endet jedes Feld (Spalte), au&szlig;er dem Letzten, mit einem Tabulatorzeichen (`t).</p>
 <p>Beliebig viele folgende W&ouml;rter k&ouml;nnen in den <em>Optionen</em> angegeben werden, getrennt mit mindestens einem Leerzeichen oder Tab:</p>
 <p><em>Selected</em>: Ermittelt nur bestimmte (hervorgehobene) Reihen. Wenn keine ausgew&auml;hlt sind, dann wird die <em>Ausgabevariable</em> leer gemacht.<br> <em>Focused</em>: Ermittelt nur fokussierten Reihen. Wenn keine ausgew&auml;hlt sind, dann wird die <em>Ausgabevariable</em> leer gemacht.<br> <em><a name="ColN"></a>ColN</em>: Ermittelt die N-te Spalte (Feld).  <br> <em>Count</em>: Ermittelt eine Nummer, die die Gesamtanzahl der Reihen im Steuerelement entspricht.<br> <em>Count Selected</em>: Ermittelt die Gesamtanzahl der ausgew&auml;hlten (hervorgehobenen) Reihen.<br> <em>Count Focused</em>: Ermittelt die Reihennummer (Position) einer fokussierten Reihe (0, wenn nicht).<br> <em>Count Col</em>: Ermittelt die Anzahl von Spalten im Steuerelement (oder -1, wenn die Z&auml;hlung nicht durchgef&uuml;hrt werden kann).</p>
-<p>HINWEIS: Einige Anwendungen speichern ihren ListView-Text vertraulich, was zur Folge hat, dass der Text nicht ermittelt werden kann. In diesem Fall wird ErrorLevel wie immer auf 0 gesetzt (signalisiert Erfolg), aber alle ermittelten Felder bleiben leer. Beachtet au&szlig;erdem, dass die ListView-Textabfrage durch <a href="_MaxMem.htm">#MaxMem</a> nicht eingeschr&auml;nkt wird.</p>
+<p>HINWEIS: Einige Anwendungen speichern ihren ListView-Text vertraulich, was zur Folge hat, dass der Text nicht ermittelt werden kann. In diesem Fall wird ErrorLevel wie immer auf 0 gesetzt (signalisiert Erfolg), aber alle ermittelten Felder bleiben leer.</p>
 <p>Bei Erfolg wird ErrorLevel auf 0 gesetzt. Bei Misserfolg wird ErrorLevel auf 1 gesetzt und die <em>Ausgabevariable</em> leer gemacht. Fehler treten auf, wenn: 1) das Fenster oder Steuerelement nicht existiert; 2) das Steuerelement nicht vom Typ SysListView32 ist; 3) der Prozess mit einem ListView nicht ge&ouml;ffnet werden konnte, weil vielleicht die Benutzerrechte fehlen oder gesperrt sind; 4) die <em><a href="#ColN">ColN</a></em><a href="#ColN">-Option</a> eine nicht vorhandene Spalte verlangt.</p>
 <p>Um einzelne Reihen und Felder aus einem ListView zu extrahieren, verwendet eine <a href="LoopParse.htm">Parsing-Schleife</a> wie folgt:</p>
 <pre>ControlGet, Liste, List, Selected, SysListView321, Fenstertitel
@@ -91,7 +84,7 @@ ChoicePos += 1  <em>; Wandelt 0 in 1 um, damit der erste Eintrag mit 1 beginnt, 
 <p><strong>LineCount</strong>: Die <em>Ausgabevariable</em> beinhaltet die Zeilenanzahl eines Eingabefeldes. Alle Eingabefelder haben mindestens eine Zeile, selbst wenn das Steuerelement leer ist.</p>
 <p><strong>CurrentLine</strong>: Die <em>Ausgabevariable</em> beinhaltet die Zeilennummer eines Eingabefeldes, auf der sich der Text-Cursor befindet. Die erste Zeile beginnt mit 1. Wenn im Steuerelement Text markiert ist, dann beinhaltet die <em>Ausgabevariable</em> die Nummer der Zeile, wo die Markierung beginnt.</p>
 <p><strong>CurrentCol</strong>: Die <em>Ausgabevariable</em> beinhaltet die Spaltennummer eines Eingabefeldes, auf der sich der Text-Cursor befindet. Die erste Spalte beginnt mit 1. Wenn im Steuerelement Text markiert ist, dann beinhaltet die <em>Ausgabevariable</em> die Nummer der Spalte, wo die Markierung beginnt.</p>
-<p><strong>Line, N</strong>: Die <em>Ausgabevariable</em> beinhaltet den Text, der sich auf der <em>N</em>-ten Zeile in einem Eingabefeld befindet. Zeile 1 ist die erste Zeile. Je nach Beschaffenheit des Steuerelements kann die <I>Ausgabevariable</I> mit einem CR (`r) oder einem CR + LF (`r`n) enden. Wenn die angegebene Zeilennummer leer oder nicht vorhanden ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt und die <em>Ausgabevariable</em> leer gemacht.</p>
+<p><strong>Line, N</strong>: Die <em>Ausgabevariable</em> beinhaltet den Text, der sich auf der <em>N</em>-ten Zeile in einem Eingabefeld befindet. Zeile 1 ist die erste Zeile. Je nach Beschaffenheit des Steuerelements kann die <i>Ausgabevariable</i> mit einem CR (`r) oder einem CR + LF (`r`n) enden. Wenn die angegebene Zeilennummer leer oder nicht vorhanden ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt und die <em>Ausgabevariable</em> leer gemacht.</p>
 <p><strong>Selected</strong>: Die <em>Ausgabevariable</em> beinhaltet den markierten Text eines Eingabefeldes. Wenn kein Text markiert ist, dann wird die Ausgabevariable leer gemacht und ErrorLevel auf 0 gesetzt (d. h. keine Fehler). Bei bestimmten Steuerelementen (z. B. RichEdit20A) wird der Text in einigen F&auml;llen nicht richtig darstellen (z. B. Metapad).</p>
 <p><strong>Style</strong>: Ermittelt eine 8-stellige Hexadezimalzahl, die den Style des Steuerelements entspricht. Die <a href="../misc/Styles.htm">Style-Tabelle</a> beinhaltet eine Auflistung von einigen Styles.</p>
 <p><strong>ExStyle</strong>: Ermittelt eine 8-stellige Hexadezimalzahl, die den Extended Style des Steuerelements entspricht.</p>
@@ -114,6 +107,4 @@ If ErrorLevel
     MsgBox Es wurde ein Problem festgestellt.
 Else
     MsgBox Tab #%WhichTab% ist aktiv.</pre>
-
-</body>
-</html>
+</body></html>
