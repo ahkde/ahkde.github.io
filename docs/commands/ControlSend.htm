@@ -66,7 +66,30 @@ SetKeyDelay, -1, 0
 <h3>Verwandte Befehle</h3>
 <p><a href="SetKeyDelay.htm">SetKeyDelay</a>, <a href="../misc/EscapeChar.htm">Schutzsequenzen (z. B. `%) </a>, <a href="Control.htm">Control</a>, <a href="ControlGet.htm">ControlGet</a>, <a href="ControlGetText.htm">ControlGetText</a>, <a href="ControlMove.htm">ControlMove</a>, <a href="ControlGetPos.htm">ControlGetPos</a>, <a href="ControlClick.htm">ControlClick</a>, <a href="ControlSetText.htm">ControlSetText</a>, <a href="ControlFocus.htm">ControlFocus</a>, <a href="Send.htm">Send, </a><a href="../misc/Winamp.htm">Winamp automatisieren</a></p>
 <h3>Beispiele</h3>
-<pre class="NoIndent">ControlSend, Edit1, Das ist eine Textzeile im Editor-Fenster., Unbenannt
-SetTitleMatchMode, 2
-ControlSend, , abc, cmd.exe  <em>; Direkt zur Eingabeaufforderung senden.</em></pre>
-</body></html>
+<h4>Funktionssyntax</h4>
+<pre class="NoIndent">Run("notepad", "", "MIN", PID)		<em>; Editor minimiert &ouml;ffnen.</em>
+WinWait("ahk_pid " PID)			<em>; Darauf warten, dass es erscheint.</em>
+<em>; Text in das Eingabefeld des inaktiven Editors senden.
+; Der dritte Parameter wird weggelassen, daher wird das zuletzt gefundene Fenster verwendet.</em>
+ControlSend("Edit1", "Das ist eine Textzeile im Editor-Fenster.{Enter}")
+ControlSendRaw("Edit1", "Beachtet bei ControlSendRaw, dass {Enter} nicht als Entertaste interpretiert wird.")
+
+Msgbox("Dr&uuml;ckt OK, um f&uuml;r das Ergebnis das Fenster zu aktivieren.")
+WinActivate("ahk_pid " PID)		<em>; Ergebnis anzeigen.</em></pre>
+<pre class="NoIndent">SetTitleMatchMode(2)
+Run(A_ComSpec, "", "", PID)			<em>; Eingabeaufforderung &ouml;ffnen.</em>
+WinWait("ahk_pid " PID)				<em>; Darauf warten, dass es erscheint.</em>
+ControlSend("", "ipconfig{Enter}", "cmd.exe")	<em>; Direkt zur Eingabeaufforderung senden.</em></pre>
+<h4>Befehlssyntax</h4>
+<pre class="NoIndent">Run, notepad,, MIN, PID		<em>; Editor minimiert &ouml;ffnen.</em>
+WinWait, ahk_pid %PID		<em>; Darauf warten, dass es erscheint.</em>
+<em>; Text in das Eingabefeld des inaktiven Editors senden.
+; Der dritte Parameter wird weggelassen, daher wird das zuletzt gefundene Fenster verwendet.</em>
+ControlSend, Edit1, Das ist eine Textzeile im Editor-Fenster.{Enter}	
+ControlSendRaw, Edit1, Beachtet bei ControlSendRaw`, dass {Enter} nicht als Entertaste interpretiert wird.		
+Msgbox, Dr&uuml;ckt OK, um f&uuml;r das Ergebnis das Fenster zu aktivieren.
+WinActivate, ahk_pid %PID	<em>; Ergebnis anzeigen.</em></pre>
+<pre class="NoIndent">SetTitleMatchMode, 2
+Run, %A_ComSpec,,, PID				<em>; Eingabeaufforderung &ouml;ffnen.</em>
+WinWait, ahk_pid %PID				<em>; Darauf warten, dass es erscheint.</em>
+ControlSend,, ipconfig{Enter}, cmd.exe		<em>; Direkt zur Eingabeaufforderung senden.</em></pre></body></html>
