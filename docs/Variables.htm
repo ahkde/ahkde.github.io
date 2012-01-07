@@ -3,7 +3,6 @@
 <head>
 <title>Variablen und Ausdr&uuml;cke</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -63,7 +62,7 @@ MsgBox % <span class="red">'</span>Sie sagte: "Ein Apfel am Tag."<span class="re
 Suchfortsetzung := true</pre>
 <p><strong>Integer und Flie&szlig;kommazahlen</strong>: Innerhalb eines Ausdrucks werden Zahlen als Flie&szlig;kommazahlen angesehen, sobald sie einen Dezimalpunkt oder eine wissenschaftliche Notation enthalten, ansonsten sind sie Integer. Sobald bei den meisten Operatoren wie Addition und Multiplikation eine der Eingaben eine Flie&szlig;kommazahl ist, dann ist das Ergebnis auch eine Flie&szlig;kommazahl.</p>
 <p>Innerhalb von Ausdr&uuml;cken sowie auch Nicht-Ausdr&uuml;cken k&ouml;nnen Zahlen im hexadezimalen oder dezimalen Format geschrieben werden. Hexadezimalzahlen beginnen mit dem 0x-Pr&auml;fix. Zum Beispiel ist <em>Sleep 0xFF</em> gleichwertig mit <em>Sleep 255</em>. Flie&szlig;kommazahlen k&ouml;nnen optional als wissenschaftlichen Notation geschrieben werden, mit oder ohne Dezimalpunkt (z. B. 1e4 oder -2.1E-4).</p>
-<p><strong>Einen Ausdruck erzwingen</strong>: Ein Ausdruck kann in einem Parameter erzwungen werden (au&szlig;er in einem Ausgabevariable<a href="commands/StrLen.htm"></a>-Parameter), sobald der Ausdruck ein Prozent- und Leerzeichen (oder Tabulator) davor hat. Zum Beispiel:</p>
+<p><strong>Einen Ausdruck erzwingen</strong>: Ein Ausdruck kann in einem Parameter erzwungen werden (au&szlig;er in einem Ausgabevariable-Parameter), sobald der Ausdruck ein Prozent- und Leerzeichen (oder Tabulator) davor hat. Zum Beispiel:</p>
 <pre><a href="commands/MsgBox.htm">MsgBox</a> <strong>%</strong> "Die Variable EigeneVar enth&auml;lt " . EigeneVar . "."
 <a href="commands/WinSet.htm">WinSet</a>, Transparent, <strong>%</strong> X + 100
 <a href="commands/WinSet.htm">Control</a>, Choose, <strong>%</strong> AktuelleAuswahl - 1</pre>
@@ -213,7 +212,7 @@ Auswertung von y nicht weiter relevant. Zur Verbesserung der Performance
   <li>Datum und Zeit: <a href="#YYYY">A_YYYY</a>, <a href="#MM">A_MM</a>, <a href="#DD">A_DD</a>, <a href="#Hour">A_Hour</a>, <a href="#Min">A_Min</a>, <a href="#Sec">A_Sec</a>, <a href="#date">(...mehr...)</a></li>
   <li>Script-Einstellungen: <a href="#IsSuspended">A_IsSuspended</a>, <a href="#TitleMatchMode">A_TitleMatchMode</a>, <a href="#settings">(...mehr...)</a> </li>
   <li>Abwesenheit des Benutzers: <a href="#TimeIdle">A_TimeIdle</a>, <a href="#TimeIdlePhysical">A_TimeIdlePhysical</a></li>
-  <li>GUI-Fenster und Men&uuml;leisten: <a href="MsgBoxResult">A_MsgBoxResult</a>, <a href="#Gui">A_Gui</a>, <a href="#GuiControl">A_GuiControl</a>, <a href="#GuiEvent">A_GuiEvent</a>, <a href="#EventInfo">A_EventInfo</a></li>
+  <li>GUI-Fenster und Men&uuml;leisten: <a href="#MsgBoxResult">A_MsgBoxResult</a>, <a href="#Gui">A_Gui</a>, <a href="#GuiControl">A_GuiControl</a>, <a href="#GuiEvent">A_GuiEvent</a>, <a href="#EventInfo">A_EventInfo</a></li>
   <li>Hotkeys, Hotstrings und benutzerdefinierte Men&uuml;punkte: <a href="#ThisHotkey">A_ThisHotkey</a>, <a href="#EndChar">A_EndChar</a>, <a href="#ThisMenuItem">A_ThisMenuItem</a>, <a href="#h">(...mehr...)</a></li>
   <li>Betriebssystem und Benutzerinformationen: <a href="#OSVersion">A_OSVersion</a>, <a href="#Screen">A_ScreenWidth</a>, <a href="#Screen">A_ScreenHeight</a>, <a href="#os">(...mehr...)</a></li>
   <li>Sonstiges: <a href="#Cursor">A_Cursor</a>, <a href="#Caret">A_CaretX</a>, <a href="#Caret">A_CaretY</a>, <a href="misc/Clipboard.htm">Clipboard</a>, <a href="misc/Clipboard.htm#ClipboardAll">ClipboardAll</a>, <a href="misc/ErrorLevel.htm">ErrorLevel</a></li>

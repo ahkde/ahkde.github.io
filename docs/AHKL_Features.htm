@@ -19,18 +19,16 @@
 <tr><td><a href="commands/Throw.htm">Throw</a></td><td>Eine Ausnahme ausl&ouml;sen.</td></tr>
 
 <tr><th id="commands">Befehle</th><th></th></tr>
-<tr><td><a href="commands/FileEncoding.htm">FileEncoding</a></td><td>Bestimmt die Standardkodierung f&uuml;r <a href="commands/FileRead.htm">FileRead</a>, <a href="commands/FileReadLine.htm">FileReadLine</a>, <a href="commands/LoopReadFile.htm">dateilesende Schleife</a>, <a href="commands/FileAppend.htm">FileAppend</a> und <a href="commands/FileOpen.htm">FileOpen</a>.<br/><i>Siehe auch:</i> <a href="#enc">Textkodierungen</a></td></tr>
+<tr><td><a href="commands/FileEncoding.htm">FileEncoding</a></td><td>Bestimmt die Standardkodierung f&uuml;r <a href="commands/FileRead.htm">FileRead</a>, <a href="commands/LoopReadFile.htm">dateilesende Schleife</a>, <a href="commands/FileAppend.htm">FileAppend</a> und <a href="commands/FileOpen.htm">FileOpen</a>.<br/><i>Siehe auch:</i> <a href="#enc">Textkodierungen</a></td></tr>
 <tr><td><a href="commands/Gui.htm">Gui</a></td><td>Siehe unten genannte <a href="#GUI_Enhancements">GUI-Erweiterungen</a>.</td></tr>
 <tr><td><a href="commands/IniRead.htm">IniRead</a>/<a href="commands/IniWrite.htm">Write</a>/<a href="commands/IniDelete.htm">Delete</a></td><td>Liest, schreibt oder entfernt ganze Sektionen, oder ruft eine Liste aller Sektionsnamen ab.</td></tr>
 <tr><td><a href="commands/Menu.htm#MenuIcon">Menu, Icon</a></td><td>Setzt oder entfernt das Icon eines Men&uuml;punkts.</td></tr>
 <tr><td><a href="commands/Run.htm">Run</a></td><td><a href="Compat.htm#Run">Verbesserungen</a> in der Hinsicht, wie Parameter geparst werden.</tr>
 <tr><td><a href="commands/Send.htm#Unicode">SendInput {U+nnnn}</a></td><td>Sendet ein Unicode-Zeichen. Unicode-Zeichen k&ouml;nnen direkt in Unicode-Versionen verwendet werden.</td></tr>
-<tr><td><a href="commands/SetFormat.htm">SetFormat, IntegerFast, h|H</a></td><td>Setzt das Hexadezimalformat in Klein- oder Gro&szlig;buchstaben.</td></tr>
-<tr><td><a href="commands/Transform.htm#HTML">Transform, HTML</a></td><td>Zeichensatz- oder HTML-Umwandlungen durchf&uuml;hren.</td></tr>
 <tr><td><a href="commands/WinGet.htm#ProcessPath">WinGet, ..., ProcessPath</a></td><td>Ermittelt den vollst&auml;ndigen Pfad und Namen des Prozesses, der ein bestimmtes Fenster besitzt.</td></tr>
 
 <tr><th id="directives">Direktiven</th><th></th></tr>
-<tr><td><a href="commands/_If.htm">#If <i>Ausdruck</i></a></td><td>Vergleichbar mit <a href="commands/_WinActive.htm">#IfWinActive</a>, aber f&uuml;r beliebige Ausdr&uuml;cke.</td></tr>
+<tr><td><a href="commands/_If.htm">#If <i>Ausdruck</i></a></td><td>Vergleichbar mit <a href="commands/_IfWinActive.htm">#IfWinActive</a>, aber f&uuml;r beliebige Ausdr&uuml;cke.</td></tr>
 <tr><td><a href="commands/_IfTimeout.htm">#IfTimeout</a></td><td>Bestimmt die maximale Auswertungsdauer eines #If-Ausdrucks.</td></tr>
 <tr><td><a href="commands/_MenuMaskKey.htm">#MenuMaskKey</a></td><td>Bestimmt die Taste, die dazu verwendet wird, um Win- oder Alt-Up-Ereignisse zu verbergen.</td></tr>
 <tr><td><a href="commands/_Include.htm">#Include &lt;Bibliothek&gt;</a></td><td>Eine Script-Datei vom Funktionsbibliotheksordner einf&uuml;gen.</td></tr>
@@ -138,7 +136,7 @@ Time() {
 }</pre>
 
 <h2 id="enc">Textkodierungen</h2>
-<p><a href="commands/FileRead.htm">FileRead</a>, <a href="commands/FileReadLine.htm">FileReadLine</a>, <a href="commands/LoopReadFile.htm">Loop Read</a> und <a href="commands/FileAppend.htm">FileAppend</a> unterst&uuml;tzen eine Vielzahl an Textkodierungen, die von Windows unterst&uuml;tzt werden, nicht nur den System-Standard-ANSI-Zeichensatz.  Mit <a href="commands/FileEncoding.htm">FileEncoding</a> kann die Standardkodierung bestimmt werden, die f&uuml;r FileRead und FileAppend wie folgt &uuml;berschrieben werden kann:</p>
+<p><a href="commands/FileRead.htm">FileRead</a>, <a href="commands/LoopReadFile.htm">Loop Read</a> und <a href="commands/FileAppend.htm">FileAppend</a> unterst&uuml;tzen eine Vielzahl an Textkodierungen, die von Windows unterst&uuml;tzt werden, nicht nur den System-Standard-ANSI-Zeichensatz.  Mit <a href="commands/FileEncoding.htm">FileEncoding</a> kann die Standardkodierung bestimmt werden, die f&uuml;r FileRead und FileAppend wie folgt &uuml;berschrieben werden kann:</p>
 <pre class="Syntax">FileRead, Ausgabevariable, *P<i>nnn</i> Dateiname
 FileAppend [, Text, Dateiname, Kodierung]</pre>
 <p>W&auml;hrend <i>nnn</i> eine numerische <a href="http://msdn.microsoft.com/en-us/library/dd317756.aspx">Zeichensatz-Kennung</a> sein muss, ist die <i>Kodierung</i> im selben Format wie <a href="commands/FileEncoding.htm">FileEncoding</a>.</p>

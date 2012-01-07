@@ -30,8 +30,8 @@ MsgBox [, Optionen, Titel, Text, Zeit&uuml;berschreitung]</pre>
     <dd><p>Der Titel des Hinweisfensters. Wenn leer oder nicht vorhanden, dann wird standardm&auml;&szlig;ig der aktuelle Name des Scripts verwendet (ohne Pfad). </p></dd>
  
     <dt>Zeit&uuml;berschreitung</dt>
-    <dd><p><a name="Timeout"></a>(Optional) Zeit&uuml;berschreitung in Sekunden (kann einen Dezimalpunkt enthalten).&nbsp; Wenn dieser Wert 2147483 (24.8 Tage) &uuml;bersteigt, dann wird dieser auf 2147483 gesetzt.&nbsp; Nachdem die Zeit verstrichen ist, wird das Hinweisfenster automatisch geschlossen und der <a href="IfMsgBox.htm">IfMsgBox</a>-Befehl sieht den Wert TIMEOUT.</p>
-      <p>Bekannte Einschr&auml;nkung: Wenn die MsgBox nur eine OK-Schaltfl&auml;che enth&auml;lt, dann denkt <a href="IfMsgBox.htm">IfMsgBox</a>, dass die OK-Schaltfl&auml;che gedr&uuml;ckt wurde, nachdem die Zeit verstrichen ist, w&auml;hrend der eigene <a href="../misc/Threads.htm">Thread</a> von einem anderen unterbrochen wurden ist.</p></dd>
+    <dd><p><a name="Timeout"></a>(Optional) Zeit&uuml;berschreitung in Sekunden (kann einen Dezimalpunkt enthalten).&nbsp; Wenn dieser Wert 2147483 (24.8 Tage) &uuml;bersteigt, dann wird dieser auf 2147483 gesetzt. Sobald die Zeit verstrichen ist, wird automatisch das Hinweisfenster geschlossen und <a href="#Result">A_MsgBoxResult</a> auf "Timeout" gesetzt.</p>
+      <p>Bekannte Einschr&auml;nkung: Falls die MsgBox nur eine OK-Schaltfl&auml;che enth&auml;lt, wird&nbsp;<a href="#Result">A_MsgBoxResult</a> darauf hinweisen, dass die OK-Schaltfl&auml;che gedr&uuml;ckt wurde, sobald die MsgBox die Zeit &uuml;berschreitet, w&auml;hrend ihr eigener <a href="../misc/Threads.htm">Thread</a> von einem anderen unterbrochen wird.</p></dd>
   
 </dl>
 

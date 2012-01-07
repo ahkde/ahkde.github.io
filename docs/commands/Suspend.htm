@@ -25,13 +25,13 @@
 
 <h3>Bemerkungen</h3>
 <p>Jede Hotkey/Hotstring-Subroutine mit Suspend (au&szlig;er "Suspend On") in der ersten Zeile wird von der Unterbrechung ausgeschlossen. Das hei&szlig;t, dass der Hotkey selbst dann aktiviert bleibt, wenn die Unterbrechung aktiv ist. Dadurch kann die Unterbrechung mit diesem Hotkey deaktiviert werden.</p>
-<p>Um ausgew&auml;hlte Hotkeys oder Hotstring automatisch auf Basis des vorhandenen Fenstertyps zu deaktivieren, verwendet <a href="_WinActive.htm">#IfWinActive/Exist</a>.</p>
+<p>Um ausgew&auml;hlte Hotkeys oder Hotstring automatisch auf Basis des vorhandenen Fenstertyps zu deaktivieren, verwendet <a href="_IfWinActive.htm">#IfWinActive/Exist</a>.</p>
 <p>Die Unterbrechung von Hotkeys stoppt nicht bereits laufende <a href="../misc/Threads.htm">Threads</a> im Script (falls vorhanden), verwendet stattdessen <a href="Pause.htm">Pause</a>.</p>
 <p>Wenn die Hotkeys unterbrochen werden, dann &auml;ndert sich das Tray-Icon zu einem S. Das kann aber mit dem Blockieren des Icons verhindert werden, indem eine 1 im letzten Parameter des Menu-Befehls angegeben wird. Zum Beispiel:</p>
 <pre><a href="Menu.htm">Menu</a>, Tray, Icon, C:\Eigenes Icon.ico, , 1</pre>
 <p>Die interne Variable A_IsSuspended enth&auml;lt 1, wenn das Script unterbrochen ist, andernfalls 0.</p>
 <h3>Verwandte Befehle</h3>
-<p><a href="_WinActive.htm">#IfWinActive/Exist</a>, <a href="Pause.htm">Pause</a>, <a href="Menu.htm">Menu</a>, <a href="ExitApp.htm">ExitApp</a></p>
+<p><a href="_IfWinActive.htm">#IfWinActive/Exist</a>, <a href="Pause.htm">Pause</a>, <a href="Menu.htm">Menu</a>, <a href="ExitApp.htm">ExitApp</a></p>
 <h3>Beispiel</h3>
 <pre class="NoIndent">^!s::Suspend  <em>; Dem Hotkey eine Umschaltfunktion von Suspend zuweisen.</em></pre>
 </body></html>

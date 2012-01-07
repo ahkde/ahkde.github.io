@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AutoHotkey-Tutorial: Makro- und Hotkey-Erstellung</title>
-<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
@@ -119,7 +118,7 @@ else
 <h2 id="Dialogs">Abrufen von Benutzereingaben mit MsgBox, InputBox, usw.</h2>
 <p>Das folgende Beispiel zeigt ein Dialogfenster mit zwei Schaltfl&auml;chen an (JA und NEIN):</p>
 <pre><a href="commands/MsgBox.htm">MsgBox</a>, 4, , M&ouml;chten Sie fortfahren?
-<a href="commands/IfMsgBox.htm">IfMsgBox</a>, No
+If <a href="commands/MsgBox.htm#Result">A_MsgBoxResult</a> = "No"
     return
 <em>; Ansonsten hat der Benutzer JA gedr&uuml;ckt.</em>
 MsgBox Es wurde JA gedr&uuml;ckt.</pre>
@@ -134,6 +133,7 @@ MsgBox<strong>,</strong> Das ist auch ok (es hat ein direktes Komma).</pre>
 <pre>EigeneVar1 = 123
 EigeneVar2 = Eigener String</pre>
 Um den Inhalt einer Variable mit einer Zahl oder mit einem String zu vergleichen, befolgt diese Beispiele:
+
 
 
 <pre>if EigeneVar2 = Eigener String
@@ -211,7 +211,7 @@ return</pre>
 <ul>
 <li><a href="commands/FileRead.htm">FileRead</a>: Liest den Inhalt einer Datei in eine Variable.</li>
   <li><a href="commands/LoopReadFile.htm">Dateilesende Schleife</a>: Ermittelt nacheinander die Zeilen einer Textdatei.</li>
-  <li><a href="commands/IfExist.htm">IfExist</a>: &Uuml;berpr&uuml;ft, ob eine Datei oder ein Ordner vorhanden ist.</li>
+  <li><a href="Functions.htm#FileExist">FileExist</a>: &Uuml;berpr&uuml;ft, ob eine Datei oder ein Ordner vorhanden ist.</li>
   <li><a href="commands/FileSelectFile.htm">FileSelectFile</a> und <a href="commands/FileSelectFolder.htm">FileSelectFolder</a>: Zeigt ein Dialogfenster f&uuml;r den Benutzer an, um eine Datei oder einen Ordner auszuw&auml;hlen.</li>
   <li><a href="commands/FileDelete.htm">FileDelete</a>/<a href="commands/FileRecycle.htm">FileRecycle</a>: L&ouml;scht/recycelt beliebig viele Dateien. Verwendet <a href="commands/DirDelete.htm">DirDelete</a>, um einen ganzen Ordner zu l&ouml;schen.</li>
   <li><a href="commands/FileCopy.htm">FileCopy</a>/<a href="commands/FileMove.htm">FileMove</a>: Kopiert/verschiebt beliebig viele Dateien. Verwendet <a href="commands/DirCopy.htm">DirCopy</a>/<a href="commands/DirMove.htm">DirMove</a>, um einen ganzen Ordner zu kopieren/verschieben. </li>

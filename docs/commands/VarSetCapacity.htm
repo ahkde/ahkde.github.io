@@ -37,7 +37,6 @@
 
 <h3>Bemerkungen</h3>
 <p>Neben der <a href="DllCall.htm#str">DllCall</a>-Verwendung kann diese Funktion auch dazu verwendet werden, die Performance zu erh&ouml;hen, wenn ein String mithilfe der stufenweisen Verkettung konstruiert wird. Dadurch k&ouml;nnen mehrere automatische Gr&ouml;&szlig;enanpassungen verhindert werden, wenn bekannt ist, wie gro&szlig; letztendlich die Stringl&auml;nge ist. In einem solchen Fall muss die <em>Ben&ouml;tigteKapazit&auml;t</em> nicht genau sein: wenn die Kapazit&auml;t zu klein ist, dann ist die Performance weiterhin verbessert. Au&szlig;erdem beginnt die Variable mit der automatischen Erweiterung, wenn die Kapazit&auml;t verbraucht ist. Wenn die Kapazit&auml;t zu gro&szlig; ist, dann wird etwas zu viel Speicher verbraucht, aber nur vor&uuml;bergehend, denn der gesamte Speicher kann mithilfe von <em>VarSetCapacity(Var, 0)</em> oder <em>Var := ""</em> wieder freigegeben werden.</p>
-<p><a href="_MaxMem.htm">#MaxMem</a> limitiert nur die automatische Erweiterung der Variable. <a href="VarSetCapacity.htm">VarSetCapacity</a> wird aber dadurch nicht beeinflusst.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="DllCall.htm">DllCall</a>, <a href="NumPut.htm">NumPut</a>, <a href="NumGet.htm">NumGet</a></p>
 <h3>Beispiel</h3>

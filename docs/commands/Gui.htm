@@ -3,7 +3,6 @@
 <head>
 <title>GUI</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../../forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
@@ -211,7 +210,7 @@ Menu, EigeneMen&uuml;leiste, Add, &amp;Datei, :Dateimen&uuml;  <em>; F&uuml;gt d
 Menu, EigeneMen&uuml;leiste, Add, &amp;?, :Hilfsmen&uuml;
 <strong>Gui, Menu, EigeneMen&uuml;leiste</strong></pre>
 <p>Wie bereits bemerkt, erfolgt nach &Ouml;&amp;ffnen die Tastenkombination <kbd>Ctrl</kbd>+<kbd>F</kbd> (mit einem Tabulatorzeichen dazwischen). Das ist eine Tastenkombination, die der Benutzer dr&uuml;cken k&ouml;nnte, um den Men&uuml;punkt auf alternative Weise aufzurufen. <span class="ver">[v1.1.04+]:</span> Falls die Tastenkombination normale Modifikatortasten wie Ctrl, Alt oder Shift enth&auml;lt (Anm. d. &Uuml;bers.: die deutschen Bezeichnungen Strg und Umschalt sind zurzeit nicht m&ouml;glich), wird diese automatisch als <em>Tastaturk&uuml;rzel</em> f&uuml;r das GUI registriert. Tastaturk&uuml;rzel mit nur einem Zeichen und ohne Modifikatoren sind von der Gro&szlig;- und Kleinschreibung abh&auml;ngig und k&ouml;nnen durch ungew&ouml;hnliche Mitteln wie IME oder Alt+NNNN ausgel&ouml;st werden.</p>
-<p>Wenn eine bestimmte Tastenkombination nicht automatisch funktioniert, dann muss daf&uuml;r m&ouml;glicherweise ein <a href="_WinActive.htm">kontextabh&auml;ngiger Hotkey</a> verwendet werden. Beachtet aber, dass solche Hotkeys normalerweise nicht durch <a href="Send.htm">Send</a> ausgel&ouml;st werden k&ouml;nnen und dass sie eher andere Scripts st&ouml;ren, anstatt ein Standard-Tastaturk&uuml;rzel zu sein.</p>
+<p>Wenn eine bestimmte Tastenkombination nicht automatisch funktioniert, dann muss daf&uuml;r m&ouml;glicherweise ein <a href="_IfWinActive.htm">kontextabh&auml;ngiger Hotkey</a> verwendet werden. Beachtet aber, dass solche Hotkeys normalerweise nicht durch <a href="Send.htm">Send</a> ausgel&ouml;st werden k&ouml;nnen und dass sie eher andere Scripts st&ouml;ren, anstatt ein Standard-Tastaturk&uuml;rzel zu sein.</p>
 <p>Um die aktuelle Men&uuml;leiste eines Fensters zu entfernen, verwendet <code>Gui Menu</code> (also ohne letzten Parameter).</p>
 <p>Sobald ein Men&uuml; als Men&uuml;leiste verwendet wird, sollte dieses Men&uuml; nicht l&auml;nger als Popup-Men&uuml; oder Untermen&uuml; eingesetzt werden. Denn die Men&uuml;leisten ben&ouml;tigen intern ein anderes Format (allerdings gilt diese Einschr&auml;nkung nur f&uuml;r die Men&uuml;leiste selbst, nicht f&uuml;r die Untermen&uuml;s). Als &Uuml;bergangsl&ouml;sung k&ouml;nnten zwei identische Men&uuml;s erstellt werden, wobei das erste als Men&uuml;leiste und das zweite als etwas anderes verwendet wird.</p>
 <p>Die Verwendung von destruktiven <a href="Menu.htm">Menu-Befehlen</a> wie Delete und DeleteAll bei einem Men&uuml;, das zurzeit als Men&uuml;leiste eingesetzt wird (und in einigen F&auml;llen auch deren Untermen&uuml;s) wird nicht unterst&uuml;tzt und zeigt eine Fehlermeldung an (es sei denn, <a href="Menu.htm">UseErrorLevel</a> ist aktiv). Befolgt folgende Schritte, um solche &Auml;nderungen vornehmen zu k&ouml;nnen: <br></p>

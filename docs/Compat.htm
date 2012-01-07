@@ -124,13 +124,6 @@ dwProcessId := NumGet(pi, A_PtrSize*2 + 4, "UInt")
 <h3 id="Validation">Syntaxvalidierung</h3>
 <p>Befehlsnamen m&uuml;ssen mit einem Leerzeichen, Tabulator oder Komma terminiert werden.  Im Gegensatz zu AutoHotkey Basic umgehen die folgenden Zeichen nicht diese Anforderung: <code>&lt;&gt;:+-*/!~&amp;|^[]</code>. Folglich werden Syntaxfehler wie <code>MsgBox&lt; foo</code> und <code>If!foo</code>, w&auml;hrend der Ladezeit abgefangen und nicht als <code>MsgBox,&lt; foo</code> oder <code>If !foo</code> interpretiert.</p>
 
-<h3 id="Transform">Transform</h3>
-<p>Einige Unterbefehle von <i>Transform</i> wurden in der <b>Unicode</b>-Version ge&auml;ndert:</p>
-<ul>
-  <li><span class="Syntax">Unicode</span> ist nicht mehr verf&uuml;gbar. Um der Zwischenablage ein Unicode-Text zuzuweisen, verwendet eine normale Zuweisung. Siehe auch: <a href="commands/StrPutGet.htm">StrPut/StrGet</a>.</li>
-  <li><span class="Syntax">HTML</span> unterst&uuml;tzt <a href="commands/Transform.htm#HTML">zus&auml;tzliche Funktionen</a>.</li>
-</ul>
-
 
 <h3 id="IfIs">If Variable is</h3>
 <p>Dieser Befehl ignoriert das Gebietsschema des Betriebssystems, es sei denn, <i>StringCaseSense, Locale</i> wurde verwendet.</p>
@@ -139,10 +132,7 @@ dwProcessId := NumGet(pi, A_PtrSize*2 + 4, "UInt")
 <p><a href="commands/FileRead.htm#Binary">FileRead</a> wandelt den Zeichensatz des Textes in bestimmten F&auml;llen um, wodurch unbrauchbare Bin&auml;rdaten entstehen k&ouml;nnen.</p>
 
 <h3 id="ControlZ">Steuerung+Z</h3>
-<p><a href="commands/LoopReadFile.htm">Loop Read</a> und <a href="commands/FileReadLine.htm">FileReadLine</a> interpretieren das Zeichen Steuerung+Z (0x1A) nicht als Zeilenumbruchszeichen. Somit wird jedes Steuerung+Z als normales Zeichen behandelt, selbst wenn es am Ende einer Datei vorkommt. <a href="commands/FileRead.htm">FileRead</a> verh&auml;lt sich bereits auf diese Weise.</p>
-
-<h3 id="SetFormat">SetFormat, Integer[Fast], H</h3>
-<p>Bei einem gro&szlig;geschriebenen H sind die hexadezimale Zeichen A-F auch in Gro&szlig;buchstaben. AutoHotkey Basic verwendet hingegen immer kleingeschriebene Zeichen. Siehe <a href="commands/SetFormat.htm">SetFormat</a>.</p>
+<p><a href="commands/LoopReadFile.htm">Loop Read</a> interpretiert das Zeichen Steuerung+Z (0x1A) nicht als Zeilenumbruchszeichen. Somit wird jedes Steuerung+Z als normales Zeichen behandelt, selbst wenn es am Ende einer Datei vorkommt. <a href="commands/FileRead.htm">FileRead</a> verh&auml;lt sich bereits auf diese Weise.</p>
 
 <h3>Kompatibilit&auml;tsmodus</h3>
 <p>Wenn der <a href="http://www.microsoft.com/windowsxp/using/helpandsupport/learnmore/appcompat.mspx#ECD">Kompatibilit&auml;tsmodus</a> in den Eigenschaften der EXE-Datei auf Windows 95, NT4 oder 98/ME gesetzt wird, um das Script auszuf&uuml;hren, dann verh&auml;lt sich das Script m&ouml;glicherweise nicht korrekt. Denn der Kompatibilit&auml;tsmodus bewirkt, dass eine bestimmte Windows-Version der Anwendung gemeldet wird, die jedoch von den vorgefertigten Bin&auml;rdateien nicht unterst&uuml;tzt wird. Wenn der Kompatibilit&auml;tsmodus zum Beispiel auf Windows 95 oder 98/ME gesetzt wird, dann meldet <code>MsgBox %A_OSVersion%</code> den R&uuml;ckgabewert <code>WIN_NT4</code>.</p>

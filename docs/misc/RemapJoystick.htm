@@ -5,7 +5,6 @@
 <meta name="description" content="Have your joystick send keystrokes and mouse clicks with this free macro program. It also allows a joystick to be used as a mouse.">
 <meta name="keywords" content="keyboard,keys,key,keystrokes,clicks,mouse,buttons,button,joystick,hotkeys,hotkey,macro">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../../forum/rss.php">
 <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -22,7 +21,7 @@
 </ul>
 <h2 id="imp">Wichtige Hinweise</h2>
 <ul>
-  <li>Obwohl eine Joystick-Taste oder -Achse mit einer Taste oder Maustaste neu belegt werden kann, ist es nicht m&ouml;glich, diese Taste/Achse mit anderen Joystick-Tasten oder -Achsen neu zubelegen. Das w&auml;re nur mithilfe eines Joystick-Emulators wie <a href="http://www.geocities.com/deonvdw/Docs/PPJoyMain.htm">PPJoy</a> m&ouml;glich.</li>
+  <li>Obwohl eine Joystick-Taste oder -Achse mit einer Taste oder Maustaste neu belegt werden kann, ist es nicht m&ouml;glich, diese Taste/Achse mit anderen Joystick-Tasten oder -Achsen neu zubelegen. Das w&auml;re nur mithilfe eines Joystick-Emulators wie <a href="http://www.autohotkey.com/forum/topic50596.html">PPJoy</a> m&ouml;glich.</li>
   <li>AutoHotkey identifiziert jede Joystick-Taste mit einer eindeutigen Zahl zwischen 1 und 32. Um diese Zahlen zu ermitteln, verwendet den <a href="../scripts/JoystickTest.htm">Joystick-Testscript</a>.</li>
 </ul>
 <h2 id="button">Mit einer Joystick-Taste Tastatureingaben oder Mausklicks senden</h2>
@@ -77,7 +76,7 @@ If not GetKeyState("Joy2")  <em>; Die Taste wurde losgelassen.</em>
 <em>; Da kein "Return" erfolgt, wird die Taste weiterhin gedr&uuml;ckt gehalten.</em>
 Send {Space down}  <em>; Eine andere Leertaste senden.</em>
 Return</pre>
-<p><strong>Kontextabh&auml;ngige Joystick-Tasten</strong>: Die Direktiven <a href="../commands/_WinActive.htm">#IfWinActive/Exist</a> k&ouml;nnen verwendet werden, damit bestimmte Joystick-Tasten unterschiedliche Aktionen je nach Typ des aktiven oder vorhandenen Fensters durchf&uuml;hren.</p>
+<p><strong>Kontextabh&auml;ngige Joystick-Tasten</strong>: Die Direktiven <a href="../commands/_IfWinActive.htm">#IfWinActive/Exist</a> k&ouml;nnen verwendet werden, damit bestimmte Joystick-Tasten unterschiedliche Aktionen je nach Typ des aktiven oder vorhandenen Fensters durchf&uuml;hren.</p>
 <p><strong>Joystick als Maus verwenden</strong>: Das <a href="../scripts/JoystickMouse.htm">Joystick-zu-Maus-Script</a> wandelt ein Joystick durch Neubelegung der Tasten und Achsen-Steuerung in eine Maus um.</p>
 <h2 id="axis">Mit einer Joystick-Achse oder einem Rundblickschalter Tastatureingaben oder Mausklicks senden</h2>
 <p>Damit ein Script auf die Bewegung einer Joystick-Achse oder des Rundblickschalters reagiert, verwendet <a href="../commands/SetTimer.htm">SetTimer</a> und <a href="../commands/GetKeyState.htm">GetKeyState</a>. Im folgenden Beispiel verhalten sich die X- und Y-Achsen des Joysticks wie die Pfeiltasten auf der Tastatur (links, rechts, oben und unten):</p>

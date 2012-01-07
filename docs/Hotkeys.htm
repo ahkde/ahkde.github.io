@@ -5,7 +5,6 @@
 <meta name="description" content="Free utility to create hotkeys, shortcuts, and macros for keyboard, mouse, and joystick. Any combination of keys and buttons can become a hotkey.">
 <meta name="keywords" content="hotkey,hotkeys,hot key,hot keys,shortcut,shortcuts,shortcut key,shortcut keys,keyboard shortcut,keyboard shortcuts,button,buttons,click,press">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -103,7 +102,7 @@ Return
 <p>Hinweise:
 </p>
 <ol>
-<li>Im Gegensatz zu den anderen Pr&auml;fix-Symbolen darf das Tilde-Pr&auml;fix in einigen <a href="commands/_WinActive.htm#variant">Hotkey-Varianten</a> vorkommen und in anderen nicht.</li>
+<li>Im Gegensatz zu den anderen Pr&auml;fix-Symbolen darf das Tilde-Pr&auml;fix in einigen <a href="commands/_IfWinActive.htm#variant">Hotkey-Varianten</a> vorkommen und in anderen nicht.</li>
 <li>Spezielle Hotkeys, die etwas mit <a href="#alttab">Alt-Tab</a> zu tun haben, ignorieren immer das Tilde-Pr&auml;fix.</li>
 <li>Das Tilde-Pr&auml;fix wird in Windows 95/98/ME ignoriert.</li>
 </ol>
@@ -154,7 +153,7 @@ Return
 <pre>RWin::Return
 </pre>
 <h2 id="Context">Kontextabh&auml;ngige Hotkeys</h2>
-<p>Die Direktiven <a href="commands/_WinActive.htm">#IfWinActive/Exist</a> und <a href="commands/_If.htm">#If</a> k&ouml;nnen ein Hotkey dazu bringen, eine andere (oder &uuml;berhaupt keine) Aktion in Abh&auml;ngigkeit eines bestimmten Zustandes auszuf&uuml;hren. Zum Beispiel:</p>
+<p>Die Direktiven <a href="commands/_IfWinActive.htm">#IfWinActive/Exist</a> und <a href="commands/_If.htm">#If</a> k&ouml;nnen ein Hotkey dazu bringen, eine andere (oder &uuml;berhaupt keine) Aktion in Abh&auml;ngigkeit eines bestimmten Zustandes auszuf&uuml;hren. Zum Beispiel:</p>
 <pre>#IfWinActive, ahk_class Notepad
 ^a::MsgBox Strg+A wurde gedr&uuml;ckt, w&auml;hrend der Editor aktiv ist. Wenn Strg+A in einem anderen Fenster gedr&uuml;ckt wird, dann wird diese Tastatureingabe an dieses Fenster gesendet.
 #c::MsgBox Win+C wurde w&auml;hrend des aktiven Editors gedr&uuml;ckt.
@@ -222,7 +221,7 @@ Pr&auml;fix immer bis ans aktive Fenster gesendet. In den beiden folgenden Hotke
 <pre>~RButton &amp; LButton::MsgBox Es wurde die linke Maustaste gedr&uuml;ckt, w&auml;hrend die rechte gedr&uuml;ckt gehalten wurde.
 RButton &amp; WheelUp::MsgBox Das Mausrad wurde nach oben gedreht, w&auml;hrend die rechte Maustaste gedr&uuml;ckt gehalten wurde.
 </pre>
-<p>Der <a href="commands/Suspend.htm">Suspend</a>-Befehl kann vor&uuml;bergehend alle Hotkeys deaktivieren, au&szlig;er denen, die vom Benutzer ausgeschlossen wurden. Um Hotkeys abh&auml;ngig vom Fenstertyp zu machen, verwendet <a href="commands/_WinActive.htm">#IfWinActive/Exist</a>.</p>
+<p>Der <a href="commands/Suspend.htm">Suspend</a>-Befehl kann vor&uuml;bergehend alle Hotkeys deaktivieren, au&szlig;er denen, die vom Benutzer ausgeschlossen wurden. Um Hotkeys abh&auml;ngig vom Fenstertyp zu machen, verwendet <a href="commands/_IfWinActive.htm">#IfWinActive/Exist</a>.</p>
 <p>Mithilfe des <a href="commands/Hotkey.htm">Hotkey</a>-Befehls k&ouml;nnen Hotkeys dynamisch erstellt werden, w&auml;hrend das Script ausgef&uuml;hrt wird. Der Hotkey-Befehl kann auch bestehende Hotkeys im Script individuell bearbeiten, deaktivieren oder aktivieren.</p>
 <p>Joystick-Hotkeys unterst&uuml;tzen zurzeit keine Modifikatortasten als Pr&auml;fix, wie z. B. ^ (<kbd>Strg</kbd>) und # (<kbd>Win</kbd>). Allerdings kann
 <a href="commands/GetKeyState.htm">GetKeyState</a> wie im folgenden Beispiel verwendet werden, um diesen Effekt nachzuahmen:</p>
@@ -268,7 +267,7 @@ IfWinExist ahk_class #32771  <em>; Zeigt an, dass das Alt-Tab-Men&uuml; auf dem 
     Send <strong>!</strong>{Escape}{Alt up}
 Return
 </pre>
-<p>Zurzeit m&uuml;ssen alle speziellen Alt-Tab-Aktionen wie in den folgenden Beispielen direkt einem Hotkey zugewiesen werden (d. h. sie k&ouml;nnen nicht wie Befehle verwendet werden). Sie werden <span class="red">nicht von <a href="commands/_WinActive.htm">#IfWin</a> oder <a href="commands/_If.htm">#If</a> beeinflusst</span>.</p>
+<p>Zurzeit m&uuml;ssen alle speziellen Alt-Tab-Aktionen wie in den folgenden Beispielen direkt einem Hotkey zugewiesen werden (d. h. sie k&ouml;nnen nicht wie Befehle verwendet werden). Sie werden <span class="red">nicht von <a href="commands/_IfWinActive.htm">#IfWin</a> oder <a href="commands/_If.htm">#If</a> beeinflusst</span>.</p>
 <p>Benutzerdefinierte Alt-Tab-Aktionen k&ouml;nnen auch mithilfe von Hotkeys erstellt werden. Im folgenden Beispiel wird <kbd>F1</kbd> gedr&uuml;ckt, um das Men&uuml; anzuzeigen und durchzuschalten. Danach <kbd>F2</kbd>, um das ausgew&auml;hlte Fenster zu aktivieren (oder <kbd>Esc</kbd>, um abzubrechen):</p>
 <pre>*F1::Send {Alt down}{tab} <em>; In diesem Fall ist das Sternchen notwendig.</em>
 !F2::Send {Alt up}  <em>; L&auml;sst die ALT-Taste los, um das ausgew&auml;hlte Fenster zu aktivieren.</em>

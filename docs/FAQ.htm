@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AutoHotkey FAQ</title>
-<link rel="alternate" type="application/rss+xml" title="AutoHotkey Forum RSS" href="../forum/rss.php">
 <link href="css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 <!--
@@ -55,9 +54,9 @@ h4 {margin-top: 1.5em;}
 <h3 id="percent">Wann genau werden Variablen mit Prozentzeichen umschlossen (%)?</h3>
 <p>Variablennamen werden immer mit Prozentzeichen umschlossen, bis auf die unten <strong>fett</strong> dargestellten Ausnahmen:</p>
 <ol>
-<li>Bei Parametern, die Eingabe- oder Ausgabevariablen sind: <code><a href="commands/StrLen.htm">StrLen</a>, <strong>Ausgabevariable</strong>, <strong>Eingabevariable</strong></code></li>
+<li>Bei Parametern, die Eingabe- oder Ausgabevariablen sind: <code><a href="Functions.htm#StrLen">StrLen</a>, <strong>Ausgabevariable</strong>, <strong>Eingabevariable</strong></code></li>
 <li>Auf der linken Seite einer Zuweisung: <code><strong>Var</strong> = 123abc</code></li>
-<li>Auf der linken Seite einer <a href="commands/IfEqual.htm">traditionellen If-Anweisung (kein Ausdruck)</a>: <code>If <strong>Var1</strong> &lt; %Var2%</code></li>
+<li>Auf der linken Seite einer <a href="commands/IfExpression.htm">traditionellen If-Anweisung (kein Ausdruck)</a>: <code>If <strong>Var1</strong> &lt; %Var2%</code></li>
 <li>&Uuml;berall in <a href="Variables.htm#Expressions">Ausdr&uuml;cken</a>. Zum Beispiel:
 
 
@@ -175,7 +174,7 @@ Else
 <h3 id="Remap">Wie k&ouml;nnen Tastatur- oder Maustasten neu belegt werden, damit sie zu anderen Tasten werden?</h3>
 <p>N&auml;heres dazu findet man auf der Seite "<a href="misc/Remap.htm">Neubelegung von Tasten</a>".</p>
 <h3 id="HotContext">Wie kann ein <a href="Hotkeys.htm">Hotkey</a> oder <a href="Hotstrings.htm">Hotstring</a> exklusiv f&uuml;r ein bestimmtes Programm bereitgestellt werden? Mit anderen Worten m&ouml;chte ich eine bestimmte Taste dazu bringen, dass sie sich anders als normal verh&auml;lt, falls ein bestimmtes Fenster aktiv ist.</h3>
-<p>Die bevorzugte Methode ist <a href="commands/_WinActive.htm">#IfWinActive</a>. Zum Beispiel:</p>
+<p>Die bevorzugte Methode ist <a href="commands/_IfWinActive.htm">#IfWinActive</a>. Zum Beispiel:</p>
 <pre>#IfWinActive, ahk_class Notepad
 ^a::MsgBox Steuerung+A wurde gedr&uuml;ckt, w&auml;hrend der Editor aktiv ist.
 
