@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Regul&auml;re Ausdr&uuml;cke (RegEx) - Kurz&uuml;bersicht</title>
@@ -69,12 +69,7 @@
   <tr id="opt_X">
     <td><strong>X</strong></td>
     <td> PCRE_EXTRA. Erm&ouml;glicht PCRE-Funktionen, die mit Perl nicht kompatibel sind. Derzeit ist nur eine Funktion vorhanden, die eine &Uuml;bereinstimmung mit jedem Backslash in einem Muster mit einem nachfolgendem Buchstaben ohne besondere Bedeutung fehlschlagen l&auml;sst und ErrorLevel demzufolge setzt. Diese Option hilft, unbenutzte Backslashs f&uuml;r die zuk&uuml;nftige Verwendung zu reservieren. Ohne diese Option wird ein Backslash mit einem nachfolgenden Buchstaben ohne besondere Bedeutung direkt behandelt (z. B. werden \g und g als ein direkt vorhandenes g angesehen). Unabh&auml;ngig dieser Option werden nicht-alphabetische Backslash-Zeichenfolgen ohne besondere Bedeutung immer direkt behandelt (z. B. wird sowohl \/ wie auch / als Schr&auml;gstrich erkannt). </td>
-  </tr>
-  <tr id="opt_P">
-    <td><strong>P</strong></td>
-    <td>Positionsmodus. Dadurch gibt RegExMatch() die Position und L&auml;nge der &Uuml;bereinstimmung und deren Teilausdr&uuml;cke zur&uuml;ck, anstatt ihre passenden Teilstrings. F&uuml;r weitere Details, siehe <a href="../commands/RegExMatch.htm#PosMode">NichtZitierteAusgabevariable</a>.</td>
-  </tr>
-  <tr>
+  </tr><tr>
     <td><strong>S</strong></td>
     <td><a name="Study"></a>&Uuml;berpr&uuml;ft das Muster, um die Performance zu verbessern. Das ist n&uuml;tzlich, wenn ein bestimmtes (besonders komplexes) Muster oft ausgef&uuml;hrt wird. Wenn PCRE einen Weg findet, die Performance zu verbessern, dann wird die Entdeckung zusammen mit dem Muster f&uuml;r nachfolgende Anwendungen desselben Musters in den Cache gespeichert (nachfolgende Verwendungen dieses Musters sollten auch die S-Option enthalten, weil notwendigerweise die Optionsbuchstaben und Reihenfolge exakt &uuml;bereinstimmen m&uuml;ssen, um eine &Uuml;bereinstimmung im Cache zu finden).</td>
   </tr>
@@ -174,7 +169,7 @@
             <ul>
               <li>die Reihenfolge der Auswertung zu bestimmen. Zum Beispiel stimmt <span class="regex">(Sonn|Mon|Diens|Donners|Frei|Sams)tag|Mittwoch</span> mit dem Namen jeden Tages &uuml;berein.</li>
               <li><span class="regex">*</span>, <span class="regex">?</span>, <span class="regex">+</span> oder <span class="regex">{min,max}</span> auf eine <em>Reihe</em> von Zeichen anstelle eines Zeichens anzuwenden. Zum Beispiel stimmt <span class="regex">(abc)+</span> mit einem oder mehreren Vorkommen von "abc" &uuml;berein, daher erfolgt eine &Uuml;bereinstimmung mit <span class="subj">abcabc</span>123, aber nicht mit ab123 oder bc123.</li>
-          <li><a name="capture"></a>einen Teilausdruck wie der Punkt-Stern in <span class="regex">abc<span class="red">(.*)</span>xyz</span> einzufangen. Zum Beispiel speichert <a href="../commands/RegExMatch.htm">RegExMatch()</a> den Teilstring, der mit jedem Teilausdruck &uuml;bereinstimmt, in einem <a href="../commands/RegExMatch.htm#Array">Ausgabe-Array</a>. Ebenso kann <a href="../commands/RegExReplace.htm">RegExReplace()</a> den Teilstring, der mit jedem Teilausdruck &uuml;bereinstimmt, in das Ergebnis per <a href="../commands/RegExReplace.htm#BackRef">R&uuml;ckreferenz</a> (z. B. $1) wieder einf&uuml;gen. Damit die Klammern den Teilausdruck nicht einfangen, m&uuml;ssen die ersten beiden Zeichen innerhalb der Klammern <span class="regex">?:</span> sein, zum Beispiel: <span class="regex">(<span class="red">?:</span>.*)</span></li>
+          <li><a name="capture"></a>einen Teilausdruck wie der Punkt-Stern in <span class="regex">abc<span class="red">(.*)</span>xyz</span> einzufangen. Zum Beispiel speichert <a href="../commands/RegExMatch.htm">RegExMatch()</a> den Teilstring, der mit jedem Teilausdruck &uuml;bereinstimmt, in ein <a href="../commands/RegExMatch.htm#MatchObject">&Uuml;bereinstimmungsobjekt</a>. Ebenso kann <a href="../commands/RegExReplace.htm">RegExReplace()</a> den Teilstring, der mit jedem Teilausdruck &uuml;bereinstimmt, in das Ergebnis per <a href="../commands/RegExReplace.htm#BackRef">R&uuml;ckreferenz</a> (z. B. $1) wieder einf&uuml;gen. Damit die Klammern den Teilausdruck nicht einfangen, m&uuml;ssen die ersten beiden Zeichen innerhalb der Klammern <span class="regex">?:</span> sein, zum Beispiel: <span class="regex">(<span class="red">?:</span>.*)</span></li>
               <li><a href="#Options">Optionen</a> nebenbei zu &auml;ndern. Zum Beispiel aktiviert <span class="regex">(?im)</span> f&uuml;r den Rest des Musters (oder Teilmuster) die Optionen f&uuml;r die Unabh&auml;ngigkeit von Gro&szlig;- und Kleinschreibung und f&uuml;r mehrere Zeilen. Umgekehrt deaktiviert <span class="regex">(?-im)</span> diese Optionen. Alle Optionen werden unterst&uuml;tzt, au&szlig;er DPS`r`n`a.</li>
             </ul></td>
   </tr>

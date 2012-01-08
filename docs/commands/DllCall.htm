@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>DllCall</title>
@@ -192,7 +192,7 @@ VarSetCapacity(ZeroPaddedNumber, 20)  <em>; Damit die Variable f&uuml;r den neue
 DllCall("wsprintf", "Str", ZeroPaddedNumber, "Str", "%010d", "Int", 432, "Cdecl")  <em>; Ben&ouml;tigt die Cdecl-Aufrufkonvention.</em>
 MsgBox %ZeroPaddedNumber%</pre>
 
-<pre class="NoIndent"><a name="QPC"></a><em>; Beispiel: Demonstriert QueryPerformanceCounter(), die eine h&ouml;here Pr&auml;zision als die 10 ms von <a href="../Variables.htm#TickCount">A_TickCount</a> besitzt.</em>
+<pre class="NoIndent" id="QPC"><em>; Beispiel: Demonstriert QueryPerformanceCounter(), die eine h&ouml;here Pr&auml;zision als die 10 ms von <a href="../Variables.htm#TickCount">A_TickCount</a> besitzt.</em>
 
 DllCall("QueryPerformanceCounter", "Int64*", CounterBefore)
 Sleep 1000
@@ -239,8 +239,8 @@ ControlGet, ChildHWND, Hwnd,, %FocusedControl%, ahk_id %ActiveWindow%
 ToolTip % <strong>DllCall</strong>("GetScrollPos", "Ptr", ChildHWND, "Int", 1)  <em>;  Letzter Parameter: 1 f&uuml;r SB_VERT, 0 f&uuml;r SB_HORZ.</em>
 Return</pre>
 
-<pre class="NoIndent"><a name="file"></a><em>; Beispiel: Dieses Script schreibt Text in eine Datei und lie&szlig;t ihn wieder in den Speicher (ben&ouml;tigt v1.0.34+).
-; Diese Methode ist besonders n&uuml;tzlich, falls mehreren Dateien gleichzeitig beschrieben oder gelesen werden.</em>
+<pre class="NoIndent" id="file">; Beispiel: Dieses Script schreibt Text in eine Datei und lie&szlig;t ihn wieder in den Speicher (ben&ouml;tigt v1.0.34+).
+; Diese Methode ist besonders n&uuml;tzlich, falls mehreren Dateien gleichzeitig beschrieben oder gelesen werden.
 
 FileSelectFile, Dateiname, S16,, Neue Datei erstellen:
 If Dateiname =
@@ -274,7 +274,7 @@ BytesToRead := VarSetCapacity(TestString, StrLen(TestString))
 <strong>DllCall</strong>("CloseHandle", Ptr, hFile)  <em>; Datei schlie&szlig;en.</em>
 MsgBox Der folgende String wurde aus der Datei gelesen: %TestString%</pre>
 
-<pre class="NoIndent"><a name="HideCursor"></a><em>; Beispiel: Schaltet den Mauszeiger mit Win+C ein oder aus.
+<pre class="NoIndent" id="HideCursor"><em>; Beispiel: Schaltet den Mauszeiger mit Win+C ein oder aus.
 ; Dieses Script stammt aus <a href="http://www.autohotkey.com/forum/topic6107.html">www.autohotkey.com/forum/topic6107.html</a></em>
 
 OnExit, ShowCursor  <em>; Stellt sicher, dass der Mauszeiger wieder sichtbar gemacht wird, wenn das Script beendet wird.</em>
@@ -320,7 +320,7 @@ SystemCursor(OnOff:=1)   <em>; INIT = "I","Init"; OFF = 0,"Off"; TOGGLE = -1,"T"
     }
 }</pre>
 
-<pre class="NoIndent" id="ExStruct"><em>; Struktur-Beispiel: Die Adresse einer RECT-Struktur an GetWindowRect() &uuml;bergeben.
+<a name="ExStruct"></a><pre class="NoIndent"><em>; Struktur-Beispiel: Die Adresse einer RECT-Struktur an GetWindowRect() &uuml;bergeben.
 ; Die Strukturelemente enthalten die Positionen der linken, oberen,
 ; rechten und unteren Seite des Fensters (bezogen auf dem Bildschirm).</em>
 
@@ -386,7 +386,7 @@ Solche Fensterdialoge verwenden Strukturen und werden in <a href="http://www.aut
 
 */</em></pre>
 
-<pre id="ExTaskbar" class="NoIndent"><em>/*
+<pre class="NoIndent" id="ExTaskbar"><em>/*
   Beispiel: Entfernt mit COM vor&uuml;bergehend das aktive Fenster von der Taskleiste.
 
   Methoden in der VTable der <a href="http://msdn.microsoft.com/en-us/library/bb774652.aspx">ITaskbarList</a>:

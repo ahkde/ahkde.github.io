@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Script-Kompatibilit&auml;t</title>
@@ -135,7 +135,7 @@ dwProcessId := NumGet(pi, A_PtrSize*2 + 4, "UInt")
 <p><a href="commands/LoopReadFile.htm">Loop Read</a> interpretiert das Zeichen Steuerung+Z (0x1A) nicht als Zeilenumbruchszeichen. Somit wird jedes Steuerung+Z als normales Zeichen behandelt, selbst wenn es am Ende einer Datei vorkommt. <a href="commands/FileRead.htm">FileRead</a> verh&auml;lt sich bereits auf diese Weise.</p>
 
 <h3>Kompatibilit&auml;tsmodus</h3>
-<p>Wenn der <a href="http://www.microsoft.com/windowsxp/using/helpandsupport/learnmore/appcompat.mspx#ECD">Kompatibilit&auml;tsmodus</a> in den Eigenschaften der EXE-Datei auf Windows 95, NT4 oder 98/ME gesetzt wird, um das Script auszuf&uuml;hren, dann verh&auml;lt sich das Script m&ouml;glicherweise nicht korrekt. Denn der Kompatibilit&auml;tsmodus bewirkt, dass eine bestimmte Windows-Version der Anwendung gemeldet wird, die jedoch von den vorgefertigten Bin&auml;rdateien nicht unterst&uuml;tzt wird. Wenn der Kompatibilit&auml;tsmodus zum Beispiel auf Windows 95 oder 98/ME gesetzt wird, dann meldet <code>MsgBox %A_OSVersion%</code> den R&uuml;ckgabewert <code>WIN_NT4</code>.</p>
+<p>Wenn der <a href="http://de.wikipedia.org/wiki/Kompatibilit&auml;tsmodus">Kompatibilit&auml;tsmodus</a> in den Eigenschaften der EXE-Datei auf Windows 95, NT4 oder 98/ME gesetzt wird, um das Script auszuf&uuml;hren, dann verh&auml;lt sich das Script m&ouml;glicherweise nicht korrekt. Denn der Kompatibilit&auml;tsmodus bewirkt, dass eine bestimmte Windows-Version der Anwendung gemeldet wird, die jedoch von den vorgefertigten Bin&auml;rdateien nicht unterst&uuml;tzt wird. Wenn der Kompatibilit&auml;tsmodus zum Beispiel auf Windows 95 oder 98/ME gesetzt wird, dann meldet <code>MsgBox %A_OSVersion%</code> den R&uuml;ckgabewert <code>WIN_NT4</code>.</p>
 
 <h3 id="Run">Run / RunWait <span class="ver">[AHK_L 57+]</span></h3>
 <p>Zus&auml;tzlich zu den benutzerdefinierten Verben (<code>Run *Verb Datei</code>) wurde das Verfahren ge&auml;ndert, wie die Aktion und ihre Parameter aus dem <i>Ziel</i>-Parameter extrahiert werden. Im Einzelnen:</p>
