@@ -217,3 +217,12 @@ h2 .ver {color: lightgray; font-size: 80%;}
 .red {color: red;} /* used for highlight in various places */
 .blue {color: blue;}
 
+/* keys */
+kbd {
+    font-size: 12px;
+    border: 0.2em solid;
+    border-color: #DDD #BBB #BBB #DDD;
+    padding: 0 0.4em;
+    background: #EEE;
+    /*white-space: nowrap;*/ /*will not work correctly, if used in chm (because of ie7 engine)*/
+}
