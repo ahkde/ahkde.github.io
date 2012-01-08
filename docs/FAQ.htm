@@ -63,6 +63,7 @@ h4 {margin-top: 1.5em;}
 
 
 
+
 <pre>If (<strong>Var1</strong> &lt;&gt; <strong>Var2</strong>)
     <strong>Var1 <a href="commands/SetExpression.htm">:=</a> Var2</strong> + 100</pre></li>
 </ol>
@@ -166,7 +167,7 @@ Else
   <li>W&auml;hlt in der Men&uuml;leiste <em>Bearbeiten -&gt; Verkn&uuml;pfung einf&uuml;gen</em> aus. Die Verkn&uuml;pfung des Scripts sollte sich nun im Autostart-Ordner befinden.</li>
 </ol>
 <h3 id="HotMouse">Ich habe Schwierigkeiten, dass meine Maustasten wie Hotkeys funktionieren. Irgendwelche Hinweise?</h3>
-<p>Beachtet, dass <a href="Hotkeys.htm">Maus-Hotkeys</a> zurzeit nicht in Windows 95/98/Me unterst&uuml;tzt werden. Bei anderen Betriebssystemen sollte die linke und rechte Maustaste ganz normal zuweisbar sein (zum Beispiel ist <code>#LButton::</code> der Hotkey <kbd>Win</kbd>+Linksklick). Das gilt auch f&uuml;r die mittlere Maustaste und das <a href="KeyList.htm">Mausrad</a>, au&szlig;er bei M&auml;usen, deren Tasten direkt vom Treiber gesteuert werden.</p>
+<p>Die linke und rechte Maustaste sollten ganz normal zuweisbar sein (zum Beispiel ist <code>#LButton::</code> der Hotkey <kbd>Win</kbd>+Linksklick). Das gilt auch f&uuml;r die mittlere Maustaste und das <a href="KeyList.htm">Mausrad</a>, au&szlig;er bei M&auml;usen, deren Tasten direkt vom Treiber gesteuert werden.</p>
 <p>Die vierte (XButton1) und f&uuml;nfte Maustaste (XButton2) sind m&ouml;glicherweise auch zuweisbar, wenn der Maustreiber die Klicks f&uuml;r das System <a href="commands/KeyHistory.htm">erkennbar</a> macht. Falls sie nicht erkennbar sind (oder die Maus mehr als 5 Tasten hat, die verwendet werden sollen), kann die dazugeh&ouml;rige Software der Maus notfalls auch so konfiguriert werden (meistens &uuml;ber der Systemsteuerung oder im Startmen&uuml;), dass eine Tastatureingabe gesendet wird, sobald eine dieser Tasten gedr&uuml;ckt wird. Dadurch ist es m&ouml;glich, so eine Tastatureingabe als Hotkey zu definieren. Wenn die vierte Maustaste zum Beispiel so eingestellt wird, dass sie <kbd>Strg</kbd>+<kbd>F1</kbd> sendet, dann ist es mithilfe von <code>^F1::</code> im Script m&ouml;glich, diese Taste indirekt als Hotkey zu verwenden.</p>
 <p>Falls die vierte und f&uuml;nfte Taste bei einer Maus mit 5 Tasten nicht <a href="commands/KeyHistory.htm">erkannt</a> werden k&ouml;nnen, benutzt den Standardtreiber des Betriebssystems anstelle des aktuellen Maustreibers. Das setzt voraus, dass so ein Treiber f&uuml;r die entsprechende Maus vorhanden ist und dass der Benutzer ohne den mitgelieferten Funktionen der Software leben kann.</p>
 <h3 id="HotSymb">Wie k&ouml;nnen Tabulatoren und Leerzeichen als Hotkeys definiert werden?</h3>
@@ -177,12 +178,7 @@ Else
 <p>Die bevorzugte Methode ist <a href="commands/_IfWinActive.htm">#IfWinActive</a>. Zum Beispiel:</p>
 <pre>#IfWinActive, ahk_class Notepad
 ^a::MsgBox Steuerung+A wurde gedr&uuml;ckt, w&auml;hrend der Editor aktiv ist.
-
 </pre>
-<p>Windows 95/98/Me: Die oben genannte Methode funktioniert nur im Editor. Bei anderen Fenstern hat <kbd>Strg</kbd>+<kbd>A</kbd> keine Wirkung (selbst die urspr&uuml;ngliche Funktion nicht). Das Problem kann wie folgt umgangen werden:</p>
-<pre>$^a::Send ^a  <em>; Dieser Hotkey muss <strong>zuerst</strong> in Windows 9x aufgelistet werden. Das $-Pr&auml;fix erlaubt, dass der Hotkey "sich selbst senden" kann.</em>
-#IfWinActive, ahk_class Notepad
-^a::MsgBox Steuerung+A wurde gedr&uuml;ckt, w&auml;hrend der Editor aktiv ist.</pre>
 <h3 id="HotPrefix">Wie kann bei einer Pr&auml;fix-Taste erreicht werden, dass sie ihre urspr&uuml;ngliche Funktion durchf&uuml;hrt, anstatt nichts zu tun?</h3>
 <p>Das folgende Beispiel wandelt Numpad0 in eine Pr&auml;fix-Taste:</p>
 <pre>Numpad0 &amp; Numpad1::MsgBox, Numpad1 wurde gedr&uuml;ckt, w&auml;hrend Numpad0 gedr&uuml;ckt gehalten wird.</pre>
@@ -192,5 +188,5 @@ Else
 <h3 id="HotOverride">Wie k&ouml;nnen die internen Windows-Tastenkombinationen wie <kbd>Win</kbd>+<kbd>U</kbd> (Eingabehilfe) und <kbd>Win</kbd>+<kbd>R</kbd> (Ausf&uuml;hren) ge&auml;ndert oder deaktiviert werden?</h3>
 <p>Hier dazu einige <a href="misc/Override.htm">Beispiele</a>.</p>
 <h3 id="HotZero">Meine Tastatur hat eine besondere 000-Taste. Kann ich damit einen Hotkey erzeugen?</h3>
-<p>Es ist m&ouml;glich, aber nur, wenn das Betriebssystem Windows NT, 2000, XP oder h&ouml;her ist. Dieses <a href="scripts/Numpad000.htm">Beispiel-Script</a> wandelt die "000"-Taste in eine Gleichheitstaste um. Die Aktion kann je nach Bedarf ge&auml;ndert werden, indem die Zeile "Send, =" mit einer anderen Zeile ersetzt wird.</p>
+<p>Es ist m&ouml;glich. Dieses <a href="scripts/Numpad000.htm">Beispiel-Script</a> wandelt die "000"-Taste in eine Gleichheitstaste um. Die Aktion kann je nach Bedarf ge&auml;ndert werden, indem die Zeile "Send, =" mit einer anderen Zeile ersetzt wird.</p>
 </body></html>

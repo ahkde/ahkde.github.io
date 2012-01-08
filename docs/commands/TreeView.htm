@@ -49,11 +49,11 @@ ExitApp</pre>
 <p><strong>Buttons</strong>: Mit -Buttons werden die Plus- oder Minus-Schaltfl&auml;chen links neben den Elementen mit Unterelementen nicht angezeigt.</p>
 <p><strong>C</strong>: Textfarbe. Nach dem Buchstaben C erfolgt der Name einer Farbe (siehe <a href="../misc/Colors.htm">Farbtabelle</a>) oder ein RGB-Wert (das 0x-Pr&auml;fix ist optional). Beispiele: cRed, cFF2211, c0xFF2211, cDefault</p>
 <p><strong><a name="Checked"></a>Checked:</strong> Erm&ouml;glicht eine CheckBox auf der linken Seite jeden Elements. Beim <a href="#TV_Add">Hinzuf&uuml;gen</a> eines Elements wird mit dem Wort <em>Check</em> in den Optionen die CheckBox markiert. Der Benutzer kann das Element aktivieren oder deaktivieren, wenn er auf die CheckBox klickt oder die Leertaste dr&uuml;ckt. Um herauszufinden, welches Element zurzeit im TreeView aktiviert ist, verwendet <a href="#TV_GetNext">TV_GetNext()</a> oder <a href="#TV_Get">TV_Get()</a>.</p>
-<p><strong>HScroll</strong>: Mit -HScroll wird der horizontale Bildlauf im Steuerelement deaktiviert (zus&auml;tzlich wird keine horizontale Bildlaufleiste im Steuerelement angezeigt). Bei Betriebssystemen &auml;lter als Windows 2000/Me hat diese Option keine Auswirkung, es sei denn, das System hat Comctl32.dll mit der Version 5.8 oder h&ouml;her (bei Anwendungen wie der Internet Explorer 5 oder h&ouml;her mitgeliefert).</p>
+<p><strong>HScroll</strong>: Mit -HScroll wird der horizontale Bildlauf im Steuerelement deaktiviert (zus&auml;tzlich wird keine horizontale Bildlaufleiste im Steuerelement angezeigt).<br></p>
 <p><strong><a name="ImageList"></a>ImageList</strong>: Bedeutet, welche Icons zur ListView hinzuf&uuml;gen werden. Verwendet das Wort <em>ImageList</em> unmittelbar gefolgt von der BildlisteID, die durch den vorherigen Aufruf von <a href="ListView.htm#IL_Create">IL_Create()</a> zur&uuml;ckgegeben wird. Diese Option funktioniert nur, wenn ein TreeView erstellt wird (allerdings hat <a href="#TV_SetImageList">TV_SetImageList()</a> nicht diese Einschr&auml;nkung). Hier ist ein funktionierendes Beispiel:</p>
 <pre>BildlisteID := <a href="ListView.htm#IL_Create">IL_Create</a>(10)  <em>; Erstellt eine Bildliste, die 10 Icons umfasst.</em>
 Loop 10  <em>; L&auml;dt die Bildliste mit beliebigen Standard-Systemicons.</em>
-    <a href="ListView.htm#IL_Add">IL_Add</a>(BildlisteID, "shell32.dll", A_Index)  <em>; Den Pfad der DLL-Datei weglassen, damit es in Windows 9x auch funktioniert.</em>
+    <a href="ListView.htm#IL_Add">IL_Add</a>(BildlisteID, "shell32.dll", A_Index)
 Gui, Add, TreeView, <strong>ImageList%BildlisteID%</strong>
 <a href="#TV_Add">TV_Add</a>("Elementname", 0, "Icon4")  <em>; F&uuml;gt ein Element mit einem Ordner-Icon hinzu.</em>
 Gui Show</pre>
@@ -98,6 +98,7 @@ Return</pre>
   <li>Wenn nur der erste Parameter (ElementID) vorhanden ist, dann wird die ID-Nummer des Elements zur&uuml;ckgegeben, dass sich unter dem angegebenen Element befindet (0, wenn keine). Wenn der erste Parameter eine 0 ist, dann wird die ID-Nummer des ersten/obersten Elements in einem TreeView zur&uuml;ckgegeben (oder 0, wenn keine).</li>
   <li>Wenn der zweite Parameter "Full" oder "F" enth&auml;lt, dann wird das n&auml;chste Element ermittelt, unabh&auml;ngig vom Verh&auml;ltnis zum angegebenen Element. Erm&ouml;glicht dem Script, den gesamten Baum einfach Element f&uuml;r Element zu durchqueren. Zum Beispiel:
     
+
 <pre>ElementID = 0  <em>; Beginnt die Suche beim ersten Element.</em>
 Loop
 {
@@ -159,7 +160,6 @@ Return</pre>
 <p>Ein Script kann mehr als ein TreeView pro Fenster erstellen. Um mit einem TreeView zu arbeiten, dass nicht das Standard-TreeView ist, siehe <a href="#BuiltIn">interne Funktionen</a>.</p>
 <p>Um Aktionen (z. B. Gr&ouml;&szlig;e anpassen, verstecken oder Schrift des TreeViews ver&auml;ndern) durchzuf&uuml;hren, verwendet <a href="GuiControl.htm">GuiControl</a>.</p>
 <p>Tree View eXtension (TVX) unterst&uuml;tzt TreeViews zus&auml;tzlich mit Verschieben, Einf&uuml;gen und L&ouml;schen. Es ist wird auf <a href="http://www.autohotkey.com/forum/topic19021.html">www.autohotkey.com/forum/topic19021.html</a> demonstriert.</p>
-<p>Windows 95 und NT4: Wenn dem System die Version 4.70 oder h&ouml;her von Comctl32.dll, Shell32.dll und Shlwapi.dll fehlt, die durch verschiedene Updates und Anwendungen (z. B. Internet Explorer 3.0 oder h&ouml;her) ver&ouml;ffentlicht wurden, dann sind die TreeViews eingeschr&auml;nkt und einige Funktionen verhalten sich m&ouml;glicherweise nicht wie erwartet.</p>
 <h2>Verwandte Befehle</h2>
 <p><a href="ListView.htm">TreeView</a>, <a href="GuiControls.htm">Andere Steuerelementarten</a>, <a href="Gui.htm">Gui</a>, <a href="Gui.htm#GuiContextMenu">GuiContextMenu</a>, <a href="GuiControl.htm">GuiControl</a>, <a href="GuiControlGet.htm">GuiControlGet</a>, <a href="../misc/Styles.htm#TreeView">Style-Tabelle des TreeViews</a></p>
 <h2 id="Examples">Beispiel</h2>
@@ -179,7 +179,7 @@ Gui +Resize
 
 <em>; Erstellt eine Bildliste und f&uuml;gt beliebige Systemicons hinzu:</em>
 BildlisteID := <a href="ListView.htm#IL_Create">IL_Create</a>(5)
-Loop 5  <em>; L&auml;sst unten den Pfad der DLL weg, damit das auch f&uuml;r Windows 9x funktioniert:</em>
+Loop 5
     <a href="ListView.htm#IL_Add">IL_Add</a>(BildlisteID, "shell32.dll", A_Index)
 
 <em>; Erstellt ein TreeView und ListView nebeneinander, um ein Windows Explorer zu simulieren:</em>

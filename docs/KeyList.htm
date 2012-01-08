@@ -10,7 +10,6 @@
 <body>
 <h1>Tastenliste (Tastatur, Maus und Joystick)</h1>
 <h2>Maus</h2>
-<p><strong>Hinweis: Maus-Hotkeys ben&ouml;tigen Windows NT/2000/XP oder h&ouml;her.</strong></p>
 <table class="info">
 <tbody>
 <tr>
@@ -35,11 +34,11 @@
 </tr>
 <tr>
 <td>XButton1</td>
-<td>4. Maustaste, ben&ouml;tigt Windows 2000/XP oder h&ouml;her.</td>
+<td>4. Maustaste, die nicht bei allen M&auml;usen vorkommt.<br></td>
 </tr>
 <tr>
 <td>XButton2</td>
-<td>5. Maustaste, ben&ouml;tigt Windows 2000/XP oder h&ouml;her.</td>
+<td>5. Maustaste, die nicht bei allen M&auml;usen vorkommt.</td>
 </tr>
 <tr>
 <th id="flow">Mausrad</th>
@@ -294,32 +293,32 @@
 <tr>
 <td>LControl (oder LCtrl)</td>
 <td><kbd>LStrg</kbd></td>
-<td>Linke Strg-Taste. Ben&ouml;tigt Windows NT oder h&ouml;her.</td>
+<td>Linke Strg-Taste.</td>
 </tr>
 <tr>
 <td>RControl (oder RCtrl)</td>
 <td><kbd>RStrg</kbd></td>
-<td>Rechte Strg-Taste. Ben&ouml;tigt Windows NT oder h&ouml;her.</td>
+<td>Rechte Strg-Taste.</td>
 </tr>
 <tr>
 <td>LShift</td>
 <td><kbd>LUmschalt</kbd></td>
-<td>Linke Umschalttaste. Ben&ouml;tigt Windows NT oder h&ouml;her.</td>
+<td>Linke Umschalttaste.</td>
 </tr>
 <tr>
 <td>RShift</td>
 <td><kbd>RUmschalt</kbd></td>
-<td>Rechte Umschalttaste. Ben&ouml;tigt Windows NT oder h&ouml;her.</td>
+<td>Rechte Umschalttaste.</td>
 </tr>
 <tr>
 <td>LAlt</td>
 <td><kbd>LAlt</kbd></td>
-<td>Linke Alt-Taste. Ben&ouml;tigt Windows NT oder h&ouml;her.</td>
+<td>Linke Alt-Taste.<br></td>
 </tr>
 <tr>
 <td>RAlt</td>
 <td><kbd>AltGr</kbd></td>
-<td>Rechte Alt-Taste. Ben&ouml;tigt Windows NT oder h&ouml;her. Hinweis: Falls die aktuelle Tastaturbelegung AltGr anstelle von RAlt aufweist, dann kann diese voraussichtlich als Hotkey-Pr&auml;fix verwendet werden, wenn wie <a href="Hotkeys.htm#AltGr">hier</a> beschrieben <strong>&lt;^&gt;!</strong> angegeben wird. Dar&uuml;ber hinaus kann mit "LControl &amp; RAlt::" die AltGr-Taste selbst in ein Hotkey verwandelt werden.</td>
+<td>Rechte Alt-Taste. Hinweis: Falls die aktuelle Tastaturbelegung AltGr anstelle von RAlt aufweist, dann kann diese voraussichtlich als Hotkey-Pr&auml;fix verwendet werden, wenn wie <a href="Hotkeys.htm#AltGr">hier</a> beschrieben <strong>&lt;^&gt;!</strong> angegeben wird. Dar&uuml;ber hinaus kann mit "LControl &amp; RAlt::" die AltGr-Taste selbst in ein Hotkey verwandelt werden.</td>
 </tr>
 <tr>
 <th id="flow">Multimediatasten</th>
@@ -473,6 +472,8 @@
 
 
 
+
+
 <pre>^VK24::MsgBox Strg+Home/NumpadHome gedr&uuml;ckt.
 </pre>
 Bekannte Einschr&auml;nkung: VK-Hotkeys, die den <a href="commands/_InstallKeybdHook.htm">Tastatur-Hook</a> verwenden m&uuml;ssen, wie *VK24 oder ~VK24, werden nur eine der beiden Tasten ausf&uuml;hren (z. B. NumpadHome, aber nicht Home).<br>
@@ -498,7 +499,7 @@ F&uuml;r weitere Informationen &uuml;ber die VKnn-Methode, siehe <a href="#Speci
 <h2>Tragbare Fernbedienungen</h2>
 <p>Mithilfe des <a href="scripts/WinLIRC.htm">WinLIRC-Client-Scripts</a> k&ouml;nnen Signale von tragbaren Fernbedienungen abgefangen werden.</p>
 <h2 id="SpecialKeys">Sondertasten</h2>
-<p>Wenn die aktuelle Tastatur oder Maus eine Taste enth&auml;lt, die nicht oben aufgelistet ist, dann kann diese Taste immer noch zu einem Hotkey gemacht werden, wenn folgende Schritte befolgt werden (ben&ouml;tigt Windows XP/2000/NT oder h&ouml;her):</p>
+<p>Wenn die aktuelle Tastatur oder Maus eine Taste enth&auml;lt, die nicht oben aufgelistet ist, dann kann diese Taste immer noch zu einem Hotkey gemacht werden, wenn folgende Schritte befolgt werden:</p>
 <ol>
 <li>Stellt sicher, dass mindestens ein Script mit aktiviertem <a href="commands/_InstallKeybdHook.htm">Tastatur-Hook</a> l&auml;uft. Dazu kann das Hauptfenster des Scripts ge&ouml;ffnet und "View-&gt;Key history" in der Men&uuml;leiste ausgew&auml;hlt werden, um dessen Existenz zu &uuml;berpr&uuml;fen.</li>
 <li>Macht einen Doppelklick auf das Tray-Icon des Scripts, um dessen Hauptfenster zu &ouml;ffnen.</li>
@@ -507,6 +508,8 @@ F&uuml;r weitere Informationen &uuml;ber die VKnn-Methode, siehe <a href="#Speci
 <li>Scrollt bis zum unteren Rand der Seite. Irgendwo unten sind Down- und Up-Ereignisse der Taste. HINWEIS: Einige Tasten erzeugen keine Ereignisse und sind daher nicht sichtbar. In diesem Fall kann die bestimmte Taste nicht direkt zu einem Hotkey gemacht werden, weil der Tastatur-Treiber oder die Hardware diese Taste auf eine Stufe behandelt, die zu niedrig f&uuml;r AutoHotkey ist. F&uuml;r m&ouml;gliche L&ouml;sungen, siehe weiter unten.</li>
 <li>Wenn die Taste erkennbar ist, kopiert den 3-stelligen hexadezimalen Wert in der zweiten Spalte der Liste (z. B. <strong>159</strong>).</li>
 <li>Um diese Taste als Hotkey zu definieren, befolgt dieses Beispiel:
+
+
 
 
 

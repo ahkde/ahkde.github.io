@@ -24,6 +24,7 @@ hr {margin-bottom: 0em;}
   <li><a href="#BuiltIn">Interne Funktionen</a>:
     
 
+
 <ul>
       <li><a href="#bifRow">Reihen-Funktionen (Hinzuf&uuml;gen, &Auml;ndern und L&ouml;schen von Reihen)</a></li>
       <li><a href="#bifCol">Spalten-Funktionen</a></li>
@@ -303,7 +304,7 @@ If LetztesZeichen = \
     StringTrimRight, Ordner, Ordner, 1  <em>; Nachfolgenden Backslash entfernen.</em>
 
 <em>; Berechnet die notwendige Puffergr&ouml;&szlig;e f&uuml;r die SHFILEINFO-Struktur.</em>
-sfi_size := A_PtrSize + 8 + (A_IsUnicode ? 680 : 340)
+sfi_size := A_PtrSize + 688
 VarSetCapacity(sfi, sfi_size)
 
 <em>; Sammelt eine Liste mit Dateinamen vom ausgew&auml;hlten Ordner und f&uuml;gt sie an der ListView an:</em>
@@ -340,7 +341,7 @@ Loop %Ordner%\*.*
     If not Iconnummer  <em>; Es existiert noch keine beliebige Erweiterung, also laden.</em>
     {
         <em>; Ermittelt die qualitativ hochwertigen kleinen Icons, die mit dieser Dateierweiterung verbunden sind:</em>
-        If not DllCall("Shell32\SHGetFileInfo" . (A_IsUnicode ? "W":"A"), "str", Dateiname
+        If not DllCall("Shell32\SHGetFileInfoW", "str", Dateiname
             , "uint", 0, "str", sfi, "uint", sfi_size, "uint", 0x101)  <em>; 0x101 ist SHGFI_ICON+SHGFI_SMALLICON</em>
             Iconnummer = 9999999  <em>; Auf hohen Wert setzen, um ein leeres Icon anzuzeigen.</em>
         Else <em>; Icon erfolgreich geladen.</em>

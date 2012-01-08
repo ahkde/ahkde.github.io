@@ -12,7 +12,7 @@
 <p>Alle internen Windows-Hotkeys au&szlig;er <kbd>Win</kbd>+<kbd>L</kbd> und <kbd>Win</kbd>+<kbd>U</kbd> k&ouml;nnen deaktiviert werden, wenn folgende &Auml;nderungen an der Registrierung vorgenommen werden (sollte normalerweise in allen Betriebssystemen funktionieren, erfordert aber m&ouml;glicherweise ein Neustart):</p>
 <pre>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer
 NoWinKeys REG_DWORD 0x00000001 (1)</pre>
-<p>Lest weiter, wenn Hotkeys mehr als nur deaktiviert werden sollen. Beachtet, dass die meisten folgenden Beispiele nicht in Windows Me/98/95 unterst&uuml;tzt werden.</p>
+<p>Lest weiter, wenn Hotkeys mehr als nur deaktiviert werden sollen.<br></p>
 <p>Hotkeys von anderen Anwendungen k&ouml;nnen einfach &uuml;berschrieben oder deaktiviert werden, wenn ihnen eine Aktion im Script zugewiesen wird. Mit dieser Funktion werden am h&auml;ufigsten Hotkeys ge&auml;ndert, die in Windows selbst integriert sind. Wenn zum Beispiel der Wunsch besteht, <kbd>Win</kbd>+<kbd>E</kbd> (Windows Explorer starten) neu zu belegen, verwendet folgendes:</p>
 <pre>#e::
 MsgBox Dieser Hotkey geh&ouml;rt nun zum Script.

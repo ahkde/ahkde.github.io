@@ -182,13 +182,13 @@
   <tr id="slashP">
     <td align="center"><strong>\p{xx}<br>\P{xx}<br>\X</strong></td>
     <td>
-<p><span class="ver">[AHK_L 61+]:</span> Eigenschaften von Unicode-Zeichen. Wird nicht von den ANSI-Versionen unterst&uuml;tzt. <span class="regex">\p{xx}</span> stimmt mit einem Zeichen anhand der xx-Eigenschaft &uuml;berein, w&auml;hrend <span class="regex">\P{xx}</span> mit einem beliebigen Zeichen <i>ohne</i> die xx-Eigenschaft &uuml;bereinstimmt. Zum Beispiel stimmt <span class="regex">\pL</span> mit einem beliebigen Buchstaben &uuml;berein und <span class="regex">\p{Lu}</span> mit einem gro&szlig;geschriebenen Buchstaben. <span class="regex">\X</span> stimmt mit einer beliebigen Anzahl an Zeichen &uuml;berein, die eine erweiterte Unicode-Sequenz formen.</p>
+<p><span class="ver">[AHK_L 61+]:</span> Eigenschaften von Unicode-Zeichen. <span class="regex">\p{xx}</span> stimmt mit einem Zeichen anhand der xx-Eigenschaft &uuml;berein, w&auml;hrend <span class="regex">\P{xx}</span> mit einem beliebigen Zeichen <i>ohne</i> die xx-Eigenschaft &uuml;bereinstimmt. Zum Beispiel stimmt <span class="regex">\pL</span> mit einem beliebigen Buchstaben &uuml;berein und <span class="regex">\p{Lu}</span> mit einem gro&szlig;geschriebenen Buchstaben. <span class="regex">\X</span> stimmt mit einer beliebigen Anzahl an Zeichen &uuml;berein, die eine erweiterte Unicode-Sequenz formen.</p>
     <p>F&uuml;r eine vollst&auml;ndige Namensliste von unterst&uuml;tzten Eigenschaften und andere Details sucht nach "\p{xx}" in <a href="http://www.pcre.org/pcre.txt">www.pcre.org/pcre.txt</a>.</p></td>
   </tr>
   <tr id="UCP">
     <td><strong>(*UCP)</strong></td>
     <td>
-<p><span class="ver">[AHK_L 61+]:</span> Aus Performance-Gr&uuml;nden erkennen \d, \D, \s, \S, \w, \W, \b und \B standardm&auml;&szlig;ig nur ASCII-Zeichen, auch in Unicode-Versionen. Wenn das Muster mit <span class="regex">(*UCP)</span> beginnt, dann werden die Unicode-Eigenschaften verwendet, um festzustellen, welche Zeichen &uuml;bereinstimmen. Zum Beispiel wird \w gleichbedeutend mit <span class="regex">[\p{L}\p{N}_]</span> und \d wird gleichbedeutend mit <span class="regex">\p{Nd}</span>.</p>
+<p><span class="ver">[AHK_L 61+]:</span> Aus Performance-Gr&uuml;nden erkennen \d, \D, \s, \S, \w, \W, \b und \B standardm&auml;&szlig;ig nur ASCII-Zeichen. Wenn das Muster mit <span class="regex">(*UCP)</span> beginnt, dann werden die Unicode-Eigenschaften verwendet, um festzustellen, welche Zeichen &uuml;bereinstimmen. Zum Beispiel wird \w gleichbedeutend mit <span class="regex">[\p{L}\p{N}_]</span> und \d wird gleichbedeutend mit <span class="regex">\p{Nd}</span>.</p>
     </td>
   </tr>
 </tbody></table>

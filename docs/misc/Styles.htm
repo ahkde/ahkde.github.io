@@ -389,7 +389,7 @@
 <tr>
   <td>UDS_HOTTRACK</td>
   <td>0x100</td>
-  <td> Bewirkt, dass das Steuerelement das "Hot Tracking"-Verhalten vorweist. Das hei&szlig;t, die Schaltfl&auml;chen des Steuerelements werden hervorgehoben, wenn sich die Maus dar&uuml;ber befindet. Dieser Style ben&ouml;tigt Microsoft Windows 98 oder Windows 2000. In Windows 95 NT4 wird dieser Style ignoriert. Dieser Style wird auch in Windows XP ignoriert, wenn er vom Desktop-Design &uuml;berschrieben wird.</td>
+  <td> Bewirkt, dass das Steuerelement das "Hot Tracking"-Verhalten vorweist. Das hei&szlig;t, die Schaltfl&auml;chen des Steuerelements werden hervorgehoben, wenn sich die Maus dar&uuml;ber befindet. Dieser Style wird in Windows XP ignoriert, wenn er vom Desktop-Design &uuml;berschrieben wird.</td>
 </tr>
 <tr>
   <td>(hex)</td>
@@ -428,6 +428,8 @@
   <td>0x200</td>
   <td> Zentriert die Bitmap im Steuerelement. Wenn die Bitmap zu gro&szlig; ist, dann wird sie abgeschnitten. Wenn das Steuerelement eine Textzeile enth&auml;lt, dann wird der Text in der verf&uuml;gbaren H&ouml;he des Steuerelements vertikal zentriert.
     
+
+
 
 <p>Microsoft Windows XP: Dieser Style f&uuml;llt nicht l&auml;nger den verbleibenden Clientbereich mit der Farbe des Pixels in der linken oberen Ecke der Bitmap oder des Icons. Die ungenutzten Bereiche des Steuerelements enthalten die Hintergrundfarbe.</p></td>
 </tr>
@@ -1106,7 +1108,7 @@
 <tr>
   <td>TBS_TOOLTIPS</td>
   <td>0x100</td>
-  <td>+/-Tooltip. Das Steuerelement unterst&uuml;tzt ToolTips. Wenn ein Steuerelement mit diesem Style erstellt wird, dann wird standardm&auml;&szlig;ig noch ein ToolTip-Steuerelement erzeugt, dass die aktuelle Position des Schiebereglers anzeigt. Die Position des ToolTips kann mithilfe der TBM_SETTIPSIDE-Nachricht ge&auml;ndert werden. Windows 95 und NT4 ben&ouml;tigen Internet Explorer 3.0 oder h&ouml;her, um diesen Style zu unterst&uuml;tzen.</td>
+  <td>+/-Tooltip. Das Steuerelement unterst&uuml;tzt ToolTips. Wenn ein Steuerelement mit diesem Style erstellt wird, dann wird standardm&auml;&szlig;ig noch ein ToolTip-Steuerelement erzeugt, dass die aktuelle Position des Schiebereglers anzeigt. Die Position des ToolTips kann mithilfe der TBM_SETTIPSIDE-Nachricht ge&auml;ndert werden.<br></td>
 </tr>
 <tr>
   <td>TBS_REVERSED</td>
@@ -1140,15 +1142,12 @@
 <tr>
   <td>PBS_SMOOTH</td>
   <td>0x1</td>
-  <td>+/-Smooth.
-
-
- Der Fortschrittsbalken zeigt den Fortschrittsstatus in einem glatten durchgehenden Balken anstelle eines segmentierten Balken an. Wenn dieser Style vorhanden ist, dann kehrt das Steuerelement in Windows XP oder h&ouml;her automatisch zum klassischen Design zur&uuml;ck. Windows 95 und NT4 ben&ouml;tigen Internet Explorer 3.0 oder h&ouml;her, um diese Option zu unterst&uuml;tzen.</td>
+  <td>+/-Smooth. Der Fortschrittsbalken zeigt den Fortschrittsstatus in einem glatten durchgehenden Balken anstelle eines segmentierten Balken an. Wenn dieser Style vorhanden ist, dann kehrt das Steuerelement in Windows XP oder h&ouml;her automatisch zum klassischen Design zur&uuml;ck.<br></td>
 </tr>
 <tr>
   <td>PBS_VERTICAL</td>
   <td>0x4</td>
-  <td>+/-Vertical. Der Fortschrittsbalken zeigt den Fortschrittsstatus vertikal von unten nach oben an. Windows 95 und NT4 ben&ouml;tigen Internet Explorer 3.0 oder h&ouml;her, um diese Option zu unterst&uuml;tzen.</td>
+  <td>+/-Vertical. Der Fortschrittsbalken zeigt den Fortschrittsstatus vertikal von unten nach oben an.<br></td>
 </tr>
 <tr>
   <td>PBS_MARQUEE</td>
@@ -1212,6 +1211,8 @@
   <td>Jede Bezeichnung wird am linken Rand eines Tabs mit festgelegter Breite ausgerichtet; d. h. die Bezeichnung wird unmittelbar nach dem Icon angezeigt und nicht zentriert.
   
 
+
+
 <p>Dieser Style kann nur mit dem TCS_FIXEDWIDTH-Style verwendet werden, und setzt den TCS_FORCEICONLEFT-Style voraus.</p></td>
 </tr>
 <tr>
@@ -1247,6 +1248,8 @@
   <td>0</td>
   <td>Das wird standardm&auml;&szlig;ig verwendet. Die Breite jeden Tabs wird je nach Bedarf erh&ouml;ht, damit jede Reihe mit Tabs die gesamte Breite des Tab-Steuerelements f&uuml;llt.
     
+
+
 
 <p>Dieser Fenster-Style wird ignoriert, es sei denn, TCS_MULTILINE-Style wurde auch angegeben.</p></td>
 </tr>

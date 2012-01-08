@@ -139,7 +139,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{CapsLock}</td>
-    <td>Feststelltaste (<a href="SetNumScrollCapsLockState.htm">SetCapsLockState</a> ist zuverl&auml;ssiger in NT/2k/XP).
+    <td>Feststelltaste (in Win 2k/XP ist <a href="SetNumScrollCapsLockState.htm">SetCapsLockState</a> zuverl&auml;ssiger).
 
 
  Das Senden von {CapsLock} ben&ouml;tigt m&ouml;glicherweise vorher <a href="SetStoreCapslockMode.htm">SetStoreCapslockMode Off</a>.</td>
@@ -162,7 +162,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{LControl} oder {LCtrl}</td>
-    <td>Linke STRG-Taste (technische Info: In Win9x das Gleiche wie STRG, aber in NT/2k/XP wird die linke virtuelle anstelle der neutralen Taste gesendet)</td>
+    <td>Linke STRG-Taste (technische Info: sendet anstelle der neutralen Taste die linke virtuelle Taste)</td>
   </tr>
   <tr>
     <td align="center">{RControl} oder {RCtrl}</td>
@@ -170,7 +170,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{Control Down} oder {Ctrl Down}</td>
-    <td>H&auml;lt die STRG-Taste gedr&uuml;ckt, bis {Ctrl Up} gesendet wird. XP/2000/NT: Um stattdessen die linke oder rechte Taste gedr&uuml;ckt zuhalten, verwendet {RCtrl Down} und {RCtrl Up}. </td>
+    <td>H&auml;lt die STRG-Taste gedr&uuml;ckt, bis {Ctrl Up} gesendet wird. Um stattdessen die linke oder rechte Taste gedr&uuml;ckt zuhalten, verwendet {RCtrl Down} und {RCtrl Up}. </td>
   </tr>
   <tr>
     <th>&nbsp;</th>
@@ -182,7 +182,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{LAlt}</td>
-    <td>Linke ALT-Taste (technische Info: In Win9x das Gleiche wie ALT, aber in NT/2k/XP wird die linke virtuelle Taste gesendet) </td>
+    <td>Linke ALT-Taste (technische Info: sendet anstelle der neutralen Taste die linke virtuelle Taste)</td>
   </tr>
   <tr>
     <td align="center">{RAlt}</td>
@@ -190,7 +190,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{Alt Down}</td>
-    <td>H&auml;lt die ALT-Taste gedr&uuml;ckt, bis {Alt Up} gesendet wird. XP/2000/NT: Um stattdessen die linke oder rechte Taste gedr&uuml;ckt zuhalten, verwendet {RAlt Down} und {RAlt Up}.</td>
+    <td>H&auml;lt die ALT-Taste gedr&uuml;ckt, bis {Alt Up} gesendet wird. Um stattdessen die linke oder rechte Taste gedr&uuml;ckt zuhalten, verwendet {RAlt Down} und {RAlt Up}.</td>
   </tr>
   <tr>
     <th>&nbsp;</th>
@@ -202,7 +202,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{LShift}</td>
-    <td>Linke UMSCHALT-Taste (technische Info: In Win9x das Gleiche wie UMSCHALT, aber in NT/2k/XP wird die linke virtuelle Taste gesendet) </td>
+    <td>Linke UMSCHALT-Taste (technische Info: sendet anstelle der neutralen Taste die linke virtuelle Taste) </td>
   </tr>
   <tr>
     <td align="center">{RShift}</td>
@@ -210,7 +210,7 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{Shift Down}</td>
-    <td>H&auml;lt die UMSCHALT-Taste gedr&uuml;ckt, bis {Shift Up} gesendet wird. XP/2000/NT: Um stattdessen die linke oder rechte Taste gedr&uuml;ckt zuhalten, verwendet {RShift Down} und {RShift Up}.</td>
+    <td>H&auml;lt die UMSCHALT-Taste gedr&uuml;ckt, bis {Shift Up} gesendet wird. Um stattdessen die linke oder rechte Taste gedr&uuml;ckt zuhalten, verwendet {RShift Down} und {RShift Up}.</td>
   </tr>
   <tr>
     <th>&nbsp;</th>
@@ -253,7 +253,7 @@ SendEvent Tasten</pre>
   <tr id="Unicode">
     <td align="center">{U+nnnn}</td>
     <td>
-<p><a name="sendu"></a><span class="ver">[AHK_L 24+]:</span> Sendet ein Unicode-Zeichen, wobei <em>nnnn</em> der hexadezimale Wert des Zeichens ohne das Pr&auml;fix 0x ist. In den Unicode-Versionen von AutoHotkey ist das hier nicht notwendig, da Send und ControlSend automatisch Unicode-Text unterst&uuml;tzen.</p>
+<p><a name="sendu"></a><span class="ver">[AHK_L 24+]:</span> Sendet ein Unicode-Zeichen, wobei <em>nnnn</em> der hexadezimale Wert des Zeichens ohne das Pr&auml;fix 0x ist. In AutoHotkey ist das hier nicht notwendig, da Send und ControlSend automatisch Unicode-Text unterst&uuml;tzen.</p>
     <p>Wenn das Zeichen nicht auf einen virtuellen Tastencode abgebildet werden kann, dann wird <a href="http://msdn.microsoft.com/en-us/library/ms646310.aspx">SendInput()</a> oder <a href="http://msdn.microsoft.com/en-us/library/ms646276.aspx">WM_CHAR</a> verwendet und der aktuelle Send-Modus unwirksam gemacht.</p></td>
   </tr>
   <tr>
@@ -349,75 +349,75 @@ SendEvent Tasten</pre>
   </tr>
   <tr>
     <td align="center">{Browser_Back}</td>
-    <td>2000/XP/Vista+: Dr&uuml;ckt die Schaltfl&auml;che "Zur&uuml;ck" des Browsers</td>
+    <td>Dr&uuml;ckt die Schaltfl&auml;che "Zur&uuml;ck" des Browsers</td>
   </tr>
   <tr>
     <td align="center">{Browser_Forward}</td>
-    <td>2000/XP/Vista+: Dr&uuml;ckt die Schaltfl&auml;che "Vorw&auml;rts" des Browsers</td>
+    <td>Dr&uuml;ckt die Schaltfl&auml;che "Vorw&auml;rts" des Browsers</td>
   </tr>
   <tr>
     <td align="center">{Browser_Refresh}</td>
-    <td>2000/XP/Vista+: Dr&uuml;ckt die Schaltfl&auml;che "Aktualisieren" des Browsers</td>
+    <td>Dr&uuml;ckt die Schaltfl&auml;che "Aktualisieren" des Browsers</td>
   </tr>
   <tr>
     <td align="center">{Browser_Stop}</td>
-    <td>2000/XP/Vista+: Dr&uuml;ckt die Schaltfl&auml;che "Stopp" des Browsers</td>
+    <td>Dr&uuml;ckt die Schaltfl&auml;che "Stopp" des Browsers</td>
   </tr>
   <tr>
     <td align="center">{Browser_Search}</td>
-    <td>2000/XP/Vista+: Dr&uuml;ckt die Schaltfl&auml;che "Suchen" des Browsers</td>
+    <td>Dr&uuml;ckt die Schaltfl&auml;che "Suchen" des Browsers</td>
   </tr>
   <tr>
     <td align="center">{Browser_Favorites}</td>
-    <td>2000/XP/Vista+: Dr&uuml;ckt die Schaltfl&auml;che "Favoriten" des Browsers</td>
+    <td>Dr&uuml;ckt die Schaltfl&auml;che "Favoriten" des Browsers</td>
   </tr>
   <tr>
     <td align="center">{Browser_Home}</td>
-    <td>2000/XP/Vista+: Startet den Browser und &ouml;ffnet die Startseite</td>
+    <td>Startet den Browser und &ouml;ffnet die Startseite</td>
   </tr>
   <tr>
     <td align="center">{Volume_Mute}</td>
-    <td>2000/XP/Vista+: Gesamtlautst&auml;rke stummschalten bzw. Stummschaltung aufheben. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, +1, , mute</em></td>
+    <td>Gesamtlautst&auml;rke stummschalten bzw. Stummschaltung aufheben. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, +1, , mute</em></td>
   </tr>
   <tr>
     <td align="center">{Volume_Down}</td>
-    <td>2000/XP/Vista+: Gesamtlautst&auml;rke leiser stellen. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, -5 </em></td>
+    <td>Gesamtlautst&auml;rke leiser stellen. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, -5 </em></td>
   </tr>
   <tr>
     <td align="center">{Volume_Up}</td>
-    <td>2000/XP/Vista+: Gesamtlautst&auml;rke lauter stellen. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, +5</em></td>
+    <td>Gesamtlautst&auml;rke lauter stellen. Normalerweise gleichwertig mit <em><a href="SoundSet.htm">SoundSet</a>, +5</em></td>
   </tr>
   <tr>
     <td align="center">{Media_Next}</td>
-    <td>2000/XP/Vista+: N&auml;chsten Track im Media Player ausw&auml;hlen</td>
+    <td>N&auml;chsten Track im Media Player ausw&auml;hlen</td>
   </tr>
   <tr>
     <td align="center">{Media_Prev}</td>
-    <td>2000/XP/Vista+: Vorherigen Track im Media Player ausw&auml;hlen</td>
+    <td>Vorherigen Track im Media Player ausw&auml;hlen</td>
   </tr>
   <tr>
     <td align="center">{Media_Stop}</td>
-    <td>2000/XP/Vista+: Media Player stoppen</td>
+    <td>Media Player stoppen</td>
   </tr>
   <tr>
     <td align="center">{Media_Play_Pause}</td>
-    <td>2000/XP/Vista+: Media Player abspielen bzw. pausieren</td>
+    <td>Media Player abspielen bzw. pausieren</td>
   </tr>
   <tr>
     <td align="center">{Launch_Mail}</td>
-    <td>2000/XP/Vista+: Startet E-Mail-Anwendung</td>
+    <td>Startet E-Mail-Anwendung</td>
   </tr>
   <tr>
     <td align="center">{Launch_Media}</td>
-    <td>2000/XP/Vista+: Startet Media Player</td>
+    <td>Startet Media Player</td>
   </tr>
   <tr>
     <td align="center">{Launch_App1}</td>
-    <td>2000/XP/Vista+: Startet benutzerdefinierte Anwendung 1.</td>
+    <td>Startet benutzerdefinierte Anwendung 1.</td>
   </tr>
   <tr>
     <td align="center">{Launch_App2}</td>
-    <td>2000/XP/Vista+: Startet benutzerdefinierte Anwendung 2.</td>
+    <td>Startet benutzerdefinierte Anwendung 2.</td>
   </tr>
   <tr>
     <th>&nbsp;</th>

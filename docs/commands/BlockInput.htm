@@ -19,12 +19,12 @@
     <dd><p><strong><u>Modus 1</u></strong>: Eins der folgenden W&ouml;rter:</p>
       <p><strong>On</strong>: Der Benutzer kann nicht mehr mit dem Computer interagieren (Maus- und Tastatureingaben haben keine Wirkung).</p>
       <p><strong>Off</strong>: Eingaben sind wieder m&ouml;glich.</p>
-      <p><u><strong>Modus 2</strong></u> (hat keine Wirkung in Windows 9x): Dieser Modus l&auml;uft unabh&auml;ngig von den Anderen. Zum Beispiel wird <em>BlockInput On</em> solange die Eingaben weiter blockieren, bis <em>BlockInput Off</em> verwendet wird, selbst wenn einer der Nachfolgenden aktiv ist.</p>
+      <p><u><strong>Modus 2</strong></u>: Dieser Modus l&auml;uft unabh&auml;ngig von den Anderen. Zum Beispiel wird <em>BlockInput On</em> solange die Eingaben weiter blockieren, bis <em>BlockInput Off</em> verwendet wird, selbst wenn einer der Nachfolgenden aktiv ist.</p>
       <p><strong>Send</strong>: Die Tastatur- und Mauseingaben des Benutzers werden ignoriert, w&auml;hrend ein <a href="Send.htm">Send</a>- oder <a href="Send.htm">SendRaw</a>-Befehl ausgef&uuml;hrt wird (nur der traditionelle <a href="SendMode.htm">SendEvent-Modus</a>). Somit werden k&uuml;nstliche Tastatureingaben nicht von den Tastatureingaben des Benutzers beeinflusst. Sobald der Send-Befehl endet, sind Eingaben wieder m&ouml;glich (es sei denn, es wird noch durch ein weiteres <em>BlockInput On</em> geblockt).</p>
       <p><strong>Mouse</strong>: Die Tastatur- und Mauseingaben des Benutzers werden ignoriert, w&auml;hrend ein <a href="Click.htm">Click</a>-, <a href="MouseMove.htm">MouseMove</a>-, <a href="MouseClick.htm">MouseClick</a>- oder <a href="MouseClickDrag.htm">MouseClickDrag</a>-Befehl ausgef&uuml;hrt wird (nur der traditionelle <a href="SendMode.htm">SendEvent-Modus</a>). Somit werden k&uuml;nstliche Mauseingaben nicht von den Mauseingaben des Benutzers beeinflusst. Sobald der Maus-Befehl endet, sind Eingaben wieder m&ouml;glich (es sei denn, es wird noch durch ein weiteres <em>BlockInput On</em> geblockt).</p>
       <p><strong>SendAndMouse</strong>: Eine Kombination von <i>Send</i> und <i>Mouse</i>.</p>
       <p><strong>Default</strong>: Sowohl der <em>Send</em>- als auch der <em>Mouse</em>-Modus wird deaktiviert, der aktuelle Zustand der Eingabeblockierung bleibt jedoch unver&auml;ndert. Wenn zum Beispiel <em>BlockInput On</em> aktiv ist, dann bleibt <em>BlockInput Default</em> unwirksam.</p>
-      <p><u><strong><a name="MouseMove"></a></strong></u><strong><u>Modus 3</u></strong><u> (funktioniert nicht in Windows 9x; ben&ouml;tigt v1.0.43.11+):</u> Dieser Modus l&auml;uft unabh&auml;ngig von den Anderen. Zum Beispiel werden Mausbewegungen solange weiter geblockt, bis <em>BlockInput On</em> und <em>BlockInput MouseMove</em> deaktiviert werden.</p>
+      <p><u><strong><a name="MouseMove"></a></strong></u><strong><u>Modus 3</u></strong><u> (ben&ouml;tigt v1.0.43.11+):</u> Dieser Modus l&auml;uft unabh&auml;ngig von den Anderen. Zum Beispiel werden Mausbewegungen solange weiter geblockt, bis <em>BlockInput On</em> und <em>BlockInput MouseMove</em> deaktiviert werden.</p>
       <p><strong>MouseMove</strong>: Der Mauszeiger reagiert nicht auf die physische Mausbewegung des Benutzers (DirectInput-Anwendungen sind eine m&ouml;gliche Ausnahme). Sobald ein Script diesen Befehl verwendet, wird der <a href="_InstallMouseHook.htm">Maus-Hook</a> installiert (wenn es nicht bereits geschehen ist). Wenn der Maus-Hook beim n&auml;chsten <a href="Suspend.htm">Suspend-</a> oder <a href="Hotkey.htm">Hotkey</a>-Befehl nicht mehr von Hotkeys oder Hotstrings ben&ouml;tigt wird, wird er deinstalliert (siehe <a href="_Hotstring.htm">#Hotstring NoMouse</a>).</p>
       <p><strong>MouseMoveOff</strong>: Erlaubt dem Benutzer, den Mauszeiger zu bewegen.</p></dd>
   
@@ -41,42 +41,13 @@ BlockInput On
 BlockInput Off
 Return</pre>
 <p>Die Eingabeblockierung wird automatisch und sofort deaktiviert, sobald die ALT-Taste gesendet wird (wird aber danach wieder aktiviert).</p>
-<p>Die Tabelle unten zeigt, wie sich BlockInput bei verschiedenen Windows-Versionen verh&auml;lt. Nur Strg+Alt+Entf ist aufgrund einer API-Funktion von Windows in der Lage, die Eingabe wieder zu aktivieren.</p>
-<table class="info">
-  <tbody>
-<tr>
-    <th width="37%"><strong><em>Betriebssystem </em></strong></th>
-    <th width="63%"><strong><em>Ergebnis von BlockInput </em></strong></th>
-  </tr>
-  <tr>
-    <td>Windows 95 </td>
-    <td>Keine Wirkung. </td>
-  </tr>
-  <tr>
-    <td>Windows 98/Me</td>
-    <td>Benutzereingabe wird blockiert und AutoHotkey ist <strong>nicht f&auml;hig</strong>, Eingaben zu simulieren. </td>
-  </tr>
-  <tr>
-    <td>Windows NT 4 (<em>ohne</em> Service-Pack 6) </td>
-    <td>Keine Wirkung. </td>
-  </tr>
-  <tr>
-    <td>Windows NT 4 (<em>mit</em> Service-Pack 6) </td>
-    <td>Benutzereingabe wird blockiert, jedoch kann AutoHotkey weiterhin Tastatureingaben und Mausklicks simulieren. </td>
-  </tr>
-  <tr>
-    <td>Windows 2000/XP</td>
-    <td>Benutzereingabe wird blockiert, jedoch kann AutoHotkey weiterhin Tastatureingaben und Mausklicks simulieren. </td>
-  </tr>
-</tbody></table>
-<p><br> Windows 98/Me: Obwohl Scripts nicht in der Lage sind, Tastatureingaben und Mausklicks w&auml;hrend BlockInput zu senden, funktionieren Befehle wie <a href="WinMove.htm">WinMove</a> weiterhin. <a href="ControlSend.htm">ControlSend</a> k&ouml;nnte auch funktionieren.</p>
+<p>Sobald BlockInput aktiv ist, wird die Benutzereingabe blockiert, jedoch kann AutoHotkey weiterhin Tastatureingaben und Mausklicks simulieren. Nur Strg+Alt+Entf ist aufgrund einer API-Funktion von Windows in der Lage, die Eingabe wieder zu aktivieren.</p>
 <p>Verschiedene Arten von <a href="_UseHook.htm">Hook-Hotkeys</a> k&ouml;nnen weiterhin ausgel&ouml;st werden, wenn BlockInput aktiv ist. Beispielsweise "MButton" (Maus-Hook) und "LWin &amp; Space" (Tastatur-Hook mit eindeutigem Pr&auml;fix anstelle von Modifikatoren "$#").</p>
 <p>Die Eingabe wird automatisch wieder aktiviert, wenn das Script beendet wird.</p>
 <h3>Verwandte Befehle</h3>
 <p><a href="SendMode.htm">SendMode</a>, <a href="Send.htm">Send</a>, <a href="Click.htm">Click</a>, <a href="MouseMove.htm">MouseMove</a>, <a href="MouseClick.htm">MouseClick</a>, <a href="MouseClickDrag.htm">MouseClickDrag</a></p>
 <h3>Beispiel</h3>
-<pre class="NoIndent">If A_OSType &lt;&gt; WIN32_WINDOWS <em>; z. B. nicht Windows 9x.</em>
-    BlockInput, on
+<pre class="NoIndent">BlockInput, on
 Run, notepad
 WinWaitActive, Unbenannt - Editor
 Send, {F5} <em>; Zeit und Datum einf&uuml;gen</em>

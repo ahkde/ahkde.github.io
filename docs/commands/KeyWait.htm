@@ -32,8 +32,7 @@
 <h3>ErrorLevel</h3>
 <p>Wenn die Wartezeit abgelaufen ist, dann wird <a href="../misc/ErrorLevel.htm">ErrorLevel</a> auf 1 gesetzt, ansonsten enth&auml;lt ErrorLevel eine 0.</p>
 <h3>Bemerkungen</h3>
-<p>In Windows 95/98/Me entspricht der physische Status fast immer dem logischen Status.</p>
-<p>In Windows NT/2000/XP oder h&ouml;her entspricht der physische Status normalerweise erst dem logischen Status, wenn Tastatur- und/oder Maus-Hooks installiert sind, die dann genau widerspiegeln k&ouml;nnen, ob der Benutzer eine Taste gedr&uuml;ckt h&auml;lt oder nicht. Mit dem <a href="KeyHistory.htm">KeyHistory</a>-Befehl oder Men&uuml;punkt kann die Installation eines Hooks festgestellt werden. Die Installation eines Hooks kann mit  <a href="_InstallKeybdHook.htm">#InstallKeybdHook</a> und/oder <a href="_InstallMouseHook.htm">#InstallMouseHook</a> erzwungen werden.</p>
+<p>Der physische Status entspricht normalerweise erst dem logischen Status, wenn Tastatur- und/oder Maus-Hooks installiert sind, die genau widerspiegeln k&ouml;nnen, ob der Benutzer eine Taste gedr&uuml;ckt h&auml;lt oder nicht. Mit dem <a href="KeyHistory.htm">KeyHistory</a>-Befehl oder Men&uuml;punkt kann die Installation eines Hooks festgestellt werden. Die Installation eines Hooks kann mit  <a href="_InstallKeybdHook.htm">#InstallKeybdHook</a> und/oder <a href="_InstallMouseHook.htm">#InstallMouseHook</a> erzwungen werden.</p>
 <p>W&auml;hrend der Befehl in einem Wartezustand ist, k&ouml;nnen neue <a href="../misc/Threads.htm">Threads</a> mittels <a href="../Hotkeys.htm">Hotkey</a>, <a href="Menu.htm">benutzerdefinierte Men&uuml;eintr&auml;ge</a> oder <a href="SetTimer.htm">Timer</a> gestartet werden.</p>
 <p>Um auf zwei oder mehr Tasten zu warten, verwendet KeyWait hintereinander. Zum Beispiel:</p>
 <pre>KeyWait Control  <em>; Wartet darauf, dass sowohl Steuerung als auch Alt losgelassen wird.</em>

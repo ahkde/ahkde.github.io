@@ -93,8 +93,7 @@ ExitApp</pre>
 <pre class="NoIndent" id="shutdown"><em>; Beispiel: Das folgende Script erkennt das Abmelden/Herunterfahren des Systems und erlaubt dem Benutzer, es abzubrechen (funktioniert NICHT in Windows Vista und h&ouml;her).
 ; Verwandtes Thema: <a href="OnExit.htm">OnExit</a></em>
 
-<em>; Der folgende Aufruf von DllCall ist optional: Dem OS wird mitgeteilt, <i>zuerst</i> das Script zu beenden (vor allen anderen Anwendungen).
-; Dieser Aufruf hat keine Wirkung in Windows 9x.</em>
+<em>; Der folgende Aufruf von DllCall ist optional: Dem OS wird mitgeteilt, <i>zuerst</i> das Script zu beenden (vor allen anderen Anwendungen).</em>
 DllCall("kernel32.dll\SetProcessShutdownParameters", UInt, 0x4FF, UInt, 0)
 OnMessage(0x11, "WM_QUERYENDSESSION")
 Return
@@ -169,7 +168,7 @@ WM_COPYDATA_Senden(ByRef StringSenden, ByRef Empf&auml;ngertitel)  <em>; ByRef s
 {
     VarSetCapacity(CopyDataStruct, 3*A_PtrSize, 0)  <em>; Bestimmt den Speicherbereich der Struktur.</em>
     <em>; Zuerst wird das cbData-Element der Struktur auf die Gr&ouml;&szlig;e des Strings gesetzt, einschlie&szlig;lich dem Null-Terminator.</em>
-    Gr&ouml;&szlig;eInBytes := (StrLen(StringSenden) + 1) * (A_IsUnicode ? 2 : 1)
+    Gr&ouml;&szlig;eInBytes := (StrLen(StringSenden) + 1) * 2
     NumPut(Gr&ouml;&szlig;eInBytes, CopyDataStruct, A_PtrSize)  <em>; OS setzt voraus, dass das getan werden muss.</em>
     NumPut(&amp;StringSenden, CopyDataStruct, 2)  <em>; lpData zeigt auf dem String selbst.</em>
     DetectHiddenWindows_Vorher := A_DetectHiddenWindows

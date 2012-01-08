@@ -39,8 +39,7 @@
 <p>Das Steuerelement, welches mit diesem Befehl ermittelt wird, ist auch das Steuerelement, welches die Tastatureingaben des Benutzers empf&auml;ngt.</p>
 <p>Das Fenster muss aktiv sein, damit ein Steuerelement fokussiert sein kann. Ist das Fenster nicht aktiv, wird <em>Ausgabevariable</em> leer gemacht.</p>
 <p>Wenn ControlGetFocus mehrmals schnell ausgef&uuml;hrt wird (d. h. alle 500 ms oder schneller), dann ist der Benutzer wahrscheinlich nicht mehr in der Lage, einen Doppelklick durchzuf&uuml;hren. Mit dem Aufruf der Betriebssystemfunktion GetGUIThreadInfo() mittels <a href="DllCall.htm">DllCall</a> kann das Problem vermieden werden. Zum Beispiel:</p>
-<pre><em>; Dieses Script ermittelt die ahk_id (HWND) des fokussierten Steuerelements im aktiven Fenster.
-; Dieses Script ben&ouml;tigt Windows 98, NT 4.0 SP3+ oder h&ouml;her.</em>
+<pre><em>; Dieses Script ermittelt die ahk_id (HWND) des fokussierten Steuerelements im aktiven Fenster.</em>
 GuiThreadInfoSize = 48
 VarSetCapacity(GuiThreadInfo, GuiThreadInfoSize)
 <a href="NumPut.htm">NumPut</a>(GuiThreadInfoSize, GuiThreadInfo, 0)

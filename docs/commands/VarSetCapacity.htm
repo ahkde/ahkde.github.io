@@ -50,9 +50,8 @@ Loop
 }</pre>
 
 <pre class="NoIndent"><em>; Erforderlichen Zwischenspeicher f&uuml;r einen String berechnen.</em>
-bytes_per_char := A_IsUnicode ? 2 : 1
 max_chars := 500
-max_bytes := max_chars * bytes_per_char
+max_bytes := max_chars * 2
 
 Loop 2
 {

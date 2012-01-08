@@ -136,8 +136,10 @@ FileAppend, %Var%, C:\Eigene Datei.txt</pre>
 
 
 
+
 <pre>Ahk2Exe.exe /in Script.ahk [/out Script.exe] [/icon Icon.ico] [/bin AutoHotkeySC.bin] [/mpress 0oder1]</pre>
   Zum Beispiel:
+
 
 
 
@@ -168,6 +170,7 @@ Verwendung:
 
 
 
+
 <ul>
 <li>Parameter, die Leerzeichen enthalten, sollten in Anf&uuml;hrungszeichen gesetzt werden.</li>
 <li>Sobald der out-Parameter weggelassen wird, wird eine EXE-Datei erstellt, die den Namen von der Script-Datei hat.</li>
@@ -175,8 +178,7 @@ Verwendung:
 </ol>
 <p>Hinweise:</p>
 <ul>
-  <li>BOM-lose Scripts werden wie die Unicode-Version von AutoHotkey_L als UTF-8 interpretiert. Das hei&szlig;t, dass das Script <strong>in UTF-8 abgespeichert werden muss</strong>, falls Nicht-ASCII-Zeichen vorhanden sind.</li>
-  <li>Die Kompilierung verbessert die Performance des Scripts in keiner Weise.</li>
+<li>Die Kompilierung verbessert die Performance des Scripts in keiner Weise.</li>
   <li>Passwortschutz und /NoDecompile wird seit v1.1.01 nicht l&auml;nger unterst&uuml;tzt.</li>
   <li>Sobald <a href="http://www.matcode.com/mpress.htm">mpress.exe</a> im Unterordner "Compiler" vorhanden ist, wird die ausf&uuml;hrbare Datei komprimiert, solange es nicht mit <code>/mpress 0</code> oder mit der GUI-Einstellung deaktiviert wurde. Dabei wird auch der Quellcode des Scripts komprimiert (ohne Kommentare), der ansonsten mithilfe eines PE-Ressource-Editors aus der EXE-Datei extrahiert werden kann.</li>
   <li>Die Befehle <a href="commands/_NoTrayIcon.htm">#NoTrayIcon</a> und "<a href="commands/Menu.htm">Menu, Tray, ShowMainWindow</a>" beeinflussen das Verhalten von kompilierten Scripts.</li>
@@ -243,11 +245,11 @@ Verwendung:
   <li>Quelldateien <b class="red">m&uuml;ssen</b> f&uuml;r kompilierte Scripts in <b>UTF-8</b> kodiert sein oder d&uuml;rfen nur ASCII-Zeichen enthalten.</li>
   <li>Wenn die Datei mit einer UTF-8- oder UTF-16-Bytereihenfolge-Markierung (BOM) beginnt, dann wird der entsprechende Zeichensatz verwendet und die <a href="#CPn">/CP<i>n</i></a>-Option ignoriert.</li>
   <li>Sobald die <a href="#CPn">/CP<i>n</i></a>-Option in der Befehlszeile angegeben wird, wird der Zeichensatz <i>n</i> verwendet. F&uuml;r eine Liste von numerischen Zeichensatzkennungen, siehe <a href="http://msdn.microsoft.com/en-us/library/dd317756.aspx">MSDN</a>.</li>
-  <li>Ansonsten verwenden Unicode-Versionen den UTF-8-Zeichensatz und ANSI-Versionen den Standard-ANSI-Zeichensatz des Systems.</li>
+  <li>Ansonsten verwendet AutoHotkey den UTF-8-Zeichensatz.</li>
 </ul>
 <p>Beachtet, dass das nur f&uuml;r Script-Dateien gilt, die mit AutoHotkey geladen wurden, nicht f&uuml;r die Dateibearbeitung im Script selbst. <a href="commands/FileEncoding.htm">FileEncoding</a> kontrolliert die Standardkodierung von Dateien, die vom Script gelesen oder geschrieben wurden, w&auml;hrend <a href="commands/IniRead.htm">IniRead</a> und <a href="commands/IniWrite.htm">IniWrite</a> immer UTF-16 oder ANSI verwenden.</p>
-<p>Sobald der gesamte Text in das <a href="Compat.htm#Format">urspr&uuml;ngliche String-Format</a> umgewandelt wird (falls erforderlich), werden ung&uuml;ltige oder nicht vorhandene Zeichen im urspr&uuml;nglichen Zeichensatz mit einem Fragezeichen ersetzt. In Unicode-Versionen sollte das nur auftreten, wenn Kodierungsfehler in der Script-Datei auftreten oder der verwendete Zeichensatz zum Speichern oder Laden einer Datei nicht passt.</p>
-<p><b class="red">Bitte beachtet:</b><br> In Unicode-Versionen werden Nicht-ASCII-Zeichen wahrscheinlich falsch interpretiert oder mit mit einem Fragezeichen ersetzt, wenn der Zeichensatz nicht korrekt angegeben wird. Die UTF-8-Kodierung wird zur Verwendung empfohlen. Falls der bevorzugte Editor UTF-8 (oder UTF-16 mit BOM) nicht unterst&uuml;tzt, verwendet die <a href="#CPn">/CP<i>n</i></a>-Option und ersetzt <i>n</i> mit 0 oder mit der entsprechenden numerischen Kennung des System-ANSI-Zeichensatzes.</p>
+<p>Sobald der gesamte Text in das <a href="Compat.htm#Format">urspr&uuml;ngliche String-Format</a> umgewandelt wird (falls erforderlich), werden ung&uuml;ltige oder nicht vorhandene Zeichen im urspr&uuml;nglichen Zeichensatz mit einem Fragezeichen ersetzt. Das sollte nur geschehen, wenn Kodierungsfehler in der Script-Datei auftreten oder der verwendete Zeichensatz zum Speichern oder Laden einer Datei nicht passt.</p>
+<p><b class="red">Bitte beachtet:</b><br> Nicht-ASCII-Zeichen werden wahrscheinlich falsch interpretiert oder mit mit einem Fragezeichen ersetzt, wenn der Zeichensatz nicht korrekt angegeben wird. Die UTF-8-Kodierung wird zur Verwendung empfohlen. Falls der bevorzugte Editor UTF-8 (oder UTF-16 mit BOM) nicht unterst&uuml;tzt, verwendet die <a href="#CPn">/CP<i>n</i></a>-Option und ersetzt <i>n</i> mit 0 oder mit der entsprechenden numerischen Kennung des System-ANSI-Zeichensatzes.</p>
 <p><a href="commands/RegWrite.htm">RegWrite</a> kann verwendet werden, um den Standard f&uuml;r Scripts festzulegen, die im Explorer ausgef&uuml;hrt werden (z. B. beim Doppelklick auf einer Datei):</p>
 <pre><em>; Hebt die Kommentierung der entsprechenden Zeile auf oder lasst sie alle kommentiert,
 ;   um den Standard der aktuellen Version wiederherzustellen. Je nach Bedarf anpassen:
@@ -301,15 +303,15 @@ ifWinExist %Scriptpfad% ahk_class AutoHotkey
 <p>Sobald der Debugger-Client verbunden ist, kann er wieder getrennt werden, ohne das Script selbst beenden zu m&uuml;ssen, indem der "detach"-Befehl von DBGp gesendet wird.</p>
 
 <h2 id="port">Portabilit&auml;t von AutoHotkey.exe</h2>
-<p>Es wird nur die Datei AutoHotkey.exe ben&ouml;tigt, um ein beliebiges .ahk-Script zu starten. Die einzige Ausnahme bildet Windows NT4, da bei diesem Betriebssystem eine Kopie von psapi.dll ben&ouml;tigt wird, sobald das Script den <a href="commands/Process.htm">Process-Befehl</a> verwendet.</p>
+<p>Es wird nur die Datei AutoHotkey.exe ben&ouml;tigt, um ein beliebiges .ahk-Script zu starten.<br></p>
 <p><span class="ver">[AHK_L 51+]:</span> Durch das Umbenennen von AutoHotkey.exe wird au&szlig;erdem ge&auml;ndert, welches Script <a href="#defaultfile">standardm&auml;&szlig;ig</a> ausgef&uuml;hrt wird. Diese Alternative kann anstelle der Script-Kompilierung verwendet werden, um das Script ohne installiertem AutoHotkey auszuf&uuml;hren. Zum Beispiel wird <i>EigenesScript</i>.exe automatisch <i>EigenesScript</i>.ahk ausf&uuml;hren, falls ein Dateiname nicht verf&uuml;gbar ist, aber in der Lage ist, andere Scripts auszuf&uuml;hren.</p>
 <h2 id="install">Installer-Optionen</h2>
 <p>Damit AutoHotkey automatisch in das Standardverzeichnis installiert wird (das standardm&auml;&szlig;ig beim normalen Installationsmodus angezeigt wird), &uuml;bergibt den Parameter /S an den Installer (/S muss gro&szlig;geschrieben werden). Zum Beispiel:</p>
 <pre>AutoHotkey104307_Install.exe /S</pre>
 <p>Mithilfe des /D-Parameters kann ein beliebiges Verzeichnis anstelle des Standardverzeichnisses angegeben werden (ohne /S wird damit das Standardverzeichnis ge&auml;ndert, welches im Installer angezeigt wird). Zum Beispiel:</p>
 <pre>AutoHotkey104307_Install.exe /S /D=C:\Programme\AutoHotkey</pre>
-<p><span class="ver">[v1.0.92.01+]:</span> Um die ANSI- oder x64-Version anstelle der Unicode-x86-Version zu installieren, &uuml;bergibt den /ANSI oder /x64-Parameter. Zum Beispiel:</p>
-<pre>AutoHotkey109700_Install.exe /S /ANSI</pre>
+<p><span class="ver">[v1.0.92.01+]:</span> Um anstelle der x86-Version die x64-Version zu installieren, &uuml;bergibt den /x64-Parameter. Zum Beispiel:</p>
+<pre>AutoHotkey109700_Install.exe /S /x64</pre>
 <p>Um AutoHotkey automatisch zu deinstallieren, &uuml;bergibt den Parameter /S an den Uninstaller. Zum Beispiel:</p>
 <pre>"C:\Programme\AutoHotkey\uninst.exe" /S</pre>
 <h2>Script-Beispiele</h2>

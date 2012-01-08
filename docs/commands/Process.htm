@@ -132,9 +132,9 @@ Loop, % r // 4  <em>; Array f&uuml;r IDs parsen, als DWORDs (32 bit):</em>
    If !h
       continue
    VarSetCapacity(n, s, 0)  <em>; ein Puffer, welcher den Basisnamen des Moduls ermittelt:</em>
-   e := DllCall("Psapi.dll\GetModuleBaseName", "Ptr", h, "Ptr", 0, "Str", n, "UInt", A_IsUnicode ? s//2 : s)
+   e := DllCall("Psapi.dll\GetModuleBaseName", "Ptr", h, "Ptr", 0, "Str", n, "UInt", s//2)
    If !e    <em>; Zur&uuml;ckfallende Methode f&uuml;r 64-Bit-Prozesse, wenn im 32-Bit-Modus:</em>
-      If e := DllCall("Psapi.dll\GetProcessImageFileName", "Ptr", h, "Str", n, "UInt", A_IsUnicode ? s//2 : s)
+      If e := DllCall("Psapi.dll\GetProcessImageFileName", "Ptr", h, "Str", n, "UInt", s//2)
          SplitPath n, n
    DllCall("CloseHandle", "Ptr", h)  <em>; Schlie&szlig;t diesen Prozess-Handle, um Speicherplatz zu sparen.</em>
    If (n &amp;&amp; e)  <em>; Wenn Abbild nicht Null ist, zur Liste hinzuf&uuml;gen:</em>

@@ -113,7 +113,7 @@
 <tr>
 <td>8192</td>
 <td>
-    SM_SHUTTINGDOWN: Ungleich 0, wenn die aktuelle Sitzung heruntergefahren wird, ansonsten 0.</td>
+    SM_SHUTTINGDOWN: Ungleich 0, wenn die aktuelle Sitzung heruntergefahren wird, ansonsten 0. In Windows 2000 ist der ermittelte Wert immer 0. <br></td>
 </tr>
 <tr>
 <td>23</td>
@@ -167,7 +167,7 @@
   </tr>
   <tr>
     <td>83, 84 </td>
-    <td>SM_CXFOCUSBORDER, SM_CYFOCUSBORDER: Breite (in Pixel) vom linken und rechten Rand und die H&ouml;he vom oberen und unteren Rand des Fokusrechtecks eines Steuerelements.</td>
+    <td>SM_CXFOCUSBORDER, SM_CYFOCUSBORDER: Breite (in Pixel) vom linken und rechten Rand und die H&ouml;he vom oberen und unteren Rand des Fokusrechtecks eines Steuerelements. In Windows 2000 ist der ermittelte Wert immer 0.<br></td>
   </tr>
   <tr>
     <td>21, 3 </td>
@@ -248,6 +248,7 @@
   <tr>
     <td>82</td>
     <td> SM_IMMENABLED: Ungleich 0, wenn die Funktionen vom Input Method Manager (IMM) / Input Method Editor (IME) aktiviert sind, ansonsten 0.
+
 <p>SM_IMMENABLED zeigt an, ob das System bereit ist, einen unicode-basierten IME auf eine Unicode-Anwendung anzuwenden. Um sicherzustellen, dass ein sprachabh&auml;ngiger IME funktioniert, &uuml;berpr&uuml;ft SM_DBCSENABLED und den ANSI-Zeichensatz des Systems. Andernfalls kann die ANSI-zu-Unicode-Konvertierung nicht richtig ausgef&uuml;hrt werden, oder einige Komponenten wie Schriftarten oder Registrierungseinstellungen sind nicht vorhanden. </p></td>
   </tr>
   <tr>
@@ -276,7 +277,7 @@
   </tr>
   <tr>
     <td>73</td>
-    <td>SM_SLOWMACHINE: Immer 0 in Windows NT/2000/XP oder h&ouml;her.<br></td>
+    <td>SM_SLOWMACHINE: In Windows 2000/XP und h&ouml;her immer 0.<br></td>
   </tr>
   <tr>
     <td>86</td>

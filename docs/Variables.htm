@@ -290,10 +290,11 @@ Auswertung von y nicht weiter relevant. Zur Verbesserung der Performance
     <p>F&uuml;r <a href="Scripts.htm#ahk2exe">kompilierte Scripts</a>: Das gleiche wie oben, nur dass das AutoHotkey-Verzeichnis mithilfe des Registrierungseintrags <em>HKEY_LOCAL_MACHINE\SOFTWARE\AutoHotkey\InstallDir</em> ermittelt wird. Wenn kein Eintrag gefunden wird, dann ist A_AhkPath leer.</p></td>
   </tr>
   <tr>
-  </tr><tr id="IsUnicode">
+  </tr>
+  <!--tr id="IsUnicode">
     <td>A_IsUnicode</td>
     <td>In Unicode-Versionen enth&auml;lt diese Variable eine 1 (wahr). In ANSI-Versionen ist sie unbestimmt, daher falsch.</td>
-  </tr>
+  </tr-->
   <tr id="IsCompiled">
     <td>A_IsCompiled</td>
     <td>Enth&auml;lt eine 1, wenn das Script als eine <a href="Scripts.htm#ahk2exe">kompilierte EXE-Datei</a> ausgef&uuml;hrt wird, ansonsten nichts.</td>
@@ -469,7 +470,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
   <tbody>
 <tr id="TimeIdle">
     <td>A_TimeIdle</td>
-    <td>Ruft die Anzahl der Millisekunden ab, die seit der letzten Tastatur-, Maus- oder sonstige Eingabe verstrichen sind. Dadurch kann festgestellt werden, ob der Benutzer abwesend ist. Diese Variable ist leer, es sei denn, das Betriebssystem ist Windows 2000, XP oder h&ouml;her. Physische Benutzereingaben sowie k&uuml;nstlich erzeugte Eingaben von <strong>beliebigen</strong> Programmen oder Scripts (z. B. der <a href="commands/Send.htm">Send</a>- oder <a href="commands/MouseMove.htm">MouseMove</a>-Befehl) setzen diesen Wert wieder auf 0. Da dieser Wert in Zehnerschritten erh&ouml;ht wird, sollte nicht &uuml;berpr&uuml;ft werden, ob der Wert einem anderen Wert entspricht. &Uuml;berpr&uuml;ft stattdessen, ob der Wert gr&ouml;&szlig;er oder kleiner als ein anderer Wert ist. Zum Beispiel: IfGreater, A_TimeIdle, 600000, MsgBox, Die letzte Tastatur- oder Mausaktivit&auml;t erfolgte vor ca. 10 Minuten. </td>
+    <td>Ruft die Anzahl der Millisekunden ab, die seit der letzten Tastatur-, Maus- oder sonstige Eingabe verstrichen sind. Dadurch kann festgestellt werden, ob der Benutzer abwesend ist. Physische Benutzereingaben sowie k&uuml;nstlich erzeugte Eingaben von <strong>beliebigen</strong> Programmen oder Scripts (z. B. der <a href="commands/Send.htm">Send</a>- oder <a href="commands/MouseMove.htm">MouseMove</a>-Befehl) setzen diesen Wert wieder auf 0. Da dieser Wert in Zehnerschritten erh&ouml;ht wird, sollte nicht &uuml;berpr&uuml;ft werden, ob der Wert einem anderen Wert entspricht. &Uuml;berpr&uuml;ft stattdessen, ob der Wert gr&ouml;&szlig;er oder kleiner als ein anderer Wert ist. Zum Beispiel: IfGreater, A_TimeIdle, 600000, MsgBox, Die letzte Tastatur- oder Mausaktivit&auml;t erfolgte vor ca. 10 Minuten. </td>
   </tr>
   <tr id="TimeIdlePhysical">
     <td>A_TimeIdlePhysical</td>
@@ -582,7 +583,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
     <td>Der vollst&auml;ndige Pfad und Name des Ordners, der tempor&auml;re Dateien enth&auml;lt (z. B. C:\DOCUME~1\Benutzername\LOCALS~1\Temp). Der Pfad wird von einem der folgenden Orten abgerufen (in dieser Reihenfolge):<br>
 <ol>
 <li>die <a href="#env">Umgebungsvariable</a> TMP, TEMP oder USERPROFILE</li>
-<li>das Windows-Verzeichnis. <a href="#WorkingDir">A_WorkingDir</a> in Windows 9x, wenn weder TMP noch TEMP existiert</li></ol></td>
+<li>das Windows-Verzeichnis</li></ol></td>
   </tr>
   <tr id="OSVersion">
     <td>A_OSVersion</td>
@@ -660,7 +661,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
   <tr id="IsAdmin">
     <td>A_IsAdmin</td>
     <td>
-<p>Wenn der aktuelle Benutzer Administratorrechte hat, dann enth&auml;lt diese Variable eine 1. Ansonsten enth&auml;lt sie eine 0. In Windows 95/98/Me enth&auml;lt diese Variable immer eine 1.</p>
+<p>Wenn der aktuelle Benutzer Administratorrechte hat, dann enth&auml;lt diese Variable eine 1. Ansonsten enth&auml;lt sie eine 0.</p>
     <p><a name="RequireAdmin" id="RequireAdmin"></a>In Windows Vista oder h&ouml;her ben&ouml;tigen einige Scripts m&ouml;glicherweise Administratorrechte, damit sie richtig funktionieren (z. B. ein Script, das mit Prozessen oder Fenster interagiert, die als Administrator ausgef&uuml;hrt werden). F&uuml;gt daf&uuml;r das Folgende am Anfang des Scripts hinzu:</p>
     <pre>if not A_IsAdmin
 {
@@ -674,7 +675,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
     <td>
 <p>Die Breite und H&ouml;he des prim&auml;ren Monitors in Pixel (z. B. 1024 und 768).</p>
       <p>Um die Abmessungen von anderen Monitoren zu erfassen, verwendet <a href="commands/SysGet.htm">SysGet</a>.</p>
-      <p>Um stattdessen die Breite und H&ouml;he des gesamten Desktops zu ermitteln (auch wenn es sich &uuml;ber mehrere Monitore erstreckt), verwendet das folgende Beispiel (in Windows 95/NT jedoch werden beide folgende Variablen auf 0 gesetzt):<br> <a href="commands/SysGet.htm">SysGet</a>, VirtuelleBreite, 78<br> <a href="commands/SysGet.htm">SysGet</a>, VirtuelleH&ouml;he, 79</p>
+      <p>Um stattdessen die Breite und H&ouml;he des gesamten Desktops zu ermitteln (auch wenn es sich &uuml;ber mehrere Monitore erstreckt), verwendet das folgende Beispiel:<br> <a href="commands/SysGet.htm">SysGet</a>, VirtuelleBreite, 78<br> <a href="commands/SysGet.htm">SysGet</a>, VirtuelleH&ouml;he, 79</p>
     <p>Dar&uuml;ber hinaus kann <a href="commands/SysGet.htm">SysGet</a> verwendet werden, um den Arbeitsbereich eines Monitors zu erfassen, der m&ouml;glicherweise kleiner als die Gesamtfl&auml;che des Monitors ist, weil die Taskleiste und andere registrierte Desktop-Werkzeugleisten ausgeschlossen werden.</p></td>
   </tr>
   <tr id="IPAddress">
@@ -688,9 +689,7 @@ MsgBox,  %Ablaufzeit% Millisekunden sind verstrichen.</pre>
 <tr id="Cursor">
     <td>A_Cursor</td>
     <td>
-<p>Der Typ des angezeigten Mauszeigers. Sie enth&auml;lt einen der folgenden W&ouml;rter: AppStarting, Arrow, Cross, Help, IBeam, Icon, No, Size, SizeAll, SizeNESW, SizeNS, SizeNWSE, SizeWE, UpArrow, Wait, Unknown. Die Abk&uuml;rzungen bei den Size-Mauszeigern sind Himmelsrichtungen, z. B. NESW = NorthEast+SouthWest (Nordosten+S&uuml;dwesten). Die handf&ouml;rmigen Mauszeiger (Zeigen und Greifen) sind als Unknown klassifiziert.</p>
-      <p>Bekannte Einschr&auml;nkung in Windows 95: Wenn der Variableninhalt mehrmals schnell aufgerufen wird (d. h. alle 500 ms oder schneller), dann ist der Benutzer wahrscheinlich nicht mehr in der Lage, einen Doppelklick durchzuf&uuml;hren. Es ist keine &Uuml;bergangsl&ouml;sung bekannt.<br>
-</p></td>
+<p>Der Typ des angezeigten Mauszeigers. Sie enth&auml;lt einen der folgenden W&ouml;rter: AppStarting, Arrow, Cross, Help, IBeam, Icon, No, Size, SizeAll, SizeNESW, SizeNS, SizeNWSE, SizeWE, UpArrow, Wait, Unknown. Die Abk&uuml;rzungen bei den Size-Mauszeigern sind Himmelsrichtungen, z. B. NESW = NorthEast+SouthWest (Nordosten+S&uuml;dwesten). Die handf&ouml;rmigen Mauszeiger (Zeigen und Greifen) sind als Unknown klassifiziert.</p></td>
   </tr>
   <tr id="Caret">
     <td>A_CaretX<br> A_CaretY</td>
