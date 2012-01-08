@@ -10,7 +10,8 @@
      <param name="ImageType" value="Folder">
      <param name="comment" value="title:Hilfe für AutoHotkey 2">
      <param name="comment" value="base:docs\index.htm">
-   </OBJECT>
+     <param name="FrameName" value="right">
+</OBJECT>
    <UL>
       <LI><OBJECT type="text/sitemap">
             <param name="Name" value="AutoHotkey">
