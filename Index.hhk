@@ -23,11 +23,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="#Delimiter">
-		<param name="Local" value="docs/commands/_EscapeChar.htm#Delimiter">
+		<param name="Local" value="docs\commands\_EscapeChar.htm#Delimiter">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="#DerefChar">
-		<param name="Local" value="docs/commands/_EscapeChar.htm#DerefChar">
+		<param name="Local" value="docs\commands\_EscapeChar.htm#DerefChar">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="#ErrorStdOut">
@@ -87,7 +87,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="#LTrim">
-		<param name="Local" value="docs/Scripts.htm#LTrim">
+		<param name="Local" value="docs\Scripts.htm#LTrim">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="#MaxHotkeysPerInterval">
@@ -147,159 +147,159 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="{Blind}">
-		<param name="Local" value="docs/commands/Send.htm#blind">
+		<param name="Local" value="docs\commands\Send.htm#blind">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_AhkPath">
-		<param name="Local" value="docs/Variables.htm#AhkPath">
+		<param name="Local" value="docs\Variables.htm#AhkPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_AhkVersion">
-		<param name="Local" value="docs/Variables.htm#AhkVersion">
+		<param name="Local" value="docs\Variables.htm#AhkVersion">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_AppData">
-		<param name="Local" value="docs/Variables.htm#AppData">
+		<param name="Local" value="docs\Variables.htm#AppData">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_AppDataCommon">
-		<param name="Local" value="docs/Variables.htm#AppDataCommon">
+		<param name="Local" value="docs\Variables.htm#AppDataCommon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_AutoTrim">
-		<param name="Local" value="docs/Variables.htm#AutoTrim">
+		<param name="Local" value="docs\Variables.htm#AutoTrim">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_BatchLines">
-		<param name="Local" value="docs/Variables.htm#BatchLines">
+		<param name="Local" value="docs\Variables.htm#BatchLines">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_CaretX">
-		<param name="Local" value="docs/Variables.htm#Caret">
+		<param name="Local" value="docs\Variables.htm#Caret">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_CaretY">
-		<param name="Local" value="docs/Variables.htm#Caret">
+		<param name="Local" value="docs\Variables.htm#Caret">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ComputerName">
-		<param name="Local" value="docs/Variables.htm#ComputerName">
+		<param name="Local" value="docs\Variables.htm#ComputerName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ControlDelay">
-		<param name="Local" value="docs/Variables.htm#ControlDelay">
+		<param name="Local" value="docs\Variables.htm#ControlDelay">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Cursor">
-		<param name="Local" value="docs/Variables.htm#Cursor">
+		<param name="Local" value="docs\Variables.htm#Cursor">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DD">
-		<param name="Local" value="docs/Variables.htm#DD">
+		<param name="Local" value="docs\Variables.htm#DD">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DDD">
-		<param name="Local" value="docs/Variables.htm#DDDD">
+		<param name="Local" value="docs\Variables.htm#DDDD">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DDDD">
-		<param name="Local" value="docs/Variables.htm#DDDD">
+		<param name="Local" value="docs\Variables.htm#DDDD">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DefaultMouseSpeed">
-		<param name="Local" value="docs/Variables.htm#DefaultMouseSpeed">
+		<param name="Local" value="docs\Variables.htm#DefaultMouseSpeed">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Desktop">
-		<param name="Local" value="docs/Variables.htm#Desktop">
+		<param name="Local" value="docs\Variables.htm#Desktop">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DesktopCommon">
-		<param name="Local" value="docs/Variables.htm#DesktopCommon">
+		<param name="Local" value="docs\Variables.htm#DesktopCommon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DetectHiddenText">
-		<param name="Local" value="docs/Variables.htm#DetectHiddenText">
+		<param name="Local" value="docs\Variables.htm#DetectHiddenText">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_DetectHiddenWindows">
-		<param name="Local" value="docs/Variables.htm#DetectHiddenWindows">
+		<param name="Local" value="docs\Variables.htm#DetectHiddenWindows">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_EndChar">
-		<param name="Local" value="docs/Variables.htm#EndChar">
+		<param name="Local" value="docs\Variables.htm#EndChar">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_EventInfo">
-		<param name="Local" value="docs/Variables.htm#EventInfo">
+		<param name="Local" value="docs\Variables.htm#EventInfo">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ExitReason">
-		<param name="Local" value="docs/Variables.htm#ExitReason">
+		<param name="Local" value="docs\Variables.htm#ExitReason">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_FileEncoding">
-		<param name="Local" value="docs/Variables.htm#FileEncoding">
+		<param name="Local" value="docs\Variables.htm#FileEncoding">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_FormatFloat">
-		<param name="Local" value="docs/Variables.htm#FormatFloat">
+		<param name="Local" value="docs\Variables.htm#FormatFloat">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_FormatInteger">
-		<param name="Local" value="docs/Variables.htm#FormatInteger">
+		<param name="Local" value="docs\Variables.htm#FormatInteger">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Gui">
-		<param name="Local" value="docs/Variables.htm#Gui">
+		<param name="Local" value="docs\Variables.htm#Gui">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiControl">
-		<param name="Local" value="docs/Variables.htm#GuiControl">
+		<param name="Local" value="docs\Variables.htm#GuiControl">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiControlEvent">
-		<param name="Local" value="docs/Variables.htm#GuiControlEvent">
+		<param name="Local" value="docs\Variables.htm#GuiControlEvent">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiEvent">
-		<param name="Local" value="docs/Variables.htm#GuiEvent">
+		<param name="Local" value="docs\Variables.htm#GuiEvent">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiHeight">
-		<param name="Local" value="docs/Variables.htm#GuiWidth">
+		<param name="Local" value="docs\Variables.htm#GuiWidth">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiWidth">
-		<param name="Local" value="docs/Variables.htm#GuiWidth">
+		<param name="Local" value="docs\Variables.htm#GuiWidth">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiX">
-		<param name="Local" value="docs/Variables.htm#GuiX">
+		<param name="Local" value="docs\Variables.htm#GuiX">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_GuiY">
-		<param name="Local" value="docs/Variables.htm#GuiY">
+		<param name="Local" value="docs\Variables.htm#GuiY">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Hour">
-		<param name="Local" value="docs/Variables.htm#Hour">
+		<param name="Local" value="docs\Variables.htm#Hour">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IconFile">
-		<param name="Local" value="docs/Variables.htm#IconFile">
+		<param name="Local" value="docs\Variables.htm#IconFile">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IconHidden">
-		<param name="Local" value="docs/Variables.htm#IconHidden">
+		<param name="Local" value="docs\Variables.htm#IconHidden">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IconNumber">
-		<param name="Local" value="docs/Variables.htm#IconNumber">
+		<param name="Local" value="docs\Variables.htm#IconNumber">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IconTip">
-		<param name="Local" value="docs/Variables.htm#IconTip">
+		<param name="Local" value="docs\Variables.htm#IconTip">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Index">
@@ -307,39 +307,39 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IPAddress1 bis 4">
-		<param name="Local" value="docs/Variables.htm#IPAddress">
+		<param name="Local" value="docs\Variables.htm#IPAddress">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsAdmin">
-		<param name="Local" value="docs/Variables.htm#IsAdmin">
+		<param name="Local" value="docs\Variables.htm#IsAdmin">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsCompiled">
-		<param name="Local" value="docs/Variables.htm#IsCompiled">
+		<param name="Local" value="docs\Variables.htm#IsCompiled">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsCritical">
-		<param name="Local" value="docs/Variables.htm#IsCritical">
+		<param name="Local" value="docs\Variables.htm#IsCritical">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsPaused">
-		<param name="Local" value="docs/Variables.htm#IsPaused">
+		<param name="Local" value="docs\Variables.htm#IsPaused">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsSuspended">
-		<param name="Local" value="docs/Variables.htm#IsSuspended">
+		<param name="Local" value="docs\Variables.htm#IsSuspended">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsUnicode">
-		<param name="Local" value="docs/Variables.htm#IsUnicode">
+		<param name="Local" value="docs\Variables.htm#IsUnicode">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_KeyDelay">
-		<param name="Local" value="docs/Variables.htm#KeyDelay">
+		<param name="Local" value="docs\Variables.htm#KeyDelay">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Language">
-		<param name="Local" value="docs/Variables.htm#Language">
+		<param name="Local" value="docs\Variables.htm#Language">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Language-Sprachcodes">
@@ -347,79 +347,79 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LastError">
-		<param name="Local" value="docs/Variables.htm#LastError">
+		<param name="Local" value="docs\Variables.htm#LastError">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LineFile">
-		<param name="Local" value="docs/Variables.htm#LineFile">
+		<param name="Local" value="docs\Variables.htm#LineFile">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LineNumber">
-		<param name="Local" value="docs/Variables.htm#LineNumber">
+		<param name="Local" value="docs\Variables.htm#LineNumber">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopField">
-		<param name="Local" value="docs/commands/LoopParse.htm#LoopField">
+		<param name="Local" value="docs\commands\LoopParse.htm#LoopField">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileAttrib">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileAttrib">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileAttrib">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileDir">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileDir">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileDir">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileExt">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileExt">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileExt">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileFullPath">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileFullPath">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileFullPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileLongPath">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileLongPath">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileLongPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileName">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileName">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileShortName">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileShortName">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileShortName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileShortPath">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileShortPath">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileShortPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileSize">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileSize">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileSize">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileSizeKB">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileSizeKB">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileSizeKB">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileSizeMB">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileSizeMB">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileSizeMB">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileTimeAccessed">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileTimeAccessed">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileTimeAccessed">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileTimeCreated">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileTimeCreated">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileTimeCreated">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopFileTimeModified">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileTimeModified">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileTimeModified">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopReadLine">
-		<param name="Local" value="docs/commands/LoopReadFile.htm#LoopReadLine">
+		<param name="Local" value="docs\commands\LoopReadFile.htm#LoopReadLine">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_LoopRegKey">
@@ -443,231 +443,231 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MDay">
-		<param name="Local" value="docs/Variables.htm#DD">
+		<param name="Local" value="docs\Variables.htm#DD">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Min">
-		<param name="Local" value="docs/Variables.htm#Min">
+		<param name="Local" value="docs\Variables.htm#Min">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MM">
-		<param name="Local" value="docs/Variables.htm#MM">
+		<param name="Local" value="docs\Variables.htm#MM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MMM">
-		<param name="Local" value="docs/Variables.htm#MMM">
+		<param name="Local" value="docs\Variables.htm#MMM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MMMM">
-		<param name="Local" value="docs/Variables.htm#MMMM">
+		<param name="Local" value="docs\Variables.htm#MMMM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Mon">
-		<param name="Local" value="docs/Variables.htm#MM">
+		<param name="Local" value="docs\Variables.htm#MM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MouseDelay">
-		<param name="Local" value="docs/Variables.htm#MouseDelay">
+		<param name="Local" value="docs\Variables.htm#MouseDelay">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MSec">
-		<param name="Local" value="docs/Variables.htm#MSec">
+		<param name="Local" value="docs\Variables.htm#MSec">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_MyDocuments">
-		<param name="Local" value="docs/Variables.htm#MyDocuments">
+		<param name="Local" value="docs\Variables.htm#MyDocuments">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Now">
-		<param name="Local" value="docs/Variables.htm#Now">
+		<param name="Local" value="docs\Variables.htm#Now">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_NowUTC">
-		<param name="Local" value="docs/Variables.htm#NowUTC">
+		<param name="Local" value="docs\Variables.htm#NowUTC">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_NumBatchLines">
-		<param name="Local" value="docs/Variables.htm#BatchLines">
+		<param name="Local" value="docs\Variables.htm#BatchLines">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_OSType">
-		<param name="Local" value="docs/Variables.htm#OSType">
+		<param name="Local" value="docs\Variables.htm#OSType">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_OSVersion">
-		<param name="Local" value="docs/Variables.htm#OSVersion">
+		<param name="Local" value="docs\Variables.htm#OSVersion">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_PriorHotkey">
-		<param name="Local" value="docs/Variables.htm#PriorHotkey">
+		<param name="Local" value="docs\Variables.htm#PriorHotkey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_PriorKey">
-		<param name="Local" value="docs/Variables.htm#PriorKey">
+		<param name="Local" value="docs\Variables.htm#PriorKey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ProgramFiles">
-		<param name="Local" value="docs/Variables.htm#ProgramFiles">
+		<param name="Local" value="docs\Variables.htm#ProgramFiles">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Programs">
-		<param name="Local" value="docs/Variables.htm#Programs">
+		<param name="Local" value="docs\Variables.htm#Programs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ProgramsCommon">
-		<param name="Local" value="docs/Variables.htm#ProgramsCommon">
+		<param name="Local" value="docs\Variables.htm#ProgramsCommon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_PtrSize">
-		<param name="Local" value="docs/Variables.htm#PtrSize">
+		<param name="Local" value="docs\Variables.htm#PtrSize">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScreenHeight">
-		<param name="Local" value="docs/Variables.htm#Screen">
+		<param name="Local" value="docs\Variables.htm#Screen">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScreenWidth">
-		<param name="Local" value="docs/Variables.htm#Screen">
+		<param name="Local" value="docs\Variables.htm#Screen">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScriptDir">
-		<param name="Local" value="docs/Variables.htm#ScriptDir">
+		<param name="Local" value="docs\Variables.htm#ScriptDir">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScriptFullPath">
-		<param name="Local" value="docs/Variables.htm#ScriptFullPath">
+		<param name="Local" value="docs\Variables.htm#ScriptFullPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScriptHwnd">
-		<param name="Local" value="docs/Variables.htm#ScriptHwnd">
+		<param name="Local" value="docs\Variables.htm#ScriptHwnd">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScriptName">
-		<param name="Local" value="docs/Variables.htm#ScriptName">
+		<param name="Local" value="docs\Variables.htm#ScriptName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Sec">
-		<param name="Local" value="docs/Variables.htm#Sec">
+		<param name="Local" value="docs\Variables.htm#Sec">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Space">
-		<param name="Local" value="docs/Variables.htm#Space">
+		<param name="Local" value="docs\Variables.htm#Space">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_StartMenu">
-		<param name="Local" value="docs/Variables.htm#StartMenu">
+		<param name="Local" value="docs\Variables.htm#StartMenu">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_StartMenuCommon">
-		<param name="Local" value="docs/Variables.htm#StartMenuCommon">
+		<param name="Local" value="docs\Variables.htm#StartMenuCommon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Startup">
-		<param name="Local" value="docs/Variables.htm#Startup">
+		<param name="Local" value="docs\Variables.htm#Startup">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_StartupCommon">
-		<param name="Local" value="docs/Variables.htm#StartupCommon">
+		<param name="Local" value="docs\Variables.htm#StartupCommon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_StringCaseSense">
-		<param name="Local" value="docs/Variables.htm#StringCaseSense">
+		<param name="Local" value="docs\Variables.htm#StringCaseSense">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Tab">
-		<param name="Local" value="docs/Variables.htm#Tab">
+		<param name="Local" value="docs\Variables.htm#Tab">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Temp">
-		<param name="Local" value="docs/Variables.htm#Temp">
+		<param name="Local" value="docs\Variables.htm#Temp">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ThisFunc">
-		<param name="Local" value="docs/Variables.htm#ThisFunc">
+		<param name="Local" value="docs\Variables.htm#ThisFunc">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ThisHotkey">
-		<param name="Local" value="docs/Variables.htm#ThisHotkey">
+		<param name="Local" value="docs\Variables.htm#ThisHotkey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ThisLabel">
-		<param name="Local" value="docs/Variables.htm#ThisLabel">
+		<param name="Local" value="docs\Variables.htm#ThisLabel">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ThisMenu">
-		<param name="Local" value="docs/Variables.htm#ThisMenu">
+		<param name="Local" value="docs\Variables.htm#ThisMenu">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ThisMenuItem">
-		<param name="Local" value="docs/Variables.htm#ThisMenuItem">
+		<param name="Local" value="docs\Variables.htm#ThisMenuItem">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ThisMenuItemPos">
-		<param name="Local" value="docs/Variables.htm#ThisMenuItemPos">
+		<param name="Local" value="docs\Variables.htm#ThisMenuItemPos">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TickCount">
-		<param name="Local" value="docs/Variables.htm#TickCount">
+		<param name="Local" value="docs\Variables.htm#TickCount">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TimeIdle">
-		<param name="Local" value="docs/Variables.htm#TimeIdle">
+		<param name="Local" value="docs\Variables.htm#TimeIdle">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TimeIdlePhysical">
-		<param name="Local" value="docs/Variables.htm#TimeIdlePhysical">
+		<param name="Local" value="docs\Variables.htm#TimeIdlePhysical">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TimeSincePriorHotkey">
-		<param name="Local" value="docs/Variables.htm#TimeSincePriorHotkey">
+		<param name="Local" value="docs\Variables.htm#TimeSincePriorHotkey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TimeSinceThisHotkey">
-		<param name="Local" value="docs/Variables.htm#TimeSinceThisHotkey">
+		<param name="Local" value="docs\Variables.htm#TimeSinceThisHotkey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TitleMatchMode">
-		<param name="Local" value="docs/Variables.htm#TitleMatchMode">
+		<param name="Local" value="docs\Variables.htm#TitleMatchMode">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_TitleMatchModeSpeed">
-		<param name="Local" value="docs/Variables.htm#TitleMatchModeSpeed">
+		<param name="Local" value="docs\Variables.htm#TitleMatchModeSpeed">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_UserName">
-		<param name="Local" value="docs/Variables.htm#UserName">
+		<param name="Local" value="docs\Variables.htm#UserName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_WDay">
-		<param name="Local" value="docs/Variables.htm#WDay">
+		<param name="Local" value="docs\Variables.htm#WDay">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_WinDelay">
-		<param name="Local" value="docs/Variables.htm#WinDelay">
+		<param name="Local" value="docs\Variables.htm#WinDelay">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_WinDir">
-		<param name="Local" value="docs/Variables.htm#WinDir">
+		<param name="Local" value="docs\Variables.htm#WinDir">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_WorkingDir">
-		<param name="Local" value="docs/Variables.htm#WorkingDir">
+		<param name="Local" value="docs\Variables.htm#WorkingDir">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_YDay">
-		<param name="Local" value="docs/Variables.htm#YDay">
+		<param name="Local" value="docs\Variables.htm#YDay">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_Year">
-		<param name="Local" value="docs/Variables.htm#YYYY">
+		<param name="Local" value="docs\Variables.htm#YYYY">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_YWeek">
-		<param name="Local" value="docs/Variables.htm#YWeek">
+		<param name="Local" value="docs\Variables.htm#YWeek">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_YYYY">
-		<param name="Local" value="docs/Variables.htm#YYYY">
+		<param name="Local" value="docs\Variables.htm#YYYY">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Abkürzungserweiterung">
@@ -679,11 +679,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Abs()">
-		<param name="Local" value="docs/Functions.htm#Abs">
+		<param name="Local" value="docs\Functions.htm#Abs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Absoluter Wert, abs()">
-		<param name="Local" value="docs/Functions.htm#Abs">
+		<param name="Local" value="docs\Functions.htm#Abs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Abspielen einer Sound- oder Video-Datei">
@@ -691,7 +691,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ACos()">
-		<param name="Local" value="docs/Functions.htm#ACos">
+		<param name="Local" value="docs\Functions.htm#ACos">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Addieren">
@@ -699,35 +699,35 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Administratorrechte für Scripts">
-		<param name="Local" value="docs/Variables.htm#RequireAdmin">
+		<param name="Local" value="docs\Variables.htm#RequireAdmin">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Adresse einer Variable">
-		<param name="Local" value="docs/Variables.htm#amp">
+		<param name="Local" value="docs\Variables.htm#amp">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ahk_class">
-		<param name="Local" value="docs/LastFoundWindow.htm#class">
+		<param name="Local" value="docs\LastFoundWindow.htm#class">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ahk_exe">
-		<param name="Local" value="docs/LastFoundWindow.htm#exe">
+		<param name="Local" value="docs\LastFoundWindow.htm#exe">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ahk_group">
-		<param name="Local" value="docs/LastFoundWindow.htm#group">
+		<param name="Local" value="docs\LastFoundWindow.htm#group">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ahk_id">
-		<param name="Local" value="docs/LastFoundWindow.htm#id">
+		<param name="Local" value="docs\LastFoundWindow.htm#id">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ahk_pid">
-		<param name="Local" value="docs/LastFoundWindow.htm#pid">
+		<param name="Local" value="docs\LastFoundWindow.htm#pid">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ahk2exe">
-		<param name="Local" value="docs/Scripts.htm#ahk2exe">
+		<param name="Local" value="docs\Scripts.htm#ahk2exe">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Aktivieren eines Fensters">
@@ -755,11 +755,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="AltGr">
-		<param name="Local" value="docs/Hotkeys.htm#AltGr">
+		<param name="Local" value="docs\Hotkeys.htm#AltGr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="AltTab">
-		<param name="Local" value="docs/Hotkeys.htm#alttab">
+		<param name="Local" value="docs\Hotkeys.htm#alttab">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="AlwaysOnTop (WinSet)">
@@ -779,7 +779,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Asc()">
-		<param name="Local" value="docs/Functions.htm#Asc">
+		<param name="Local" value="docs\Functions.htm#Asc">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ASCII-Umwandlung">
@@ -787,11 +787,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ASin()">
-		<param name="Local" value="docs/Functions.htm#ASin">
+		<param name="Local" value="docs\Functions.htm#ASin">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ATan()">
-		<param name="Local" value="docs/Functions.htm#ATan">
+		<param name="Local" value="docs\Functions.htm#ATan">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Attribute von Dateien und Ordner">
@@ -799,11 +799,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Aufteilen langer Zeilen">
-		<param name="Local" value="docs/Scripts.htm#continuation">
+		<param name="Local" value="docs\Scripts.htm#continuation">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Ausdrücke">
-		<param name="Local" value="docs/Variables.htm#Expressions">
+		<param name="Local" value="docs\Variables.htm#Expressions">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Auswählen einer Datei">
@@ -827,7 +827,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="base (Objekte)">
-		<param name="Local" value="docs/Objects.htm#Custom_Objects">
+		<param name="Local" value="docs\Objects.htm#Custom_Objects">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Beenden eines Scripts">
@@ -839,7 +839,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Befehlszeilenparameter">
-		<param name="Local" value="docs/Scripts.htm#cmd">
+		<param name="Local" value="docs\Scripts.htm#cmd">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Benutzer (mit anderen Benutzer ausf&uuml;hren)">
@@ -847,7 +847,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Benutzer-Bibliothek">
-		<param name="Local" value="docs/Functions.htm#lib">
+		<param name="Local" value="docs\Functions.htm#lib">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="between (&uuml;berpr&uuml;fen, ob Variable zwischen zwei Werten liegt)">
@@ -855,19 +855,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Bibliotheken von Funktionen">
-		<param name="Local" value="docs/Functions.htm#lib">
+		<param name="Local" value="docs\Functions.htm#lib">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Bildlisten (GUI)">
-		<param name="Local" value="docs/commands/ListView.htm#IL">
+		<param name="Local" value="docs\commands\ListView.htm#IL">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Bitweise Operationen">
-		<param name="Local" value="docs/Variables.htm#bitwise">
+		<param name="Local" value="docs\Variables.htm#bitwise">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Blind senden">
-		<param name="Local" value="docs/commands/Send.htm#blind">
+		<param name="Local" value="docs\commands\Send.htm#blind">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="BlockInput">
@@ -883,11 +883,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Button-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Button">
+		<param name="Local" value="docs\commands\GuiControls.htm#Button">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ByRef">
-		<param name="Local" value="docs/Functions.htm#ByRef">
+		<param name="Local" value="docs\Functions.htm#ByRef">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Callbacks">
@@ -895,11 +895,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Catch">
-		<param name="Local" value="docs/commands/Catch.htm">
+		<param name="Local" value="docs\commands\Catch.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Ceil()">
-		<param name="Local" value="docs/Functions.htm#Ceil">
+		<param name="Local" value="docs\Functions.htm#Ceil">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Changelog">
@@ -907,15 +907,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Checkbox-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Checkbox">
+		<param name="Local" value="docs\commands\GuiControls.htm#Checkbox">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Chr()">
-		<param name="Local" value="docs/Functions.htm#Chr">
+		<param name="Local" value="docs\Functions.htm#Chr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="class (Objekte)">
-		<param name="Local" value="docs/Objects.htm#Custom_Classes">
+		<param name="Local" value="docs\Objects.htm#Custom_Classes">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Clipboard">
@@ -923,7 +923,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ClipboardAll">
-		<param name="Local" value="docs/misc/Clipboard.htm#ClipboardAll">
+		<param name="Local" value="docs\misc\Clipboard.htm#ClipboardAll">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ClipWait">
@@ -931,7 +931,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Clone()">
-		<param name="Local" value="docs/objects/Object.htm#Clone">
+		<param name="Local" value="docs\objects\Object.htm#Clone">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CLSID-Liste (Eigene Dokumente, etc.)">
@@ -943,7 +943,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ComboBox-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#ComboBox">
+		<param name="Local" value="docs\commands\GuiControls.htm#ComboBox">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CommentFlag">
@@ -991,7 +991,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ComSpec">
-		<param name="Local" value="docs/Variables.htm#ComSpec">
+		<param name="Local" value="docs\Variables.htm#ComSpec">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Continue">
@@ -1047,7 +1047,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Cos()">
-		<param name="Local" value="docs/Functions.htm#Cos">
+		<param name="Local" value="docs\Functions.htm#Cos">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Critical">
@@ -1070,7 +1070,7 @@
 		<param name="Local" value="docs\commands\IfExist.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Datei schreiben/anf&uuml;gen">
+		<param name="Name" value="Datei schreiben\anf&uuml;gen">
 		<param name="Local" value="docs\commands\FileAppend.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1087,7 +1087,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DateTime-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#DateTime">
+		<param name="Local" value="docs\commands\GuiControls.htm#DateTime">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Datum und Zeit (Berechnung)">
@@ -1103,7 +1103,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Debuggen eines Scripts">
-		<param name="Local" value="docs/Scripts.htm#debug">
+		<param name="Local" value="docs\Scripts.htm#debug">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Debugger">
@@ -1147,7 +1147,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Dividieren (Berechnung)">
-		<param name="Local" value="docs/Variables.htm#divide">
+		<param name="Local" value="docs\Variables.htm#divide">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DllCall()">
@@ -1159,7 +1159,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Drag &amp; Drop (GUI-Fenster)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiDropFiles">
+		<param name="Local" value="docs\commands\Gui.htm#GuiDropFiles">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Drive">
@@ -1175,7 +1175,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DropDownList-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#DropDownList">
+		<param name="Local" value="docs\commands\GuiControls.htm#DropDownList">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Drucken einer Datei">
@@ -1187,7 +1187,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Edit-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Edit">
+		<param name="Local" value="docs\commands\GuiControls.htm#Edit">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Eigenschaften einer Datei oder eines Ordners">
@@ -1198,12 +1198,12 @@
 		<param name="Local" value="docs\commands\Else.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Entfernen eines Ordners/Verzeichnisses">
+		<param name="Name" value="Entfernen eines Ordners\Verzeichnisses">
 		<param name="Local" value="docs\commands\FileRemoveDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Enumerator-Objekt">
-		<param name="Local" value="docs/objects/Enumerator.htm">
+		<param name="Local" value="docs\objects\Enumerator.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EnvAdd">
@@ -1246,7 +1246,7 @@
 		<param name="Local" value="docs\commands\FileAppend.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Erstellen eines Ordners/Verzeichnisses">
+		<param name="Name" value="Erstellen eines Ordners\Verzeichnisses">
 		<param name="Local" value="docs\commands\FileCreateDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1255,7 +1255,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Exception()">
-		<param name="Local" value="docs/commands/Throw.htm#Exception">
+		<param name="Local" value="docs\commands\Throw.htm#Exception">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Exit">
@@ -1267,15 +1267,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Exp()">
-		<param name="Local" value="docs/Functions.htm#Exp">
+		<param name="Local" value="docs\Functions.htm#Exp">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ExtractInteger">
-		<param name="Local" value="docs/Functions.htm#NumGet">
+		<param name="Local" value="docs\Functions.htm#NumGet">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="False">
-		<param name="Local" value="docs/Variables.htm#Boolean">
+		<param name="Local" value="docs\Variables.htm#Boolean">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FAQ (H&auml;ufig gestellte Fragen)">
@@ -1286,8 +1286,8 @@
 		<param name="Local" value="docs\commands\PixelSearch.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Farbnamen, RGB/HTML">
-		<param name="Local" value="docs/commands/Progress.htm#colors">
+		<param name="Name" value="Farbnamen, RGB\HTML">
+		<param name="Local" value="docs\commands\Progress.htm#colors">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Fensternachrichten">
@@ -1327,7 +1327,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FileExist()">
-		<param name="Local" value="docs/Functions.htm#FileExist">
+		<param name="Local" value="docs\Functions.htm#FileExist">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FileGetAttrib">
@@ -1423,7 +1423,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Floor()">
-		<param name="Local" value="docs/Functions.htm#Floor">
+		<param name="Local" value="docs\Functions.htm#Floor">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Fokus">
@@ -1447,7 +1447,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Fortsetzungsbereiche">
-		<param name="Local" value="docs/Scripts.htm#continuation">
+		<param name="Local" value="docs\Scripts.htm#continuation">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Freigeben von Speicherplatz">
@@ -1455,11 +1455,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Func()">
-		<param name="Local" value="docs/Objects.htm#Function_References">
+		<param name="Local" value="docs\Objects.htm#Function_References">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Funktionen (Bibliotheken)">
-		<param name="Local" value="docs/Functions.htm#lib">
+		<param name="Local" value="docs\Functions.htm#lib">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Funktionen (Definition und Aufruf)">
@@ -1468,7 +1468,7 @@
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Beispiel fürs Hochladen über FTP">
-			<param name="Local" value="docs/commands/FileAppend.htm#FTP">
+			<param name="Local" value="docs\commands\FileAppend.htm#FTP">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
@@ -1477,19 +1477,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetAddress()">
-		<param name="Local" value="docs/objects/Object.htm#GetAddress">
+		<param name="Local" value="docs\objects\Object.htm#GetAddress">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetCapacity()">
-		<param name="Local" value="docs/objects/Object.htm#GetCapacity">
+		<param name="Local" value="docs\objects\Object.htm#GetCapacity">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetKeyName()">
-		<param name="Local" value="docs/Functions.htm#GetKeyName">
+		<param name="Local" value="docs\Functions.htm#GetKeyName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetKeySC()">
-		<param name="Local" value="docs/Functions.htm#GetKeyName">
+		<param name="Local" value="docs\Functions.htm#GetKeyName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetKeyState">
@@ -1497,19 +1497,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetKeyState()">
-		<param name="Local" value="docs/Functions.htm#GetKeyState">
+		<param name="Local" value="docs\Functions.htm#GetKeyState">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GetKeyVK()">
-		<param name="Local" value="docs/Functions.htm#GetKeyName">
+		<param name="Local" value="docs\Functions.htm#GetKeyName">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="g-label (Reaktion auf GUI-Ereignisse)">
-		<param name="Local" value="docs/commands/Gui.htm#label">
+		<param name="Local" value="docs\commands\Gui.htm#label">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Globale Variablen in Funktionen">
-		<param name="Local" value="docs/Functions.htm#Global">
+		<param name="Local" value="docs\Functions.htm#Global">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Gosub">
@@ -1528,7 +1528,7 @@
 		<param name="Local" value="docs\commands\WinGetPos.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Gr&ouml;&szlig;e von Dateien/Ordnern">
+		<param name="Name" value="Gr&ouml;&szlig;e von Dateien\Ordnern">
 		<param name="Local" value="docs\commands\FileGetSize.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1541,7 +1541,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GroupBox-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#GroupBox">
+		<param name="Local" value="docs\commands\GuiControls.htm#GroupBox">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GroupClose">
@@ -1557,11 +1557,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GuiClose (Label)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiClose">
+		<param name="Local" value="docs\commands\Gui.htm#GuiClose">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GuiContextMenu (Label)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiContextMenu">
+		<param name="Local" value="docs\commands\Gui.htm#GuiContextMenu">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GuiControl">
@@ -1573,15 +1573,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GuiDropFiles (Label)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiDropFiles">
+		<param name="Local" value="docs\commands\Gui.htm#GuiDropFiles">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GuiEscape (Label)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiEscape">
+		<param name="Local" value="docs\commands\Gui.htm#GuiEscape">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="GuiSize (Label)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiSize">
+		<param name="Local" value="docs\commands\Gui.htm#GuiSize">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Gui-Steuerelementarten">
@@ -1593,7 +1593,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HasKey()">
-		<param name="Local" value="docs/objects/Object.htm#HasKey">
+		<param name="Local" value="docs\objects\Object.htm#HasKey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Herunterladen einer Datei">
@@ -1653,7 +1653,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Hotkey-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Hotkey">
+		<param name="Local" value="docs\commands\GuiControls.htm#Hotkey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Hotstrings und Automatisches Ersetzen">
@@ -1661,19 +1661,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HTML-Farbnamen">
-		<param name="Local" value="docs/commands/Progress.htm#colors">
+		<param name="Local" value="docs\commands\Progress.htm#colors">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HWND (eines Fensters)">
-		<param name="Local" value="docs/LastFoundWindow.htm#id">
+		<param name="Local" value="docs\LastFoundWindow.htm#id">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HWND (eines Steuerelements)">
-		<param name="Local" value="docs/commands/ControlGet.htm#Hwnd">
+		<param name="Local" value="docs\commands\ControlGet.htm#Hwnd">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Icon ändern">
-		<param name="Local" value="docs/commands/Menu.htm#Icon">
+		<param name="Local" value="docs\commands\Menu.htm#Icon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ID-Nummer eines Fensters">
@@ -1692,7 +1692,7 @@
 		<param name="Local" value="docs\commands\IfBetween.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="If Var [not] in/contains &Uuml;bereinstimmungsliste">
+		<param name="Name" value="If Var [not] in\contains &Uuml;bereinstimmungsliste">
 		<param name="Local" value="docs\commands\IfIn.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1761,19 +1761,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IL_Add()">
-		<param name="Local" value="docs/commands/ListView.htm#IL_Add">
+		<param name="Local" value="docs\commands\ListView.htm#IL_Add">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IL_Create()">
-		<param name="Local" value="docs/commands/ListView.htm#IL_Create">
+		<param name="Local" value="docs\commands\ListView.htm#IL_Create">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IL_Destroy()">
-		<param name="Local" value="docs/commands/ListView.htm#IL_Destroy">
+		<param name="Local" value="docs\commands\ListView.htm#IL_Destroy">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ImageList (GUI)">
-		<param name="Local" value="docs/commands/ListView.htm#IL">
+		<param name="Local" value="docs\commands\ListView.htm#IL">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ImageSearch">
@@ -1809,11 +1809,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Insert()">
-		<param name="Local" value="docs/objects/Object.htm#Insert">
+		<param name="Local" value="docs\objects\Object.htm#Insert">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="InsertInteger">
-		<param name="Local" value="docs/Functions.htm#NumPut">
+		<param name="Local" value="docs\Functions.htm#NumPut">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Install">
@@ -1821,7 +1821,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Installer-Optionen">
-		<param name="Local" value="docs/Scripts.htm#install">
+		<param name="Local" value="docs\Scripts.htm#install">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="InstallKeybdHook">
@@ -1833,7 +1833,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="InStr()">
-		<param name="Local" value="docs/Functions.htm#InStr">
+		<param name="Local" value="docs\Functions.htm#InStr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Integer (ob es eine ist)">
@@ -1845,11 +1845,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Interne Funktionen">
-		<param name="Local" value="docs/Functions.htm#BuiltIn">
+		<param name="Local" value="docs\Functions.htm#BuiltIn">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Interne Variablen">
-		<param name="Local" value="docs/Variables.htm#BuiltIn">
+		<param name="Local" value="docs\Variables.htm#BuiltIn">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Interrupt">
@@ -1857,15 +1857,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IsByRef()">
-		<param name="Local" value="docs/Functions.htm#IsByRef">
+		<param name="Local" value="docs\Functions.htm#IsByRef">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IsFunc()">
-		<param name="Local" value="docs/Functions.htm#IsFunc">
+		<param name="Local" value="docs\Functions.htm#IsFunc">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IsLabel()">
-		<param name="Local" value="docs/Functions.htm#IsLabel">
+		<param name="Local" value="docs\Functions.htm#IsLabel">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IsObject()">
@@ -1873,15 +1873,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Join (Fortsetzungsbereiche)">
-		<param name="Local" value="docs/Scripts.htm#Join">
+		<param name="Local" value="docs\Scripts.htm#Join">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Joystick">
-		<param name="Local" value="docs/KeyList.htm#Joystick">
+		<param name="Local" value="docs\KeyList.htm#Joystick">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="JScript integrieren">
-		<param name="Local" value="docs/commands/DllCall.htm#COM">
+		<param name="Local" value="docs\commands\DllCall.htm#COM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="KeyHistory">
@@ -1901,7 +1901,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Komma-Operator (Mehrfachanweisungen)">
-		<param name="Local" value="docs/Variables.htm#comma">
+		<param name="Local" value="docs\Variables.htm#comma">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Kommentare in Scripts">
@@ -1913,11 +1913,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Kompilieren eines Scripts">
-		<param name="Local" value="docs/Scripts.htm#ahk2exe">
+		<param name="Local" value="docs\Scripts.htm#ahk2exe">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Kontextmen&uuml; (GUI)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiContextMenu">
+		<param name="Local" value="docs\commands\Gui.htm#GuiContextMenu">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Koordinaten">
@@ -1928,16 +1928,16 @@
 		<param name="Local" value="docs\commands\FileCopy.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Kopieren eines Ordners/Verzeichnisses">
+		<param name="Name" value="Kopieren eines Ordners\Verzeichnisses">
 		<param name="Local" value="docs\commands\FileCopyDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Kurzer Dateiname (8.3-Format)">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileShortPath">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileShortPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Kurzschlussauswertung">
-		<param name="Local" value="docs/Functions.htm#ShortCircuit">
+		<param name="Local" value="docs\Functions.htm#ShortCircuit">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Label">
@@ -1949,7 +1949,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Langer Dateiname (umwandeln)">
-		<param name="Local" value="docs/commands/LoopFile.htm#LoopFileLongPath">
+		<param name="Local" value="docs\commands\LoopFile.htm#LoopFileLongPath">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Laufwerk, Speicherplatz">
@@ -1973,7 +1973,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ListBox-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#ListBox">
+		<param name="Local" value="docs\commands\GuiControls.htm#ListBox">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Liste mit Tasten (Tastatur, Maus, Joystick)">
@@ -1993,7 +1993,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ListView, Text abrufen">
-		<param name="Local" value="docs/commands/ControlGet.htm#List">
+		<param name="Local" value="docs\commands\ControlGet.htm#List">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ListView-Steuerelemente (GUI)">
@@ -2005,7 +2005,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Ln()">
-		<param name="Local" value="docs/Functions.htm#Ln">
+		<param name="Local" value="docs\Functions.htm#Ln">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LNK-Datei (Verkn&uuml;pfung)">
@@ -2013,19 +2013,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Locale">
-		<param name="Local" value="docs/commands/StringCaseSense.htm#Locale">
+		<param name="Local" value="docs\commands\StringCaseSense.htm#Locale">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Log()">
-		<param name="Local" value="docs/Functions.htm#Log">
+		<param name="Local" value="docs\Functions.htm#Log">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Logarithmus, log()">
-		<param name="Local" value="docs/Functions.htm#Log">
+		<param name="Local" value="docs\Functions.htm#Log">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Lokale Variablen">
-		<param name="Local" value="docs/Functions.htm#Locals">
+		<param name="Local" value="docs\Functions.htm#Locals">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Loop">
@@ -2060,7 +2060,7 @@
 		<param name="Local" value="docs\commands\FileDelete.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="L&ouml;schen eines Ordners/Verzeichnisses">
+		<param name="Name" value="L&ouml;schen eines Ordners\Verzeichnisses">
 		<param name="Local" value="docs\commands\FileRemoveDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2069,7 +2069,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LTrim (Fortsetzungsbereiche)">
-		<param name="Local" value="docs/Scripts.htm#LTrim">
+		<param name="Local" value="docs\Scripts.htm#LTrim">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LTrim()">
@@ -2077,47 +2077,47 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_Add()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_Add">
+		<param name="Local" value="docs\commands\ListView.htm#LV_Add">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_Delete()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_Delete">
+		<param name="Local" value="docs\commands\ListView.htm#LV_Delete">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_DeleteCol()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_DeleteCol">
+		<param name="Local" value="docs\commands\ListView.htm#LV_DeleteCol">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_GetCount()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_GetCount">
+		<param name="Local" value="docs\commands\ListView.htm#LV_GetCount">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_GetNext()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_GetNext">
+		<param name="Local" value="docs\commands\ListView.htm#LV_GetNext">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_GetText()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_GetText">
+		<param name="Local" value="docs\commands\ListView.htm#LV_GetText">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_Insert()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_Insert">
+		<param name="Local" value="docs\commands\ListView.htm#LV_Insert">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_InsertCol()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_InsertCol">
+		<param name="Local" value="docs\commands\ListView.htm#LV_InsertCol">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_Modify()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_Modify">
+		<param name="Local" value="docs\commands\ListView.htm#LV_Modify">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_ModifyCol()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_ModifyCol">
+		<param name="Local" value="docs\commands\ListView.htm#LV_ModifyCol">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="LV_SetImageList()">
-		<param name="Local" value="docs/commands/ListView.htm#LV_SetImageList">
+		<param name="Local" value="docs\commands\ListView.htm#LV_SetImageList">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Makro">
@@ -2125,7 +2125,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Mathematische Operationen (Ausdr&uuml;cke)">
-		<param name="Local" value="docs/Variables.htm#Expressions">
+		<param name="Local" value="docs\Variables.htm#Expressions">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Mausgeschwindigkeit">
@@ -2145,11 +2145,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Mausrad-Hotkeys">
-		<param name="Local" value="docs/Hotkeys.htm#Wheel">
+		<param name="Local" value="docs\Hotkeys.htm#Wheel">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Mauszeigerform">
-		<param name="Local" value="docs/Variables.htm#Cursor">
+		<param name="Local" value="docs\Variables.htm#Cursor">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MaxHotkeysPerInterval">
@@ -2157,7 +2157,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MaxIndex()">
-		<param name="Local" value="docs/objects/Object.htm#MinMaxIndex">
+		<param name="Local" value="docs\objects\Object.htm#MinMaxIndex">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MaxThreads">
@@ -2177,23 +2177,23 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Men&uuml;-Icon">
-		<param name="Local" value="docs/commands/Menu.htm#MenuIcon">
+		<param name="Local" value="docs\commands\Menu.htm#MenuIcon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Men&uuml;leiste (GUI)">
-		<param name="Local" value="docs/commands/Gui.htm#Menu">
+		<param name="Local" value="docs\commands\Gui.htm#Menu">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Meta-Funktionen (Objekte)">
-		<param name="Local" value="docs/Objects.htm#Meta_Functions">
+		<param name="Local" value="docs\Objects.htm#Meta_Functions">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MinIndex()">
-		<param name="Local" value="docs/objects/Object.htm#MinMaxIndex">
+		<param name="Local" value="docs\objects\Object.htm#MinMaxIndex">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Mod()">
-		<param name="Local" value="docs/Functions.htm#Mod">
+		<param name="Local" value="docs\Functions.htm#Mod">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Modal (immer im Vordergrund)">
@@ -2201,11 +2201,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Modulo, mod()">
-		<param name="Local" value="docs/Functions.htm#Mod">
+		<param name="Local" value="docs\Functions.htm#Mod">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MonthCal-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#MonthCal">
+		<param name="Local" value="docs\commands\GuiControls.htm#MonthCal">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MouseClick">
@@ -2261,7 +2261,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="NewEnum()">
-		<param name="Local" value="docs/objects/Object.htm#NewEnum">
+		<param name="Local" value="docs\objects\Object.htm#NewEnum">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="NoTimers">
@@ -2277,15 +2277,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="NumGet">
-		<param name="Local" value="docs/Functions.htm#NumGet">
+		<param name="Local" value="docs\Functions.htm#NumGet">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="NumPut">
-		<param name="Local" value="docs/Functions.htm#NumPut">
+		<param name="Local" value="docs\Functions.htm#NumPut">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjClone()">
-		<param name="Local" value="docs/objects/Object.htm#Clone">
+		<param name="Local" value="docs\objects\Object.htm#Clone">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Objekte (allgemeine Informationen)">
@@ -2293,43 +2293,43 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Objektfunktionen und -methoden">
-		<param name="Local" value="docs/objects/Object.htm">
+		<param name="Local" value="docs\objects\Object.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjGetAddress()">
-		<param name="Local" value="docs/objects/Object.htm#GetAddress">
+		<param name="Local" value="docs\objects\Object.htm#GetAddress">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjGetCapacity()">
-		<param name="Local" value="docs/objects/Object.htm#GetCapacity">
+		<param name="Local" value="docs\objects\Object.htm#GetCapacity">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjHasKey()">
-		<param name="Local" value="docs/objects/Object.htm#HasKey">
+		<param name="Local" value="docs\objects\Object.htm#HasKey">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjInsert()">
-		<param name="Local" value="docs/objects/Object.htm#Insert">
+		<param name="Local" value="docs\objects\Object.htm#Insert">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjMaxIndex()">
-		<param name="Local" value="docs/objects/Object.htm#MinMaxIndex">
+		<param name="Local" value="docs\objects\Object.htm#MinMaxIndex">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjMinIndex()">
-		<param name="Local" value="docs/objects/Object.htm#MinMaxIndex">
+		<param name="Local" value="docs\objects\Object.htm#MinMaxIndex">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjNewEnum()">
-		<param name="Local" value="docs/objects/Object.htm#NewEnum">
+		<param name="Local" value="docs\objects\Object.htm#NewEnum">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjRemove()">
-		<param name="Local" value="docs/objects/Object.htm#Remove">
+		<param name="Local" value="docs\objects\Object.htm#Remove">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ObjSetCapacity()">
-		<param name="Local" value="docs/objects/Object.htm#SetCapacity">
+		<param name="Local" value="docs\objects\Object.htm#SetCapacity">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Öffnen einer Datei">
@@ -2337,7 +2337,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="OnClipboardChange (Label)">
-		<param name="Local" value="docs/misc/Clipboard.htm#OnClipboardChange">
+		<param name="Local" value="docs\misc\Clipboard.htm#OnClipboardChange">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="OnExit">
@@ -2349,26 +2349,26 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Operatoren in Ausdrücken">
-		<param name="Local" value="docs/Variables.htm#Operators">
+		<param name="Local" value="docs\Variables.htm#Operators">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ordner/Verzeichnis ausw&auml;hlen">
+		<param name="Name" value="Ordner\Verzeichnis ausw&auml;hlen">
 		<param name="Local" value="docs\commands\FileSelectFolder.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ordner/Verzeichnis entfernen">
+		<param name="Name" value="Ordner\Verzeichnis entfernen">
 		<param name="Local" value="docs\commands\FileRemoveDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ordner/Verzeichnis erstellen">
+		<param name="Name" value="Ordner\Verzeichnis erstellen">
 		<param name="Local" value="docs\commands\FileCreateDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ordner/Verzeichnis kopieren">
+		<param name="Name" value="Ordner\Verzeichnis kopieren">
 		<param name="Local" value="docs\commands\FileCopyDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ordner/Verzeichnis verschieben">
+		<param name="Name" value="Ordner\Verzeichnis verschieben">
 		<param name="Local" value="docs\commands\FileMoveDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2377,15 +2377,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="OwnDialogs (GUI)">
-		<param name="Local" value="docs/commands/Gui.htm#OwnDialogs">
+		<param name="Local" value="docs\commands\Gui.htm#OwnDialogs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Owner eines GUI-Fensters">
-		<param name="Local" value="docs/commands/Gui.htm#Owner">
+		<param name="Local" value="docs\commands\Gui.htm#Owner">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Parameter an Script übergeben">
-		<param name="Local" value="docs/Scripts.htm#cmd">
+		<param name="Local" value="docs\Scripts.htm#cmd">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Parsen eines Strings (Loop)">
@@ -2405,7 +2405,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Picture-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Picture">
+		<param name="Local" value="docs\commands\GuiControls.htm#Picture">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="PID (Prozess-ID)">
@@ -2433,7 +2433,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Potenzierung">
-		<param name="Local" value="docs/Variables.htm#pow">
+		<param name="Local" value="docs\Variables.htm#pow">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Pr&auml;fix- und Suffix-Tasten">
@@ -2453,7 +2453,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ProgramFiles">
-		<param name="Local" value="docs/Variables.htm#ProgramFiles">
+		<param name="Local" value="docs\Variables.htm#ProgramFiles">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Progress">
@@ -2461,7 +2461,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Progress-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Progress">
+		<param name="Local" value="docs\commands\GuiControls.htm#Progress">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Puffer">
@@ -2469,7 +2469,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Radio-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Radio">
+		<param name="Local" value="docs\commands\GuiControls.htm#Radio">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Random">
@@ -2481,7 +2481,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Referenzzählung">
-		<param name="Local" value="docs/Objects.htm#Refs">
+		<param name="Local" value="docs\Objects.htm#Refs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="REG_BINARY">
@@ -2517,7 +2517,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RegEx: SetTitleMatchMode RegEx">
-		<param name="Local" value="docs/commands/SetTitleMatchMode.htm#RegEx">
+		<param name="Local" value="docs\commands\SetTitleMatchMode.htm#RegEx">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RegExMatch()">
@@ -2557,7 +2557,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Regul&auml;re Ausdr&uuml;cke: SetTitleMatchMode RegEx">
-		<param name="Local" value="docs/commands/SetTitleMatchMode.htm#RegEx">
+		<param name="Local" value="docs\commands\SetTitleMatchMode.htm#RegEx">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RegWrite">
@@ -2569,7 +2569,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Remove()">
-		<param name="Local" value="docs/objects/Object.htm#Remove">
+		<param name="Local" value="docs\objects\Object.htm#Remove">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Return">
@@ -2581,7 +2581,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RGB-Farbnamen">
-		<param name="Local" value="docs/commands/Progress.htm#colors">
+		<param name="Local" value="docs\commands\Progress.htm#colors">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RightClick">
@@ -2593,7 +2593,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Round()">
-		<param name="Local" value="docs/Functions.htm#Round">
+		<param name="Local" value="docs\Functions.htm#Round">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RTrim()">
@@ -2601,7 +2601,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Ruhezustand oder Sperren">
-		<param name="Local" value="docs/commands/Shutdown.htm#Suspend">
+		<param name="Local" value="docs\commands\Shutdown.htm#Suspend">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Run">
@@ -2613,7 +2613,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Runden einer Zahl">
-		<param name="Local" value="docs/Functions.htm#Round">
+		<param name="Local" value="docs\Functions.htm#Round">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="RunWait">
@@ -2621,19 +2621,19 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SB_SetIcon()">
-		<param name="Local" value="docs/commands/GuiControls.htm#SB_SetIcon">
+		<param name="Local" value="docs\commands\GuiControls.htm#SB_SetIcon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SB_SetParts()">
-		<param name="Local" value="docs/commands/GuiControls.htm#SB_SetParts">
+		<param name="Local" value="docs\commands\GuiControls.htm#SB_SetParts">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SB_SetText()">
-		<param name="Local" value="docs/commands/GuiControls.htm#SB_SetText">
+		<param name="Local" value="docs\commands\GuiControls.htm#SB_SetText">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Scancode">
-		<param name="Local" value="docs/commands/Send.htm#vk">
+		<param name="Local" value="docs\commands\Send.htm#vk">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Schließen eines Fensters">
@@ -2665,15 +2665,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Senden von Daten zwischen Scripts">
-		<param name="Local" value="docs/commands/OnMessage.htm#SendString">
+		<param name="Local" value="docs\commands\OnMessage.htm#SendString">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SendEvent">
-		<param name="Local" value="docs/commands/Send.htm#SendEvent">
+		<param name="Local" value="docs\commands\Send.htm#SendEvent">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SendInput">
-		<param name="Local" value="docs/commands/Send.htm#SendInputDetail">
+		<param name="Local" value="docs\commands\Send.htm#SendInputDetail">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SendMessage">
@@ -2685,7 +2685,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SendPlay">
-		<param name="Local" value="docs/commands/Send.htm#SendPlayDetail">
+		<param name="Local" value="docs\commands\Send.htm#SendPlayDetail">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SendRaw">
@@ -2697,7 +2697,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SetCapacity()">
-		<param name="Local" value="docs/objects/Object.htm#SetCapacity">
+		<param name="Local" value="docs\objects\Object.htm#SetCapacity">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SetCapsLockState">
@@ -2761,11 +2761,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Silent-Installation/-Deinstallation">
-		<param name="Local" value="docs/Scripts.htm#install">
+		<param name="Local" value="docs\Scripts.htm#install">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Sin()">
-		<param name="Local" value="docs/Functions.htm#Sin">
+		<param name="Local" value="docs\Functions.htm#Sin">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SingleInstance">
@@ -2781,7 +2781,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Slider-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Slider">
+		<param name="Local" value="docs\commands\GuiControls.htm#Slider">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Sort">
@@ -2817,7 +2817,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Sperren oder Ruhezustand">
-		<param name="Local" value="docs/commands/Shutdown.htm#Suspend">
+		<param name="Local" value="docs\commands\Shutdown.htm#Suspend">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Spiele automatisieren">
@@ -2825,7 +2825,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Spinner-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#UpDown">
+		<param name="Local" value="docs\commands\GuiControls.htm#UpDown">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SplashImage">
@@ -2849,7 +2849,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Sqrt()">
-		<param name="Local" value="docs/Functions.htm#Sqrt">
+		<param name="Local" value="docs\Functions.htm#Sqrt">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Standardausgabe (stdout)">
@@ -2857,11 +2857,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Standard-Bibliothek">
-		<param name="Local" value="docs/Functions.htm#lib">
+		<param name="Local" value="docs\Functions.htm#lib">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Statische Variablen">
-		<param name="Local" value="docs/Functions.htm#static">
+		<param name="Local" value="docs\Functions.htm#static">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Status einer Taste">
@@ -2873,7 +2873,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="StatusBar-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#StatusBar">
+		<param name="Local" value="docs\commands\GuiControls.htm#StatusBar">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="StatusBarWait">
@@ -2885,15 +2885,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="String (danach suchen)">
-		<param name="Local" value="docs/Functions.htm#InStr">
+		<param name="Local" value="docs\Functions.htm#InStr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="String: InStr()">
-		<param name="Local" value="docs/Functions.htm#InStr">
+		<param name="Local" value="docs\Functions.htm#InStr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="String: SubStr()">
-		<param name="Local" value="docs/Functions.htm#SubStr">
+		<param name="Local" value="docs\Functions.htm#SubStr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="StringCaseSense">
@@ -2945,7 +2945,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="StrLen()">
-		<param name="Local" value="docs/Functions.htm#StrLen">
+		<param name="Local" value="docs\Functions.htm#StrLen">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="StrPut()">
@@ -2953,7 +2953,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Strukturen, via DllCall">
-		<param name="Local" value="docs/commands/DllCall.htm#struct">
+		<param name="Local" value="docs\commands\DllCall.htm#struct">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Stummschaltung ändern">
@@ -2965,7 +2965,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SubStr()">
-		<param name="Local" value="docs/Functions.htm#SubStr">
+		<param name="Local" value="docs\Functions.htm#SubStr">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Subtrahieren">
@@ -2973,7 +2973,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Superglobale Variablen">
-		<param name="Local" value="docs/Functions.htm#SuperGlobal">
+		<param name="Local" value="docs\Functions.htm#SuperGlobal">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Suspend">
@@ -2985,11 +2985,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tab-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Tab">
+		<param name="Local" value="docs\commands\GuiControls.htm#Tab">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tan()">
-		<param name="Local" value="docs/Functions.htm#Tan">
+		<param name="Local" value="docs\Functions.htm#Tan">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tastatureingaben senden">
@@ -3017,11 +3017,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tern&auml;rer Operator (?:)">
-		<param name="Local" value="docs/Variables.htm#ternary">
+		<param name="Local" value="docs\Variables.htm#ternary">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Text-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#Text">
+		<param name="Local" value="docs\commands\GuiControls.htm#Text">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Thread">
@@ -3033,7 +3033,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Throw">
-		<param name="Local" value="docs/commands/Throw.htm">
+		<param name="Local" value="docs\commands\Throw.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="time">
@@ -3089,11 +3089,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="True">
-		<param name="Local" value="docs/Variables.htm#Boolean">
+		<param name="Local" value="docs\Variables.htm#Boolean">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Try">
-		<param name="Local" value="docs/commands/Try.htm">
+		<param name="Local" value="docs\commands\Try.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Tutorial">
@@ -3101,47 +3101,47 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_Add()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_Add">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_Add">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_Delete()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_Delete">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_Delete">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_Get()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_Get">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_Get">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetChild()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetChild">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetChild">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetCount()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetCount">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetCount">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetNext()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetNext">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetNext">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetParent()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetParent">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetParent">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetPrev()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetPrev">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetPrev">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetSelection()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetSelection">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetSelection">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_GetText()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_GetText">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_GetText">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TV_Modify()">
-		<param name="Local" value="docs/commands/TreeView.htm#TV_Modify">
+		<param name="Local" value="docs\commands\TreeView.htm#TV_Modify">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Umbenennen einer Datei">
@@ -3149,7 +3149,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Umgebungsvariablen">
-		<param name="Local" value="docs/Variables.htm#env">
+		<param name="Local" value="docs\Variables.htm#env">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Umgebungsvariablen ändern">
@@ -3157,7 +3157,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Umwandlung eines Scripts in eine EXE-Datei">
-		<param name="Local" value="docs/Scripts.htm#ahk2exe">
+		<param name="Local" value="docs\Scripts.htm#ahk2exe">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Unicode bei Text und Zwischenablage">
@@ -3169,11 +3169,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Until">
-		<param name="Local" value="docs/commands/Until.htm">
+		<param name="Local" value="docs\commands\Until.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="UpDown-Steuerelemente (GUI)">
-		<param name="Local" value="docs/commands/GuiControls.htm#UpDown">
+		<param name="Local" value="docs\commands\GuiControls.htm#UpDown">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="URLDownloadToFile">
@@ -3201,7 +3201,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Variablen, Intern">
-		<param name="Local" value="docs/Variables.htm#BuiltIn">
+		<param name="Local" value="docs\Variables.htm#BuiltIn">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Variablen, ListVars">
@@ -3209,11 +3209,11 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Variadische Funktionen">
-		<param name="Local" value="docs/Functions.htm#Variadic">
+		<param name="Local" value="docs\Functions.htm#Variadic">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Varianten (doppelte Hotkeys und Hotstrings)">
-		<param name="Local" value="docs/commands/_IfWinActive.htm#variant">
+		<param name="Local" value="docs\commands\_IfWinActive.htm#variant">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="VarSetCapacity()">
@@ -3221,15 +3221,15 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="VBScript integrieren">
-		<param name="Local" value="docs/commands/DllCall.htm#COM">
+		<param name="Local" value="docs\commands\DllCall.htm#COM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Verkettung in Ausdrücken">
-		<param name="Local" value="docs/Variables.htm#concat">
+		<param name="Local" value="docs\Variables.htm#concat">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Verkettung von Script-Zeilen">
-		<param name="Local" value="docs/Scripts.htm#continuation">
+		<param name="Local" value="docs\Scripts.htm#continuation">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Verknüpfungsdatei">
@@ -3244,7 +3244,7 @@
 		<param name="Local" value="docs\commands\WinMove.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verschieben eines Ordners/Verzeichnisses">
+		<param name="Name" value="Verschieben eines Ordners\Verzeichnisses">
 		<param name="Local" value="docs\commands\FileMoveDir.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -3261,7 +3261,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Virtuelle Taste">
-		<param name="Local" value="docs/commands/Send.htm#vk">
+		<param name="Local" value="docs\commands\Send.htm#vk">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Warten (Sleep)">
@@ -3293,7 +3293,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WinActive()">
-		<param name="Local" value="docs/Functions.htm#WinActive">
+		<param name="Local" value="docs\Functions.htm#WinActive">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Winamp automatisieren">
@@ -3305,7 +3305,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WinExist()">
-		<param name="Local" value="docs/Functions.htm#WinExist">
+		<param name="Local" value="docs\Functions.htm#WinExist">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WinGet">
@@ -3409,7 +3409,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Wissenschaftliche Notation">
-		<param name="Local" value="docs/commands/SetFormat.htm#sci">
+		<param name="Local" value="docs\commands\SetFormat.htm#sci">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WM_* (Fensternachrichten)">
@@ -3417,7 +3417,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="WM_COPYDATA">
-		<param name="Local" value="docs/commands/OnMessage.htm#SendString">
+		<param name="Local" value="docs\commands\OnMessage.htm#SendString">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="wParam">
@@ -3433,7 +3433,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="YYYYMMDDHH24MISS">
-		<param name="Local" value="docs/commands/FileSetTime.htm#YYYYMMDD">
+		<param name="Local" value="docs\commands\FileSetTime.htm#YYYYMMDD">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Zahlenformat">
@@ -3441,7 +3441,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Zeilenfortsetzung">
-		<param name="Local" value="docs/Scripts.htm#continuation">
+		<param name="Local" value="docs\Scripts.htm#continuation">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Zeit und Datum (Berechnung)">
@@ -3461,7 +3461,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Ziehen und Ablegen (GUI-Fenster)">
-		<param name="Local" value="docs/commands/Gui.htm#GuiDropFiles">
+		<param name="Local" value="docs\commands\Gui.htm#GuiDropFiles">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Zuletzt gefundenes Fenster">
@@ -3469,7 +3469,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Zuweisen eines Wertes an eine Variablen">
-		<param name="Local" value="docs/Variables.htm#AssignOp">
+		<param name="Local" value="docs\Variables.htm#AssignOp">
 		</OBJECT>
 </UL>
 </BODY>
