@@ -427,7 +427,7 @@ function OpenResultListDoc() {
 //------------------------------------------------------------------------------
 function ShowSearchResultsWindow() {
   var newWindow = window.open("about:blank", "searchValue", "width=500, height=300, resizable=yes, maximizable=no, status=yes, scrollbars=yes");
-  newWindow.document.write('<html>\n<head>\n<title>Search Results</title>\n');
+  newWindow.document.write('<html>\n<head>\n<title>Suchergebnisse</title>\n');
   newWindow.document.write('</head>\n');
   newWindow.document.write('<body>\n');
 
