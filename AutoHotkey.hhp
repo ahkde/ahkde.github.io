@@ -24,8 +24,6 @@ Default Font=
 Contents="Hilfe für AutoHotkey_L","Table of Contents.hhc","Index.hhk","docs\index.htm","docs\index.htm",,,,,0x73520,264,0x10200E,[53,9,853,609],0xB0000,0x3,,,,,0
 
 [FILES]
-Index.hhk
-Table of Contents.hhc
 docs\AHKL_ChangeLog.htm
 docs\AHKL_DBGPClients.htm
 docs\AHKL_Features.htm
