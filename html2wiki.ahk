@@ -44,7 +44,7 @@ Loop, docs\*.htm, 0, 1
 
 	; Tag-Paare samt Inhalt entfernen
 
-	file	:= RegExReplace(file, "si)<(h1)>.*?</\1>")
+	file	:= RegExReplace(file, "si)<(h1|script)\b.*?>.*?</\1>")
 
 	; Bestimmte Tags benötigen Zeilenumbruch davor oder danach
 
@@ -236,11 +236,10 @@ Loop, docs\*.htm, 0, 1
 
 	content .= "`n`n__NOTOC__`n"
 
-	; catn setzen
+	; Kategorien setzen
 
 	maincat := 	(A_LoopFileDir ~= "commands") 	? "Befehl"
 			: 	(A_LoopFileDir ~= "misc")		? "Sonstiges"
-			:	(A_LoopFileDir ~= "objects")	? "Objekt"
 			:	(A_LoopFileDir ~= "scripts")	? "Script"
 			:	""
 
@@ -422,10 +421,13 @@ Tag(match)
 	If (tag.label = "/kbd")
 		line := RegExReplace(line, preg_quote(match), "}}")
 	; --------------------------------------------------------------------------
-	; Sonderfall: Versionierung für wiki (AHKL_ChangeLog.htm)
+	; Erzwungene Wiki-Markups
 	; --------------------------------------------------------------------------
-	If RegExMatch(match, "<!--((?:/|)onlyinclude)-->", s)
-		line := RegExReplace(line, preg_quote(match), "<" s1 ">")
+
+	; Versionierung für wiki (AHKL_ChangeLog.htm)
+
+	If RegExMatch(match, "<!--(\/|)(onlyinclude|nowiki)-->", s)
+		line := RegExReplace(line, preg_quote(match), "<" s1 s2 ">")
 }
 
 UnHTM(HTM) {
@@ -469,12 +471,12 @@ GetCategories()
 			,	"Umgebungsverwaltung" 		: "Systemumgebung"
 			,	"Natives Code-Interop"		: "Interoperabilität"
 			,	"COM" 						: "COM"
-			,	"Dateiverwaltung" 			: "Dateiverwaltung"
+			,	"Datei- und Laufwerksverwaltung" : "Dateiverwaltung"
 			,	"Ablaufsteuerung" 			: "Ablaufsteuerung"
 			,	"If-Befehle" 				: "Bedingte Anweisung"
 			,	"Loop-Befehle" 				: "Anweisungswiederholung"
 			,	"Interne Funktionen"		: "Interne Funktion"
-			,	"GUI & Dialogfenster"		: "Benutzeroberfläche"
+			,	"GUI &amp; Dialogfenster"	: "Benutzeroberfläche"
 			,	"Maus und Tastatur"			: "Eingabegerätesteuerung"
 			,	"Hotkeys und Hotstrings"	: " "
 			,	"Mathematik" 				: "Berechnung"
