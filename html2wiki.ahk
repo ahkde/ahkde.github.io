@@ -2,15 +2,29 @@
 #SingleInstance force
 SetBatchLines, -1
 
-; Kategorien ermitteln
-
-site := GetCategories()
-
 ; Ausnahmen: mehrere index
 
 index := {"docs"			: "Hauptseite"
 		, "docs\commands"	: "Alphabetischer Befehls- und Funktionsindex"
 		, "docs\scripts"	: "Script-Beispiele"}
+
+keyword 	:= {Fenster			: "Fensterverwaltung"
+			, 	Datei			: "Dateiverwaltung"
+			,	Ordner			: "Ordnerverwaltung"
+			,	Laufwerk		: "Laufwerksverwaltung"
+			,	String			: "Stringverwaltung"
+			,	Tastatur		: "Tastaturverwaltung"
+			,	Maus			: "Mausverwaltung"
+			,	Joystick		: "Joystickverwaltung"
+			,	Steuerelement	: "Steuerelementverwaltung"
+			,	Sound			: "Soundverwaltung"
+			,	Objekt			: "Objektverwaltung"
+			,	Prozess			: "Prozessverwaltung"
+			,	Registrierung	: "Registrierungsverwaltung"
+			,	Bildschirm		: "Bildschirmverwaltung"
+			,	Kommentar		: "Kommentarverwaltung"
+			,	Fehler			: "Fehlerbehandlung"
+			,	Zwischenablage	: "Zwischenablageverwaltung"}
 
 ; Wiki-Ordner löschen
 
@@ -30,6 +44,7 @@ Loop, docs\*.htm, 0, 1
 	parsing		:= 0
 	countchar	:= ""
 	content 	:= ""
+	cat			:= {}
 
 	name := RegExReplace(A_LoopFileName, "\." A_LoopFileExt)
 
@@ -41,6 +56,21 @@ Loop, docs\*.htm, 0, 1
 	Progress, %A_Index%, %A_Index%/%Total% - %name%
 
 	file	:= FileOpen(A_LoopFileFullPath, "r`n").read()
+
+	; Kategorien abrufen
+
+	If RegExMatch(file, "<meta name=""keywords"" content=""(.*?)"">", s)
+	{
+		meta_keywords := UnHTM(s1)
+		Loop, Parse, meta_keywords, `,, %A_Space%
+		{
+			If keyword[A_LoopField]
+				cat[A_Index] := keyword[A_LoopField]
+			Else
+				cat[A_Index] := A_LoopField
+		}
+		
+	}
 
 	; Tag-Paare samt Inhalt entfernen
 
@@ -238,17 +268,8 @@ Loop, docs\*.htm, 0, 1
 
 	; Kategorien setzen
 
-	maincat := 	(A_LoopFileDir ~= "commands") 	? "Befehl"
-			: 	(A_LoopFileDir ~= "misc")		? "Sonstiges"
-			:	(A_LoopFileDir ~= "scripts")	? "Script"
-			:	""
-
-	If maincat
-		content .= "`n[[Kategorie:" maincat "]]"
-
-	For k, cat in site[name]
-		If (cat != " ")
-			content .= "`n[[Kategorie:" cat "]]"
+	For k, catname in cat
+		content .= "`n[[Kategorie:" UnHTM(catname) "]]"
 
 	; Wiki-Datei erstellen
 
@@ -459,79 +480,4 @@ preg_quote(str)
 	While (char := SubStr(chars, pos++, 1))
 		str	:= RegExReplace(str, "\" char, "\" char)
 	Return str
-}
-
-GetCategories()
-{
-	cat := [], site := {}, scan := 0
-
-	catlist := {"Grundlagen und Syntax" 	: "Grundlage"
-			,	"Objekte" 					: "Objektverwaltung"
-			,	"Zu AutoHotkey_L wechseln"	: "AutoHotkey_L"
-			,	"Umgebungsverwaltung" 		: "Systemumgebung"
-			,	"Natives Code-Interop"		: "Interoperabilität"
-			,	"COM" 						: "COM"
-			,	"Datei- und Laufwerksverwaltung" : "Dateiverwaltung"
-			,	"Ablaufsteuerung" 			: "Ablaufsteuerung"
-			,	"If-Befehle" 				: "Bedingte Anweisung"
-			,	"Loop-Befehle" 				: "Anweisungswiederholung"
-			,	"Interne Funktionen"		: "Interne Funktion"
-			,	"GUI &amp; Dialogfenster"	: "Benutzeroberfläche"
-			,	"Maus und Tastatur"			: "Eingabegerätesteuerung"
-			,	"Hotkeys und Hotstrings"	: " "
-			,	"Mathematik" 				: "Berechnung"
-			,	"Bildschirmverwaltung" 		: "Bildschirmverwaltung"
-			,	"Sonstige Befehle"			: " "
-			,	"Prozessverwaltung" 		: "Prozessverwaltung"
-			,	"Registrierungsverwaltung" 	: "Registrierungsverwaltung"
-			,	"Sound-Befehle" 			: "Soundverwaltung"
-			,	"Stringverwaltung" 			: "Stringverwaltung"
-			,	"Fensterverwaltung" 		: "Fensterverwaltung"
-			,	"Steuerelemente" 			: "Steuerelementverwaltung"
-			,	"Fenstergruppen" 			: "Fenstergruppenverwaltung"
-			,	"#Direktiven" 				: "Direktive"}
-
-	Loop, Read, Table of Contents.hhc
-	{
-		If RegExMatch(A_LoopReadLine, "i)<param name=""Name"" value=""(.*)"">", s)
-		{
-			If catlist[s1]
-			{
-				scan++
-				cat[scan] := catlist[s1]
-			}
-		}
-
-		If scan
-		{
-			If RegExMatch(A_LoopReadLine, "i)<param name=""Local"" value=""(.*)"">", s)
-			{
-				skip := 0
-				path := RegExReplace(s1, "#.*")
-				path := RegExReplace(path, "/", "\")
-				SplitPath, path,,,, namenoext
-				For k, v in site[namenoext]
-				{
-					If (v = cat[scan])
-					{
-						skip := 1
-						Break
-					}
-				}
-				If !skip
-				{
-					If !IsObject(site[namenoext])
-						site[namenoext] := []
-					site[namenoext].Insert(cat[scan])
-				}
-			}
-		}
-
-		If RegExMatch(A_LoopReadLine, "i)</ul>")
-		{
-			cat[scan].Remove()
-			scan--
-		}
-	}
-	Return % site
 }
