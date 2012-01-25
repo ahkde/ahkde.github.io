@@ -99,8 +99,8 @@ Loop, docs\*.htm, 0, 1
 
 	; Zeichen/String von Wiki-Formatierung ausschließen
 
-	file := RegExReplace(file, "(\||''+|\[\[|\]\])", "<nowiki>$1</nowiki>")
-	file := RegExReplace(file, "(?:<p>|\n)\K(#|\*)(?=\w)", "<nowiki>$1</nowiki>")
+	file := RegExReplace(file, "\|", "&#124;")
+	file := RegExReplace(file, "(''+|\[\[|\]\])", "<nowiki>$1</nowiki>")
 
 	; Sonderfall: Code und Absätze in Aufzählung
 
@@ -138,26 +138,26 @@ Loop, docs\*.htm, 0, 1
 		; pre tags von Sonderfall ausschließen
 
 		If (s1 ~= "exclude")
-			s2	:= "<pre>" s2 "</pre>"
+			continue
 
-		; Klammer "}" in Vorlagesyntax
+		; Kursiv mit Fett ersetzen
 
-		If (s1 ~= "class=""Syntax""")
-			s2	:= RegExReplace(s2, "}", "&#125;")
+		s2	:= RegExReplace(s2, "<(/|)i>", "<$1b>")
 
 		; Kommentare
 
 		pos2 := 1
 		While (pos2 := RegExMatch(s2, "i)<em\b.*?>(.*?)</em>", x, pos2 + StrLen(x1)))
 		{
-			x1	:= "{{K|1=" RegExReplace(x1, "\n([ \t]*)", "}}`n$1{{K|1=") "}}"
+			x1	:= "''" RegExReplace(x1, "\n([ \t]*)", "''`n$1''") "''"
 			s2	:= RegExReplace(s2, preg_quote(x), x1)
 		}
 
 		; ----------------------------------------------------------------------
 		
 		If (s1 ~= "class=""Syntax""")
-			s2	:= "{{Code_Gelb|1=" RegExReplace(s2, "\n", "<br>") "}}"
+			s2 := "<p class=""Syntax"">" s2 "</p>"
+		}
 		Else
 			s2 := "!!SPACE!!" RegExReplace(s2, "\n", "`n!!SPACE!!")
 
@@ -198,26 +198,17 @@ Loop, docs\*.htm, 0, 1
 		Loop
 		{
 			If (pos := RegExMatch(temp, "<[^<>]*?>", s, pos + 1))
-				Tag(s)
+			{
+				If Tag(s)
+					break
+			}
 			Else
 				break
 		}
 
-		; ----------------------------------------------------------------------
-		; FORMATIERUNGEN
-		; ----------------------------------------------------------------------
+		; Zeichen ausschließen
 
-		line := RegExReplace(line, "i)<span class=""(.*?)"">", "<span style=""{{$1}}"">")
-		line := RegExReplace(line, "i)<div class=""(.*?)"".*?>", "<div style=""{{$1}}"">")
-
-		line := RegExReplace(line, "i)<(/|)(strong|b)\b.*?>", "'''")
-		line := RegExReplace(line, "i)<(/|)(em|i)\b.*?>", "''")
-		
-		; ----------------------------------------------------------------------
-
-		; Restliche Tags entfernen
-
-		line := RegExReplace(line, "i)<(/|)(td|th|li|tr|a|caption|p|!--|ol|ul|tbody)\b[^<]*?>")
+		line := RegExReplace(line, "^#(?=\S)", "&#35;")
 
 		; Entities entfernen
 
@@ -281,15 +272,19 @@ Loop, docs\*.htm, 0, 1
 Tag(match)
 {
 	global line, countchar, name, index
-	static main_class
+	static main_class, skip
+	static wiki_markups := "onlyinclude|nowiki"
 	; --------------------------------------------------------------------------
 	; Tag-Informationen aus match extrahieren
 	; --------------------------------------------------------------------------
 	match_temp		:= match
 	infos			:= "class|style|id|href|name"
 	tag				:= {}
-	If RegExMatch(match, "s)<(\S+).*>", s)
+	If RegExMatch(match, "s)<(\S+)(.*?)>", s)
+	{
 		tag.label	:= s1
+		tag.params	:= s2
+	}
 	Loop, Parse, infos, "|"
 	{
 		If RegExMatch(match_temp, "s)" A_LoopField "=""(.*?)""", s)
@@ -302,41 +297,38 @@ Tag(match)
 	If RegExMatch(match_temp, "s)<" tag.label "(.*)>", s)
 		tag.misc	:= Trim(s1)
 	; --------------------------------------------------------------------------
+	; Anker
+	; --------------------------------------------------------------------------
+	If (tag.label = "a" and tag.name)
+		line := RegExReplace(line, preg_quote(match) "</a>", "{{Anker|" tag.name "}}")
+	If (tag.id and !(tag.label ~= "^(tr|td|th|div)$"))
+		line := RegExReplace(line, preg_quote(match), "$0{{Anker|" tag.id "}}")
+	; --------------------------------------------------------------------------
 	; Tabelle
 	; --------------------------------------------------------------------------
 	If (tag.label = "table")
 	{
-		main_class := tag.class
-		style := tag.class ? "{{" tag.class "}}" : ""
-		style .= tag.style ? "; " tag.style : ""
-		replace := (style ? "style=""" style """ " : "") tag.misc
-		line := RegExReplace(line, preg_quote(match), "{| " replace)
+		line := RegExReplace(line, preg_quote(match), "{|" tag.params)
 	}
-	If (tag.label = "caption")
+	Else If (tag.label = "caption")
 	{
-		line := RegExReplace(line, preg_quote(match), "|+ ")
+		line := RegExReplace(line, preg_quote(match), "|+" tag.params)
 	}
-	If (tag.label = "tr")
+	Else If (tag.label = "tr")
 	{
-		line := RegExReplace(line, preg_quote(match), "|- ")
+		line := RegExReplace(line, preg_quote(match), "|-" tag.params)
 	}
-	If (tag.label = "td")
+	Else If (tag.label = "td")
 	{
-		style := tag.class ? "{{" tag.class "}}" : ""
-		style .= tag.style ? "; " tag.style  "; " : ""
-		style .= main_class ? "{{" main_class "_" tag.label "}}" : ""
-		replace := (style ? "style=""" style """ " : "") tag.misc
-		line := RegExReplace(line, preg_quote(match), "| " (replace ? replace " | " : ""))
+		replace := (tag.params ? "|" tag.params " | " : "| ")
+		line := RegExReplace(line, preg_quote(match), replace)
 	}
-	If (tag.label = "th")
+	Else If (tag.label = "th")
 	{
-		style := tag.class ? "{{" tag.class "}}" : ""
-		style .= tag.style ? "; " tag.style  "; " : ""
-		style .= main_class ? "{{" main_class "_" tag.label "}}" : ""
-		replace := (style ? "style=""" style """ " : "") tag.misc
-		line := RegExReplace(line, preg_quote(match), "! " (replace ? replace " | " : ""))
+		replace := (tag.params ? "!" tag.params " | " : "! ")
+		line := RegExReplace(line, preg_quote(match), replace)
 	}
-	If (tag.label = "/table")
+	Else If (tag.label = "/table")
 	{
 		main_class := ""
 		line := RegExReplace(line, preg_quote(match), "|}")
@@ -344,24 +336,27 @@ Tag(match)
 	; --------------------------------------------------------------------------
 	; Aufzählung
 	; --------------------------------------------------------------------------
-	If (tag.label = "ol")
+	Else If (tag.label = "ol")
 	{
 		countchar .= "#"
 		line := RegExReplace(line, preg_quote(match), "!!REMOVE!!")
 	}
-	If (tag.label = "ul")
+	Else If (tag.label = "ul")
 	{
 		countchar .= "*"
 		line := RegExReplace(line, preg_quote(match), "!!REMOVE!!")
 	}
-	If (tag.label ~= "/(ol|ul)")
+	Else If (tag.label ~= "/(ol|ul)")
+	{
 		countchar := SubStr(countchar, 1, -1)
-	If (tag.label = "li")
+		line := RegExReplace(line, preg_quote(match))
+	}
+	Else If (tag.label = "li")
 		line := RegExReplace(line, preg_quote(match), countchar " ")
 	; --------------------------------------------------------------------------
 	; Links
 	; --------------------------------------------------------------------------
-	If (tag.label = "a" and tag.href)
+	Else If (tag.label = "a" and tag.href)
 	{
 		; Aufteilen
 
@@ -381,7 +376,7 @@ Tag(match)
 		; Dateinamenerweiterung
 
 		If (tag.href.ext ~= "ahk|zip") and !tag.href.dir
-			tag.href.full := "http://www.autohotkey.net/~Ragnar/" tag.href.filename
+			tag.href.full := "http://www.autohotkey.net/~Ragnar/docs/scripts/" tag.href.filename
 
 		; Externer Link
 		If (tag.href.full ~= "(http|https|ftp):")
@@ -420,26 +415,69 @@ Tag(match)
 			}
 		}
 	}
+	Else If (tag.label = "/a")
+		Return
 	; --------------------------------------------------------------------------
-	; Anker
+	; Bilder
 	; --------------------------------------------------------------------------
-	If (tag.label = "a" and tag.name)
-		line := RegExReplace(line, preg_quote(match), "{{Anker|" tag.name "}}")
-	If tag.id
-		line := RegExReplace(line, preg_quote(match), "{{Anker|" tag.id "}}$0")
+	Else If (tag.label = "img")
+		Return
+	; --------------------------------------------------------------------------
+	; Absätze
+	; --------------------------------------------------------------------------
+	Else If (tag.label = "p" and tag.class = "syntax")
+		skip := 1
+
+	Else If (tag.label = "/p" and skip)
+		skip := 0
+	; --------------------------------------------------------------------------
+	; Zeilenumbruch
+	; --------------------------------------------------------------------------
+	Else If (tag.label = "br")
+		Return
+	; --------------------------------------------------------------------------
+	; Code
+	; --------------------------------------------------------------------------
+	Else If (tag.label ~= "^(/|)code$")
+		Return
+
+	Else If (tag.label = "pre" and tag.params = " exclude")
+	{
+		line := RegExReplace(line, preg_quote(match), "<pre>")
+		skip := 1
+	}
+
+	Else If (tag.label = "/pre" and skip)
+		skip := 0
+	; --------------------------------------------------------------------------
+	; Formatierung
+	; --------------------------------------------------------------------------
+	Else If (tag.label ~= "i)^(/|)(strong|b)$")
+		line := RegExReplace(line, preg_quote(match), "'''")
+	Else If (tag.label ~= "i)^(/|)(i|em)$")
+		line := RegExReplace(line, preg_quote(match), "''")
+	Else If (tag.label ~= "i)^(/|)(u|s|sup)$")
+		Return
+	Else If (tag.label ~= "i)^(/|)span$")
+		line := RegExReplace(line, "i)<span class=""(.*?)"">", "<span style=""{{$1}}"">")
+	Else If (tag.label ~= "i)^(/|)div$")
+		Return
 	; --------------------------------------------------------------------------
 	; Überschriften
 	; --------------------------------------------------------------------------
-	If (tag.label ~= "^h\d$")
-		line := RegExReplace(line, preg_quote(match), "`n{{" tag.label "|1=")
-	If (tag.label ~= "/h\d")
-		line := RegExReplace(line, preg_quote(match), "}}`n")
+	Else If RegExMatch(tag.label, "(/|)h(\d)", s)
+	{
+		Loop % s2
+			markup .= "="
+		markup := (s1 ? " " markup : markup " ")
+		line := RegExReplace(line, preg_quote(match), markup)
+	}
 	; --------------------------------------------------------------------------
 	; Tastendarstellung
 	; --------------------------------------------------------------------------
-	If (tag.label = "kbd")
+	Else If (tag.label = "kbd")
 		line := RegExReplace(line, preg_quote(match), "{{Taste|")
-	If (tag.label = "/kbd")
+	Else If (tag.label = "/kbd")
 		line := RegExReplace(line, preg_quote(match), "}}")
 	; --------------------------------------------------------------------------
 	; Erzwungene Wiki-Markups
@@ -447,8 +485,17 @@ Tag(match)
 
 	; Versionierung für wiki (AHKL_ChangeLog.htm)
 
-	If RegExMatch(match, "<!--(\/|)(onlyinclude|nowiki)-->", s)
+	Else If RegExMatch(tag.label, "!--(/|)( " wiki_markups ")--", s)
 		line := RegExReplace(line, preg_quote(match), "<" s1 s2 ">")
+	Else If (tag.label ~= wiki_markups)
+		Return
+
+	; --------------------------------------------------------------------------
+	; Restliche Tags entfernen
+	; --------------------------------------------------------------------------
+
+	Else
+		line := RegExReplace(line, preg_quote(match), "", "", 1)
 }
 
 UnHTM(HTM) {
