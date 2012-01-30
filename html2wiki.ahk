@@ -72,6 +72,11 @@ Loop, docs\*.htm, 0, 1
 		
 	}
 
+	; Titel ändern, falls Direktive
+
+	If (name ~= "^_.*")
+		content := "{{DISPLAYTITLE:" RegExReplace(name, "_", "#") "}}`n`n"
+
 	; Tag-Paare samt Inhalt entfernen
 
 	file	:= RegExReplace(file, "si)<(h1|script)\b.*?>.*?</\1>")
@@ -157,7 +162,6 @@ Loop, docs\*.htm, 0, 1
 		
 		If (s1 ~= "class=""Syntax""")
 			s2 := "<p class=""Syntax"">" s2 "</p>"
-		}
 		Else
 			s2 := "!!SPACE!!" RegExReplace(s2, "\n", "`n!!SPACE!!")
 
