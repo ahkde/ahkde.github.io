@@ -380,7 +380,7 @@ Tag(match)
 		; Dateinamenerweiterung
 
 		If (tag.href.ext ~= "ahk|zip") and !tag.href.dir
-			tag.href.full := "http://www.autohotkey.net/~Ragnar/docs/scripts/" tag.href.filename
+			tag.href.full := "http://de.autohotkey.com/docs/scripts/" tag.href.filename
 
 		; Externer Link
 		If (tag.href.full ~= "(http|https|ftp):")
@@ -489,7 +489,7 @@ Tag(match)
 
 	; Versionierung für wiki (AHKL_ChangeLog.htm)
 
-	Else If RegExMatch(tag.label, "!--(/|)( " wiki_markups ")--", s)
+	Else If RegExMatch(tag.label, "!--(/|)(" wiki_markups ")--", s)
 		line := RegExReplace(line, preg_quote(match), "<" s1 s2 ">")
 	Else If (tag.label ~= wiki_markups)
 		Return

@@ -10,12 +10,12 @@
      <param name="FrameName" value="right">
      <param name="ImageType" value="Folder">
      <param name="comment" value="title:Hilfe für AutoHotkey_L">
-     <param name="comment" value="base:docs\index.htm">
+     <param name="comment" value="base:docs\AutoHotkey.htm">
    </OBJECT>
    <UL>
       <LI><OBJECT type="text/sitemap">
             <param name="Name" value="AutoHotkey">
-            <param name="Local" value="docs\index.htm">
+            <param name="Local" value="docs\AutoHotkey.htm">
           </OBJECT>
       <LI><OBJECT type="text/sitemap">
             <param name="Name" value="Tutorial (Schnellstart)">
