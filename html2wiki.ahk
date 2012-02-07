@@ -4,10 +4,6 @@ SetBatchLines, -1
 
 ; Ausnahmen: mehrere index
 
-index := {"docs"			: "Hauptseite"
-		, "docs\commands"	: "Alphabetischer Befehls- und Funktionsindex"
-		, "docs\scripts"	: "Script-Beispiele"}
-
 keyword 	:= {Fenster			: "Fensterverwaltung"
 			, 	Datei			: "Dateiverwaltung"
 			,	Ordner			: "Ordnerverwaltung"
@@ -32,30 +28,33 @@ FileRemoveDir, wiki
 
 ;Progress
 
-Loop, docs\*.htm, 0, 1
+Loop, *.htm, 0, 1
 	Total := A_Index
 SysGet, Mon, MonitorWorkArea
 Progress, % "B R1-" Total " H50 W300 C0 X" MonRight - 300 " Y" MonBottom - 50
 
 ; Prozess beginnen
 
-Loop, docs\*.htm, 0, 1
+Loop, *.htm, 0, 1
 {
 	parsing		:= 0
 	countchar	:= ""
 	content 	:= ""
 	cat			:= {}
 
-	name := RegExReplace(A_LoopFileName, "\." A_LoopFileExt)
+	file	:= FileOpen(A_LoopFileFullPath, "r`n").read()
+
+	name	:= RegExReplace(A_LoopFileName, "\." A_LoopFileExt)
 
 	; Mehrere index
 
 	If (name = "index")
-		name := index[A_LoopFileDir]
+	{
+		If RegExMatch(file, "<title>(.*?)</title>", s)
+			name := UnHTM(s1)
+	}
 
 	Progress, %A_Index%, %A_Index%/%Total% - %name%
-
-	file	:= FileOpen(A_LoopFileFullPath, "r`n").read()
 
 	; Kategorien abrufen
 
@@ -372,10 +371,20 @@ Tag(match)
 		}
 		path := RegExReplace(tag.href.full, "/", "\")
 		SplitPath, path, filename, dir, ext, namenoext
-		tag.href.filename 	:= filename
+		If !filename
+		{
+			If tag.href.anchor
+				tag.href.filename := A_LoopFileName
+			Else
+				tag.href.filename := "index.htm"
+		}
+		Else
+			tag.href.filename := filename
 		tag.href.dir 		:= dir
 		tag.href.ext 		:= ext
 		tag.href.namenoext	:= namenoext
+		Loop, % A_LoopFileDir "\" tag.href.dir "\" tag.href.filename
+    		tag.href.relative := SubStr(A_LoopFileLongPath, StrLen(A_WorkingDir)+2)
 
 		; Dateinamenerweiterung
 
@@ -405,14 +414,10 @@ Tag(match)
 				link := RegExReplace(tag.href.namenoext tag.href.anchor, "^_", ".")
 			 	; Sonderfall: Index-Verlinkung
 			 	If (tag.href.filename = "index.htm")
-			 	or (!tag.href.filename and !tag.href.anchor)
 			 	{
-			 		If !tag.href.dir
-			 			link := index[A_LoopFileDir]
-			 		Else If (tag.href.dir = "..")
-			 			link := index["docs"]
-			 		Else
-			 			link := index["docs\" tag.href.dir]
+			 		If FileExist(tag.href.relative)
+			 			If RegExMatch(FileOpen(tag.href.relative, "r").Read(), "<title>(.*?)</title>", x)
+			 				link := UnHTM(x1)
 			 	}
 				replace := "[[" (link == s1 ? link : link "|" s1) "]]"
 				line := RegExReplace(line, preg_quote(s), replace)
