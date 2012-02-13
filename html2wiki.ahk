@@ -78,7 +78,12 @@ Loop, *.htm, 0, 1
 
 	; Tag-Paare samt Inhalt entfernen
 
-	file	:= RegExReplace(file, "si)<(h1|script)\b.*?>.*?</\1>")
+	file		:= RegExReplace(file, "si)<(h1|script)\b.*?>.*?</\1>")
+
+	; Bestimmte Tags entfernen (setzt gutes Indent voraus)
+
+	file		:= RegExReplace(file, "i)\n<(/|)div\b.*?>")
+	file		:= RegExReplace(file, "i)\n  <(/|)div\b.*?>")
 
 	; Bestimmte Tags benötigen Zeilenumbruch davor oder danach
 
@@ -97,7 +102,7 @@ Loop, *.htm, 0, 1
 	; Bestimmte Tags brauchen Leerzeile davor oder danach
 
 	nl_back	:= "/table"
-	nl_front:= "h\d"
+	nl_front:= "h\d|pre"
 	file	:= RegExReplace(file, "i)(<(?:" nl_back ")\b[^<]*>)(?!\n\n)", "$1`n`n")
 	file	:= RegExReplace(file, "i)(?<!\n\n)(<(?:" nl_front ")\b[^<]*>)", "`n`n$1")
 
@@ -109,29 +114,29 @@ Loop, *.htm, 0, 1
 	; Sonderfall: Code und Absätze in Aufzählung
 
 	pos := 1
-	While (pos := RegExMatch(file, "i)<li\b.*?>(.*?)</li>", s, pos + StrLen(s1)))
+	While (pos := RegExMatch(file, "i)<li\b(.*?)>(.*?)</li>", s, pos + StrLen(s2)))
 	{
 		; Code
 
 		pos2 := 1
-		While (pos2 := RegExMatch(s1, "i)\s*<pre\b.*?>(.*?)</pre>\s*", x, pos2 + StrLen(x1)))
+		While (pos2 := RegExMatch(s2, "i)\s*<pre\b.*?>(.*?)</pre>\s*", x, pos2 + StrLen(x1)))
 		{
 			x1 := RegExReplace(x1, "\n|<br>", "&#10;") ; Sonderbehandlung für Zeilenumbrüche 
 			x1 := RegExReplace(x1, "<.*?>") ; restliche Formatierungen aufheben
 			x1 := "<pre exclude>" x1 "</pre>" ; Ausschlussmarkierung
-			s1 := RegExReplace(s1, "\s*" preg_quote(x),  x1)
+			s2 := RegExReplace(s2, "\s*" preg_quote(x),  x1)
 		}
 		
 		; Absätze
 
 		pos2 := 1
-		While (pos2 := RegExMatch(s1, "i)\s*<p\b.*?>(.*?)</p>\s*", x, pos2 + StrLen(x1)))
+		While (pos2 := RegExMatch(s2, "i)\s*<p\b.*?>(.*?)</p>\s*", x, pos2 + StrLen(x1)))
 		{
 			x1 := RegExReplace(x1, "\n+", "<br>")
-			s1 := RegExReplace(s1, preg_quote(x),  x1)
+			s2 := RegExReplace(s2, preg_quote(x),  x1)
 		}
 
-		file := RegExReplace(file, preg_quote(s), "<li>" s1 "</li>")
+		file := RegExReplace(file, preg_quote(s), "<li" s1 ">" s2 "</li>")
 	}
 
 	; Code
@@ -144,6 +149,13 @@ Loop, *.htm, 0, 1
 		If (s1 ~= "exclude")
 			continue
 
+		; Anker
+
+		If RegExMatch(s1, "id=""(.*?)""", y)
+			s_Anker := "{{Anker|" y1 "}}"
+		Else
+			s_Anker := ""
+
 		; Kursiv mit Fett ersetzen
 
 		s2	:= RegExReplace(s2, "<(/|)i>", "<$1b>")
@@ -151,10 +163,17 @@ Loop, *.htm, 0, 1
 		; Kommentare
 
 		pos2 := 1
-		While (pos2 := RegExMatch(s2, "i)<em\b.*?>(.*?)</em>", x, pos2 + StrLen(x1)))
+		While (pos2 := RegExMatch(s2, "i)<em\b(.*?)>(.*?)</em>", x, pos2 + StrLen(x2)))
 		{
-			x1	:= "''" RegExReplace(x1, "\n([ \t]*)", "''`n$1''") "''"
-			s2	:= RegExReplace(s2, preg_quote(x), x1)
+			; Anker
+
+			If RegExMatch(x1, "id=""(.*?)""", y)
+				x_Anker := "{{Anker|" y1 "}}"
+			Else
+				x_Anker := ""
+
+			x2	:= x_Anker "''" RegExReplace(x2, "\n([ \t]*)", "''`n$1''") "''"
+			s2	:= RegExReplace(s2, preg_quote(x), x2)
 		}
 
 		; ----------------------------------------------------------------------
@@ -162,7 +181,7 @@ Loop, *.htm, 0, 1
 		If (s1 ~= "class=""Syntax""")
 			s2 := "<p class=""Syntax"">" s2 "</p>"
 		Else
-			s2 := "!!SPACE!!" RegExReplace(s2, "\n", "`n!!SPACE!!")
+			s2 := "!!SPACE!!" s_Anker RegExReplace(s2, "\n", "`n!!SPACE!!")
 
 
 		file := RegExReplace(file, preg_quote(s), s2)
@@ -241,7 +260,7 @@ Loop, *.htm, 0, 1
 
 	If (name = "Progress")
 	{
-		search	:= "\| width=""16"" \| <img src=""\.\./images/clr/(.*?)\.gif"">"
+		search	:= "\| style=""width: 16px;"" \| <img alt="""" src=""\.\./images/clr/(.*?)\.gif"">"
 		replace	:= "| bgcolor=""$1"" style=""{{color_td}}"" |"
 		content := RegExReplace(content, search, replace)
 	}
@@ -304,7 +323,9 @@ Tag(match)
 	; --------------------------------------------------------------------------
 	If (tag.label = "a" and tag.name)
 		line := RegExReplace(line, preg_quote(match) "</a>", "{{Anker|" tag.name "}}")
-	If (tag.id and !(tag.label ~= "^(tr|td|th|div)$"))
+	If (tag.label = "a" and tag.id)
+		line := RegExReplace(line, preg_quote(match) "</a>", "{{Anker|" tag.id "}}")
+	If (tag.id and !(tag.label ~= "^(tr|td|th|caption|div)$"))
 		line := RegExReplace(line, preg_quote(match), "$0{{Anker|" tag.id "}}")
 	; --------------------------------------------------------------------------
 	; Tabelle
@@ -313,13 +334,14 @@ Tag(match)
 	{
 		line := RegExReplace(line, preg_quote(match), "{|" tag.params)
 	}
-	Else If (tag.label = "caption")
-	{
-		line := RegExReplace(line, preg_quote(match), "|+" tag.params)
-	}
 	Else If (tag.label = "tr")
 	{
 		line := RegExReplace(line, preg_quote(match), "|-" tag.params)
+	}
+	Else If (tag.label = "caption")
+	{
+		replace := (tag.params ? "|+" tag.params " | " : "|+ ")
+		line := RegExReplace(line, preg_quote(match), replace)
 	}
 	Else If (tag.label = "td")
 	{
