@@ -26,7 +26,7 @@
             <param name="Local" value="docs\FAQ.htm">
           </OBJECT>
       <LI><OBJECT type="text/sitemap">
-            <param name="Name" value="Befehle und Funktionen">
+            <param name="Name" value="Befehlsliste">
             <param name="Local" value="docs\commands\index.htm">
           </OBJECT>
       <LI><OBJECT type="text/sitemap">
