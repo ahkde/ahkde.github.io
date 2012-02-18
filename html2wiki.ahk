@@ -181,7 +181,7 @@ Loop, *.htm, 0, 1
 		If (s1 ~= "class=""Syntax""")
 			s2 := "<p class=""Syntax"">" s2 "</p>"
 		Else
-			s2 := "!!SPACE!!" s_Anker RegExReplace(s2, "\n", "`n!!SPACE!!")
+			s2 := "&nbsp;" s_Anker RegExReplace(s2, "\n", "`n&nbsp;")
 
 
 		file := RegExReplace(file, preg_quote(s), s2)
@@ -191,9 +191,9 @@ Loop, *.htm, 0, 1
 
 	file := RegExReplace(file, "`am)^[ \t]+|[ \t]+$")
 
-	; Anfangsleerzeichen von Code setzen
+	; Zeichen am Zeilenanfang nicht als Wiki-Markup interpretieren
 
-	file := RegExReplace(file, "!!SPACE!!", " ")
+	file := RegExReplace(file, "`am)^(<p\b[^<]*?>|)(#|\||\!|\*|\=|;|\:|')", "$1<nowiki/>$2")
 
 	; --------------------------------------------------------------------------
 	; Zeilen abarbeiten
@@ -227,10 +227,6 @@ Loop, *.htm, 0, 1
 			Else
 				break
 		}
-
-		; Zeichen ausschließen
-
-		line := RegExReplace(line, "^#(?=\S)", "&#35;")
 
 		; Entities entfernen
 
