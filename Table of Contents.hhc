@@ -99,7 +99,7 @@
                   <param name="Local" value="docs\Objects.htm#Implementation">
                 </OBJECT>
             <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="Objekt">
+                  <param name="Name" value="Object">
                   <param name="Local" value="docs\objects\Object.htm">
                 </OBJECT>
             <LI><OBJECT type="text/sitemap">
@@ -107,11 +107,11 @@
                   <param name="Local" value="docs\objects\Enumerator.htm">
                 </OBJECT>
             <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="Datei-Objekt">
+                  <param name="Name" value="File-Objekt">
                   <param name="Local" value="docs\objects\File.htm">
                 </OBJECT>
             <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="Funktionsobjekt">
+                  <param name="Name" value="Func-Objekt">
                   <param name="Local" value="docs\objects\Func.htm">
                 </OBJECT>
          </UL>
