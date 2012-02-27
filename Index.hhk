@@ -1086,10 +1086,6 @@
 		<param name="Local" value="docs\commands\LoopFile.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Datei-Objekt">
-		<param name="Local" value="docs\objects\File.htm">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DateTime-Steuerelemente (GUI)">
 		<param name="Local" value="docs\commands\GuiControls.htm#DateTime">
 		</OBJECT>
@@ -1364,6 +1360,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FileMoveDir">
 		<param name="Local" value="docs\commands\FileMoveDir.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="File-Objekt">
+		<param name="Local" value="docs\objects\File.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="FileOpen">
