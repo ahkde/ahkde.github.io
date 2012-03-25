@@ -8,11 +8,11 @@ FileEncoding, UTF-8
 
 If !FileExist("liste.txt")
 {
-	WinGet, CListe, ControlListHwnd, AutoWikiBrowser
+	WinGet, CListe, ControlList, AutoWikiBrowser
 	Loop, Parse, CListe, `n
-		If A_Index = 8
+		If A_LoopField ~= "LISTBOX\.app\.0\.33c0d9d1"
 		{
-			CListBox := A_LoopField
+			ControlGet, CListBox, Hwnd,, % A_LoopField, AutoWikiBrowser
 			Break
 		}
 	ControlGet, Liste, List,,, % "ahk_id " CListBox
@@ -24,13 +24,13 @@ If !FileExist("liste.txt")
 Loop, Read, liste.txt
 	DateiTotal := A_Index
 
-WinGet, CListe, ControlListHwnd, AutoWikiBrowser
-	Loop, Parse, CListe, `n
-		If A_Index = 8
-		{
-			CListBox := A_LoopField
-			Break
-		}
+WinGet, CListe, ControlList, AutoWikiBrowser
+Loop, Parse, CListe, `n
+	If A_LoopField ~= "LISTBOX\.app\.0\.33c0d9d1"
+	{
+		ControlGet, CListBox, Hwnd,, % A_LoopField, AutoWikiBrowser
+		Break
+	}
 ControlGet, Liste, List,,, % "ahk_id " CListBox
 Loop, Parse, Liste, `n
 	Total := A_Index
@@ -45,7 +45,7 @@ FileReadLine, Originalname, liste.txt, % Zeile
 WinGetTitle, Titel, AutoWikiBrowser
 RegExMatch(Titel, "AutoWikiBrowser - Default\.xml - (.*)", s)
 Artikel := RegExReplace(s1, "\.", "_")
-If (Artikel = "Hauptseite") ; Ausnahme überspringen
+If (Artikel ~= "^(Hauptseite|AutoHotkey)$") ; Ausnahme überspringen
 	Return
 FileRead, Inhalt, % "wiki/" Artikel ".wiki"
 If ErrorLevel
