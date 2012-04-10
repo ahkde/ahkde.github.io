@@ -1,8 +1,3 @@
-function IsInsideChm() {   //returns true if current file is inside a CHM Help File
-  var ra = /::/;
-  return (location.href.search(ra) > 0); //If found then then we are in a CHM
-  }
-    
 window.onload = function () {
 	function gY(e) {
 		var i = 0;
