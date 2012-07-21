@@ -314,6 +314,10 @@
 		<param name="Local" value="docs\Variables.htm#IPAddress">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="A_Is64bitOS">
+		<param name="Local" value="docs\Variables.htm#Is64bitOS">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_IsAdmin">
 		<param name="Local" value="docs\Variables.htm#IsAdmin">
 		</OBJECT>
@@ -524,6 +528,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_PtrSize">
 		<param name="Local" value="docs\Variables.htm#PtrSize">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="A_RegView">
+		<param name="Local" value="docs\Variables.htm#RegView">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScreenHeight">
@@ -2738,6 +2746,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SetNumLockState">
 		<param name="Local" value="docs\commands\SetNumScrollCapsLockState.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SetRegView">
+		<param name="Local" value="docs\commands\SetRegView.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="SetScrollLockState">
