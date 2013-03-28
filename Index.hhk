@@ -934,6 +934,10 @@
 		<param name="Local" value="docs/Objects.htm#Custom_Classes">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Click">
+		<param name="Local" value="docs/commands/Click.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Clipboard">
 		<param name="Local" value="docs/misc/Clipboard.htm">
 		</OBJECT>
