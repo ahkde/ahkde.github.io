@@ -6,7 +6,7 @@ Default Window=Contents
 Default Topic=docs/AutoHotkey.htm
 Full-text search=Yes
 Language=0x0407 Deutsch (Deutschland)
-Title=Hilfe für AutoHotkey_L
+Title=Hilfe für AutoHotkey
 Contents File=Table of Contents.hhc
 Index File=Index.hhk
 Error log file=
@@ -21,7 +21,7 @@ Compatibility=1.1 or later
 Default Font=
 
 [WINDOWS]
-Contents="Hilfe für AutoHotkey_L","Table of Contents.hhc","Index.hhk","docs/AutoHotkey.htm","docs/AutoHotkey.htm",,,,,0x73520,264,0x10200E,[53,9,853,609],0xB0000,0x3,,,,,0
+Contents="Hilfe für AutoHotkey","Table of Contents.hhc","Index.hhk","docs/AutoHotkey.htm","docs/AutoHotkey.htm",,,,,0x73520,264,0x10200E,[53,9,853,609],0xB0000,0x3,,,,,0
 
 [FILES]
 docs/AHKL_ChangeLog.htm
