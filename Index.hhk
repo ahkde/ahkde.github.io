@@ -534,6 +534,10 @@
 		<param name="Local" value="docs/Variables.htm#RegView">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="A_ScreenDPI">
+		<param name="Local" value="docs/Variables.htm#ScreenDPI">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="A_ScreenHeight">
 		<param name="Local" value="docs/Variables.htm#Screen">
 		</OBJECT>
@@ -1172,6 +1176,10 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Download einer Datei">
 		<param name="Local" value="docs/commands/URLDownloadToFile.htm">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DPI-Skalierung">
+		<param name="Local" value="docs/commands/Gui.htm#DPIScale">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Drag &amp; Drop (GUI-Fenster)">
