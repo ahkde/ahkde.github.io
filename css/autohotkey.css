@@ -1,0 +1,252 @@
+/*
+CSS for ahkscript.org homepage
+This site is built with <3 using Pure v0.3.0
+*/
+
+* { -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* normal links */
+
+a { color: rgb(66, 139, 202); /* a light blue */
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: rgb(42, 100, 150); /* a light blue - bit darker */
+    text-decoration: underline;
+}
+
+/* wrapper - sets the max-width of the page (not including the header and footer ) */
+
+#wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0;
+	padding-bottom: 3em;
+}
+
+/* form elements */
+
+.google-pure-input-1-2 {
+	width: 40%;
+}
+
+/* additional styling second column where we list the tools */
+
+.tools {
+	font-size: 0.9em;
+	padding: 0.8em;
+	border-left: 5px solid #eee;
+	border-radius: 10px;
+}
+	
+.tools h3 {
+	color:#088;
+}
+
+/* used for logo + text in header - only used if AHK + text logo are two images */
+img#ahkimg {
+	margin-right: 30px;
+}
+
+/* splash - contains ahk intro text and download + forum buttons */
+
+.splash {
+    margin: 0 auto;
+    padding: 0em 2em;
+    background: #fff;
+}
+
+.splash h1 {
+	color: #000088;
+}
+
+/* big download + forum + docs buttons */
+
+/* you can change the button sizes here, a combination of padding & width */
+h1 a.primary-button, h1 a.success-button, h1 a.secondary-button {
+	color: #fff;
+	font-size: 0.8em;
+	padding: 0.4em;
+	margin-left: 1em;
+	width: 65%;
+	max-width: 200px;
+	text-shadow: 1px 1px #008;
+}
+
+h1 a.primary-button {
+	margin-top:1em;
+	background: rgb(0, 0, 0); /* this is black */ 
+}	
+
+h1 a.success-button {
+	background: rgb(255, 0, 0); /* this is red */
+}	
+
+h1 a.secondary-button {
+	background: rgb(255, 200, 0); /* this is gold */
+}	
+
+a.primary-button:hover, a.primary-button:focus,
+a.success-button:hover, a.success-button:focus,
+a.secondary-button:hover, a.secondary-button:focus {
+	color: #fff;
+	text-decoration: none;
+}
+
+/* also used for the the "more info" buttons style links in the tools section */
+
+.secondary-button {
+	margin-top: 0em;
+	padding: 0.3em;
+	font-weight: bold;
+}
+
+h3 { 
+	color: #0A0; /* this is a green */
+}
+
+/* l-box used to provide additional padding to seperate columns */
+
+.l-box {
+	font-size: 0.9em;
+	padding-right: 1.5em;
+}
+
+.l-box b {
+	color: #008;
+}
+
+.l-box small {
+	color: #c0c0c0;
+	font-size: 0.8em;	
+}
+
+.l-box ul {
+	padding: 0em 1em;
+}
+
+.l-box li {
+	padding-bottom: 0.5em;
+}
+
+.l-box li small {
+	display: block;
+}
+
+/* content and ribbon are used multiple times */
+
+.content .content-ribbon {
+    padding: 0em 2em;
+    border-bottom: 1px solid #fff; 
+}
+
+.ribbon {
+   	text-align: center;
+    background: #eee;
+    padding: 2em;
+    color: #666;
+}
+
+    .ribbon h2 {
+        margin:0;
+        padding:0;
+        text-shadow: 1px 1px white;
+    }
+
+	.ribbon img {
+		max-width: 100%;
+		margin-top: -0.5em; /* this determines how much space there is above the AHK logo images in the header */
+		padding: 0;
+	}
+
+/* in case you want to style the "resources" bar */
+
+.resources {
+	background: #fff;
+	color: #000;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	padding-top:1em;
+}
+
+.resources h2 {
+	text-align:left;
+	margin-left:1.4em;
+	padding-bottom:1em;
+	color:#0A0;
+}
+
+/* footer */
+
+.footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 2.8em;
+    font-size: .7em;
+}
+
+/* media queries - sizes lifted from bootstrap :-)
+   We only have to worry about the images + form in the header
+   and the "big" button sizes - rest is already done by Pure */
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+	h1 a.primary-button, h1 a.success-button, h1 a.secondary-button {
+		font-size: 0.8em;
+	}	
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+
+	h1 a.primary-button, h1 a.success-button, h1 a.secondary-button {
+	margin-top:0.2em;
+	max-width: 180px;
+	float: left;
+	font-size: 0.8em;
+	}
+
+	img#ahkimg {
+	margin-right: 0;
+	}
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+
+	img#ahkimg {
+	margin-right: 0;
+	}
+
+	input.pure-button {
+		width: 70px;
+	}
+
+	.google-pure-input-1-2 {
+		width:180px;
+	}
+
+	h1 a.primary-button, h1 a.success-button, h1 a.secondary-button {
+		margin-top:1em;
+		max-width: 180px;
+	}
+
+	.pure-u-1-3 h1 {
+		text-align:center;
+		margin-left: 1em;
+	}
+
+	.tools {
+		padding: 0em;
+		border: none;
+		border-radius: none;
+	}
+	
+}
