@@ -144,6 +144,7 @@ docs/commands/FileSetAttrib.htm
 docs/commands/FileSetTime.htm
 docs/commands/For.htm
 docs/commands/FormatTime.htm
+docs/commands/Finally.htm
 docs/commands/GetKeyState.htm
 docs/commands/Gosub.htm
 docs/commands/Goto.htm
