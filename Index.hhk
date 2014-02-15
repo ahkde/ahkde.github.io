@@ -3,8 +3,7 @@
 <HEAD>
 <meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
 <!-- Sitemap 1.0 -->
-</HEAD>
-<BODY>
+</HEAD><BODY>
 <OBJECT type="text/site properties">
 	<param name="FrameName" value="right">
 </OBJECT>
@@ -686,7 +685,7 @@
 		<param name="Local" value="docs/Variables.htm#YYYY">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Abkürzungserweiterung">
+		<param name="Name" value="Abk&uuml;rzungserweiterung">
 		<param name="Local" value="docs/Hotstrings.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -714,7 +713,7 @@
 		<param name="Local" value="docs/commands/EnvAdd.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Administratorrechte für Scripts">
+		<param name="Name" value="Administratorrechte f&uuml;r Scripts">
 		<param name="Local" value="docs/Variables.htm#RequireAdmin">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -782,7 +781,7 @@
 		<param name="Local" value="docs/commands/WinSet.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Anfügen an einer Datei">
+		<param name="Name" value="Anf&uuml;gen an einer Datei">
 		<param name="Local" value="docs/commands/FileAppend.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -818,19 +817,19 @@
 		<param name="Local" value="docs/Scripts.htm#continuation">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Ausdrücke">
+		<param name="Name" value="Ausdr&uuml;cke">
 		<param name="Local" value="docs/Variables.htm#Expressions">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Auswählen einer Datei">
+		<param name="Name" value="Ausw&auml;hlen einer Datei">
 		<param name="Local" value="docs/commands/FileSelectFile.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Auswählen eines Ordners">
+		<param name="Name" value="Ausw&auml;hlen eines Ordners">
 		<param name="Local" value="docs/commands/FileSelectFolder.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Automatischer Ausführungsbereich">
+		<param name="Name" value="Automatischer Ausf&uuml;hrungsbereich">
 		<param name="Local" value="docs/Scripts.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -838,7 +837,7 @@
 		<param name="Local" value="docs/Hotstrings.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="AutoIt-v2-Kompatibilität">
+		<param name="Name" value="AutoIt-v2-Kompatibilit&auml;t">
 		<param name="Local" value="docs/misc/AutoIt2Compat.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1501,12 +1500,10 @@
 		<param name="Name" value="Funktionen (Definition und Aufruf)">
 		<param name="Local" value="docs/Functions.htm">
 		</OBJECT>
-	<UL>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Beispiel fürs Hochladen über FTP">
-			<param name="Local" value="docs/commands/FileAppend.htm#FTP">
-			</OBJECT>
-	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FTP Upload (Beispiel)">
+		<param name="Local" value="docs/commands/FileAppend.htm#FTP">
+		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Geschwindigkeit eines Scripts">
 		<param name="Local" value="docs/commands/SetBatchLines.htm">
@@ -1560,7 +1557,7 @@
 		<param name="Local" value="docs/commands/StringCaseSense.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Größe eines Fensters">
+		<param name="Name" value="Gr&ouml;&szlig;e eines Fensters">
 		<param name="Local" value="docs/commands/WinGetPos.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1708,7 +1705,7 @@
 		<param name="Local" value="docs/commands/ControlGet.htm#Hwnd">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Icon ändern">
+		<param name="Name" value="Icon &auml;ndern">
 		<param name="Local" value="docs/commands/Menu.htm#Icon">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1944,7 +1941,7 @@
 		<param name="Local" value="docs/Scripts.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Kompatibilität">
+		<param name="Name" value="Kompatibilit&auml;t">
 		<param name="Local" value="docs/Compat.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1980,7 +1977,7 @@
 		<param name="Local" value="docs/misc/Labels.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Länge eines Strings">
+		<param name="Name" value="L&auml;nge eines Strings">
 		<param name="Local" value="docs/commands/StringLen.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1992,7 +1989,7 @@
 		<param name="Local" value="docs/commands/DriveSpaceFree.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Lautstärke ändern">
+		<param name="Name" value="Lautst&auml;rke &auml;ndern">
 		<param name="Local" value="docs/commands/SoundSet.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2084,7 +2081,7 @@
 		<param name="Local" value="docs/commands/LoopParse.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Löschen einer Datei">
+		<param name="Name" value="L&ouml;schen einer Datei">
 		<param name="Local" value="docs/commands/FileDelete.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2360,7 +2357,7 @@
 		<param name="Local" value="docs/objects/Object.htm#SetCapacity">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Öffnen einer Datei">
+		<param name="Name" value="&Ouml;ffnen einer Datei">
 		<param name="Local" value="docs/commands/FileReadLine.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2376,7 +2373,7 @@
 		<param name="Local" value="docs/commands/OnMessage.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Operatoren in Ausdrücken">
+		<param name="Name" value="Operatoren in Ausdr&uuml;cken">
 		<param name="Local" value="docs/Variables.htm#Operators">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2412,7 +2409,7 @@
 		<param name="Local" value="docs/commands/Gui.htm#Owner">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Parameter an Script übergeben">
+		<param name="Name" value="Parameter an Script &uuml;bergeben">
 		<param name="Local" value="docs/Scripts.htm#cmd">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2468,11 +2465,11 @@
 		<param name="Local" value="docs/Hotkeys.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Priorität eines Prozesses">
+		<param name="Name" value="Priorit&auml;t eines Prozesses">
 		<param name="Local" value="docs/commands/Process.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Priorität eines Threads">
+		<param name="Name" value="Priorit&auml;t eines Threads">
 		<param name="Local" value="docs/commands/Thread.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2508,7 +2505,7 @@
 		<param name="Local" value="docs/commands/FileGetAttrib.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Referenzzählung">
+		<param name="Name" value="Referenzz&auml;hlung">
 		<param name="Local" value="docs/Objects.htm#Refs">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2656,7 +2653,7 @@
 		<param name="Local" value="docs/commands/Send.htm#vk">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Schließen eines Fensters">
+		<param name="Name" value="Schlie&szlig;en eines Fensters">
 		<param name="Local" value="docs/commands/WinClose.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2988,7 +2985,7 @@
 		<param name="Local" value="docs/commands/DllCall.htm#struct">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Stummschaltung ändern">
+		<param name="Name" value="Stummschaltung &auml;ndern">
 		<param name="Local" value="docs/commands/SoundSet.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -3184,7 +3181,7 @@
 		<param name="Local" value="docs/Variables.htm#env">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Umgebungsvariablen ändern">
+		<param name="Name" value="Umgebungsvariablen &auml;ndern">
 		<param name="Local" value="docs/commands/EnvSet.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -3256,7 +3253,7 @@
 		<param name="Local" value="docs/commands/DllCall.htm#COM">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verkettung in Ausdrücken">
+		<param name="Name" value="Verkettung in Ausdr&uuml;cken">
 		<param name="Local" value="docs/Variables.htm#concat">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -3264,7 +3261,7 @@
 		<param name="Local" value="docs/Scripts.htm#continuation">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Verknüpfungsdatei">
+		<param name="Name" value="Verkn&uuml;pfungsdatei">
 		<param name="Local" value="docs/commands/FileCreateShortcut.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -3504,5 +3501,4 @@
 		<param name="Local" value="docs/Variables.htm#AssignOp">
 		</OBJECT>
 </UL>
-</BODY>
-</HTML>
+</BODY></HTML>
