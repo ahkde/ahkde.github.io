@@ -19,11 +19,11 @@
 		<param name="Local" value="docs/Tutorial.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="H&auml;ufig gestellte Fragen">
+		<param name="Name" value="FAQ (H&auml;ufig gestellte Fragen)">
 		<param name="Local" value="docs/FAQ.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Befehlsliste">
+		<param name="Name" value="Liste mit Befehlen">
 		<param name="Local" value="docs/commands/index.htm">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -51,7 +51,7 @@
 			<param name="Local" value="docs/misc/Remap.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Tastenliste">
+			<param name="Name" value="Tastenliste (Tastatur, Maus, Joystick)">
 			<param name="Local" value="docs/KeyList.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -118,7 +118,7 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Neue Funktionen">
+			<param name="Name" value="Neue Features">
 			<param name="Local" value="docs/AHKL_Features.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -168,7 +168,7 @@
 			<param name="Local" value="docs/commands/RegisterCallback.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StrPut()/StrGet()">
+			<param name="Name" value="StrPut/Get">
 			<param name="Local" value="docs/commands/StrPutGet.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -218,7 +218,7 @@
 		</UL>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Datei- und Laufwerksverwaltung">
+		<param name="Name" value="Datei, Verzeichnis, Laufwerk">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -294,7 +294,7 @@
 			<param name="Local" value="docs/commands/FileMoveDir.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="FileOpen()">
+			<param name="Name" value="FileOpen">
 			<param name="Local" value="docs/commands/FileOpen.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -354,7 +354,7 @@
 			<param name="Local" value="docs/commands/LoopFile.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Loop (Dateiinhalt)">
+			<param name="Name" value="Loop (Dateiinhalt lesen)">
 			<param name="Local" value="docs/commands/LoopReadFile.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -371,11 +371,11 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="#Include/#IncludeAgain">
+			<param name="Name" value="#Include/Again">
 			<param name="Local" value="docs/commands/_Include.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="{ ... } (block)">
+			<param name="Name" value="{ ... } (Block)">
 			<param name="Local" value="docs/commands/Block.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -411,7 +411,7 @@
 			<param name="Local" value="docs/commands/Finally.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="For-Schleife">
+			<param name="Name" value="For-Loop">
 			<param name="Local" value="docs/commands/For.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -436,23 +436,23 @@
 				<param name="Local" value="docs/commands/IfExpression.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="If Variable [not] between Untergrenze and Obergrenze">
+				<param name="Name" value="If Var [not] between Niedrig and Hoch">
 				<param name="Local" value="docs/commands/IfBetween.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="If Variable is [not] Typ">
+				<param name="Name" value="If Var is [not] Typ">
 				<param name="Local" value="docs/commands/IfIs.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="If Variable [not] in/contains &Uuml;bereinstimmungsliste">
+				<param name="Name" value="If Var [not] in/contains MatchListe">
 				<param name="Local" value="docs/commands/IfIn.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="IfExist/IfNotExist">
+				<param name="Name" value="If[Not]Exist">
 				<param name="Local" value="docs/commands/IfExist.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="IfInString/IfNotInString">
+				<param name="Name" value="If[Not]InString">
 				<param name="Local" value="docs/commands/IfInString.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
@@ -460,11 +460,11 @@
 				<param name="Local" value="docs/commands/IfMsgBox.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="IfWinActive/IfWinNotActive">
+				<param name="Name" value="IfWin[Not]Active">
 				<param name="Local" value="docs/commands/IfWinActive.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="IfWinExist/IfWinNotExist">
+				<param name="Name" value="IfWin[Not]Exist">
 				<param name="Local" value="docs/commands/IfWinExist.htm">
 				</OBJECT>
 		</UL>
@@ -486,11 +486,11 @@
 				<param name="Local" value="docs/commands/LoopParse.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Loop (Dateiinhalt)">
+				<param name="Name" value="Loop (Dateiinhalt lesen)">
 				<param name="Local" value="docs/commands/LoopReadFile.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Loop (Registrierung)">
+				<param name="Name" value="Loop (Registry)">
 				<param name="Local" value="docs/commands/LoopReg.htm">
 				</OBJECT>
 		</UL>
@@ -548,7 +548,7 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Interne Funktionen">
+		<param name="Name" value="Integrierte Funktionen">
 		<param name="Local" value="docs/Functions.htm">
 		</OBJECT>
 	<UL>
@@ -617,7 +617,7 @@
 			<param name="Local" value="docs/commands/StringLen.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StrPut()/StrGet()">
+			<param name="Name" value="StrPut/Get">
 			<param name="Local" value="docs/commands/StrPutGet.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -829,7 +829,7 @@
 			<param name="Local" value="docs/commands/GetKeyState.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Tastenliste">
+			<param name="Name" value="Tastenliste (Tastatur, Maus, Joystick)">
 			<param name="Local" value="docs/KeyList.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1033,7 +1033,7 @@
 			<param name="Local" value="docs/commands/Process.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Run/RunWait">
+			<param name="Name" value="Run / RunWait">
 			<param name="Local" value="docs/commands/Run.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1046,11 +1046,11 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Registrierungsverwaltung">
+		<param name="Name" value="Registry-Verwaltung">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Loop (Registrierung)">
+			<param name="Name" value="Loop (Registry)">
 			<param name="Local" value="docs/commands/LoopReg.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1071,7 +1071,7 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Sound-Befehle">
+		<param name="Name" value="Sound-Verwaltung">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -1100,7 +1100,7 @@
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Stringverwaltung">
+		<param name="Name" value="String-Verwaltung">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
@@ -1108,15 +1108,15 @@
 			<param name="Local" value="docs/commands/FormatTime.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="IfInString/IfNotInString">
+			<param name="Name" value="If[Not]InString">
 			<param name="Local" value="docs/commands/IfInString.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="If Var [not] in/contains Liste">
+			<param name="Name" value="If Var [not] in/contains MatchListe">
 			<param name="Local" value="docs/commands/IfIn.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="InStr()">
+			<param name="Name" value="InStr">
 			<param name="Local" value="docs/Functions.htm#InStr">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1124,15 +1124,15 @@
 			<param name="Local" value="docs/commands/LoopParse.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="RegExMatch()">
+			<param name="Name" value="RegExMatch">
 			<param name="Local" value="docs/commands/RegExMatch.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="RegExReplace()">
+			<param name="Name" value="RegExReplace">
 			<param name="Local" value="docs/commands/RegExReplace.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="SetEnv (Variable = Wert)">
+			<param name="Name" value="SetEnv (Var = Wert)">
 			<param name="Local" value="docs/commands/SetEnv.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1152,7 +1152,7 @@
 			<param name="Local" value="docs/commands/StringGetPos.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StringLeft/StringRight">
+			<param name="Name" value="StringLeft/Right">
 			<param name="Local" value="docs/commands/StringLeft.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1160,7 +1160,7 @@
 			<param name="Local" value="docs/commands/StringLen.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StringLower/StringUpper">
+			<param name="Name" value="StringLower/Upper">
 			<param name="Local" value="docs/commands/StringLower.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
@@ -1180,23 +1180,23 @@
 			<param name="Local" value="docs/commands/StringTrimLeft.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StrLen()">
+			<param name="Name" value="StrLen">
 			<param name="Local" value="docs/commands/StringLen.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StrPut()/StrGet()">
+			<param name="Name" value="StrPut/Get">
 			<param name="Local" value="docs/commands/StrPutGet.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="StrSplit()">
+			<param name="Name" value="StrSplit">
 			<param name="Local" value="docs/commands/StringSplit.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="SubStr()">
+			<param name="Name" value="SubStr">
 			<param name="Local" value="docs/Functions.htm#SubStr">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Trim()">
+			<param name="Name" value="Trim">
 			<param name="Local" value="docs/commands/Trim.htm">
 			</OBJECT>
 	</UL>
@@ -1253,7 +1253,7 @@
 				<param name="Local" value="docs/commands/Menu.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="PostMessage/SendMessage">
+				<param name="Name" value="Post/SendMessage">
 				<param name="Local" value="docs/commands/PostMessage.htm">
 				</OBJECT>
 			<LI> <OBJECT type="text/sitemap">
