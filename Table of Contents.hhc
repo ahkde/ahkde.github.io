@@ -502,7 +502,7 @@
 			<param name="Local" value="docs/commands/OnExit.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="PAUSE-Taste">
+			<param name="Name" value="Pause">
 			<param name="Local" value="docs/commands/Pause.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
@@ -689,7 +689,7 @@
 			<param name="Local" value="docs/commands/InputBox.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Men&uuml;">
+			<param name="Name" value="Menu">
 			<param name="Local" value="docs/commands/Menu.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
