@@ -493,7 +493,7 @@
 				<param name="Local" value="docs/commands/LoopReadFile.htm">
 				</OBJECT>
 			</LI><LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Loop (Registrierung)">
+				<param name="Name" value="Loop (Registry)">
 				<param name="Local" value="docs/commands/LoopReg.htm">
 				</OBJECT>
 		</LI></UL>
@@ -1053,7 +1053,7 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Loop (Registrierung)">
+			<param name="Name" value="Loop (Registry)">
 			<param name="Local" value="docs/commands/LoopReg.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">

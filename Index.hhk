@@ -2102,7 +2102,7 @@
 		<param name="Local" value="docs/commands/Loop.htm">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Loop (Registrierung)">
+		<param name="Name" value="Loop (Registry)">
 		<param name="Local" value="docs/commands/LoopReg.htm">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
@@ -2586,7 +2586,7 @@
 		<param name="Local" value="docs/commands/RegisterCallback.htm">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Registry-Loop">
+		<param name="Name" value="Registry-Schleife">
 		<param name="Local" value="docs/commands/LoopReg.htm">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
