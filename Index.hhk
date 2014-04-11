@@ -1810,7 +1810,7 @@
 		<param name="Local" value="docs/commands/IfBetween.htm">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="If Var [not] in/contains MatchListe">
+		<param name="Name" value="If Var [not] in/contains Vergleichsliste">
 		<param name="Local" value="docs/commands/IfIn.htm">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
@@ -2706,7 +2706,7 @@
 		<param name="Local" value="docs/commands/Send.htm#vk">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="Wissenschaftliche Notation">
+		<param name="Name" value="Wissenschaftliche Schreibweise">
 		<param name="Local" value="docs/commands/SetFormat.htm#sci">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">

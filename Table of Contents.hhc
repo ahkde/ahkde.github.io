@@ -447,7 +447,7 @@
 				<param name="Local" value="docs/commands/IfIs.htm">
 				</OBJECT>
 			</LI><LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="If Var [not] in/contains MatchListe">
+				<param name="Name" value="If Var [not] in/contains Vergleichsliste">
 				<param name="Local" value="docs/commands/IfIn.htm">
 				</OBJECT>
 			</LI><LI> <OBJECT type="text/sitemap">
@@ -1115,7 +1115,7 @@
 			<param name="Local" value="docs/commands/IfInString.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="If Var [not] in/contains MatchListe">
+			<param name="Name" value="If Var [not] in/contains Vergleichsliste">
 			<param name="Local" value="docs/commands/IfIn.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
