@@ -357,7 +357,7 @@
 			<param name="Local" value="docs/commands/LoopFile.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Loop (Dateiinhalt)">
+			<param name="Name" value="Loop (Dateiinhalt lesen)">
 			<param name="Local" value="docs/commands/LoopReadFile.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
@@ -489,7 +489,7 @@
 				<param name="Local" value="docs/commands/LoopParse.htm">
 				</OBJECT>
 			</LI><LI> <OBJECT type="text/sitemap">
-				<param name="Name" value="Loop (Dateiinhalt)">
+				<param name="Name" value="Loop (Dateiinhalt lesen)">
 				<param name="Local" value="docs/commands/LoopReadFile.htm">
 				</OBJECT>
 			</LI><LI> <OBJECT type="text/sitemap">
@@ -546,7 +546,7 @@
 			<param name="Local" value="docs/commands/Until.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="While-Loop">
+			<param name="Name" value="While-Schleife">
 			<param name="Local" value="docs/commands/While.htm">
 			</OBJECT>
 	</LI></UL>
