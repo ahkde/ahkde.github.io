@@ -1,0 +1,24 @@
+.quote {
+	display: block;
+	width: 75%;
+	min-width: 500px;
+	max-width: 800px;
+	padding: 4px;
+	margin-left: 64px;
+	border: 1px solid #C0C0C0;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+}
+#draft {
+	font-size: 200px;
+	color: #E8E8E8;
+	position:fixed;
+	z-index:-1;
+	left:200px; right:0; top:200px; bottom:0;
+	width:100%; height:100%;
+	text-align:center;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+}
