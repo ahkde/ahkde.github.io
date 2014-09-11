@@ -2506,6 +2506,10 @@
 		<param name="Local" value="docs/commands/GuiControls.htm#Progress">
 		</OBJECT>
 	</LI><LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Eigenschaften (Objekte)">
+		<param name="Local" value="docs/Objects.htm#Custom_Classes_property">
+		</OBJECT>
+	</LI><LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Eigenschaften einer Datei oder eines Ordners">
 		<param name="Local" value="docs/commands/Run.htm">
 		</OBJECT>
