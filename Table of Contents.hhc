@@ -820,7 +820,7 @@
 			<param name="Local" value="docs/commands/ControlClick.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ControlSend/Raw">
+			<param name="Name" value="ControlSend, ControlSendRaw">
 			<param name="Local" value="docs/commands/ControlSend.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
@@ -864,7 +864,7 @@
 			<param name="Local" value="docs/commands/MouseMove.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Send/Raw/Input/Play/Event">
+			<param name="Name" value="Send, SendRaw, SendInput, SendPlay, SendEvent">
 			<param name="Local" value="docs/commands/Send.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
@@ -1382,7 +1382,7 @@
 			<param name="Local" value="docs/commands/WinMinimize.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="WinMinimizeAll/Undo">
+			<param name="Name" value="WinMinimizeAll, WinMinimizeAllUndo">
 			<param name="Local" value="docs/commands/WinMinimizeAll.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
@@ -1410,7 +1410,7 @@
 			<param name="Local" value="docs/commands/WinWait.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="WinWait[Not]Active">
+			<param name="Name" value="WinWaitActive, WinWaitNotActive">
 			<param name="Local" value="docs/commands/WinWaitActive.htm">
 			</OBJECT>
 		</LI><LI> <OBJECT type="text/sitemap">
