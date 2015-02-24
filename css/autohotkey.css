@@ -79,15 +79,15 @@ h1 a.primary-button, h1 a.success-button, h1 a.secondary-button {
 
 h1 a.primary-button {
 	margin-top:1em;
-	background: rgb(0, 0, 0); /* this is black */ 
+	background: rgb(66, 184, 221); /* this is a light blue */ 
 }	
 
 h1 a.success-button {
-	background: rgb(255, 0, 0); /* this is red */
+	background: rgb(28, 184, 65); /* this is a green */
 }	
 
 h1 a.secondary-button {
-	background: rgb(255, 200, 0); /* this is gold */
+	background: rgb(123, 134, 134); /* this is a dark grey */
 }	
 
 a.primary-button:hover, a.primary-button:focus,
@@ -157,8 +157,9 @@ h3 {
         text-shadow: 1px 1px white;
     }
 
-	.ribbon img {
-		max-width: 100%;
+	.ribbon img { /* removed max-width: 100% as it borks aspect ratio when resized and or zoomed TLM */
+		width:517px;
+		height:78px;
 		margin-top: -0.5em; /* this determines how much space there is above the AHK logo images in the header */
 		padding: 0;
 	}
