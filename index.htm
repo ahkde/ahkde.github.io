@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-	<meta name="description" content="Freie Scriptsprache. Unterstützt Hotkeys für Tastatur, Maus und Joystick. Kann Abkürzungen bei Benutzereingabe erweitern (Auto-Text).">
+	<meta name="description" content="Freie Skriptsprache. Unterstützt Hotkeys für Tastatur, Maus und Joystick. Kann Abkürzungen bei Benutzereingabe erweitern (Auto-Text).">
 	<meta name="keywords" content="hotkey,hotkeys,hot key,hot keys,makro,makros,tastatur- makro,tastatur-makros,maus-makro,download,kürzel,tastenkürzel,schnelltaste,script,skript,clipboard,zwischenablage,rsi,automatisieren,automation,button,buttons,tastatureingabe,tastatureingaben,autotext,klicken,drücken,clicker,tastendruck,lautstärke,stummschalten,neubelegen,remapper,programmieren,tasten senden,sendtasten,ahk,ahkl,ahk_l,ironahk,iak,autoit,aut,au3">
 	
 	<link rel="stylesheet" href="css/pure-min.css">
@@ -34,9 +34,9 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 											function() 
 											{ 
 											$("#dlChoices").toggle('5')
-											if ( $("#dlButton").text() == "Download" )
-												$("#dlButton").text("v1.1.22.07" );
-											 else $("#dlButton").text("Download");
+											/*if ( $("#dlButton").text() == "Download" )
+												$("#dlButton").text("v");
+											 else $("#dlButton").text("Download");*/
 											
 											
 											} ); /// click
@@ -45,7 +45,6 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 	
     </script>
 	
-<script src="http://ragnar-f.github.io/docs/static/ga.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="content">
@@ -64,14 +63,14 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 			<div id="searchform"><!-- Use of this code assumes agreement with the Google Custom Search Terms of Service. --><!-- The terms of service are available at http://www.google.com/cse/docs/tos.html -->
 				
 				
-				<form name="cse" id="searchbox_demo" action="http://www.google.com/cse">
+				<form name="cse" id="searchbox_demo" action="https://www.google.com/cse">
 				  <input type="hidden" name="cref" value="" />
 				  <input type="hidden" name="ie" value="utf-8" />
 				  <input type="hidden" name="hl" value="" />
 				  <input type="hidden" name="cx" value="010629462602499112316:ywoq_rufgic" />
 				  <input name="q" type="text" class="google-pure-input-1-2" />
 				  <input type="submit" name="sa" value="Suchen" class="pure-button" />				</form>
-				<script type="text/javascript" src="https://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang="></script>
+				<script src="https://cse.google.com/cse/tools/onthefly?form=searchbox_demo&lang="></script>
 			</div><!--
 			<form class="pure-form">
 			<input type="text" placeholder="Search ahkscript.org" class="pure-input-1-2">
@@ -91,15 +90,11 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 			
 			<h4>Was ist AutoHotkey?</h4>
 
-			<p>AutoHotkey (AHK) ist eine frei verfügbare Makroerstellungs- und Automatisierungs-Software für Windows auf Open-Source-Basis, mit der man alltägliche Aufgaben automatisieren kann. Sie wird von einer Skriptsprache angetrieben, die ursprünglich das Ziel hatte, Tastenkürzel bzw. Hotkeys bereitzustellen. Im Laufe der Zeit hat sie sich aber zu einer vollwertigen Skriptsprache entwickelt. Und wenn du wirklich interessiert bist, findest du <a href="https://youtu.be/lIFE7h3m40U?t=2m50s">[hier]</a> ein großartiges Video (englisch) darüber. (<a href="http://ragnar-f.github.com/docs">de</a> - <a href="http://ahkcn.sourceforge.net/docs">帮助</a>)</p>
-			
-			<h4>Warum ahkscript.org?</h4>
-			
-			<p>AHKScript.org ist eine neue Community, bestehend aus den aktiven AutoHotkey-Entwicklern sowie anderen Enthusiasten. Es wurde diese Domain erstellt, weil <i>autohotkey.com</i> nicht länger unter der Kontrolle der Entwickler stand. Neue Benutzer wurden ermutigt, zu dieser neuen Seite zu wechseln und mitzumachen. Allerdings werden diese zwei Domains nun zusammengeführt. (<A href="/foundation/history.html">Mehr Info</a>)</p>
+			<p>AutoHotkey, kurz AHK, ist eine frei verfügbare Makroerstellungs- und Automatisierungs-Software für Windows auf Open-Source-Basis, mit der man alltägliche Aufgaben automatisieren kann. Der ursprüngliche Zweck von AutoHotkey war es, selbstdefinierte Aktionen bei Tastendruck auszulösen, auch bekannt als Hotkeys. Inzwischen aber hat sich AutoHotkey zu einer vollwertigen Skriptsprache entwickelt. Ein englisches Video, das <a href="https://youtu.be/lIFE7h3m40U?t=2m50s">[hier]</a> zu finden ist, zeigt, wie vielfältig die Einsatzmöglichkeiten von AutoHotkey sein können. (<a href="http://ragnar-f.github.com/docs">de</a> - <a href="https://fjxhkj.github.io/ahk_doc/zh-cn/docs">帮助</a>)</p>
 			
 			<h4>Der Einstieg ist einfacher, als man denkt</h4>
 			
-			<p>Schau dir das <a href="/docs/Tutorial.htm">Schnellstart-Tutorial</a> an, um einen schnellen Überblick zu erhalten, was man mit AutoHotkey machen kann.</p>
+			<p>Schau dir das <a href="/docs/Tutorial.htm">Schnellstart-Tutorial</a> an, um einen schnellen Überblick zu erhalten, was man mit AutoHotkey alles machen kann.</p>
 
 		</div><!-- /pure-u-2-3 --> 
 
@@ -133,8 +128,8 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 					<li><a href="/docs/Hotkeys.htm">Hotkeys</a> für Tastatur, Maus und Joystick erstellen.<br />  Praktisch jede Taste oder Tastenkombination kann ein Hotkey werden.</li>
 					<li>Abkürzungen bei Benutzereingabe <a href="/docs/Hotstrings.htm">automatisch erweitern</a>.<br />  Zum Beispiel würde das Wort "bzw" automatisch mit "beziehungsweise" ersetzt, sobald es eingegeben wird.</li>
 					<li>Den <a href="/docs/misc/Clipboard.htm">Inhalt der Zwischenablage</a> abrufen und ändern.</li>
-					<li>Ein AHK-Script in eine <a href="/docs/Scripts.htm#ahk2exe">EXE-Datei</a> umwandeln. Diese Datei kann auch von Benutzern verwendet werden, die kein AutoHotkey installiert haben.</li>
-					<li>Du weißt nicht, wo du beginnen sollst oder wie du dein Skript zum Laufen bringst?<br />  Tritt unserer freundlichen <a href="http://ahkscript.org/boards/">AutoHotkey-Community</a> bei, so dass wir dir helfen können.</li>
+					<li>Ein AHK-Skript in eine <a href="/docs/Scripts.htm#ahk2exe">EXE-Datei</a> umwandeln. Diese Datei kann auch von Benutzern verwendet werden, die kein AutoHotkey installiert haben.</li>
+					<li>Du weißt nicht, wo du beginnen sollst oder wie du dein Skript zum Laufen bringst?<br />  Tritt unserer freundlichen <a href="http://ahkscript.org/boards/">AutoHotkey-Community</a> bei, wenn du Hilfe brauchst.</li>
 					</ul>
 
 			        <h3>Fortgeschrittene &amp; Experten</h3>
@@ -142,9 +137,9 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 					<p>AutoHotkey kann noch mehr:</p>
 
 					<ul>
-					<li>Dateneingabefenster, Benutzeroberflächen und Menüleisten erstellen.<br /> Siehe <a href="/docs/commands/Gui.htm">GUI</a> für Details (du kannst auch ein GUI-Editor benutzen).</li>
+					<li>Dateneingabefenster, Benutzeroberflächen und Menüleisten erstellen.<br /> Siehe <a href="/docs/commands/Gui.htm">GUI</a> für mehr Details (du kannst auch ein GUI-Editor benutzen).</li>
 					<li>Dateneingaben durch Einlesen von Text-, XML-, CSV-, Excel- und anderen Datenbankformaten automatisieren.</li>
-					<li>Signale einer Fernbedienung mithilfe des <a href="/docs/scripts/WinLIRC.htm">WinLIRC-Client-Scripts</a> einlesen.</li>
+					<li>Signale einer Fernbedienung mithilfe des <a href="/docs/scripts/WinLIRC.htm">WinLIRC-Client-Skripts</a> einlesen.</li>
 					<li><a href="/docs/commands/ComObjCreate.htm">Component Object Model</a> (COM).</li>
 					<li><a href="/docs/Objects.htm">Array/Assoziatives Array/OOP</a> (Objekte).</li>
 					<li>Variadische <a href="/docs/Functions.htm">Funktionen</a>.</li>
@@ -155,14 +150,14 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 
 					<h3>Standard-Tools</h3>
 
-					<p>Der AutoHotkey-Installer enthält die englische Dokumentation, einen Script-Compiler und Windows Spy:</p>
+					<p>Der AutoHotkey-Installer enthält die englische Dokumentation, einen Skript-Compiler und Windows Spy:</p>
 				
 					<p><b>ahk2exe</b><br />
-					Ein AHK-Script in eine <a href="/docs/Scripts.htm#ahk2exe">EXE-Datei</a> umwandeln. Diese Datei kann auch von Benutzern verwendet werden, die kein AutoHotkey installiert haben.<br />
+					Ein AHK-Skript in eine <a href="/docs/Scripts.htm#ahk2exe">EXE-Datei</a> umwandeln. Diese Datei kann auch von Benutzern verwendet werden, die kein AutoHotkey installiert haben.<br />
 					<a href="/docs/Scripts.htm#ahk2exe" class="pure-button secondary-button">Mehr Info</a></p>
 
 					<p><b>Window Spy</b><br />
-					Ein Tool, das genaue Informationen über die Fenster oder Steuerelemente eines Programms anzeigen kann. Klicke dazu mit der rechten Maustaste auf das AHK-Tray-Icon, um es zu starten.</p>
+					Ein Tool, das genaue Informationen über die Fenster oder Steuerelemente eines Programms anzeigen kann. Klicke dazu mit der rechten Maustaste auf das AHK-Symbol im Infobereich der Taskleiste, um es zu starten.</p>
 
 				</div><!-- /l-box --> 
 			</div><!-- pure-u-2-3 --> 
@@ -171,27 +166,27 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 				<div class="l-box tools">
 					<h3>Updates</h3>
 
-					<p>Informationen zu den neuesten Updates findest du im <a href="/docs/AHKL_ChangeLog.htm">Changelog</a> oder <a href="http://ahkscript.org/boards/viewforum.php?f=24">Ankündigungs</a>-Forum.</p>
+					<p>Informationen zu den neuesten Updates findest du auf der <a href="/docs/AHKL_ChangeLog.htm">Changelog</a>-Seite oder im <a href="http://ahkscript.org/boards/viewforum.php?f=24">Ankündigungs</a>-Forum.</p>
 				</div><!-- /l-box tools --> 
 				<div class="l-box tools">
 					<h3>Über die Foundation</h3>
 
-					<p>Möchtest du mehr über die AutoHotkey-Foundation erfahren?  Siehe dazu <a href="/foundation">hier</a>.</p>
+					<p>Möchtest du mehr über die AutoHotkey-Foundation erfahren?  Dann wirf einen Blick auf <a href="http://ahkscript.org/foundation">diese Seite</a>.</p>
 				</div>
 				<div class="l-box tools">
 
-					<h3>Von Benutzer entwickelte Tools</h3>
+					<h3>Tools von der Community</h3>
 
 					<p><b>SciTE4AutoHotkey</b><br />
-					Ein SciTE-basierter Editor für AutoHotkey-Scripts, der Syntaxhervorhebung, Auto-Vervollständigung und so weiter unterstützt.<br />
+					Ein Texteditor für AutoHotkey-Skripte, der auf SciTE basiert und Syntaxhervorhebung, Auto-Vervollständigung und so weiter unterstützt.<br />
 					<a href="http://fincs.ahk4.net/scite4ahk" class="pure-button secondary-button">Mehr Info</a></p>
 
 					<p><b>GUI Creator</b><br />
-					Ein Tool, mit dem man grafische Benutzeroberflächen (GUI) für die eigenen AHK-Scripts erstellen kann.<br/>
+					Ein Tool, mit dem man grafische Benutzeroberflächen (GUI) für die eigenen AHK-Skripte erstellen kann.<br/>
 					<a href="http://ahkscript.org/boards/viewtopic.php?f=6&amp;t=303" class="pure-button secondary-button">Mehr Info</a></p>
 
 					<p><b>Macro Creator</b><br />
-					Ein erweitertes AutoHotkey-Script, das Tastatureingaben und Mausklicks aufzeichnen kann.<br />
+					Ein erweitertes AutoHotkey-Skript, das Tastatureingaben und Mausklicks aufzeichnen kann.<br />
 					<a href="http://ahkscript.org/boards/viewtopic.php?f=6&amp;t=143" class="pure-button secondary-button">Mehr Info</a></p>
 
 					<p><b>iWB2 Learner (aka iWebBrowser2)</b><br /> 
@@ -218,9 +213,9 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 					<p><b>Dokumentation &amp; Tutorials</b></p>
 
 					<ul>
-					<li><a href="/docs/">Dokumentation</a> (<a href="http://ragnar-f.github.com/docs">de</a> - <a href="http://ahkcn.sourceforge.net/docs">帮助</a>)</li>
-					<li><a href="http://ahkscript.org/boards/viewforum.php?f=7">Community-Tutorials</a> <small>(AHKScript.org)</small></li>
-					<li><a href="http://www.autohotkey.com/board/forum/61-tutorials/">Community-Tutorials</a> <small>(autohotkey.com)</small></li>
+					<li><a href="/docs/">Dokumentation</a> (<a href="http://ragnar-f.github.com/docs">de</a> - <a href="https://fjxhkj.github.io/ahk_doc/zh-cn/docs">帮助</a>)</li>
+					<li><a href="http://ahkscript.org/boards/viewforum.php?f=7">Community-Tutorials</a> <small>(Forum)</small></li>
+					<li><a href="http://www.autohotkey.com/board/forum/61-tutorials/">Community-Tutorials</a> <small>(Archiv-Forum)</small></li>
 					<li><a href="http://www.youtube.com/user/ahkTuts">YouTube-AutoHotkey-Tutorials</a></li>
 					<li><a href="http://maul-esel.github.io/ahkbook/index.html">Buch (englisch) </a> <small>(noch in Arbeit)</small></li>
 					<li><a href="http://rosettacode.org/wiki/Category:AutoHotkey">Rosettacode</a> <small>(Code-Beispiele)</small> </li>
@@ -235,9 +230,9 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 
 					<p><b>Communities</b></p>
 					<ul>
-					<li><a href="http://ahkscript.org/boards/">AHKScript.org-Forum</a> (<a href="http://ahkscript.org/boards/viewforum.php?f=8">de</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=26">中文</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=39">es</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=46">ru</a>) <small>(AHKScript.org)</small>
+					<li><a href="http://ahkscript.org/boards/">AutoHotkey-Forum</a> (<a href="http://ahkscript.org/boards/viewforum.php?f=8">de</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=26">中文</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=39">es</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=46">ru</a>) <small>(phpBB)</small>
 					</li>
-					<li><a href="http://www.autohotkey.com/board">AutoHotkey.com-Forum</a> (<a href="http://www.autohotkey.com/board/forum/62-deutsch-german/">de</a>) <small>(autohotkey.com)</small></li>
+					<li><a href="http://www.autohotkey.com/board">Archiviertes Forum</a> (<a href="http://www.autohotkey.com/board/forum/62-deutsch-german/">de</a>) <small>(IPBoards)</small></li>
 					<li><a href="http://stackoverflow.com/questions/tagged/autohotkey">Stackoverflow</a></li>
 					<li><a href="http://superuser.com/questions/tagged/autohotkey">Superuser</a></li>
 					<li><a href="http://www.reddit.com/r/AutoHotkey">Reddit</a></li>
@@ -269,11 +264,6 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
 					<li><a href="http://www.autohotkey.com/forum/viewtopic.php?t=54494">IronAHK</a>, via .NET <small>(plattformübergreifend, Alpha-Status)</small></li>
 					</ul>
 
-					<p><b>Archiv</b></p>
-					<ul>
-					<li><a href="http://ahkscript.org/archives/Download.html">Frühere Versionen</a></li>
-					</ul>
-
 				</div><!-- /l-box --> 
 			</div><!-- /pure-u-1-3 --> 
 
@@ -284,14 +274,14 @@ JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
     
 	<div class="l-box ribbon">
 		<h2>Schließe dich der AutoHotkey-Community an</h2>
-		<p style='text-align:center;'>Schließe dich der Community an und trage dazu bei, Code zu entwickeln, Bug-Fixes einzureichen, die Dokumentation zu verbessern, anderen Mitgliedern zu helfen oder einfach einen Bug-Report auszufüllen.
+		<p style='text-align:center;'>Gesell dich zu uns und präsentiere eigene Skripte, verbessere die Dokumentation, hilf anderen Mitgliedern oder fülle einfach nur einen Fehlerbericht aus - jede Hilfe ist willkommen!
 		</p>
 	</div><!-- /l-box ribbon --> 
 
     <div class="footer">
 
 		<p><b>Copyright</b> © 2013-2014 AutoHotkey Foundation LLC - AutoHotkey Software-Lizenz: <a href="/docs/license.htm">GNU General Public License</a>
-		</p>
+		<!-- <p class="hits">&nbsp;(<i>this month</i>)</p></p> -->
 
     </div><!-- /footer --> 
 

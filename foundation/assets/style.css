@@ -1,0 +1,15 @@
+.quote {
+	display: block;
+	width: 75%;
+	min-width: 500px;
+	max-width: 800px;
+	padding: 4px;
+	margin-left: 64px;
+	border: 1px solid #C0C0C0;
+	border-radius: 4px;
+	background-color: #F6F6F6;
+}
+
+body {
+	padding-bottom:20px;
+}
