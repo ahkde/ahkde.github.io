@@ -1,3 +1,6 @@
 [submodule "docs"]
 	path = docs
 	url = https://github.com/Ragnar-F/ahk_docs_german.git
+[submodule "v2/docs"]
+	path = v2/docs
+	url = https://github.com/Ragnar-F/ahk_docs_german_2.git
