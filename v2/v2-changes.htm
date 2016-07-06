@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0038)http://l.autohotkey.net/v2-changes.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>&Auml;nderungen in AutoHotkey v2</title>
+
+<link href="default.css" rel="stylesheet" type="text/css" media="all">
+<style type="text/css"></style></head>
+<body>
+<div style="color:#999">Dies ist eine von Marcel Gerber (SAPlayer) vom Englischen ins Deutsche &uuml;bersetzte Version. Hier geht es zur Originalseite: <a href="http://l.autohotkey.net/v2-changes.htm">autohotkey.net</a></div>
+<h1>&Auml;nderungen zwischen v1.1 und v2.0</h1>
+<h2>Sprache</h2>
+<h3>Veraltete Syntax entfernt</h3>
+<p>W&ouml;rtliche Variablenzuweisung entfernt: <code>var = value</code></p>
+<p><code>If Var =|&lt;&gt;|&lt;|&gt;|&lt;=|&gt;= Value</code> entfernt; das wird jetzt wie ein Ausdruck (<code>if(var = value)</code>) interpretiert.</p>
+<h3>Variablen</h3>
+<p>Variablennamen k&ouml;nnen nicht mehr mit einer Zahl beginnen und d&uuml;rfen keines dieser Zeichen, die vorher erlaubt waren, enthalten: <code>@ # $</code>. Nur Buchstaben, Zahlen, Unterstriche und Nicht-ASCII-Zeichen sind erlaubt.</p>
+<p>Dereferenzierungen ben&ouml;tigen kein abschlie&szlig;endes Prozentzeichen mehr, au&szlig;er es besteht eine Unklarheit.</p>
+<p>Doppelte Dereferenzierungen und Pseudo-Arrays, die von Befehlen generiert wurden, sind nun &uuml;bereinstimmend mit Variablen, die w&auml;hrend der Laufzeit erstellt werden. Das hei&szlig;t, dass eine dynamische Variablenrefernz zu einer (nicht-super) globalen wird, wenn die Funktion global ist oder die Variable in der Funktion als global deklariert wurde. (Wichtig: Das passiert auch mit der <code>vVariable</code>-Option von <code>Gui</code>.)</p>
+<p>Das Deklarieren einer lokalen Variable in einer Funktion macht die Funktion nicht global.</p>
+<p><code>#MustDeclare [On|Off]</code> aktiviert oder deaktiviert einen Modus, bei dem jede Variable deklariert werden muss. Wenn das in einer Funktionsbibliothek steht, betrifft es nur diese Datei und alle Dateien, die sie explizit per <code>#Include</code> einschlie&szlig;t. Trotzdem erbt es die Standard-Einstellung vom eigentlichen Script. Es ist positionsabh&auml;ngig, aber kann nicht innerhalb einer Funktion genutzt werden (aufgrund des folgenden Punktes). Funktionen haben standardm&auml;&szlig;ig ein lokales oder MustDeclare-Verhalten, nach der Einstellung an der Stelle, wo sie im Script definiert wurden. Das kann mit <code>global</code>, <code>local</code> oder <code>static</code> ohne Variablenname &uuml;berschrieben werden.</p>
+<p><code>Var varname</code> deklariert eine globale Variable, ohne sie super-global (standardm&auml;&szlig;ig nutzbar in allen Funktionen) zu machen. Diese Deklarationen sind nur n&ouml;tig, wenn <code>#MustDeclare</code> aktiv ist.</p>
+<h3>Ausdr&uuml;cke</h3>
+<p>Strings in Anf&uuml;hrungszeichen k&ouml;nnen nun mit <code>"doppelten"</code> oder <code>'einfachen'</code> Anf&uuml;hrungszeichen stehen, aber sie m&uuml;ssen mit dem gleichen Zeichen beginnen und enden. Beide erlauben Variablenreferenzen wie <code>"Es ist das Jahr %A_Year"</code>. W&ouml;rtliche Anf&uuml;hrungszeichen werden geschrieben, indem man vor das Zeichen ein Escape-Zeichen stellt - `" beziehungsweise `' - oder indem man das gegenteilige Anf&uuml;hrungszeichen verwendet: <code>'"42" ist die Antwort auf alles'</code>. Doppelte Anf&uuml;hrungszeichen haben keine Bedeutung mehr - <code>"x""y"</code> entspricht <code>"x" "y"</code> oder <code>"x"'y'</code>, was jeweils "xy" wird.</p>
+<p>Die Operatoren <code>&amp;&amp;</code>, <code>||</code>, <code>and</code> und <code>or</code> ergeben nun den Wert, der das Ergebnis festlegt, wie auch JavaScript und Lua es machen. Zum Beispiel gibt <code>"" or "default"</code> jetzt <code>"default"</code> statt <code>1</code> aus. Wenn ein Script den puren, booleschen Wert (wahr oder falsch) ben&ouml;tigt, kann etwas wie <code>!!(x or y)</code> oder <code>(x or y) ? 1 : 0</code> genutzt werden.</p>
+<p>Das automatische Verkn&uuml;pfen von Variablen ben&ouml;tigt nun auf jeden Fall mindestens ein Leerzeichen oder einen Tabulator (Die Dokumentation von v1 sagte, dass ein Leerzeichen "sein sollte").</p>
+<p>Das Ergebnis eine Merfachanweisung wie <code>x(), y()</code> ist der des letzten (ganz rechts) Ausdrucks statt des ersten (ganz links) Ausdrucks. Sowohl in v1 als auch in v2 werden die Ausdr&uuml;cke von links nach rechts ausgef&uuml;hrt.</p>
+<p>Ein Gleichheitszeichen nach einem Komma: <code>y=z</code> in <code>x:=y, y=z</code> ist ein unwirksamer Vergleich statt einer Zuweisung.</p>
+<p><code>:= += -= *= /= ++ --</code> haben konstantes Verhalten, egal, ob sie alleinstehend oder kombiniert mit anderen Operatoren, wie zum Beispiel <code>x := y, y += 2</code> stehen. Beispielsweise weist <code>x := %y%()</code> x keinen leeren String mehr zu, wenn der dynamische Funktionsaufruf fehlerhaft ist.</p>
+<p>Die wissenschaftliche Notation kann ohne einen Dezimalpunkt genutzt werden (aber die Ausgabe ist immer mit Dezimalpunkt).</p>
+<p>Die Ausdr&uuml;cke <code>funcName[""]()</code> und <code>funcName.()</code> rufen keine Funktion mehr mit ihrem Namen auf. Das Weglassen des Namens wie in <code>.()</code> resultiert nun in einer Fehlermeldung w&auml;hrend der Ladezeit. Stattdessen sollte <code>%funcName%()</code> genutzt werden.</p>
+<p><code>var :=</code>, also eine Zuweisung ohne Wert, wird nun als Fehler w&auml;hrend der Ladezeit behandelt. In v1 war es gleichbedeutend mit <code>var := ""</code>, aber war in Kombination mit anderen Ausdr&uuml;cken wie <code>x :=, y :=</code> fehlerhaft.</p>
+<p>Wenn ein String aus Buchstaben von einem uneindeutigen un&auml;ren/bin&auml;ren Operator gefolgt wird, wird ein Fehler w&auml;hrend der Ladezeit gemeldet. Zum Beispiel wird bei <code>"x" &amp;y</code> angenommen, dass <code>"x"</code> mit der Adresse von <code>y</code> verkn&uuml;pft werden soll, aber technisch ist es eine invalide bitweise und-Operation.</p>
+<p>In einem Ausdruck wird <code>new</code> jetzt bedingungslos als Operator angesehen (wie <code>and</code> oder <code>not</code>) und niemals als Variable. Komplexere Ausdr&uuml;cke werden somit unterst&uuml;tzt, wie zum Beispiel <code>new (getClass())(params)</code> oder <code>new new {...}(inner_prms)(outer_prms)</code></p>
+<h3>Objekte</h3>
+<p>Objektschl&uuml;ssel, die nicht in Anf&uuml;hrungszeichen sind, wie in <code>x.key</code> oder <code>{key: y}</code> k&ouml;nnen Nicht-ASCII-Zeichen enthalten.</p>
+<p>Wenn eine Funktion &uuml;ber ein Objekt aufgerufen wird, wird das Objekt selbst immer als erster Parameter &uuml;bergeben, egal, wo die Funktion gespeichert ist (im Objekt oder in einem seiner Base-Objekte). In v1 wurde das nicht gemacht, wenn die Funktion namentlich direkt im Objekt gespeichert war.</p>
+<p>Wenn x ein Objekt ist, verhindert das Definieren <code>x.base[key]</code>, dass <code>x.base.base__Set()</code> aufgerufen wird, wenn eine Zuweisung wie <code>x[key] := val</code> ausgef&uuml;hrt wird. Das bringt das gleiche Verhalten wie mit __GET und __Call.</p>
+<p><code>new Obj()</code> erstellt das Objekt nicht, wenn die Meta-Methode <code>__New</code> definiert ist und nicht aufgerufen werden kann (z.B. weil sie Parameter ben&ouml;tigt und keine &uuml;bergeben wurden).</p>
+<h3>Ohne Kategorie</h3>
+<p><code>:=</code> muss statt <code>=</code> verwendet werden, um eine deklarierte Variable zu oder einen optionalen Parameter zu initialisieren.</p>
+<p><code>If Expression,</code> erlaubt eine Aktion in der gleichen Zeile (Befehl oder Ausdruck) nach dem Komma.</p>
+<p><code>Return %var%</code> macht nun eine doppelte Dereferenzierung, vorher war es gleichbedeutend mit <code>return var</code>.</p>
+<p>Die Parameter von Befehlen sind standardm&auml;&szlig;ig nie Ausdr&uuml;cke, au&szlig;er bei Kontrollstrukturen wie return. <code>%</code> (Prozentzeichen mit einem Leerzeichen) kann immer noch genutzt werden, um einen Ausdruck zu erzwingen.</p>
+<p><code>#Include</code> ist standardm&auml;&szlig;ig relativ zum Verzeichnis, das die aktuelle Datei enth&auml;lt.</p>
+<p>Labels, die innerhalb einer Funktion sind, sind lokal; sie sind nur innerhalb der Funktion nutzbar und wirken sich nicht auf Label, die an anderen Stellen definiert sind, aus. Timer und Gui-Subroutinen k&ouml;nnen auch lokal sein, m&uuml;ssen aber innerhalb der Funktion gesetzt werden.</p>
+<p><code>For k, v in obj</code> macht k und v nun zu "lokalen Variablen". Nachdem die Schleife durchlaufen ist, bekommen k und v wieder ihren urspr&uuml;nglichen Wert zugewiesen.</p>
+<h3>Fortsetzungsbereiche</h3>
+<p>Schlaues LTrim: Das normale Verhalten ist, dass die Nummer der anf&uuml;hrenden Tabulatoren und Leerzeichen der ersten Zeile nach den Optionen des Fortsetzungsbereiches gez&auml;hlt werden und diese Anzahl an Tabs und Leerzeichen von jeder folgenden Zeile entfernt werden. Wenn in der ersten Zeile Leerzeichen und Tabulatoren gemixt sind, wird nur der erste Typ der beiden gez&auml;hlt. Wenn irgendeine Zeile weniger Tabs und Leerzeichen am Zeilenanfang hat oder mit anderen Zeichen beginnt, wird deren Zeilenanfang beibehalten.</p>
+<p>Anf&uuml;hrungszeichen (einfache und doppelte) sind standardm&auml;&szlig;ig buchst&auml;blich; das kann mit der <code>Q</code>-Option deaktiviert werden.</p>
+<p><code>`n</code> (neue Zeile) wird in Ausdr&uuml;cken als Leerzeichen behandelt. Das erlaubt, dass mehrzeilige Ausdr&uuml;cke mit einem Fortsetzungsbereich mit den Standardoptionen (z.B. auslassen von <code>Join</code>) geschrieben werden.</p>
+<h3>Befehle()</h3>
+<p>Alle Befehle k&ouml;nnen nun als Funktionen aufgerufen werden, au&szlig;er Kontrollstrukturen wie return. Die "&Uuml;bersetzungsregeln" sind:</p>
+<ul>
+<li>Wenn der erste Parameter des Befehls die Ausgabevariable ist und der zweite nicht, wird er zum R&uuml;ckgabewert. Ansonsten wird der Wert, der normalerweise in ErrorLevel gespeichert wird, zur&uuml;ckgegeben und ErrorLevel selbst wird auf den vorherigen Wert gesetzt (also nicht ge&auml;ndert).</li>
+<li>Die &uuml;brigen Ausgabevariablen werden wie ByRef-Parameter genutzt, au&szlig;er dass eine Meldung ausgegeben wird, wenn die Funktion inkorrekt aufgerufen wird. Einen leeren String anzugeben ist gleichwertig mit dem Weglassen des Parameters, aber jeder andere Wert (der nicht eine Variable ist) ist nicht erlaubt.</li>
+<li>Befehle, die normalerweise eine Eingabevariable nutzen, brauchen keine Variablenreferenz; eine interne tempor&auml;re Variable wird automatisch genutzt.</li>
+<li>Wenn sich ein Laufzeitfehler ereignet, wird immer eine Meldung ausgegeben, auch wenn <code>try</code> nicht benutzt wird.</li>
+</ul>
+<p><strong>Noch nicht fertiggestellt:</strong> Da Befehle und Funktionen immer noch intern festgelegt sind, &uuml;berschreibt das Definieren einer Funktion mit dem Namen eines Befehls aktuell nur den Funktionsaufruf (<code>function()</code>); das hei&szlig;t, dass der normale Befehlsaufruf immer noch den normalen Befehl aufruft.</p>
+<h3>Funktionen, <em>Parameter</em></h3>
+<p>Alle Funktionen k&ouml;nnen nun als Befehle aufgerufen werden, inklusive Funktionen aus einer Funktionsbibliothek, die nicht manuell per <code>#Include</code> eingef&uuml;gt wurde. Die "&Uuml;bersetzungsregeln" sind aktuell:</p>
+<ul>
+<li>Eine Ausgabevariable steht am Anfang der Parameterliste, wenn die Funktion integriert ist oder ein <code>return</code> enth&auml;lt.</li>
+<li>Alle Parameter unterst&uuml;tzen <code>%</code>, um einen Ausdruck zu erzwingen.</li>
+<li>ByRef-Parameter werden wie Eingabevariablen behandelt. Ausdr&uuml;cke wie <code>% var := "value"</code> werden nicht vollst&auml;ndig unterst&uuml;tzt (die Variable wird nicht an die Funktion &uuml;bergeben). Jedoch wird <code>% var</code> aufgrund einer Optimierung, die es zu einem Nicht-Ausdruck umwandelt, akzeptiert.</li>
+<li>Alle anderen Parameter nutzen standardm&auml;&szlig;ig den normalen Textmouds. Das schlie&szlig;t alle Parameter von integrierten Funktionen ein, also musst du, um eine Variablenreferenz zu nutzen, <code>% var</code> oder <code>%var%</code> schreiben (aber auch hier gilt: <code>% var := "value"</code> &uuml;bergibt nur den Wert).</li>
+<li>Buchst&auml;bliche Kommas m&uuml;ssen immer escapet werden, sogar im letzten Parameter der Funktion.</li>
+</ul>
+<h3>Typen</h3>
+<p>Alle reinen Nummern sind pur; das Format wird verworfen. Zum Beispiel ist <code>MsgBox % 0x1</code> und <code>MygBox % (0+1)</code> das gleiche wie <code>MsgBox 1</code>, w&auml;hrend <code>MsgBox % 1.0</code> das selbe ist wie <code>MsgBox 1.000000</code>. Das Speichern einer Nummer in eine Variable oder der R&uuml;ckgabewert einer benutzerdefinierten Funktion beh&auml;lt den reinen numerischen Status bei.</p>
+<p>Strings in Anf&uuml;hrungszeichen und Strings, die durch das Verkn&uuml;pfen erzeugt werden, werden nicht mehr unbedingt als nicht-numerisch angesehen. Stattdessen werden sie wie Strings, die in einer Variable gespeichert sind oder von Funktionen zur&uuml;ckgegeben werden, behandelt. Das hat die folgenden Auswirkungen:</p>
+<ul>
+<li><code>"0"</code> (mit Anf&uuml;hrungszeichen) wird als falsch angsehen.</li>
+<li><code>"0xA" + 1</code> und <code>("0x" Chr(65)) + 1</code> ergeben 11 statt eines Fehlers.</li>
+<li><code>{1:0, "1":0}</code> erzeugt ein Objekt mit einem Schl&uuml;ssel-Wert paar statt zweien, weil beide Schl&uuml;ssel als Zahl angesehen werden.</li>
+</ul>
+<p>Aufeinander beziehende Operatoren wie =, &lt; und &gt;= funktionieren ein klein wenig anders. Wenn beide Operanden numerisch sind und mindestens einer <em>pur</em>, werden sie numerisch verglichen. Sonst werden sie alphabetisch verglichen. So werden zum Beispiel 54 und "530" numerisch verglichen, w&auml;hrend "54" und "530" jedoch alphabetisch verglichen werden. Zus&auml;tzlich werden Strings, die in Variablen gespeichert sind, nicht anders behandelt als w&ouml;rtliche Strings.</p>
+<p>Wenn einer Variable ein numerischer String zugewiesen wird, wurde in v1 in einem numerischen Kontext wie <code>var+1</code> oder <code>abs(var)</code> der Typ des in der Variable gespeicherten Wertes ge&auml;ndert, auch wenn keine Zuweisung erfolgt ist. Das hat Probleme mit COM-Methoden verursacht, die einen reinen numerischen Typ ben&ouml;tigen, sodass diese Nebeneffekte in v2 entfernt wurden.</p>
+<h2>Bibliothek</h2>
+<p>Entfernte Befehle:</p>
+<ul>
+<li>AutoTrim (<code>Trim()</code> benutzen)</li>
+<li>EnvDiv</li>
+<li>EnvMult</li>
+<li>EnvUpdate (ersetzt mit stdlib; einfaches SendMessage)</li>
+<li>FileReadLine</li>
+<li>IfXXX (IfMsgBox wurde mit A_MsgBoxResult ersetzt)</li>
+<li>If between/is/in/contains</li>
+<li>Progress</li>
+<li>SetBatchLines (-1 ist nun der Standardwert)</li>
+<li>SetEnv</li>
+<li>SetFormat (stdlib format kann genutzt werden, um einen String zu formatieren)</li>
+<li>SoundGetWaveVolume/SoundSetWaveVolume (leicht unterschiedliches Verhalten zu SoundGet/SoundSet bez&uuml;glich der Balance, aber keins beh&auml;lt die Balance bei)</li>
+<li>SplashImage</li>
+<li>SplashTextOn/Off</li>
+<li>StringGetPos (InStr benutzen)</li>
+<li>StringLeft</li>
+<li>StringLen</li>
+<li>StringMid</li>
+<li>StringRight</li>
+<li>StringTrimLeft</li>
+<li>StringTrimRight</li>
+<li>Transform (Der Unterbefehl Deref ist nun ein eigener Befehl)</li>
+<li>WinGetActiveStats</li>
+<li>WinGetActiveTitle</li>
+<li>#CommentFlag</li>
+<li>#Delimiter</li>
+<li>#DerefChar</li>
+<li>#EscapeChar</li>
+<li>#LTrim</li>
+<li>#MaxMem</li>
+<li>#NoEnv (nun standardm&auml;&szlig;iges Verhalten)</li>
+<li>#Persistent (Das Verhalten wurde so ge&auml;ndert, dass #Persistent nicht mehr ben&ouml;tigt wird)</li>
+</ul>
+<p>Umbenannte Befehle:</p>
+<ul>
+<li>Asc() -&gt; Ord()</li>
+<li>DriveSpaceFree -&gt; DriveGet-Unterbefehl SpaceFree</li>
+<li>EnvAdd -&gt; DateAdd()</li>
+<li>EnvSub -&gt; DateDiff()</li>
+<li>FileCopyDir -&gt; DirCopy</li>
+<li>FileCreateDir -&gt; DirCreate</li>
+<li>FileMoveDir -&gt; DirMove</li>
+<li>FileRemoveDir -&gt; DirDelete</li>
+<li>Loop (files) -&gt; LoopFiles or Loop, Files (ge&auml;ndert)</li>
+<li>Loop (registry) -&gt; LoopReg or Loop, Reg (ge&auml;ndert)</li>
+<li>Loop, Parse -&gt; LoopParse or Loop, Parse (ge&auml;ndert)</li>
+<li>StringLower -&gt; StrLower (ge&auml;ndert)</li>
+<li>StringReplace -&gt; StrReplace (ge&auml;ndert)</li>
+<li>StringUpper -&gt; StrUpper (ge&auml;ndert)</li>
+<li>StringSplit -&gt; StrSplit() (ge&auml;ndert, erweitert)</li>
+<li>Transform Deref -&gt; Deref</li>
+<li>UrlDownloadToFile -&gt; Download</li>
+<li>WinMenuSelectItem -&gt; MenuSelect</li>
+</ul>
+<p>Entfernte undokumentierte AutoIt2-Befehle (schon in v1.1.09 entfernt):</p>
+<ul>
+<li>HideAutoItWin</li>
+<li>LeftClick</li>
+<li>LeftClickDrag</li>
+<li>Repeat / EndRepeat</li>
+<li>RightClick</li>
+<li>RightClickDrag</li>
+</ul>
+<h3>Ge&auml;nderte Befehle/Funktionen</h3>
+<p>ControlMove, ControlGetPos und ControlClick nutzen nun Client-Koordinaten (wie auch GuiControl) statt Fenster-Koordinaten. Client-Koordinaten sind relativ zum oberen linken Eck des Client-Bereiches, welcher nicht die Titelleiste des Fensters und den Rahmen enth&auml;lt. (Steuerelemente werden nur im Client-Bereich gerendert.)</p>
+<p>DllCall: AStr kann nur zur Eingabe von Daten verwendet werden. Weil der Zwischenspeicher nur so gro&szlig; ist wie der Eingabestring selbst, war es nie sinnvoll f&uuml;r Ausgabeparameter. Dasselbe gilt f&uuml;r WStr statt AStr, wenn das Script f&uuml;r ANSI kompiliert wurde (aber v2 unterst&uuml;tzt aktuell nur Unicode).</p>
+<p>DriveGet hatte einen nicht dokumentierten Unterbefehl, um das Laufwerkslabel zu setzen. Dieser wurde entfernt. Nutzt stattdessen <code>Drive, Label</code>.</p>
+<p>FileOpen aktiviert Zeilenende-&Uuml;bersetzungen standardm&auml;&szlig;ig; nutzt das <code>*</code>-Optionszeichen, um das zu deaktivieren.</p>
+<p><code>File.ReadLine()</code> gibt nicht mehr das Zeilenende mit aus.</p>
+<p>Der GetKeyState-Befehl ist &uuml;bereinstimmend mit der gleichnamigen Funktion; beide geben 0 oder 1 zur&uuml;ck.</p>
+<p>GroupAdd: Der Label-Parameter und davon abh&auml;ngige Funktionen wurden entfernt. Das war ein unsch&ouml;ner Weg, um bei GroupActivate festzustellen, dass es keine Fenster finden konnte; stattdessen sollte ErrorLevel genutzt werden.</p>
+<p>IniRead gibt als Standardwert einen leeren String statt <code>ERROR</code> aus, wenn der <em>Standard</em>-Parameter nicht angegeben ist. Zus&auml;tzlich wird ErrorLevel gesetzt, wenn ein Fehler auftritt.</p>
+<p>NumPut/NumGet: Wenn eine Variable mit einer puren Nummer als <code>VarOderAdresse</code>-Parameter &uuml;bergeben wird, wird die Nummer in der Variable statt der Variable selbst genutzt.</p>
+<p><code>Object()</code> und <code>{}</code> bewirken nicht mehr, dass <code>__Set</code> f&uuml;r jedes Schl&uuml;ssel-Wert-Paar aufgerufen wird.</p>
+<p><code>Object.Insert(i, ...)</code> gibt die Nummer der eingef&uuml;gten Werte zur&uuml;ck (entspricht immer der Parameteranzahl minus 1), wenn die Funktion erfolgreich aufgerufen wurde, oder "" bei einem Fehler. Vorher gab es 1 oder "" aus.</p>
+<p><code>Object.Insert(Value)</code> gibt den Index des neu eingef&uuml;gten Wertes bei Erfolg oder "" bei einem Fehler zur&uuml;ck. Vorher wurde 1 oder "" zur&uuml;ckgegeben.</p>
+<p>PixelSearch und PixelGetColor nutzen RGB-Farbwerte anstatt BGR, um eine Best&auml;ndigkeit mit anderen Befehlen zu bieten.</p>
+<p>Die RegExMatch-Optionen O und P wurden entfernt; Der O-Modus (Objekt als Ausgabe) ist nun verpflichtend</p>
+<p>Registry-Befehle: Hauptschl&uuml;ssel und Unterschl&uuml;ssel wurden nun kombiniert. Schreibe statt <code>Hauptschl&uuml;ssel, Schl&uuml;ssel</code> nun <code>Hauptschl&uuml;ssel\Schl&uuml;ssel</code>. Um auf eine Remote-Registry zuzugreifen, nutze <code>\\ComputerName\Hauptschl&uuml;ssel\Schl&uuml;ssel</code> statt <code>\\ComputerName:Hauptschl&uuml;ssel, Schl&uuml;ssel</code>.</p>
+<p>RegRead hatte einen nicht dokumentierten 5-Parameter-Modus, bei dem der Typ des Wertes nach der Ausgabevariable angegeben wurde. Dieser Modus wurde entfernt.</p>
+<p>SendMessage setzt ErrorLevel auf <code>ERROR</code> statt <code>FAIL</code>, um eine Einheit mit Run zu bieten.</p>
+<p>Sort: Der <em>Variablenname</em>-Parameter wurde in verschiedene Eingabe- und Ausgabeparameter aufgeteilt, um Flexibilit&auml;t zu bieten. Die Nutzung sieht nun so aus: <code>Sort, Ausgabevariable, Eingabe [, Optionen]</code> oder <code>Ausgabevariable := Sort(Eingabe [, Optionen])</code>.</p>
+<p><code>Array := StrSplit(String [, Trennzeichen, ZeichenAuslassen])</code>: Gibt ein Array-Objekt statt einem Pseudo-Array zur&uuml;ck. <em>Trennzeichen</em> kann ein String oder ein Array, bestehend aus Strings, sein. Wenn es ein String ist, wird es als einzelnes Trennzeichen behandelt (kein Array von Trennzeichen). Wenn es ein Array ist, darf es nur nicht-leere Strings enthalten.</p>
+<p>WinGet List/ControlList gibt nun ein Array-Objekt zur&uuml;ck.</p>
+<p>WinMove hat nun kein spezielles Verfahren mehr f&uuml;r das Word <code>DEFAULT</code>. Der Parameter kann stattdessen weggelassen werden oder einen leeren String enthalten.</p>
+<p><strong>Nicht sortiert:</strong></p>
+<p>Eine negative <em>Startposition</em> f&uuml;r InStr, SubStr, RegExMatch und RegExReplace wird als Position vom Ende des Strings angesehen, die 1. Position am Ende ist -1, das entsprecht dem Zeichen, das am weitesten rechts ist (in v1 war das Position 0), Position 0 wird nicht akzeptiert.</p>
+<p>Chr() und Ord() (vorher Asc()) unterst&uuml;tzen zus&auml;tzlich Unicode-Zeichen.</p>
+<p>Loop Parse, SplitPath, StrUpper, StrLower und StrReplace akzeptieren nun normalen Text als Eingabe statt einem Variablennamen, um also eine Variable zu &uuml;bergeben, nutzt <code>%Eingabevariable%</code>. Das "Eingabevariable"-Konzept wird von keinem Befehl mehr genutzt.</p>
+<p>Befehle, die On/Off/Toogle annehmen, nehmen nun auch 1/0/-1 an (was bei Ausdr&uuml;cken praktischer ist).</p>
+<h4>Unterbefehle von Loop</h4>
+<pre>Loop Files, FilePattern [, Mode]
+Loop Reg, RootKey\Key [, Mode]
+Loop Read, InputFile [, OutputFile]
+Loop Parse, InputString [, Delimiters, OmitChars]
+</pre>
+<p>Der Modus ersetzt die alten Parameter UnterschlüsselEinbeziehen?/OrdnerEinbeziehen und Rekursiv?. Sein Sinn ist beim Lesen des Quellcodes offensichtlicher und er sollte leichter zu merken sein. Statt einer Nummer (oder zwei), ist es ein String, der nicht von Gro&szlig;- und Kleinschreibung abh&auml;ngig ist und von optionalen Leerzeichen und Tabs getrennt wird, jede Reihenfolge wird akzeptiert:</p>
+<ul>
+<li>F (file = Datei) oder V (value = Wert): Sucht nach Dateien oder Registry-Werten.</li>
+<li>D (directory = Ordner) or K (key = Schl&uuml;ssel): Sucht nach Ordnern oder Registry-Schl&uuml;sseln.</li>
+<li>R (recurse = Rekursiv): Bezieht Unterordner ein.</li>
+</ul>
+<p>Zum Beispiel f&uuml;hrt <code>Loop Files, *, FDR</code> eine Schleife durch alle Dateien und Ordner im Arbeitsbereich des Scripts durch und durchsucht dabei auch die Unterordner.</p>
+<p>Zurzeit wird die Kompaktform (LoopFiles, LoopReg, LoopRead, LoopParse) auch unterst&uuml;tzt, aber das ist noch nicht endg&uuml;ltig.</p>
+<h4>StrReplace</h4>
+<p>StrReplace, Ausgabevariable, Eingabe, Suchtext [, Ersatztext, <strong>AusgabevariableAnzahl</strong>, <strong>Limit</strong>]</p>
+<p>Die Benutzungsweise ist &auml;hnlich der von RegExReplace (wenn die Funktions-Syntax genutzt wird). Wenn <em>Limit</em> weggelassen wird, gilt standardm&auml;&szlig;ig kein Limit. ErrorLevel kann als als <em>OutputVarCount</em> genutzt werden, ansonsten wird ErrorLevel nicht beeinflusst.</p>
+<h4>InputBox</h4>
+<p>InputBox, Ausgabevariable [, Titel, Anzeigetext, <strong>Optionen</strong>, Standard]</p>
+<p>Der Optionen-Parameter akzeptiert einen String von 0 oder mehr Optionen, die per Leerzeichen oder Tab getrennt und nicht von der Gro&szlig;- und Kleinschreibung abh&auml;ngig sind. Sie stimmen mit den Gui-Optionen &uuml;berein. Zum Beispiel nutzt dies alle gegebenen Optionen: <code>x0 y0 w100 h100 T10.0 Password*</code>. <code>T</code> ist das Timeout der Box und <code>Password</code> hat den selben Effekt wie die selbe Option f&uuml;r eine Edit-Box im GUI.</p>
+<h4>Unterbefehle</h4>
+<p>Die Unterbefehle von WinGet, WinSet und Process wurden mit eigenen Funktionen ersetzt, und die eigentlichen Befehle wurden entfernt. Au&szlig;er dem entfallenden Befehl/Attribut-Parameter erfolgt die Nutzung wie vorher, au&szlig;er bei diesen Unterbefehlen:</p>
+<ul>
+<li>WinSet Enable/Disable -&gt; WinSetEnabled On/Off/Toggle/1/0, WinTitle, etc.</li>
+<li>WinSet Top/Bottom -&gt; WinMoveTop/WinMoveBottom, WinTitle, etc.</li>
+<li>Process Priority -&gt; ProcessSetPriority, Priority, PID-or-Name</li>
+</ul>
+<h3>Neue Befehle/Funktionen</h3>
+<p><code>DirExist(Path)</code>, die Nutzungsweise entspricht der von FileExist.</p>
+<h3>Interne Variablen</h3>
+<p>A_OSVersion enth&auml;lt einen String im Format <code>major.minor.build</code>, zum Beispiel <code>6.1.7601</code> f&uuml;r Windows 7 mit Service Pack 1. A_OSType wurde entfernt, da nur NT-basierte Systeme unterst&uuml;tzt werden.</p>
+<p>Umbenannt:</p>
+<ul>
+<li>A_LoopFileFullPath -&gt; A_LoopFilePath (gibt einen relativen Pfad zur&uuml;ck, wenn der Pfad in der Schleife auch relativ ist, somit war "Full" unpassend)</li>
+<li>A_LoopFileLongPath -&gt; A_LoopFileFullPath</li>
+<li>ComSpec -&gt; A_ComSpec</li>
+</ul>
+<p>Entfernt:</p>
+<ul>
+<li>ProgramFiles (A_ProgramFiles benutzen)</li>
+</ul>
+<p>Hinzugef&uuml;gt:</p>
+<ul>
+<li>A_MsgBoxResult (ersetzt IfMsgBox)</li>
+</ul>
+<h2>Sonstiges</h2>
+<p>Parameter, die per cmd ans Script &uuml;bergeben werden, werden im globalen Array <code>Args</code> statt einem nummeriertem Pseudo-Array gespeichert.</p>
+<p>Hotkeys vom Mausrad setzen A_EventInfo auf den Delta-Wert, den der Maustreiber angibt, statt auf den durch 120 geteilten. Meistens ist es ein Vielfaches von 120, aber einige Maustreiber liefern einen genaueren Wert.</p>
+<p>ErrorLevel kann ohne Bedenken ein Objekt zugewiesen werden, ohne Risiko auf Verlust, wenn der Thread unterbrochen wird. In v1 wurde der alte Wert von ErrorLevel in jedem Thread gespeichert und am Ende des Threads wurde ErrorLevel wieder auf diesen Wert gesetzt.</p>
+<p>FileSelectFile hatte zwei Modi zur Mehrfachauswahl, erreichbar mit den Optionen 4 und M. Die Option 4 und der entsprechende Modus wurde entfernt; sie waren eine Zeit lang undokumentiert.</p>
+<p>Das Erkennen von neuen Zeilen bei RegEx ist standardm&auml;&szlig;ig (*ANYCRLF) und (*BSR_ANYCRLF); `r und `n werden zus&auml;tzlich zu `r`n erkannt.</p>
+<h3>Gui</h3>
+<p>Progress-Steuerelemente haben nicht mehr standardm&auml;&szlig;ig den PBS_SMOOTH-Style, sie werden also je nach visuellem Style des Betriebssystems gestyled (beispielsweise Luna unter XP und Aero unter Vista/7/8).</p>
+<p>Bei GuiSize und GuiDropFiles wird nicht mehr ErrorLevel gesetzt. Stattdessen wird A_EventInfo genutzt.</p>
+<h3>Dauerhaftigkeit</h3>
+<p>Scripte sind "dauerhaft", wenn mindestens eine der folgenden Bedingungen zutrifft:</p>
+<ul>
+<li>Mindestens ein Hotkey oder Hotstring wurde im Script definiert.</li>
+<li>Mindestens eine Message-&Uuml;berwachung ist aktiv (von OnMessage gestartet).</li>
+<li>Mindestens ein GUI ist sichtbar.</li>
+<li>Mindestens ein Timer ist aktuell aktiviert.</li>
+<li>Das Tray-Icon ist sichtbar und das Tray-Men&uuml; enth&auml;lt eigene Men&uuml;punkte.</li>
+</ul>
+<p>Wenn der letzte Thread des Scripts beendet wird oder ein GUI geschlossen oder zerst&ouml;rt wird und keine der oben genannten Bedingungen mehr erf&uuml;llt ist, wird das Script beendet.</p>
+<p>Dagegen waren v1-Scripte "dauerhaft", wenn mindestens eine der folgenden Bedingungen zutraf:</p>
+<ul>
+<li>Mindestens ein Hotkey oder Hotstring wurde im Script definiert.</li>
+<li>Gui oder OnMessage() kommt irgendwo im Script vor.</li>
+<li>Der Tastatur- oder Maushook ist installiert.</li>
+<li>#Persistent wurde genutzt.</li>
+<li>Input wurde aufgerufen.</li>
+</ul>
+<h3>Standardeinstellungen</h3>
+<ul>
+<li>#NoEnv wurde entfernt; nutze stattdessen EnvGet, wenn eine gleiche interne Variable nicht verf&uuml;gbar ist.</li>
+<li>SendMode ist standardm&auml;&szlig;ig Input statt Event.</li>
+<li>TitleMatchMode ist standardm&auml;&szlig;ig 2 statt 1.</li>
+<li>SetBatchLines wurde entfernt, sodass alle Scripte mit voller Geschwindigkeit laufen (entspricht SetBatchLines -1 in v1).</li>
+<li>Das Arbeitsverzeichnis ist standardm&auml;&szlig;ig <code>A_ScriptDir</code>. <code>A_InitialWorkingDir</code> enth&auml;lt das Arbeitsverzeichnis, das vom Prozess, der AutoHotkey gestartet hat, gesetzt wurde.</li>
+<li>#SingleInstance prompt ist das standardm&auml;&szlig;ige Verhalten aller Scripte; #SingleInstance allein aktiviert den Force-Modus.</li>
+<li>ListLines Off</li>
+<li>CoordMode ist standardm&auml;&szlig;ig Client statt Window (in v1.1.05 hinzugef&uuml;gt).</li>
+</ul>
+</body></html>
