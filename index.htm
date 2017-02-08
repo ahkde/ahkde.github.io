@@ -1,289 +1,265 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>AutoHotkey</title><!-- 
-	AHKScript.org homepage uses the http://purecss.io/ CSS framework (v0.3.0)
-	you can either host the CSS yourself of call Yahoos version:
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-	--><link rel="icon" type="image/ico" href="/favicon.ico">
-<meta name="google-site-verification" content="fr3ji3GiYpzhLJkRkVDBS-gJoxhmoVFZnNMd8iZnE3Q" />
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="fr3ji3GiYpzhLJkRkVDBS-gJoxhmoVFZnNMd8iZnE3Q"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Mobirise v2.4.1, mobirise.com">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Freie Skriptsprache. Unterstützt Hotkeys für Tastatur, Maus und Joystick. Kann Abkürzungen bei Benutzereingabe erweitern (Auto-Text).">
+<meta name="keywords" content="hotkey,hotkeys,hot key,hot keys,makro,makros,tastatur- makro,tastatur-makros,maus-makro,download,kürzel,tastenkürzel,schnelltaste,script,skript,clipboard,zwischenablage,rsi,automatisieren,automation,button,buttons,tastatureingabe,tastatureingaben,autotext,klicken,drücken,clicker,tastendruck,lautstärke,stummschalten,neubelegen,remapper,programmieren,tasten senden,sendtasten,ahk,ahkl,ahk_l,ironahk,iak,autoit,aut,au3">
+<title>AutoHotkey</title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-	<meta name="description" content="Freie Skriptsprache. Unterstützt Hotkeys für Tastatur, Maus und Joystick. Kann Abkürzungen bei Benutzereingabe erweitern (Auto-Text).">
-	<meta name="keywords" content="hotkey,hotkeys,hot key,hot keys,makro,makros,tastatur- makro,tastatur-makros,maus-makro,download,kürzel,tastenkürzel,schnelltaste,script,skript,clipboard,zwischenablage,rsi,automatisieren,automation,button,buttons,tastatureingabe,tastatureingaben,autotext,klicken,drücken,clicker,tastendruck,lautstärke,stummschalten,neubelegen,remapper,programmieren,tasten senden,sendtasten,ahk,ahkl,ahk_l,ironahk,iak,autoit,aut,au3">
-	
-	<link rel="stylesheet" href="css/pure-min.css">
-	<link rel="stylesheet" href="css/autohotkey.css">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/ico" href="/favicon.ico">
-	<link rel="apple-touch-icon" href="/static/ahk76.png">
-    
-		
-	<script src="/js/detectmobilebrowser.js"></script>    <script type="text/javascript" language="javascript" src="/js/jquery-1.11.1.min.js"></script>
-<noscript>
-JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.
-</noscript>
-    <script type="text/javascript">
-	$(document).ready( 
-					function() 
-						{
-						$("#dlChoices").hide();
-						$("#dlButton").click( 
-											function() 
-											{ 
-											$("#dlChoices").toggle('5')
-											/*if ( $("#dlButton").text() == "Download" )
-												$("#dlButton").text("v");
-											 else $("#dlButton").text("Download");*/
-											
-											
-											} ); /// click
-					
-						}); // ready
-	
-    </script>
-	
+<link rel="apple-touch-icon" href="/static/ahk76.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/animate.css/animate.min.css">
+<link rel="stylesheet" href="assets/mobirise/css/style.css">
+<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+<noscript>JavaScript ist in Ihrem Browser deaktiviert, bitte aktivieren Sie es.</noscript>
+ 
 </head>
 <body>
-	<div class="content">
-        <div class="ribbon" style="width:100%;"><!--<img src="static/ahk.png" alt="AHK" id="ahkimg" />
-	 		<img src="static/autohotkey_text.png" alt="AutoHotkey - Automation, Hotkeys, Scripting" id="ahktext" />-->
-	 		
-			<div style="width:100%;">
-				<a href="http://ahkscript.org/logos">
-					<img src="/static/ahk_logo.png" class="img-responsive" width="517" height="78" alt="AutoHotkey" style="margin-top:0">				</a>
-			</div><!-- image split in two above so it scales better on mobile devices - you can either
-			     remove the two images above and keep this single image below or vice versa
-			<img src="static/ahk_logo.png" alt="AutoHotkey - Automation, Hotkeys, Scripting" />
-			-->
-			
-
-			<div id="searchform"><!-- Use of this code assumes agreement with the Google Custom Search Terms of Service. --><!-- The terms of service are available at http://www.google.com/cse/docs/tos.html -->
-				
-				
-				<form name="cse" id="searchbox_demo" action="https://www.google.com/cse">
-				  <input type="hidden" name="cref" value="" />
-				  <input type="hidden" name="ie" value="utf-8" />
-				  <input type="hidden" name="hl" value="" />
-				  <input type="hidden" name="cx" value="010629462602499112316:ywoq_rufgic" />
-				  <input name="q" type="text" class="google-pure-input-1-2" />
-				  <input type="submit" name="sa" value="Suchen" class="pure-button" />				</form>
-				<script src="https://cse.google.com/cse/tools/onthefly?form=searchbox_demo&lang="></script>
-			</div><!--
-			<form class="pure-form">
-			<input type="text" placeholder="Search ahkscript.org" class="pure-input-1-2">
-			<button type="submit" class="pure-button">Search</button>
-			</form>
-			-->
-			
-         </div><!-- /ribbon --> 
-	<div id="wrapper">
-
-	<div class="pure-g-r splash">
-		<div class="pure-u-2-3">
-        
-			<h1>AutoHotkey</h1><!--<p><small><em>Welcome to AHKScript.org, a new community founded by a number of enthusiasts to promote the use of AutoHotkey.</em></small></p>-->
-
-			
-			
-			<h4>Was ist AutoHotkey?</h4>
-
-			<p>AutoHotkey, kurz AHK, ist eine frei verfügbare Makroerstellungs- und Automatisierungs-Software für Windows auf Open-Source-Basis, mit der man alltägliche Aufgaben automatisieren kann. Der ursprüngliche Zweck von AutoHotkey war es, selbstdefinierte Aktionen bei Tastendruck auszulösen, auch bekannt als Hotkeys. Inzwischen aber hat sich AutoHotkey zu einer vollwertigen Skriptsprache entwickelt. Ein englisches Video, das <a href="https://youtu.be/lIFE7h3m40U?t=2m50s">[hier]</a> zu finden ist, zeigt, wie vielfältig die Einsatzmöglichkeiten von AutoHotkey sein können. (<a href="https://ahkde.github.io/docs">de</a> - <a href="https://fjxhkj.github.io/ahk_doc/zh-cn/docs">帮助</a>)</p>
-			
-			<h4>Der Einstieg ist einfacher, als man denkt</h4>
-			
-			<p>Schau dir das <a href="/docs/Tutorial.htm">Schnellstart-Tutorial</a> an, um einen schnellen Überblick zu erhalten, was man mit AutoHotkey alles machen kann.</p>
-
-		</div><!-- /pure-u-2-3 --> 
-
-        <div class="pure-u-1-3" style="text-align:center;">
-		   <h1><a class="pure-button primary-button" id="dlButton">Download</a></h1>
-          <blockquote id="dlChoices">
-		   <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	      <a class="pure-button secondary-button" href="http://ahkscript.org/download/ahk-install.exe" title="Direkter Download der aktuellen Version" >Installer</a> <a href="/download/" title="Bring mich zur Download-Seite" target="_blank" class="pure-button secondary-button" >Andere Versionen</a>
-          </h4>
-          </blockquote>
-		   <h1><a href="http://ahkscript.org/boards/" class="pure-button success-button">Forum</a></h1>
-		   <h1><a href="#Resources_at_bottom" onClick="window.open('/docs/','_blank' ) " class="pure-button secondary-button">Doku</a></h1>
-		   <p>&nbsp;</p>
-        </div><!-- /pure-u-1-3 --> 
-
-     </div><!-- /pure-g-r splash --> 
-
-	<div class="content">
-		<div class="pure-g-r content-ribbon">
-
-			<div class="pure-u-2-3">
-				<div class="l-box">
-
-		        	<h3 id="beginners">Anfänger</h3>
-
-					<p>AutoHotkey umfasst folgende Funktionen:</p>
-
-					<ul>
-					<li>Nahezu alles durch Senden von künstlichen Tastatureingaben und Mausklicks automatisieren.<br />Man kann <a href="/docs/misc/Macros.htm">Maus- oder Tastaturmakros</a> entweder per Hand oder mithilfe eines Makrorekorders erstellen.</li>
-					<li>Tastatur-, Maus- oder Joystick-Tasten <a href="/docs/misc/Remap.htm">neubelegen</a>.</li>
-					<li><a href="/docs/Hotkeys.htm">Hotkeys</a> für Tastatur, Maus und Joystick erstellen.<br />  Praktisch jede Taste oder Tastenkombination kann ein Hotkey werden.</li>
-					<li>Abkürzungen bei Benutzereingabe <a href="/docs/Hotstrings.htm">automatisch erweitern</a>.<br />  Zum Beispiel würde das Wort "bzw" automatisch mit "beziehungsweise" ersetzt, sobald es eingegeben wird.</li>
-					<li>Den <a href="/docs/misc/Clipboard.htm">Inhalt der Zwischenablage</a> abrufen und ändern.</li>
-					<li>Ein AHK-Skript in eine <a href="/docs/Scripts.htm#ahk2exe">EXE-Datei</a> umwandeln. Diese Datei kann auch von Benutzern verwendet werden, die kein AutoHotkey installiert haben.</li>
-					<li>Du weißt nicht, wo du beginnen sollst oder wie du dein Skript zum Laufen bringst?<br />  Tritt unserer freundlichen <a href="http://ahkscript.org/boards/">AutoHotkey-Community</a> bei, wenn du Hilfe brauchst.</li>
-					</ul>
-
-			        <h3>Fortgeschrittene &amp; Experten</h3>
-
-					<p>AutoHotkey kann noch mehr:</p>
-
-					<ul>
-					<li>Dateneingabefenster, Benutzeroberflächen und Menüleisten erstellen.<br /> Siehe <a href="/docs/commands/Gui.htm">GUI</a> für mehr Details (du kannst auch ein GUI-Editor benutzen).</li>
-					<li>Dateneingaben durch Einlesen von Text-, XML-, CSV-, Excel- und anderen Datenbankformaten automatisieren.</li>
-					<li>Signale einer Fernbedienung mithilfe des <a href="/docs/scripts/WinLIRC.htm">WinLIRC-Client-Skripts</a> einlesen.</li>
-					<li><a href="/docs/commands/ComObjCreate.htm">Component Object Model</a> (COM).</li>
-					<li><a href="/docs/Objects.htm">Array/Assoziatives Array/OOP</a> (Objekte).</li>
-					<li>Variadische <a href="/docs/Functions.htm">Funktionen</a>.</li>
-					<li><a href="/docs/commands/DllCall.htm">DLL-Aufrufe</a> und <a href="/docs/commands/PostMessage.htm">Fensternachrichten</a>.</li>
-					<li><a href="/docs/misc/RegEx-QuickRef.htm">Perl-kompatible reguläre Ausdrücke</a> (PCRE).</li>
-					<li><a href="/docs/Scripts.htm#idebug">Interaktives Debuggen</a> und vieles mehr.</li>
-					</ul>
-
-					<h3>Standard-Tools</h3>
-
-					<p>Der AutoHotkey-Installer enthält die englische Dokumentation, einen Skript-Compiler und Windows Spy:</p>
-				
-					<p><b>ahk2exe</b><br />
-					Ein AHK-Skript in eine <a href="/docs/Scripts.htm#ahk2exe">EXE-Datei</a> umwandeln. Diese Datei kann auch von Benutzern verwendet werden, die kein AutoHotkey installiert haben.<br />
-					<a href="/docs/Scripts.htm#ahk2exe" class="pure-button secondary-button">Mehr Info</a></p>
-
-					<p><b>Window Spy</b><br />
-					Ein Tool, das genaue Informationen über die Fenster oder Steuerelemente eines Programms anzeigen kann. Klicke dazu mit der rechten Maustaste auf das AHK-Symbol im Infobereich der Taskleiste, um es zu starten.</p>
-
-				</div><!-- /l-box --> 
-			</div><!-- pure-u-2-3 --> 
-
-			<div class="pure-u-1-3">
-				<div class="l-box tools">
-					<h3>Updates</h3>
-
-					<p>Informationen zu den neuesten Updates findest du auf der <a href="/docs/AHKL_ChangeLog.htm">Changelog</a>-Seite oder im <a href="http://ahkscript.org/boards/viewforum.php?f=24">Ankündigungs</a>-Forum.</p>
-				</div><!-- /l-box tools --> 
-				<div class="l-box tools">
-					<h3>Über die Foundation</h3>
-
-					<p>Möchtest du mehr über die AutoHotkey-Foundation erfahren?  Dann wirf einen Blick auf <a href="http://ahkscript.org/foundation">diese Seite</a>.</p>
-				</div>
-				<div class="l-box tools">
-
-					<h3>Tools von der Community</h3>
-
-					<p><b>SciTE4AutoHotkey</b><br />
-					Ein Texteditor für AutoHotkey-Skripte, der auf SciTE basiert und Syntaxhervorhebung, Auto-Vervollständigung und so weiter unterstützt.<br />
-					<a href="http://fincs.ahk4.net/scite4ahk" class="pure-button secondary-button">Mehr Info</a></p>
-
-					<p><b>GUI Creator</b><br />
-					Ein Tool, mit dem man grafische Benutzeroberflächen (GUI) für die eigenen AHK-Skripte erstellen kann.<br/>
-					<a href="http://ahkscript.org/boards/viewtopic.php?f=6&amp;t=303" class="pure-button secondary-button">Mehr Info</a></p>
-
-					<p><b>Macro Creator</b><br />
-					Ein erweitertes AutoHotkey-Skript, das Tastatureingaben und Mausklicks aufzeichnen kann.<br />
-					<a href="http://ahkscript.org/boards/viewtopic.php?f=6&amp;t=143" class="pure-button secondary-button">Mehr Info</a></p>
-
-					<p><b>iWB2 Learner (aka iWebBrowser2)</b><br /> 
-					Ein Tool, das Informationen über Internet-Explorer-Webseiten ermitteln kann, und dabei hilft, den IE-Browser per COM zu automatisieren.<br />
-					<a href="http://www.autohotkey.com/board/topic/84258-iwb2-learner-iwebbrowser2/" class="pure-button secondary-button">Mehr Info</a></p>
-
-				</div><!-- /l-box tools --> 
-			</div><!-- /pure-u-1-3 --> 
-
-		</div><!-- /pure-g-r content-ribbon --> 
-	</div>
-
-
-	<div class="l-box ribbon resources">
-
-		<h2><a name="Resources_at_bottom"></a>Ressourcen</h2>
-
-  </div><!-- /l-box ribbon resources --> 
-
-		<div class="pure-g-r content-ribbon">
-
-			<div class="pure-u-1-3">
-				<div class="l-box">
-					<p><b>Dokumentation &amp; Tutorials</b></p>
-
-					<ul>
-					<li><a href="/docs/">Dokumentation</a> (<a href="https://ahkde.github.io/docs">de</a> - <a href="https://fjxhkj.github.io/ahk_doc/zh-cn/docs">帮助</a>)</li>
-					<li><a href="http://ahkscript.org/boards/viewforum.php?f=7">Community-Tutorials</a> <small>(Forum)</small></li>
-					<li><a href="http://www.autohotkey.com/board/forum/61-tutorials/">Community-Tutorials</a> <small>(Archiv-Forum)</small></li>
-					<li><a href="http://www.youtube.com/user/ahkTuts">YouTube-AutoHotkey-Tutorials</a></li>
-					<li><a href="http://maul-esel.github.io/ahkbook/index.html">Buch (englisch) </a> <small>(noch in Arbeit)</small></li>
-					<li><a href="http://rosettacode.org/wiki/Category:AutoHotkey">Rosettacode</a> <small>(Code-Beispiele)</small> </li>
-					<li><a href="http://ahkwiki.net/">日本語 AutoHotkey Wiki</a> <small>(Japanisch, ahkwiki.net)</small></li>
-					</ul>
-
-				</div><!-- /l-box --> 
-			</div><!-- /pure-u-1-3 --> 
-			
-			<div class="pure-u-1-3">
-				<div class="l-box">
-
-					<p><b>Communities</b></p>
-					<ul>
-					<li><a href="http://ahkscript.org/boards/">AutoHotkey-Forum</a> (<a href="http://ahkscript.org/boards/viewforum.php?f=8">de</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=26">中文</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=39">es</a>, <a href="http://ahkscript.org/boards/viewforum.php?f=46">ru</a>, <a href="/boards/viewforum.php?f=54">fr</a>) <small>(phpBB)</small>
-					</li>
-					<li><a href="http://www.autohotkey.com/board">Archiviertes Forum</a> (<a href="http://www.autohotkey.com/board/forum/62-deutsch-german/">de</a>) <small>(IPBoards)</small></li>
-					<li><a href="http://stackoverflow.com/questions/tagged/autohotkey">Stackoverflow</a></li>
-					<li><a href="http://superuser.com/questions/tagged/autohotkey">Superuser</a></li>
-					<li><a href="http://www.reddit.com/r/AutoHotkey">Reddit</a></li>
-					<li><a href="https://zeef.com/?query=AutoHotkey&amp;in=all">ZEEF</a></li><!-- <li><a href="http://ahk8.com/">中文论坛</a> <small>(Chinese, ahk8.com)</small> </li> -->
-					
-					<li><a href="http://forum.script-coding.com/viewforum.php?id=13">Русскоязычный форум</a> <small>(Russisch, forum.script-coding.com)</small> </li>
-					<li><a href="http://www.autohotkey.co.kr/">한국어</a> <small>(Koreanisch, autohotkey.co.kr)</small></li>
-					</ul>
-
-				</div><!-- /l-box --> 
-			</div><!-- /pure-u-1-3 --> 
-			
-			<div class="pure-u-1-3">
-				<div class="l-box">
-
-					<p><b>Quellcode (auf Github)</b></p>
-					<ul>
-					<li><a href="https://github.com/Lexikos/AutoHotkey_L">AutoHotkey-Quellcode</a></li>
-					<li><a href="https://github.com/Lexikos/AutoHotkey_L-Docs">AutoHotkey-Dokumentation</a> (<a href="https://github.com/ahkde/ahkde.github.io">de</a>)</li>
-					<li><a href="https://github.com/fincs/Ahk2Exe">ahk2exe-Quellcode</a></li>
-					<li><a href="https://github.com/Lexikos/AutoHotkey_L/tree/alpha">AutoHotkey v2</a> <small>(Alpha-Status)</small></li>
-					<li><a href="http://ahkscript.github.io">AHKScript-Github-Organisation</a></li>
-					</ul>
-
-					<p><b>Forks</b></p>
-					<ul>
-					<li><a href="http://hotkeyit.github.io/v2/">AutoHotkey_H + AutoHotkey.dll</a></li>
-					<li><a href="http://www.autohotkey.com/forum/topic27146.html">Pocket-PCs</a> (WinCE)</li>
-					<li><a href="http://www.autohotkey.com/forum/viewtopic.php?t=54494">IronAHK</a>, via .NET <small>(plattformübergreifend, Alpha-Status)</small></li>
-					</ul>
-
-				</div><!-- /l-box --> 
-			</div><!-- /pure-u-1-3 --> 
-
-		</div><!-- /pure-g-r content-ribbon --> 
-
-	</div><!-- /wrapper --> 
-	</div>
-    
-	<div class="l-box ribbon">
-		<h2>Schließe dich der AutoHotkey-Community an</h2>
-		<p style='text-align:center;'>Gesell dich zu uns und präsentiere eigene Skripte, verbessere die Dokumentation, hilf anderen Mitgliedern oder fülle einfach nur einen Fehlerbericht aus - jede Hilfe ist willkommen!
-		</p>
-	</div><!-- /l-box ribbon --> 
-
-    <div class="footer">
-
-		<p><b>Copyright</b> © 2013-2014 AutoHotkey Foundation LLC - AutoHotkey Software-Lizenz: <a href="/docs/license.htm">GNU General Public License</a>
-		<!-- <p class="hits">&nbsp;(<i>this month</i>)</p></p> -->
-
-    </div><!-- /footer --> 
-
+<section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--transparent mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-0">
+<div class="mbr-navbar__section mbr-section">
+<div class="mbr-section__container container">
+<div class="mbr-navbar__container">
+<div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
+<span class="mbr-navbar__brand-link mbr-brand mbr-brand--inline">
+<a class="mbr-brand__logo" href="https://autohotkey.com"><img class="mbr-navbar__brand-img mbr-brand__img" alt="" src="assets/images/ahk-logo-no-text241x78-180.png"></a>
+</span>
+</div>
+<div class="mbr-navbar__hamburger mbr-hamburger text-white"><span class="mbr-hamburger__line"></span></div>
+<div class="mbr-navbar__column mbr-navbar__menu">
+<nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+<div class="mbr-navbar__column"><ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links"><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#keyfeatures">Was ist das</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/docs/AutoHotkey.htm">Dokumentation</a></li><li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/foundation">Über die Foundation</a></li> <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/search">Suchen</a></li></ul></div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-1" style="background-image: url(assets/images/ahk_wallpaper_reduced.jpg);">
+<div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center">
+<div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);"></div>
+<div class="mbr-box__container mbr-section__container container">
+<div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
+<div class="row"><div class=" col-sm-8 col-sm-offset-2">
+<div class="mbr-hero animated fadeInUp">
+<h1 class="mbr-hero__text">AutoHotkey</h1>
+<p class="mbr-hero__subtext">Leistungsstark. Einfach zu erlernen.</p>
+<p class="mbr-hero__subtext">Die ultimative Automatisierungsskriptsprache für Windows.</p>
+</div>
+<div class="mbr-buttons btn-inverse mbr-buttons--center"><a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="/download">Download</a> <a class="mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" href="/boards">Forum</a></div>
+</div></div>
+</div></div>
+</div>
+<div class="mbr-arrow mbr-arrow--floating text-center">
+<div class="mbr-section__container container">
+<a class="mbr-arrow__link" href="#keyfeatures"><i class="glyphicon glyphicon-menu-down"></i></a>
+</div>
+</div>
+</div>
+</section>
+<section class="content-2 col-4" id="keyfeatures" style="background-color: rgb(255, 255, 255);">
+<div class="container">
+<div class="row">
+<div>
+<div class="thumbnail">
+<a href="/docs/Tutorial.htm"><img alt="" src="assets/images/features-bootstrap.png"></a>
+<div class="caption">
+<div>
+<h3>Tastenbelegungen</h3>
+<p>Definiere Hotkeys für Maus und Tastatur, Tastenneubelegungen und automatische Ersetzungen von geschriebenem Text. Einfache Hotkeys zu erstellen ist so leicht wie nie zuvor; mit ein paar Zeilen oder weniger!</p>
+</div>
+<p class="group"><a href="/docs/Tutorial.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
+</div>
+</div>
+</div>
+<div>
+<div class="thumbnail">
+<a href="https://de.wikipedia.org/wiki/AutoHotkey"><img alt="" src="assets/images/features-blocks.png"></a>
+<div class="caption">
+<div>
+<h3>Was ist AutoHotkey</h3>
+<p>AutoHotkey ist eine kostenlose Open-Source-Skriptsprache für Windows, mit der man auf einfache Weise kleine bis komplexe Skripte erstellen kann - für alle möglichen Aufgaben wie z. B.: Formulare ausfüllen, automatisches Klicken, Makros und so weiter.</p>
+</div>
+<p class="group"><a href="https://de.wikipedia.org/wiki/AutoHotkey" class="btn btn-default">ERFAHRE MEHR</a></p>
+</div>
+</div>
+</div>
+<div>
+<div class="thumbnail">
+<a href="/docs/commands/index.htm"><img alt="" src="assets/images/features-who.png"></a>
+<div class="caption">
+<div>
+<h3>Ist es gut für mich?</h3>
+<p>AutoHotkey, das urprünglich für Nicht-Programmierer gedacht war, hat einen einfach zu lernenden Befehlssatz. Die vollwertige Skriptsprache ist auch für Profi-Programmierer geeignet, die schnelles Prototyping durchführen oder kleine Projekte erstellen wollen.</p>
+</div>
+<p class="group"><a href="/docs/commands/index.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
+</div>
+</div>
+</div>
+<div>
+<div class="thumbnail">
+<a href="/docs/scripts/index.htm"><img alt="" src="assets/images/features-why.png"></a>
+<div class="caption">
+<div>
+<h3>Warum AutoHotkey</h3>
+<p>AutoHotkey gibt dir die Freiheit, leistungsstarke Skripte zu entwickeln, um Desktop-Tätigkeiten zu automatisieren. Es ist kostenlos, Open-Source (GNU GPLv2) und anfängerfreundlich. <br>Warum probierst du es nicht einfach selbst aus? </p>
+</div>
+<p class="group"><a href="/docs/scripts/index.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mbr-section mbr-section--relative" id="msg-box5-4" style="background-color: rgb(51, 68, 85);">
+<div class="mbr-section__container mbr-section__container--isolated2 container">
+<div class="row">
+<div class="mbr-box mbr-box--fixed mbr-box--adapted">
+<div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6">
+<figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width">
+<iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/lIFE7h3m40U?rel=0&amp;autoplay=0&amp;loop=0" frameborder="0" allowfullscreen></iframe>
+</figure>
+</div>
+<div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 mbr-section__right">
+<div class="mbr-section__container mbr-section__container--middle">
+<div class="mbr-header mbr-header--auto-align mbr-header--wysiwyg">
+<h3 class="mbr-header__text">AutoHotkey in freier Wildbahn</h3>
+</div>
+</div>
+<div class="mbr-section__container mbr-section__container--middle">
+<div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Tom Scott's Video: </p><p>Die Kunst des Verpfuschens: Wie man eine Emoji-Tastatur macht</p><p>Im Gespräch darüber, wie AutoHotkey dabei geholfen hat, Tasten neu zu belegen, und mehr...</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mbr-section mbr-section--relative" id="sourcecode" style="background-color: rgb(204, 187, 170);">
+<div class="mbr-section__container mbr-section__container--isolated2 container">
+<div class="row">
+<div class="mbr-box mbr-box--fixed mbr-box--adapted">
+<div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 mbr-section__right">
+<div class="mbr-section__container mbr-section__container--middle">
+<div class="mbr-header mbr-header--auto-align mbr-header--wysiwyg">
+<h3 class="mbr-header__text">Open-Source</h3>
+</div>
+</div>
+<div class="mbr-section__container mbr-section__container--middle">
+<div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Lizenziert unter <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GNU GPLv2</a></p><p>Änderungen und Vorschläge am Quellcode sind ausdrücklich erlaubt. <br>Probiere einige Entwicklungszweige von diesem Projekt aus.</p></div>
+</div>
+</div>
+<div class="col-sm-5">
+<p>
+<b>Quellcode (auf Github)</b><br>
+<a href="https://github.com/Lexikos/AutoHotkey_L">AutoHotkey-Quellcode</a><br>
+<a href="https://github.com/Lexikos/AutoHotkey_L-Docs">AutoHotkey-Dokumentation</a> (<a href="https://github.com/ahkde/docs">de</a>)<br>
+<a href="https://github.com/fincs/Ahk2Exe">ahk2exe-Quellcode</a><br>
+<a href="https://github.com/Lexikos/AutoHotkey_L/tree/alpha">AutoHotkey v2</a> <small>(Alpha-Status)</small><br>
+<a href="https://ahkscript.github.io">AHKScript-Github-Organisation</a>
+</p><br>
+</div>
+<div class="col-sm-5">
+<p>
+<b>Forks</b><br>
+<a href="https://hotkeyit.github.io/v2/">AutoHotkey_H + AutoHotkey.dll</a><br>
+<a href="http://www.autohotkey.com/forum/topic27146.html">Pocket-PCs</a> (WinCE)<br>
+<a href="http://www.autohotkey.com/forum/viewtopic.php?t=54494">IronAHK</a>, via .NET <small>(plattformübergreifend, Alpha-Status)</small>
+</p><br>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="content-2 col-3" id="features1-7" style="background-color: rgb(255, 255, 255);">
+<div class="container">
+<div class="row">
+<div>
+<div class="thumbnail">
+<img alt="" src="assets/images/heiseonline.gif">
+<div class="caption">
+<div>
+<h3>AutoHotkey schickt gleich mehrere Tools in den Ruhestand. Es vereint Hotkey und Textbausteinfunktionen in sich, bietet eine Skriptsprache, die mächtiger ist als jede Batchdatei.</h3>
+<p>Wolfgang Reszel, c't Magazine<br></p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="thumbnail">
+<img alt="" src="assets/images/lifehacker267x80-171.png">
+<div class="caption">
+<div>
+<h3>Ich bin davon überzeugt, dass ich mit AutoHotkey die Zeit für das Beantworten von E-Mails auf ein Drittel reduziert habe.</h3>
+<p>Adam Pash, Lifehacker (deutsche Übersetzung)</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="thumbnail">
+<img alt="" src="assets/images/newsforge.gif">
+<div class="caption">
+<div>
+<h3>[AutoHotkey ist das] Tool der Wahl zum Automatisieren von Windows: Es ist leistungsfähig und einfach zu benutzen ... AutoHotkey kann Ihr Leben am Computer vereinfachen.</h3>
+<p>Dmitri Popov, NewsForge (deutsche Übersetzung)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="contacts1-8" style="background-color: rgb(40, 40, 40);">
+<div class="mbr-section__container container">
+<div class="mbr-contacts mbr-contacts--wysiwyg row">
+<div class="col-sm-3">
+<img class="mbr-contacts__img mbr-contacts__img--left" alt="" src="assets/images/ahk-logo-no-text241x78-160.png">
+<p class="mbr-contacts__text"><strong>AutoHotkey - eine Skriptsprache für Desktop-Automatisierung</strong></p><p class="mbr-contacts__text"><br></p><p class="mbr-contacts__text">Kostenlose Open-Source-Software, lizenziert unter GNU GPLv2. Erstellt von Chris Mallet und andere.</p><br>
+</div>
+<div class="col-sm-8">
+<div class="row">
+<div class="col-sm-6">
+<p class="mbr-contacts__text">
+<b>Communities</b><br>
+<a href="https://autohotkey.com/boards/">AutoHotkey-Forum</a> (<a href="https://autohotkey.com/boards/viewforum.php?f=8">de</a>, <a href="https://autohotkey.com/boards/viewforum.php?f=26">中文</a>, <a href="https://autohotkey.com/boards/viewforum.php?f=39">es</a>, <a href="https://autohotkey.com/boards/viewforum.php?f=46">ru</a>) <small>(phpBB)</small><br>
+<a href="http://www.autohotkey.com/board">Archiviertes Forum</a> (<a href="http://www.autohotkey.com/board/forum/62-deutsch-german/">de</a>) <small>(IPBoards)</small><br>
+<a href="https://stackoverflow.com/questions/tagged/autohotkey">Stackoverflow</a><br>
+<a href="https://superuser.com/questions/tagged/autohotkey">Superuser</a><br>
+<a href="https://www.reddit.com/r/AutoHotkey">Reddit</a><br>
+<a href="https://zeef.com/?query=AutoHotkey&amp;in=all">ZEEF</a><br>
+<a href="http://ahk8.com/">中文论坛</a> <small>(Chinesisch, ahk8.com)</small><br>
+<a href="http://forum.script-coding.com/viewforum.php?id=13">Русскоязычный форум</a> <small>(Russisch, forum.script-coding.com)</small><br>
+<a href="http://www.autohotkey.co.kr/">한국어</a> <small>(Koreanisch, autohotkey.co.kr)</small><br>
+</p><br>
+</div>
+<div class="col-sm-6">
+<p class="mbr-contacts__text">
+<b>Dokumentation &amp; Tutorials</b><br>
+<a href="/docs/">Dokumentation</a> (<a href="https://autohotkey.com/docs">en</a> - <a href="http://ahkcn.sourceforge.net/docs">帮助</a>)<br>
+<a href="http://ahkscript.org/boards/viewforum.php?f=7">Community-Tutorials</a> <small>(Forum)</small><br>
+<a href="http://www.autohotkey.com/board/forum/61-tutorials/">Community-Tutorials</a> <small>(Archiv-Forum)</small><br>
+<a href="https://www.youtube.com/user/ahkTuts">YouTube-AutoHotkey-Tutorials</a><br>
+<a href="https://maul-esel.github.io/ahkbook/index.html">Buch (englisch) </a> <small>(noch in Arbeit)</small><br>
+<a href="http://rosettacode.org/wiki/Category:AutoHotkey">Rosettacode</a> <small>(Code-Beispiele)</small><br>
+<a href="http://ahkwiki.net/">日本語 AutoHotkey Wiki</a> <small>(Japanisch, ahkwiki.net)</small><br>
+<a href="http://www.computoredge.com/AutoHotkey/Free_AutoHotkey_Scripts_and_Apps_for_Learning_and_Generating_Ideas.html">Jack Dunning's AHK-Seite</a> <small>(Skripte, Beispiele)</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script src="assets/jquery/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/smooth-scroll/SmoothScroll.js"></script>
+<script src="assets/jarallax/jarallax.js"></script>
+<script src="assets/mobirise/js/script.js"></script>
+ 
 </body>
 </html>

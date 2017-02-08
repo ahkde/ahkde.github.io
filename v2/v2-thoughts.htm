@@ -3,106 +3,71 @@
 <head>
 <title>v2-thoughts</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">
-pre code {
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-</style>
-<link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
+<style type="text/css">pre code{background:none;border:none;margin:0;padding:0;}</style>
+<style type="text/css">.highlight{background:#ffffff;}.highlight .c{color:#999988;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#999988;font-style:italic}.highlight .cp{color:#999999;font-weight:bold}.highlight .c1{color:#999988;font-style:italic}.highlight .cs{color:#999999;font-weight:bold;font-style:italic}.highlight .gd{color:#000000;background-color:#ffdddd}.highlight .gd .x{color:#000000;background-color:#ffaaaa}.highlight .ge{font-style:italic}.highlight .gr{color:#aa0000}.highlight .gh{color:#999999}.highlight .gi{color:#000000;background-color:#ddffdd}.highlight .gi .x{color:#000000;background-color:#aaffaa}.highlight .go{color:#888888}.highlight .gp{color:#555555}.highlight .gs{font-weight:bold}.highlight .gu{color:#aaaaaa}.highlight .gt{color:#aa0000}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#445588;font-weight:bold}.highlight .m{color:#009999}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#445588;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#990000;font-weight:bold}.highlight .nf{color:#990000;font-weight:bold}.highlight .nn{color:#555555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbbbbb}.highlight .mf{color:#009999}.highlight .mh{color:#009999}.highlight .mi{color:#009999}.highlight .mo{color:#009999}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#009999}.pl-c{color:#969896;}.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv{color:#0086b3;}.pl-e,.pl-en{color:#795da3;}.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf{color:#333;}.pl-ent{color:#63a35c;}.pl-k,.pl-s,.pl-st{color:#a71d5d;}.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v{color:#df5000;}.pl-id{color:#b52a1d;}.pl-ii{background-color:#b52a1d;color:#f8f8f8;}.pl-sr .pl-cce{color:#63a35c;font-weight:bold;}.pl-ml{color:#693a17;}.pl-mh,.pl-mh .pl-en,.pl-ms{color:#1d3e81;font-weight:bold;}.pl-mq{color:#008080;}.pl-mi{color:#333;font-style:italic;}.pl-mb{color:#333;font-weight:bold;}.pl-md,.pl-mdhf{background-color:#ffecec;color:#bd2c00;}.pl-mdht,.pl-mi1{background-color:#eaffea;color:#55a532;}.pl-mdr{color:#795da3;font-weight:bold;}.pl-mo{color:#1d3e81;}.task-list{padding-left:10px;margin-bottom:0;}.task-list li{margin-left:20px;}.task-list-item{list-style-type:none;padding-left:10px;}.task-list-item label{font-weight:400;}.task-list-item.enabled label{cursor:pointer;}.task-list-item+.task-list-item{margin-top:3px;}.task-list-item-checkbox{display:inline-block;margin-left:-20px;margin-right:3px;vertical-align:1px;}</style>
+<link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
-<h1>Gedanken zu v2.0</h1>
-<h2>Befehle</h2>
-<h3>Befehle()</h3>
+<h1 id="thoughts-for-v2-0">Gedanken zu v2.0</h1>
+<h2 id="commands">Befehle</h2>
+<h3 id="command-">Befehle()</h3>
 <p>Da Befehle und Funktionen intern immer noch unterschiedlich sind, würde das Definieren einer Funktion, die denselben Namen hat wie ein Befehl, die Funktionssyntax von diesem Befehl überschreiben; das heißt, dass nur noch seine Befehlssyntax den originalen Befehl aufrufen kann. Dies sollte geändert werden.</p>
-<h3>Befehle mit Unterbefehlen</h3>
+<h3 id="commands-with-sub-commands">Befehle mit Unterbefehlen</h3>
 <p>Die restlichen Befehle mit Unterbefehlen sind: DriveGet, Drive, Control, ControlGet, GuiControl und GuiControlGet. </p>
 <ul>
-<li>Meiner Ansicht nach werden die Unterbefehle von DriveGet und Drive nur selten benutzt, um sie zu eigenständigen Funktionen zu machen. Ansonsten: </li>
-<li>Drive Label sollte DriveSetLabel werden, der Counterpart von DriveGetLabel. </li>
-<li>Anstatt 50+ Funktionen für Gui/Control/Get-Unterbefehle zu erstellen, würde ich die Funktionalität von Gui- und Nicht-Gui-Befehlen lieber zusammenführen. Dies könnte die Konsistenz verbessern und Code- und Dokumentationsgröße minimieren. Allerdings bin ich mir nicht sicher, wie das gemacht werden soll, ohne dabei die Nutzbarkeit des Befehlssatzes bei den skript-eigenen GUIs zu reduzieren (z. B. die GuiControl-Befehle unterstützen Steuerelementnamen und agieren implizit mit dem Standard-Gui) </li>
-</ul>
-<h3>Sonstiges</h3>
+<li>Meiner Ansicht nach werden die Unterbefehle von DriveGet und Drive nur selten benutzt, um sie zu eigenständigen Funktionen zu machen. Ansonsten: </li><li>Drive Label sollte DriveSetLabel werden, der Counterpart von DriveGetLabel. </li><li>Anstatt 50+ Funktionen für Gui/Control/Get-Unterbefehle zu erstellen, würde ich die Funktionalität von Gui- und Nicht-Gui-Befehlen lieber zusammenführen. Dies könnte die Konsistenz verbessern und Code- und Dokumentationsgröße minimieren. Allerdings bin ich mir nicht sicher, wie das gemacht werden soll, ohne dabei die Nutzbarkeit des Befehlssatzes bei den skript-eigenen GUIs zu reduzieren (z. B. die GuiControl-Befehle unterstützen Steuerelementnamen und agieren implizit mit dem Standard-Gui) </li></ul>
+<h3 id="other">Sonstiges</h3>
 <p>MsgBox-Parameter könnten eine Neuanordnung benötigen. Als Funktion sollte ihr Rückgabewert kennzeichnen, welche Schaltfläche gedrückt wurde (wie in A_MsgBoxResult). </p>
 <p>MouseClickDrag umbenennen, vielleicht zu MouseDrag?</p>
 <p>MouseClick wurde von Click abgelöst. Sollte MouseClick entfernt werden? Sollte Click zu MouseClick umbenannt werden, um konsistent mit MouseMove zu sein?</p>
 <ul>
-<li>Click erkennt automatisch, ob der Benutzer seine linke und rechte Maustaste via Systemsteuerung vertauscht hat, und gleicht sie entsprechend aus. Zum Beispiel würde <code>Click R</code> einen logischen Rechtsklick machen, der üblicherweise ein Kontextmenü öffnet, sogar wenn der Benutzer sein Tasten vertauscht haben sollte. In seltenen Fällen kann diese automatische Kompensation unerwünscht sein -- eine Umgehungsmöglichkeit wäre sinnvoll. Ich bin offen für konkretere Vorschläge.</li>
-<li>Click unterstützt nicht den <em>Tempo</em>-Parameter. Stattdessen muss man SetDefaultMouseSpeed benutzen.</li>
-<li>Click unterstützt nicht den <code>R</code>-Parameter (relative Koordinaten), der wegen "R" für "Right" mehrdeutig ist.</li>
-<li>Wenn MouseClick entfernt (oder mit Click ersetzt) wird, sollte MouseClickDrag auch entfernt werden? Zumindest sollte das Standardverhalten in Bezug auf die Kompensation mit der von Click übereinstimmen.</li>
-<li>Vielleicht sollten die anderen Mausbefehle geändert werden, um sie eine flexible Anordnung ihrer Parameter wie bei Click unterstützen zu lassen.</li>
-</ul>
+<li>Click erkennt automatisch, ob der Benutzer seine linke und rechte Maustaste via Systemsteuerung vertauscht hat, und gleicht sie entsprechend aus. Zum Beispiel würde <code>Click R</code> einen logischen Rechtsklick machen, der üblicherweise ein Kontextmenü öffnet, sogar wenn der Benutzer sein Tasten vertauscht haben sollte. In seltenen Fällen kann diese automatische Kompensation unerwünscht sein -- eine Umgehungsmöglichkeit wäre sinnvoll. Ich bin offen für konkretere Vorschläge.</li><li>Click unterstützt nicht den <em>Tempo</em>-Parameter. Stattdessen muss man SetDefaultMouseSpeed benutzen.</li><li>Click unterstützt nicht den <code>R</code>-Parameter (relative Koordinaten), der wegen "R" für "Right" mehrdeutig ist.</li><li>Wenn MouseClick entfernt (oder mit Click ersetzt) wird, sollte MouseClickDrag auch entfernt werden? Zumindest sollte das Standardverhalten in Bezug auf die Kompensation mit der von Click übereinstimmen.</li><li>Vielleicht sollten die anderen Mausbefehle geändert werden, um sie eine flexible Anordnung ihrer Parameter wie bei Click unterstützen zu lassen.</li></ul>
 <p><strong>TrayTip:</strong> <code>TrayTip Titel</code> (ohne Text) ist irreführend, vor allem wegen <code>ToolTip Text</code>; der Titel wird ignoriert und alle bestehenden TrayTips entfernt. Es gibt ein paar mögliche Lösungen:</p>
 <ul>
-<li>Zuerst den Text-Parameter setzen (beachtet auch die Anordnung der MsgBox- und InputBox-Parameter).</li>
-<li>Übergibt man Titel, aber nicht Text, könnte als Standardtext ein Leerzeichen gelten, um das TrayTip nur mit Titel anzuzeigen.</li>
-<li>Weniger wünschenswert: Wenn es nur einen Parameter gibt, dann lass es Text sein.</li>
-</ul>
+<li>Zuerst den Text-Parameter setzen (beachtet auch die Anordnung der MsgBox- und InputBox-Parameter).</li><li>Übergibt man Titel, aber nicht Text, könnte als Standardtext ein Leerzeichen gelten, um das TrayTip nur mit Titel anzuzeigen.</li><li>Weniger wünschenswert: Wenn es nur einen Parameter gibt, dann lass es Text sein.</li></ul>
 <p>TrayTip's <em>Sekunden</em>-Parameter ist in Vista und höher wirkungslos, und könnte daher erst nach <em>Optionen</em> erfolgen. Alternativ wäre es sinnvoller (und weniger irreführend, wenn man v1-Code benutzt), TrayTip eine Zeichenkette mit benannten Optionen akzeptieren zu lassen, wie z. B. <code>Info Warning Error Mute Large T3</code> (wo die ersten drei sich gegenseitig ausschließen). MsgBox und InputBox haben auch den <em>Titel</em>-, <em>Text</em>- und <em>Optionen</em>-Parameter, daher wäre es gut, wenn alle drei Befehle die gleiche Reihenfolge benutzen würden.</p>
-<h2>Fehlerbehandlung</h2>
+<h2 id="error-handling">Fehlerbehandlung</h2>
 <p>Beachte, das einige Punkte hier schon umgesetzt wurden.</p>
-<h3>Fehler in mathematischen Operationen</h3>
+<h3 id="errors-in-math-operations">Fehler in mathematischen Operationen</h3>
 <p>In v1 erzeugen mathematische Operatoren still und heimlich eine leere Zeichenkette, wenn folgendes zutrifft:</p>
 <ul>
-<li>Einer der Eingabewerte ist eine leere Zeichenkette.</li>
-<li>Einer der Eingabewerte ist nicht-numerisch.</li>
-<li>Division durch Null.</li>
-</ul>
+<li>Einer der Eingabewerte ist eine leere Zeichenkette.</li><li>Einer der Eingabewerte ist nicht-numerisch.</li><li>Division durch Null.</li></ul>
 <p>Darüber hinaus gab es <a href="http://www.autohotkey.com/board/index.php?showtopic=12396">Debatten</a> darüber, ob leere Zeichenketten als 0 behandelt werden sollten. Leere Zeichenketten als 0 zu behandeln ist scheinbar die bevorzugte Option. Der Nachteil beim Erkennen eines Fehlers könnte man ausgleichen, indem man die <code>#Warn</code>-Direktive mit einem neuen Modus ausstattet.</p>
 <p>Berechnungen mit nicht-numerischen Werten und Division durch Null sollten keine Zahl erzeugen. Wenn leere Zeichenketten als Null behandelt werden, dürfen diese Fehler keine leere Zeichenkette erzeugen. Die Alternativen wären, eine Ausnahme auszulösen oder einen anderen nicht-numerischen Wert erzeugen zu lassen, wie z. B. die Zeichenkette "NaN" (erinnert an JavaScript's speziellen NaN-Wert).</p>
 <p>Das aktuelle v2-Verhalten ist noch nicht endgültig.</p>
-<h3>Fehler in mathematischen Funktionen</h3>
+<h3 id="errors-in-math-functions">Fehler in mathematischen Funktionen</h3>
 <p>Mathematische Funktionen wie <code>Round()</code> könnten das gleiche Verhalten haben wie mathematische Operatoren. In v1 und vor v2.0-a064 geben sie eine Null zurück, wenn sie einen ungültigen Eingabewert haben, und eine leere Zeichenkette, wenn ein Fehler aufgetreten ist (sofern erkannt).</p>
 <p>Folgende Fehler werden erkannt:</p>
 <ul>
-<li>Abs, Mod: nicht-numerischer Eingabewert.</li>
-<li>Mod: Division durch Null.</li>
-<li>ASin, ACos: Eingabewert außerhalb des Bereichs oder nicht-numerisch.</li>
-<li>Sqrt, Log, Ln: Negativer Eingabewert.</li>
-</ul>
+<li>Abs, Mod: nicht-numerischer Eingabewert.</li><li>Mod: Division durch Null.</li><li>ASin, ACos: Eingabewert außerhalb des Bereichs oder nicht-numerisch.</li><li>Sqrt, Log, Ln: Negativer Eingabewert.</li></ul>
 <p>Alle anderen Funktionen erkennen keine ungültigen Eingabewerte; nicht-numerische Werte sind standardmäßig 0.</p>
-<h3>COM</h3>
+<h3 id="com">COM</h3>
 <p>In v1 erhalten COM-Fehler für jede Kleinigkeit eine Spezialbehandlung.</p>
 <ul>
-<li>COM-Fehler-Dialogfenster bieten eine Option, um das Skript fortzusetzen. Dies könnte nützlich für andere Fehler sein. Allerdings könnte das ein Streitpunkt sein, da das Entfernen dieses Features kaum Vorteile bringt, aber man kein Risiko eingehen würde, irgendetwas kaputtzumachen, wenn man es mit einem besseren Fehler-Dialogfenster (für alle Fehler) in v1, v2 oder post-v2 ersetzen würde.</li>
-<li><code>ComObjError</code> erlaubt das Unterdrücken von COM-Fehlern, wie bei VBScript's <code>On Error Resume Next</code>. Eine etwas universellere Lösung könnte sehr nützlich sein; vielleicht Kontrolle darüber geben, welche Fehlerklassen unterdrückt werden sollen. Andererseits geht v2 in die Richtung, nur Ausnahmen für schwerwiegende Fehler oder für Fehler, die das Skript nicht erwartet hat, auszulösen (z. B. ungültige Parameter -- das Skript sollte den Fehler nicht unterdrücken, weil er auf einen Schreibfehler im Skript hinweisen könnte). ComObjError ist ein Feature, das mit geringem Aufwand programmiert wurde, daher bringt es kaum Vorteile, es zu entfernen, oder Mehraufwand, dieses Feature in post-v2 zu belassen, falls es obsolet werden sollte.</li>
-</ul>
-<h2>Objekte</h2>
+<li>COM-Fehler-Dialogfenster bieten eine Option, um das Skript fortzusetzen. Dies könnte nützlich für andere Fehler sein. Allerdings könnte das ein Streitpunkt sein, da das Entfernen dieses Features kaum Vorteile bringt, aber man kein Risiko eingehen würde, irgendetwas kaputtzumachen, wenn man es mit einem besseren Fehler-Dialogfenster (für alle Fehler) in v1, v2 oder post-v2 ersetzen würde.</li><li><code>ComObjError</code> erlaubt das Unterdrücken von COM-Fehlern, wie bei VBScript's <code>On Error Resume Next</code>. Eine etwas universellere Lösung könnte sehr nützlich sein; vielleicht Kontrolle darüber geben, welche Fehlerklassen unterdrückt werden sollen. Andererseits geht v2 in die Richtung, nur Ausnahmen für schwerwiegende Fehler oder für Fehler, die das Skript nicht erwartet hat, auszulösen (z. B. ungültige Parameter -- das Skript sollte den Fehler nicht unterdrücken, weil er auf einen Schreibfehler im Skript hinweisen könnte). ComObjError ist ein Feature, das mit geringem Aufwand programmiert wurde, daher bringt es kaum Vorteile, es zu entfernen, oder Mehraufwand, dieses Feature in post-v2 zu belassen, falls es obsolet werden sollte.</li></ul>
+<h2 id="objects">Objekte</h2>
+<h3 id="meta-functions">Meta-Funktionen</h3>
 <p>Meta-Funktionen werden häufig missverstanden, und sollten deshalb vielleicht vereinfacht werden. Spontane Ideen:</p>
 <ul>
-<li>Die Interaktion zwischen Meta-Funktionen und Vererbung von Key-Value-Paaren ist schwierig zu erklären und daher auch schwer zu begreifen. Ein einfacherer Ansatz, mehr im Einklang mit dem normalen Methodenverhalten, könnte die Flexibilität erhöhen, aber mit dem Nebeneffekt, dass im Skript gegebenenfalls mehr Aufwand notwendig ist. Das ist wahrscheinlich OK, da die häufigsten Fälle mit der Eigenschaftensyntax abgesichert sind.</li>
-<li>Es sollte möglich sein, eine Meta-Funktion manuell aufzurufen und das Ergebnis zu interpretieren, wie es der interne Mechanismus tun würde. Derzeit ist es nicht möglich, da der interne Mechanismus zwischen impliziter Rückgabe am Funktionsende <code>}</code> und explizitem <code>return</code> unterscheidet.</li>
-<li><code>value := o.__xxx(byRef handled, prms*)</code> - wenn nicht behandelt, erfolgt Standardverhalten. <strong>Pro</strong>: übersichtlich; eine leere Meta-Methode hat keine Wirkung.</li>
-<li><code>handled := o.__xxx(byRef result, prms*)</code> - wie oben.</li>
-<li>
-<code>result := o.__xxx(prms*)</code>
-<ul>
-<li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste.</li>
-<li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li>
-<li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li>
-</ul>
-</li>
-</ul>
-<h3>Sonstiges</h3>
+<li>Die Interaktion zwischen Meta-Funktionen und Vererbung von Key-Value-Paaren ist schwierig zu erklären und daher auch schwer zu begreifen. Ein einfacherer Ansatz, mehr im Einklang mit dem normalen Methodenverhalten, könnte die Flexibilität erhöhen, aber mit dem Nebeneffekt, dass im Skript gegebenenfalls mehr Aufwand notwendig ist. Das ist wahrscheinlich OK, da die häufigsten Fälle mit der Eigenschaftensyntax abgesichert sind.</li><li>Es sollte möglich sein, eine Meta-Funktion manuell aufzurufen und das Ergebnis zu interpretieren, wie es der interne Mechanismus tun würde. Derzeit ist es nicht möglich, da der interne Mechanismus zwischen impliziter Rückgabe am Funktionsende <code>}</code> und explizitem <code>return</code> unterscheidet.</li><li><code>value := o.__xxx(byRef handled, prms*)</code> - wenn nicht behandelt, erfolgt Standardverhalten. <strong>Pro</strong>: übersichtlich; eine leere Meta-Methode hat keine Wirkung.</li><li><code>handled := o.__xxx(byRef result, prms*)</code> - wie oben.</li><li><code>result := o.__xxx(prms*)</code><ul>
+<li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste.</li><li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li><li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li></ul>
+</li></ul>
+<h3 id="other">Sonstiges</h3>
 <p><code>Object.GetAddress(key)</code> sollte die Adresse einer leeren Zeichenkette zurückgeben, wenn <code>Object[key]</code> so etwas enthält, da einige Skripte möglicherweise eine Zeichenkette zuweisen und dann ihre Adresse an DllCall oder Ähnliches übergeben wollen. Aktuell müssen solche Skripte SetCapacity aufrufen, nachdem sie eine leere Zeichenkette zugewiesen haben.</p>
 <p>Objekte unterstützen nun binäre Nullen in Zeichenkettenwerten, durch Zwischenspeichern der Zeichenkettenlänge. Allerdings werden absofort nur Daten bis zur Zeichenkettenlänge beim Klonen des Objekts beibehalten (konsistent mit dem Abrufen des Wertes vom Objekt als Zeichenkette, um z. B. ein anderes Objekt zuzuweisen). Es sollte irgendwie die Möglichkeit geben, die Datenlänge zu setzen, z. B. <code>Object.SetLength(Key, Length)</code>. Aus Übersichtsgründen (und um Verwirrung mit <code>Object.Length</code> zu vermeiden) wäre es vielleicht besser, so etwas wie <code>SetStrLen</code> und <code>SetByteLen</code> zu haben. Beachte zudem, dass ähnliche Funktionen für Variablen notwendig wären, um Binärdaten besser unterstützen zu können.</p>
-<p>SafeArray-Methoden sollten in Übereinstimmung mit Objektmethoden aktualisiert werden - durch Hinzufügen von <code>.Length()</code> und vielleicht durch Entfernen von MinIndex/MaxIndex. Man könnte sie in UBound und LBound umbenennen, in Übereinstimmung mit COM-basierten Sprachen.</p>
 <p>Einige Benutzer verlangen <code>Object.Count()</code>. Benutzen könnte man so etwas wie <code>Object.Count([MinKey, MaxKey])</code>, das die Anzahl von Key-Value-Paaren innerhalb des angegebenen Bereichs zurückgeben könnte (oder insgesamt, wenn alle Parameter fehlen).</p>
+<p><code>new MeineKlasse[a,b,c]</code> könnte als eine sehr komfortable Möglichkeit reserviert werden, um einen spezialisierten Array-/Auflistungstyp zu initialisieren (<code>new MeineKlasse{a:b}</code> ist bereits als Syntaxfehler "reserviert"). Aktuell könnte <code>MeinKlasse[a,b,c]</code> eine Klasse zum Instanziieren sein, aber sehr wahrscheinlich wird sie nur selten benutzt (wenn überhaupt), und ist inkonsistent mit der v1-Richtlinie bzgl. der Anforderung eines Klassennamens nach dem <code>new</code>-Operator. v1 behandelt <code>new x[y](z)</code> als <code>new c1</code>, wo c1 gleich <code>x[y](z)</code> ist, während v2-a076 diese Anweisung als <code>new c2(z)</code> behandelt, wo c2 gleich <code>x[y]</code> ist.</p>
+<p>SafeArray-Objekte sollten eine <code>.Length()</code>-Methode erhalten, um konsistent mit reinen Objekten zu sein.</p>
 <p>ComObjConnect()-Ereignisse dereferenzieren ByRef-VARIANTs derzeit automatisch (da einige Sprachen so etwas immer dann übergeben, wenn ein Skript eine Variable übergibt), wodurch die Funktion in einigen Fällen daran gehindert wird, einen Wert zurückzugeben. Entweder könnten wir a) ByRef-Wrapper übergeben, die Zuweisungen wie <code>param[] := value</code> erlauben, oder b) eine Variable automatisch übergeben und das VARIANT nach Funktionsaufruf aktualisieren. Andere (also Nicht-VARIANT) ByRef-Kombinationen werden nicht dereferenziert, und <code>param[] := value</code> wird seit v1.1.17 bereits unterstützt.</p>
-<h2>Klassen</h2>
+<h2 id="classes">Klassen</h2>
 <p><code>base</code> erlauben, als Unterklasse definiert zu werden (und tatsächlich die base-Klasse zu setzen), so dass Meta-Funktionen und Eigenschaften vor der Klasse selbst einfach definiert werden können, innerhalb der Klasse.</p>
 <p>Das Wort <code>base</code> zu einem reservierten Wort in Klassenmethoden machen. Derzeit erhält es eine besondere Bedeutung, wenn danach <code>.</code> oder <code>[</code> erfolgt, außer wenn in die Variable <code>base</code> ein Wert gespeichert wurde. Das Wort zu reservieren vereinfacht die Sprache und könnte die Performance verbessern.</p>
 <p>Wenn <code>base</code> überall reserviert wäre, könnte man es benutzen, um eine überschriebene Built-In-Funktion aufzurufen (z. B. <code>base.WinMove(x, y)</code> in einer Neudefinition von WinMove).</p>
-<h3>Ideen</h3>
+<h3 id="ideas">Ideen</h3>
 <p>Es handelte sich dabei um vorläufige Ideen. "OO"-Syntax zu fördern ist nicht meine beabsichtigte Richtung für AutoHotkey (vor allem mit Zahlen und Zeichenketten) und wird daher nicht implementiert. </p>
 <p>Dem Skript erlauben, die Klassen <code>String</code> und <code>Number</code> mit Methoden und Eigenschaften für alle Zeichenketten und Zahlen zu definieren. Derzeit erfolgt dies durch Setzen von Eigenschaften des <code>"".base</code>-Objekts, aber dies wirkt sich auf alle Arten von Werten aus, außer Objekte.</p>
 <p>Dem Skript erlauben, globale Methoden und Eigenschaften für alle Objekte zu definieren, vielleicht via <code>Object</code>-base-Klasse. Standardmäßig würde dieser Klasse Built-In-Methoden wie Insert enthalten, so dass sie auf gleiche Weise wie benutzerdefinierte Methoden neu definiert können. Zum Beispiel könnte eine benutzerdefinierte Insert-Methode <code>base.Insert(value)</code> statt <code>ObjInsert(this, value)</code> aufrufen.</p>
 <p>Beide oben würden irgendeine Möglichkeit erfordern, an eine vorhandene Klasse angefügt zu werden, was auch für benutzerdefinierte Klassen nützlich sein könnte. Dies könnte man möglich machen, indem man einfach <code>class Klassenname {}</code> mehrmals wiederholt, oder mit einem zusätzlichen Schlüsselwort, um Missverständnisse vorzubeugen, wie z. B. <code>class Klassenname extended {}</code>. Das Schlüsselwort könnte implizieren, dass die initialen und erweiterten Definitionen in genau dieser Reihenfolge platziert werden müssen (anstatt zwei ähnliche Definitionen zu haben, die in beliebiger Reihenfolge gesetzt werden können), was nicht ideal wäre. Eine andere Option wäre es, <code>Klassenname.Methodenname()</code>-Deklarationen außerhalb von Klassen zu erlauben, wodurch vorhandene Klassen erweitert werden können (und mehr Flexibilität darin zu geben, den Code zu organisieren). </p>
-
 </body>
-</html><!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
-
+</html>
+ 
