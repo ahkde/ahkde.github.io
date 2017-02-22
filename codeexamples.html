@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta name="Generator" content="SciTE - www.Scintilla.org"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="assets/monokai0.css" rel="stylesheet" type="text/css"/>
+</head>
+<body style="background-color: #334455;">
+ 
+<codecarousel>
+<codescreen>
+ 
+<codebox>
+&nbsp; <span class="S1">; Hotstrings - erweitert 'bzw' zu 'beziehungsweise' bei Benutzereingabe</span><br/>
+&nbsp; <span class="S4">::</span><span class="S10">bzw</span><span class="S4">::</span><span class="S6">beziehungsweise</span><br/>
+&nbsp; <br/>
+&nbsp; <span class="S1">; Hotkeys - drücke WIN+Z, um Google zu öffnen</span><br/>
+&nbsp; <span class="S8">#z</span><span class="S4">::</span><br/>
+&nbsp; <span class="S12">Run</span><span class="S0"> http</span><span class="S5">://</span><span class="S0">google</span><span class="S5">.</span><span class="S0">com</span><br/>
+&nbsp; <span class="S11">Return</span><br/>
+</codebox>
+<br/>
+<codebox>
+&nbsp; <span class="S1">; kopiert Text in die Zwischenablage, ändert ihn und fügt ihn wieder ein</span><br/>
+&nbsp; <span class="S5">^+</span><span class="S8">k</span><span class="S4">::</span><span class="S0"> </span><span class="S1">; STRG+UMSCHALT+K</span><br/>
+&nbsp; <span class="S0">ClipSave</span><span class="S4">:=</span><span class="S16">ClipboardAll</span><span class="S0"> </span><span class="S1">; aktuelle Zwischenablage zwischenspeichern</span><br/>
+&nbsp; <span class="S12">Send</span><span class="S0"> </span><span class="S5">^</span><span class="S0">c </span><span class="S1">; kopiert markierten Text</span><br/>
+&nbsp; <span class="S16">clipboard</span><span class="S4">:=</span><span class="S6">"&lt;i&gt;"</span><span class="S0"> </span><span class="S16">clipboard</span><span class="S0"> </span><span class="S6">"&lt;/i&gt;"</span><span class="S0"> </span><span class="S1">; umschließt ihn mit HTML-Tags</span><br/>
+&nbsp; <span class="S12">Send</span><span class="S0"> </span><span class="S5">^</span><span class="S0">v </span><span class="S1">; einfügen</span><br/>
+&nbsp; <span class="S16">Clipboard</span><span class="S4">:=</span><span class="S0">ClipSave </span><span class="S1">; stellt alte Zwischenablage wieder her</span><br/>
+&nbsp; <span class="S0">ClipSave</span><span class="S4">:=</span><span class="S6">""</span><span class="S0"> </span><span class="S1">; leert Variable</span><br/>
+&nbsp; <span class="S11">Return</span><br/>
+</codebox>
+<br/>
+<codebox>
+&nbsp; <span class="S1">; Einfach zu machende GUIs</span><br/>
+&nbsp; <span class="S12">Gui</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Add</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Text</span><span class="S4">,</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> Name eingeben</span><br/>
+&nbsp; <span class="S12">Gui</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Add</span><span class="S4">,</span><span class="S0"> </span><span class="S12">Edit</span><span class="S4">,</span><span class="S0"> vName w150</span><br/>
+&nbsp; <span class="S12">Gui</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Add</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Button</span><span class="S4">,</span><span class="S0"> </span><span class="S4">,</span><span class="S0"> </span><span class="S17">OK</span><br/>
+&nbsp; <span class="S12">Gui</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Show</span><br/>
+&nbsp; <span class="S11">Return</span><br/>
+&nbsp; <br/>
+&nbsp; <span class="S10">ButtonOK</span><span class="S4">:</span><br/>
+&nbsp; <span class="S12">Gui</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Submit</span><span class="S4">,</span><span class="S0"> </span><span class="S17">Destroy</span><br/>
+&nbsp; <span class="S12">MsgBox</span><span class="S0"> Hallo </span><span class="S4">%</span><span class="S9">name</span><span class="S4">%</span><br/>
+&nbsp; <span class="S11">Return</span><br/>
+&nbsp; <br/>
+&nbsp; <span class="S15">Esc</span><span class="S4">::</span><br/>
+&nbsp; <span class="S10">GuiClose</span><span class="S4">:</span><br/>
+&nbsp; <span class="S11">ExitApp</span><br/>
+</codebox>
+<codebox>
+<span class="S1">; AutoHotkey's (assoziative) Arrays</span><br/>
+&nbsp; <span class="S0">Farben</span><span class="S4">:=</span><span class="S6">"Rot,Grün,Blau"</span><span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">; Zeichenkette</span><br/>
+&nbsp; <span class="S0">FarbenArray</span><span class="S4">:=</span><span class="S13">StrSplit</span><span class="S5">(</span><span class="S0">Farben</span><span class="S4">,</span><span class="S0"> </span><span class="S6">","</span><span class="S5">)</span><span class="S0"> &nbsp;</span><span class="S1">; erstellt Array</span><br/>
+&nbsp; <br/>
+&nbsp; <span class="S0">FarbenArray</span><span class="S5">.</span><span class="S0">Push</span><span class="S5">(</span><span class="S6">"Lila"</span><span class="S5">)</span><span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S1">; fügt Daten hinzu</span><br/>
+&nbsp; <br/>
+&nbsp; <span class="S11">for</span><span class="S0"> index</span><span class="S4">,</span><span class="S0"> element </span><span class="S17">in</span><span class="S0"> FarbenArray &nbsp;&nbsp;</span><span class="S1">; Liest vom Array</span><br/>
+&nbsp; <span class="S0">&nbsp; &nbsp; </span><span class="S12">MsgBox</span><span class="S0"> % </span><span class="S6">"Farbe "</span><span class="S0"> index </span><span class="S6">" = "</span><span class="S0"> element</span> </codebox> </codescreen> <button class="code_btn" onclick="prev()">&lt;</button>
+<div id="tracker"></div>
+<button class="code_btn" onclick="next()">&gt;</button>
+<span id="counter">0</span>
+<button class="code_btn" id="code_pause" onclick="pause()">❙❙</button>
+</codecarousel>
+<script>
+			code_carousel();
+			function code_carousel() {
+				this.next = function(){ z = current + 1; if (z > max || z < 0) { z=0 } set(z); }
+				this.prev = function(){ z = current - 1; if (z > max || z < 0) { z=max; } set(z); }
+				this.updatetimer = function() { clearInterval(timer); timer = setInterval(next,7000); }
+				this.pause = function() {
+					if (timer == 0) {
+						updatetimer();
+						document.getElementById('code_pause').setAttribute('class','code_btn');
+					} else {
+						clearInterval(timer);
+						timer = 0;
+						document.getElementById('code_pause').setAttribute('class','code_btn xactive');
+					}
+				}
+				this.set = function(x=0) {
+					e = document.getElementById('tracker').getElementsByTagName('a');
+					e[current].setAttribute("class","");
+					current = x;
+					e[current].setAttribute("class","xactive");
+
+					elems = document.getElementsByTagName('codebox');
+					for(i=0;i<elems.length;i++) { elems[i].style.opacity = 0; }
+					elems[current].style.opacity = 1;
+					document.getElementById('counter').innerHTML = current;
+					updatetimer();
+				}
+
+				current = 0;
+				max = document.getElementsByTagName('codebox').length - 1;
+				for(i=0;i<max+1;i++){
+					document.getElementById('tracker').innerHTML += '<a onclick="set('+i+')">'+(i+1)+'</a>'
+				}
+				timer = 0
+				this.set();
+			}
+		</script>
+</body>
+</html>

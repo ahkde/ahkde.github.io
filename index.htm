@@ -47,7 +47,7 @@
 <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
 <div class="row"><div class=" col-sm-8 col-sm-offset-2">
 <div class="mbr-hero animated fadeInUp">
-<h1 class="mbr-hero__text">AutoHotkey</h1>
+<h1 class="mbr-hero__text" id="MainTitle">AutoHotkey</h1>
 <p class="mbr-hero__subtext">Leistungsstark. Einfach zu erlernen.</p>
 <p class="mbr-hero__subtext">Die ultimative Automatisierungsskriptsprache für Windows.</p>
 </div>
@@ -67,13 +67,13 @@
 <div class="row">
 <div>
 <div class="thumbnail">
-<a href="/docs/Tutorial.htm"><img alt="" src="assets/images/features-bootstrap.png"></a>
+<a href="/docs/Hotkeys.htm#Intro"><img alt="" src="assets/images/features-bootstrap.png"></a>
 <div class="caption">
 <div>
 <h3>Tastenbelegungen</h3>
 <p>Definiere Hotkeys für Maus und Tastatur, Tastenneubelegungen und automatische Ersetzungen von geschriebenem Text. Einfache Hotkeys zu erstellen ist so leicht wie nie zuvor; mit ein paar Zeilen oder weniger!</p>
 </div>
-<p class="group"><a href="/docs/Tutorial.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
+<p class="group"><a href="/docs/Hotkeys.htm#Intro" class="btn btn-default">ERFAHRE MEHR</a></p>
 </div>
 </div>
 </div>
@@ -91,25 +91,25 @@
 </div>
 <div>
 <div class="thumbnail">
-<a href="/docs/commands/index.htm"><img alt="" src="assets/images/features-who.png"></a>
+<a href="/docs/AutoHotkey.htm"><img alt="" src="assets/images/features-who.png"></a>
 <div class="caption">
 <div>
 <h3>Ist es gut für mich?</h3>
-<p>AutoHotkey, das urprünglich für Nicht-Programmierer gedacht war, hat einen einfach zu lernenden Befehlssatz. Die vollwertige Skriptsprache ist auch für Profi-Programmierer geeignet, die schnelles Prototyping durchführen oder kleine Projekte erstellen wollen.</p>
+<p>AutoHotkey hat einen einfach zu lernenden Befehlssatz. Erfahrene Entwickler werden schnell erkennen, wie gut diese vollwertige Skriptsprache für schnelles Prototyping und kleine Projekte geeignet ist.</p>
 </div>
-<p class="group"><a href="/docs/commands/index.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
+<p class="group"><a href="/docs/AutoHotkey.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
 </div>
 </div>
 </div>
 <div>
 <div class="thumbnail">
-<a href="/docs/scripts/index.htm"><img alt="" src="assets/images/features-why.png"></a>
+<a href="https://github.com/ahkscript/awesome-AutoHotkey"><img alt="" src="assets/images/features-why.png"></a>
 <div class="caption">
 <div>
 <h3>Warum AutoHotkey</h3>
-<p>AutoHotkey gibt dir die Freiheit, leistungsstarke Skripte zu entwickeln, um Desktop-Tätigkeiten zu automatisieren. Es ist kostenlos, Open-Source (GNU GPLv2) und anfängerfreundlich. <br>Warum probierst du es nicht einfach selbst aus? </p>
+<p>AutoHotkey gibt dir die Freiheit, beliebige Desktop-Tätigkeiten zu automatisieren. Es ist klein, schnell und läuft eigenständig. Und das beste von alledem: Es ist kostenlos, Open-Source (GNU GPLv2) und anfängerfreundlich. Warum probierst du es nicht einfach selbst aus? </p>
 </div>
-<p class="group"><a href="/docs/scripts/index.htm" class="btn btn-default">ERFAHRE MEHR</a></p>
+<p class="group"><a href="https://github.com/ahkscript/awesome-AutoHotkey" class="btn btn-default">ERFAHRE MEHR</a></p>
 </div>
 </div>
 </div>
@@ -121,18 +121,25 @@
 <div class="row">
 <div class="mbr-box mbr-box--fixed mbr-box--adapted">
 <div class="mbr-box__magnet mbr-box__magnet--top-right mbr-section__left col-sm-6">
-<figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width">
-<iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/lIFE7h3m40U?rel=0&amp;autoplay=0&amp;loop=0" frameborder="0" allowfullscreen></iframe>
+<figure class="mbr-figure mbr-figure--adapted mbr-figure--caption-inside-bottom mbr-figure--full-width" style="height:400px;padding:2px;border:none;background:none">
+<iframe class="" src="codeexamples.html" style="width:100%;height:100%" frameborder="0" allowfullscreen></iframe>
 </figure>
 </div>
 <div class="mbr-box__magnet mbr-class-mbr-box__magnet--center-left col-sm-6 mbr-section__right">
 <div class="mbr-section__container mbr-section__container--middle">
 <div class="mbr-header mbr-header--auto-align mbr-header--wysiwyg">
-<h3 class="mbr-header__text">AutoHotkey in freier Wildbahn</h3>
+<h3 class="mbr-header__text">Ein Blick auf die Syntax...</h3>
 </div>
 </div>
 <div class="mbr-section__container mbr-section__container--middle">
-<div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>Tom Scott's Video: </p><p>Die Kunst des Verpfuschens: Wie man eine Emoji-Tastatur macht</p><p>Im Gespräch darüber, wie AutoHotkey dabei geholfen hat, Tasten neu zu belegen, und mehr...</p></div>
+<div class="mbr-article mbr-article--auto-align mbr-article--wysiwyg"><p>AutoHotkey bietet eine einfache und flexible Syntax, damit man sich stärker auf die anstehende Aufgabe konzentrieren kann anstatt sich mit einzelnen kleinen Formalitäten rumschlagen zu müssen. Sie unterstützt nicht nur die <i>beliebte</i> imperative Prozeduralprogrammierung, sondern auch objektorientierte und befehlsbasierte Programmierung.</p><p>Hier ein paar Beispiele:</p>
+<ol>
+<li>Hotstrings &amp; Hotkeys</li>
+<li>Zwischenablage</li>
+<li>Kleines GUI</li>
+<li>Einfaches Array (oder Objekte)
+</li></ol>
+</div>
 </div>
 </div>
 </div>
@@ -184,7 +191,7 @@
 <div class="caption">
 <div>
 <h3>AutoHotkey schickt gleich mehrere Tools in den Ruhestand. Es vereint Hotkey und Textbausteinfunktionen in sich, bietet eine Skriptsprache, die mächtiger ist als jede Batchdatei.</h3>
-<p>Wolfgang Reszel, c't Magazine<br></p>
+<p>Wolfgang Reszel, c't Magazine<br> <br></p>
 </div>
 </div>
 </div>
