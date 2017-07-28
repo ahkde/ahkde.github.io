@@ -4,169 +4,230 @@
 <title>v2-thoughts</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">pre code{background:none;border:none;margin:0;padding:0;}</style>
-<style type="text/css">.highlight{background:#ffffff;}.highlight .c{color:#999988;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#999988;font-style:italic}.highlight .cp{color:#999999;font-weight:bold}.highlight .c1{color:#999988;font-style:italic}.highlight .cs{color:#999999;font-weight:bold;font-style:italic}.highlight .gd{color:#000000;background-color:#ffdddd}.highlight .gd .x{color:#000000;background-color:#ffaaaa}.highlight .ge{font-style:italic}.highlight .gr{color:#aa0000}.highlight .gh{color:#999999}.highlight .gi{color:#000000;background-color:#ddffdd}.highlight .gi .x{color:#000000;background-color:#aaffaa}.highlight .go{color:#888888}.highlight .gp{color:#555555}.highlight .gs{font-weight:bold}.highlight .gu{color:#aaaaaa}.highlight .gt{color:#aa0000}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#445588;font-weight:bold}.highlight .m{color:#009999}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#445588;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#990000;font-weight:bold}.highlight .nf{color:#990000;font-weight:bold}.highlight .nn{color:#555555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbbbbb}.highlight .mf{color:#009999}.highlight .mh{color:#009999}.highlight .mi{color:#009999}.highlight .mo{color:#009999}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#009999}.pl-c{color:#969896;}.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv{color:#0086b3;}.pl-e,.pl-en{color:#795da3;}.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf{color:#333;}.pl-ent{color:#63a35c;}.pl-k,.pl-s,.pl-st{color:#a71d5d;}.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v{color:#df5000;}.pl-id{color:#b52a1d;}.pl-ii{background-color:#b52a1d;color:#f8f8f8;}.pl-sr .pl-cce{color:#63a35c;font-weight:bold;}.pl-ml{color:#693a17;}.pl-mh,.pl-mh .pl-en,.pl-ms{color:#1d3e81;font-weight:bold;}.pl-mq{color:#008080;}.pl-mi{color:#333;font-style:italic;}.pl-mb{color:#333;font-weight:bold;}.pl-md,.pl-mdhf{background-color:#ffecec;color:#bd2c00;}.pl-mdht,.pl-mi1{background-color:#eaffea;color:#55a532;}.pl-mdr{color:#795da3;font-weight:bold;}.pl-mo{color:#1d3e81;}.task-list{padding-left:10px;margin-bottom:0;}.task-list li{margin-left:20px;}.task-list-item{list-style-type:none;padding-left:10px;}.task-list-item label{font-weight:400;}.task-list-item.enabled label{cursor:pointer;}.task-list-item+.task-list-item{margin-top:3px;}.task-list-item-checkbox{display:inline-block;margin-left:-20px;margin-right:3px;vertical-align:1px;}</style>
 <link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
-<h1 id="thoughts-for-v2-0">Gedanken zu v2.0</h1>
-<h2 id="commands">Befehle</h2>
-<h3 id="command-">Befehle()</h3>
-<p>Da Befehle und Funktionen intern immer noch unterschiedlich sind, würde das Definieren einer Funktion, die denselben Namen hat wie ein Befehl, die Funktionssyntax von diesem Befehl überschreiben; das heißt, dass nur noch seine Befehlssyntax den originalen Befehl aufrufen kann. Dies sollte geändert werden.</p>
-<h3 id="commands-with-sub-commands">Befehle mit Unterbefehlen</h3>
-<p>Die restlichen Befehle mit Unterbefehlen sind: DriveGet, Drive, Control, ControlGet, Gui, GuiControl und GuiControlGet. </p>
-<p>Gui, GuiControl und GuiControlGet wurden ersetzt durch GuiCreate() und Gui/GuiControl-Objekte.</p>
-<p>DriveGet:</p>
+<h1>Gedanken zu v2.0</h1>
+<h2>Befehle</h2>
+<h3>Neue Befehlssyntax</h3>
+<p>Diese Probleme mit der neuen Befehlssyntax sollten behoben sein:</p>
 <ul>
-<li>So wie bisher; einfach den Unterbefehlsnamen mit dem Funktionsnamen zusammenführen.</li><li>Die Abkürzungen "Cap" und "FS" können eigentlich entfernt werden.</li></ul>
-<p>Drive:</p>
+<li>Einige Befehle sind noch nicht vollständig umgewandelt worden. Das Definieren einer Funktion, die denselben Namen hat wie einer dieser Befehle, überschreibt aktuell nur den Funktion()-Aufrufstyle des Befehls; das heißt, wenn die runden Klammern weggelassen werden, wird der originale Befehl aufgerufen.</li>
+<li>Ausgabevariablen von internen Funktionen können zurzeit keine Ausdrücke sein, wenn man die runden Klammern weglässt. Zum Beispiel wäre MouseGetPos WelcheVar ? x : y ungültig, aber MouseGetPos(WelcheVar ? x : y) gültig.</li>
+</ul>
+<h3>Befehle mit Unterbefehlen</h3>
+<p>Einige der neuen Funktionen, die Unterbefehle ersetzen, geben bei Erfolg eine 1 und bei Misserfolg eine 0 zurück (neben dem Setzen von ErrorLevel), während andere nur ErrorLevel setzen. Dies sollte korrigiert werden.</p>
+<p>Es gibt immer noch einige Probleme mit den Control/ControlGet-Funktionen, die je nach "Motivation des Entwicklers" in v2.0 vielleicht gelöst werden oder nicht:</p>
 <ul>
-<li>Drive Label sollte DriveSetLabel werden, der Counterpart von DriveGetLabel.</li><li>Drive Lock/Unlock -&gt; vermutlich einfach DriveLock/DriveUnlock. Ich habe diese noch nie benutzt und frage mich, ob sie in modernen Windows-Versionen noch funktionieren. Wenn nicht, können sie entfernt werden.</li><li>Drive Eject -&gt; DriveEject(Laufwerk [, 1])</li></ul>
-<p>Control:</p>
+<li>List bekam einen direkten Ersatz mit der gleichen Funktionalität und Syntax, einschließlich des Optionen-Parameters, der aktuell nicht für ListBox- oder ComboBox-Steuerelemente benutzt wird (was aber theoretisch möglich wäre). Scheinbar ist es am besten, die Funktion zu modernisieren.
 <ul>
-<li>Control Check/Uncheck -&gt; ControlSetChecked(Wert, ...)</li><li>Control Enable/Disable -&gt; ControlSetEnabled(Wert, ...)</li><li>Control Show/Hide -&gt; ControlShow/Hide(...)</li><li>Control Style/ExStyle -&gt; ControlSetStyle/ExStyle(Style, ...)</li><li>Control ShowDropDown/HideDropDown -&gt; keine Ahnung.</li><li>Control TabLeft/TabRight <em>vielleicht</em> -&gt; ControlTab(-Anzahl | +Anzahl, ...)</li><li>Control Add -&gt; ControlAdd(Zeichenkette, ...) ; vielleicht ist AddItem besser?</li><li>Control Delete -&gt; ControlDelete(N, ...) ; vielleicht ist DeleteItem besser?</li><li>Control Choose/ChooseString -&gt; ControlChoose/ControlChooseString(Wert, ...)</li><li>Control EditPaste -&gt; ControlEditPaste(Zeichenkette, ...) ; Vielleicht ist es besser, "Edit" zu lassen, weil es nur bei Edit-Steuerelementen funktioniert.</li></ul>
-<p>ControlGet:</p>
+<li>Sie könnte ein Objekt bereitstellen, das ähnliche Fähigkeiten hat wie das neue GuiControl-Objekt (ListView), und so eine Schnittstelle zum Abrufen von ListView-Inhalten schaffen, die eine Konsistenz zwischen der GUI des Skripts und externen Programmen gewährleistet. (Die Wiederverwendung von Code wird durch die Notwendigkeit für prozessinterne Zuweisung/Lesen/Schreiben von Speicher erschwert.)</li>
+<li>ListBox und ComboBox sollten ein Array zurückgeben, anstatt eine Zeichenkette, deren Elemente mit Zeilenumbruchszeichen voneinander getrennt sind. Dies wäre einfach zu implementieren, aber vorerst wird das alte Verhalten beibehalten, bis eine Entscheidung getroffen wird.</li>
+<li>Es sollte umbenannt werden, da es falsch zu sein scheint, mit "WinGetList" eine Liste mit Fenstern zu ermitteln und mit "ControlGetList" <strong>keine</strong> Liste mit Steuerelementen zu ermitteln. ControlGetItems wäre besser und konsistent mit AddItem/DeleteItem/FindItem, weil sie sich mit den gleichen Elementen beschäftigen. Den alten Namen zu behalten, bis das Verhalten geändert wird, macht es möglicherweise einfacher, Skripte zu aktualisieren.</li>
+</ul>
+</li>
+<li>Einige Funktionsnamen sind etwas zu ungenau, wie ControlGetSelected, das immer den markierten Text (nicht den vollen Wert) eines Edit-Steuerelements abruft, und nicht das ausgewählte Element in einer ListBox/ComboBox, den ausgewählten Tab, etc.</li>
+<li>Es gibt verschiedene Funktionen, die scheinbar den gleichen Zweck haben (Ermitteln/Setzen eines Steuerelementwertes). Zum Beispiel haben Tab-Steuerelemente und ListBox/ComboBox-Steuerelemente das Konzept eines "ausgewählten/aktuellen Index". Es bietet einige Vorteile, spezifischere Funktionsnamen zu haben, aber es könnte auch Inkonsistenz verursachen, wie z. B.:</li>
+<li>ControlGetChoice ist nicht das Gegenstück von ControlChoose, sondern von ControlChooseString. Diese Erkenntnis verstößt gegen das Prinzip der geringsten Überraschung (ich fiel darauf rein, als ich zum ersten Mal die Funktionen getestet hatte). Eine einfache Lösung wäre es, Choose und ChooseString zu kombinieren, so wie es fincs mit der GuiControl.Choose()-Methode tat. Allerdings wären wir dann immer noch ohne Funktion, um den aktuellen Index abzurufen. Möglicherweise gibt noch es andere Lösungen (die sich auch auf die anderen Punkte in dieser Liste beziehen).</li>
+<li>Es fehlen scheinbar Funktionen, um den Wert von externen Steuerelementen einiger Typen abzurufen/zu setzen, wie z. B. Slider, UpDown, MonthCal (ich habe ControlSetText nicht bei diesen getestet).</li>
+</ul>
+<p>Der Thread-Befehl hat immer noch Unterbefehle.</p>
 <ul>
-<li>TODO</li></ul>
-<h3 id="click-mouseclick">Click / MouseClick</h3>
+<li>ThreadNoTimers sieht ein wenig seltsam aus. Vielleicht ThreadDisableTimers, oder Thread einfach als Funktion lassen, oder eine Variable verwenden.</li>
+<li>Vielleicht sollte dieser Befehl durch A_-Variablen ersetzt werden, da er im Grunde nur thread-spezifische Einstellungen ändert, ähnlich wie die anderen beschreibbaren A_-Variablen. Das würde deutlicher machen, dass das Skript thread-spezifische Einstellungen ändert, statt irgendeinen anderen System-Thread (obwohl viele Benutzer Threads auf Systemebene nicht kennen).</li>
+<li>Verwandt: Es könnte vorteilhaft sein, die "Nachrichtenüberprüfungsfrequenz" von Critical zu trennen, da diese eigentlich zwei unterschiedliche Konzepte sind. Mit der aktuellen Implementierung wäre dies wahrscheinlich schon möglich, aber sie bietet den Skripten keine nutzbare Schnittstelle. Das heißt, dass dies ein Unterbefehl von Thread oder eine interne Variable wie z. B. A_PeekFrequency sein sollte (welches den intern benutzten Namen entspräche).</li>
+</ul>
+<h3>Click / MouseClick</h3>
 <p>MouseClickDrag umbenennen, vielleicht zu MouseDrag?</p>
 <p>MouseClick wurde von Click abgelöst. Sollte MouseClick entfernt werden? Sollte Click zu MouseClick umbenannt werden, um konsistent mit MouseMove zu sein?</p>
 <ul>
-<li>Click erkennt automatisch, ob der Benutzer seine linke und rechte Maustaste via Systemsteuerung vertauscht hat, und gleicht sie entsprechend aus. Zum Beispiel würde <code>Click R</code> einen logischen Rechtsklick machen, der üblicherweise ein Kontextmenü öffnet, sogar wenn der Benutzer sein Tasten vertauscht haben sollte. In seltenen Fällen kann diese automatische Kompensation unerwünscht sein -- eine Umgehungsmöglichkeit wäre sinnvoll. Ich bin offen für konkretere Vorschläge.</li><li>Click unterstützt nicht den <em>Tempo</em>-Parameter. Stattdessen muss man SetDefaultMouseSpeed benutzen.</li><li>Click unterstützt nicht den <code>R</code>-Parameter (relative Koordinaten), der wegen "R" für "Right" mehrdeutig ist.</li><li>Wenn MouseClick entfernt (oder mit Click ersetzt) wird, sollte MouseClickDrag auch entfernt werden? Zumindest sollte das Standardverhalten in Bezug auf die Kompensation mit der von Click übereinstimmen.</li><li>Vielleicht sollten die anderen Mausbefehle geändert werden, um sie eine flexible Anordnung ihrer Parameter wie bei Click unterstützen zu lassen.</li></ul>
-<h3 id="fileread-fileappend">FileRead / FileAppend</h3>
-<p>Deren Syntax ist ziemlich inkonsistent. Vielleicht ist folgendes besser:</p>
-<p>FileRead, AusgabeVar, Dateiname [, Optionen]<br>FileAppend [, Text, Dateiname, Optionen]</p>
-<ul>
-<li>Optionen wäre eine mit Leerzeichen getrennte Liste von Optionen.</li><li>Codierung wäre eine der Optionen (die FileAppend's Codierung-Parameter und FileRead's <code>*Pnnn</code> -Option ersetzen würde).</li><li>FileAppend's <code>*</code>-Präfix (EOL-Übersetzung deaktivieren) würde von Dateiname nach Optionen verschoben und womöglich geändert werden. <strong>Aber zu was?</strong></li><li>FileRead's Optionen benötigt eigentlich keinen <code>*</code>-Präfix.</li></ul>
-<p>Ich bin mir nicht sicher, ob und wie EOL-Übersetzungen (und Optionen) konsistenter gemacht werden können.</p>
-<ul>
-<li><p>FileOpen v2 aktiviert die Übersetzung standardmäßig und benutzt <code>*</code> um es zu deaktivieren (wie bei FileAppend v1), das scheinbar die beste Richtlinie für FileOpen sein könnte und keinen negativen Einfluss auf die Performance ausübt.</p>
-</li><li><p>FileRead v1 deaktiviert die Übersetzungen standardmäßig, weil:</p>
-<blockquote>
-<p>diese Übersetzung die Performance verschlechtert und in der Regel unnötig ist. Zum Beispiel ist ein Text, der <code>`r`n</code> enthält, bereits im richtigen Format, um in ein Gui-Edit-Steuerelement eingefügt werden zu können. Ebenso kann FileAppend das Vorhandensein von <code>`r`n</code> erkennen, wenn es eine neue Datei öffnet; es weiß, <code>`r`n</code> so wie es ist zu schreiben, anstatt es zu <code>`r`r`n</code> zu übersetzen. Und zum Schluss noch die folgende Parsing-Schleife, die korrekt funktionieren wird, egal ob jede Zeile mit <code>`r`n</code> oder nur mit <code>`n</code> endet: <code>Loop, parse, MeinDateiinhalt, `n, `r</code>.</p>
-</blockquote>
-<p>(FileRead liest die Rohdaten der Datei als Block und führt dann Zeichenkettenumwandlungen durch, daher müsste die EOL-Übersetzung ein zusätzlicher Schritt sein, wenn überhaupt. Im Gegensatz dazu führen File-Objekte beim Streaming von Daten aus der Datei Decodierungen und EOL-Übersetzungen on-the-fly durch. Ohne EOL-Übersetzungen hätte FileRead beim Lesen einer kompletten Datei vermutlich eine bessere Performance und Speicherauslastung als ein File-Objekt.)</p>
-</li><li><p>Vielleicht sollte <code>`n</code> die EOL-Übersetzung bei FileRead aktivieren, wie bei FileOpen v1 (aber nicht wie bei FileOpen v2; siehe oben). Dies scheint intuitiver als <code>*t</code> oder <code>t</code> zu sein.</p>
-</li><li><p>FileAppend v1 scannt den Text nach <code>`r`n</code>, um herauszufinden, ob Übersetzungen sinnvoll sind, es sei denn, das <code>*</code>-Präfix wird benutzt. <strong>Dieses Scannen könnte veraltet sein.</strong> Ich denke, dass EOL-Übersetzungen, ob aktiviert oder deaktiviert, scheinbar keinen Einfluss auf die Performance von Dateioperationen mit File-Objekten haben, aufgrund von Optimierungen seit v1.0.95. FileAppend benutzt intern den gleichen (neuen) Dateioperationscode, was auch bedeutet, dass es nie <code>`r`n</code> mit <code>`r`r`n</code> ersetzen würde (weil die EOL-Übersetzung smarter ist).</p>
-<p>(Randbemerkung für v1: Dieses explizite Scanverhalten kann vermutlich in v1 nicht entfernt werden, weil es sonst das Verhalten von <code>FileAppend, _`n_`r`n_, ...</code> ändern würde.)</p>
-<p>Es könnte weiterhin nützlich sein, eine Möglichkeit zum Deaktivieren der EOL-Übersetzung bei FileAppend zu haben (um einfach <code>`n</code> in eine Datei schreiben zu können). </p>
-</li></ul>
-<p>Es sollte auch überprüft werden, ob <code>FileRead *c</code> geändert/ersetzt werden sollte (siehe auch <a href="#ClipboardAll">ClipboardAll</a>). Die Funktionalität auf das File-Objekt zu übertragen könnte die Flexibilität verbessern. Allerdings bietet FileRead *c auch eine komfortable Möglichkeit, den kompletten binären Inhalt einer Datei in den Speicher zu lesen. (Hierbei wäre vielleicht eine Option bzw. Codierung namens "Raw" besser geeignet.)</p>
-<h2 id="wintitle-and-window-groups">Fenstertitel und Fenstergruppen</h2>
+<li>Click erkennt automatisch, ob der Benutzer seine linke und rechte Maustaste via Systemsteuerung vertauscht hat, und gleicht sie entsprechend aus. Zum Beispiel würde <code>Click R</code> einen logischen Rechtsklick machen, der üblicherweise ein Kontextmenü öffnet, sogar wenn der Benutzer sein Tasten vertauscht haben sollte. In seltenen Fällen kann diese automatische Kompensation unerwünscht sein -- eine Umgehungsmöglichkeit wäre sinnvoll. Ich bin offen für konkretere Vorschläge.</li>
+<li>Click unterstützt nicht den <em>Tempo</em>-Parameter. Stattdessen muss man SetDefaultMouseSpeed benutzen.</li>
+<li>Click unterstützt nicht den <code>R</code>-Parameter (relative Koordinaten), der wegen "R" für "Right" mehrdeutig ist.</li>
+<li>Wenn MouseClick entfernt (oder mit Click ersetzt) wird, sollte MouseClickDrag auch entfernt werden? Zumindest sollte das Standardverhalten in Bezug auf die Kompensation mit der von Click übereinstimmen.</li>
+<li>Vielleicht sollten die anderen Mausbefehle geändert werden, um sie eine flexible Anordnung ihrer Parameter wie bei Click unterstützen zu lassen.</li>
+</ul>
+<h2>Fenstertitel und Fenstergruppen</h2>
 <p>Hintergrundinfo: Jede Fenstergruppe besteht aus einer Liste von Fensterspezifikationen. Eine Fensterspezifikation in v1 besteht aus Fenstertitel, Fenstertext, Titelausnahme und Textausnahme. Die Auswertungsreihenfolge der Fensterspezifikationen richtet sich nach Reihenfolge ihres Hinzufügens zur einer Gruppe. Der Einfachheit halber wurde im folgenden Text "Fensterspezifikation" in "Regel" umbenannt.</p>
-<h3 id="exclusions">Ausnahmen</h3>
+<h3>Ausnahmen</h3>
 <p>Probleme in v1:</p>
 <ul>
-<li><p>Titelausnahme in v1 beschränkt sich auf Textübereinstimmungen; <code>ahk_class</code> oder ähnliches zum Ausschließen von Fenstern via Klasse, ID, PID etc. wird nicht unterstützt. Diese Tatsache ist für einige Benutzer irreführend, weil sie erwarten, dass Titelausnahme genauso flexibel ist wie Fenstertitel (obwohl die Dokumentation ziemlich gut erklärt, was Titelausnahme macht).</p>
-</li><li><p>Ein Fenster stimmt mit der Gruppe überein, wenn es mit irgendeiner Regel übereinstimmt, welche via GroupAdd hinzugefügt wurde, selbst wenn es mit Titelausnahme oder Textausnahme aus einer <em>anderen</em> Regel übereinstimmen sollte (unabhängig von der Reihenfolge der Regeln). Dieses Verhalten ist manchmal kontra-intuitiv und verringert die Nützlichkeit von Titel-/Textausnahme in Verbindung mit Fenstergruppen.</p>
-</li></ul>
+<li>
+<p>Titelausnahme in v1 beschränkt sich auf Textübereinstimmungen; <code>ahk_class</code> oder ähnliches zum Ausschließen von Fenstern via Klasse, ID, PID etc. wird nicht unterstützt. Diese Tatsache ist für einige Benutzer irreführend, weil sie erwarten, dass Titelausnahme genauso flexibel ist wie Fenstertitel (obwohl die Dokumentation ziemlich gut erklärt, was Titelausnahme macht).</p>
+</li>
+<li>
+<p>Ein Fenster stimmt mit der Gruppe überein, wenn es mit irgendeiner Regel übereinstimmt, welche via GroupAdd hinzugefügt wurde, selbst wenn es mit Titelausnahme oder Textausnahme aus einer <em>anderen</em> Regel übereinstimmen sollte (unabhängig von der Reihenfolge der Regeln). Dieses Verhalten ist manchmal kontra-intuitiv und verringert die Nützlichkeit von Titel-/Textausnahme in Verbindung mit Fenstergruppen.</p>
+</li>
+</ul>
 <p>Die wahrscheinlich beste Lösung wäre es, "negative" oder "exklusive" Regeln einzuführen. Die Auswertungsreihenfolge der Regeln richtet sich nach Reihenfolge ihres Hinzufügens zu einer Gruppe und endet bei der ersten Regel (positiv oder negativ), die mit dem Fenster übereinstimmt. Dies bietet folgende Vorteile:</p>
 <ul>
-<li>Fenster können via Klasse, ID oder Prozess-ID/Name/Pfad ausgeschlossen werden.</li><li>Mehrere Fenster können ausgeschlossen werden (ohne RegEx benutzen zu müssen).</li><li>Komplexe Regeln können geformt werden, indem eine Gruppe mit negativen und positiven Regeln erstellt und diese dann als Regel in eine andere Gruppe eingefügt wird.</li></ul>
+<li>Fenster können via Klasse, ID oder Prozess-ID/Name/Pfad ausgeschlossen werden.</li>
+<li>Mehrere Fenster können ausgeschlossen werden (ohne RegEx benutzen zu müssen).</li>
+<li>Komplexe Regeln können geformt werden, indem eine Gruppe mit negativen und positiven Regeln erstellt und diese dann als Regel in eine andere Gruppe eingefügt wird.</li>
+</ul>
 <p>Es gibt verschiedene Wege, wie man das erreichen könnte:</p>
 <ul>
-<li><p>Behandle eine Regel als negativ, wenn sie Titel-/Textausnahme hat, aber kein Fenstertitel/-text. Wenn man die gleiche Kombination (ohne Gruppe) direkt benutzen würde, wäre das Ergebnis etwas anders, was irreführend sein könnte.</p>
-</li><li><p>Entferne Titelausnahme und Textausnahme bei allen Befehlen, und füge einen neuen Befehl oder Parameter hinzu, mit dem negative Regeln zu einer Fenstergruppe hinzugefügt werden können.</p>
-</li></ul>
+<li>
+<p>Behandle eine Regel als negativ, wenn sie Titel-/Textausnahme hat, aber kein Fenstertitel/-text. Wenn man die gleiche Kombination (ohne Gruppe) direkt benutzen würde, wäre das Ergebnis etwas anders, was irreführend sein könnte.</p>
+</li>
+<li>
+<p>Entferne Titelausnahme und Textausnahme bei allen Befehlen, und füge einen neuen Befehl oder Parameter hinzu, mit dem negative Regeln zu einer Fenstergruppe hinzugefügt werden können.</p>
+</li>
+</ul>
 <p>Chris' Kommentare:</p>
 <blockquote>
 <p>Titelausnahme unterstützt kein ahk_pid oder Ähnliches. Alles, was es tut, steht in der Hilfedatei: "Ignoriert Fenster, deren Titel diesen Wert enthalten." Ich sehe keinen Grund, für Titelausnahme viel Code zu investieren, das nur selten benutzt wird.</p>
 </blockquote>
 <p>Angesichts dessen scheint es so, als wäre die zweite Option die beste Wahl.</p>
 <p>In beiden Fällen ist eine negative Regel wirkungslos, wenn danach keine positiven Regeln erfolgen, weil dies bedeuten würde, dass das Fenster sowieso keine Übereinstimmung ist. Daher könnte man es einfach so drehen, dass eine Gruppe standardmäßig mit allen Fenstern übereinstimmt, wenn die letzte Regel negativ ist. Auf diese Weise würde, wenn Gruppe N nur negative Regeln enthält, <code>ahk_group N</code> mit allen Fenstern übereinstimmen, außer mit solchen, die von der Gruppe ausgeschlossen sind (anstatt immer mit nichts übereinzustimmen).</p>
-<h3 id="settings">Einstellungen</h3>
+<h3>Einstellungen</h3>
 <p>Ein oft gefordertes Feature ist es, globale Einstellungen wie SetTitleMatchMode, DetectHiddenWindows und DetectHiddenText temporär für einen bestimmten Fenstertitel oder Befehl aufzuheben. Im Moment wäre die wahrscheinlichste Form <code>Titel ahk_mode 3 ahk_dhw 1</code>. Dieses Feature zu einem späteren Zeitpunkt zu implementieren hat sehr wahrscheinlich keinen negativen Einfluss auf bereits vorhandene Skripte; daher ist es aktuell nicht für v2.0 geplant.</p>
-<h2 id="binary-data">Binäre Daten</h2>
+<h2>Binäre Daten</h2>
 <p>Zeichenketten in v2-alpha können binäre Nullen enthalten, aber es gibt Raum für Verbesserungen. SubStr ist in der Lage, einen Teil der Daten zurückzugeben, aber mit einer Granularität von 2 Bytes (wegen UTF-16). Skripte, die Variablen und Array-Elemente als Puffer benutzen (mit VarSetCapacity/SetCapacity), haben keine Möglichkeit, die Länge von bedeutsamen Daten zu setzen - z. B. VarSetLength oder Ähnliches.</p>
 <p>Ein allgemeinerer Ansatz wäre es, eine Zeichenkette mit einer Länge von <em>n</em> zu erstellen, diese dann einer Variable oder einem Objekt zuzuweisen und zum Schluss den Inhalt zu manipulieren. In Hinsicht auf der aktuellen Implementierung würde dies aber zum Kopieren der Zeichenkette und zu redundante Speicherzuordnungen führen.</p>
 <p>Skripte benutzen VarSetCapacity für zwei Dinge:</p>
 <ul>
-<li>Um eine schrittweise Verkettung zu optimieren.</li><li>Um Speicher für eine Datenstruktur zu reservieren.</li></ul>
-<p>Letzteres sollte VarSetLength benutzen, da die gesamte Länge der Struktur von Bedeutung ist. Dies würde erlauben, eine Struktur als Wert zu übergeben (kopieren) oder von einer Funktion zurückgegeben zu werden. VarSetCapacity wäre dann nur für Zeichenketten nützlich; vielleicht sollte die Kapazität in Zeichen statt in Bytes gemessen werden.</p>
-<h2 id="clipboardall">ClipboardAll</h2>
-<p>Aktuell hat ClipboardAll seine eigene besondere Art von Wert, der nur bestimmte Operationen unterstützt.</p>
-<ul>
-<li>Schreibe in eine Datei mit FileAppend.</li><li>Lies aus einer Datei mit FileRead *c.</li><li>Kopiere zwischen Variablen mit Direktzuweisung.</li></ul>
-<p>Wenn es andersweitig benutzt wird, ist es leer. ClipboardAll sollte auf einen intuitiveren Mechanismus zurückgreifen können.</p>
-<p>Da Zeichenketten jetzt binäre Nullen enthalten können, könnten ClipboardAll-Werte einfach Zeichenketten sein. Das "Binärdaten der Zwischenablage"-Attribut (das derzeit für die Variable gilt, die den Wert enthält, nicht für den Wert selbst) könnte mit einer bestimmten "Signatur" innerhalb der Daten ersetzt werden, um es als Daten der Zwischenablage zu identifizieren.</p>
-<p>Alternativ könnte ClipboardAll ein Objekt zurückgeben. Dieses Objekt würde zunächst die Möglichkeit unterstützen, die Binärdaten irgendwie abzurufen. Es sollte auch möglich sein, die Daten einfach in eine Datei zu schreiben, und ein Objekt aus Binärdaten oder einer Datei zu erstellen. Das Objekt könnte später mit Features erweitert werden, um z. B. Datentypen zu enumerieren, einen bestimmten Datentyp abzurufen, und sogar Daten hinzuzufügen.</p>
-<p>Es wäre vermutlich das Beste, ClipboardAll mit einer Funktion zu ersetzen, wie z. B. ClipboardGetAll(), um deutlich zu machen, dass man ClipboardAll keinen Wert zuweisen kann und dass jedes Mal ein neues Objekt/eine vollständige Kopie der Zwischenablage konstruiert wird.</p>
-<p>Es sollte auch überprüft werden, ob <code>FileRead *c</code> geändert/ersetzt werden sollte (siehe <a href="#fileread-fileappend">FileRead</a> oben).</p>
-<h2 id="expression-operators">Ausdrucksoperatoren</h2>
+<li>Um eine schrittweise Verkettung zu optimieren.</li>
+<li>Um Speicher für eine Datenstruktur zu reservieren.</li>
+</ul>
+<p>Letzteres sollte VarSetLength benutzen, da die gesamte Länge der Struktur von Bedeutung ist. Dies würde erlauben, eine Struktur als Wert zu übergeben (kopieren) oder von einer Funktion zurückgegeben zu werden. VarSetCapacity wäre dann nur für Zeichenketten nützlich; vielleicht sollte die Kapazität in Zeichen statt in Bytes gemessen werden. Alternativ könnte man unterschiedliche Funktionen für "Byte"- und "Str"-Länge/Kapazität bereitstellen.</p>
+<h2>Ausdrucksoperatoren</h2>
 <p>Obwohl <code>in</code> und <code>contains</code> bereits in v2-alpha reserviert sind (um so spätere Probleme vorzubeugen), erscheint v2 ohne sie unvollständig, da Benutzer, die vorhandene v1-Skripte konvertieren wollen, eine Alternative für v2 finden müssen. Sie sollten implementiert werden, bevor v2.0 veröffentlicht wird, und moderner gemacht werden (Arrays erlauben).</p>
 <p>Aktuelle Syntax: if var [not] in/contains Vergleichsliste. Vergleichsliste ist eine mit Kommas getrennte Liste. Var enthält eine Zeichenkette.</p>
 <p>Es erscheint daher logisch, einen Array als Ersatz für Vergleichsliste zu ermöglichen. Jemand schlug vor, dass die neuen Operatoren keine mit Kommas getrennte Liste akzeptieren sollen, aber in diesem Fall könnte eine Zeichenkette wie folgt interpretiert werden:</p>
 <ol>
-<li>Ein Fehler.</li><li>Äquivalent zu einem Array mit einzelnen Elementen. Das würde bedeuten:<ul>
-<li><code>x in str</code> = <code>x = str</code> (nicht nützlich)</li><li><code>str1 contains str2</code> = <code>InStr(str1, str2)</code> (aussagekräftig und intuitiv, aber kaum nützlich)</li><li><code>x in/contains str</code> = <code>x in/contains [str]</code> (spart nur ein paar Zeichen und den Aufwand zum Erstellen eines Arrays; aber durch eine Optimierung könnte die Werteliste in [] direkt an den Operator übergeben werden, ohne ein tatsächliches Array erstellen zu müssen)</li></ul>
-</li><li>Äquivalent zu einem Array mit einzelnen Zeichen einer Zeichenkette. Das würde bedeuten:<ul>
-<li><code>x in/contains str</code> = <code>x in/contains StrSplit(str)</code></li><li><code>x in str</code> = <code>StrLen(x) = 1 &amp;&amp; InStr(str, x)</code> (aber der Verfasser kennt wahrscheinlich <code>StrLen(x) = 1</code>, und schreibt daher stattdessen einfach nur <code>InStr(str, x)</code>)</li><li><code>x contains str</code> meist gleichbedeutend mit <code>x ~= '[' str ']'</code> (RegEx-Zeichenklasse)</li></ul>
-</li><li>Unterschiedliche Bedeutung, abhängig vom Typ des Operanden. Könnte irreführend sein. Zum Beispiel:<ul>
-<li><code>str1 in str2</code> = <code>str2 contains [str1]</code> or <code>InStr(str2, str1)</code> (Teilzeichenkette-Übereinstimmung)</li><li><code>str1 in [str2, str3]</code> = str1 equals str2 or str3 (keine Teilzeichenkette-Übereinstimmung) </li></ul>
-</li></ol>
+<li>Ein Fehler.</li>
+<li>Äquivalent zu einem Array mit einzelnen Elementen. Das würde bedeuten:
+<ul>
+<li><code>x in str</code> = <code>x = str</code> (nicht nützlich)</li>
+<li><code>str1 contains str2</code> = <code>InStr(str1, str2)</code> (aussagekräftig und intuitiv, aber kaum nützlich)</li>
+<li><code>x in/contains str</code> = <code>x in/contains [str]</code> (spart nur ein paar Zeichen und den Aufwand zum Erstellen eines Arrays; aber durch eine Optimierung könnte die Werteliste in [] direkt an den Operator übergeben werden, ohne ein tatsächliches Array erstellen zu müssen)</li>
+</ul>
+</li>
+<li>Äquivalent zu einem Array mit einzelnen Zeichen einer Zeichenkette. Das würde bedeuten:
+<ul>
+<li><code>x in/contains str</code> = <code>x in/contains StrSplit(str)</code></li>
+<li><code>x in str</code> = <code>StrLen(x) = 1 &amp;&amp; InStr(str, x)</code> (aber der Verfasser kennt wahrscheinlich <code>StrLen(x) = 1</code>, und schreibt daher stattdessen einfach nur <code>InStr(str, x)</code>)</li>
+<li><code>x contains str</code> meist gleichbedeutend mit <code>x ~= '[' str ']'</code> (RegEx-Zeichenklasse)</li>
+</ul>
+</li>
+<li>Unterschiedliche Bedeutung, abhängig vom Typ des Operanden. Könnte irreführend sein. Zum Beispiel:
+<ul>
+<li><code>str1 in str2</code> = <code>str2 contains [str1]</code> or <code>InStr(str2, str1)</code> (Teilzeichenkette-Übereinstimmung)</li>
+<li><code>str1 in [str2, str3]</code> = str1 equals str2 or str3 (keine Teilzeichenkette-Übereinstimmung)</li>
+</ul>
+</li>
+</ol>
 <p>Wenn Arrays auf der linken Seite von <code>contains</code> unterstützt werden, wie würde das funktionieren? Ursprünglich war der Unterschied zwischen <code>in</code> und <code>contains</code>, dass <code>in</code> einen direkten Vergleich des Wertes durchführt, während <code>contains</code> eine Teilzeichenkette-Übereinstimmung sucht. Müsste <code>arr1 contains arr2</code> bei jedem arr1-Element überprüfen, ob ein Element in arr2 eine Teilzeichenkette ist? Oder überprüfen, ob beide Arrays gemeinsame Werte haben? Oder alles? Oder überprüfen, ob die exakte Reihenfolge der Werte in arr2 innerhalb von arr1 vorkommt? Die letzte Option wäre analog zu <code>InStr(str1, str2)</code>, aber nicht zu <code>str1 contains str2</code>.</p>
-<p>Hier einige (nicht sehr relevante) Diskussionen: <a href="https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847">https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847</a>.</p>
+<p>Hier einige (nicht sehr relevante) Diskussionen: https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847.</p>
 <p><code>between</code> wird vermutlich überhaupt nicht implementiert. Eine Alternative bestünde darin, Verkettungen von Operatoren wie bei Python und Perl 6 zu erlauben, wo <code>x &lt; y &lt; z</code> das gleiche wie <code>(x &lt; y) and (y &lt; z)</code> wäre. Das würde jedoch bedeuten, dass Klammern die Bedeutung von <code>&lt;</code> verfremden würden (was nicht richtig zu sein scheint), z. B. bei <code>x &lt; y &lt; z</code> vs <code>(x &lt; y) &lt; z</code>, weil Letzteres das Ergebnis von <code>x &lt; y</code> (true oder false) mit z vergleichen würde. Einige Benutzer haben <code>x &lt; y &lt; z</code> bereits ausprobiert und sich über das Ergebnis gewundert, daher sollten, sofern dieses Feature nicht implementiert wird, verkettete Operatoren erkannt und eine Warn-/Fehlermeldung angezeigt werden. (Aber wenn die Erkennung von verketteten Operatoren zu kompliziert ist, könnte das Kosten-Nutzen-Verhältnis zugunsten der Implementierung dieser Verkettung ausfallen.)</p>
-<h2 id="error-handling">Fehlerbehandlung</h2>
+<h2>Fehlerbehandlung</h2>
 <p>Beachte, das einige Punkte hier schon umgesetzt wurden.</p>
-<h3 id="errors-in-math-operations">Fehler in mathematischen Operationen</h3>
+<h3>Fehler in mathematischen Operationen</h3>
 <p>In v1 erzeugen mathematische Operatoren still und heimlich eine leere Zeichenkette, wenn folgendes zutrifft:</p>
 <ul>
-<li>Einer der Eingabewerte ist eine leere Zeichenkette.</li><li>Einer der Eingabewerte ist nicht-numerisch.</li><li>Division durch Null.</li></ul>
+<li>Einer der Eingabewerte ist eine leere Zeichenkette.</li>
+<li>Einer der Eingabewerte ist nicht-numerisch.</li>
+<li>Division durch Null.</li>
+</ul>
 <p>Es ist ungewiss, ob das Verhalten unter diesen Bedingungen so bleiben sollte. Die Alternativen wären, eine Ausnahme auszulösen oder einen anderen nicht-numerischen Wert erzeugen zu lassen, wie z. B. die Zeichenkette "NaN" (erinnert an JavaScript's speziellen NaN-Wert). Letzteres scheint nicht gut zu AutoHotkey zu passen.</p>
 <p>Darüber hinaus gab es <a href="http://www.autohotkey.com/board/index.php?showtopic=12396">Debatten</a> darüber, ob leere Zeichenketten als 0 behandelt werden sollten. Dies wird sehr wahrscheinlich <strong>nicht</strong> passieren, mit Ausnahme von <code>+=</code> und <code>-=</code>, die geändert wurden, um eine leere Variable als 0 zu behandeln, da diese der Richtlinie am meisten entsprechen.</p>
-<h3 id="errors-in-math-functions">Fehler in mathematischen Funktionen</h3>
+<h3>Fehler in mathematischen Funktionen</h3>
 <p>Wenn das Verhalten von mathematischen Operatoren geändert wird (um bei Misserfolg etwas anderes tun als die Rückgabe einer leeren Zeichenfolge), sollten mathematische Funktionen wie <code>Round()</code> entsprechend angepasst werden.</p>
-<h2 id="objects">Objekte</h2>
-<h3 id="syntax-for-properties-vs-methods">Syntax bei Eigenschaften vs Methoden</h3>
+<h2>Objekte</h2>
+<h3>Syntax bei Eigenschaften vs Methoden</h3>
 <p>Built-In-Objekte und benutzerdefinierte Objekte haben eine inkonsistente Syntax bezüglich ihrer Eigenschaften. Dies sollte soweit wie möglich korrigiert werden.</p>
 <p>Wie es jetzt funktioniert:</p>
 <ul>
-<li><p>Alle Objekte erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y</code> und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, außer wenn ein Parameter/Index erforderlich ist.</p>
-</li><li><p>Bei benutzerdefinierten Objekten gibt <code>x.y</code> in der Regel einen Methodenverweis zurück, wenn y eine Methode ist.</p>
-</li><li><p>Built-In-Objekte unterstützen nicht das Abrufen eines Methodenverweises. In der Regel gibt <code>x.y</code> "not handled" zurück, wenn y eine Methode, aber keine Eigenschaft ist.</p>
-</li><li><p>Bei allen Objekten ist <code>x.y(...) := z</code> äquivalent zu <code>x.y[...] := z</code>. Diese leichte "Verunreinigung der Sprache" kommt Verfassern von Skripten entgegen, die von VBScript-Beispielen lernen oder sie portieren wollen, wo <code>x.y(...)</code> eine Eigenschaft statt eine Methode sein kann; und bietet Ausgewogenheit für COM-Objekte (siehe unten).</p>
-</li><li><p><strong>COM-Objekte</strong> erlauben <code>x.y(...)</code> und <code>x.y[...]</code> eine Methode oder Eigenschaft mit Parametern aufzurufen (und lassen dabei das Objekt entscheiden, welches aufgerufen werden soll, wenn beides möglich ist), trotz der Tatsache, dass <code>x.y()</code> (ohne Parameter) zuerst versuchen wird eine Methode aufzurufen. Das liegt zum einen daran, dass einige allgemeingültige Elemente je nach Objekt manchmal Methoden oder Eigenschaften sind, und zum anderen, dass einige COM-basierende Sprachen nicht zwischen Methoden und Eigenschaften unterscheiden (z. B. könnte <code>x.item(i)</code> in VB sowohl eine Eigenschaft als auch eine Methode sein). C#'s dynamische Keyword verhält sich ähnlich, und erlaubt <code>x.y(z)</code> ein Eigenschaft-Indexer zu sein, auch wenn ein reines .NET-Objekt <code>x.y[z]</code> erfordern würde.</p>
+<li>
+<p>Alle Objekte erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y</code> und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, außer wenn ein Parameter/Index erforderlich ist.</p>
+</li>
+<li>
+<p>Bei benutzerdefinierten Objekten gibt <code>x.y</code> in der Regel einen Methodenverweis zurück, wenn y eine Methode ist.</p>
+</li>
+<li>
+<p>Built-In-Objekte unterstützen nicht das Abrufen eines Methodenverweises. In der Regel gibt <code>x.y</code> "not handled" zurück, wenn y eine Methode, aber keine Eigenschaft ist.</p>
+</li>
+<li>
+<p>Bei allen Objekten ist <code>x.y(...) := z</code> äquivalent zu <code>x.y[...] := z</code>. Diese leichte "Verunreinigung der Sprache" kommt Verfassern von Skripten entgegen, die von VBScript-Beispielen lernen oder sie portieren wollen, wo <code>x.y(...)</code> eine Eigenschaft statt eine Methode sein kann; und bietet Ausgewogenheit für COM-Objekte (siehe unten).</p>
+</li>
+<li>
+<p><strong>COM-Objekte</strong> erlauben <code>x.y(...)</code> und <code>x.y[...]</code> eine Methode oder Eigenschaft mit Parametern aufzurufen (und lassen dabei das Objekt entscheiden, welches aufgerufen werden soll, wenn beides möglich ist), trotz der Tatsache, dass <code>x.y()</code> (ohne Parameter) zuerst versuchen wird eine Methode aufzurufen. Das liegt zum einen daran, dass einige allgemeingültige Elemente je nach Objekt manchmal Methoden oder Eigenschaften sind, und zum anderen, dass einige COM-basierende Sprachen nicht zwischen Methoden und Eigenschaften unterscheiden (z. B. könnte <code>x.item(i)</code> in VB sowohl eine Eigenschaft als auch eine Methode sein). C#'s dynamische Keyword verhält sich ähnlich, und erlaubt <code>x.y(z)</code> ein Eigenschaft-Indexer zu sein, auch wenn ein reines .NET-Objekt <code>x.y[z]</code> erfordern würde.</p>
 <p>Unterm Strich ist es wahrscheinlich am besten, COM-Objekte so zu lassen wie sie sind.</p>
-</li><li><p>Ein <strong>Wert</strong>, der <code>x.y</code> zugewiesen wurde, kann mit <code>x.y</code> abgerufen werden, aber <code>x.y()</code> wird den Wert <em>aufrufen</em> (oder eine Ausnahme auslösen, wenn es nicht aufrufbar ist). Wenn der Wert ein Objekt ist, dann ist <code>x.y[z]</code> das gleiche wie <code>(x.y)[z]</code>. (Beide lösen einen Fehler in v2 aus, wenn der Wert kein Objekt ist, aber die Fehlermeldung ist bei beiden unterschiedlich.)</p>
-</li><li><p><strong>Eigenschaften</strong>, die innerhalb einer Klasse definiert wurden, erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y[...]</code> und <code>x.y(...)</code>, und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, <code>x.y[] := z</code> und <code>x.y() := z</code>.</p>
-</li><li><p><strong>File</strong>-Objekte haben keine Eigenschaften, die Parameter akzeptieren. <code>x.y[z]</code> löst eine Ausnahme aus. <code>x.y()</code> ist bei Parametern erlaubt und bei Methoden erforderlich. <code>x.y(z)</code> ist äquivalent zu <code>x.y := z</code>, wenn y eine Eigenschaft ist. Wenn die Eigenschaft schreibgeschützt ist, wird z ignoriert (siehe unten). Überschüssige Parameter werden ignoriert, konsistent mit Methodenaufrufen und dynamischen Funktionsaufrufen.</p>
-</li><li><p><strong>Func</strong>-Objekte geben bei <code>x.y[z]</code> und <code>x.y := z</code>, wo y eine gültige Eigenschaft ist, "not handled" zurück, da alle Eigenschaften schreibgeschützt sind und keine Parameter akzeptieren.</p>
-</li><li><p><strong>RegExMatch</strong>-Objekte geben bei <strong>Set</strong> (Wert setzen) "not handled" zurück, und wenn die Parameteranzahl (einschließlich <code>.identifier</code>) &lt; 1 oder &gt; 2 ist. <code>x.y()</code> ist erlaubt und ist zum Unterscheiden nützlich (wenn der Name eines Teilmusters in Konflikt mit dem Namen einer Eigenschaft steht). <code>x.y[z]</code> ist ebenfalls zulässig.</p>
-</li></ul>
+</li>
+<li>
+<p>Ein <strong>Wert</strong>, der <code>x.y</code> zugewiesen wurde, kann mit <code>x.y</code> abgerufen werden, aber <code>x.y()</code> wird den Wert <em>aufrufen</em> (oder eine Ausnahme auslösen, wenn es nicht aufrufbar ist). Wenn der Wert ein Objekt ist, dann ist <code>x.y[z]</code> das gleiche wie <code>(x.y)[z]</code>. (Beide lösen einen Fehler in v2 aus, wenn der Wert kein Objekt ist, aber die Fehlermeldung ist bei beiden unterschiedlich.)</p>
+</li>
+<li>
+<p><strong>Eigenschaften</strong>, die innerhalb einer Klasse definiert wurden, erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y[...]</code> und <code>x.y(...)</code>, und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, <code>x.y[] := z</code> und <code>x.y() := z</code>.</p>
+</li>
+<li>
+<p><strong>File</strong>-Objekte haben keine Eigenschaften, die Parameter akzeptieren. <code>x.y[z]</code> löst eine Ausnahme aus. <code>x.y()</code> ist bei Parametern erlaubt und bei Methoden erforderlich. <code>x.y(z)</code> ist äquivalent zu <code>x.y := z</code>, wenn y eine Eigenschaft ist. Wenn die Eigenschaft schreibgeschützt ist, wird z ignoriert (siehe unten). Überschüssige Parameter werden ignoriert, konsistent mit Methodenaufrufen und dynamischen Funktionsaufrufen.</p>
+</li>
+<li>
+<p><strong>Func</strong>-Objekte geben bei <code>x.y[z]</code> und <code>x.y := z</code>, wo y eine gültige Eigenschaft ist, "not handled" zurück, da alle Eigenschaften schreibgeschützt sind und keine Parameter akzeptieren.</p>
+</li>
+<li>
+<p><strong>RegExMatch</strong>-Objekte geben bei <strong>Set</strong> (Wert setzen) "not handled" zurück, und wenn die Parameteranzahl (einschließlich <code>.identifier</code>) &lt; 1 oder &gt; 2 ist. <code>x.y()</code> ist erlaubt und ist zum Unterscheiden nützlich (wenn der Name eines Teilmusters in Konflikt mit dem Namen einer Eigenschaft steht). <code>x.y[z]</code> ist ebenfalls zulässig.</p>
+</li>
+</ul>
 <p>Was wahrscheinlich geändert werden sollte:</p>
 <ul>
-<li><p>Nicht die COM-Objekte. Sie können bleiben wie sie sind, selbst wenn sie inkonsistent mit anderen Objekten sind, da wir keine Kontrolle darüber haben, wie die eigentlichen COM-Objekte implementiert sind.</p>
-</li><li><p>Die automatische Übersetzung von <code>x.y(...) := z</code> zu <code>x.y[...] := z</code> sollte entfernt und mit einer Fehlermeldung ersetzt werden, dass der Skript-Verfasser doch bitte <code>[]</code> benutzen sollte. (Bevor die Ausnahme hinzugefügt wurde, versuchte <code>x.y(i) := z</code> einen Methodenaufruf gefolgt von einer ungültigen Zuweisung, die leise fehlschlug.)</p>
-</li><li><p>Eigenschaften sollten zusätzlich keine Methoden sein (wegen der Inkonsistenz mit einfachen Key-Value-Paaren), mit der möglichen Ausnahme von RegExMatch. Wenn ein Teilmuster namens "Pos" vorhanden ist, ist es bequemer <code>m.Pos</code> und <code>m.Pos()</code> zu haben, statt <code>m.Value["Pos"]</code> und <code>m.Pos</code>. (Aktuell erlauben klassen-definierte Eigenschaften und File-Objekte Klammern.)</p>
-</li><li><p>Der Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen, sollte einen Fehler wie "Invalid usage" oder "Read-only property" auslösen, <strong>nicht</strong> "Unknown property". (Aktuell ignorieren dies File-Objekte; Func- and RegExMatch-Objekte geben "Unknown property" zurück.)</p>
-</li><li><p>Die Übergabe von zu wenigen oder zu vielen Parametern sollte Fehler wie "Invalid usage" oder "Too many/few parameters" anzeigen, auf keinen Fall "Unknown property or method". (Aktuell geben Func und RegExMatch manchmal "Unknown" zurück.)</p>
-</li><li><p>Bei einem angegebenen Built-In-Typ sollte eine Methode entweder immer existieren oder immer nicht existieren. (Aktuell existiert Func.IsByRef() nur, wenn die Funktion benutzerdefiniert ist. Eine Lösung wäre es, eine Hierarchie von Funktionsklassen zu definieren, wo z. B. BenutzerdefinierteFunc eine IsByRef-Methode hat. Eine andere Lösung wäre es, die Ausnahme "not supported" auszulösen, da einige Built-In-Funktionen Variablenverweise akzeptieren, aber die Parameter nicht in einer Weise markiert sind, die IsByRef() erkennen kann.)</p>
-</li></ul>
+<li>
+<p>Nicht die COM-Objekte. Sie können bleiben wie sie sind, selbst wenn sie inkonsistent mit anderen Objekten sind, da wir keine Kontrolle darüber haben, wie die eigentlichen COM-Objekte implementiert sind.</p>
+</li>
+<li>
+<p>Die automatische Übersetzung von <code>x.y(...) := z</code> zu <code>x.y[...] := z</code> sollte entfernt und mit einer Fehlermeldung ersetzt werden, dass der Skript-Verfasser doch bitte <code>[]</code> benutzen sollte. (Bevor die Ausnahme hinzugefügt wurde, versuchte <code>x.y(i) := z</code> einen Methodenaufruf gefolgt von einer ungültigen Zuweisung, die leise fehlschlug.)</p>
+</li>
+<li>
+<p>Eigenschaften sollten zusätzlich keine Methoden sein (wegen der Inkonsistenz mit einfachen Key-Value-Paaren), mit der möglichen Ausnahme von RegExMatch. Wenn ein Teilmuster namens "Pos" vorhanden ist, ist es bequemer <code>m.Pos</code> und <code>m.Pos()</code> zu haben, statt <code>m.Value["Pos"]</code> und <code>m.Pos</code>. (Aktuell erlauben klassen-definierte Eigenschaften und File-Objekte Klammern.)</p>
+</li>
+<li>
+<p>Der Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen, sollte einen Fehler wie "Invalid usage" oder "Read-only property" auslösen, <strong>nicht</strong> "Unknown property". (Aktuell ignorieren dies File-Objekte; Func- and RegExMatch-Objekte geben "Unknown property" zurück.)</p>
+</li>
+<li>
+<p>Die Übergabe von zu wenigen oder zu vielen Parametern sollte Fehler wie "Invalid usage" oder "Too many/few parameters" anzeigen, auf keinen Fall "Unknown property or method". (Aktuell geben Func und RegExMatch manchmal "Unknown" zurück.)</p>
+</li>
+<li>
+<p>Bei einem angegebenen Built-In-Typ sollte eine Methode entweder immer existieren oder immer nicht existieren. (Aktuell existiert Func.IsByRef() nur, wenn die Funktion benutzerdefiniert ist. Eine Lösung wäre es, eine Hierarchie von Funktionsklassen zu definieren, wo z. B. BenutzerdefinierteFunc eine IsByRef-Methode hat. Eine andere Lösung wäre es, die Ausnahme "not supported" auszulösen, da einige Built-In-Funktionen Variablenverweise akzeptieren, aber die Parameter nicht in einer Weise markiert sind, die IsByRef() erkennen kann.)</p>
+</li>
+</ul>
 <p>Inkonsistente Eigenschaften, die geändert werden müssen:</p>
 <ul>
-<li><code>File.Length</code>, <code>RegExMatch.Len</code> / <code>RegExMatch.Len()</code>, <code>Object.Length()</code></li><li><code>File.Pos</code> / <code>File.Position</code>, <code>RegExMatch.Pos</code> / <code>RegExMatch.Pos()</code></li></ul>
-<h3 id="meta-functions">Meta-Funktionen</h3>
+<li><code>File.Length</code>, <code>RegExMatch.Len</code> / <code>RegExMatch.Len()</code>, <code>Object.Length()</code></li>
+<li><code>File.Pos</code> / <code>File.Position</code>, <code>RegExMatch.Pos</code> / <code>RegExMatch.Pos()</code></li>
+</ul>
+<h3>Meta-Funktionen</h3>
 <p>Meta-Funktionen werden häufig missverstanden, und sollten deshalb vielleicht vereinfacht werden. Spontane Ideen:</p>
 <ul>
-<li>Die Interaktion zwischen Meta-Funktionen und Vererbung von Key-Value-Paaren ist schwierig zu erklären und daher auch schwer zu begreifen. Ein einfacherer Ansatz, mehr im Einklang mit dem normalen Methodenverhalten, könnte die Flexibilität erhöhen, aber mit dem Nebeneffekt, dass im Skript gegebenenfalls mehr Aufwand notwendig ist. Das ist wahrscheinlich OK, da die häufigsten Fälle mit der Eigenschaftensyntax abgesichert sind.</li><li>Es sollte möglich sein, eine Meta-Funktion manuell aufzurufen und das Ergebnis zu interpretieren, wie es der interne Mechanismus tun würde. Derzeit ist es nicht möglich, da der interne Mechanismus zwischen impliziter Rückgabe am Funktionsende <code>}</code> und explizitem <code>return</code> unterscheidet.</li><li><code>value := o.__xxx(byRef handled, prms*)</code> - wenn nicht behandelt, erfolgt Standardverhalten. <strong>Pro</strong>: übersichtlich; eine leere Meta-Methode hat keine Wirkung.</li><li><code>handled := o.__xxx(byRef result, prms*)</code> - wie oben.</li><li><code>result := o.__xxx(prms*)</code><ul>
-<li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste. Andererseits könnte <code>base.__xxx(prms*)</code> dazu gebracht werden, das Standardverhalten (Nicht-Meta-Funktion) aufzurufen.</li><li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li><li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li></ul>
-</li></ul>
-<h3 id="other">Sonstiges</h3>
+<li>Die Interaktion zwischen Meta-Funktionen und Vererbung von Key-Value-Paaren ist schwierig zu erklären und daher auch schwer zu begreifen. Ein einfacherer Ansatz, mehr im Einklang mit dem normalen Methodenverhalten, könnte die Flexibilität erhöhen, aber mit dem Nebeneffekt, dass im Skript gegebenenfalls mehr Aufwand notwendig ist. Das ist wahrscheinlich OK, da die häufigsten Fälle mit der Eigenschaftensyntax abgesichert sind.</li>
+<li>Es sollte möglich sein, eine Meta-Funktion manuell aufzurufen und das Ergebnis zu interpretieren, wie es der interne Mechanismus tun würde. Derzeit ist es nicht möglich, da der interne Mechanismus zwischen impliziter Rückgabe am Funktionsende <code>}</code> und explizitem <code>return</code> unterscheidet.</li>
+<li><code>value := o.__xxx(byRef handled, prms*)</code> - wenn nicht behandelt, erfolgt Standardverhalten. <strong>Pro</strong>: übersichtlich; eine leere Meta-Methode hat keine Wirkung.</li>
+<li><code>handled := o.__xxx(byRef result, prms*)</code> - wie oben.</li>
+<li><code>result := o.__xxx(prms*)</code>
+<ul>
+<li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste. Andererseits könnte <code>base.__xxx(prms*)</code> dazu gebracht werden, das Standardverhalten (Nicht-Meta-Funktion) aufzurufen.</li>
+<li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li>
+<li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li>
+</ul>
+</li>
+</ul>
+<h3>Sonstiges</h3>
 <p><code>Object.GetAddress(key)</code> sollte die Adresse einer leeren Zeichenkette zurückgeben, wenn <code>Object[key]</code> so etwas enthält, da einige Skripte möglicherweise eine Zeichenkette zuweisen und dann ihre Adresse an DllCall oder Ähnliches übergeben wollen. Aktuell müssen solche Skripte SetCapacity aufrufen, nachdem sie eine leere Zeichenkette zugewiesen haben.</p>
 <p>Objekte unterstützen nun binäre Nullen in Zeichenkettenwerten, durch Zwischenspeichern der Zeichenkettenlänge. Allerdings werden absofort nur Daten bis zur Zeichenkettenlänge beim Klonen des Objekts beibehalten (konsistent mit dem Abrufen des Wertes vom Objekt als Zeichenkette, um z. B. ein anderes Objekt zuzuweisen). Es sollte irgendwie die Möglichkeit geben, die Datenlänge zu setzen, z. B. <code>Object.SetLength(Key, Length)</code>. Aus Übersichtsgründen (und um Verwirrung mit <code>Object.Length</code> zu vermeiden) wäre es vielleicht besser, so etwas wie <code>SetStrLen</code> und <code>SetByteLen</code> zu haben. Beachte zudem, dass ähnliche Funktionen für Variablen notwendig wären, um Binärdaten besser unterstützen zu können.</p>
 <p>Einige Benutzer verlangen <code>Object.Count()</code>. Benutzen könnte man so etwas wie <code>Object.Count([MinKey, MaxKey])</code>, das die Anzahl von Key-Value-Paaren innerhalb des angegebenen Bereichs zurückgeben könnte (oder insgesamt, wenn alle Parameter fehlen).</p>
 <p><code>new MeineKlasse[a,b,c]</code> könnte als eine sehr komfortable Möglichkeit reserviert werden, um einen spezialisierten Array-/Auflistungstyp zu initialisieren (<code>new MeineKlasse{a:b}</code> ist bereits als Syntaxfehler "reserviert"). Aktuell könnte <code>MeinKlasse[a,b,c]</code> eine Klasse zum Instanziieren sein, aber sehr wahrscheinlich wird sie nur selten benutzt (wenn überhaupt), und ist inkonsistent mit der v1-Richtlinie bzgl. der Anforderung eines Klassennamens nach dem <code>new</code>-Operator. v1 behandelt <code>new x[y](z)</code> als <code>new c1</code>, wo c1 gleich <code>x[y](z)</code> ist, während v2-a076 diese Anweisung als <code>new c2(z)</code> behandelt, wo c2 gleich <code>x[y]</code> ist.</p>
 <p>SafeArray-Objekte sollten eine <code>.Length()</code>-Methode erhalten, um konsistent mit reinen Objekten zu sein.</p>
 <p>ComObjConnect()-Ereignisse dereferenzieren ByRef-VARIANTs derzeit automatisch (da einige Sprachen so etwas immer dann übergeben, wenn ein Skript eine Variable übergibt), wodurch die Funktion in einigen Fällen daran gehindert wird, einen Wert zurückzugeben. Entweder könnten wir a) ByRef-Wrapper übergeben, die Zuweisungen wie <code>param[] := value</code> erlauben, oder b) eine Variable automatisch übergeben und das VARIANT nach Funktionsaufruf aktualisieren. Andere (also Nicht-VARIANT) ByRef-Kombinationen werden nicht dereferenziert, und <code>param[] := value</code> wird seit v1.1.17 bereits unterstützt.</p>
-<h2 id="classes">Klassen</h2>
+<h2>Klassen</h2>
 <p><code>base</code> erlauben, als Unterklasse definiert zu werden (und tatsächlich die base-Klasse zu setzen), so dass Meta-Funktionen und Eigenschaften vor der Klasse selbst einfach definiert werden können, innerhalb der Klasse.</p>
 <p>Das Wort <code>base</code> zu einem reservierten Wort in Klassenmethoden machen. Derzeit erhält es eine besondere Bedeutung, wenn danach <code>.</code> oder <code>[</code> erfolgt, außer wenn in die Variable <code>base</code> ein Wert gespeichert wurde. Das Wort zu reservieren vereinfacht die Sprache und könnte die Performance verbessern.</p>
 <p>Wenn <code>base</code> überall reserviert wäre, könnte man es benutzen, um eine überschriebene Built-In-Funktion aufzurufen (z. B. <code>base.WinMove(x, y)</code> in einer Neudefinition von WinMove).</p>
-<h3 id="ideas">Ideen</h3>
-<p>Es handelte sich dabei um vorläufige Ideen. "OO"-Syntax zu fördern ist nicht meine beabsichtigte Richtung für AutoHotkey (vor allem mit Zahlen und Zeichenketten) und wird daher nicht implementiert. </p>
+<h3>Ideen</h3>
+<p>Spontane Ideen, die nicht unbedingt relevant für v2.0 sind.</p>
 <p>Dem Skript erlauben, die Klassen <code>String</code> und <code>Number</code> mit Methoden und Eigenschaften für alle Zeichenketten und Zahlen zu definieren. Derzeit erfolgt dies durch Setzen von Eigenschaften des <code>"".base</code>-Objekts, aber dies wirkt sich auf alle Arten von Werten aus, außer Objekte.</p>
 <p>Dem Skript erlauben, globale Methoden und Eigenschaften für alle Objekte zu definieren, vielleicht via <code>Object</code>-base-Klasse. Standardmäßig würde dieser Klasse Built-In-Methoden wie Insert enthalten, so dass sie auf gleiche Weise wie benutzerdefinierte Methoden neu definiert können. Zum Beispiel könnte eine benutzerdefinierte Insert-Methode <code>base.Insert(value)</code> statt <code>ObjInsert(this, value)</code> aufrufen.</p>
-<p>Beide oben würden irgendeine Möglichkeit erfordern, an eine vorhandene Klasse angefügt zu werden, was auch für benutzerdefinierte Klassen nützlich sein könnte. Dies könnte man möglich machen, indem man einfach <code>class Klassenname {}</code> mehrmals wiederholt, oder mit einem zusätzlichen Schlüsselwort, um Missverständnisse vorzubeugen, wie z. B. <code>class Klassenname extended {}</code>. Das Schlüsselwort könnte implizieren, dass die initialen und erweiterten Definitionen in genau dieser Reihenfolge platziert werden müssen (anstatt zwei ähnliche Definitionen zu haben, die in beliebiger Reihenfolge gesetzt werden können), was nicht ideal wäre. Eine andere Option wäre es, <code>Klassenname.Methodenname()</code>-Deklarationen außerhalb von Klassen zu erlauben, wodurch vorhandene Klassen erweitert werden können (und mehr Flexibilität darin zu geben, den Code zu organisieren). </p>
+<p>Beide oben würden irgendeine Möglichkeit erfordern, an eine vorhandene Klasse angefügt zu werden, was auch für benutzerdefinierte Klassen nützlich sein könnte. Dies könnte man möglich machen, indem man einfach <code>class Klassenname {}</code> mehrmals wiederholt, oder mit einem zusätzlichen Schlüsselwort, um Missverständnisse vorzubeugen, wie z. B. <code>class Klassenname extended {}</code>. Das Schlüsselwort könnte implizieren, dass die initialen und erweiterten Definitionen in genau dieser Reihenfolge platziert werden müssen (anstatt zwei ähnliche Definitionen zu haben, die in beliebiger Reihenfolge gesetzt werden können), was nicht ideal wäre. Eine andere Option wäre es, <code>Klassenname.Methodenname()</code>-Deklarationen außerhalb von Klassen zu erlauben, wodurch vorhandene Klassen erweitert werden können (und mehr Flexibilität darin zu geben, den Code zu organisieren).</p>
 </body>
 </html>
  
