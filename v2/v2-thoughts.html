@@ -3,8 +3,18 @@
 <head>
 <title>v2-thoughts</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">pre code{background:none;border:none;margin:0;padding:0;}</style>
-<link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all"/>
+<style type="text/css">
+body {
+	padding: 0 1em !important;
+}
+pre code {
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+</style>
+<link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 <h1>Gedanken zu v2.0</h1>
@@ -47,6 +57,9 @@
 <li>Wenn MouseClick entfernt (oder mit Click ersetzt) wird, sollte MouseClickDrag auch entfernt werden? Zumindest sollte das Standardverhalten in Bezug auf die Kompensation mit der von Click übereinstimmen.</li>
 <li>Vielleicht sollten die anderen Mausbefehle geändert werden, um sie eine flexible Anordnung ihrer Parameter wie bei Click unterstützen zu lassen.</li>
 </ul>
+<h3>Sonstiges</h3>
+<p>A_CaretX/Y sollte mit <code>CaretGetPos(x, y)</code> ersetzt werden. Ersteres kann aufgrund der Art und Weise, wie es die Position zwischenspeichert, zu Missverständnissen führen. Der Caret-Coord-Modus kann dann mit einem optionalen Parameter für die CaretGetPos-Funktion ersetzt werden.</p>
+<p>Der Einfachheit halber sollte es möglich sein, ein Gui-Objekt anstelle von <code>"ahk_id " Gui.Hwnd</code> an einen <em>Fenstertitel</em>-Parameter zu übergeben. Aufgrund der derzeitigen technischen Einschränkungen ist das für Befehle, die noch nicht intern in Funktionen umgewandelt wurden, nicht möglich.</p>
 <h2>Fenstertitel und Fenstergruppen</h2>
 <p>Hintergrundinfo: Jede Fenstergruppe besteht aus einer Liste von Fensterspezifikationen. Eine Fensterspezifikation in v1 besteht aus Fenstertitel, Fenstertext, Titelausnahme und Textausnahme. Die Auswertungsreihenfolge der Fensterspezifikationen richtet sich nach Reihenfolge ihres Hinzufügens zur einer Gruppe. Der Einfachheit halber wurde im folgenden Text "Fensterspezifikation" in "Regel" umbenannt.</p>
 <h3>Ausnahmen</h3>
@@ -209,7 +222,7 @@
 <li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste. Andererseits könnte <code>base.__xxx(prms*)</code> dazu gebracht werden, das Standardverhalten (Nicht-Meta-Funktion) aufzurufen.</li>
 <li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li>
 <li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li>
-</ul>
+</ul> 
 </li>
 </ul>
 <h3>Sonstiges</h3>
@@ -230,4 +243,4 @@
 <p>Beide oben würden irgendeine Möglichkeit erfordern, an eine vorhandene Klasse angefügt zu werden, was auch für benutzerdefinierte Klassen nützlich sein könnte. Dies könnte man möglich machen, indem man einfach <code>class Klassenname {}</code> mehrmals wiederholt, oder mit einem zusätzlichen Schlüsselwort, um Missverständnisse vorzubeugen, wie z. B. <code>class Klassenname extended {}</code>. Das Schlüsselwort könnte implizieren, dass die initialen und erweiterten Definitionen in genau dieser Reihenfolge platziert werden müssen (anstatt zwei ähnliche Definitionen zu haben, die in beliebiger Reihenfolge gesetzt werden können), was nicht ideal wäre. Eine andere Option wäre es, <code>Klassenname.Methodenname()</code>-Deklarationen außerhalb von Klassen zu erlauben, wodurch vorhandene Klassen erweitert werden können (und mehr Flexibilität darin zu geben, den Code zu organisieren).</p>
 </body>
 </html>
- 
+
