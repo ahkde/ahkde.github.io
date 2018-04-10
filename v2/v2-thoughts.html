@@ -18,13 +18,9 @@ pre code {
 </head>
 <body>
 <h1>Gedanken zu v2.0</h1>
-<h2>Befehle</h2>
-<h3>Neue Befehlssyntax</h3>
-<p>Diese Probleme mit der neuen Befehlssyntax sollten behoben sein:</p>
-<ul>
-<li>Einige Befehle sind noch nicht vollständig umgewandelt worden. Das Definieren einer Funktion, die denselben Namen hat wie einer dieser Befehle, überschreibt aktuell nur den Funktion()-Aufrufstyle des Befehls; das heißt, wenn die runden Klammern weggelassen werden, wird der originale Befehl aufgerufen.</li>
-<li>Ausgabevariablen von internen Funktionen können zurzeit keine Ausdrücke sein, wenn man die runden Klammern weglässt. Zum Beispiel wäre MouseGetPos WelcheVar ? x : y ungültig, aber MouseGetPos(WelcheVar ? x : y) gültig.</li>
-</ul>
+<h2>Sonstiges</h2>
+<p>Vielleicht sollten die Zeichenketten "On" und "Off" entfernt werden, da sie in logischen Ausdrücken nicht gerade praktisch sind, und einfach nur True und False verwenden. Dies gilt für verschiedene interne Variablen und eventuell für einige Befehle. Es kann jedoch nützlich sein, dass SetTimer einen Timer weiterhin reaktivieren kann, ohne sein Zeitintervall ändern zu müssen. Außerdem sind On und Off für Hotkey und einige andere Funktionen besser geeignet.</p>
+<h2>Liste</h2>
 <h3>Befehle mit Unterbefehlen</h3>
 <p>Einige der neuen Funktionen, die Unterbefehle ersetzen, geben bei Erfolg eine 1 und bei Misserfolg eine 0 zurück (neben dem Setzen von ErrorLevel), während andere nur ErrorLevel setzen. Dies sollte korrigiert werden.</p>
 <p>Es gibt immer noch einige Probleme mit den Control/ControlGet-Funktionen, die je nach "Motivation des Entwicklers" in v2.0 vielleicht gelöst werden oder nicht:</p>
@@ -58,8 +54,10 @@ pre code {
 <li>Vielleicht sollten die anderen Mausbefehle geändert werden, um sie eine flexible Anordnung ihrer Parameter wie bei Click unterstützen zu lassen.</li>
 </ul>
 <h3>Sonstiges</h3>
-<p>A_CaretX/Y sollte mit <code>CaretGetPos(x, y)</code> ersetzt werden. Ersteres kann aufgrund der Art und Weise, wie es die Position zwischenspeichert, zu Missverständnissen führen. Der Caret-Coord-Modus kann dann mit einem optionalen Parameter für die CaretGetPos-Funktion ersetzt werden.</p>
 <p>Der Einfachheit halber sollte es möglich sein, ein Gui-Objekt anstelle von <code>"ahk_id " Gui.Hwnd</code> an einen <em>Fenstertitel</em>-Parameter zu übergeben. Aufgrund der derzeitigen technischen Einschränkungen ist das für Befehle, die noch nicht intern in Funktionen umgewandelt wurden, nicht möglich.</p>
+<p>FileGetVersion: Einige ausführbare Dateien (inklusive AutoHotkey) haben eine Versionszeichenkette, die die gleichen numerischen Werte hat, aber eine andere (korrektere) Formatierung als das, was FileGetVersion zurückgibt, aufweist, da sie auf einem anderen (rein numerischen) Feld im PE-Header basiert. Wenn die Möglichkeit hinzugefügt wird, Versionsnummer intern zu unterstützen, sollte FileGetVersion wahrscheinlich eher auf die korrektere Zeichenkette zurückgreifen.</p>
+<p>OnMessage: Jemand (ich konnte den Beitrag nicht finden) schlug vor, die Reihenfolge der Parameter für die Callback-Funktionen zu ändern, möglicherweise weil Hwnd aufgrund der Tatsache, dass A_Gui entfernt worden ist, häufiger benötigt wird.</p>
+<p>SoundGet/SoundSet: Die Komponenten- und Reglertypen basieren derzeit auf der Mixer-API, die nur unter 2000 und XP verwendet wird. Diese sollten aktualisiert werden, um den Möglichkeiten der Vista+ API besser gerecht zu werden. Die Unterstützung für SoundGet/SoundSet unter 2000 und XP sollte komplett entfernt werden, um dies zu vereinfachen.</p>
 <h2>Fenstertitel und Fenstergruppen</h2>
 <p>Hintergrundinfo: Jede Fenstergruppe besteht aus einer Liste von Fensterspezifikationen. Eine Fensterspezifikation in v1 besteht aus Fenstertitel, Fenstertext, Titelausnahme und Textausnahme. Die Auswertungsreihenfolge der Fensterspezifikationen richtet sich nach Reihenfolge ihres Hinzufügens zur einer Gruppe. Der Einfachheit halber wurde im folgenden Text "Fensterspezifikation" in "Regel" umbenannt.</p>
 <h3>Ausnahmen</h3>
@@ -104,6 +102,7 @@ pre code {
 <li>Um Speicher für eine Datenstruktur zu reservieren.</li>
 </ul>
 <p>Letzteres sollte VarSetLength benutzen, da die gesamte Länge der Struktur von Bedeutung ist. Dies würde erlauben, eine Struktur als Wert zu übergeben (kopieren) oder von einer Funktion zurückgegeben zu werden. VarSetCapacity wäre dann nur für Zeichenketten nützlich; vielleicht sollte die Kapazität in Zeichen statt in Bytes gemessen werden. Alternativ könnte man unterschiedliche Funktionen für "Byte"- und "Str"-Länge/Kapazität bereitstellen.</p>
+<p><strong>Boolean:</strong> Zeichenketten, die mit <code>Chr(0)</code> beginnen, sind momentan <code>false</code>, da die booleschen Checks eher von einer nullterminierten als von einer binär gezählten Zeichenkette ausgehen. Es ist vielleicht besser, solche Zeichenketten als <code>true</code> zu behandeln. Andererseits vergleichen relative Operatoren (<code>&lt;</code> <code>&gt;</code> etc.) derzeit nur bis zum Null-Terminator. Man muss darauf achten, dass dies mit der numerischen Behandlung von Zeichenketten mit chr(0) konsistent ist; also wenn <code>("0" chr(0)) == 0</code>, dann muss es <code>false</code> sein.</p>
 <h2>Ausdrucksoperatoren</h2>
 <p>Obwohl <code>in</code> und <code>contains</code> bereits in v2-alpha reserviert sind (um so spätere Probleme vorzubeugen), erscheint v2 ohne sie unvollständig, da Benutzer, die vorhandene v1-Skripte konvertieren wollen, eine Alternative für v2 finden müssen. Sie sollten implementiert werden, bevor v2.0 veröffentlicht wird, und moderner gemacht werden (Arrays erlauben).</p>
 <p>Aktuelle Syntax: if var [not] in/contains Vergleichsliste. Vergleichsliste ist eine mit Kommas getrennte Liste. Var enthält eine Zeichenkette.</p>
@@ -144,7 +143,7 @@ pre code {
 <li>Division durch Null.</li>
 </ul>
 <p>Es ist ungewiss, ob das Verhalten unter diesen Bedingungen so bleiben sollte. Die Alternativen wären, eine Ausnahme auszulösen oder einen anderen nicht-numerischen Wert erzeugen zu lassen, wie z. B. die Zeichenkette "NaN" (erinnert an JavaScript's speziellen NaN-Wert). Letzteres scheint nicht gut zu AutoHotkey zu passen.</p>
-<p>Darüber hinaus gab es <a href="http://www.autohotkey.com/board/index.php?showtopic=12396">Debatten</a> darüber, ob leere Zeichenketten als 0 behandelt werden sollten. Dies wird sehr wahrscheinlich <strong>nicht</strong> passieren, mit Ausnahme von <code>+=</code> und <code>-=</code>, die geändert wurden, um eine leere Variable als 0 zu behandeln, da diese der Richtlinie am meisten entsprechen.</p>
+<p>Darüber hinaus gab es <a href="http://www.autohotkey.com/board/index.php?showtopic=12396">Debatten</a> darüber, ob leere Zeichenketten als 0 behandelt werden sollten. Dies wird höchstwahrscheinlich <strong>nicht</strong> passieren.</p>
 <h3>Fehler in mathematischen Funktionen</h3>
 <p>Wenn das Verhalten von mathematischen Operatoren geändert wird (um bei Misserfolg etwas anderes tun als die Rückgabe einer leeren Zeichenfolge), sollten mathematische Funktionen wie <code>Round()</code> entsprechend angepasst werden.</p>
 <h2>Objekte</h2>
@@ -222,7 +221,7 @@ pre code {
 <li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste. Andererseits könnte <code>base.__xxx(prms*)</code> dazu gebracht werden, das Standardverhalten (Nicht-Meta-Funktion) aufzurufen.</li>
 <li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li>
 <li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li>
-</ul> 
+</ul>
 </li>
 </ul>
 <h3>Sonstiges</h3>
