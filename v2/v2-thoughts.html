@@ -148,7 +148,7 @@ pre code {
 <p>Wenn das Verhalten von mathematischen Operatoren geändert wird (um bei Misserfolg etwas anderes tun als die Rückgabe einer leeren Zeichenfolge), sollten mathematische Funktionen wie <code>Round()</code> entsprechend angepasst werden.</p>
 <h2>Objekte</h2>
 <h3>Syntax bei Eigenschaften vs Methoden</h3>
-<p>Built-In-Objekte und benutzerdefinierte Objekte haben eine inkonsistente Syntax bezüglich ihrer Eigenschaften. Dies sollte soweit wie möglich korrigiert werden.</p>
+<p>Interne Objekte und benutzerdefinierte Objekte haben eine inkonsistente Syntax bezüglich ihrer Eigenschaften. Dies sollte soweit wie möglich korrigiert werden.</p>
 <p>Wie es jetzt funktioniert:</p>
 <ul>
 <li>
@@ -158,7 +158,7 @@ pre code {
 <p>Bei benutzerdefinierten Objekten gibt <code>x.y</code> in der Regel einen Methodenverweis zurück, wenn y eine Methode ist.</p>
 </li>
 <li>
-<p>Built-In-Objekte unterstützen nicht das Abrufen eines Methodenverweises. In der Regel gibt <code>x.y</code> "not handled" zurück, wenn y eine Methode, aber keine Eigenschaft ist.</p>
+<p>interne Objekte unterstützen nicht das Abrufen eines Methodenverweises. In der Regel gibt <code>x.y</code> "not handled" zurück, wenn y eine Methode, aber keine Eigenschaft ist.</p>
 </li>
 <li>
 <p>Bei allen Objekten ist <code>x.y(...) := z</code> äquivalent zu <code>x.y[...] := z</code>. Diese leichte "Verunreinigung der Sprache" kommt Verfassern von Skripten entgegen, die von VBScript-Beispielen lernen oder sie portieren wollen, wo <code>x.y(...)</code> eine Eigenschaft statt eine Methode sein kann; und bietet Ausgewogenheit für COM-Objekte (siehe unten).</p>
@@ -201,7 +201,7 @@ pre code {
 <p>Die Übergabe von zu wenigen oder zu vielen Parametern sollte Fehler wie "Invalid usage" oder "Too many/few parameters" anzeigen, auf keinen Fall "Unknown property or method". (Aktuell geben Func und RegExMatch manchmal "Unknown" zurück.)</p>
 </li>
 <li>
-<p>Bei einem angegebenen Built-In-Typ sollte eine Methode entweder immer existieren oder immer nicht existieren. (Aktuell existiert Func.IsByRef() nur, wenn die Funktion benutzerdefiniert ist. Eine Lösung wäre es, eine Hierarchie von Funktionsklassen zu definieren, wo z. B. BenutzerdefinierteFunc eine IsByRef-Methode hat. Eine andere Lösung wäre es, die Ausnahme "not supported" auszulösen, da einige Built-In-Funktionen Variablenverweise akzeptieren, aber die Parameter nicht in einer Weise markiert sind, die IsByRef() erkennen kann.)</p>
+<p>Bei einem angegebenen internen Typ sollte eine Methode entweder immer existieren oder immer nicht existieren. (Aktuell existiert Func.IsByRef() nur, wenn die Funktion benutzerdefiniert ist. Eine Lösung wäre es, eine Hierarchie von Funktionsklassen zu definieren, wo z. B. BenutzerdefinierteFunc eine IsByRef-Methode hat. Eine andere Lösung wäre es, die Ausnahme "not supported" auszulösen, da einige interne Funktionen Variablenverweise akzeptieren, aber die Parameter nicht in einer Weise markiert sind, die IsByRef() erkennen kann.)</p>
 </li>
 </ul>
 <p>Inkonsistente Eigenschaften, die geändert werden müssen:</p>
@@ -234,11 +234,11 @@ pre code {
 <h2>Klassen</h2>
 <p><code>base</code> erlauben, als Unterklasse definiert zu werden (und tatsächlich die base-Klasse zu setzen), so dass Meta-Funktionen und Eigenschaften vor der Klasse selbst einfach definiert werden können, innerhalb der Klasse.</p>
 <p>Das Wort <code>base</code> zu einem reservierten Wort in Klassenmethoden machen. Derzeit erhält es eine besondere Bedeutung, wenn danach <code>.</code> oder <code>[</code> erfolgt, außer wenn in die Variable <code>base</code> ein Wert gespeichert wurde. Das Wort zu reservieren vereinfacht die Sprache und könnte die Performance verbessern.</p>
-<p>Wenn <code>base</code> überall reserviert wäre, könnte man es benutzen, um eine überschriebene Built-In-Funktion aufzurufen (z. B. <code>base.WinMove(x, y)</code> in einer Neudefinition von WinMove).</p>
+<p>Wenn <code>base</code> überall reserviert wäre, könnte man es benutzen, um eine überschriebene interne Funktion aufzurufen (z. B. <code>base.WinMove(x, y)</code> in einer Neudefinition von WinMove).</p>
 <h3>Ideen</h3>
 <p>Spontane Ideen, die nicht unbedingt relevant für v2.0 sind.</p>
 <p>Dem Skript erlauben, die Klassen <code>String</code> und <code>Number</code> mit Methoden und Eigenschaften für alle Zeichenketten und Zahlen zu definieren. Derzeit erfolgt dies durch Setzen von Eigenschaften des <code>"".base</code>-Objekts, aber dies wirkt sich auf alle Arten von Werten aus, außer Objekte.</p>
-<p>Dem Skript erlauben, globale Methoden und Eigenschaften für alle Objekte zu definieren, vielleicht via <code>Object</code>-base-Klasse. Standardmäßig würde dieser Klasse Built-In-Methoden wie Insert enthalten, so dass sie auf gleiche Weise wie benutzerdefinierte Methoden neu definiert können. Zum Beispiel könnte eine benutzerdefinierte Insert-Methode <code>base.Insert(value)</code> statt <code>ObjInsert(this, value)</code> aufrufen.</p>
+<p>Dem Skript erlauben, globale Methoden und Eigenschaften für alle Objekte zu definieren, vielleicht via <code>Object</code>-base-Klasse. Standardmäßig würde dieser Klasse interne Methoden wie Insert enthalten, so dass sie auf gleiche Weise wie benutzerdefinierte Methoden neu definiert können. Zum Beispiel könnte eine benutzerdefinierte Insert-Methode <code>base.Insert(value)</code> statt <code>ObjInsert(this, value)</code> aufrufen.</p>
 <p>Beide oben würden irgendeine Möglichkeit erfordern, an eine vorhandene Klasse angefügt zu werden, was auch für benutzerdefinierte Klassen nützlich sein könnte. Dies könnte man möglich machen, indem man einfach <code>class Klassenname {}</code> mehrmals wiederholt, oder mit einem zusätzlichen Schlüsselwort, um Missverständnisse vorzubeugen, wie z. B. <code>class Klassenname extended {}</code>. Das Schlüsselwort könnte implizieren, dass die initialen und erweiterten Definitionen in genau dieser Reihenfolge platziert werden müssen (anstatt zwei ähnliche Definitionen zu haben, die in beliebiger Reihenfolge gesetzt werden können), was nicht ideal wäre. Eine andere Option wäre es, <code>Klassenname.Methodenname()</code>-Deklarationen außerhalb von Klassen zu erlauben, wodurch vorhandene Klassen erweitert werden können (und mehr Flexibilität darin zu geben, den Code zu organisieren).</p>
 </body>
 </html>

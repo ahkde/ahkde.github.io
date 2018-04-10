@@ -106,7 +106,7 @@ pre code {
 <p><code>this.Method()</code> - wenn <code>Fn = this.Method</code> - ruft <code>Fn.Call(this)</code> auf, anstatt <code>Fn[this]()</code>. Funktionsobjekte sollten eine <em>Call</em>-Methode implementiert haben, anstatt die <em>__Call</em>-Meta-Funktion.</p>
 <p>Das Definieren von <code>x.base[key]</code> - x ist ein Objekt - verhindert, dass <code>x.base.base.__Set()</code> aufgerufen wird, wenn eine Zuweisung wie <code>x[key] := val</code> durchgeführt wird. Dies gilt aus Konsistenzgründen für __Get und __Call.</p>
 <p><code>new Obj()</code> schlägt nun fehl beim Erstellen des Objekts, wenn die <code>__New</code>-Meta-Methode definiert wurde, aber nicht aufgerufen werden konnte (weil sie z. B. Parameter benötigte, die aber nicht gegeben sind).</p>
-<p>Alle Built-In-Methoden von Objekten und SafeArrays unterstützen nicht länger _ (Unterstrich) als Präfix, außer <code>_NewEnum</code>, wo es nun notwendig ist (für die Kompatibilität mit COM-Objekten). <code>ObjNewEnum(x)</code> ist nach wie vor das gleiche wie <code>x._NewEnum()</code> bei Objekten.</p>
+<p>Alle internen Methoden von Objekten und SafeArrays unterstützen nicht länger _ (Unterstrich) als Präfix, außer <code>_NewEnum</code>, wo es nun notwendig ist (für die Kompatibilität mit COM-Objekten). <code>ObjNewEnum(x)</code> ist nach wie vor das gleiche wie <code>x._NewEnum()</code> bei Objekten.</p>
 <p>Die Methoden <code>Insert</code> und <code>Remove</code> wurden entfernt. Sie wurden in v1.1.21 von InsertAt, RemoveAt, Push, Pop, Delete und ObjRawSet abgelöst.</p>
 <p>Objekte, die innerhalb eines Ausdrucks erstellt oder von einer Funktion zurückgegeben werden, werden nun zurückgehalten, bis die Ausdrucksauswertung abgeschlossen ist, und dann freigegeben. Dieses Verhalten ermöglicht eine geringfügig verbesserte Performance und eine Speicherverwaltung innerhalb eines Ausdrucks mit temporären Objekten, ohne befürchten zu müssen, dass Objekte vorzeitig freigegeben werden.</p>
 <p>Objekte können Zeichenkettenwerte (aber nicht Keys) mit binären Nullen enthalten. Beim Klonen eines Objekts werden Binärdaten in Zeichenketten beibehalten, aber Daten, die die Datenlänge überschritten haben, gehen verloren (FIXME: biete eine Möglichkeit zum Setzen der Länge an).</p>
@@ -141,7 +141,7 @@ pre code {
 <h3>Typen</h3>
 <p>In der Regel erzeugt v2 konsistentere Ergebnisse als v1 bei einem Code, das vom Typ eines Wertes abhängig ist.</p>
 <p>In v1 kann eine Variable sowohl eine Zeichenkette als auch eine zwischengespeicherte Binärzahl enthalten, die immer dann aktualisiert wird, wenn die Variable als Zahl verwendet wird. Da diese zwischengespeicherten Binärzahl das einzige Mittel zur Erkennung des Werttyps ist, wird das Caching, welches intern via Ausdrücke wie <code>var+1</code> oder <code>abs(var)</code> erfolgt, effektiv den "Typ" von <code>Var</code> ändern. v2 deaktiviert dieses Caching, so dass <code>str := "123"</code> immer eine Zeichenkette und <code>int := 123</code> immer ein Integer sein kann. Infolgedessen muss <code>str</code> bei Bedarf jedes Mal in eine Zahl umgewandelt werden (statt nur beim ersten Mal).</p>
-<p>Die Built-In-Variablen <code>True</code>, <code>False</code>, <code>A_PtrSize</code>, <code>A_IsUnicode</code>, <code>A_Index</code> und <code>A_EventInfo</code> geben immer einen reinen Integer statt Zeichenketten zurück. In v1 geben sie manchmal Zeichenketten zurück, aufgrund von Optimierungen, die in v2 ersetzt wurden.</p>
+<p>Die internen Variablen <code>True</code>, <code>False</code>, <code>A_PtrSize</code>, <code>A_IsUnicode</code>, <code>A_Index</code> und <code>A_EventInfo</code> geben immer einen reinen Integer statt Zeichenketten zurück. In v1 geben sie manchmal Zeichenketten zurück, aufgrund von Optimierungen, die in v2 ersetzt wurden.</p>
 <p>Alle direkt geschriebene Zahlen werden während der Ladezeit in reine Binärzahlen umgewandelt und deren Repräsentierung als Zeichenketten verworfen. Zum Beispiel wäre <code>MsgBox 0x1</code> das gleiche wie <code>MsgBox 1</code>, oder <code>MsgBox 1.0000</code> das gleiche wie <code>MsgBox 1.0</code> (weil die interne Gleitkommaformatierung geändert wurde). Eine Zahl, die man in eine Variable speichert oder von einer UDF zurückgeben lässt, wird ihren reinen numerischen Zustand beibehalten.</p>
 <p>Direkt geschriebene Zeichenketten in Anführungszeichen und Zeichenketten, die mit mehreren literalen Zeichenketten in Anführungszeichen gebildet werden, werden nicht länger bedingungslos als nicht-numerisch angesehen. Stattdessen werden sie wie Zeichenketten behandelt, die in Variablen gespeichert oder von Funktionen zurückgegeben worden sind. Dies hat folgende Auswirkungen:</p>
 <ul>
@@ -151,7 +151,7 @@ pre code {
 </ul>
 <p>Die Art und Weise wurde geändert, wie Objekte verschiedene Typen von Keys interpretieren. Im <a href="#objects"><em>Objekte</em></a>-Abschnitt, der auf dieser Seite zu finden ist, erfährst du mehr.</p>
 <p>Vergleichsoperatoren wie =, &lt; und &gt;= funktionieren etwas anders. Wenn beide Operanden numerisch sind und mindestens ein Operand eine <em>reine</em> Zahl ist, werden sie numerisch verglichen. Ansonsten werden sie alphabetisch verglichen. So zum Beispiel werden 54 und "530" numerisch verglichen, während "54" und "530" alphabetisch verglichen werden. Darüber hinaus werden Zeichenketten, die in Variablen gespeichert sind, genauso wie direkt geschriebene Zeichenketten behandelt.</p>
-<p><code>Type(Wert)</code> gibt eine der folgenden Zeichenketten zurück: String, Integer, Float, Object oder die spezifische Klasse eines Built-In-Objekttyps, wie z. B. FileObject oder ComObject.</p>
+<p><code>Type(Wert)</code> gibt eine der folgenden Zeichenketten zurück: String, Integer, Float, Object oder die spezifische Klasse eines internen Objekttyps, wie z. B. FileObject oder ComObject.</p>
 <h2>Liste</h2>
 <p>Entfernt:</p>
 <ul>
@@ -469,7 +469,7 @@ Name      := MonitorGetName([N])
 <p><code>RegDeleteKey("Rootkey\Subkey")</code> löscht einen Registry-Key. (RegDelete löscht jetzt nur noch Werte, außer wenn alle Parameter in einer Registry-Schleife weggelassen werden.)</p>
 <p><code>TraySetIcon([Dateiname, Symbolnummer, Einfrieren])</code> ersetzt <code>Menu Tray, Icon</code>.</p>
 <p><code>WinGetClientPos([X, Y, W, H, Fenstertitel, ...])</code> ermittelt die Position und Größe des Clientbereichs eines Fensters, in Bildschirmkoordinaten.</p>
-<h3>Built-In-Variablen</h3>
+<h3>Interne Variablen</h3>
 <p>A_OSVersion wird immer eine Zeichenkette im Format <code>Haupt.Neben.Build</code> zurückgeben, wie z. B. <code>6.1.7601</code> für Windows 7 SP1. A_OSType wurde entfernt, da nur NT-basierte Systeme unterstützt wurden.</p>
 <p>Umbenannt:</p>
 <ul>
@@ -499,7 +499,7 @@ Name      := MonitorGetName([N])
 <li>A_AllowMainWindow (Lesen/Schreiben; ersetzt <code>Menu Tray, MainWindow/NoMainWindow</code>)</li>
 <li>A_InitialWorkingDir (siehe <a href="#default-settings">Standardeinstellungen</a>)</li>
 </ul>
-<p>In folgenden Built-In-Variablen können Werte gespeichert werden:</p>
+<p>In folgenden internen Variablen können Werte gespeichert werden:</p>
 <ul>
 <li>A_ControlDelay</li>
 <li>A_CoordMode..</li>
@@ -677,7 +677,7 @@ Gui GuiName: Default</p>
 </ul>
 <p>Es wird eine Ausnahme ausgelöst, wenn eine der folgenden Fehler auftritt (anstatt ignoriert zu werden):</p>
 <ul>
-<li>Fehler beim Reservieren von Speicher für den Rückgabewert einer Built-In-Funktion, für eine Verkettung oder für das Ergebnis eines Ausdrucks.</li>
+<li>Fehler beim Reservieren von Speicher für den Rückgabewert einer internen Funktion, für eine Verkettung oder für das Ergebnis eines Ausdrucks.</li>
 <li>Stapelunterlauf (üblicherweise durch einen Syntaxfehler ausgelöst).</li>
 <li>Versuchte Zuweisung zu etwas, das keine Variable (oder kein Array-Element) ist.</li>
 <li>Versuchte Zuweisung zu einer schreibgeschützten Variable.</li>
@@ -731,7 +731,7 @@ Gui GuiName: Default</p>
 </ul>
 <h3>Standardeinstellungen</h3>
 <ul>
-<li>#NoEnv wurde entfernt; benutze stattdessen EnvGet, wenn eine entsprechende Built-In-Variable nicht verfügbar ist.</li>
+<li>#NoEnv wurde entfernt; benutze stattdessen EnvGet, wenn eine entsprechende interne Variable nicht verfügbar ist.</li>
 <li>SendMode benutzt standardmäßig Input statt Event.</li>
 <li>Titelübereinstimmungsmodus benutzt standardmäßig 2 statt 1.</li>
 <li>SetBatchLines wurde entfernt, um alle Skripte mit voller Geschwindigkeit ausführen zu lassen (in v1 entspricht das SetBatchLines -1).</li>
