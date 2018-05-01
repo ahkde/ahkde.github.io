@@ -133,25 +133,12 @@ pre code {
 <p>Wenn Arrays auf der linken Seite von <code>contains</code> unterstützt werden, wie würde das funktionieren? Ursprünglich war der Unterschied zwischen <code>in</code> und <code>contains</code>, dass <code>in</code> einen direkten Vergleich des Wertes durchführt, während <code>contains</code> eine Teilzeichenkette-Übereinstimmung sucht. Müsste <code>arr1 contains arr2</code> bei jedem arr1-Element überprüfen, ob ein Element in arr2 eine Teilzeichenkette ist? Oder überprüfen, ob beide Arrays gemeinsame Werte haben? Oder alles? Oder überprüfen, ob die exakte Reihenfolge der Werte in arr2 innerhalb von arr1 vorkommt? Die letzte Option wäre analog zu <code>InStr(str1, str2)</code>, aber nicht zu <code>str1 contains str2</code>.</p>
 <p>Hier einige (nicht sehr relevante) Diskussionen: https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847.</p>
 <p><code>between</code> wird vermutlich überhaupt nicht implementiert. Eine Alternative bestünde darin, Verkettungen von Operatoren wie bei Python und Perl 6 zu erlauben, wo <code>x &lt; y &lt; z</code> das gleiche wie <code>(x &lt; y) and (y &lt; z)</code> wäre. Das würde jedoch bedeuten, dass Klammern die Bedeutung von <code>&lt;</code> verfremden würden (was nicht richtig zu sein scheint), z. B. bei <code>x &lt; y &lt; z</code> vs <code>(x &lt; y) &lt; z</code>, weil Letzteres das Ergebnis von <code>x &lt; y</code> (true oder false) mit z vergleichen würde. Einige Benutzer haben <code>x &lt; y &lt; z</code> bereits ausprobiert und sich über das Ergebnis gewundert, daher sollten, sofern dieses Feature nicht implementiert wird, verkettete Operatoren erkannt und eine Warn-/Fehlermeldung angezeigt werden. (Aber wenn die Erkennung von verketteten Operatoren zu kompliziert ist, könnte das Kosten-Nutzen-Verhältnis zugunsten der Implementierung dieser Verkettung ausfallen.)</p>
-<h2>Fehlerbehandlung</h2>
-<p>Beachte, das einige Punkte hier schon umgesetzt wurden.</p>
-<h3>Fehler in mathematischen Operationen</h3>
-<p>In v1 erzeugen mathematische Operatoren still und heimlich eine leere Zeichenkette, wenn folgendes zutrifft:</p>
-<ul>
-<li>Einer der Eingabewerte ist eine leere Zeichenkette.</li>
-<li>Einer der Eingabewerte ist nicht-numerisch.</li>
-<li>Division durch Null.</li>
-</ul>
-<p>Es ist ungewiss, ob das Verhalten unter diesen Bedingungen so bleiben sollte. Die Alternativen wären, eine Ausnahme auszulösen oder einen anderen nicht-numerischen Wert erzeugen zu lassen, wie z. B. die Zeichenkette "NaN" (erinnert an JavaScript's speziellen NaN-Wert). Letzteres scheint nicht gut zu AutoHotkey zu passen.</p>
-<p>Darüber hinaus gab es <a href="http://www.autohotkey.com/board/index.php?showtopic=12396">Debatten</a> darüber, ob leere Zeichenketten als 0 behandelt werden sollten. Dies wird höchstwahrscheinlich <strong>nicht</strong> passieren.</p>
-<h3>Fehler in mathematischen Funktionen</h3>
-<p>Wenn das Verhalten von mathematischen Operatoren geändert wird (um bei Misserfolg etwas anderes tun als die Rückgabe einer leeren Zeichenfolge), sollten mathematische Funktionen wie <code>Round()</code> entsprechend angepasst werden.</p>
 <h2>Objekte</h2>
 <h3>Syntax bei Eigenschaften vs Methoden</h3>
 <p>Interne Objekte und benutzerdefinierte Objekte haben eine inkonsistente Syntax bezüglich ihrer Eigenschaften. Dies sollte soweit wie möglich korrigiert werden.</p>
 <p>Wie es jetzt funktioniert:</p>
 <ul>
-<li>
+<li> 
 <p>Alle Objekte erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y</code> und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, außer wenn ein Parameter/Index erforderlich ist.</p>
 </li>
 <li>
@@ -225,9 +212,7 @@ pre code {
 </li>
 </ul>
 <h3>Sonstiges</h3>
-<p><code>Object.GetAddress(key)</code> sollte die Adresse einer leeren Zeichenkette zurückgeben, wenn <code>Object[key]</code> so etwas enthält, da einige Skripte möglicherweise eine Zeichenkette zuweisen und dann ihre Adresse an DllCall oder Ähnliches übergeben wollen. Aktuell müssen solche Skripte SetCapacity aufrufen, nachdem sie eine leere Zeichenkette zugewiesen haben.</p>
 <p>Objekte unterstützen nun binäre Nullen in Zeichenkettenwerten, durch Zwischenspeichern der Zeichenkettenlänge. Allerdings werden absofort nur Daten bis zur Zeichenkettenlänge beim Klonen des Objekts beibehalten (konsistent mit dem Abrufen des Wertes vom Objekt als Zeichenkette, um z. B. ein anderes Objekt zuzuweisen). Es sollte irgendwie die Möglichkeit geben, die Datenlänge zu setzen, z. B. <code>Object.SetLength(Key, Length)</code>. Aus Übersichtsgründen (und um Verwirrung mit <code>Object.Length</code> zu vermeiden) wäre es vielleicht besser, so etwas wie <code>SetStrLen</code> und <code>SetByteLen</code> zu haben. Beachte zudem, dass ähnliche Funktionen für Variablen notwendig wären, um Binärdaten besser unterstützen zu können.</p>
-<p>Einige Benutzer verlangen <code>Object.Count()</code>. Benutzen könnte man so etwas wie <code>Object.Count([MinKey, MaxKey])</code>, das die Anzahl von Key-Value-Paaren innerhalb des angegebenen Bereichs zurückgeben könnte (oder insgesamt, wenn alle Parameter fehlen).</p>
 <p><code>new MeineKlasse[a,b,c]</code> könnte als eine sehr komfortable Möglichkeit reserviert werden, um einen spezialisierten Array-/Auflistungstyp zu initialisieren (<code>new MeineKlasse{a:b}</code> ist bereits als Syntaxfehler "reserviert"). Aktuell könnte <code>MeinKlasse[a,b,c]</code> eine Klasse zum Instanziieren sein, aber sehr wahrscheinlich wird sie nur selten benutzt (wenn überhaupt), und ist inkonsistent mit der v1-Richtlinie bzgl. der Anforderung eines Klassennamens nach dem <code>new</code>-Operator. v1 behandelt <code>new x[y](z)</code> als <code>new c1</code>, wo c1 gleich <code>x[y](z)</code> ist, während v2-a076 diese Anweisung als <code>new c2(z)</code> behandelt, wo c2 gleich <code>x[y]</code> ist.</p>
 <p>SafeArray-Objekte sollten eine <code>.Length()</code>-Methode erhalten, um konsistent mit reinen Objekten zu sein.</p>
 <p>ComObjConnect()-Ereignisse dereferenzieren ByRef-VARIANTs derzeit automatisch (da einige Sprachen so etwas immer dann übergeben, wenn ein Skript eine Variable übergibt), wodurch die Funktion in einigen Fällen daran gehindert wird, einen Wert zurückzugeben. Entweder könnten wir a) ByRef-Wrapper übergeben, die Zuweisungen wie <code>param[] := value</code> erlauben, oder b) eine Variable automatisch übergeben und das VARIANT nach Funktionsaufruf aktualisieren. Andere (also Nicht-VARIANT) ByRef-Kombinationen werden nicht dereferenziert, und <code>param[] := value</code> wird seit v1.1.17 bereits unterstützt.</p>
