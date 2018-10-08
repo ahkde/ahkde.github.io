@@ -161,7 +161,7 @@ pre code {
 <p><strong>Eigenschaften</strong>, die innerhalb einer Klasse definiert wurden, erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y[...]</code> und <code>x.y(...)</code>, und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, <code>x.y[] := z</code> und <code>x.y() := z</code>.</p>
 </li>
 <li>
-<p><strong>File</strong>-Objekte haben keine Eigenschaften, die Parameter akzeptieren. <code>x.y[z]</code> löst eine Ausnahme aus. <code>x.y()</code> ist bei Parametern erlaubt und bei Methoden erforderlich. <code>x.y(z)</code> ist äquivalent zu <code>x.y := z</code>, wenn y eine Eigenschaft ist. Wenn die Eigenschaft schreibgeschützt ist, wird z ignoriert (siehe unten). Überschüssige Parameter werden ignoriert, konsistent mit Methodenaufrufen und dynamischen Funktionsaufrufen.</p>
+<p><strong>File</strong>-Objekte haben keine Eigenschaften, die Parameter akzeptieren. <code>x.y[z]</code> löst eine Ausnahme aus. <code>x.y()</code> ist für Eigenschaften erlaubt und für Methoden erforderlich. <code>x.y(z)</code> ist äquivalent zu <code>x.y := z</code>, wenn y eine Eigenschaft ist. Wenn die Eigenschaft schreibgeschützt ist, wird z ignoriert (siehe unten). Überschüssige Parameter werden ignoriert, konsistent mit Methodenaufrufen und dynamischen Funktionsaufrufen.</p>
 </li>
 <li>
 <p><strong>Func</strong>-Objekte geben bei <code>x.y[z]</code> und <code>x.y := z</code>, wo y eine gültige Eigenschaft ist, "not handled" zurück, da alle Eigenschaften schreibgeschützt sind und keine Parameter akzeptieren.</p>
@@ -179,13 +179,13 @@ pre code {
 <p>Die automatische Übersetzung von <code>x.y(...) := z</code> zu <code>x.y[...] := z</code> sollte entfernt und mit einer Fehlermeldung ersetzt werden, dass der Skript-Verfasser doch bitte <code>[]</code> benutzen sollte. (Bevor die Ausnahme hinzugefügt wurde, versuchte <code>x.y(i) := z</code> einen Methodenaufruf gefolgt von einer ungültigen Zuweisung, die leise fehlschlug.)</p>
 </li>
 <li>
-<p>Eigenschaften sollten zusätzlich keine Methoden sein (wegen der Inkonsistenz mit einfachen Key-Value-Paaren), mit der möglichen Ausnahme von RegExMatch. Wenn ein Teilmuster namens "Pos" vorhanden ist, ist es bequemer <code>m.Pos</code> und <code>m.Pos()</code> zu haben, statt <code>m.Value["Pos"]</code> und <code>m.Pos</code>. (Aktuell erlauben klassen-definierte Eigenschaften und File-Objekte Klammern.)</p>
+<p>Eigenschaften sollten zusätzlich keine Methoden sein (wegen der Inkonsistenz mit einfachen Key-Value-Paaren), mit der möglichen Ausnahme von RegExMatch. Wenn ein Teilmuster namens "Pos" vorhanden ist, ist es bequemer <code>m.Pos</code> und <code>m.Pos()</code> zu haben, statt <code>m.Value["Pos"]</code> und <code>m.Pos</code>. (Aktuell erlauben klassendefinierte Eigenschaften und File(v1)-Objekte runde Klammern.)</p>
 </li>
 <li>
-<p>Der Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen, sollte einen Fehler wie "Invalid usage" oder "Read-only property" auslösen, <strong>nicht</strong> "Unknown property". (Aktuell ignorieren dies File-Objekte; Func- and RegExMatch-Objekte geben "Unknown property" zurück.)</p>
+<p>Der Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen, sollte einen Fehler wie "Invalid usage" oder "Read-only property" auslösen, <strong>nicht</strong> "Unknown property". (Aktuell ignorieren File(v1)-Objekte das; Func und RegExMatch-Objekte geben "Unknown property" zurück.)</p>
 </li>
 <li>
-<p>Die Übergabe von zu wenigen oder zu vielen Parametern sollte Fehler wie "Invalid usage" oder "Too many/few parameters" anzeigen, auf keinen Fall "Unknown property or method". (Aktuell geben Func und RegExMatch manchmal "Unknown" zurück.)</p>
+<p>Die Übergabe von zu wenigen oder zu vielen Parametern sollte Fehler wie "Invalid usage" oder "Too many/few parameters" anzeigen, auf keinen Fall "Unknown property or method". (Aktuell geben Func(v1) und RegExMatch manchmal "Unknown" zurück.)</p>
 </li>
 <li>
 <p>Bei einem angegebenen internen Typ sollte eine Methode entweder immer existieren oder immer nicht existieren. (Aktuell existiert Func.IsByRef() nur, wenn die Funktion benutzerdefiniert ist. Eine Lösung wäre es, eine Hierarchie von Funktionsklassen zu definieren, wo z. B. BenutzerdefinierteFunc eine IsByRef-Methode hat. Eine andere Lösung wäre es, die Ausnahme "not supported" auszulösen, da einige interne Funktionen Variablenverweise akzeptieren, aber die Parameter nicht in einer Weise markiert sind, die IsByRef() erkennen kann.)</p>

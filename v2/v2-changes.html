@@ -112,6 +112,8 @@ pre code {
 <p>Die Methoden <code>Insert</code> und <code>Remove</code> wurden entfernt. Sie wurden in v1.1.21 von InsertAt, RemoveAt, Push, Pop, Delete und ObjRawSet abgelöst.</p>
 <p>Objekte, die innerhalb eines Ausdrucks erstellt oder von einer Funktion zurückgegeben werden, werden nun zurückgehalten, bis die Ausdrucksauswertung abgeschlossen ist, und dann freigegeben. Dieses Verhalten ermöglicht eine geringfügig verbesserte Performance und eine Speicherverwaltung innerhalb eines Ausdrucks mit temporären Objekten, ohne befürchten zu müssen, dass Objekte vorzeitig freigegeben werden.</p>
 <p>Objekte können Zeichenkettenwerte (aber nicht Keys) mit binären Nullen enthalten. Beim Klonen eines Objekts werden Binärdaten in Zeichenketten beibehalten, aber Daten, die die Datenlänge überschritten haben, gehen verloren (FIXME: biete eine Möglichkeit zum Setzen der Länge an).</p>
+<p>Eigenschaften, die innerhalb einer Klasse definiert sind, werden <em>Call</em> nicht mehr beanspruchen (indem sie die Eigenschaft getter aufrufen). Das heißt, dass <code>obj.MyProperty()</code> eine Ausnahme auslöst, sofern es keine Methode mit diesem Namen gibt (sie kann in einer Basisklasse der Klasse,die die Eigenschaft definiert hat, definiert werden).</p>
+<p><code>x.y(z) := v</code> führt nun zu einem Syntaxfehler. Vorher war es äquivalent zu <code>x.y[z] := v</code>. <code>x.y(z)</code> (ein offensichtlicher Methodenaufruf) könnte oder könnte nicht äquivalent zu <code>x.y[z]</code> sein, wenn <code>x</code> ein COM-Objekt ist (aufgrund von Einschränkungen der COM-Schnittstelle), aber generell gesehen sind das zwei verschiedene Operationen.</p>
 <h3>Verschachtelte Funktionen</h3>
 <p>Eine Funktion kann in einer anderen Funktion definiert werden. Eine verschachtelte Funktion (sofern nicht Force-Local) kann auf lokale und statische Variablen der äußeren Funktion zugreifen.</p>
 <p>Übergibt man den Namen einer verschachtelten Funktion an <code>Func()</code> (oder einer anderen internen Funktion wie SetTimer), wird eventuell ein <code>Closure</code>-Objekt erzeugt, das die verschachtelte Funktion an den aktuellen Satz lokaler Variablen der äußeren Funktion bindet. Es hat die gleichen Eigenschaften wie ein <code>Func</code>-Objekt.</p>
@@ -164,6 +166,7 @@ pre code {
 <li>ComObjUnwrap() (benutze stattdessen ComObjValue(), und bei Bedarf ObjAddRef())</li>
 <li>ComObjEnwrap() (benutze stattdessen ComObject(), und bei Bedarf ObjAddRef())</li>
 <li>ComObjXXX(), wo XXX nichts anderes ist als eine der explizit definierten ComObj-Funktionen (benutze stattdessen ComObjActive() oder ComObject()).</li>
+<li>ControlSendRaw (benutze stattdessen <code>ControlSend "{Raw}"</code> oder ControlSendText)</li>
 <li>EnvDiv</li>
 <li>EnvMult</li>
 <li>EnvUpdate (dessen Nutzen war sehr begrenzt und kann mit einer einfachen SendMessage-Anweisung ersetzt werden)</li>
@@ -189,6 +192,7 @@ pre code {
 <li>MenuGetHandle (benutze Menu.Handle)</li>
 <li>MenuGetName (es gibt keine Menünamen; MenuFromHandle ist der nächstliegende Ersatz)</li>
 <li>Progress (benutze Gui)</li>
+<li>SendRaw (benutze stattdessen <code>Send "{Raw}"</code> oder SendText)</li>
 <li>SetBatchLines (-1 ist nun das Standardverhalten)</li>
 <li>SetEnv</li>
 <li>SetFormat (format() kann zum Formatieren einer Zeichenkette benutzt werden)</li>
@@ -366,7 +370,7 @@ Loop Reg, Rootkey\Key [, Modus]
 <p>Der Rückgabewert ist der Name des Buttons, ohne Leerzeichen. Diese Zeichenketten sind dieselben, die bei IfMsgBox in v1 benutzt wurden.</p>
 <p>Der Titel wird leer sein, wenn der Titel-Parameter eine leere Zeichenkette ist. Der Titel wird standardmäßig <code>A_ScriptName</code> sein, wenn der Parameter komplett fehlt, um konsistent mit optionalen Parametern von benutzerdefinierten Funktionen zu sein.</p>
 <h4>Unterbefehle</h4>
-<p>Unterbefehle von Control, ControlGet, Drive, DriveGet, WinGet, WinSet und Process wurden durch einzelne Funktionen ersetzt, und die Hauptbefehle wurden entfernt. Namen und Benutzung wurden bei mehreren Funktionen geändert. Diese Funktion werden jetzt wie folgt benutzt:</p>
+<p>Unterbefehle von Control, ControlGet, Drive, DriveGet, WinGet, WinSet und Process wurden durch einzelne Funktionen ersetzt, und die Hauptbefehle wurden entfernt. Namen und Benutzung wurden bei mehreren Funktionen geändert. Diese Funktion werden jetzt wie folgt benutzt:</p> 
 <pre><code>; Die "..." sind die optionalen Parameter Steuerelement, Fenstertitel, etc.
 
 Boolean := ControlGetChecked(...)
@@ -470,12 +474,14 @@ Name      := MonitorGetName([N])
 <h3>Neue Befehle/Funktionen</h3>
 <p><code>CaretGetPos([X, Y])</code> ermittelt die aktuellen Koordinaten des Text-Cursors. Dadurch wird sichergestellt, dass die X- und Y-Koordinaten immer übereinstimmen und dass es kein Caching gibt, das zu unerwartetem Verhalten führt (wenn A_CaretX/Y beispielsweise einen Wert zurückgibt, der nicht im aktuellen CoordMode liegt).</p>
 <p><code>ClipboardAll([Daten, Größe])</code> erstellt ein Objekt, das alles, was in der Zwischenablage ist, enthält (und akzeptiert optional Daten, die vorher aus der Zwischenablage abgerufen wurden, anstatt den aktuellen Inhalt der Zwischenablage zu verwenden). Die Methoden zum Lesen und Schreiben von Dateidaten der Zwischenablage sind unterschiedlich. Das Datenformat ist das gleiche, außer dass die Datengröße immer 32-Bit ist, so dass die Daten zwischen 32-Bit- und 64-Bit-Builds portierbar sind. Weitere Informationen sind in der v2-Dokumentation zu finden.</p>
+<p>ControlSendText, das das Äquivalent zu ControlSendRaw ist, aber den {Text}- statt {Raw}-Modus verwendet.</p>
 <p><code>DirExist(Pfad)</code>, so ähnlich wie FileExist. Beachte, dass <code>InStr(FileExist(Muster), "D")</code> nur mitteilt, ob die <em>zuerst</em> gefundene Datei ein Ordner ist, nicht ob ein Ordner existiert.</p>
 <p><code>Float(v)</code>: siehe Typen.</p>
 <p><code>Integer(v)</code>: siehe Typen.</p>
 <p><code>MenuCreate()</code>/<code>MenuBarCreate()</code> gibt ein neues Menu/MenuBar-Objekt zurück, das folgende Elemente, die den Unterbefehlen von v1-Menu entsprechen, enthält. Methoden: Add, <strong>Add</strong>Standard, Check, Delete, Disable, Enable, Insert, Rename, <strong>Set</strong>Color, <strong>Set</strong>Icon, Show, ToggleCheck, ToggleEnable, Uncheck. Eigenschaften: Click<strong>Count</strong>, Default, Handle (ersetzt MenuGetHandle). <code>A_TrayMenu</code> gibt auch ein Menu-Objekt zurück. Es gibt keinen UseErrorLevel-Modus, keine globalen Menünamen, und kein explizites Löschen des Menüs selbst (dies geschieht, wenn alle Verweise freigegeben sind; Menu.Delete() entspricht dem v1-DeleteAll). Labels werden nicht unterstützt, nur Funktionen und Objekte. Menu.AddStandard() fügt die vordefinierten Menüpunkte hinzu und ermöglicht, dass sie wie benutzerdefinierte Menüpunkte individuell geändert werden können. Im Gegensatz zu v1 wird das Win32-Menü nur zerstört, wenn das Objekt gelöscht wird.</p>
 <p><code>MenuFromHandle(Handle)</code> gibt das Menu-Objekt eines dazugehörigen Win32-Menü-Handles zurück, wenn es von AutoHotkey erstellt wurde.</p>
 <p><code>RegDeleteKey("Rootkey\Subkey")</code> löscht einen Registry-Key. (RegDelete löscht jetzt nur noch Werte, außer wenn alle Parameter in einer Registry-Schleife weggelassen werden.)</p>
+<p>SendText, das das Äquivalent zu SendRaw ist, aber den {Text}- statt {Raw}-Modus verwendet.</p>
 <p><code>String(v)</code>: siehe Typen.</p>
 <p><code>TraySetIcon([Dateiname, Symbolnummer, Einfrieren])</code> ersetzt <code>Menu Tray, Icon</code>.</p>
 <p><code>WinGetClientPos([X, Y, W, H, Fenstertitel, ...])</code> ermittelt die Position und Größe des Clientbereichs eines Fensters, in Bildschirmkoordinaten.</p>
@@ -540,6 +546,9 @@ Name      := MonitorGetName([N])
 <li>A_WinDelay</li>
 <li>A_WorkingDir: Das gleiche wie, als würde man SetWorkingDir aufrufen.</li>
 </ul>
+<h3>Interne Objekte</h3>
+<p>File-Objekte benötigen nun zwingend die Eigenschaftssyntax zum Aufrufen von Eigenschaften und die Methodensyntax zum Aufrufen von Methoden. Zum Beispiel ist <code>File.Pos(n)</code> ungültig. Es wird eine Ausnahme ausgelöst, wenn zu wenige oder zu viele Parameter vorhanden sind oder wenn eine schreibgeschützte Eigenschaft einen Wert zugewiesen bekommt.</p>
+<p><code>File.Tell()</code> wurde entfernt.</p>
 <h2>Gui</h2>
 <p>Gui, GuiControl und GuiControlGet wurden durch GuiCreate() und Gui/GuiControl-Objekte ersetzt, die in der Regel flexibler, konsistenter und wohl leichter zu bedienen sind.</p>
 <p>Einzelheiten zur Nutzung sind in der neuen v2-Dokumentation zu finden.</p>
@@ -721,6 +730,7 @@ Gui GuiName: Default</p>
 <p>Hotstrings behandeln nun UMSCHALT+RÜCKTASTE wie RÜCKTASTE, anstatt es innerhalb des Hotstring-Zwischenspeichers in <code>`b</code> zu übersetzen.</p>
 <p>Hotstrings verwenden nicht das letzte, sondern das erste Doppelpunktpaar (<code>::</code>) als Trennung, wenn mehrere Doppelpunktpaare vorhanden sind. Das heißt, dass Doppelpunkte (wenn sie an einen anderen Doppelpunkt angrenzen) mit einem Escapezeichen versehen werden müssen, um Text in v2 zu triggern, während sie in v1 im Ersatztext mit einem Escapezeichen versehen werden müssen. Beachten Sie, dass bei einer ungeraden Anzahl von aufeinanderfolgenden Doppelpunkten das bisherige Verhalten den letzten Doppelpunkt nicht als Teil eines Paares angesehen hatte. Zum Beispiel bleibt das Verhalten bei <code>::1:::2</code> (<code>1</code> → <code>:2</code>) unverändert, während sich <code>::3::::4</code> wie <code>3</code> → <code>::4</code> statt wie <code>3::</code> → <code>4</code> verhält.</p>
 <p>Hotstrings escapen nicht länger Doppelpunktpaare, daher es nun möglich, einen einzelnen Doppelpunkt am Ende des Hotstring-Triggers zu escapen. Zum Beispiel ist <code>::5`:::6</code> nun <code>5:</code> → <code>6</code> statt eines Fehlers, und <code>::7`::::8</code> nun <code>7:</code> → <code>:8</code> statt <code>7::</code> → <code>8</code>. Am besten versieht man in solchen Fällen alle direkt geschriebenen Doppelpunkte mit einem Escapezeichen, um Verwirrung zu vermeiden (aber ein einzelner isolierter Doppelpunkt muss nicht escaped werden).</p>
+<p>Hotstrings mit Fortsetzungsbereichen verwenden nun standardmäßig den Text- statt Raw-Modus.</p>
 <h3>Persistenz</h3>
 <p>Skripte sind "persistent", wenn mindestens eine der folgenden Bedingungen zutrifft:</p>
 <ul>
