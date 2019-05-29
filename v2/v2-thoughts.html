@@ -3,23 +3,42 @@
 <head>
 <title>v2-thoughts</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">
-body {
-	padding: 0 1em !important;
-}
-pre code {
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-</style>
+<script src="/cdn-cgi/apps/head/edTxqK4-R2-xDNg7qQjp1r387bk.js"></script>
 <link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 <h1>Gedanken zu v2.0</h1>
 <h2>Sonstiges</h2>
-<p>Vielleicht sollten die Zeichenketten "On" und "Off" entfernt werden, da sie in logischen Ausdrücken nicht gerade praktisch sind, und einfach nur True und False verwenden. Dies gilt für verschiedene interne Variablen und eventuell für einige Befehle. Es kann jedoch nützlich sein, dass SetTimer einen Timer weiterhin reaktivieren kann, ohne sein Zeitintervall ändern zu müssen. Außerdem sind On und Off für Hotkey und einige andere Funktionen besser geeignet.</p>
+<h3>FIXME</h3>
+<p><code>A_ScriptHwnd</code> gibt eine Zeichenkette zurück und funktioniert daher nicht gut mit dem <code>Steuerelement</code>-Parameter von verschiedenen Befehlen.</p>
+<p>Intern: IObject::Type()-Implementierung ändern, um schnelle Typenüberprüfungen zu ermöglichen (dynamic_cast vermeiden).</p>
+<h3>On/Off/Toggle/1/0/-1</h3>
+<p>Interne Variablen (außer A_StringCaseSense) und SoundGet wurden so geändert, dass sie 1 oder 0 anstelle von "On" oder "Off" zurückgeben, da Integer mit booleschen Ausdrücken besser funktionieren. Außerdem ist die Übergabe einer Zeichenkette aufgrund der Anführungszeichen weniger komfortabel als zuvor. Es ist sinnvoll, Skripte konsistent zu halten, daher sollte in Betracht gezogen werden, "On" und "Off" vollständig zu entfernen. Es gibt jedoch Fälle, wo sie eventuell nicht entfernt werden sollten:</p>
+<ul>
+<li>On/Off gibt SetTimer die Möglichkeit, einen Timer zu reaktivieren, ohne sein Zeitintervall ändern zu müssen.</li>
+<li>Der Parameter der Hotkey-Funktion hat mehrere Verwendungsmöglichkeiten, außerdem wird die Funktion nicht nur aufgerufen, um den Hotkey zu aktivieren/deaktivieren; das heißt, dass <code>Hotkey("#a", "off")</code> besser zu sein scheint als <code>Hotkey("#a", false)</code>.</li>
+</ul>
+<p>Zurzeit ist es möglich, den Wert -1 anstelle von "Toggle" zu verwenden, um weniger schreiben zu müssen, allerdings ist dessen Mehrwert fragwürdig, da vorausgesetzt wird, mit der Konvention vertraut zu sein. Es lohnt sich scheinbar, die Zeichenkette zu behalten, demzufolge sollte in Betracht gezogen werden, den Wert -1 gar nicht erst hinzuzufügen.</p>
+<p>Das Hinzufügen von <code>On</code> und <code>Off</code> als Alternative zu <code>True</code> und <code>False</code> (die einfach nur <code>1</code> und <code>0</code> zurückgeben) könnte die Lesbarkeit verbessern und die Notwendigkeit von Zeichenketten <code>"On"</code> und <code>"Off"</code> weiter reduzieren.</p>
+<p>A_StringCaseSense könnte besser mit Zeichenketten funktionieren, da sowohl <code>"Off"</code> als auch <code>"Locale"</code> nicht-Groß-/Kleinschreibung sensitiv bedeutet; das heißt, dass, wenn <code>0</code>, <code>1</code> und <code>"Locale"</code> verwendet wird, <code>if A_StringCaseSense</code> wahr ist, wenn Groß-/Kleinschreibung-sensitiv oder nicht-Groß-/Kleinschreibung-sensitiv die Locale-Methode verwendet. <code>0</code> könnte stattdessen Groß-/Kleinschreibung-sensitiv bedeuten, aber das könnte irreführend sein.</p>
+<h3>AltGr</h3>
+<p>Wenn RAlt gedrückt oder gesendet wird und das Tastaturlayout des aktiven Fensters AltGr hat, erzeugt das System LCtrl-down und LCtrl-up. (Es erzeugt auch LCtrl-up beim Umschalten zwischen den Tastaturlayouts, wenn das vorherige Layout AltGr hatte, auch wenn das neue Layout auch AltGr hat.) Dies hat einige potenziell unerwünschte Folgen:</p>
+<ul>
+<li>Das Ändern von Tastaturlayouts löst <code>LCtrl up::</code> aus, auch wenn weder AltGr noch LCtrl gedrückt wurde oder im gedrückten Zustand war.</li>
+<li>AltGr löst <code>&lt;^RAlt::</code> statt <code>RAlt::</code> aus.</li>
+<li>AltGr löst <code>LCtrl::</code> und <code>LCtrl up::</code> aus.</li>
+<li>AltGr bewirkt, dass Hotkeys mit STRG+ALT (<code>^!</code>) ausgelöst werden, nicht aber Hotkeys mit nur ALT (<code>!</code>).</li>
+<li>Um AltGr als Modifikator zu erkennen, können Benutzer <code>&lt;^&gt;!</code> schreiben, aber nicht zwischen AltGr und LCtrl+AltGr unterscheiden.</li>
+<li><code>GetKeyState("LCtrl", "P")</code> meldet, dass LCtrl im gedrückten Zustand ist, wenn AltGr im gedrückten Zustand ist, unabhängig des wirklichen Zustands von LCtrl.</li>
+</ul>
+<p>Es ist technisch möglich, AltGr's gefälschtes LCtrl zu identifizieren, indem man die wenig bekannte Tatsache nutzt, dass <code>KBDLLHOOKSTRUCT::scanCode</code> das 0x200-Bit für die gefälschten LCtrl-Ereignisse gesetzt hat. (KeyHistory zeigt dies nicht an, da der Scancode auf 1 Byte gekürzt ist [und dann 0x100 hinzugefügt wird, wenn das 0xE0-Flag gesetzt ist].)</p>
+<p>Mit nur wenigen Codezeilen könnten die gefälschten LCtrl-Ereignisse als "ignoriert" markiert werden, was alle oben aufgeführten "Konsequenzen" vermeiden würde, außer dass es zu Inkonsistenzen zwischen "hook"-Hotkeys (die AltGr als RAlt behandeln würden) und "reg"-Hotkeys (die AltGr als STRG+ALT behandeln würden) kommen würde. AltGr würde nur noch <code>RAlt::</code> oder <code>&gt;!</code> (beide verwenden immer den Hook) und <code>&lt;^&gt;!</code> würde LCtrl+AltGr bedeuten. Wenn nur AltGr unten ist, würde GetKeyState LCtrl als physisch unten, aber logisch oben melden (was die Tatsache widerspiegelt, dass der Benutzer LCtrl physisch nicht gedrückt hat, aber das aktive Fenster STRG als unten ansieht).</p>
+<p>AutoHotkey verwendet einige "Heuristiken", um das Vorhandensein von AltGr während des Sendens zu erkennen. Dies kann vereinfacht werden, indem man sich auf das 0x200-Bit bezieht. Andererseits kann die "Heuristik" eventuell entfernt werden, um die Codegröße zu reduzieren, da die AltGr-Erkennung (zumindest für Unicode-Versionen) via Commit 92c5a76e (v1.1.27.01) verbessert wurde. Das Testen hat bereits gezeigt, dass die neue Methode für 203 Standardlayouts unter Windows 10 hundertprozentig genau ist (was besser ist als vorher), aber es müssen noch ältere Betriebssysteme getestet werden.</p>
+<h3>Gefälschtes Umschalt</h3>
+<p>AutoHotkey hat einige "Heuristiken", um zu erkennen, wenn die Up/Down-Ereignisse von Umschalt nicht physischen Ursprungs sind, sondern das Ergebnis des Drückens einer Numpad-Taste sind, während Umschalt unten ist. Diese sind derzeit (Stand 21.04.19) etwas fehlerhaft, da sie RShift absichtlich ignorieren, obwohl ein gefälschtes RShift genauso gesendet wird wie LShift, zumindest unter Windows 10.</p>
+<p>Es ist möglich, diese "Heuristiken" zu vereinfachen, indem man die wenig bekannte Tatsache nutzt, dass <code>KBDLLHOOKSTRUCT::scanCode</code> das 0x200-Bit für jedes LShift-Up- oder RShift-Up-Ereignis gesetzt hat, das durch Drücken von Numpad erzeugt wird, zumindest unter Windows 10.</p>
+<h3>Menütastenmaskierung</h3>
+<p>Die Menütasten (Alt/Win) werden derzeit "maskiert", wenn ein Hotkey ausgelöst wird, während eine Menütaste logisch unten und ( <em>physisch unten</em> ist oder der Hotkey verlangt, dass dieser Modifikator unten ist ). Die <em>Physisch-Unten</em>-Bedingung wird als "abwärtskompatibel" eingestuft und ist eventuell unnötig. Im Zweifelsfall ist es wahrscheinlich besser, keine Maskierung vorzunehmen, da das Skript die Menütaste leicht maskieren kann (indem es irgendetwas sendet), aber unerwünschte Maskierungen nicht leicht verhindern kann.</p>
 <h2>Liste</h2>
 <h3>Befehle mit Unterbefehlen</h3>
 <p>Einige der neuen Funktionen, die Unterbefehle ersetzen, geben bei Erfolg eine 1 und bei Misserfolg eine 0 zurück (neben dem Setzen von ErrorLevel), während andere nur ErrorLevel setzen. Dies sollte korrigiert werden.</p>
@@ -134,63 +153,8 @@ pre code {
 <p>Hier einige (nicht sehr relevante) Diskussionen: https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847.</p>
 <p><code>between</code> wird vermutlich überhaupt nicht implementiert. Eine Alternative bestünde darin, Verkettungen von Operatoren wie bei Python und Perl 6 zu erlauben, wo <code>x &lt; y &lt; z</code> das gleiche wie <code>(x &lt; y) and (y &lt; z)</code> wäre. Das würde jedoch bedeuten, dass Klammern die Bedeutung von <code>&lt;</code> verfremden würden (was nicht richtig zu sein scheint), z. B. bei <code>x &lt; y &lt; z</code> vs <code>(x &lt; y) &lt; z</code>, weil Letzteres das Ergebnis von <code>x &lt; y</code> (true oder false) mit z vergleichen würde. Einige Benutzer haben <code>x &lt; y &lt; z</code> bereits ausprobiert und sich über das Ergebnis gewundert, daher sollten, sofern dieses Feature nicht implementiert wird, verkettete Operatoren erkannt und eine Warn-/Fehlermeldung angezeigt werden. (Aber wenn die Erkennung von verketteten Operatoren zu kompliziert ist, könnte das Kosten-Nutzen-Verhältnis zugunsten der Implementierung dieser Verkettung ausfallen.)</p>
 <h2>Objekte</h2>
-<h3>Syntax bei Eigenschaften vs Methoden</h3>
-<p>Interne Objekte und benutzerdefinierte Objekte haben eine inkonsistente Syntax bezüglich ihrer Eigenschaften. Dies sollte soweit wie möglich korrigiert werden.</p>
-<p>Wie es jetzt funktioniert:</p>
-<ul>
-<li> 
-<p>Alle Objekte erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y</code> und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, außer wenn ein Parameter/Index erforderlich ist.</p>
-</li>
-<li>
-<p>Bei benutzerdefinierten Objekten gibt <code>x.y</code> in der Regel einen Methodenverweis zurück, wenn y eine Methode ist.</p>
-</li>
-<li>
-<p>interne Objekte unterstützen nicht das Abrufen eines Methodenverweises. In der Regel gibt <code>x.y</code> "not handled" zurück, wenn y eine Methode, aber keine Eigenschaft ist.</p>
-</li>
-<li>
-<p>Bei allen Objekten ist <code>x.y(...) := z</code> äquivalent zu <code>x.y[...] := z</code>. Diese leichte "Verunreinigung der Sprache" kommt Verfassern von Skripten entgegen, die von VBScript-Beispielen lernen oder sie portieren wollen, wo <code>x.y(...)</code> eine Eigenschaft statt eine Methode sein kann; und bietet Ausgewogenheit für COM-Objekte (siehe unten).</p>
-</li>
-<li>
-<p><strong>COM-Objekte</strong> erlauben <code>x.y(...)</code> und <code>x.y[...]</code> eine Methode oder Eigenschaft mit Parametern aufzurufen (und lassen dabei das Objekt entscheiden, welches aufgerufen werden soll, wenn beides möglich ist), trotz der Tatsache, dass <code>x.y()</code> (ohne Parameter) zuerst versuchen wird eine Methode aufzurufen. Das liegt zum einen daran, dass einige allgemeingültige Elemente je nach Objekt manchmal Methoden oder Eigenschaften sind, und zum anderen, dass einige COM-basierende Sprachen nicht zwischen Methoden und Eigenschaften unterscheiden (z. B. könnte <code>x.item(i)</code> in VB sowohl eine Eigenschaft als auch eine Methode sein). C#'s dynamische Keyword verhält sich ähnlich, und erlaubt <code>x.y(z)</code> ein Eigenschaft-Indexer zu sein, auch wenn ein reines .NET-Objekt <code>x.y[z]</code> erfordern würde.</p>
-<p>Unterm Strich ist es wahrscheinlich am besten, COM-Objekte so zu lassen wie sie sind.</p>
-</li>
-<li>
-<p>Ein <strong>Wert</strong>, der <code>x.y</code> zugewiesen wurde, kann mit <code>x.y</code> abgerufen werden, aber <code>x.y()</code> wird den Wert <em>aufrufen</em> (oder eine Ausnahme auslösen, wenn es nicht aufrufbar ist). Wenn der Wert ein Objekt ist, dann ist <code>x.y[z]</code> das gleiche wie <code>(x.y)[z]</code>. (Beide lösen einen Fehler in v2 aus, wenn der Wert kein Objekt ist, aber die Fehlermeldung ist bei beiden unterschiedlich.)</p>
-</li>
-<li>
-<p><strong>Eigenschaften</strong>, die innerhalb einer Klasse definiert wurden, erlauben <strong>Get</strong> (Wert abrufen) mit <code>x.y[...]</code> und <code>x.y(...)</code>, und <strong>Set</strong> (Wert setzen) mit <code>x.y := z</code>, <code>x.y[] := z</code> und <code>x.y() := z</code>.</p>
-</li>
-<li>
-<p><strong>File</strong>-Objekte haben keine Eigenschaften, die Parameter akzeptieren. <code>x.y[z]</code> löst eine Ausnahme aus. <code>x.y()</code> ist für Eigenschaften erlaubt und für Methoden erforderlich. <code>x.y(z)</code> ist äquivalent zu <code>x.y := z</code>, wenn y eine Eigenschaft ist. Wenn die Eigenschaft schreibgeschützt ist, wird z ignoriert (siehe unten). Überschüssige Parameter werden ignoriert, konsistent mit Methodenaufrufen und dynamischen Funktionsaufrufen.</p>
-</li>
-<li>
-<p><strong>Func</strong>-Objekte geben bei <code>x.y[z]</code> und <code>x.y := z</code>, wo y eine gültige Eigenschaft ist, "not handled" zurück, da alle Eigenschaften schreibgeschützt sind und keine Parameter akzeptieren.</p>
-</li>
-<li>
-<p><strong>RegExMatch</strong>-Objekte geben bei <strong>Set</strong> (Wert setzen) "not handled" zurück, und wenn die Parameteranzahl (einschließlich <code>.identifier</code>) &lt; 1 oder &gt; 2 ist. <code>x.y()</code> ist erlaubt und ist zum Unterscheiden nützlich (wenn der Name eines Teilmusters in Konflikt mit dem Namen einer Eigenschaft steht). <code>x.y[z]</code> ist ebenfalls zulässig.</p>
-</li>
-</ul>
-<p>Was wahrscheinlich geändert werden sollte:</p>
-<ul>
-<li>
-<p>Nicht die COM-Objekte. Sie können bleiben wie sie sind, selbst wenn sie inkonsistent mit anderen Objekten sind, da wir keine Kontrolle darüber haben, wie die eigentlichen COM-Objekte implementiert sind.</p>
-</li>
-<li>
-<p>Die automatische Übersetzung von <code>x.y(...) := z</code> zu <code>x.y[...] := z</code> sollte entfernt und mit einer Fehlermeldung ersetzt werden, dass der Skript-Verfasser doch bitte <code>[]</code> benutzen sollte. (Bevor die Ausnahme hinzugefügt wurde, versuchte <code>x.y(i) := z</code> einen Methodenaufruf gefolgt von einer ungültigen Zuweisung, die leise fehlschlug.)</p>
-</li>
-<li>
-<p>Eigenschaften sollten zusätzlich keine Methoden sein (wegen der Inkonsistenz mit einfachen Key-Value-Paaren), mit der möglichen Ausnahme von RegExMatch. Wenn ein Teilmuster namens "Pos" vorhanden ist, ist es bequemer <code>m.Pos</code> und <code>m.Pos()</code> zu haben, statt <code>m.Value["Pos"]</code> und <code>m.Pos</code>. (Aktuell erlauben klassendefinierte Eigenschaften und File(v1)-Objekte runde Klammern.)</p>
-</li>
-<li>
-<p>Der Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen, sollte einen Fehler wie "Invalid usage" oder "Read-only property" auslösen, <strong>nicht</strong> "Unknown property". (Aktuell ignorieren File(v1)-Objekte das; Func und RegExMatch-Objekte geben "Unknown property" zurück.)</p>
-</li>
-<li>
-<p>Die Übergabe von zu wenigen oder zu vielen Parametern sollte Fehler wie "Invalid usage" oder "Too many/few parameters" anzeigen, auf keinen Fall "Unknown property or method". (Aktuell geben Func(v1) und RegExMatch manchmal "Unknown" zurück.)</p>
-</li>
-<li>
-<p>Bei einem angegebenen internen Typ sollte eine Methode entweder immer existieren oder immer nicht existieren. (Aktuell existiert Func.IsByRef() nur, wenn die Funktion benutzerdefiniert ist. Eine Lösung wäre es, eine Hierarchie von Funktionsklassen zu definieren, wo z. B. BenutzerdefinierteFunc eine IsByRef-Methode hat. Eine andere Lösung wäre es, die Ausnahme "not supported" auszulösen, da einige interne Funktionen Variablenverweise akzeptieren, aber die Parameter nicht in einer Weise markiert sind, die IsByRef() erkennen kann.)</p>
-</li>
-</ul>
+<p>Es sind signifikante Änderungen für das Objektmodell geplant. Siehe <a href="https://www.autohotkey.com/boards/viewtopic.php?f=37&amp;t=57591">Objects</a> (Forum-Thread).</p>
+<h3>Interne Objekte</h3>
 <p>Inkonsistente Eigenschaften, die geändert werden müssen:</p>
 <ul>
 <li><code>File.Length</code>, <code>RegExMatch.Len</code> / <code>RegExMatch.Len()</code>, <code>Object.Length()</code></li>
@@ -214,17 +178,11 @@ pre code {
 <h3>Sonstiges</h3>
 <p>Objekte unterstützen nun binäre Nullen in Zeichenkettenwerten, durch Zwischenspeichern der Zeichenkettenlänge. Allerdings werden absofort nur Daten bis zur Zeichenkettenlänge beim Klonen des Objekts beibehalten (konsistent mit dem Abrufen des Wertes vom Objekt als Zeichenkette, um z. B. ein anderes Objekt zuzuweisen). Es sollte irgendwie die Möglichkeit geben, die Datenlänge zu setzen, z. B. <code>Object.SetLength(Key, Length)</code>. Aus Übersichtsgründen (und um Verwirrung mit <code>Object.Length</code> zu vermeiden) wäre es vielleicht besser, so etwas wie <code>SetStrLen</code> und <code>SetByteLen</code> zu haben. Beachte zudem, dass ähnliche Funktionen für Variablen notwendig wären, um Binärdaten besser unterstützen zu können.</p>
 <p><code>new MeineKlasse[a,b,c]</code> könnte als eine sehr komfortable Möglichkeit reserviert werden, um einen spezialisierten Array-/Auflistungstyp zu initialisieren (<code>new MeineKlasse{a:b}</code> ist bereits als Syntaxfehler "reserviert"). Aktuell könnte <code>MeinKlasse[a,b,c]</code> eine Klasse zum Instanziieren sein, aber sehr wahrscheinlich wird sie nur selten benutzt (wenn überhaupt), und ist inkonsistent mit der v1-Richtlinie bzgl. der Anforderung eines Klassennamens nach dem <code>new</code>-Operator. v1 behandelt <code>new x[y](z)</code> als <code>new c1</code>, wo c1 gleich <code>x[y](z)</code> ist, während v2-a076 diese Anweisung als <code>new c2(z)</code> behandelt, wo c2 gleich <code>x[y]</code> ist.</p>
-<p>SafeArray-Objekte sollten eine <code>.Length()</code>-Methode erhalten, um konsistent mit reinen Objekten zu sein.</p>
+<p>SafeArray-Objekte sollten eine <code>.Length()</code>-Methode erhalten, um konsistent mit reinen Objekten zu sein. Vielleicht doch nicht, da die Notwendigkeit, <code>.MaxIndex()</code> zu verwenden, als Erinnerung dienen kann, dass SafeArrays oft nullbasiert sind.</p>
 <p>ComObjConnect()-Ereignisse dereferenzieren ByRef-VARIANTs derzeit automatisch (da einige Sprachen so etwas immer dann übergeben, wenn ein Skript eine Variable übergibt), wodurch die Funktion in einigen Fällen daran gehindert wird, einen Wert zurückzugeben. Entweder könnten wir a) ByRef-Wrapper übergeben, die Zuweisungen wie <code>param[] := value</code> erlauben, oder b) eine Variable automatisch übergeben und das VARIANT nach Funktionsaufruf aktualisieren. Andere (also Nicht-VARIANT) ByRef-Kombinationen werden nicht dereferenziert, und <code>param[] := value</code> wird seit v1.1.17 bereits unterstützt.</p>
 <h2>Klassen</h2>
-<p><code>base</code> erlauben, als Unterklasse definiert zu werden (und tatsächlich die base-Klasse zu setzen), so dass Meta-Funktionen und Eigenschaften vor der Klasse selbst einfach definiert werden können, innerhalb der Klasse.</p>
-<p>Das Wort <code>base</code> zu einem reservierten Wort in Klassenmethoden machen. Derzeit erhält es eine besondere Bedeutung, wenn danach <code>.</code> oder <code>[</code> erfolgt, außer wenn in die Variable <code>base</code> ein Wert gespeichert wurde. Das Wort zu reservieren vereinfacht die Sprache und könnte die Performance verbessern.</p>
-<p>Wenn <code>base</code> überall reserviert wäre, könnte man es benutzen, um eine überschriebene interne Funktion aufzurufen (z. B. <code>base.WinMove(x, y)</code> in einer Neudefinition von WinMove).</p>
-<h3>Ideen</h3>
-<p>Spontane Ideen, die nicht unbedingt relevant für v2.0 sind.</p>
-<p>Dem Skript erlauben, die Klassen <code>String</code> und <code>Number</code> mit Methoden und Eigenschaften für alle Zeichenketten und Zahlen zu definieren. Derzeit erfolgt dies durch Setzen von Eigenschaften des <code>"".base</code>-Objekts, aber dies wirkt sich auf alle Arten von Werten aus, außer Objekte.</p>
-<p>Dem Skript erlauben, globale Methoden und Eigenschaften für alle Objekte zu definieren, vielleicht via <code>Object</code>-base-Klasse. Standardmäßig würde dieser Klasse interne Methoden wie Insert enthalten, so dass sie auf gleiche Weise wie benutzerdefinierte Methoden neu definiert können. Zum Beispiel könnte eine benutzerdefinierte Insert-Methode <code>base.Insert(value)</code> statt <code>ObjInsert(this, value)</code> aufrufen.</p>
-<p>Beide oben würden irgendeine Möglichkeit erfordern, an eine vorhandene Klasse angefügt zu werden, was auch für benutzerdefinierte Klassen nützlich sein könnte. Dies könnte man möglich machen, indem man einfach <code>class Klassenname {}</code> mehrmals wiederholt, oder mit einem zusätzlichen Schlüsselwort, um Missverständnisse vorzubeugen, wie z. B. <code>class Klassenname extended {}</code>. Das Schlüsselwort könnte implizieren, dass die initialen und erweiterten Definitionen in genau dieser Reihenfolge platziert werden müssen (anstatt zwei ähnliche Definitionen zu haben, die in beliebiger Reihenfolge gesetzt werden können), was nicht ideal wäre. Eine andere Option wäre es, <code>Klassenname.Methodenname()</code>-Deklarationen außerhalb von Klassen zu erlauben, wodurch vorhandene Klassen erweitert werden können (und mehr Flexibilität darin zu geben, den Code zu organisieren).</p>
+<p>Das Wort <code>base</code> zu einem reservierten Wort in Klassenmethoden machen. Derzeit erhält es eine besondere Bedeutung, wenn danach <code>.</code> oder <code>[</code> erfolgt, außer wenn in die Variable <code>base</code> ein Wert gespeichert wurde. Das Wort zu reservieren vereinfacht die Sprache und könnte die Performance verbessern. Andererseits wäre es vielleicht einfacher, <code>super.method()</code>/<code>super.prop[idx]</code> dafür zu verwenden und <code>this.base</code> als Eigenschaft zu belassen, die das Base-Objekt dieses Objekts zurückgibt.</p>
+
 </body>
-</html>
+</html><!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
 

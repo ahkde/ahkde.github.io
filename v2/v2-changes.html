@@ -3,17 +3,7 @@
 <head>
 <title>v2-changes</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">
-body {
-	padding: 0 1em !important;
-}
-pre code {
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-</style>
+<script src="/cdn-cgi/apps/head/edTxqK4-R2-xDNg7qQjp1r387bk.js"></script>
 <link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
@@ -57,7 +47,10 @@ pre code {
 <p>Das Ergebnis eines Mehrfachanweisungsausdrucks wie <code>x(), y()</code> ist der letzte (ganz rechts befindliche) Teilausdruck, anstatt der erste (ganz links). In v1 als auch v2 werden Teilausdrücke von links nach rechts ausgewertet.</p>
 <p>Gleichheitszeichen nach einem Komma sind nicht länger Zuweisungen: <code>y=z</code> in <code>x:=y, y=z</code> wäre nicht eine Zuweisung, sondern ein wirkungsloser Vergleich.</p>
 <p><code>:= += -= *= /= ++ --</code> haben konsistentes Verhalten, egal ob sie einzeln oder in Kombination mit anderen Operatoren, wie z. B. <code>x := y, y += 2</code>, benutzt werden. Zum Beispiel würde <code>x := %y%()</code> nicht länger eine leere Zeichenkette in x speichern, wenn der dynamische Aufruf fehlschlägt. (Dieses Beispiel ist vermutlich nicht mehr relevant, da dynamische Aufrufe jetzt Ausnahmefehler auslösen.)</p>
-<p>Die wissenschaftliche Schreibweise kann ohne Dezimalpunkt erfolgen (aber erzeugt immer eine Gleitkommazahl).</p>
+<p><code>!=</code> ist nun wie <code>=</code> immer nicht-Groß-/Kleinschreibung-sensitiv. Außerdem wurde <code>!==</code> als Counterpart zu <code>==</code> hinzugefügt.</p>
+<p><code>&lt;&gt;</code> wurde entfernt.</p>
+<p>Die wissenschaftliche Schreibweise kann ohne Dezimalpunkt erfolgen (aber erzeugt immer eine Gleitkommazahl). Die wissenschaftliche Schreibweise wird auch unterstützt, wenn numerische Zeichenketten in Integer-Zahlen umgewandelt werden (z. B. wird "1e3" als 1000 statt als 1 interpretiert).</p>
+<p>Doppeldereferenzierungen und dynamische Funktionsaufrufe erlauben nun fast jeden Ausdruck (nicht nur Variablen) als Quelle für den Variablen-/Funktionsnamen. Zum Beispiel sind <code>Fn%n+1%()</code> und <code>%(%triple%)%</code> gültig.</p>
 <p>Die Ausdrücke <code>funkName[""]()</code> und <code>funkName.()</code> rufen nicht länger eine Funktion via Name auf. Das Weglassen des Methodennamens wie in <code>.()</code> verursacht nun eine Ladezeit-Fehlermeldung. Stattdessen sollte man <code>%funkName%()</code> verwenden.</p>
 <p>Leere Zuweisungen wie <code>var :=</code> lösen einen Fehler aus während der Ladezeit. In v1 war diese Schreibweise ein Ersatz für <code>var := ""</code>, das aber in Kombination mit einem anderen Ausdruck still und heimlich fehlschlug - zum Beispiel: <code>x :=, y :=</code>.</p>
 <p>Direkt geschriebene Zeichenketten, gefolgt von einem mehrdeutigen einstelligen/zweistelligen Operator, lösen einen Fehler aus während der Ladezeit. Zum Beispiel würde <code>"x" &amp;y</code> das <code>"x"</code> mit der Adresse von <code>y</code> automatisch verketten, aber technisch gesehen wäre diese eine ungültige Bitweises-Und-Operation.</p>
@@ -79,7 +72,12 @@ pre code {
 <p>Der <code>*</code>deref-Operator wurde entfernt. Benutze stattdessen NumGet.</p>
 <p>Der <code>~</code>-Operator (bitweises NICHT) behandelt seinen Eingabewert nun immer als 64-Bit-Integer; er behandelt Werte zwischen 0 und 4294967295 nicht mehr als vorzeichenlose 32-Bit-Integer.</p>
 <p>Fat-Arrow-Funktionen hinzugefügt. Der Ausdruck <code>Fn(Parameter) =&gt; Ausdruck</code> definiert eine Funktion namens <em>Fn</em> (das weggelassen werden kann) und gibt ein Func- oder Closure-Objekt zurück. Wenn dieser Ausdruck aufgerufen wird, wird die Funktion <em>Ausdruck</em> auswerten und das Ergebnis zurückgeben. Wenn dieser Ausdruck in einer anderen Funktion ist, kann <em>Ausdruck</em> auf die Variablen der äußeren Funktion zugreifen (dies kann auch mit einer normalen Funktionsdefinition erfolgen).</p>
+<p>Direkt geschriebene Zahlen werden nun auf der linken Seite des Objektelementzugriffs (Punkt) vollständig unterstützt. <code>0.1</code> beispielsweise ist eine Zahl, aber <code>0.min</code> und <code>0.1.min</code> greifen auf die <em>min</em>-Eigenschaft zu, die von den Standard-Meta-Funktionen behandelt werden kann. <code>1..2</code> oder <code>1.0.2</code> ist die Zahl 1.0, gefolgt von der Eigenschaft 2. Dies könnte z. B. für Maßeinheiten, direkt geschriebenen Versionsnummern oder Zahlenbereichen verwendet werden.</p>
 <h3>Objekte</h3>
+<p><strong>Hinweis</strong>: Es sind signifikante Änderungen für das Objektmodell geplant, aber noch nicht umgesetzt. Siehe <a href="https://www.autohotkey.com/boards/viewtopic.php?f=37&amp;t=57591">Objects</a> (Forum-Thread). Die folgenden Änderungen wurden bereits in der aktuellen Alpha-Version umgesetzt.</p>
+<p>Der Zugriff auf Eigenschaften via <code>.</code> und der Zugriff auf Daten via <code>[]</code> können nun getrennt voneinander behandelt werden. <code>dictionary["Count"]</code> beispielsweise kann die Definition von "Count" zurückgeben, während <code>dictionary.Count</code> die Anzahl der darin enthaltenen Wörter zurückgibt. Benutzerdefinierte Objekte können dies durch Definieren einer indexierten <code>__Item[]</code>-Eigenschaft nutzen.</p>
+<p>Wenn keine <code>__Item</code>-Eigenschaft definiert ist, werden <code>.</code> und <code>[]</code> nicht getrennt behandelt. Eine zukünftige Version wird jedoch dedizierte <code>Array</code>- und <code>Map</code>-Typen implementieren und diese Fähigkeiten aus dem generischen Objekt entfernen. Vermeiden Sie es, mit <code>[]</code> auf Eigenschaften zuzugreifen.</p>
+<p>Wenn der Name einer Eigenschaft oder Methode nicht im Voraus bekannt ist, kann der Zugriff auf diese via Prozentzeichen erfolgen. <code>obj.%varname%()</code> beispielsweise ist das v2-Äquivalent zu <code>obj[varname]()</code>. Der Zugriff mit eckigen Klammern (<code>[]</code>) ist in einer zukünftigen Version für Daten (z. B. Array-Elemente) vorgesehen. Aktuell können diese noch verwendet werden, um auf Eigenschaften und Methoden zuzugreifen, es sei denn, die <code>__Item</code>-Eigenschaft wurde definiert.</p>
 <p>Keys werden in einigen Fällen anders abgespeichert:</p>
 <ul>
 <li>
@@ -113,7 +111,14 @@ pre code {
 <p>Objekte, die innerhalb eines Ausdrucks erstellt oder von einer Funktion zurückgegeben werden, werden nun zurückgehalten, bis die Ausdrucksauswertung abgeschlossen ist, und dann freigegeben. Dieses Verhalten ermöglicht eine geringfügig verbesserte Performance und eine Speicherverwaltung innerhalb eines Ausdrucks mit temporären Objekten, ohne befürchten zu müssen, dass Objekte vorzeitig freigegeben werden.</p>
 <p>Objekte können Zeichenkettenwerte (aber nicht Keys) mit binären Nullen enthalten. Beim Klonen eines Objekts werden Binärdaten in Zeichenketten beibehalten, aber Daten, die die Datenlänge überschritten haben, gehen verloren (FIXME: biete eine Möglichkeit zum Setzen der Länge an).</p>
 <p>Eigenschaften, die innerhalb einer Klasse definiert sind, werden <em>Call</em> nicht mehr beanspruchen (indem sie die Eigenschaft getter aufrufen). Das heißt, dass <code>obj.MyProperty()</code> eine Ausnahme auslöst, sofern es keine Methode mit diesem Namen gibt (sie kann in einer Basisklasse der Klasse,die die Eigenschaft definiert hat, definiert werden).</p>
-<p><code>x.y(z) := v</code> führt nun zu einem Syntaxfehler. Vorher war es äquivalent zu <code>x.y[z] := v</code>. <code>x.y(z)</code> (ein offensichtlicher Methodenaufruf) könnte oder könnte nicht äquivalent zu <code>x.y[z]</code> sein, wenn <code>x</code> ein COM-Objekt ist (aufgrund von Einschränkungen der COM-Schnittstelle), aber generell gesehen sind das zwei verschiedene Operationen.</p>
+<p><code>x.y(z) := v</code> führt nun zu einem Syntaxfehler. Vorher war es äquivalent zu <code>x.y[z] := v</code>. Grundsätzlich sind <code>x.y(z)</code> (Methodenaufruf) und <code>x.y[z]</code> (parametrisierte Eigenschaft) zwei verschiedene Operationen, allerdings werden diese als gleichwertig angesehen, wenn <code>x</code> ein COM-Objekt ist (aufgrund von Einschränkungen der COM-Schnittstelle).</p>
+<p>Interne Objekte unterscheiden nun zwischen Eigenschaften und Methoden. Sie verlangen die richtige Syntax und sind untereinander konsistent.</p>
+<ul>
+<li>Eigenschaften erlauben keine runden Klammern; Methoden erfordern runde Klammern. <code>file.Length(newLength)</code> beispielsweise löst nun "Unknown method" aus, weil Length eine Eigenschaft ist.</li>
+<li>RegExMatchObject hat nur Methoden, außer <code>m[p]</code>, das die Kurzschreibweise für <code>m.Value(p)</code> ist (oder <code>m.p</code>, aber in diesem Fall muss <code>p</code> direkt geschrieben sein). <code>m.Value</code>, <code>m.Len</code> und so weiter sind ungültig (ohne runde Klammern), es sei denn, es gibt Teilausdrücke mit solchen Namen.</li>
+<li>Es wird die Ausnahme "Invalid usage" ausgelöst, wenn <code>o[]</code> (leere eckige Klammern) verwendet wird oder wenn versucht wird, eine schreibgeschützte Eigenschaft zu ändern.</li>
+<li>Es wird eine Ausnahme ausgelöst, wenn zu wenige oder zu viele Parameter übergeben werden, sowohl für Methoden als auch für Eigenschaften.</li>
+</ul>
 <h3>Verschachtelte Funktionen</h3>
 <p>Eine Funktion kann in einer anderen Funktion definiert werden. Eine verschachtelte Funktion (sofern nicht Force-Local) kann auf lokale und statische Variablen der äußeren Funktion zugreifen.</p>
 <p>Übergibt man den Namen einer verschachtelten Funktion an <code>Func()</code> (oder einer anderen internen Funktion wie SetTimer), wird eventuell ein <code>Closure</code>-Objekt erzeugt, das die verschachtelte Funktion an den aktuellen Satz lokaler Variablen der äußeren Funktion bindet. Es hat die gleichen Eigenschaften wie ein <code>Func</code>-Objekt.</p>
@@ -147,6 +152,7 @@ pre code {
 <p>In v1 kann eine Variable sowohl eine Zeichenkette als auch eine zwischengespeicherte Binärzahl enthalten, die immer dann aktualisiert wird, wenn die Variable als Zahl verwendet wird. Da diese zwischengespeicherten Binärzahl das einzige Mittel zur Erkennung des Werttyps ist, wird das Caching, welches intern via Ausdrücke wie <code>var+1</code> oder <code>abs(var)</code> erfolgt, effektiv den "Typ" von <code>Var</code> ändern. v2 deaktiviert dieses Caching, so dass <code>str := "123"</code> immer eine Zeichenkette und <code>int := 123</code> immer ein Integer sein kann. Infolgedessen muss <code>str</code> bei Bedarf jedes Mal in eine Zahl umgewandelt werden (statt nur beim ersten Mal).</p>
 <p>Die internen Variablen <code>True</code>, <code>False</code>, <code>A_PtrSize</code>, <code>A_IsUnicode</code>, <code>A_Index</code> und <code>A_EventInfo</code> geben immer einen reinen Integer statt Zeichenketten zurück. In v1 geben sie manchmal Zeichenketten zurück, aufgrund von Optimierungen, die in v2 ersetzt wurden.</p>
 <p>Alle direkt geschriebene Zahlen werden während der Ladezeit in reine Binärzahlen umgewandelt und deren Repräsentierung als Zeichenketten verworfen. Zum Beispiel wäre <code>MsgBox 0x1</code> das gleiche wie <code>MsgBox 1</code>, oder <code>MsgBox 1.0000</code> das gleiche wie <code>MsgBox 1.0</code> (weil die interne Gleitkommaformatierung geändert wurde). Eine Zahl, die man in eine Variable speichert oder von einer UDF zurückgeben lässt, wird ihren reinen numerischen Zustand beibehalten.</p>
+<p>Die standardmäßig verwendete Formatangabe für Floating-Point-Zahlen ist nun <code>.17g</code> (vorher war es <code>0.6f</code>), was in vielen Fällen kompakter und genauer ist. Dieser Standard kann nicht geändert werden, aber mit <code>Format</code> können andere Formatierungen erzielt werden.</p>
 <p>Direkt geschriebene Zeichenketten in Anführungszeichen und Zeichenketten, die mit mehreren literalen Zeichenketten in Anführungszeichen gebildet werden, werden nicht länger bedingungslos als nicht-numerisch angesehen. Stattdessen werden sie wie Zeichenketten behandelt, die in Variablen gespeichert oder von Funktionen zurückgegeben worden sind. Dies hat folgende Auswirkungen:</p>
 <ul>
 <li>Direkt geschriebene Anweisungen in Anführungszeichen wie <code>"0"</code> werden als False angesehen.</li>
@@ -246,10 +252,18 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <h3>Geänderte Befehle/Funktionen</h3>
 <p><code>Chr(0)</code> gibt eine Zeichenkette mit einer Länge von 1 zurück, weil eine binäre Null enthalten ist. Diese Änderung beruht auf der verbesserten Unterstützung für binäre Nullen in Zeichenketten.</p>
 <p>ClipWait gibt nun 0 zurück, wenn die Wartezeit abgelaufen ist, ansonsten 1. ErrorLevel wird nicht gesetzt.</p>
-<p><code>ComObject(pdsp)</code>, <code>ComObject(9, pdsp)</code> und <code>ComObject(13, pdsp)</code> rufen standardmäßig nicht mehr AddRef auf; sie nehmen den Pointer standardmäßig "in Besitz". Viele v1-Skripte, die <code>ComObjEnwrap(pdsp)</code> benutzen (die auf den ersten Seiten von Google zu finden sind), benutzten es falsch; genauer gesagt, sie gaben ihre eigene Kopie des Pointers nicht frei. In v2 muss das Skript <code>ObjAddRef(pdsp)</code> vor <code>ComObject(pdsp)</code> aufrufen, wenn es den Verweis nicht "besitzt" (weil der Pointer ansonsten automatisch freigegeben werden würde, wenn entweder das Wrapper-Objekt freigegeben wird oder direkt als Nebeneffekt vom Abfragen des IDispatch innerhalb eines ComObject()). Der <em>Flags</em>-Parameter hat absofort nur Einfluss auf SafeArrays.</p>
-<p>ControlGetFocus setzt ErrorLevel nun auf 0 statt auf 1, wenn es erfolgreich feststellen konnte, dass das Fenster kein fokussiertes Steuerelement hat.</p>
+<p><code>ComObject(pdsp)</code>, <code>ComObject(9, pdsp)</code> und <code>ComObject(13, pdsp)</code> rufen standardmäßig nicht mehr AddRef auf; sie nehmen den Pointer standardmäßig "in Besitz". Viele v1-Skripte, die <code>ComObjEnwrap(pdsp)</code> benutzen (die auf den ersten Seiten von Google zu finden sind), benutzten es falsch; genauer gesagt, sie gaben ihre eigene Kopie des Pointers nicht frei. In v2 muss das Skript <code>ObjAddRef(pdsp)</code> vor <code>ComObject(pdsp)</code> aufrufen, wenn es den Verweis nicht "besitzt" (weil der Pointer ansonsten automatisch freigegeben werden würde, wenn entweder das Wrapper-Objekt freigegeben wird oder direkt als Nebeneffekt vom Abfragen des IDispatch innerhalb eines ComObject()). Der <em>Flags</em>-Parameter hat nur noch Einfluss auf SafeArrays.</p>
+<p>Control: Es wurden mehrere Änderungen am <em>Steuerelement</em>-Parameter durchgeführt, der von den Control-Funktionen, SendMessage und PostMessage verwendet wird:</p>
+<ul>
+<li>Dieser akzeptiert nun einen HWND (muss ein reiner Integer sein), oder ein Objekt mit einer <code>Hwnd</code>-Eigenschaft wie z. B. ein GuiControl-Objekt. Der HWND kann ein Steuerelement oder ein nicht-untergeordnetes Fenster identifizieren, obwohl letzteres in der Regel nur für einige wenige Funktionen sinnvoll ist (siehe unten).</li>
+<li>Dieser Parameter ist nicht mehr optional, außer bei Funktionen, die mit einem nicht-untergeordneten Fenster agieren können (ControlSend[Text], ControlClick, SendMessage, PostMessage) oder wenn andere optionale Parameter davor sind (ControlGetList, ControlGetPos, ControlMove).</li>
+<li>Fehlt dieser Parameter, wird stattdessen das Zielfenster verwendet. Diese Änderung entspricht dem vorherigen Verhalten von SendMessage/PostMessage und ersetzt den von ControlSend verwendeten speziellen Wert <code>ahk_parent</code>.</li>
+<li>Leere Werte sind ungültig. Standardmäßig agieren solche Funktionen nie mit dem obersten Steuerelement des Zielfensters.</li>
+</ul>
+<p>ControlGetFocus gibt nun den HWND statt ClassNN des  Steuerelements zurück, und setzt ErrorLevel auf 0 statt 1, wenn es erfolgreich feststellen konnte, dass das Fenster kein fokussiertes Steuerelement hat.</p>
 <p>ControlMove, ControlGetPos und ControlClick verwenden nun Clientkoordinaten (wie GuiControl) statt Fensterkoordinaten. Clientkoordinaten sind relativ zur oberen linken Ecke des Clientbereichs (das ist der Bereich ohne Titelleiste und Rahmen). (Steuerelemente werden nur im Clientbereich gerendert.)</p>
 <p>Die Parameterreihenfolge von ControlMove, ControlSend und ControlSetText ist nun im Einklang mit anderen Control-Funktionen; das heißt, dass <em><strong>Steuerelement</strong>, Fenstertitel, Fenstertext, Titelausnahme, Textausnahme</em> immer zusammen sind (am Ende der Parameterliste), um das Einprägen der Parameter zu fördern.</p>
+<p>DllCall: Wenn ein Typ-Parameter eine Variable ist, wird immer der Inhalt dieser Variable verwendet, niemals ihr Name. Das heißt, dass Typennamen ohne Anführungszeichen nicht mehr unterstützt werden - die Namen der Typen müssen in Anführungszeichen gesetzt werden.</p>
 <p>DllCall: AStr kann nur noch ein Eingabeparameter sein. Da der Puffer immer nur so groß wie die Eingabezeichenkette sein kann, war AStr nie nützlich für Ausgabeparameter. Dies gilt für WStr statt AStr, wenn das Skript in ANSI kompiliert wurde (aber v2 ist aktuell nur Unicode).</p>
 <p>FileAppend nutzt standardmäßig End-of-Line-Umwandlungen, um konsistent mit FileRead und FileOpen zu sein. FileAppend und FileRead haben jeweils einen separaten <em>Optionen</em>-Parameter, der die Optionspräfixe ersetzt und optional einen Kodierungsnamen enthalten kann (um FileRead's <code>*Pnnn</code>-Option abzulösen). FileAppend, FileRead und FileOpen benutzen <code>"`n"</code>, um End-of-Line-Umwandlungen zu aktivieren. FileAppend und FileRead unterstützen die Option <code>"RAW"</code>, um die Zeichensatzkonvertierung zu deaktivieren (Lesen/Schreiben von binären Daten). Diese Option ersetzt <code>*c</code> (siehe ClipboardAll).</p>
 <p>File.RawRead und File.RawWrite akzeptieren jetzt eine Variable, die eine Adresse enthält (als reiner Integer); früher wurde die zwischengespeicherte numerische Zeichenkette der Variable benutzt oder überschrieben, was zu inkonsistenten Ergebnissen führte.</p>
@@ -270,6 +284,7 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p><code>Hotkey "If"</code> erkennt nun Ausdrücke, die die Operatoren <code>and</code> oder <code>or</code> benutzen. In v1 hat das nicht funktioniert, weil solche Operatoren während der Ladezeit mit <code>&amp;&amp;</code> oder <code>||</code> ersetzt wurden.</p>
 <p><code>Hotkey "If.."</code> setzt nie den ErrorLevel. Bei Misserfolg wird eine Ausnahme ausgelöst.</p>
 <p><code>#If</code> wurde so optimiert, dass einfache Aufrufe von WinActive() oder WinExist() direkt vom Hook-Thread ausgewertet werden können (wie es bei #IfWin in v1 der Fall war, und bei <code>Hotkey("IfWin...</code> noch der Fall ist). Dies verbessert die Performance und reduziert das Risiko von Problemen, wenn das Skript beschäftigt ist oder nicht reagiert. Diese Optimierung gilt für Ausdrücke, die einen einzelnen Aufruf von WinActive() oder WinExist() mit bis zu zwei Parametern enthalten, wo jeder Parameter eine einfache in Anführungszeichen gesetzte Zeichenkette ist und das Ergebnis optional mit <code>!</code> oder <code>not</code> invertiert wird. Zum Beispiel <code>#If WinActive("Chrome")</code> oder <code>#If !WinExist("Popup")</code>. In solchen Fällen kann der erste Ausdruck mit einer beliebigen Kombination von Kriterien entweder via Ausdruck oder via Fensterkriterien identifiziert werden. Zum Beispiel verweisen <code>Hotkey('If', '!WinExist("Popup")')</code> und <code>Hotkey("IfWinNotExist", "Popup")</code> auf dieselben Hotkey-Varianten.</p>
+<p>ImageSearch gibt 1 (true) zurück, wenn das Bild im angegebenen Bereich gefunden wurde, oder 0 (false), wenn es nicht gefunden wurde, oder löst eine Ausnahme aus, wenn die Suche nicht durchgeführt werden konnte. ErrorLevel wird nicht gesetzt.</p>
 <p>IniRead gibt als Standardwert eine leere Zeichenkette aus, wenn der <em>Standardwert</em>-Parameter fehlt, statt des Wortes <code>ERROR</code>. Zusätzlich wird ErrorLevel gesetzt, wenn ein Fehler auftritt.</p>
 <p>Input gibt nun immer die Endungszeichen a-z als Kleinbuchstaben zurück, um konsistent mit anderen Zeichen (oder Nicht-US-Tastatur-Layouts) zu sein. Früher begann <code>Input x</code> die Eingabe zu erfassen, während <code>Input</code> selbst nur jegliche laufende Eingabe terminierte. Da es keinen AusgabeVar-Parameter mehr gibt, beginnt <code>Input</code> nun immer die Eingabe zu erfassen, während <code>InputEnd</code> die Eingabe terminiert. Der ursprüngliche <code>Input</code>-Aufruf setzt ErrorLevel auf "End", wenn InputEnd aufgerufen wurde. Input behandelt nun UMSCHALT+RÜCKTASTE wie RÜCKTASTE, anstatt es in <code>`b</code> zu übersetzen.</p>
 <p>Die Syntax von InputBox wurde komplett überarbeitet, um dessen Benutzerfreundlichkeit zu verbessern (weniger Parameter). Siehe <a href="#inputbox">InputBox</a>, um mehr zu erfahren.</p>
@@ -282,7 +297,7 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p><code>OnExit</code> (der Befehl) wurde entfernt; benutze stattdessen die OnExit()-Funktion, die es seit v1.1.20 gibt. A_ExitReason wurde ebenfalls entfernt; dessen Wert erhält man jetzt über einen Parameter der OnExit-Callback-Funktion.</p>
 <p><code>OnClipboardChange:</code> (das Label) wird nicht mehr automatisch aufgerufen, wenn es vorhanden ist. Benutze stattdessen die OnClipboardChange()-Funktion, die es seit v1.1.20 gibt.</p>
 <p>OnMessage wurde geändert, um Funktionsnamen genauso zu behandeln, wie Funktionsverweise in v1.1.20 behandelt werden. Das heißt, dass <code>OnMessage(x, "MeineFunk")</code> MeineFunk für Nachricht x registriert, aber anderen Funktionen erlaubt, Nachricht x zu überwachen. Die Funktion kann mit <code>OnMessage(x, "MeineFunk", 0)</code> deregistriert werden, nicht mit  <code>OnMessage(x, "")</code>, das nun einen Fehler erzeugen würde. <code>OnMessage(x)</code> erzeugt absofort auch einen Fehler. Bei Misserfolg wird OnMessage eine Ausnahme auslösen.</p>
-<p>PixelSearch und PixelGetColor nutzen RGB- statt BGR-Farbwerte, um konsistent mit anderen Funktionen zu sein.</p>
+<p>PixelSearch und PixelGetColor nutzen RGB- statt BGR-Farbwerte, um konsistent mit anderen Funktionen zu sein. Beide Funktionen lösen eine Ausnahme aus, wenn ein Problem auftritt, und setzen keinen ErrorLevel mehr. PixelSearch gibt 1 (true) zurück, wenn die Farbe gefunden wurde. PixelSearch verwendet nun standardmäßig den Fast-Modus und hat eine Option für den Slow-Modus.</p>
 <p>PostMessage: Siehe SendMessage.</p>
 <p><code>Random, , NeuerStartwert</code> wurde früher benutzt, um einen neuen Startwert für den Zufallszahlengenerator zu bestimmen. Da Random keinen AusgabeVar-Parameter zum Weglassen mehr hat, wird dieses Verfahren durch <code>RandomSeed</code> ersetzt.</p>
 <p>Die RegExMatch-Optionen O und P wurden entfernt; der O-Modus (Objekt) ist nun fest integriert.</p>
@@ -312,11 +327,13 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p>SendMessage und PostMessage benötigen nun wParam und lParam als Integer; eine Ausnahme wird ausgelöst, wenn ihnen eine nicht-numerische Zeichenkette, eine Gleitkommazahl oder ein Objekt zugewiesen wird. Früher wurde eine Zeichenkette via Adresse übergeben, wenn der Ausdruck mit <code>"</code> begann, aber andere Zeichenketten wurden zwangsweise in Integern umgewandelt. <code>&amp;var</code> zu übergeben bewirkt nicht länger, dass die Länge der Variable aktualisiert wird (nutzen Sie <code>VarSetCapacity(var, -1)</code>).</p>
 <p>SendMessage setzt ErrorLevel nun nur noch auf 0 oder 1, um zu kennzeichnen, ob ein Fehler aufgetreten ist, und gibt die Antwort der Meldung zurück (oder bei Misserfolg eine leere Zeichenkette).</p>
 <p>SetTimer's erster Parameter unterstützt nun jede Art von Ausdruck, der ein Objekt zurückgibt, und benötigt keinen Variablenverweis. Labelnamen werden länger unterstützt.</p>
-<p>Sort: Der <em>VarName</em>-Parameter wurde aus Flexibilitätsgründen in einzelne Eingabe-/Ausgabeparameter aufgeteilt. Sort wird jetzt wie folgt benutzt: <code>Sort, AusgabeVar, EingabeText [, Optionen]</code> oder <code>Ausgabe := Sort(Eingabe [, Optionen])</code>.</p>
+<p>Sort: Der <em>VarName</em>-Parameter wurde aus Flexibilitätsgründen in einzelne Eingabe-/Ausgabeparameter aufgeteilt. Sort wird jetzt wie folgt genutzt: <code>Ausgabe := Sort(Eingabe [, Optionen, Callback])</code>.</p>
+<p>SoundGet gibt nun 1 oder 0 für boolesche Einstellungen anstelle von "On" oder "Off" zurück, was das Invertieren des Wertes erleichtert (<code>not</code>/<code>!</code>).</p>
 <p>StrGet: Wenn der Wert in <em>Länge</em> negativ ist, wird sein absoluter Wert die genaue Anzahl der Zeichen bestimmen, die umgewandelt werden sollen, einschließlich aller binären Nullen, die die Zeichenkette enthalten könnte - das heißt, dass das Ergebnis immer eine Zeichenkette mit exakt dieser Länge sein wird. Wenn der Wert in <em>Länge</em> positiv ist, wird die Zeichenkette wie in v1 bei der ersten binären Null enden.</p>
 <p>Suspend: Die erste Zeile eines Hotkeys oder Hotstrings dazu bringen, Suspend aufzurufen, führt nicht länger dazu, dass der Hotkey oder Hotstring automatisch von Sperrung befreit wird. Verwenden Sie stattdessen <code>#SuspendExempt</code>. Der Permit-Parameter ist nicht länger gültig.</p>
 <p>SysGet hat jetzt nur noch numerische Unterbefehle; alle anderen Unterbefehle wurden in Funktionen aufgeteilt. Siehe <a href="#sub-commands">Unterbefehle</a>, um mehr zu erfahren.</p>
 <p>TrayTip's Syntax wurde geändert zu <code>TrayTip [, Text, Titel, Optionen]</code>. <em>Optionen</em> ist eine Zeichenkette bestehend aus eine oder mehreren Optionen, deren Groß-/Kleinschreibung egal ist und mit Leer- oder Tabulatorzeichen voneinander getrennt sind. Die Optionen sind <code>Iconx</code>, <code>Icon!</code>, <code>Iconi</code>, <code>Mute</code> und/oder nach wie vor ein beliebiger numerischer Wert. TrayTip wird jetzt auch angezeigt, wenn <em>Text</em> weggelassen wird (das nun im Gegensatz zu v1 seltener aus Versehen passieren kann). Der <em>Sekunden</em>-Parameter ist nicht mehr vorhanden (er funktionierte nicht in Windows Vista oder höher).</p>
+<p><code>VarSetCapacity(var, -1)</code> erkennt nun, wenn var nicht null-terminiert ist, und beendet das Programm mit einer Fehlermeldung, da eine sichere Ausführung nicht garantiert werden kann.</p>
 <p>Die Parameterreihenfolge von WinSetTitle und WinMove ist nun im Einklang mit anderen Fensterfunktionen; das heißt, dass <em>Fenstertitel, Fenstertext, Titelausnahme, Textausnahme</em> immer zusammen sind (am Ende der Parameterliste), um das Einprägen der Parameter zu fördern.</p>
 <p>WinMove erteilt dem Wort <code>DEFAULT</code> nicht länger eine Spezialbehandlung. Lass den Parameter stattdessen weg oder verwende eine leere Zeichenkette (funktioniert sowohl in v1 als auch in v2).</p>
 <p>WinWait, WinWaitClose, WinWaitActive und WinWaitNotActive geben einen Wert ungleich Null zurück, wenn sie aufhören zu warten (Zeitlimit nicht überschritten wurde), und setzen kein ErrorLevel. WinWait und WinWaitActive geben das HWND des gefundenen Fensters zurück. WinWaitClose setzt nun das Zuletzt Gefundene Fenster; das heißt, wenn WinWaitClose das Zeitlimit überschritten hat, gibt es False zurück und bewirkt, dass <code>WinExist()</code> dessen Zuletzt Gefundene Fenster zurückgibt.</p>
@@ -370,7 +387,7 @@ Loop Reg, Rootkey\Key [, Modus]
 <p>Der Rückgabewert ist der Name des Buttons, ohne Leerzeichen. Diese Zeichenketten sind dieselben, die bei IfMsgBox in v1 benutzt wurden.</p>
 <p>Der Titel wird leer sein, wenn der Titel-Parameter eine leere Zeichenkette ist. Der Titel wird standardmäßig <code>A_ScriptName</code> sein, wenn der Parameter komplett fehlt, um konsistent mit optionalen Parametern von benutzerdefinierten Funktionen zu sein.</p>
 <h4>Unterbefehle</h4>
-<p>Unterbefehle von Control, ControlGet, Drive, DriveGet, WinGet, WinSet und Process wurden durch einzelne Funktionen ersetzt, und die Hauptbefehle wurden entfernt. Namen und Benutzung wurden bei mehreren Funktionen geändert. Diese Funktion werden jetzt wie folgt benutzt:</p> 
+<p>Unterbefehle von Control, ControlGet, Drive, DriveGet, WinGet, WinSet und Process wurden durch einzelne Funktionen ersetzt, und die Hauptbefehle wurden entfernt. Namen und Benutzung wurden bei mehreren Funktionen geändert. Diese Funktion werden jetzt wie folgt benutzt:</p>
 <pre><code>; Die "..." sind die optionalen Parameter Steuerelement, Fenstertitel, etc.
 
 Boolean := ControlGetChecked(...)
@@ -474,6 +491,7 @@ Name      := MonitorGetName([N])
 <h3>Neue Befehle/Funktionen</h3>
 <p><code>CaretGetPos([X, Y])</code> ermittelt die aktuellen Koordinaten des Text-Cursors. Dadurch wird sichergestellt, dass die X- und Y-Koordinaten immer übereinstimmen und dass es kein Caching gibt, das zu unerwartetem Verhalten führt (wenn A_CaretX/Y beispielsweise einen Wert zurückgibt, der nicht im aktuellen CoordMode liegt).</p>
 <p><code>ClipboardAll([Daten, Größe])</code> erstellt ein Objekt, das alles, was in der Zwischenablage ist, enthält (und akzeptiert optional Daten, die vorher aus der Zwischenablage abgerufen wurden, anstatt den aktuellen Inhalt der Zwischenablage zu verwenden). Die Methoden zum Lesen und Schreiben von Dateidaten der Zwischenablage sind unterschiedlich. Das Datenformat ist das gleiche, außer dass die Datengröße immer 32-Bit ist, so dass die Daten zwischen 32-Bit- und 64-Bit-Builds portierbar sind. Weitere Informationen sind in der v2-Dokumentation zu finden.</p>
+<p>ControlGetClassNN gibt die ClassNN eines bestimmten Steuerelements zurück.</p>
 <p>ControlSendText, das das Äquivalent zu ControlSendRaw ist, aber den {Text}- statt {Raw}-Modus verwendet.</p>
 <p><code>DirExist(Pfad)</code>, so ähnlich wie FileExist. Beachte, dass <code>InStr(FileExist(Muster), "D")</code> nur mitteilt, ob die <em>zuerst</em> gefundene Datei ein Ordner ist, nicht ob ein Ordner existiert.</p>
 <p><code>Float(v)</code>: siehe Typen.</p>
@@ -482,7 +500,9 @@ Name      := MonitorGetName([N])
 <p><code>MenuFromHandle(Handle)</code> gibt das Menu-Objekt eines dazugehörigen Win32-Menü-Handles zurück, wenn es von AutoHotkey erstellt wurde.</p>
 <p><code>RegDeleteKey("Rootkey\Subkey")</code> löscht einen Registry-Key. (RegDelete löscht jetzt nur noch Werte, außer wenn alle Parameter in einer Registry-Schleife weggelassen werden.)</p>
 <p>SendText, das das Äquivalent zu SendRaw ist, aber den {Text}- statt {Raw}-Modus verwendet.</p>
+<p><code>StrCompare(Zkette1, Zkette2 [, GroßKleinSensitiv := false])</code> gibt -1 (Zkette1 kleiner als Zkette2), 0 (gleich) oder 1 (größer als) zurück.</p>
 <p><code>String(v)</code>: siehe Typen.</p>
+<p><code>SysGetIPAddresses()</code> Gibt ein Array mit IP-Adressen zurück, was das Äquivalent zu den entfernten A_IPAddress-Variablen ist. Jede Referenz auf <code>A_IPAddress%N%</code> rief alle Adressen ab, aber gab nur eine zurück, so dass das Abrufen mehrerer Adressen exponentiell länger als nötig dauerte. Das zurückgegebene Array kann keine oder mehr Elemente enthalten.</p>
 <p><code>TraySetIcon([Dateiname, Symbolnummer, Einfrieren])</code> ersetzt <code>Menu Tray, Icon</code>.</p>
 <p><code>WinGetClientPos([X, Y, W, H, Fenstertitel, ...])</code> ermittelt die Position und Größe des Clientbereichs eines Fensters, in Bildschirmkoordinaten.</p>
 <h3>Interne Variablen</h3>
@@ -505,6 +525,7 @@ Name      := MonitorGetName([N])
 <li>A_FormatFloat</li>
 <li>A_FormatInteger</li>
 <li>A_Gui, A_GuiControl, A_GuiControlEvent, A_GuiEvent, A_GuiX, A_GuiY, A_GuiWidth, A_GuiHeight (alle ersetzt durch Parameter von Ereignis-Handlern)</li>
+<li>A_IPAddress1, A_IPAddress2, A_IPAddress3, A_IPAddress4 (benutze SysGetIPAddresses)</li>
 <li>A_ThisMenu (benutze eine Funktion mit Parametern anstelle eines Labels für die Menüpunkt-Callback-Funktion)</li>
 <li>A_ThisMenuItem</li>
 <li>A_ThisMenuItemPos</li>
@@ -520,8 +541,8 @@ Name      := MonitorGetName([N])
 <li>A_ControlDelay</li>
 <li>A_CoordMode..</li>
 <li>A_DefaultMouseSpeed</li>
-<li>A_DetectHiddenText</li>
-<li>A_DetectHiddenWindows</li>
+<li>A_DetectHiddenText (gibt nun auch 1 oder 0 statt "On" oder "Off" zurück)</li>
+<li>A_DetectHiddenWindows (gibt nun auch 1 oder 0 statt "On" oder "Off" zurück)</li>
 <li>A_EventInfo</li>
 <li>A_FileEncoding (diese Variable gibt außerdem "CP0" anstelle von "" zurück)</li>
 <li>A_IconHidden</li>
@@ -539,7 +560,7 @@ Name      := MonitorGetName([N])
 <li>A_ScriptName: Ändert den Standard-Dialogfenster-Titel.</li>
 <li>A_SendLevel</li>
 <li>A_SendMode</li>
-<li>A_StoreCapslockMode</li>
+<li>A_StoreCapslockMode (gibt nun auch 1 oder 0 statt "On" oder "Off" zurück)</li>
 <li>A_StringCaseSense</li>
 <li>A_TitleMatchMode</li>
 <li>A_TitleMatchModeSpeed</li>
@@ -549,6 +570,7 @@ Name      := MonitorGetName([N])
 <h3>Interne Objekte</h3>
 <p>File-Objekte benötigen nun zwingend die Eigenschaftssyntax zum Aufrufen von Eigenschaften und die Methodensyntax zum Aufrufen von Methoden. Zum Beispiel ist <code>File.Pos(n)</code> ungültig. Es wird eine Ausnahme ausgelöst, wenn zu wenige oder zu viele Parameter vorhanden sind oder wenn eine schreibgeschützte Eigenschaft einen Wert zugewiesen bekommt.</p>
 <p><code>File.Tell()</code> wurde entfernt.</p>
+<p><code>Func.IsByRef()</code> funktioniert nun mit internen Funktionen.</p>
 <h2>Gui</h2>
 <p>Gui, GuiControl und GuiControlGet wurden durch GuiCreate() und Gui/GuiControl-Objekte ersetzt, die in der Regel flexibler, konsistenter und wohl leichter zu bedienen sind.</p>
 <p>Einzelheiten zur Nutzung sind in der neuen v2-Dokumentation zu finden.</p>
@@ -697,7 +719,7 @@ Gui GuiName: Default</p>
 <p>Eine Ausnahme wird ausgelöst, wenn einer der folgenden Fehler auftritt (anstatt den Fehler zu ignorieren oder eine leere Zeichenkette zu erzeugen):</p>
 <ul>
 <li>Wenn man versucht, eine Berechnung mit einem nicht-numerischen Wert durchzuführen. (Numerische Zeichenketten sind in Ordnung.)</li>
-<li>Division durch Null oder andere ungültig/nicht-unterstützte Eingaben wie z. B. <code>(-1)**1.5</code>.</li>
+<li>Division durch Null oder andere ungültig/nicht-unterstützte Eingaben wie z. B. <code>(-1)**1.5</code>. Beachten Sie, dass einige Fälle neuerdings als ungültig erkannt werden, wie z. B.: <code>0**0</code>; <code>a&lt;&lt;b</code> oder <code>a&gt;&gt;b</code>, dessen <code>b</code> außerhalb des Bereichs 0 bis 63 liegt.</li>
 <li>Fehler beim Reservieren von Speicher für den Rückgabewert einer internen Funktion, für eine Verkettung oder für das Ergebnis eines Ausdrucks.</li>
 <li>Stapelunterlauf (üblicherweise durch einen Syntaxfehler ausgelöst).</li>
 <li>Versuchte Zuweisung zu etwas, das keine Variable (oder kein Array-Element) ist.</li>
@@ -726,7 +748,7 @@ Gui GuiName: Default</p>
 <p>Threads, die unterbrechungsfrei beginnen, bleiben nun so lange bestehen, bis mindestens eine Zeile ausgeführt wurde, auch dann, wenn der unterbrechungsfreie Timeout zuerst abläuft (z. B. wenn das System den Prozess unmittelbar nach dem Start des Threads sperrt, um einem anderen Prozess CPU-Zeit zu geben).</p>
 <p>MaxThreads und #MaxThreadsPerHotkey machen keine Ausnahmen mehr für Subroutinen, deren erste Zeile einer der folgenden Befehle ist: ExitApp, Pause, Edit, Reload, KeyHistory, ListLines, ListVars oder ListHotkeys.</p>
 <p>RegEx-Zeilenumbruchsübereinstimmung benutzt standardmäßig (*ANYCRLF) und (*BSR_ANYCRLF); `r und `n werden zusammen mit `r`n erkannt. Die `a-Option aktiviert bedingungslos (*BSR_UNICODE).</p>
-<p>Skripte, die von der Standardeingabe (stdin) gelesen werden (z. B. mit <code>AutoHotkey.exe *</code>), enthalten nicht mehr das ursprüngliche Arbeitsverzeichnis in <code>A_ScriptFullPath</code> oder den Titel des Hauptfensters.</p>
+<p>Skripte, die von der Standardeingabe (stdin) gelesen werden (z. B. mit <code>AutoHotkey.exe *</code>), fügen nicht mehr das ursprüngliche Arbeitsverzeichnis in <code>A_ScriptFullPath</code> oder in den Titel des Hauptfensters ein, aber es wird als <code>A_ScriptDir</code> und zum Finden des lokalen Lib-Ordners verwendet.</p>
 <p>Hotstrings behandeln nun UMSCHALT+RÜCKTASTE wie RÜCKTASTE, anstatt es innerhalb des Hotstring-Zwischenspeichers in <code>`b</code> zu übersetzen.</p>
 <p>Hotstrings verwenden nicht das letzte, sondern das erste Doppelpunktpaar (<code>::</code>) als Trennung, wenn mehrere Doppelpunktpaare vorhanden sind. Das heißt, dass Doppelpunkte (wenn sie an einen anderen Doppelpunkt angrenzen) mit einem Escapezeichen versehen werden müssen, um Text in v2 zu triggern, während sie in v1 im Ersatztext mit einem Escapezeichen versehen werden müssen. Beachten Sie, dass bei einer ungeraden Anzahl von aufeinanderfolgenden Doppelpunkten das bisherige Verhalten den letzten Doppelpunkt nicht als Teil eines Paares angesehen hatte. Zum Beispiel bleibt das Verhalten bei <code>::1:::2</code> (<code>1</code> → <code>:2</code>) unverändert, während sich <code>::3::::4</code> wie <code>3</code> → <code>::4</code> statt wie <code>3::</code> → <code>4</code> verhält.</p>
 <p>Hotstrings escapen nicht länger Doppelpunktpaare, daher es nun möglich, einen einzelnen Doppelpunkt am Ende des Hotstring-Triggers zu escapen. Zum Beispiel ist <code>::5`:::6</code> nun <code>5:</code> → <code>6</code> statt eines Fehlers, und <code>::7`::::8</code> nun <code>7:</code> → <code>:8</code> statt <code>7::</code> → <code>8</code>. Am besten versieht man in solchen Fällen alle direkt geschriebenen Doppelpunkte mit einem Escapezeichen, um Verwirrung zu vermeiden (aber ein einzelner isolierter Doppelpunkt muss nicht escaped werden).</p>
@@ -761,6 +783,7 @@ Gui GuiName: Default</p>
 <li>Standardmäßig gilt bei allen Skripten das #SingleInstance-Nachfrageverhalten; #SingleInstance selbst aktiviert den Force-Modus.</li>
 <li>CoordMode benutzt standardmäßig Client statt Window (seit v1.1.05 verfügbar).</li>
 </ul>
+
 </body>
-</html>
+</html><!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
 
