@@ -1,3 +1,6 @@
+body {
+	min-height: unset !important;
+}
 .unselectable {
 	user-select: none;
 	-moz-user-select: none;

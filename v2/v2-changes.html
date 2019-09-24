@@ -3,7 +3,7 @@
 <head>
 <title>v2-changes</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script src="/cdn-cgi/apps/head/edTxqK4-R2-xDNg7qQjp1r387bk.js"></script>
+<script src="/cdn-cgi/apps/head/21XiSFXBdVHXl7A_izEkLSn9ayc.js"></script>
 <link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
@@ -16,12 +16,11 @@
 <ul>
 <li>Alle ehemaligen Befehle sind jetzt Funktionen (außer Ablaufsteuerungsanweisungen).</li>
 <li>Alle Funktionen können ohne runde runden Klammern aufgerufen werden.</li>
-<li>Alle Parameter sind Ausdrücke oder Ausgabevariablen, demzufolge muss direkt geschriebener Text von Anführungszeichen umschlossen sein.</li>
+<li>Alle Parameter sind Ausdrücke, demzufolge muss direkt geschriebener Text von Anführungszeichen umschlossen sein.</li>
 <li>Parameter sind dieselben, unabhängig von runden Klammern; bei dem Szenario, wo es keine Ausgabevariable für den Rückgabewert gibt, wird er verworfen, wenn die runden Klammern weggelassen werden.</li>
 <li>Normale Variablenverweise werden nie von Prozentzeichen umschlossen. Benutze Verkettung oder Format(), um Variablen in einen Text einzufügen.</li>
 <li>Es gibt kein Komma zwischen dem Funktionsnamen und Parameter; zum Beispiel wäre <code>MouseGetPos(, y)</code> das gleiche wie <code>MouseGetPos , y</code> (x wird weggelassen). Ein Leer- oder Tabulatorzeichen ist erforderlich, um es verständlich zu machen. Um Konsistenz zu bewahren, folgen auch Direktiven der neuen Konvention (es darf kein Komma zwischen dem Namen der Direktive und dem Parameter stehen).</li>
 <li>Ein Prozentzeichen als Präfix ist nicht mehr notwendig, um ein Ausdruck zu erzwingen.</li>
-<li>Befehle, die zuvor eine "Eingabevariable" akzeptierten, akzeptieren absofort auch andere Ausdrücke.</li>
 <li>Methodenaufrufe sind auf eine einfache Variable, gefolgt von einem oder mehreren via Punkte getrennte Identifikatoren, beschränkt, z. B. <code>MeineVar.MeineEigenschaft.MeineMethode "String zum Übergeben"</code>.</li>
 </ul>
 <p>Die Umwandlung von v1-Befehlen zu Funktionen geschieht in der Regel wie folgt (aber einige Funktionen wurden geändert, wie weiter unten dokumentiert):</p>
@@ -34,9 +33,10 @@
 <p>Goto, Gosub, Break und Continue benötigen einen Labelnamen ohne Anführungszeichen, so ähnlich wie in v1 (<code>Goto Label</code> springt zu <code>Label:</code>). Um ein Label dynamisch anspringen oder aufrufen zu können, müssen runde Klammern direkt nach dem Namen benutzt werden: <code>Goto(Ausdruck)</code> oder <code>Gosub(Ausdruck)</code>. Allerdings sind das keine Funktionen und können deshalb nicht inmitten eines Ausdrucks benutzt werden. Es können runde Klammern können bei break oder continue verwendet werden, aber in diesem Fall muss der Parameter eine einzelne direkt geschriebene Zahl oder eine in Anführungszeichen gesetzte Zeichenkette sein.</p>
 <h3>Variablen</h3>
 <p>Variablennamen können nicht mehr mit einer Zahl beginnen und dürfen keines der folgenden Zeichen, die vorher erlaubt waren, enthalten: <code>@ # $</code>. Nur Buchstaben, Zahlen, Unterstriche und Nicht-ASCII-Zeichen sind erlaubt.</p>
-<p>Namen von Ablaufsteuerungsanweisungen können nicht zum Benennen von Variablen, Funktionen oder Klassen benutzt werden. Dazu gehören If, Else, Loop, For, While, Until, Break, Continue, Goto, Gosub, Return, Try, Catch, Finally und Throw. Dies dient in erster Linie dazu, Fehler zu erkennen, wie z. B. <code>if (ex) break</code>.</p>
-<p>Namen von Ausdrucksoperatoren können nicht zum Benennen von Variablen, Funktionen oder Klassen benutzt werden. Dazu gehören Or, And, Not, New, Is, In und Contains. Dies dient in erster Linie der Konsistenz: In v1 war <code>and := 1</code> auf einer eigenen Zeile erlaubt, aber <code>(and := 1)</code> würde nicht funktionieren.</p>
+<p>Reservierte Wörter: Deklarationsschlüsselwörter und Namen von Ablaufsteuerungsanweisungen können nicht als Variablen-, Funktions- oder Klassennamen verwendet werden. Dazu gehören Local, Global, Static, If, Else, Loop, For, While, Until, Break, Continue, Goto, Gosub, Return, Try, Catch, Finally und Throw. Dies dient in erster Linie dazu, Fehler zu erkennen, wie z. B. <code>if (ex) break</code>.</p>
+<p>Reservierte Wörter: Namen von Ausdrucksoperator-Schlüsselwörtern können nicht als Variablen-, Funktions- oder Klassennamen verwendet werden. Dazu gehören Or, And, Not, New, Is, In und Contains. Dies dient in erster Linie der Konsistenz: In v1 war <code>and := 1</code> auf einer eigenen Zeile erlaubt, aber <code>(and := 1)</code> würde nicht funktionieren.</p>
 <p>Die oben aufgelisteten Wörter können zum Benennen von Methoden oder Fenstergruppen genutzt werden. Methodennamen, die aufgerufen werden, müssen immer einen <code>.</code> davor haben, um zu verhindern, dass das Wort als Operator interpretiert wird. Schlüsselwörter hingegen werden nie als Variablen- oder Funktionsnamen innerhalb eines Ausdrucks interpretiert. Zum Beispiel ist <code>new(x)</code> das gleiche wie <code>(new x)</code>.</p>
+<p>Die Namen <code>Object</code>, <code>Array</code> und <code>Map</code> werden von vordefinierten Klassen verwendet, können aber innerhalb einer Funktion durch explizite Deklaration einer lokalen Variable oder eines Parameters oder im Force-Local-Modus als Variablen-, Funktions- oder Klassennamen verwendet werden.</p>
 <p>Doppeldereferenzierungen sind nun konsistent mit Variablen, die bei der Ladezeit aufgelöst werden. Das heißt, dass ein dynamischer Variablenverweis nur global (nicht superglobal) wird, wenn die Funktion im global-behandelnden Modus ist oder wenn die Variable in der Funktion als global deklariert wurde.</p>
 <p>Doppeldereferenzierungen, die fehlschlagen, weil sie leer oder zu lang sind, zeigen eine Fehlermeldung an und führen zum Abbruch des Threads, anstatt still und heimlich eine leere Zeichenkette zu erzeugen. Dies macht sie konsistenter in Verbindung mit Eingabe-/Ausgabevariablen. Illegale Zeichen in Variablennamen verursachten schon immer eine Fehlermeldung.</p>
 <p>Eine lokale Variable in eine Funktion zu deklarieren, wird die Funktion nicht in den global-behandelnden Modus versetzen.</p>
@@ -72,53 +72,33 @@
 <p>Der <code>*</code>deref-Operator wurde entfernt. Benutze stattdessen NumGet.</p>
 <p>Der <code>~</code>-Operator (bitweises NICHT) behandelt seinen Eingabewert nun immer als 64-Bit-Integer; er behandelt Werte zwischen 0 und 4294967295 nicht mehr als vorzeichenlose 32-Bit-Integer.</p>
 <p>Fat-Arrow-Funktionen hinzugefügt. Der Ausdruck <code>Fn(Parameter) =&gt; Ausdruck</code> definiert eine Funktion namens <em>Fn</em> (das weggelassen werden kann) und gibt ein Func- oder Closure-Objekt zurück. Wenn dieser Ausdruck aufgerufen wird, wird die Funktion <em>Ausdruck</em> auswerten und das Ergebnis zurückgeben. Wenn dieser Ausdruck in einer anderen Funktion ist, kann <em>Ausdruck</em> auf die Variablen der äußeren Funktion zugreifen (dies kann auch mit einer normalen Funktionsdefinition erfolgen).</p>
+<p>Die Fat-Arrow-Syntax kann auch genutzt werden, um Methoden und Eigenschaft-Getter/Setter zu definieren (in diesem Fall ist die Methoden-/Eigenschaftsdefinition selbst kein Ausdruck; ihr Körper gibt einfach nur einen Ausdruck zurück).</p>
 <p>Direkt geschriebene Zahlen werden nun auf der linken Seite des Objektelementzugriffs (Punkt) vollständig unterstützt. <code>0.1</code> beispielsweise ist eine Zahl, aber <code>0.min</code> und <code>0.1.min</code> greifen auf die <em>min</em>-Eigenschaft zu, die von den Standard-Meta-Funktionen behandelt werden kann. <code>1..2</code> oder <code>1.0.2</code> ist die Zahl 1.0, gefolgt von der Eigenschaft 2. Dies könnte z. B. für Maßeinheiten, direkt geschriebenen Versionsnummern oder Zahlenbereichen verwendet werden.</p>
-<h3>Objekte</h3>
-<p><strong>Hinweis</strong>: Es sind signifikante Änderungen für das Objektmodell geplant, aber noch nicht umgesetzt. Siehe <a href="https://www.autohotkey.com/boards/viewtopic.php?f=37&amp;t=57591">Objects</a> (Forum-Thread). Die folgenden Änderungen wurden bereits in der aktuellen Alpha-Version umgesetzt.</p>
-<p>Der Zugriff auf Eigenschaften via <code>.</code> und der Zugriff auf Daten via <code>[]</code> können nun getrennt voneinander behandelt werden. <code>dictionary["Count"]</code> beispielsweise kann die Definition von "Count" zurückgeben, während <code>dictionary.Count</code> die Anzahl der darin enthaltenen Wörter zurückgibt. Benutzerdefinierte Objekte können dies durch Definieren einer indexierten <code>__Item[]</code>-Eigenschaft nutzen.</p>
-<p>Wenn keine <code>__Item</code>-Eigenschaft definiert ist, werden <code>.</code> und <code>[]</code> nicht getrennt behandelt. Eine zukünftige Version wird jedoch dedizierte <code>Array</code>- und <code>Map</code>-Typen implementieren und diese Fähigkeiten aus dem generischen Objekt entfernen. Vermeiden Sie es, mit <code>[]</code> auf Eigenschaften zuzugreifen.</p>
-<p>Wenn der Name einer Eigenschaft oder Methode nicht im Voraus bekannt ist, kann der Zugriff auf diese via Prozentzeichen erfolgen. <code>obj.%varname%()</code> beispielsweise ist das v2-Äquivalent zu <code>obj[varname]()</code>. Der Zugriff mit eckigen Klammern (<code>[]</code>) ist in einer zukünftigen Version für Daten (z. B. Array-Elemente) vorgesehen. Aktuell können diese noch verwendet werden, um auf Eigenschaften und Methoden zuzugreifen, es sei denn, die <code>__Item</code>-Eigenschaft wurde definiert.</p>
-<p>Keys werden in einigen Fällen anders abgespeichert:</p>
-<ul>
-<li>
-<p>AHK-v1-Zeichenketten in Anführungszeichen wurden bei direkter Verwendung immer als nicht-numerisch angesehen; also wurden <code>x["1"]</code> und <code>x[a:="1"]</code> nie gleichwertig behandelt. Diese etwas eigensinnige Typenerkennung wird in v2 nicht mehr relevant sein. Die folgenden Erklärungen ignorieren diese Marotte, aus Platzgründen.</p>
-</li>
-<li>
-<p>Reine Integer werden seit v2.0-a095 nicht mehr gekürzt (64-Bit-Keys werden unterstützt).</p>
-</li>
-<li>
-<p>Integer-Zeichenketten in v1 werden immer in reine/binäre Integer umgewandelt, sogar wenn Datenverlust zu erwarten ist. Zum Beispiel werden folgende Umwandlungen in v1 durchgeführt, aber in v2 bleibt die Zeichenkette erhalten:</p>
-<ul>
-<li>"01" → 1</li>
-<li>"+2" → 2</li>
-<li>"0x3" → 3</li>
-<li>" &nbsp; 4 &nbsp; " → 4</li>
-<li>"9999999999999999999" → 9223372036854775807</li>
-</ul>
-</li>
-<li>
-<p>Seit v2.0-a067 werden numerische Zeichenketten wenn möglich in reine Integer umgewandelt, ohne den oben genannten Datenverlust. In v2.0-a048 bis v2.0-a066 wurden numerische Zeichenketten und reine Integer unterschiedlich behandelt.</p>
-</li>
-</ul>
-<p>Ruft man eine Funktion via Objekt auf, wird das Objekt selbst als erster Parameter übergeben, egal wo die Funktion abgespeichert wurde (im Objekt oder in eines seiner bases). In v1 geschah dies nicht, wenn die Funktion via Name direkt in das Objekt gespeichert wurde.</p>
+<h3>Objekte (Sonstiges)</h3>
+<p>Siehe auch: <a href="#objects">Objekte</a></p>
+<p>Der Zugriff auf Eigenschaften via <code>.</code> und der Zugriff auf Daten via <code>[]</code> (Elemente, Array- oder Map-Elemente) werden nun getrennt voneinander behandelt. <code>dictionary["Count"]</code> beispielsweise kann die Definition von "Count" zurückgeben, während <code>dictionary.Count</code> die Anzahl der darin enthaltenen Wörter zurückgibt. Benutzerdefinierte Objekte können dies durch Definieren einer indexierten <code>__Item[]</code>-Eigenschaft nutzen.</p>
+<p>Wenn der Name einer Eigenschaft oder Methode nicht im Voraus bekannt ist, kann (und muss) der Zugriff auf diese via Prozentzeichen erfolgen. <code>obj.%varname%()</code> beispielsweise ist das v2-Äquivalent zu <code>obj[varname]()</code>. Die Verwendung von <code>[]</code> ist für Daten (z. B. Array-Elemente) reserviert.</p>
 <p><code>%Fn%()</code> - Fn ist in diesem Fall eine Funktion oder ein Objekt - ruft <code>Fn.Call()</code> auf, anstatt <code>Fn[""]()</code>. Funktionen unterstützen nicht mehr die namenlose Methode.</p>
-<p><code>this.Method()</code> - wenn <code>Fn = this.Method</code> - ruft <code>Fn.Call(this)</code> auf, anstatt <code>Fn[this]()</code>. Funktionsobjekte sollten eine <em>Call</em>-Methode implementiert haben, anstatt die <em>__Call</em>-Meta-Funktion.</p>
-<p>Das Definieren von <code>x.base[key]</code> - x ist ein Objekt - verhindert, dass <code>x.base.base.__Set()</code> aufgerufen wird, wenn eine Zuweisung wie <code>x[key] := val</code> durchgeführt wird. Dies gilt aus Konsistenzgründen für __Get und __Call.</p>
+<p><code>this.Method()</code> ruft <code>Fn.Call(this)</code> statt <code>Fn[this]()</code> auf (wenn <code>Fn</code> das Funktionsobjekt ist, das die Methode implementiert). Funktionsobjekte sollten eine <em>Call</em>-Methode implementiert haben, anstatt die <em>__Call</em>-Meta-Funktion.</p>
 <p><code>new Obj()</code> schlägt nun fehl beim Erstellen des Objekts, wenn die <code>__New</code>-Meta-Methode definiert wurde, aber nicht aufgerufen werden konnte (weil sie z. B. Parameter benötigte, die aber nicht gegeben sind).</p>
-<p>Alle internen Methoden von Objekten und SafeArrays unterstützen nicht länger _ (Unterstrich) als Präfix, außer <code>_NewEnum</code>, wo es nun notwendig ist (für die Kompatibilität mit COM-Objekten). <code>ObjNewEnum(x)</code> ist nach wie vor das gleiche wie <code>x._NewEnum()</code> bei Objekten.</p>
-<p><code>Object.GetAddress(k)</code> löst nun eine Ausnahme aus, anstatt <code>""</code> zurückzugeben, wenn <code>Object[k]</code> keine Zeichenkette enthält, gibt aber ansonsten auch dann eine gültige Adresse zurück, wenn die Kapazität des vorhandenen Zeichenkettenfeldes 0 ist (in diesem Fall verweist es auf einen Null-Terminator und muss als schreibgeschützt betrachtet werden).</p>
-<p>Die Methoden <code>Insert</code> und <code>Remove</code> wurden entfernt. Sie wurden in v1.1.21 von InsertAt, RemoveAt, Push, Pop, Delete und ObjRawSet abgelöst.</p>
 <p>Objekte, die innerhalb eines Ausdrucks erstellt oder von einer Funktion zurückgegeben werden, werden nun zurückgehalten, bis die Ausdrucksauswertung abgeschlossen ist, und dann freigegeben. Dieses Verhalten ermöglicht eine geringfügig verbesserte Performance und eine Speicherverwaltung innerhalb eines Ausdrucks mit temporären Objekten, ohne befürchten zu müssen, dass Objekte vorzeitig freigegeben werden.</p>
-<p>Objekte können Zeichenkettenwerte (aber nicht Keys) mit binären Nullen enthalten. Beim Klonen eines Objekts werden Binärdaten in Zeichenketten beibehalten, aber Daten, die die Datenlänge überschritten haben, gehen verloren (FIXME: biete eine Möglichkeit zum Setzen der Länge an).</p>
-<p>Eigenschaften, die innerhalb einer Klasse definiert sind, werden <em>Call</em> nicht mehr beanspruchen (indem sie die Eigenschaft getter aufrufen). Das heißt, dass <code>obj.MyProperty()</code> eine Ausnahme auslöst, sofern es keine Methode mit diesem Namen gibt (sie kann in einer Basisklasse der Klasse,die die Eigenschaft definiert hat, definiert werden).</p>
-<p><code>x.y(z) := v</code> führt nun zu einem Syntaxfehler. Vorher war es äquivalent zu <code>x.y[z] := v</code>. Grundsätzlich sind <code>x.y(z)</code> (Methodenaufruf) und <code>x.y[z]</code> (parametrisierte Eigenschaft) zwei verschiedene Operationen, allerdings werden diese als gleichwertig angesehen, wenn <code>x</code> ein COM-Objekt ist (aufgrund von Einschränkungen der COM-Schnittstelle).</p>
-<p>Interne Objekte unterscheiden nun zwischen Eigenschaften und Methoden. Sie verlangen die richtige Syntax und sind untereinander konsistent.</p>
+<p>Objekte können Zeichenkettenwerte (aber nicht Keys) mit binären Nullen enthalten. Beim Klonen eines Objekts werden Binärdaten in Zeichenketten beibehalten, bis zur gespeicherten Länge der Zeichenkette (nicht deren Kapazität). In der Vergangenheit wurden Daten über die Länge des Wertes hinaus geschrieben, wenn es um binäre Daten oder Strukturen ging; jetzt sollte stattdessen ein Buffer-Objekt verwendet werden.</p>
+<p>Zuweisungsausdrücke wie <code>x.y := z</code> liefern nun immer den Wert <code>z</code>, egal wie <code>x.y</code> implementiert wurde. Der Rückgabewert eines Eigenschaft-Setters wird nun ignoriert. <code>__Set</code> muss derzeit noch explizit via <code>return</code> abgeschlossen werden, um zu signalisieren, dass die Operation behandelt wurde, aber der Wert wird ignoriert. Vorher:</p>
 <ul>
-<li>Eigenschaften erlauben keine runden Klammern; Methoden erfordern runde Klammern. <code>file.Length(newLength)</code> beispielsweise löst nun "Unknown method" aus, weil Length eine Eigenschaft ist.</li>
-<li>RegExMatchObject hat nur Methoden, außer <code>m[p]</code>, das die Kurzschreibweise für <code>m.Value(p)</code> ist (oder <code>m.p</code>, aber in diesem Fall muss <code>p</code> direkt geschrieben sein). <code>m.Value</code>, <code>m.Len</code> und so weiter sind ungültig (ohne runde Klammern), es sei denn, es gibt Teilausdrücke mit solchen Namen.</li>
-<li>Es wird die Ausnahme "Invalid usage" ausgelöst, wenn <code>o[]</code> (leere eckige Klammern) verwendet wird oder wenn versucht wird, eine schreibgeschützte Eigenschaft zu ändern.</li>
-<li>Es wird eine Ausnahme ausgelöst, wenn zu wenige oder zu viele Parameter übergeben werden, sowohl für Methoden als auch für Eigenschaften.</li>
+<li>Einige interne Objekte gaben <code>z</code> zurück, andere gaben <code>x.y</code> zurück (z. B. <code>c := gui.BackColor := "red"</code>, das <code>c</code> auf <code>0xFF0000</code> gesetzt hat), und andere gaben einen falschen Wert zurück.</li>
+<li>Benutzerdefinierte Eigenschaft-Setter haben eventuell unerwartete Werte zurückgegeben oder konnten nichts zurückgeben.</li>
 </ul>
+<p><code>x.y(z) := v</code> führt nun zu einem Syntaxfehler. Vorher war es äquivalent zu <code>x.y[z] := v</code>. Grundsätzlich sind <code>x.y(z)</code> (Methodenaufruf) und <code>x.y[z]</code> (parametrisierte Eigenschaft) zwei verschiedene Operationen, allerdings werden diese als gleichwertig angesehen, wenn <code>x</code> ein COM-Objekt ist (aufgrund von Einschränkungen der COM-Schnittstelle).</p>
+<p>Beim Aufrufen eines Objekts via IDispatch (die COM-Schnittstelle) führen unbehandelte Ausnahmen, die nicht an den Aufrufer zurückgegeben werden können, zu einem Fehlerdialogfenster. (Der Aufrufer kann nach Belieben ein zusätzliches Fehlerdialogfenster ohne spezifische Details anzeigen.) Dies gilt auch für den Aufruf von Ereignishandlern durch Verwendung von ComObjConnect.</p>
+<h3>Funktionen</h3>
+<p>Funktionen können nicht mehr dynamisch mit mehr Parametern aufgerufen werden, als sie formal akzeptieren (variadische Funktionen können aber immer noch beliebig viele Parameter akzeptieren).</p>
+<p>Variadische Funktionen sind von der obigen Einschränkung nicht betroffen, erstellen aber normalerweise bei jedem Aufruf ein Array, um die überschüssigen Parameter zu behalten. Wenn dieses Array nicht benötigt wird, kann der Parametername nun weggelassen werden, um seine Erstellung zu verhindern:</p>
+<pre><code>AcceptsOneOrMoreArgs(first, *) {
+  ...
+}
+</code></pre>
+<p>Dies kann für Callbacks verwendet werden, bei denen die zusätzlichen Parameter nicht benötigt werden.</p>
+<p>Variadische Funktionsaufrufe erlauben nun ein beliebiges enumerierbares Objekt in Situationen, wo sie bisher ein Standardobjekt mit sequentiellen numerischen Keys benötigten. Wenn der Enumerator mehr als einen Wert pro Iteration zurückgibt, wird nur der erste Wert verwendet. <code>Array(mymap*)</code> beispielsweise erstellt ein Array, das die Keys von <em>mymap</em> enthält.</p>
 <h3>Verschachtelte Funktionen</h3>
 <p>Eine Funktion kann in einer anderen Funktion definiert werden. Eine verschachtelte Funktion (sofern nicht Force-Local) kann auf lokale und statische Variablen der äußeren Funktion zugreifen.</p>
 <p>Übergibt man den Namen einer verschachtelten Funktion an <code>Func()</code> (oder einer anderen internen Funktion wie SetTimer), wird eventuell ein <code>Closure</code>-Objekt erzeugt, das die verschachtelte Funktion an den aktuellen Satz lokaler Variablen der äußeren Funktion bindet. Es hat die gleichen Eigenschaften wie ein <code>Func</code>-Objekt.</p>
@@ -161,8 +141,84 @@
 </ul>
 <p>Die Art und Weise wurde geändert, wie Objekte verschiedene Typen von Keys interpretieren. Im <a href="#objects"><em>Objekte</em></a>-Abschnitt, der auf dieser Seite zu finden ist, erfährst du mehr.</p>
 <p>Vergleichsoperatoren wie =, &lt; und &gt;= funktionieren etwas anders. Wenn beide Operanden numerisch sind und mindestens ein Operand eine <em>reine</em> Zahl ist, werden sie numerisch verglichen. Ansonsten werden sie alphabetisch verglichen. So zum Beispiel werden 54 und "530" numerisch verglichen, während "54" und "530" alphabetisch verglichen werden. Darüber hinaus werden Zeichenketten, die in Variablen gespeichert sind, genauso wie direkt geschriebene Zeichenketten behandelt.</p>
-<p><code>Type(Wert)</code> gibt eine der folgenden Zeichenketten zurück: String, Integer, Float, Object oder die spezifische Klasse eines internen Objekttyps, wie z. B. FileObject oder ComObject.</p>
+<p><code>Type(Wert)</code> gibt eine der folgenden Zeichenketten zurück: String, Integer, Float, oder die spezifische Klasse eines Objekts.</p>
 <p><code>Float(v)</code>, <code>Integer(v)</code> and <code>String(v)</code> konvertieren <code>v</code> in den jeweiligen Typ, oder lösen eine Ausnahme aus, wenn die Konvertierung nicht durchgeführt werden kann (z.B. <code>Integer("1z")</code>). <code>String</code> ruft <code>v.ToString()</code> auf, wenn <code>v</code> ein Objekt ist. (Idealerweise wäre das für jede implizite Konvertierung von Objekt zu Zeichenkette wünschenswert, aber die aktuelle Implementierung macht dies schwierig.)</p>
+<h2>Objekte</h2>
+<p>Objekte verwenden nun einen strukturierteren Klassen-Prototypen-Ansatz, um Klassen- und statische Elemente von Instanzelementen zu trennen. Viele der internen Methoden und Obj-Funktionen wurden verschoben, umbenannt, geändert oder entfernt.</p>
+<ul>
+<li>Jede benutzerdefinierte oder interne Klasse ist ein Klassenobjekt (eine Instanz von <code>Class</code>), das nur Methoden und Eigenschaften, die mit dem Schlüsselwort <code>static</code> definiert wurden (einschließlich statischer Elemente, die von der Base-Klasse geerbt wurden) und verschachtelten Klassen offenlegt.</li>
+<li>Jedes Klassenobjekt hat eine <code>Prototype</code>-Eigenschaft, die zum <code>Base</code> aller Instanzen dieser Klasse wird. Alle nicht-statischen Methoden- und Eigenschaftsdefinitionen innerhalb des Klassenkörpers sind mit dem Prototype-Objekt verbunden.</li>
+<li>Die Instanziierung erfolgt durch Aufruf der <code>new</code>-Methode, wie in <code>myClass.new()</code>. Im Moment ist <code>new myClass</code> äquivalent zu diesem Methodenaufruf. Dadurch kann die Klasse das Konstruktionsverhalten vollständig überschreiben (z. B. um eine Class Factory oder ein Singleton zu implementieren), obwohl die Initialisierung typischerweise noch in <code>__New</code> durchgeführt werden sollte. Der Rückgabewert von <code>__New</code> wird nun ignoriert; um den Rückgabewert zu überschreiben, verwenden Sie die <code>New</code>-Methode.</li>
+</ul>
+<p>Der gemischte Objekttyp wurde in <code>Object</code>, <code>Array</code> und <code>Map</code> (assoziatives Array) aufgeteilt. Derzeit sind nur diese drei Klassen und <code>Class</code> vordefiniert (und als superglobale Variablen zugänglich).</p>
+<p>Object ist nun die Stammklasse für alle benutzerdefinierten <strong>und internen</strong> Objekte (außer COM-Objekte). <code>x is Object</code> ist demzufolge True, wenn x ein AutoHotkey-Objekt ist. Elemente, die zu <code>Object.Prototype</code> hinzugefügt wurden, werden von allen AutoHotkey-Objekte geerbt.</p>
+<p>Der Operator <code>is</code> erwartet nun eine Klasse, also wird <code>x is y</code> nun nach <code>y.Prototype</code> in der Base-Objekt-Kette suchen und überprüfen. Um nach <code>y</code> selbst zu suchen und zu überprüfen, rufen Sie <code>x.HaseBase(y)</code> auf.</p>
+<p>Benutzerdefinierte Klassen können auch explizit <code>Object</code>, <code>Array</code> oder <code>Map</code> erweitern (via "extends"), mit <code>Object</code> als Standard-Base-Klasse ist, wenn keine angegeben ist.</p>
+<p>GetCapacity und SetCapacity wurden entfernt.</p>
+<ul>
+<li>ObjGetCapacity und ObjSetCapacity haben nur noch Einfluss auf die Kapazität des Objekts zur Aufnahme von Eigenschaften, und kommen voraussichtlich nur selten zum Einsatz. Das Setzen der Kapazität des Zeichenkettenpuffers einer Eigenschaft, eines Array-Elements oder eines Map-Elements wird nicht unterstützt; für Binärdaten können Sie ein Buffer-Objekt nutzen.</li>
+<li>Array- und Map-Objekte haben eine Capacity-Eigenschaft, die der aktuellen Array- oder Map-Speicherzuweisung des Objekts entspricht.</li>
+</ul>
+<h3>Eigenschaften und Methoden</h3>
+<p>Eigenschaften und Methoden werden nun getrennt behandelt, wie es bei Variablen und Funktionen der Fall ist:</p>
+<ul>
+<li>Eine Methode und eine Eigenschaft mit demselben Namen können koexistieren.</li>
+<li>Es ist nicht möglich, beim Zuweisen einer Eigenschaft an ein Objekt eine Methode zu erstellen oder <strong>versehentlich zu deaktivieren</strong>.</li>
+<li>Methoden und Eigenschaften können unabhängig voneinander definiert, erkannt, abgerufen und enumeriert werden. Zum Beispiel unterscheidet sich eine Methode von einer Eigenschaft, die zufällig ein <code>Func</code> zurückgibt.</li>
+</ul>
+<p>Die Object-Klasse definiert neue Methoden für den Umgang mit Eigenschaften und Methoden: DefineMethod, DefineProp, DeleteMethod, DeleteProp, GetMethod, GetOwnPropDesc, HasMethod, HasOwnMethod, HasOwnProp, HasProp, HasProp, OwnMethods, OwnProps.</p>
+<p>Da Object, Array und Map nun getrennte Typen sind, werden Array-Elemente und Eigenschaften auch getrennt behandelt.</p>
+<p>Alle internen Methoden und Eigenschaften (einschließlich <code>base</code>) werden wie benutzerdefinierte Methoden definiert. Dadurch wird sichergestellt, dass diese sich konsistent verhalten und dass sowohl interne als auch benutzerdefinierte Elemente erkannt, abgerufen oder neu definiert werden können.</p>
+<p>Wenn eine Eigenschaft keine Parameter akzeptiert, werden diese automatisch an das von der Eigenschaft zurückgegebene Objekt übergeben (oder es löst eine Ausnahme aus).</p>
+<p>Mehrdimensionale Array-Hacks wurden entfernt. <code>x.y[z]:=1</code> erzeugt nicht länger ein Objekt in <code>x.y</code>, außerdem ist <code>x[y,z]</code> ein Fehler, es sei denn, x.__item (oder x.__item.__item etc.) behandelt zwei Parameter.</p>
+<p>Wenn eine Eigenschaft <code>get</code>, aber nicht <code>set</code> definiert, wird beim Zuweisen eines Wertes eine Ausnahme ausgelöst, anstatt die Eigenschaft überschrieben.</p>
+<h3>Metafunktionen</h3>
+<p>Die Metafunktionen wurden stark vereinfacht; sie verhalten sich wie normale Methoden:</p>
+<ul>
+<li>Es spielt keine Rolle, wo sie innerhalb der Hierarchie definiert sind.</li>
+<li>Wenn die Metafunktion überschrieben ist, wird die Base-Version nicht automatisch aufgerufen. Skripte können bei Bedarf <code>base.__xxx()</code> aufrufen.</li>
+<li>Wenn die Metafunktion definiert ist, muss sie die Standardaktion ausführen; wenn z. B. __set keinen Wert speichert, wird er nicht gespeichert.</li>
+<li>Das Verhalten ist nicht davon abhängig, ob die Methode <code>return</code> verwendet (aber natürlich müssen __get und __call noch einen Wert zurückgeben).</li>
+</ul>
+<p>Methoden- und Eigenschaftsparameter werden als Array-Objekt übergeben. Dies optimiert verkettete Base/Superklassen-Aufrufe und unterstützt Autoren (in Kombination mit der MaxParams-Validierung), die Parameter zu behandeln. Bei __set wird der Zuweisungswert separat übergeben.</p>
+<pre><code>this.__call(name, args)
+this.__get(name, args)
+this.__set(name, args, value)
+</code></pre>
+<p>Definierte Eigenschaften und Methoden haben Vorrang vor Metafunktionen, egal ob sie in einem Base-Objekt definiert wurden.</p>
+<p>Die statische Methode __New wird für jede Klasse beim Start aufgerufen, wenn sie von dieser Klasse definiert oder von einer Superklasse geerbt wurde. Aktuell werden Klassen in der Reihenfolge ihrer Definition initialisiert, daher ist nicht garantiert, dass Superklassen vor Unterklassen initialisiert werden.</p>
+<h3>Array</h3>
+<p><code>class Array extends Object</code></p>
+<p>Ein Array-Objekt enthält eine Liste oder Sequenz von Werten, hierbei ist Index 1 das erste Element.</p>
+<p>Beim Zuweisen oder Abrufen eines Array-Elements muss der Absolutwert des Index zwischen 1 und der Länge des Arrays liegen, sonst wird eine Ausnahme ausgelöst. Die Größe eines Arrays kann durch Einfügen oder Entfernen von Elementen mit der entsprechenden Methode oder durch Ändern der Länge geändert werden.</p>
+<p>Aktuell sind eckige Klammern beim Zugriff auf Elemente erforderlich; sprich, <code>a.1</code> bezieht sich auf eine Eigenschaft und <code>a[1]</code> auf ein Element.</p>
+<p>Negative Werte können verwendet werden, um rückwärts zu indexieren.</p>
+<p>Die Funktionsweise von Clone, Delete, InsertAt, Pop, Push und RemoveAt ist grundsätzlich gleich geblieben. HasKey wurde in Has umbenannt. Length ist nun eine Eigenschaft. Die Capacity-Eigenschaft wurde hinzugefügt.</p>
+<p>Arrays können mit <code>Array(values*)</code> oder <code>Array.new(values*)</code> konstruiert werden.</p>
+<p>Die Funktionsweise der For-Schleife ist <code>for val in arr</code> oder <code>for idx, val in arr</code>, wenn standardmäßig <code>idx = A_Index</code>. Das heißt, dass Elemente ohne Wert weiterhin enumeriert werden und dass der Index nicht zurückgegeben wird, wenn nur eine Variable übergeben wurde.</p>
+<h3>Map</h3>
+<p>Ein Map-Objekt ist ein assoziatives Array ähnlich dem v1-Objekt, aber mit geringerer Mehrdeutigkeit.</p>
+<ul>
+<li>Clone wird wie bisher verwendet.</li>
+<li>Delete kann immer nur einen Key auf einmal löschen.</li>
+<li>HasKey wurde in Has umbenannt.</li>
+<li>Count ist jetzt eine Eigenschaft.</li>
+<li>Die Capacity- und Clear-Eigenschaft wurde hinzugefügt.</li>
+<li>Zeichenketten-Keys sind Groß-/Kleinschreibung-sensitiv und werden nie in Integer umgewandelt.</li>
+</ul>
+<p>Derzeit werden Float-Keys noch in Zeichenketten umgewandelt.</p>
+<p>Eckige Klammern beim Zugriff auf Elemente erforderlich; sprich, <code>a.b</code> bezieht sich auf eine Eigenschaft und <code>a["b"]</code> auf ein Element. Im Gegensatz zu v1 kann eine Eigenschaft oder Methode nicht versehentlich durch die Zuweisung eines Array-Elements deaktiviert werden.</p>
+<p>Es wird eine Ausnahme ausgelöst, wenn man versucht, den Wert eines nicht existierenden Elements abzurufen.</p>
+<p>Nutzen Sie <code>Map(Key, Value, ...)</code>, um ein Map-Objekt mit einer Liste von Key-Value-Paaren zu erstellen. <code>Map.new()</code> akzeptiert derzeit keine Parameter.</p>
+<h3>Enumeration</h3>
+<p>Das Enumeratormodell wurde geändert, um Funktionsobjekte als Enumeratoren zuzulassen.</p>
+<ul>
+<li>_NewEnum() wurde mit __Enum(n) ersetzt.</li>
+<li>Der Pflichtparameter n enthält die Anzahl der Variablen in der For-Schleife, damit die Enumeration beeinflusst werden kann, ohne die Initialisierung verzögern zu müssen, bis IsByRef() aufgerufen werden kann.</li>
+<li>Next() wurde mit Call() ersetzt, mit der gleichen Funktionsweise.</li>
+<li>Wenn __Enum nicht vorhanden ist, wird das Objekt als Enumerator vermutet.</li>
+</ul>
+<p>Da Array-Elemente, Eigenschaften und Methoden nun getrennt behandelt werden, muss zum Enumerieren von Eigenschaften und Methoden explizit ein Enumerator via OwnMethods oder OwnProps erstellt werden.</p>
 <h2>Liste</h2>
 <p>Entfernt:</p>
 <ul>
@@ -250,6 +306,9 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <li>File.__Handle -&gt; File.Handle</li>
 </ul>
 <h3>Geänderte Befehle/Funktionen</h3>
+<blockquote>
+<p>Die Überschrift soll nicht suggerieren, dass es Befehle in v2 gibt. Es gibt nur Funktionen. Die Überschrift bezieht sich auf beide Versionen.</p>
+</blockquote>
 <p><code>Chr(0)</code> gibt eine Zeichenkette mit einer Länge von 1 zurück, weil eine binäre Null enthalten ist. Diese Änderung beruht auf der verbesserten Unterstützung für binäre Nullen in Zeichenketten.</p>
 <p>ClipWait gibt nun 0 zurück, wenn die Wartezeit abgelaufen ist, ansonsten 1. ErrorLevel wird nicht gesetzt.</p>
 <p><code>ComObject(pdsp)</code>, <code>ComObject(9, pdsp)</code> und <code>ComObject(13, pdsp)</code> rufen standardmäßig nicht mehr AddRef auf; sie nehmen den Pointer standardmäßig "in Besitz". Viele v1-Skripte, die <code>ComObjEnwrap(pdsp)</code> benutzen (die auf den ersten Seiten von Google zu finden sind), benutzten es falsch; genauer gesagt, sie gaben ihre eigene Kopie des Pointers nicht frei. In v2 muss das Skript <code>ObjAddRef(pdsp)</code> vor <code>ComObject(pdsp)</code> aufrufen, wenn es den Verweis nicht "besitzt" (weil der Pointer ansonsten automatisch freigegeben werden würde, wenn entweder das Wrapper-Objekt freigegeben wird oder direkt als Nebeneffekt vom Abfragen des IDispatch innerhalb eines ComObject()). Der <em>Flags</em>-Parameter hat nur noch Einfluss auf SafeArrays.</p>
@@ -265,11 +324,17 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p>Die Parameterreihenfolge von ControlMove, ControlSend und ControlSetText ist nun im Einklang mit anderen Control-Funktionen; das heißt, dass <em><strong>Steuerelement</strong>, Fenstertitel, Fenstertext, Titelausnahme, Textausnahme</em> immer zusammen sind (am Ende der Parameterliste), um das Einprägen der Parameter zu fördern.</p>
 <p>DllCall: Wenn ein Typ-Parameter eine Variable ist, wird immer der Inhalt dieser Variable verwendet, niemals ihr Name. Das heißt, dass Typennamen ohne Anführungszeichen nicht mehr unterstützt werden - die Namen der Typen müssen in Anführungszeichen gesetzt werden.</p>
 <p>DllCall: AStr kann nur noch ein Eingabeparameter sein. Da der Puffer immer nur so groß wie die Eingabezeichenkette sein kann, war AStr nie nützlich für Ausgabeparameter. Dies gilt für WStr statt AStr, wenn das Skript in ANSI kompiliert wurde (aber v2 ist aktuell nur Unicode).</p>
-<p>FileAppend nutzt standardmäßig End-of-Line-Umwandlungen, um konsistent mit FileRead und FileOpen zu sein. FileAppend und FileRead haben jeweils einen separaten <em>Optionen</em>-Parameter, der die Optionspräfixe ersetzt und optional einen Kodierungsnamen enthalten kann (um FileRead's <code>*Pnnn</code>-Option abzulösen). FileAppend, FileRead und FileOpen benutzen <code>"`n"</code>, um End-of-Line-Umwandlungen zu aktivieren. FileAppend und FileRead unterstützen die Option <code>"RAW"</code>, um die Zeichensatzkonvertierung zu deaktivieren (Lesen/Schreiben von binären Daten). Diese Option ersetzt <code>*c</code> (siehe ClipboardAll).</p>
+<p>DllCall akzeptiert nun ein Objekt für jeden <code>Ptr</code>-Parameter; das Objekt muss eine <code>Ptr</code>-Eigenschaft haben. Für Puffer, die vom Skript reserviert werden, wird das neue <code>Buffer</code>-Objekt gegenüber einer Variable bevorzugt.</p>
+<p>FileAppend nutzt standardmäßig End-of-Line-Umwandlungen, um konsistent mit FileRead und FileOpen zu sein. FileAppend und FileRead haben jeweils einen separaten <em>Optionen</em>-Parameter, der die Optionspräfixe ersetzt und optional einen Kodierungsnamen enthalten kann (um FileRead's <code>*Pnnn</code>-Option abzulösen). FileAppend, FileRead und FileOpen benutzen <code>"`n"</code>, um End-of-Line-Umwandlungen zu aktivieren. FileAppend und FileRead unterstützen die Option <code>"RAW"</code>, um die Zeichensatzkonvertierung zu deaktivieren (Lesen/Schreiben von binären Daten); FileRead gibt in diesem Fall ein <code>Buffer</code>-Objekt zurück. Diese Option ersetzt <code>*c</code> (siehe ClipboardAll). FileAppend kann ein <code>Buffer</code>-ähnliches Objekt akzeptieren, in diesem Fall werden keine Konvertierungen durchgeführt.</p>
 <p>File.RawRead und File.RawWrite akzeptieren jetzt eine Variable, die eine Adresse enthält (als reiner Integer); früher wurde die zwischengespeicherte numerische Zeichenkette der Variable benutzt oder überschrieben, was zu inkonsistenten Ergebnissen führte.</p>
-<p>Wenn File.RawRead eine Variable gegeben wird, ist <em>Bytes</em> optional und standardmäßig die Kapazität der Variable. Die Länge der Variable wird auf die Zeichenlänge der Daten aktualisiert (<code>Ceil(bytes_lesen / 2)</code>).</p>
+<p>Für Puffer, die vom Skript reserviert werden, wird das neue <code>Buffer</code>-Objekt gegenüber einer Variable bevorzugt; es kann ein beliebiges Objekt verwendet werden, solange es über die Eigenschaften <code>Ptr</code> und <code>Size</code> verfügt.</p>
+<blockquote>
+<p><strong>Hinweis:</strong> Ein zukünftiges Update wird die Unterstützung eventuell entfernen, den Zeichenkettenpuffer einer Variable für andere Zwecke zu nutzen. Skripte sollten zukünftig <code>BufferAlloc()</code> verwenden.</p>
+</blockquote>
+<p><strong>Bereits veraltet:</strong> Wenn File.RawRead eine Variable gegeben wird, ist <em>Bytes</em> optional und standardmäßig die Kapazität der Variable. Die Länge der Variable wird auf die Zeichenlänge der Daten aktualisiert (<code>Ceil(bytes_lesen / 2)</code>).</p>
 <p>File.RawWrite kann eine Zeichenkette (oder eine Variable mit einer Zeichenkette) akzeptieren - in diesem Fall ist <em>Bytes</em> standardmäßig die Größe der Zeichenkette in Bytes. Die Zeichenkette kann binäre Nullen enthalten.</p>
 <p>File.ReadLine unterstützt nun immer <code>`r</code>, <code>`n</code> und <code>`r`n</code> als Zeilenenden. Zeilenenden werden weiterhin so wie sind via Read() an das Skript zurückgegeben, wenn die EOL-Umwandlung deaktiviert ist.</p>
+<p>FileEncoding ermöglicht nun die Angabe von Zeichensätzen via Nummer, ohne dass das Präfix <code>CP</code> notwendig ist.</p>
 <p>FileExist ignoriert nun <code>.</code> und <code>..</code>, das in jeder Verzeichnisliste vorkommt, demzufolge ist <code>FileExist("dir\*")</code> nun False statt True, wenn das Verzeichnis existiert aber leer ist.</p>
 <p>FileSelectFile (jetzt unter dem Namen FileSelect bekannt) hatte zwei Mehrfachauswahl-Modi, die über Option 4 und M erreichbar waren. Option 4 und der entsprechende Modus wurden entfernt; sie waren eine lange Zeit nicht in der Doku erwähnt.</p>
 <p>FileSetAttrib überschreibt absofort Attribute, wenn kein +, - oder ^ als Präfix vorhanden ist, anstatt nichts zu tun. Zum Beispiel würde <code>FileSetAttrib(FileGetAttrib(Datei2), Datei1)</code> die Attribute von Datei2 nach Datei1 kopieren (fügt alles hinzu, das Datei2 hat, und entfernt alles, das es nicht hat).</p>
@@ -286,13 +351,20 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p><code>#If</code> wurde so optimiert, dass einfache Aufrufe von WinActive() oder WinExist() direkt vom Hook-Thread ausgewertet werden können (wie es bei #IfWin in v1 der Fall war, und bei <code>Hotkey("IfWin...</code> noch der Fall ist). Dies verbessert die Performance und reduziert das Risiko von Problemen, wenn das Skript beschäftigt ist oder nicht reagiert. Diese Optimierung gilt für Ausdrücke, die einen einzelnen Aufruf von WinActive() oder WinExist() mit bis zu zwei Parametern enthalten, wo jeder Parameter eine einfache in Anführungszeichen gesetzte Zeichenkette ist und das Ergebnis optional mit <code>!</code> oder <code>not</code> invertiert wird. Zum Beispiel <code>#If WinActive("Chrome")</code> oder <code>#If !WinExist("Popup")</code>. In solchen Fällen kann der erste Ausdruck mit einer beliebigen Kombination von Kriterien entweder via Ausdruck oder via Fensterkriterien identifiziert werden. Zum Beispiel verweisen <code>Hotkey('If', '!WinExist("Popup")')</code> und <code>Hotkey("IfWinNotExist", "Popup")</code> auf dieselben Hotkey-Varianten.</p>
 <p>ImageSearch gibt 1 (true) zurück, wenn das Bild im angegebenen Bereich gefunden wurde, oder 0 (false), wenn es nicht gefunden wurde, oder löst eine Ausnahme aus, wenn die Suche nicht durchgeführt werden konnte. ErrorLevel wird nicht gesetzt.</p>
 <p>IniRead gibt als Standardwert eine leere Zeichenkette aus, wenn der <em>Standardwert</em>-Parameter fehlt, statt des Wortes <code>ERROR</code>. Zusätzlich wird ErrorLevel gesetzt, wenn ein Fehler auftritt.</p>
-<p>Input gibt nun immer die Endungszeichen a-z als Kleinbuchstaben zurück, um konsistent mit anderen Zeichen (oder Nicht-US-Tastatur-Layouts) zu sein. Früher begann <code>Input x</code> die Eingabe zu erfassen, während <code>Input</code> selbst nur jegliche laufende Eingabe terminierte. Da es keinen AusgabeVar-Parameter mehr gibt, beginnt <code>Input</code> nun immer die Eingabe zu erfassen, während <code>InputEnd</code> die Eingabe terminiert. Der ursprüngliche <code>Input</code>-Aufruf setzt ErrorLevel auf "End", wenn InputEnd aufgerufen wurde. Input behandelt nun UMSCHALT+RÜCKTASTE wie RÜCKTASTE, anstatt es in <code>`b</code> zu übersetzen.</p>
+<p>Input gibt nun immer die Endungszeichen a-z als Kleinbuchstaben zurück, um konsistent mit anderen Zeichen (oder Nicht-US-Tastatur-Layouts) zu sein. Früher begann <code>Input x</code> die Eingabe zu erfassen, während <code>Input</code> selbst nur jegliche laufende Eingabe terminierte. Da es keinen AusgabeVar-Parameter mehr gibt, beginnt <code>Input</code> nun immer die Eingabe zu erfassen, während <code>InputEnd</code> die Eingabe terminiert. Der ursprüngliche <code>Input</code>-Aufruf setzt ErrorLevel auf "Stopped", wenn InputEnd aufgerufen wurde. Input behandelt nun UMSCHALT+RÜCKTASTE wie RÜCKTASTE, anstatt es in <code>`b</code> zu übersetzen.</p>
 <p>Die Syntax von InputBox wurde komplett überarbeitet, um dessen Benutzerfreundlichkeit zu verbessern (weniger Parameter). Siehe <a href="#inputbox">InputBox</a>, um mehr zu erfahren.</p>
 <p>InStr's <em>CaseSensitive</em>-Parameter wird nun nach den üblichen booleschen Regeln ausgewertet. In v1 wurden nicht-numerische Werte in <code>0</code> (<em>False</em>) umgewandelt. In v2 werden nicht-numerische Werte außer <code>""</code> als <em>True</em> angesehen.</p>
 <p><code>IsFunc(Fn)</code> löst nun eine Ausnahme aus, wenn ein Objekt übergeben wird. Es sollte nur zur Validierung von Funktionsnamen verwendet werden.</p>
 <p>KeyWait gibt nun 0 zurück, wenn die Wartezeit abgelaufen ist, ansonsten 1. ErrorLevel wird nicht gesetzt.</p>
 <p>Die Syntax von MsgBox wurde geändert, um dessen häufig benutzten Parameter zu priorisieren und Benutzerfreundlichkeit zu verbessern. Die "intelligente" Kommahandhabung wurde entfernt; das heißt, dass Kommas genauso behandelt werden wie bei anderen Funktionen. Siehe <a href="#msgbox">MsgBox</a>, um mehr zu erfahren.</p>
-<p>NumPut/NumGet: Übergibt man eine Variable mit einer reinen Zahl an die <code>VarOderAdresse</code>-Parameter, wird der Variablenwert statt der Variablenadresse genutzt.</p>
+<p>NumPut/NumGet: Übergibt man eine Variable mit einer reinen Zahl an die <code>VarOderAdresse</code>-Parameter, wird der Variablenwert statt der Variablenadresse genutzt. Für Puffer, die vom Skript reserviert werden, wird das neue <code>Buffer</code>-Objekt gegenüber einer Variable bevorzugt; es kann ein beliebiges Objekt verwendet werden, solange es über die Eigenschaften <code>Ptr</code> und <code>Size</code> verfügt.</p>
+<blockquote>
+<p><strong>Hinweis:</strong> Ein zukünftiges Update wird die Unterstützung eventuell entfernen, den Zeichenkettenpuffer einer Variable für andere Zwecke zu nutzen. Skripte sollten zukünftig <code>BufferAlloc()</code> verwenden.</p>
+</blockquote>
+<p>NumPut erhält einen zusätzlichen Modus, mit dem mehrere Nummern pro Aufruf geschrieben werden können, indem jeder Nummer der Typ als Zeichenkette vorangestellt wird. Zum Beispiel: <code>NumPut("ptr", a, "int", b, "int", c, addrOrBuffer, offset)</code>.</p>
+<blockquote>
+<p><strong>Hinweis:</strong> Die alten Modi von NumPut werden eventuell entfernt. Genauer gesagt <code>NumPut(num, addr, offset, type)</code>, <code>NumPut(num, addr, type)</code> und <code>NumPut(num, addr)</code>. Die oben gezeigte neue Syntax wird eventuell verpflichtend.</p>
+</blockquote>
 <p><code>Object()</code> und <code>{}</code> bewirken nicht länger, dass <code>__Set</code> bei jedem Key-Value-Paar aufgerufen wird. <code>Object(obj)</code> wird nicht länger AddRef aufrufen und die Adresse des Objekts zurückgeben. Bei Bedarf kann man stattdessen <code>ObjAddRef(addr := &amp;obj)</code> benutzen.</p>
 <p><code>OnExit</code> (der Befehl) wurde entfernt; benutze stattdessen die OnExit()-Funktion, die es seit v1.1.20 gibt. A_ExitReason wurde ebenfalls entfernt; dessen Wert erhält man jetzt über einen Parameter der OnExit-Callback-Funktion.</p>
 <p><code>OnClipboardChange:</code> (das Label) wird nicht mehr automatisch aufgerufen, wenn es vorhanden ist. Benutze stattdessen die OnClipboardChange()-Funktion, die es seit v1.1.20 gibt.</p>
@@ -300,7 +372,7 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p>PixelSearch und PixelGetColor nutzen RGB- statt BGR-Farbwerte, um konsistent mit anderen Funktionen zu sein. Beide Funktionen lösen eine Ausnahme aus, wenn ein Problem auftritt, und setzen keinen ErrorLevel mehr. PixelSearch gibt 1 (true) zurück, wenn die Farbe gefunden wurde. PixelSearch verwendet nun standardmäßig den Fast-Modus und hat eine Option für den Slow-Modus.</p>
 <p>PostMessage: Siehe SendMessage.</p>
 <p><code>Random, , NeuerStartwert</code> wurde früher benutzt, um einen neuen Startwert für den Zufallszahlengenerator zu bestimmen. Da Random keinen AusgabeVar-Parameter zum Weglassen mehr hat, wird dieses Verfahren durch <code>RandomSeed</code> ersetzt.</p>
-<p>Die RegExMatch-Optionen O und P wurden entfernt; der O-Modus (Objekt) ist nun fest integriert.</p>
+<p>Die RegExMatch-Optionen O und P wurden entfernt; der O-Modus (Objekt) ist nun fest integriert. Das RegExMatch-Objekt unterstützt nun die Enumeration (For-Schleife).</p>
 <p>RegisterCallback wurde in CallbackCreate umbenannt und zugunsten für Closures verbessert:</p>
 <ul>
 <li>Unterstützung für Funktionsobjekte hinzugefügt.</li>
@@ -324,12 +396,14 @@ StringTrimRight -- benutze stattdessen SubStr.</li>
 <p>Ansonsten wird RegDelete mit leerem oder fehlendem <em>Wertname</em> den Standardwert des Keys (nicht den Key selbst) nun löschen, um konsistent mit RegWrite, RegRead und A_LoopRegName zu sein. Das Schlüsselwort "AHK_DEFAULT" hat keine besondere Bedeutung mehr. Mit RegDeleteKey (neu) kann ein Key gelöscht werden.</p>
 <p>RegRead hatte einen undokumentierten 5-Parameter-Modus, wo man den Werttyp nach der Ausgabevariable angeben konnte. Dieser wurde entfernt.</p>
 <p>Run und RunWait ignorieren absofort die <code>UseErrorLevel</code>-Option. Verwenden Sie stattdessen try/catch. <code>A_LastError</code> wird bedingungslos gesetzt und kann nach dem Abfangen/Unterdrücken einer Ausnahme überprüft werden. RunWait gibt den Exitcode zurück. ErrorLevel wird nicht gesetzt.</p>
-<p>SendMessage und PostMessage benötigen nun wParam und lParam als Integer; eine Ausnahme wird ausgelöst, wenn ihnen eine nicht-numerische Zeichenkette, eine Gleitkommazahl oder ein Objekt zugewiesen wird. Früher wurde eine Zeichenkette via Adresse übergeben, wenn der Ausdruck mit <code>"</code> begann, aber andere Zeichenketten wurden zwangsweise in Integern umgewandelt. <code>&amp;var</code> zu übergeben bewirkt nicht länger, dass die Länge der Variable aktualisiert wird (nutzen Sie <code>VarSetCapacity(var, -1)</code>).</p>
+<p>Die wParam- und lParam-Parameter von SendMessage und PostMessage müssen nun Integer oder Objekte mit Ptr-Eigenschaft sein; es wird eine Ausnahme ausgelöst, wenn ihnen eine nicht-numerische Zeichenkette oder Floating-Point-Zahl zugewiesen wird. Früher wurde eine Zeichenkette via Adresse übergeben, wenn der Ausdruck mit <code>"</code> begann, aber andere Zeichenketten wurden zwangsweise in Integern umgewandelt. <code>&amp;var</code> zu übergeben bewirkt nicht länger, dass die Länge der Variable aktualisiert wird (nutzen Sie <code>VarSetCapacity(var, -1)</code>).</p>
 <p>SendMessage setzt ErrorLevel nun nur noch auf 0 oder 1, um zu kennzeichnen, ob ein Fehler aufgetreten ist, und gibt die Antwort der Meldung zurück (oder bei Misserfolg eine leere Zeichenkette).</p>
 <p>SetTimer's erster Parameter unterstützt nun jede Art von Ausdruck, der ein Objekt zurückgibt, und benötigt keinen Variablenverweis. Labelnamen werden länger unterstützt.</p>
 <p>Sort: Der <em>VarName</em>-Parameter wurde aus Flexibilitätsgründen in einzelne Eingabe-/Ausgabeparameter aufgeteilt. Sort wird jetzt wie folgt genutzt: <code>Ausgabe := Sort(Eingabe [, Optionen, Callback])</code>.</p>
 <p>SoundGet gibt nun 1 oder 0 für boolesche Einstellungen anstelle von "On" oder "Off" zurück, was das Invertieren des Wertes erleichtert (<code>not</code>/<code>!</code>).</p>
 <p>StrGet: Wenn der Wert in <em>Länge</em> negativ ist, wird sein absoluter Wert die genaue Anzahl der Zeichen bestimmen, die umgewandelt werden sollen, einschließlich aller binären Nullen, die die Zeichenkette enthalten könnte - das heißt, dass das Ergebnis immer eine Zeichenkette mit exakt dieser Länge sein wird. Wenn der Wert in <em>Länge</em> positiv ist, wird die Zeichenkette wie in v1 bei der ersten binären Null enden.</p>
+<p>StrGet/StrPut: Der <em>Adresse</em>-Parameter kann ein Objekt mit den Eigenschaften <code>Ptr</code> und <code>Size</code> sein, wie z. B. das neue <code>Buffer</code>-Objekt. Das Lesen/Schreiben wird automatisch via <code>Size</code> limitiert (in Bytes). Wenn zudem <em>Length</em> angegeben ist, darf es nicht <em>Size</em> überschreiten (multipliziert mit 2 bei UTF-16).</p>
+<p>Der Rückgabewert von StrPut ist nun in Bytes, so dass er direkt an BufferAlloc() oder VarSetCapacity() übergeben werden kann.</p>
 <p>Suspend: Die erste Zeile eines Hotkeys oder Hotstrings dazu bringen, Suspend aufzurufen, führt nicht länger dazu, dass der Hotkey oder Hotstring automatisch von Sperrung befreit wird. Verwenden Sie stattdessen <code>#SuspendExempt</code>. Der Permit-Parameter ist nicht länger gültig.</p>
 <p>SysGet hat jetzt nur noch numerische Unterbefehle; alle anderen Unterbefehle wurden in Funktionen aufgeteilt. Siehe <a href="#sub-commands">Unterbefehle</a>, um mehr zu erfahren.</p>
 <p>TrayTip's Syntax wurde geändert zu <code>TrayTip [, Text, Titel, Optionen]</code>. <em>Optionen</em> ist eine Zeichenkette bestehend aus eine oder mehreren Optionen, deren Groß-/Kleinschreibung egal ist und mit Leer- oder Tabulatorzeichen voneinander getrennt sind. Die Optionen sind <code>Iconx</code>, <code>Icon!</code>, <code>Iconi</code>, <code>Mute</code> und/oder nach wie vor ein beliebiger numerischer Wert. TrayTip wird jetzt auch angezeigt, wenn <em>Text</em> weggelassen wird (das nun im Gegensatz zu v1 seltener aus Versehen passieren kann). Der <em>Sekunden</em>-Parameter ist nicht mehr vorhanden (er funktionierte nicht in Windows Vista oder höher).</p>
@@ -489,6 +563,7 @@ Primär    := MonitorGetPrimary()
 Name      := MonitorGetName([N])
 </code></pre>
 <h3>Neue Befehle/Funktionen</h3>
+<p><code>BufferAlloc(Größe)</code> erzeugt und gibt einen <code>Buffer</code>-Objekt zurück, für das ein Speicherblock in <em>Größe</em> Bytes reserviert ist, der zunächst mit Nullen gefüllt ist. <code>Buffer.Ptr</code> ermittelt die Adresse und <code>Buffer.Size</code> ermittelt oder setzt die Größe in Bytes (inklusive Neureservierung des Speicherblocks). Es kann ein beliebiges Objekt mit den Eigenschaften Ptr und Size an <code>NumPut</code>, <code>NumGet</code>, <code>StrPut</code>, <code>StrGet</code>, <code>File.RawRead</code>, <code>File.RawWrite</code> und <code>FileAppend</code> übergeben werden. Es kann ein beliebiges Objekt mit einer Ptr-Eigenschaft an <code>SendMessage</code>, <code>PostMessage</code>, und <code>DllCall</code>-Parametern vom Typ Ptr übergeben werden.</p>
 <p><code>CaretGetPos([X, Y])</code> ermittelt die aktuellen Koordinaten des Text-Cursors. Dadurch wird sichergestellt, dass die X- und Y-Koordinaten immer übereinstimmen und dass es kein Caching gibt, das zu unerwartetem Verhalten führt (wenn A_CaretX/Y beispielsweise einen Wert zurückgibt, der nicht im aktuellen CoordMode liegt).</p>
 <p><code>ClipboardAll([Daten, Größe])</code> erstellt ein Objekt, das alles, was in der Zwischenablage ist, enthält (und akzeptiert optional Daten, die vorher aus der Zwischenablage abgerufen wurden, anstatt den aktuellen Inhalt der Zwischenablage zu verwenden). Die Methoden zum Lesen und Schreiben von Dateidaten der Zwischenablage sind unterschiedlich. Das Datenformat ist das gleiche, außer dass die Datengröße immer 32-Bit ist, so dass die Daten zwischen 32-Bit- und 64-Bit-Builds portierbar sind. Weitere Informationen sind in der v2-Dokumentation zu finden.</p>
 <p>ControlGetClassNN gibt die ClassNN eines bestimmten Steuerelements zurück.</p>
@@ -544,15 +619,15 @@ Name      := MonitorGetName([N])
 <li>A_DetectHiddenText (gibt nun auch 1 oder 0 statt "On" oder "Off" zurück)</li>
 <li>A_DetectHiddenWindows (gibt nun auch 1 oder 0 statt "On" oder "Off" zurück)</li>
 <li>A_EventInfo</li>
-<li>A_FileEncoding (diese Variable gibt außerdem "CP0" anstelle von "" zurück)</li>
+<li>A_FileEncoding (diese Variable gibt nun "CP0" anstelle von "" zurück, außerdem kann ihr ein Integer ohne CP-Präfix zugewiesen werden)</li>
 <li>A_IconHidden</li>
 <li>A_IconTip (Außerdem spiegelt es nun immer das ToolTip wider, auch wenn es Standard oder leer ist)</li>
-<li>A_Index: Bei endlichen Schleifen wird ein hier gespeicherter Wert die Anzahl der Durchläufe beeinflusst.</li>
+<li>A_Index: Bei endlichen Schleifen wird ein hier gespeicherter Wert die Anzahl der Durchläufe beeinflusst. (Die globale Ausrichtung der internen Variablen hat zur Folge, dass die Next-Methode eines Enumerators den Index setzen könnte, der von einer For-Schleife gesehen wird.)</li>
 <li>A_KeyDelay</li>
 <li>A_KeyDelayPlay</li>
 <li>A_KeyDuration</li>
 <li>A_KeyDurationPlay</li>
-<li>A_LastError: Ruft die Win32-SetLastError()-Funktion auf.</li>
+<li>A_LastError: Ruft die Win32-SetLastError()-Funktion auf. Zudem gibt diese interne Variable nun einen vorzeichenlosen Wert zurück.</li>
 <li>A_ListLines</li>
 <li>A_MouseDelay</li>
 <li>A_MouseDelayPlay</li>
@@ -748,11 +823,13 @@ Gui GuiName: Default</p>
 <p>Threads, die unterbrechungsfrei beginnen, bleiben nun so lange bestehen, bis mindestens eine Zeile ausgeführt wurde, auch dann, wenn der unterbrechungsfreie Timeout zuerst abläuft (z. B. wenn das System den Prozess unmittelbar nach dem Start des Threads sperrt, um einem anderen Prozess CPU-Zeit zu geben).</p>
 <p>MaxThreads und #MaxThreadsPerHotkey machen keine Ausnahmen mehr für Subroutinen, deren erste Zeile einer der folgenden Befehle ist: ExitApp, Pause, Edit, Reload, KeyHistory, ListLines, ListVars oder ListHotkeys.</p>
 <p>RegEx-Zeilenumbruchsübereinstimmung benutzt standardmäßig (*ANYCRLF) und (*BSR_ANYCRLF); `r und `n werden zusammen mit `r`n erkannt. Die `a-Option aktiviert bedingungslos (*BSR_UNICODE).</p>
+<p>RegEx-Callout-Funktionen können nun variadisch sein.</p>
 <p>Skripte, die von der Standardeingabe (stdin) gelesen werden (z. B. mit <code>AutoHotkey.exe *</code>), fügen nicht mehr das ursprüngliche Arbeitsverzeichnis in <code>A_ScriptFullPath</code> oder in den Titel des Hauptfensters ein, aber es wird als <code>A_ScriptDir</code> und zum Finden des lokalen Lib-Ordners verwendet.</p>
 <p>Hotstrings behandeln nun UMSCHALT+RÜCKTASTE wie RÜCKTASTE, anstatt es innerhalb des Hotstring-Zwischenspeichers in <code>`b</code> zu übersetzen.</p>
 <p>Hotstrings verwenden nicht das letzte, sondern das erste Doppelpunktpaar (<code>::</code>) als Trennung, wenn mehrere Doppelpunktpaare vorhanden sind. Das heißt, dass Doppelpunkte (wenn sie an einen anderen Doppelpunkt angrenzen) mit einem Escapezeichen versehen werden müssen, um Text in v2 zu triggern, während sie in v1 im Ersatztext mit einem Escapezeichen versehen werden müssen. Beachten Sie, dass bei einer ungeraden Anzahl von aufeinanderfolgenden Doppelpunkten das bisherige Verhalten den letzten Doppelpunkt nicht als Teil eines Paares angesehen hatte. Zum Beispiel bleibt das Verhalten bei <code>::1:::2</code> (<code>1</code> → <code>:2</code>) unverändert, während sich <code>::3::::4</code> wie <code>3</code> → <code>::4</code> statt wie <code>3::</code> → <code>4</code> verhält.</p>
 <p>Hotstrings escapen nicht länger Doppelpunktpaare, daher es nun möglich, einen einzelnen Doppelpunkt am Ende des Hotstring-Triggers zu escapen. Zum Beispiel ist <code>::5`:::6</code> nun <code>5:</code> → <code>6</code> statt eines Fehlers, und <code>::7`::::8</code> nun <code>7:</code> → <code>:8</code> statt <code>7::</code> → <code>8</code>. Am besten versieht man in solchen Fällen alle direkt geschriebenen Doppelpunkte mit einem Escapezeichen, um Verwirrung zu vermeiden (aber ein einzelner isolierter Doppelpunkt muss nicht escaped werden).</p>
 <p>Hotstrings mit Fortsetzungsbereichen verwenden nun standardmäßig den Text- statt Raw-Modus.</p>
+<p>Hotkeys maskieren die Win/Alt-Taste nur noch beim Loslassen, wenn sie logisch unten ist und der Hotkey die Win/Alt-Taste benötigt (mit <code>#</code>/<code>!</code> oder einem benutzerdefinierten Präfix). Das heißt, dass Hotkeys, die die Win/Alt-Taste nicht benötigen, Win/Alt-Up nicht mehr maskieren, wenn die Win/Alt-Taste physisch unten ist. Dadurch können Hotkeys, die <code>{Blind}{LWin up}</code> senden, das Startmenü aktivieren (was bei Verwendung einer neubelegten Taste wie <code>AppsKey::RWin</code> bereits möglich war).</p>
 <h3>Persistenz</h3>
 <p>Skripte sind "persistent", wenn mindestens eine der folgenden Bedingungen zutrifft:</p>
 <ul>
@@ -761,10 +838,16 @@ Gui GuiName: Default</p>
 <li>Mindestens ein GUI ist sichtbar.</li>
 <li>Mindestens ein Timer ist läuft gerade.</li>
 <li>Mindestens eine OnClipboardChange-Callback-Funktion wurde gesetzt.</li>
+<li>Mindestens ein InputHook ist aktiv.</li>
 <li>Das Infobereichssymbol ist sichtbar und sein Menü hat benutzerdefinierte Menüpunkte.</li>
 <li>#Persistent wurde genutzt.</li>
 </ul>
-<p>Wenn der letzte Skript-Thread zu Ende ist, oder wenn ein Gui geschlossen oder entfernt wurde und keine der oben genannten Bedingungen zutrifft, wird das Skript terminiert.</p>
+<p>Wenn eines der folgenden Dinge eintritt und keine der oben genannten Bedingungen zutrifft, wird das Skript terminiert.</p>
+<ul>
+<li>Der letzte Skript-Thread endet.</li>
+<li>Eine GUI wurde geschlossen oder zerstört.</li>
+<li>Ein InputHook ohne OnEnd-Callback endet.</li>
+</ul>
 <p>v1-Skripte sind hingegen "persistent", wenn mindestens eine der folgenden Bedingungen zutrifft:</p>
 <ul>
 <li>Mindestens ein Hotkey oder Hotstring wurde im Skript definiert.</li>

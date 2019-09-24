@@ -3,15 +3,30 @@
 <head>
 <title>v2-thoughts</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script src="/cdn-cgi/apps/head/edTxqK4-R2-xDNg7qQjp1r387bk.js"></script>
+<script src="/cdn-cgi/apps/head/21XiSFXBdVHXl7A_izEkLSn9ayc.js"></script>
 <link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 <h1>Gedanken zu v2.0</h1>
+<p>Beachten Sie, dass dieses Dokument noch in Bearbeitung ist.</p>
+<h2>TODO (Sonstiges)</h2>
+<p>Validierung des an Gui.AddControl oder GuiControl.Add übergebene Objekttypes, und/oder Unterstützung für enumerierbare Objekte.</p>
+<h2>Func</h2>
+<p>Das Erkennen von falsch geschriebenen Funktionsnamen, <em>während das Skript geladen wird</em>, könnte ein nützliches Feature für die Sprache sein, allerdings würde dies nur für direkte Aufrufe gelten. Referenzen wie <code>Func("name")</code> oder <code>"name"</code>, wenn falsch geschrieben, werden nur erkannt, wenn das Skript versucht diese aufzurufen (was möglicherweise nicht dort ist, wo sie referenziert wurden).</p>
+<p><code>Func("name")</code> ist optimiert (in v2), um während der Ladezeit aufgelöst zu werden, kann aber keinen Ladezeitfehler auslösen, wenn die Funktion nicht existiert, weil es kein Fehler ist. Zum Beispiel kann <code>name</code> in einem optionalen <code>#include *i</code> definiert werden, und Func ist, wie es zum Aufrufen aufgelöst werden würde. Wenn es einen Ladezeitfehler ausgelöst hat, würde weder dies funktionieren:</p>
+<pre><code>if f := Func("name")  ; ← Ladezeitfehler
+    f.Call()
+</code></pre>
+<p>Noch würde dies funktionieren:</p>
+<pre><code>if IsFunc("name")
+    MyRegisterEvent(Func("name"))  ; ← Ladezeitfehler
+</code></pre>
+<p>Die offensichtlichste Lösung wäre es, eine neue Syntax für eine <em>Funktionsreferenz</em> hinzuzufügen, die während der Ladezeit als Fehler erkannt wird, wenn die Funktion nicht existiert.</p>
+<ul>
+<li>fincs hat <code>@name</code> vorgeschlagen, wie in <code>OnExit(@ExitHandler)</code> oder <code>greet := @MsgBox.Bind("Hello")</code>.</li>
+<li>Eine weitere Idee ist <code>Func'name'</code>, wie in <code>OnExit(Func'ExitHandler')</code> oder <code>greet := Func"MsgBox".Bind("Hello")</code>. Obwohl derzeit nicht gültig, kann es schwierig sein, dies visuell von einer automatischen Verkettung zu unterscheiden.</li>
+</ul>
 <h2>Sonstiges</h2>
-<h3>FIXME</h3>
-<p><code>A_ScriptHwnd</code> gibt eine Zeichenkette zurück und funktioniert daher nicht gut mit dem <code>Steuerelement</code>-Parameter von verschiedenen Befehlen.</p>
-<p>Intern: IObject::Type()-Implementierung ändern, um schnelle Typenüberprüfungen zu ermöglichen (dynamic_cast vermeiden).</p>
 <h3>On/Off/Toggle/1/0/-1</h3>
 <p>Interne Variablen (außer A_StringCaseSense) und SoundGet wurden so geändert, dass sie 1 oder 0 anstelle von "On" oder "Off" zurückgeben, da Integer mit booleschen Ausdrücken besser funktionieren. Außerdem ist die Übergabe einer Zeichenkette aufgrund der Anführungszeichen weniger komfortabel als zuvor. Es ist sinnvoll, Skripte konsistent zu halten, daher sollte in Betracht gezogen werden, "On" und "Off" vollständig zu entfernen. Es gibt jedoch Fälle, wo sie eventuell nicht entfernt werden sollten:</p>
 <ul>
@@ -34,11 +49,6 @@
 <p>Es ist technisch möglich, AltGr's gefälschtes LCtrl zu identifizieren, indem man die wenig bekannte Tatsache nutzt, dass <code>KBDLLHOOKSTRUCT::scanCode</code> das 0x200-Bit für die gefälschten LCtrl-Ereignisse gesetzt hat. (KeyHistory zeigt dies nicht an, da der Scancode auf 1 Byte gekürzt ist [und dann 0x100 hinzugefügt wird, wenn das 0xE0-Flag gesetzt ist].)</p>
 <p>Mit nur wenigen Codezeilen könnten die gefälschten LCtrl-Ereignisse als "ignoriert" markiert werden, was alle oben aufgeführten "Konsequenzen" vermeiden würde, außer dass es zu Inkonsistenzen zwischen "hook"-Hotkeys (die AltGr als RAlt behandeln würden) und "reg"-Hotkeys (die AltGr als STRG+ALT behandeln würden) kommen würde. AltGr würde nur noch <code>RAlt::</code> oder <code>&gt;!</code> (beide verwenden immer den Hook) und <code>&lt;^&gt;!</code> würde LCtrl+AltGr bedeuten. Wenn nur AltGr unten ist, würde GetKeyState LCtrl als physisch unten, aber logisch oben melden (was die Tatsache widerspiegelt, dass der Benutzer LCtrl physisch nicht gedrückt hat, aber das aktive Fenster STRG als unten ansieht).</p>
 <p>AutoHotkey verwendet einige "Heuristiken", um das Vorhandensein von AltGr während des Sendens zu erkennen. Dies kann vereinfacht werden, indem man sich auf das 0x200-Bit bezieht. Andererseits kann die "Heuristik" eventuell entfernt werden, um die Codegröße zu reduzieren, da die AltGr-Erkennung (zumindest für Unicode-Versionen) via Commit 92c5a76e (v1.1.27.01) verbessert wurde. Das Testen hat bereits gezeigt, dass die neue Methode für 203 Standardlayouts unter Windows 10 hundertprozentig genau ist (was besser ist als vorher), aber es müssen noch ältere Betriebssysteme getestet werden.</p>
-<h3>Gefälschtes Umschalt</h3>
-<p>AutoHotkey hat einige "Heuristiken", um zu erkennen, wenn die Up/Down-Ereignisse von Umschalt nicht physischen Ursprungs sind, sondern das Ergebnis des Drückens einer Numpad-Taste sind, während Umschalt unten ist. Diese sind derzeit (Stand 21.04.19) etwas fehlerhaft, da sie RShift absichtlich ignorieren, obwohl ein gefälschtes RShift genauso gesendet wird wie LShift, zumindest unter Windows 10.</p>
-<p>Es ist möglich, diese "Heuristiken" zu vereinfachen, indem man die wenig bekannte Tatsache nutzt, dass <code>KBDLLHOOKSTRUCT::scanCode</code> das 0x200-Bit für jedes LShift-Up- oder RShift-Up-Ereignis gesetzt hat, das durch Drücken von Numpad erzeugt wird, zumindest unter Windows 10.</p>
-<h3>Menütastenmaskierung</h3>
-<p>Die Menütasten (Alt/Win) werden derzeit "maskiert", wenn ein Hotkey ausgelöst wird, während eine Menütaste logisch unten und ( <em>physisch unten</em> ist oder der Hotkey verlangt, dass dieser Modifikator unten ist ). Die <em>Physisch-Unten</em>-Bedingung wird als "abwärtskompatibel" eingestuft und ist eventuell unnötig. Im Zweifelsfall ist es wahrscheinlich besser, keine Maskierung vorzunehmen, da das Skript die Menütaste leicht maskieren kann (indem es irgendetwas sendet), aber unerwünschte Maskierungen nicht leicht verhindern kann.</p>
 <h2>Liste</h2>
 <h3>Befehle mit Unterbefehlen</h3>
 <p>Einige der neuen Funktionen, die Unterbefehle ersetzen, geben bei Erfolg eine 1 und bei Misserfolg eine 0 zurück (neben dem Setzen von ErrorLevel), während andere nur ErrorLevel setzen. Dies sollte korrigiert werden.</p>
@@ -113,14 +123,10 @@
 <h3>Einstellungen</h3>
 <p>Ein oft gefordertes Feature ist es, globale Einstellungen wie SetTitleMatchMode, DetectHiddenWindows und DetectHiddenText temporär für einen bestimmten Fenstertitel oder Befehl aufzuheben. Im Moment wäre die wahrscheinlichste Form <code>Titel ahk_mode 3 ahk_dhw 1</code>. Dieses Feature zu einem späteren Zeitpunkt zu implementieren hat sehr wahrscheinlich keinen negativen Einfluss auf bereits vorhandene Skripte; daher ist es aktuell nicht für v2.0 geplant.</p>
 <h2>Binäre Daten</h2>
-<p>Zeichenketten in v2-alpha können binäre Nullen enthalten, aber es gibt Raum für Verbesserungen. SubStr ist in der Lage, einen Teil der Daten zurückzugeben, aber mit einer Granularität von 2 Bytes (wegen UTF-16). Skripte, die Variablen und Array-Elemente als Puffer benutzen (mit VarSetCapacity/SetCapacity), haben keine Möglichkeit, die Länge von bedeutsamen Daten zu setzen - z. B. VarSetLength oder Ähnliches.</p>
-<p>Ein allgemeinerer Ansatz wäre es, eine Zeichenkette mit einer Länge von <em>n</em> zu erstellen, diese dann einer Variable oder einem Objekt zuzuweisen und zum Schluss den Inhalt zu manipulieren. In Hinsicht auf der aktuellen Implementierung würde dies aber zum Kopieren der Zeichenkette und zu redundante Speicherzuordnungen führen.</p>
-<p>Skripte benutzen VarSetCapacity für zwei Dinge:</p>
-<ul>
-<li>Um eine schrittweise Verkettung zu optimieren.</li>
-<li>Um Speicher für eine Datenstruktur zu reservieren.</li>
-</ul>
-<p>Letzteres sollte VarSetLength benutzen, da die gesamte Länge der Struktur von Bedeutung ist. Dies würde erlauben, eine Struktur als Wert zu übergeben (kopieren) oder von einer Funktion zurückgegeben zu werden. VarSetCapacity wäre dann nur für Zeichenketten nützlich; vielleicht sollte die Kapazität in Zeichen statt in Bytes gemessen werden. Alternativ könnte man unterschiedliche Funktionen für "Byte"- und "Str"-Länge/Kapazität bereitstellen.</p>
+<p>Es scheint am besten, die Verwendung von VarSetCapacity und <code>&amp;var</code> für binäre Daten zugunsten des neuen Buffer-Objekts zu missbilligen oder zu entfernen.</p>
+<p>Die Trennung von Werten von Variablen ermöglicht eine größere Flexibilität und vermeidet Doppelungen, wie z. B. <code>VarSetCapacity</code> und <code>Obj.SetCapacity</code>, oder <code>&amp;var</code> und <code>Obj.GetAddress(Name)</code>.</p>
+<p>Wenn VarSetCapacity nicht entfernt wird, sollte es mit Zeichen und nicht mit Bytes fungieren. Die Bytegröße verliert an Bedeutung, wenn die Daten immer eine UTF-16-Zeichenkette sind.</p>
+<p><code>&amp;</code> (Adresse-von) zu entfernen oder es mit spezifischeren Funktionen zu ersetzen (Adresse einer Zeichenkette, eines Objekts und eines Lesen/Schreiben-Puffers trennen) könnte die Übersichtlichkeit verbessern und weniger fehleranfällige Muster unterstützen.</p>
 <p><strong>Boolean:</strong> Zeichenketten, die mit <code>Chr(0)</code> beginnen, sind momentan <code>false</code>, da die booleschen Checks eher von einer nullterminierten als von einer binär gezählten Zeichenkette ausgehen. Es ist vielleicht besser, solche Zeichenketten als <code>true</code> zu behandeln. Andererseits vergleichen relative Operatoren (<code>&lt;</code> <code>&gt;</code> etc.) derzeit nur bis zum Null-Terminator. Man muss darauf achten, dass dies mit der numerischen Behandlung von Zeichenketten mit chr(0) konsistent ist; also wenn <code>("0" chr(0)) == 0</code>, dann muss es <code>false</code> sein.</p>
 <h2>Ausdrucksoperatoren</h2>
 <p>Obwohl <code>in</code> und <code>contains</code> bereits in v2-alpha reserviert sind (um so spätere Probleme vorzubeugen), erscheint v2 ohne sie unvollständig, da Benutzer, die vorhandene v1-Skripte konvertieren wollen, eine Alternative für v2 finden müssen. Sie sollten implementiert werden, bevor v2.0 veröffentlicht wird, und moderner gemacht werden (Arrays erlauben).</p>
@@ -153,32 +159,8 @@
 <p>Hier einige (nicht sehr relevante) Diskussionen: https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847.</p>
 <p><code>between</code> wird vermutlich überhaupt nicht implementiert. Eine Alternative bestünde darin, Verkettungen von Operatoren wie bei Python und Perl 6 zu erlauben, wo <code>x &lt; y &lt; z</code> das gleiche wie <code>(x &lt; y) and (y &lt; z)</code> wäre. Das würde jedoch bedeuten, dass Klammern die Bedeutung von <code>&lt;</code> verfremden würden (was nicht richtig zu sein scheint), z. B. bei <code>x &lt; y &lt; z</code> vs <code>(x &lt; y) &lt; z</code>, weil Letzteres das Ergebnis von <code>x &lt; y</code> (true oder false) mit z vergleichen würde. Einige Benutzer haben <code>x &lt; y &lt; z</code> bereits ausprobiert und sich über das Ergebnis gewundert, daher sollten, sofern dieses Feature nicht implementiert wird, verkettete Operatoren erkannt und eine Warn-/Fehlermeldung angezeigt werden. (Aber wenn die Erkennung von verketteten Operatoren zu kompliziert ist, könnte das Kosten-Nutzen-Verhältnis zugunsten der Implementierung dieser Verkettung ausfallen.)</p>
 <h2>Objekte</h2>
-<p>Es sind signifikante Änderungen für das Objektmodell geplant. Siehe <a href="https://www.autohotkey.com/boards/viewtopic.php?f=37&amp;t=57591">Objects</a> (Forum-Thread).</p>
-<h3>Interne Objekte</h3>
-<p>Inkonsistente Eigenschaften, die geändert werden müssen:</p>
-<ul>
-<li><code>File.Length</code>, <code>RegExMatch.Len</code> / <code>RegExMatch.Len()</code>, <code>Object.Length()</code></li>
-<li><code>File.Pos</code> / <code>File.Position</code>, <code>RegExMatch.Pos</code> / <code>RegExMatch.Pos()</code></li>
-</ul>
-<h3>Meta-Funktionen</h3>
-<p>Meta-Funktionen werden häufig missverstanden, und sollten deshalb vielleicht vereinfacht werden. Spontane Ideen:</p>
-<ul>
-<li>Die Interaktion zwischen Meta-Funktionen und Vererbung von Key-Value-Paaren ist schwierig zu erklären und daher auch schwer zu begreifen. Ein einfacherer Ansatz, mehr im Einklang mit dem normalen Methodenverhalten, könnte die Flexibilität erhöhen, aber mit dem Nebeneffekt, dass im Skript gegebenenfalls mehr Aufwand notwendig ist. Das ist wahrscheinlich OK, da die häufigsten Fälle mit der Eigenschaftensyntax abgesichert sind.</li>
-<li>Es sollte möglich sein, eine Meta-Funktion manuell aufzurufen und das Ergebnis zu interpretieren, wie es der interne Mechanismus tun würde. Derzeit ist es nicht möglich, da der interne Mechanismus zwischen impliziter Rückgabe am Funktionsende <code>}</code> und explizitem <code>return</code> unterscheidet.</li>
-<li><code>value := o.__xxx(byRef handled, prms*)</code> - wenn nicht behandelt, erfolgt Standardverhalten. <strong>Pro</strong>: übersichtlich; eine leere Meta-Methode hat keine Wirkung.</li>
-<li><code>handled := o.__xxx(byRef result, prms*)</code> - wie oben.</li>
-<li><code>result := o.__xxx(prms*)</code>
-<ul>
-<li>Die Operation wird immer behandelt (also erfolgt nie das Standardverhalten). Simpel, aber möglicherweise irreführend, da __xxx explizit statische Klassenvariablen oder vererbte Methoden anfordern müsste. Andererseits könnte <code>base.__xxx(prms*)</code> dazu gebracht werden, das Standardverhalten (Nicht-Meta-Funktion) aufzurufen.</li>
-<li>__xxx könnte den äquivalenten Ausdruck benutzen, um das Standardverhalten auszuführen; z. B. würde <code>o[prms*]</code> innerhalb von __Get base-Objekte anfordern. Dies würde die Möglichkeit benötigen, zu erkennen, ob __xxx ausgeführt wird (sogar eine Superklassenversion davon). Eine Entscheidung müsste getroffen werden, ob Methoden/Funktionen, die via __xxx aufgerufen werden, dieses Verhalten haben sollen.</li>
-<li>Man könnte einen speziellen Rückgabewert reservieren, um zu kennzeichnen, dass der Operator <em>nicht</em> behandelt wurde. Das könnte ein einzigartiges Objekt nur zu diesem Zweck sein. <strong>Pro</strong>: Meta-Methoden können beim Behandeln der Operation einfach einen Wert zurückgeben; weniger Overhead als explizites Abrufen/Aufrufen vererbter Elemente. <strong>Con</strong>: Vererbung von Key-Value-Paaren oder Methoden muss explizit durch Rückgabe dieses Wertes reaktiviert werden (nicht gerade idiotensicher).</li>
-</ul>
-</li>
-</ul>
-<h3>Sonstiges</h3>
-<p>Objekte unterstützen nun binäre Nullen in Zeichenkettenwerten, durch Zwischenspeichern der Zeichenkettenlänge. Allerdings werden absofort nur Daten bis zur Zeichenkettenlänge beim Klonen des Objekts beibehalten (konsistent mit dem Abrufen des Wertes vom Objekt als Zeichenkette, um z. B. ein anderes Objekt zuzuweisen). Es sollte irgendwie die Möglichkeit geben, die Datenlänge zu setzen, z. B. <code>Object.SetLength(Key, Length)</code>. Aus Übersichtsgründen (und um Verwirrung mit <code>Object.Length</code> zu vermeiden) wäre es vielleicht besser, so etwas wie <code>SetStrLen</code> und <code>SetByteLen</code> zu haben. Beachte zudem, dass ähnliche Funktionen für Variablen notwendig wären, um Binärdaten besser unterstützen zu können.</p>
 <p><code>new MeineKlasse[a,b,c]</code> könnte als eine sehr komfortable Möglichkeit reserviert werden, um einen spezialisierten Array-/Auflistungstyp zu initialisieren (<code>new MeineKlasse{a:b}</code> ist bereits als Syntaxfehler "reserviert"). Aktuell könnte <code>MeinKlasse[a,b,c]</code> eine Klasse zum Instanziieren sein, aber sehr wahrscheinlich wird sie nur selten benutzt (wenn überhaupt), und ist inkonsistent mit der v1-Richtlinie bzgl. der Anforderung eines Klassennamens nach dem <code>new</code>-Operator. v1 behandelt <code>new x[y](z)</code> als <code>new c1</code>, wo c1 gleich <code>x[y](z)</code> ist, während v2-a076 diese Anweisung als <code>new c2(z)</code> behandelt, wo c2 gleich <code>x[y]</code> ist.</p>
-<p>SafeArray-Objekte sollten eine <code>.Length()</code>-Methode erhalten, um konsistent mit reinen Objekten zu sein. Vielleicht doch nicht, da die Notwendigkeit, <code>.MaxIndex()</code> zu verwenden, als Erinnerung dienen kann, dass SafeArrays oft nullbasiert sind.</p>
+<p>SafeArray-Objekte sollten eine <code>Length</code>-Eigenschaft bekommen, um konsistent mit einem Array-Objekt zu sein. Vielleicht doch nicht, da die Notwendigkeit, <code>.MaxIndex()</code> zu verwenden, als Erinnerung dienen kann, dass SafeArrays oft nullbasiert sind.</p>
 <p>ComObjConnect()-Ereignisse dereferenzieren ByRef-VARIANTs derzeit automatisch (da einige Sprachen so etwas immer dann übergeben, wenn ein Skript eine Variable übergibt), wodurch die Funktion in einigen Fällen daran gehindert wird, einen Wert zurückzugeben. Entweder könnten wir a) ByRef-Wrapper übergeben, die Zuweisungen wie <code>param[] := value</code> erlauben, oder b) eine Variable automatisch übergeben und das VARIANT nach Funktionsaufruf aktualisieren. Andere (also Nicht-VARIANT) ByRef-Kombinationen werden nicht dereferenziert, und <code>param[] := value</code> wird seit v1.1.17 bereits unterstützt.</p>
 <h2>Klassen</h2>
 <p>Das Wort <code>base</code> zu einem reservierten Wort in Klassenmethoden machen. Derzeit erhält es eine besondere Bedeutung, wenn danach <code>.</code> oder <code>[</code> erfolgt, außer wenn in die Variable <code>base</code> ein Wert gespeichert wurde. Das Wort zu reservieren vereinfacht die Sprache und könnte die Performance verbessern. Andererseits wäre es vielleicht einfacher, <code>super.method()</code>/<code>super.prop[idx]</code> dafür zu verwenden und <code>this.base</code> als Eigenschaft zu belassen, die das Base-Objekt dieses Objekts zurückgibt.</p>
