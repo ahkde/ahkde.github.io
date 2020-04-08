@@ -706,7 +706,7 @@ Gui GuiName: Default</p>
 <p>GuiControlGet's leerer Unterbefehl hatte zwei Modi: Standardmodus, und Textmodus, wo der vierte Parameter das Wort <code>Text</code> war. Wenn ein Steuerelementtyp keinen einzigen "Wert" hatte, gab GuiControlGet standardmäßig das Ergebnis von <a href="https://msdn.microsoft.com/library/ms633520">GetWindowText</a> zurück (das nicht immer sichtbarer Text ist). Einige Steuerelemente hatten keinen sichtbaren Text oder unterstützten dessen Abruf nicht, folglich ignorierten sie den vierten Parameter. Im Gegensatz dazu gibt GuiCtrl.Text den Anzeigetext, versteckten Text (den gleichen Text, der von ControlGetText zurückgegeben wird) oder überhaupt nichts zurück.</p>
 <p>Die folgende Tabelle zeigt das nächstmögliche Äquivalent (Eigenschaft oder Funktion) zu jedem Modus von GuiControlGet und den dazugehörigen Steuerelementtyp.</p>
 <table class="info">
-<tr><th>Steuerelement</th><th>Standardwert</th><th>Text</th><th>Hinweise</th></tr>
+<tr><th>Steuerelement</th><th>Standard</th><th>Text</th><th>Hinweise</th></tr>
 <tr><td>ActiveX</td><td>.Value</td><td>.Text</td><td>Text ist versteckt. Siehe unten.</td></tr>
 <tr><td>Button</td><td colspan="2">.Text</td><td></td></tr>
 <tr><td>CheckBox</td><td>.Value</td><td>.Text</td><td></td></tr>
