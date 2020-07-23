@@ -1861,9 +1861,6 @@ html {
 .mbr-buttons--right .mbr-buttons__link {
   margin: 0 0 13px 10px;
 }
-.mbr-buttons--right.mbr-buttons--only-links {
-  left: 20px;
-}
 .mbr-buttons--activated {
   left: 5px;
   text-align: center;
@@ -1891,6 +1888,11 @@ html {
 }
 .mbr-buttons--freeze.mbr-buttons--activated .mbr-buttons__btn {
   font-size: 15px !important;
+}
+@media (min-width: 992px) {
+  .mbr-buttons--right.mbr-buttons--only-links {
+    left: 20px;
+  }
 }
 @media (max-width: 991px) {
   .mbr-buttons--active {

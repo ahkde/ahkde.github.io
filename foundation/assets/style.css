@@ -10,6 +10,18 @@
 	background-color: #F6F6F6;
 }
 
+@media screen and (max-width: 620px) {
+	.quote {
+		margin-left: 0;
+		max-width: 100%;
+		min-width: 256px;
+	}
+}
+
 body {
 	padding-bottom:20px;
+}
+
+#logo {
+	max-width: 100%;
 }
