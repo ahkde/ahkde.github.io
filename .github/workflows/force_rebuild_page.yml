@@ -1,0 +1,19 @@
+name: Force rebuild page
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Invoke web request
+        run: |
+          $Headers = @{
+            Authorization = "OAuth2 ${{ secrets.PERSONAL_ACCESS_TOKEN }}" # The automatically provided token e.g. ${{ secrets.GITHUB_TOKEN }} can not be used. The solution is to manually create a personal access token and store it as a secret.
+            Accept        = "application/vnd.github.v3+json"
+          }
+
+          Invoke-WebRequest -Uri "https://api.github.com/repos/${{ github.repository }}/pages/builds" -Method "Post" -Headers $Headers
