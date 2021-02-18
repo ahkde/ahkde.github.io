@@ -52,6 +52,9 @@ body {
 }
 /* Vertical Centering using flexbox - END */
 
+/* Hide google ads */
+.gsc-adBlock { display: none !important; }
+
 #logo {
 	max-width: 517px;
 	margin: auto;

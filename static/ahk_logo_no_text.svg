@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="247.51" height="83.875" version="1.1" viewBox="0 0 65.488997 22.19135" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>AutoHotkey modern logo (no text)</title>
+<defs>
+<linearGradient id="af">
+<stop stop-color="#cfd0d1" offset="0"/>
+<stop stop-color="#dbdbdb" offset="1"/>
+</linearGradient>
+<linearGradient id="ae">
+<stop stop-color="#f4f5f7" offset="0"/>
+<stop stop-color="#e9eaeb" offset="1"/>
+</linearGradient>
+<linearGradient id="az" x1="4.5837" x2="12.759" y1="11.944" y2="11.944" gradientUnits="userSpaceOnUse" xlink:href="#ae" spreadMethod="reflect"/>
+<linearGradient id="ag" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 -.055033 64.547 43.998)" gradientUnits="userSpaceOnUse" xlink:href="#ae">
+<stop stop-color="#cfd0d1" offset="0"/>
+<stop stop-color="#b7b7b7" offset="1"/>
+</linearGradient>
+<linearGradient id="ah" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(-.055219 0 0 -.055033 -38.079 44.048)" gradientUnits="userSpaceOnUse" xlink:href="#ae">
+<stop stop-color="#cfd0d1" offset="0"/>
+<stop stop-color="#b7b7b7" offset="1"/>
+</linearGradient>
+<linearGradient id="bc" x1="3.5892" x2="5.4736" y1="17.781" y2="5.3909" gradientTransform="matrix(.77624 0 0 1.0263 .80313 -.14201)" gradientUnits="userSpaceOnUse" xlink:href="#af"/>
+<linearGradient id="bd" x1="3.5892" x2="5.4736" y1="17.781" y2="5.3909" gradientTransform="matrix(1.0652 0 0 1 -26.701 .029204)" gradientUnits="userSpaceOnUse" xlink:href="#af"/>
+<linearGradient id="aj" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 .055033 64.547 -19.403)" gradientUnits="userSpaceOnUse" xlink:href="#ae">
+<stop stop-color="#dbdbdb" offset="0"/>
+<stop stop-color="#f3f3f3" offset="1"/>
+</linearGradient>
+<linearGradient id="ai" x1="-1076.5" x2="-1060.2" y1="448.73" y2="425.19" gradientTransform="matrix(-.055219 0 0 .055033 -38.079 -19.453)" gradientUnits="userSpaceOnUse">
+<stop stop-color="#dbdbdb" offset="0"/>
+<stop stop-color="#f3f3f3" offset="1"/>
+</linearGradient>
+<linearGradient id="bh" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 -.055033 85.7 43.998)" gradientUnits="userSpaceOnUse" xlink:href="#ag"/>
+<linearGradient id="al" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(-.055219 0 0 -.055033 -16.902 44.048)" gradientUnits="userSpaceOnUse" xlink:href="#ah"/>
+<linearGradient id="an" x1="3.5892" x2="5.4736" y1="17.781" y2="5.3909" gradientTransform="matrix(.90071 0 0 1.0454 21.51 -.33146)" gradientUnits="userSpaceOnUse" xlink:href="#af"/>
+<linearGradient id="ap" x1="3.5892" x2="5.4736" y1="17.781" y2="5.3909" gradientTransform="matrix(1.0652 0 0 1 -47.876 -.028359)" gradientUnits="userSpaceOnUse" xlink:href="#af"/>
+<linearGradient id="ar" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 .055033 85.7 -19.403)" gradientUnits="userSpaceOnUse" xlink:href="#aj"/>
+<linearGradient id="at" x1="-1076.5" x2="-1060.2" y1="448.73" y2="425.19" gradientTransform="matrix(-.055219 0 0 .055033 -16.905 -19.453)" gradientUnits="userSpaceOnUse" xlink:href="#ai"/>
+<linearGradient id="ba" x1="4.5837" x2="12.759" y1="11.944" y2="11.944" gradientTransform="matrix(1.0035,0,0,1,21.586,-3.1104e-7)" gradientUnits="userSpaceOnUse" xlink:href="#ae" spreadMethod="reflect"/>
+<linearGradient id="bb" x1="4.5837" x2="12.759" y1="11.944" y2="11.944" gradientTransform="matrix(1.0034,0,0,1,43.022,-1.1038e-8)" gradientUnits="userSpaceOnUse" xlink:href="#ae" spreadMethod="reflect"/>
+<linearGradient id="ao" x1="3.5892" x2="5.4736" y1="17.781" y2="5.3909" gradientTransform="matrix(.92553 0 0 1.0347 42.583 -.2739)" gradientUnits="userSpaceOnUse" xlink:href="#af"/>
+<linearGradient id="as" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 .055033 106.86 -19.403)" gradientUnits="userSpaceOnUse" xlink:href="#aj"/>
+<linearGradient id="au" x1="-1076.5" x2="-1060.2" y1="448.73" y2="425.19" gradientTransform="matrix(-.055219 0 0 .055033 4.2582 -19.453)" gradientUnits="userSpaceOnUse" xlink:href="#ai"/>
+<linearGradient id="aq" x1="3.5892" x2="5.4736" y1="17.781" y2="5.3909" gradientTransform="matrix(1.0652 0 0 1 -69.039 -.028359)" gradientUnits="userSpaceOnUse" xlink:href="#af"/>
+<linearGradient id="am" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(-.055219 0 0 -.055033 4.2603 44.048)" gradientUnits="userSpaceOnUse" xlink:href="#ah"/>
+<linearGradient id="ak" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 -.055033 106.86 43.998)" gradientUnits="userSpaceOnUse" xlink:href="#ag"/>
+<linearGradient id="av" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 -.055033 64.547 43.998)" gradientUnits="userSpaceOnUse" xlink:href="#ag"/>
+<linearGradient id="aw" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(-.055219 0 0 -.055033 -38.079 44.048)" gradientUnits="userSpaceOnUse" xlink:href="#ah"/>
+<linearGradient id="ax" x1="-1084.9" x2="-1062" y1="454.41" y2="438.75" gradientTransform="matrix(.055219 0 0 .055033 64.547 -19.403)" gradientUnits="userSpaceOnUse" xlink:href="#aj"/>
+<linearGradient id="ay" x1="-1076.5" x2="-1060.2" y1="448.73" y2="425.19" gradientTransform="matrix(-.055219 0 0 .055033 -38.079 -19.453)" gradientUnits="userSpaceOnUse" xlink:href="#ai"/>
+<filter id="be" color-interpolation-filters="sRGB">
+<feFlood flood-color="rgb(0,0,0)" result="flood"/>
+<feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
+<feGaussianBlur in="composite1" result="blur" stdDeviation="0.4"/>
+<feOffset dx="0" dy="0.5" result="offset"/>
+<feComposite in="offset" in2="offset" operator="atop" result="composite2"/>
+</filter>
+<filter id="bf" color-interpolation-filters="sRGB">
+<feFlood flood-color="rgb(0,0,0)" result="flood"/>
+<feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
+<feGaussianBlur in="composite1" result="blur" stdDeviation="0.4"/>
+<feOffset dx="0" dy="0.5" result="offset"/>
+<feComposite in="offset" in2="offset" operator="atop" result="composite2"/>
+</filter>
+<filter id="bg" color-interpolation-filters="sRGB">
+<feFlood flood-color="rgb(0,0,0)" result="flood"/>
+<feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
+<feGaussianBlur in="composite1" result="blur" stdDeviation="0.4"/>
+<feOffset dx="0" dy="0.5" result="offset"/>
+<feComposite in="offset" in2="offset" operator="atop" result="composite2"/>
+</filter>
+</defs>
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title>AutoHotkey modern logo (no text)</dc:title>
+<dc:description>Unfont: fonts converted to paths. Recreation of the Modern logo for AutoHotkey,
+fonts used are Myriad Pro 12 pt and 36 pt, and Helvetica 16 pt.</dc:description>
+<dc:creator>
+<cc:Agent>
+<dc:title>joedf</dc:title>
+</cc:Agent>
+</dc:creator>
+<dc:date>July 27th 2020</dc:date>
+<dc:contributor>
+<cc:Agent>
+<dc:title>Author unknown for original logo</dc:title>
+</cc:Agent>
+</dc:contributor>
+<cc:license rdf:resource=""/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="translate(-1.6603 -1.2019)" display="none" fill="#f0f">
+<rect x="3.5892" y="3.0506" width="19.289" height="18.494" ry="1.5066" display="inline" opacity=".6" style="paint-order:stroke fill markers"/>
+<rect x="24.742" y="3.0506" width="19.311" height="18.494" ry="1.5066" display="inline" opacity=".6" style="paint-order:stroke fill markers"/>
+<rect x="45.905" y="3.0506" width="19.313" height="18.494" ry="1.5066" display="inline" opacity=".6" style="paint-order:stroke fill markers"/>
+</g>
+<g transform="translate(-1.6603 -1.2019)">
+<rect x="3.5892" y="3.0506" width="19.289" height="18.494" ry="1.5066" filter="url(#bg)" style="paint-order:stroke fill markers"/>
+<rect x="24.742" y="3.0506" width="19.311" height="18.494" ry="1.5066" filter="url(#bf)" style="paint-order:stroke fill markers"/>
+<rect x="45.905" y="3.0506" width="19.313" height="18.494" ry="1.5066" filter="url(#be)" style="paint-order:stroke fill markers"/>
+</g>
+<g transform="translate(-1.6603 -1.2019)">
+<rect x="3.5892" y="5.3909" width="1.4627" height="12.886" fill="url(#bc)" style="paint-order:stroke fill markers"/>
+<rect transform="scale(-1,1)" x="-22.878" y="5.4201" width="2.0071" height="12.39" fill="url(#bd)" style="paint-order:stroke fill markers"/>
+<rect x="5.292" y="3.0506" width="14.967" height="1.0441" fill="#f3f3f3" style="paint-order:stroke fill markers"/>
+<path d="m4.8887 5.9034-1.2995-0.43258v-1.0022c0.063957-0.91433 0.84563-1.4177 1.4495-1.4177l0.27581-2.722e-4 0.46682 1.8521z" fill="url(#ax)" stroke-width=".26458"></path>
+<path d="m20.935 6.7218 1.943-1.2186v-1.0849c-0.04536-0.50919-0.45582-1.3248-1.4671-1.368l-1.3372 2.717e-4 -0.46142 2.2406z" fill="url(#ay)" stroke-width=".26458"></path>
+<path d="m20.643 17.311 2.2349 0.43286v2.4326c-0.04536 0.50919-0.45582 1.3248-1.4671 1.368h-1.1966l-0.39775-2.191z" fill="url(#aw)" stroke-width=".26458"></path>
+<path d="m5.8076 17.79-2.2184-0.09631v2.4326c0.063957 0.91433 0.84563 1.4177 1.4495 1.4177h1.2113l0.48335-2.1415z" fill="url(#av)" stroke-width=".26458"></path>
+<rect x="6.1979" y="18.111" width="14.043" height="3.433" fill="#b7b7b7" stroke-width=".33319"/>
+<rect transform="scale(-1,1)" x="-44.053" y="5.3625" width="2.0071" height="12.39" fill="url(#ap)" style="paint-order:stroke fill markers"/>
+<rect x="26.455" y="3.0506" width="14.851" height="1.1844" fill="#f3f3f3" style="paint-order:stroke fill markers"/>
+<path d="m26.042 5.9034-1.2995-0.43258v-1.0022c0.06396-0.91433 0.84563-1.4177 1.4495-1.4177l0.27581-2.722e-4 0.46682 1.8521z" fill="url(#ar)" stroke-width=".26458"></path>
+<path d="m42.11 6.7218 1.943-1.2186v-1.0849c-0.04536-0.50919-0.45582-1.3248-1.4671-1.368l-1.3372 2.717e-4 -0.03147 2.6706z" fill="url(#at)" stroke-width=".26458"></path>
+<rect transform="scale(-1,1)" x="-65.216" y="5.3625" width="2.0071" height="12.39" fill="url(#aq)" style="paint-order:stroke fill markers"/>
+<rect x="47.618" y="3.0506" width="14.851" height="1.5236" fill="#f3f3f3" style="paint-order:stroke fill markers"/>
+<path d="m47.621 6.4997-1.7157-1.0289v-1.0022c0.06396-0.91433 0.84563-1.4177 1.4495-1.4177l0.27581-2.722e-4 0.46682 1.8521z" fill="url(#as)" stroke-width=".26458"></path>
+<path d="m63.273 6.7218 1.943-1.2186v-1.0849c-0.04536-0.50919-0.45582-1.3248-1.4671-1.368l-1.3372 2.717e-4 -0.03147 2.6706z" fill="url(#au)" stroke-width=".26458"></path>
+<path d="m41.82 17.311 2.2349 0.43286v2.4326c-0.04536 0.50919-0.45582 1.3248-1.4671 1.368h-1.1966l-0.46389-3.2328z" fill="url(#al)" stroke-width=".26458"></path>
+<path d="m48.14 17.261-2.2349 0.43286v2.4326c0.06396 0.91433 0.84563 1.4177 1.4495 1.4177h1.2113l0.46682-3.2825z" fill="url(#ak)" stroke-width=".26458"></path>
+<path d="m62.983 17.311 2.2349 0.43286v2.4326c-0.04536 0.50919-0.45582 1.3248-1.4671 1.368h-1.1966l-0.46389-3.2328z" fill="url(#am)" stroke-width=".26458"></path>
+<path d="m26.919 17.928-2.1764-0.23365v2.4326c0.06396 0.91433 0.84563 1.4177 1.4495 1.4177h1.2113l1.0164-2.5225z" fill="url(#bh)" stroke-width=".26458"></path>
+<rect x="27.403" y="18.111" width="14.241" height="3.433" fill="#b7b7b7" stroke-width=".33553"/>
+<rect x="24.742" y="5.3041" width="1.6972" height="12.952" fill="url(#an)" style="paint-order:stroke fill markers"/>
+<rect x="26.185" y="3.9462" width="16.409" height="15.996" ry="1.3031" fill="url(#ba)" style="paint-order:stroke fill markers"/>
+<rect x="48.368" y="18.111" width="14.506" height="3.433" fill="#b7b7b7" stroke-width=".33863"/>
+<rect x="45.905" y="5.3041" width="1.744" height="12.82" fill="url(#ao)" style="paint-order:stroke fill markers"/>
+<rect x="47.621" y="3.9462" width="16.407" height="15.996" ry="1.3031" fill="url(#bb)" style="paint-order:stroke fill markers"/>
+<rect x="4.5837" y="3.9462" width="16.351" height="15.996" ry="1.3031" fill="url(#az)" style="paint-order:stroke fill markers"/>
+</g>
+<g transform="translate(-1.6603 -1.2019)">
+<g aria-label="A">
+<path d="m9.6509 16.809 0.40076 1.1797h0.59831l-1.4676-4.0527h-0.62089l-1.524 4.0527h0.56444l0.42333-1.1797zm-1.4563-0.48542 0.64911-1.7836h0.011289l0.59831 1.7836z" stroke-width=".26458"></path>
+</g>
+<g aria-label="H">
+<path d="m31.74 15.64h-2.1167v-1.6764h-0.54751v4.0527h0.54751v-1.8909h2.1167v1.8909h0.54751v-4.0527h-0.54751z" stroke-width=".26458"></path>
+</g>
+<text x="50.560715" y="16.130398" fill="#000000" font-family="'Myriad Pro'" font-size="5.6444px" letter-spacing="0px" stroke-width=".26458" word-spacing="0px" style="line-height:1.25" xml:space="preserve"><tspan x="50.560715" y="21.069286" stroke-width=".26458"/></text>
+<g aria-label="K">
+<path d="m50.818 16.572 0.63782-0.6096 1.4168 2.032h0.7112l-1.7328-2.4158 1.6877-1.6369h-0.75636l-1.9643 1.9643v-1.9643h-0.54751v4.0527h0.54751z" stroke-width=".26458"></path>
+</g>
+</g>
+</svg>

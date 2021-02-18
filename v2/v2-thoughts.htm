@@ -1,52 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>v2-thoughts</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<script src="/cdn-cgi/apps/head/21XiSFXBdVHXl7A_izEkLSn9ayc.js"></script>
-<style type="text/css">
-body {
-	padding: 0 1em !important;
-}
-pre code {
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-</style>
-<link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
-</head>
-<body>
-<h1>Gedanken zu v2.0</h1>
+    <html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>Gedanken zu v2&amp;period;0</title>
+        <script src="/cdn-cgi/apps/head/21XiSFXBdVHXl7A_izEkLSn9ayc.js"></script><link href="docs/static/theme.css" rel="stylesheet" type="text/css" media="all" />
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="thoughts-for-v20">Gedanken zu v2.0</h1>
 <p>Beachten Sie, dass dieses Dokument noch in Bearbeitung ist.</p>
-<h2>Pull-Requests</h2>
+<h2 id="pull-requests">Pull-Requests</h2>
 <p>Es gibt einige wenige Pull-Requests, die zu überprüfen sind und gegebenenfalls übernommen werden. Genauer gesagt hat Helgef ein Namensraum/Modul-System entworfen, das für einige Benutzer sehr nützlich wäre und sich auf andere Dinge auswirken könnte (wie die Standard-Zugänglichkeit selten benutzter interner Klassen?)</p>
-<h2>Global, ByRef</h2>
+<h2 id="changes-to-scope-function-and-variable-references">Änderungen an Geltungsbereich und Funktions- und Variablenreferenzen</h2>
+<p>Einige Änderungen in Bezug auf die Auflösung globaler Variablen, ByRef und das Verschieben von Funktionsnamen in die Variablennamensräume sind in Planung (und bereits <a href="https://www.autohotkey.com/boards/viewtopic.php?f=37&amp;t=86283">zum Testen verfügbar</a>).</p>
+<p><em>Leicht veralteter Text:</em></p>
 <p>Einige Änderungen werden für implizite globale Variablen in Erwägung gezogen, da es nur noch sehr wenige Gründe gibt, sie in globalen Subroutinen zu verwenden (oder überhaupt globale Subroutinen zu verwenden), mit Ausnahme des automatischen Ausführungsbereichs; und weil Namensräume/Module (siehe Pull-Requests) die Notwendigkeit verringern, globale Variablen standardmäßig von lokalen Variablen zu isolieren.</p>
 <p>Eine Möglichkeit ist die Übernahme der Vorgehensweise von Python, Funktionen den Zugriff auf jede beliebige globale Variable zu erlauben, wenn die Funktion keine Zuweisung zu dieser Variable enthält.</p>
 <p>Änderungen an der Funktionsweise von ByRef werden in Verbindung mit dem oben Gesagten in Betracht gezogen, um sie eventuell mit neueren Sprachfeatures (wie Arrays und Closures) besser funktionieren zu lassen.</p>
-<h2>Direktiven</h2>
+<h2 id="directives">Direktiven</h2>
 <p>Einige Direktiven könnten geändert werden, um ein Teil der Ausdruckssyntax zu verwenden (aus Konsistenzgründen).</p>
 <ul>
 <li>#Include/#IncludeAgain</li>
 <li>#ErrorStdOut</li>
 <li>Vielleicht andere (nicht #Hotstring, weil es EndChars umständlicher macht?).</li>
 </ul>
-<h2>Fehlermodell</h2>
-<p>Das Fehlermodell sollte überarbeitet werden, um eine ordnungsgemäße Fehlerbehandlung zu ermöglichen. Das Fehlerdialogfenster könnte verbessert werden, um das Debuggen zu erleichtern. Eine Beispielumsetzung, Einzelheiten und Ideen finden Sie unter <a href="https://github.com/Lexikos/Object.ahk/blob/master/Errors.md">GitHub/Lexikos/Object.ahk</a>.</p>
+<h2 id="error-reporting">Fehlermeldung</h2>
+<p>Das Fehlerdialogfenster könnte verbessert werden, um das Debuggen zu erleichtern. Eine Beispielumsetzung, Einzelheiten und Ideen finden Sie unter <a href="https://github.com/Lexikos/Object.ahk/blob/master/Errors.md">GitHub/Lexikos/Object.ahk</a>.</p>
 <p>A_LastError sollte wahrscheinlich nicht in Fällen gesetzt werden, wo die Funktion immer eine Ausnahme auslöst, wenn ein Fehler auftritt. Einige Funktionen, die eine Ausnahme auslösen, setzen A_LastError momentan nicht.</p>
 <p>Der Zugriff auf eine nicht gesetzte Variable (außer um sie zu setzen, oder mit IsSet) sollte als Fehler und nicht als optionale Warnung behandelt werden. Einige Implementierungsdetails müssen geändert werden, damit sich dieser Fehler so verhält, wie sich ein Fehler verhalten sollte (Thread beenden, Ausnahme auslösen, oder fortsetzen, wenn von OnError/dem Benutzer angeordnet).</p>
-<h1>Verschoben</h1>
+<h1 id="deferred">Zurückgestellt</h1>
 <p>Die folgenden potentiellen Änderungen werden höchstwahrscheinlich nicht im vorläufigen v2.0-Release enthalten sein. Vielleicht werden sie in einem späteren Release integriert, z. B. in v2.1, oder in v2.0.x, falls sie rückwärtskompatibel sind.</p>
-<h2>Sonstiges</h2>
+<h2 id="misc">Sonstiges</h2>
 <p>Gui.AddControl und GuiControl.Add erfordern momentan ein Array, aber es wäre unproblematisch, ein beliebiges enumerierbares Objekt zu unterstützen.</p>
 <p>Vielleicht WinGetID in WinGetHwnd ändern, um Konsistenz mit verschiedenen anderen Dingen zu gewährleisten. Andererseits möchte ich nicht, dass es inkonsistent mit <code>ahk_id</code> ist, und ich möchte das nicht in <code>ahk_hwnd</code> ändern. Nochmal überdenken, wenn das <code>ahk_</code>-Fenstertitel-Schema jemals aktualisiert oder entfernt wird.</p>
 <p>FileGetShortcut und FileCreateShortcut haben zu viele Parameter, aber ich habe mich noch nicht entschieden, ob ich sie ändern oder einfach beide mit einer Funktion ersetzen soll, die ein ShellLinkObject (über COM) abruft, entweder intern oder als triviales Skript. ShellLinkObject hat die gleichen Fähigkeiten plus eine <code>Hotkey</code>-Eigenschaft und vielleicht noch andere.</p>
 <p>SplitPath könnte ein Objekt zurückgeben, wenn keine Ausgabeparameter übergeben werden. Eigenschaftsnamen sind wahrscheinlich leichter zu merken als die Reihenfolge der Parameter, und leichter zu lesen und zu schreiben als das Zählen von Kommas. Dies sollte keine negativen Auswirkungen auf die Kompatibilität haben, wenn es später hinzugefügt wird, vorausgesetzt, die Skripte verlassen sich nicht darauf, dass SplitPath ein "" zurückgibt.</p>
-<h2>Fenstertitel und Fenstergruppen</h2>
+<h2 id="wintitle-and-window-groups">Fenstertitel und Fenstergruppen</h2>
 <p>Hintergrundinfo: Jede Fenstergruppe besteht aus einer Liste von Fensterspezifikationen. Eine Fensterspezifikation in v1 besteht aus Fenstertitel, Fenstertext, Titelausnahme und Textausnahme. Die Auswertungsreihenfolge der Fensterspezifikationen richtet sich nach der Reihenfolge ihres Hinzufügens zur einer Gruppe. Der Einfachheit halber wurde im folgenden Text "Fensterspezifikation" in "Regel" umbenannt.</p>
-<h3>Ausnahmen</h3>
+<h3 id="exclusions">Ausnahmen</h3>
 <p>Probleme in v1:</p>
 <ul>
 <li>
@@ -81,9 +75,9 @@ pre code {
 <li>Vielleicht könnte die aktuelle Fenstertitel-Syntax mit etwas saubererem und flexiblerem ersetzt werden, wie z. B. LINQ.</li>
 <li>Eine einfache objektorientierte API hat einige Vorteile. Anstatt den Fenstertitel usw. für jeden Befehl zu wiederholen oder sich auf einen einzelnen thread-spezifischen LFW zu verlassen, kann man ein Fenster (Objekt) lokalisieren und es dann via Referenz (z. B. Name der Variable) identifizieren. Bei einigen Funktionen, die die Fenster*- und Ausnahme*-Parameter teilen, sind die entsprechenden Methoden nicht erforderlich, da das Fenster über das Zielobjekt identifiziert wird (verborgener erster Parameter). Andererseits gibt es kaum einen Unterschied zwischen dem und der Methode, eine reine HWND-Nummer zur Identifizierung des Fensters zu verwenden.</li>
 </ul>
-<h3>Einstellungen</h3>
+<h3 id="settings">Einstellungen</h3>
 <p>Ein oft gefordertes Feature ist es, globale Einstellungen wie SetTitleMatchMode, DetectHiddenWindows und DetectHiddenText temporär für einen bestimmten Fenstertitel oder Befehl aufzuheben. Im Moment wäre die wahrscheinlichste Form <code>Titel ahk_mode 3 ahk_dhw 1</code>. Dieses Feature zu einem späteren Zeitpunkt zu implementieren hat sehr wahrscheinlich keinen negativen Einfluss auf bereits vorhandene Skripte; daher ist es aktuell nicht für v2.0 geplant.</p>
-<h2>Ausdrucksoperatoren</h2>
+<h2 id="expression-operators">Ausdrucksoperatoren</h2>
 <p>Aktuelle Überlegungen zum Jahr 2020: Diese Funktionalität ist wahrscheinlich besser geeignet als Methoden bestimmter Objekte, wie z. B. <code>arr.IndexOf(value)</code> anstelle von <code>value in arr</code>.</p>
 <p>Obwohl <code>in</code> und <code>contains</code> bereits in v2-alpha reserviert sind (um so spätere Probleme vorzubeugen), erscheint v2 ohne sie unvollständig, da Benutzer, die vorhandene v1-Skripte konvertieren wollen, eine Alternative für v2 finden müssen. Sie sollten implementiert werden, bevor v2.0 veröffentlicht wird, und moderner gemacht werden (Arrays erlauben).</p>
 <p>Aktuelle Syntax: if var [not] in/contains Vergleichsliste. Vergleichsliste ist eine mit Kommas getrennte Liste. Var enthält eine Zeichenkette.</p>
@@ -112,30 +106,14 @@ pre code {
 </li>
 </ol>
 <p>Wenn Arrays auf der linken Seite von <code>contains</code> unterstützt werden, wie würde das funktionieren? Ursprünglich war der Unterschied zwischen <code>in</code> und <code>contains</code>, dass <code>in</code> einen direkten Vergleich des Wertes durchführt, während <code>contains</code> eine Teilzeichenkette-Übereinstimmung sucht. Müsste <code>arr1 contains arr2</code> bei jedem arr1-Element überprüfen, ob ein Element in arr2 eine Teilzeichenkette ist? Oder überprüfen, ob beide Arrays gemeinsame Werte haben? Oder alles? Oder überprüfen, ob die exakte Reihenfolge der Werte in arr2 innerhalb von arr1 vorkommt? Die letzte Option wäre analog zu <code>InStr(str1, str2)</code>, aber nicht zu <code>str1 contains str2</code>.</p>
-<p>Hier einige (nicht sehr relevante) Diskussionen: https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847.</p>
+<p>Hier einige (nicht sehr relevante) Diskussionen: <a href="https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847">https://autohotkey.com/boards/viewtopic.php?f=37&amp;t=3847</a>.</p>
 <p><code>between</code> wird vermutlich überhaupt nicht implementiert. Eine Alternative bestünde darin, Verkettungen von Operatoren wie bei Python und Perl 6 zu erlauben, wo <code>x &lt; y &lt; z</code> das gleiche wie <code>(x &lt; y) and (y &lt; z)</code> wäre. Das würde jedoch bedeuten, dass Klammern die Bedeutung von <code>&lt;</code> verfremden würden (was nicht richtig zu sein scheint), z. B. bei <code>x &lt; y &lt; z</code> vs <code>(x &lt; y) &lt; z</code>, weil Letzteres das Ergebnis von <code>x &lt; y</code> (true oder false) mit z vergleichen würde. Einige Benutzer haben <code>x &lt; y &lt; z</code> bereits ausprobiert und sich über das Ergebnis gewundert, daher sollten, sofern dieses Feature nicht implementiert wird, verkettete Operatoren erkannt und eine Warn-/Fehlermeldung angezeigt werden. (Aber wenn die Erkennung von verketteten Operatoren zu kompliziert ist, könnte das Kosten-Nutzen-Verhältnis zugunsten der Implementierung dieser Verkettung ausfallen.)</p>
-<h2>Func</h2>
-<p>Das Erkennen von falsch geschriebenen Funktionsnamen, <em>während das Skript geladen wird</em>, könnte ein nützliches Feature für die Sprache sein, allerdings würde dies nur für direkte Aufrufe gelten. Referenzen wie <code>Func("name")</code> oder <code>"name"</code>, wenn falsch geschrieben, werden nur erkannt, wenn das Skript versucht diese aufzurufen (was möglicherweise nicht dort ist, wo sie referenziert wurden).</p>
-<p><code>Func("name")</code> ist optimiert (in v2), um während der Ladezeit aufgelöst zu werden, kann aber keinen Ladezeitfehler auslösen, wenn die Funktion nicht existiert, weil es kein Fehler ist. Zum Beispiel kann <code>name</code> in einem optionalen <code>#include *i</code> definiert werden, und Func ist, wie es zum Aufrufen aufgelöst werden würde. Wenn es einen Ladezeitfehler ausgelöst hat, würde weder dies funktionieren:</p>
-<pre><code>if f := Func("name")  ; ← Ladezeitfehler
-    f.Call()
-</code></pre>
-<p>Noch würde dies funktionieren:</p>
-<pre><code>if IsFunc("name")
-    MyRegisterEvent(Func("name"))  ; ← Ladezeitfehler
-</code></pre>
-<p>Die offensichtlichste Lösung wäre es, eine neue Syntax für eine <em>Funktionsreferenz</em> hinzuzufügen, die während der Ladezeit als Fehler erkannt wird, wenn die Funktion nicht existiert.</p>
-<ul>
-<li>fincs hat <code>@name</code> vorgeschlagen, wie in <code>OnExit(@ExitHandler)</code> oder <code>greet := @MsgBox.Bind("Hello")</code>.</li>
-<li>Eine weitere Idee ist <code>Func'name'</code>, wie in <code>OnExit(Func'ExitHandler')</code> oder <code>greet := Func"MsgBox".Bind("Hello")</code>. Obwohl derzeit nicht gültig, kann es schwierig sein, dies visuell von einer automatischen Verkettung zu unterscheiden.</li>
-</ul>
-<p><strong>Verschoben, weil:</strong> Mir gefällt keine der bisherigen Syntaxideen. Obwohl es bequemer ist, bietet es immer noch keine Parität mit direkten Aufrufen und Variablen, die Funktionsobjekte enthalten (einschließlich aufrufbarer Klassen). Vielleicht gibt es bessere Möglichkeiten, Probleme zu erkennen, als eine neue Syntax hinzuzufügen, die beim Laden des Skripts validiert werden kann. Die bisherigen Ideen würden nicht die Kompatibilität gefährden und könnten daher später noch umgesetzt werden.</p>
-<h2>Binäre Zeichenketten</h2>
+<h2 id="binary-strings">Binäre Zeichenketten</h2>
 <p>Zeichenketten, die mit <code>Chr(0)</code> beginnen, sind momentan <code>false</code>, da die booleschen Überprüfungen eine null-terminierte Zeichenkette vermuten, nicht eine binär gezählte Eins. In anderen Fällen kann es vorkommen, dass die Zeichenkette als leer vermutet wird.</p>
 <p>Alle Operatoren oder Funktionen, die eine Zahl erwarten, lesen nur bis zur ersten binären Null und könnten daher eine Zeichenkette mit eingebetteten Nullen (möglicherweise gefolgt von anderen nicht-numerischen Zeichen) als numerisch ansehen.</p>
 <p>Theoretisch sollten alle Zeichenketten, die eine binäre Null enthalten, als nicht-leer und nicht-numerisch angesehen werden.</p>
-<p><strong>Verschoben, weil:</strong> ordnungsgemäße, konsistente Unterstützung von Nullzeichen in Zeichenketten scheint mehr Arbeit zu sein, als es wert ist (Kosten überwiegt Nutzen).</p>
-<h2>AltGr</h2>
+<p><strong>Zurückgestellt, weil:</strong> ordnungsgemäße, konsistente Unterstützung von Nullzeichen in Zeichenketten scheint mehr Arbeit zu sein, als es wert ist (Kosten überwiegt Nutzen).</p>
+<h2 id="altgr">AltGr</h2>
 <p>Wenn RAlt gedrückt oder gesendet wird und das Tastaturlayout des aktiven Fensters AltGr hat, erzeugt das System LCtrl-down und LCtrl-up. (Es erzeugt auch LCtrl-up beim Umschalten zwischen den Tastaturlayouts, wenn das vorherige Layout AltGr hatte, auch wenn das neue Layout auch AltGr hat.) Dies hat einige potenziell unerwünschte Folgen:</p>
 <ul>
 <li>Das Ändern von Tastaturlayouts löst <code>LCtrl up::</code> aus, auch wenn weder AltGr noch LCtrl gedrückt wurde oder im gedrückten Zustand war.</li>
@@ -147,20 +125,19 @@ pre code {
 </ul>
 <p>Es ist technisch möglich, AltGr's gefälschtes LCtrl zu identifizieren, indem man die wenig bekannte Tatsache nutzt, dass <code>KBDLLHOOKSTRUCT::scanCode</code> das 0x200-Bit für die gefälschten LCtrl-Ereignisse gesetzt hat. (KeyHistory zeigt dies nicht an, da der Scancode auf 1 Byte gekürzt ist [und dann 0x100 hinzugefügt wird, wenn das 0xE0-Flag gesetzt ist].)</p>
 <p>Mit nur wenigen Codezeilen könnten die gefälschten LCtrl-Ereignisse als "ignoriert" markiert werden, was alle oben aufgeführten "Konsequenzen" vermeiden würde, außer dass es zu Inkonsistenzen zwischen "hook"-Hotkeys (die AltGr als RAlt behandeln würden) und "reg"-Hotkeys kommen würde (Hotkeys mit <code>^!key</code> würden von AltGr+Taste getriggert werden). AltGr würde nur noch <code>RAlt::</code> oder <code>&gt;!</code> (beide verwenden immer den Hook) und <code>&lt;^&gt;!</code> würde LCtrl+AltGr bedeuten. Wenn nur AltGr unten ist, würde GetKeyState LCtrl als physisch unten, aber logisch oben melden (was die Tatsache widerspiegelt, dass der Benutzer LCtrl physisch nicht gedrückt hat, aber das aktive Fenster STRG als unten ansieht).</p>
-<p><strong>Verschoben, weil:</strong> Ich kann mich nicht erinnern, jemals Probleme diesbezüglich gesehen zu haben, außerdem nutze ich kein Tastaturlayout mit AltGr. Die Möglichkeit, AltGr nur als RAlt zu behandeln (oder LCtrl als nicht-physisch/ignoriert zu behandeln), kann noch nach v2.0 untersucht werden, vielleicht als optionaler Modus.</p>
-<h2>Thread-Unterbefehle</h2>
+<p><strong>Zurückgestellt, weil:</strong> Ich kann mich nicht erinnern, jemals Probleme diesbezüglich gesehen zu haben, außerdem nutze ich kein Tastaturlayout mit AltGr. Die Möglichkeit, AltGr nur als RAlt zu behandeln (oder LCtrl als nicht-physisch/ignoriert zu behandeln), kann noch nach v2.0 untersucht werden, vielleicht als optionaler Modus.</p>
+<h2 id="thread-sub-commands">Thread-Unterbefehle</h2>
 <p>Die Thread-Funktion hat immer noch Unterbefehle.</p>
 <ul>
 <li>ThreadNoTimers sieht ein wenig seltsam aus. Vielleicht ThreadDisableTimers, oder Thread einfach als Funktion lassen, oder eine Variable verwenden.</li>
 <li>Vielleicht sollte dieser Befehl durch A_-Variablen ersetzt werden, da er im Grunde nur thread-spezifische Einstellungen ändert, ähnlich wie die anderen beschreibbaren A_-Variablen. Das würde deutlicher machen, dass das Skript thread-spezifische Einstellungen ändert, statt irgendeinen anderen System-Thread (obwohl viele Benutzer Threads auf Systemebene nicht kennen).</li>
 <li>Verwandt: Es könnte vorteilhaft sein, die "Nachrichtenüberprüfungsfrequenz" von Critical zu trennen, da diese eigentlich zwei unterschiedliche Konzepte sind. Mit der aktuellen Implementierung wäre dies wahrscheinlich schon möglich, aber sie bietet den Skripten keine nutzbare Schnittstelle. Das heißt, dass dies ein Unterbefehl von Thread oder eine interne Variable wie z. B. A_PeekFrequency sein sollte (welches den intern benutzten Namen entspräche).</li>
 </ul>
-<p><strong>Verschoben, weil:</strong> Es wird seltener benutzt als WinSet, Control, Drive usw., daher scheint es kein Problem zu sein, es mit Unterbefehlen (zusätzlichen Anführungszeichen) zu belassen.</p>
-<h2>Control-Funktionen</h2>
+<p><strong>Zurückgestellt, weil:</strong> Es wird seltener benutzt als WinSet, Control, Drive usw., daher scheint es kein Problem zu sein, es mit Unterbefehlen (zusätzlichen Anführungszeichen) zu belassen.</p>
+<h2 id="control-functions">Control-Funktionen</h2>
 <p>Es fehlen scheinbar Funktionen, um den Wert von externen Steuerelementen einiger Typen abzurufen/zu setzen, wie z. B. Slider, UpDown, MonthCal (ich habe ControlSetText nicht bei diesen getestet).</p>
-<h3>ListView</h3>
-<p>Die Verwendung von ListViewGetContent ist praktisch identisch mit ControlGet List (bei Verwendung in einer Listenansicht). Es wäre ideal, eine ähnliche Schnittstelle sowohl für externe als auch für via Skript erstellte ListViews bereitzustellen. Aufgrund der Komplexität und des mangelnden Interesses (meinerseits) wird dies auf unbestimmte Zeit verschoben.</p>
+<h3 id="listview">ListView</h3>
+<p>Die Verwendung von ListViewGetContent ist praktisch identisch mit ControlGet List (bei Verwendung in einer Listenansicht). Es wäre ideal, eine ähnliche Schnittstelle sowohl für externe als auch für via Skript erstellte ListViews bereitzustellen. Aufgrund der Komplexität und des mangelnden Interesses (meinerseits) wird dies auf unbestimmte Zeit zurückgestellt.</p>
 
-</body>
-</html><!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
-
+    </body>
+    </html>
