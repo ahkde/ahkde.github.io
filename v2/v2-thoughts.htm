@@ -11,25 +11,34 @@
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="thoughts-for-v20">Gedanken zu v2.0</h1>
-<p>Beachten Sie, dass dieses Dokument noch in Bearbeitung ist.</p>
-<h2 id="pull-requests">Pull-Requests</h2>
-<p>Es gibt einige wenige Pull-Requests, die zu überprüfen sind und gegebenenfalls übernommen werden. Genauer gesagt hat Helgef ein Namensraum/Modul-System entworfen, das für einige Benutzer sehr nützlich wäre und sich auf andere Dinge auswirken könnte (wie die Standard-Zugänglichkeit selten benutzter interner Klassen?)</p>
+<h2 id="catch-and-for-loop-variables">Variablen von Catch und For-Schleifen</h2>
+<p>Derzeit werden Variablen von Catch und For-Schleifen vor der Ausführung des Anweisungskörpers "abgesichert" und danach wiederhergestellt, als eine Annäherung daran, die Variable "lokal" für die Anweisung zu machen. Ideal wäre es, wenn sie tatsächlich lokal und unabhängig von gleichnamigen Variablen außerhalb des Blocks sind. Der Unterschied kann beobachtet werden, wenn der Block eine Funktion aufruft, die die gleiche Variable referenziert (vielleicht ist es eine verschachtelte Funktion oder die Variable ist global).</p>
+<h2 id="catch--exception-filters">Catch / Ausnahmefilter</h2>
+<p>Die Syntax für Catch sollte eine Möglichkeit bieten, bestimmte Fehler abzufangen und den Rest gewähren zu lassen (um die Kontrolle an ein anderes Catch weiter oben auf dem Aufrufstapel zu übergeben oder den Fehler zu melden und den Thread zu beenden). Derzeit erfordert dies das Abfangen von ausgelösten Werten aller Typen, und dann die Überprüfung des Typs und das erneute Auslösen. Zum Beispiel:</p>
+<pre><code>; Old
+try
+    SendMessage msg,,, "Control1", "The Window"
+catch err
+    if err is TimeoutError
+        MsgBox "The Window is unresponsive"
+    else
+        throw err
+
+; New
+try
+    SendMessage msg,,, "Control1", "The Window"
+catch TimeoutError
+    MsgBox "The Window is unresponsive"
+</code></pre>
+<p>Wenn das Error-Objekt benötigt wird, kann eine Ausgabevariable wie <code>catch Error as err</code> angegeben werden.</p>
+<p>Die Priorisierung des Fehlertyps gegenüber dem Namen der Ausgabevariablen könnte zu besserem Code ermutigen; also den erwarteten Fehler wie beabsichtigt zu behandeln, ohne dabei unerwartete Fehler, die hätten gemeldet werden sollen, zu unterdrücken oder falsch zu behandeln.</p>
 <h2 id="changes-to-scope-function-and-variable-references">Änderungen an Geltungsbereich und Funktions- und Variablenreferenzen</h2>
 <p>Einige Änderungen in Bezug auf die Auflösung globaler Variablen, ByRef und das Verschieben von Funktionsnamen in die Variablennamensräume sind in Planung (und bereits <a href="https://www.autohotkey.com/boards/viewtopic.php?f=37&amp;t=86283">zum Testen verfügbar</a>).</p>
 <p><em>Leicht veralteter Text:</em></p>
 <p>Einige Änderungen werden für implizite globale Variablen in Erwägung gezogen, da es nur noch sehr wenige Gründe gibt, sie in globalen Subroutinen zu verwenden (oder überhaupt globale Subroutinen zu verwenden), mit Ausnahme des automatischen Ausführungsbereichs; und weil Namensräume/Module (siehe Pull-Requests) die Notwendigkeit verringern, globale Variablen standardmäßig von lokalen Variablen zu isolieren.</p>
 <p>Eine Möglichkeit ist die Übernahme der Vorgehensweise von Python, Funktionen den Zugriff auf jede beliebige globale Variable zu erlauben, wenn die Funktion keine Zuweisung zu dieser Variable enthält.</p>
 <p>Änderungen an der Funktionsweise von ByRef werden in Verbindung mit dem oben Gesagten in Betracht gezogen, um sie eventuell mit neueren Sprachfeatures (wie Arrays und Closures) besser funktionieren zu lassen.</p>
-<h2 id="directives">Direktiven</h2>
-<p>Einige Direktiven könnten geändert werden, um ein Teil der Ausdruckssyntax zu verwenden (aus Konsistenzgründen).</p>
-<ul>
-<li>#Include/#IncludeAgain</li>
-<li>#ErrorStdOut</li>
-<li>Vielleicht andere (nicht #Hotstring, weil es EndChars umständlicher macht?).</li>
-</ul>
 <h2 id="error-reporting">Fehlermeldung</h2>
-<p>Das Fehlerdialogfenster könnte verbessert werden, um das Debuggen zu erleichtern. Eine Beispielumsetzung, Einzelheiten und Ideen finden Sie unter <a href="https://github.com/Lexikos/Object.ahk/blob/master/Errors.md">GitHub/Lexikos/Object.ahk</a>.</p>
-<p>A_LastError sollte wahrscheinlich nicht in Fällen gesetzt werden, wo die Funktion immer eine Ausnahme auslöst, wenn ein Fehler auftritt. Einige Funktionen, die eine Ausnahme auslösen, setzen A_LastError momentan nicht.</p>
 <p>Der Zugriff auf eine nicht gesetzte Variable (außer um sie zu setzen, oder mit IsSet) sollte als Fehler und nicht als optionale Warnung behandelt werden. Einige Implementierungsdetails müssen geändert werden, damit sich dieser Fehler so verhält, wie sich ein Fehler verhalten sollte (Thread beenden, Ausnahme auslösen, oder fortsetzen, wenn von OnError/dem Benutzer angeordnet).</p>
 <h1 id="deferred">Zurückgestellt</h1>
 <p>Die folgenden potentiellen Änderungen werden höchstwahrscheinlich nicht im vorläufigen v2.0-Release enthalten sein. Vielleicht werden sie in einem späteren Release integriert, z. B. in v2.1, oder in v2.0.x, falls sie rückwärtskompatibel sind.</p>
@@ -38,6 +47,7 @@
 <p>Vielleicht WinGetID in WinGetHwnd ändern, um Konsistenz mit verschiedenen anderen Dingen zu gewährleisten. Andererseits möchte ich nicht, dass es inkonsistent mit <code>ahk_id</code> ist, und ich möchte das nicht in <code>ahk_hwnd</code> ändern. Nochmal überdenken, wenn das <code>ahk_</code>-Fenstertitel-Schema jemals aktualisiert oder entfernt wird.</p>
 <p>FileGetShortcut und FileCreateShortcut haben zu viele Parameter, aber ich habe mich noch nicht entschieden, ob ich sie ändern oder einfach beide mit einer Funktion ersetzen soll, die ein ShellLinkObject (über COM) abruft, entweder intern oder als triviales Skript. ShellLinkObject hat die gleichen Fähigkeiten plus eine <code>Hotkey</code>-Eigenschaft und vielleicht noch andere.</p>
 <p>SplitPath könnte ein Objekt zurückgeben, wenn keine Ausgabeparameter übergeben werden. Eigenschaftsnamen sind wahrscheinlich leichter zu merken als die Reihenfolge der Parameter, und leichter zu lesen und zu schreiben als das Zählen von Kommas. Dies sollte keine negativen Auswirkungen auf die Kompatibilität haben, wenn es später hinzugefügt wird, vorausgesetzt, die Skripte verlassen sich nicht darauf, dass SplitPath ein "" zurückgibt.</p>
+<p>Das Fehlerdialogfenster könnte verbessert werden, um das Debuggen zu erleichtern. Eine Beispielumsetzung, Einzelheiten und Ideen finden Sie unter <a href="https://github.com/Lexikos/Object.ahk/blob/master/Errors.md">GitHub/Lexikos/Object.ahk</a>.</p>
 <h2 id="wintitle-and-window-groups">Fenstertitel und Fenstergruppen</h2>
 <p>Hintergrundinfo: Jede Fenstergruppe besteht aus einer Liste von Fensterspezifikationen. Eine Fensterspezifikation in v1 besteht aus Fenstertitel, Fenstertext, Titelausnahme und Textausnahme. Die Auswertungsreihenfolge der Fensterspezifikationen richtet sich nach der Reihenfolge ihres Hinzufügens zur einer Gruppe. Der Einfachheit halber wurde im folgenden Text "Fensterspezifikation" in "Regel" umbenannt.</p>
 <h3 id="exclusions">Ausnahmen</h3>
