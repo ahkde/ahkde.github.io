@@ -1,4 +1,4 @@
-name: Update docs
+name: Update v1 docs
 
 on:
   workflow_dispatch:
@@ -12,10 +12,10 @@ jobs:
         with:
           submodules: true
 
-      - name: Update docs
+      - name: Update v1 docs
         run: |
-          git submodule update --remote docs
+          git submodule update --remote v1
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git commit -a -m "Update docs"
+          git commit -a -m "Update v1 docs"
           git push
