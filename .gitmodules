@@ -1,6 +1,0 @@
-[submodule "v1"]
-	path = v1
-	url = https://github.com/autohotkey-docs-translation/v1-de.git
-[submodule "v2"]
-	path = v2
-	url = https://github.com/autohotkey-docs-translation/v2-de.git
