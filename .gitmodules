@@ -1,0 +1,6 @@
+[submodule "docs/v1-omegat"]
+	path = docs/v1-omegat
+	url = https://github.com/autohotkey-docs-translation/v1-de.git
+[submodule "docs/v2-omegat"]
+	path = docs/v2-omegat
+	url = https://github.com/autohotkey-docs-translation/v2-de.git
