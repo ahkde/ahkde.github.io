@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
 		<meta name="have-i-been-pwned-verification" value="5fafe7d00bebf7b54e8baf7d9d7a62f2">		
 		<meta name="google-site-verification" content="fr3ji3GiYpzhLJkRkVDBS-gJoxhmoVFZnNMd8iZnE3Q" />
@@ -41,9 +40,10 @@
 								<div class="mbr-navbar__column">
 									<ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
 										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="#keyfeatures">Was ist das?</a></li>
-										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/docs/AutoHotkey.htm">Dokumentation</a></li>
-										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/foundation">Über die Foundation</a></li>
+										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/docs/">Dokumentation</a></li>
 										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/search">Suchen</a></li>
+										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/foundation">Über die Foundation</a></li>
+										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="/foundation/#contributions">Spenden</a></li>
 										<li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="https://facebook.com/autohotkey"><img alt="Facebook" title="Folge uns auf Facebook!" src="assets/images/fb_w.png" class="sp_icon"/></a>
 										</li>
 									</ul></div>
@@ -192,7 +192,7 @@
 							<p>
 								<b>Quellcode (auf Github)</b><br>
 								<a href="https://github.com/Lexikos/AutoHotkey_L">AutoHotkey-Quellcode</a><br>
-								<a href="https://github.com/Lexikos/AutoHotkey_L-Docs">AutoHotkey-Dokumentation</a> (<a href="https://github.com/ahkde/docs">de</a>)<br>
+								<a href="https://github.com/AutoHotkey/AutoHotkeyDocs">AutoHotkey-Dokumentation</a> (<a href="https://github.com/ahkde/docs">de</a>)<br>
 								<a href="https://github.com/AutoHotkey/Ahk2Exe">ahk2exe-Quellcode</a><br>
 								<a href="https://github.com/Lexikos/AutoHotkey_L/tree/alpha">AutoHotkey v2</a> <small>(im Beta-Stadium)</small><br>
 								<a href="https://ahkscript.github.io">AHKScript-Github-Organisation</a>
@@ -272,6 +272,17 @@
 					</div>
 					<div>
 						<div class="thumbnail">
+							<a href="https://www.hostingadvice.com/blog/optimize-dev-tasks-with-autohotkey/"><img alt="" src="assets/images/hostingadvice_750x.png"></a>
+							<div class="caption">
+								<div>
+									<h3>Entwickler wenden sich an AutoHotkey wegen seiner Benutzerfreundlichkeit, Leistungsfähigkeit und Flexibilität, was ihnen ermöglicht, sich auf die eigentlichen Aufgaben zu konzentrieren, ohne von repetitiven Dingen abgelenkt zu werden.</h3>
+									<p>Jon McDonald, HostingAdvice (deutsche Übersetzung)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="float:unset;display:table;margin:auto;"> <!-- make this one center as it alone on the last row -->
+						<div class="thumbnail">
 							<a href="http://www.pcmag.com/article2/0,2817,2328732,00.asp"><img alt="" src="assets/images/pcmag.png"></a>
 							<div class="caption">
 								<div>
@@ -320,7 +331,7 @@
 									<a href="https://rosettacode.org/wiki/Category:AutoHotkey">Rosettacode</a> <small>(Code-Beispiele)</small><br>
 									<a href="http://ahkwiki.net/">日本語 AutoHotkey Wiki</a> <small>(Japanisch, ahkwiki.net)</small><br>
 									<a href="http://www.computoredge.com/AutoHotkey/Free_AutoHotkey_Scripts_and_Apps_for_Learning_and_Generating_Ideas.html">Jack Dunning's AHK-Seite</a> <small>(Skripte, Beispiele)</small><br>
-									<a href="https://pnal.kr">Pnal's AutoHotkey-Tutorials</a> <small>(Koreanisch, 한국어)</small>
+									<a href="https://pnal.kr">Pnal's AutoHotkey-Tutorials v1</a> | <a href="https://ahkv2.pnal.dev/">v2</a> <small>(Koreanisch, 한국어)</small>
 							</p>
 						</div>
 					</div>
@@ -363,8 +374,8 @@
 			$("#downloadLink a").first().click(function () {
 				//$.getJSON("latest_download/latestAHK.php", function (data) {
 					try {
-						$("#downloadLink").html('<a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="/download/ahk-install.exe">Download Current Version</a>' +
-								'<a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="/download/ahk-v2.zip">Download v2 Beta</a>' +
+						$("#downloadLink").html('<a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="/download/ahk-install.exe">Download v1.1</a>' +
+								'<a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="/download/ahk-v2.exe">Download v2.0</a>' +
 								'<a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-success" href="/download/1.0/AutoHotkey104805_Install.exe">Download v1.0 <small>(Deprecated)</small></a>');
 						$("#downloadLink").after("<div class=\"spaced_link\"><p><a href=\"/download\" title=\"Other Versions\" style=\"color: lightgrey;\">Other Versions</a></p> </div>");
 					} catch (e) {
