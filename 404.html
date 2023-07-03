@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="de">
+
+<head>
+  <title>AutoHotkey - Fehler 404</title>
+  <!-- template by joedf -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5">
+  <link rel="icon" type="image/ico" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/_errorpages/style.css">
+</head>
+
+<body>
+  <h1><a href="https://ahkde.github.io">ahkde.github.io</a></h1>
+  <div id="content">
+    <div class="large">404</div>
+    <h2>Fehler 404 - Datei nicht gefunden</h2>
+    <p id="default">Hoppla... Die gesuchte Seite scheint nicht zu existieren. Überprüfen Sie die URL auf Fehler und klicken Sie dann auf die Schaltfläche "Aktualisieren" in Ihrem Browser.<br><br><a href="/">Zurück zur Hauptseite</a></p>
+    <p id="redirect" style="display: none">Diese Seite wurde verschoben oder umbenannt. Klicken Sie auf den folgenden Link, wenn Sie nicht automatisch weitergeleitet werden:<br><br><a href="#" id="redirect_link"></a></p>
+    <p id="redirect_unknown" style="display: none">Hoppla... Das gesuchte Dokument scheint nicht zu existieren. Klicken Sie auf den folgenden Link, wenn Sie nicht automatisch weitergeleitet werden:<br><br><a href="#" id="redirect_unknown_link"></a></p>
+  </div>
+  <script>
+    redirects = {
+      '/docs/v1/misc/RemapJoystick.htm': '/docs/v1/misc/RemapController.htm',
+      '/docs/v1/scripts/JoystickMouse.ahk': '/docs/v1/scripts/index.htm#ControllerMouse',
+      '/docs/v1/scripts/JoystickTest.ahk': '/docs/v1/scripts/index.htm#ControllerTest',
+      '/docs/v2/misc/RemapJoystick.htm': '/docs/v2/misc/RemapController.htm',
+      '/docs/v2/scripts/JoystickMouse.ahk': '/docs/v2/scripts/index.htm#ControllerMouse',
+      '/docs/v2/scripts/JoystickTest.ahk': '/docs/v2/scripts/index.htm#ControllerTest'
+    };
+    path = window.location.pathname.split('/');
+    if (redirects[window.location.pathname])
+    {
+      var newLoc = redirects[window.location.pathname];
+      document.getElementById('default').style.display = 'none';
+      document.getElementById('redirect_link').innerHTML = newLoc;
+      document.getElementById('redirect_link').href = newLoc;
+      document.getElementById('redirect').style.display = 'block';
+      window.location = newLoc;
+    }
+    else if (path[1] && path[1] == 'docs')
+    {
+      var newLoc = (path[2] && path[2] == 'v1') ? '/docs/v1/404.htm' : '/docs/v2/404.htm';
+      newLoc += '?url=' + window.location.pathname;
+      document.getElementById('default').style.display = 'none';
+      document.getElementById('redirect_unknown_link').innerHTML = newLoc;
+      document.getElementById('redirect_unknown_link').href = newLoc;
+      document.getElementById('redirect_unknown').style.display = 'block';
+      window.location = newLoc;
+    }
+  </script>
+  <div class="footer">
+    <b>Copyright</b> © 2013 ahkde.github.io - AutoHotkey-Software-Lizenz: <a href="/docs/v2/license.htm">GNU General Public License</a>
+  </div>
+</body>
+
+</html>
