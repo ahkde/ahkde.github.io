@@ -25,11 +25,28 @@
   <script>
     redirects = {
       '/docs/v1/misc/RemapJoystick.htm': '/docs/v1/misc/RemapController.htm',
-      '/docs/v1/scripts/JoystickMouse.ahk': '/docs/v1/scripts/index.htm#ControllerMouse',
-      '/docs/v1/scripts/JoystickTest.ahk': '/docs/v1/scripts/index.htm#ControllerTest',
+      '/docs/v1/scripts/JoystickMouse.ahk': '/docs/v1/scripts/ControllerMouse.ahk',
+      '/docs/v1/scripts/JoystickTest.ahk': '/docs/v1/scripts/ControllerTest.ahk',
       '/docs/v2/misc/RemapJoystick.htm': '/docs/v2/misc/RemapController.htm',
-      '/docs/v2/scripts/JoystickMouse.ahk': '/docs/v2/scripts/index.htm#ControllerMouse',
-      '/docs/v2/scripts/JoystickTest.ahk': '/docs/v2/scripts/index.htm#ControllerTest'
+      '/docs/v2/scripts/JoystickMouse.ahk': '/docs/v2/scripts/ControllerMouse.ahk',
+      '/docs/v2/scripts/JoystickTest.ahk': '/docs/v2/scripts/ControllerTest.ahk',
+      '/v2': '/download/',
+      '/v2/': '/download/',
+      '/v2/index.htm': '/download/',
+      '/v2/docs': '/docs/v2/',
+      '/v2/docs/': '/docs/v2/',
+      '/v2/docs/index.htm': '/docs/v2/',
+      '/v2/docs/index.html': '/docs/v2/',
+      '/v2/docs/AutoHotkey.htm': '/docs/v2/',
+      '/v2/docs/misc/A_Clipboard.htm': '/docs/v2/lib/A_Clipboard.htm',
+      '/v2/docs/misc/A_HotkeyModifierTimeout.htm': '/docs/v2/lib/A_HotkeyModifierTimeout.htm',
+      '/v2/docs/misc/A_MaxHotkeysPerInterval.htm': '/docs/v2/lib/A_MaxHotkeysPerInterval.htm',
+      '/v2/docs/misc/A_MenuMaskKey.htm': '/docs/v2/lib/A_MenuMaskKey.htm',
+      '/v2/docs/objects': '/docs/v2/ObjList.htm',
+      '/v2/docs/objects/': '/docs/v2/ObjList.htm',
+      '/v2/docs/objects/index.htm': '/docs/v2/ObjList.htm',
+      '/v2/docs/objects/Functor.htm': '/docs/v2/misc/Functor.htm',
+      '/docs/commands/StrPutGet.htm': '/docs/commands/StrPut.htm'
     };
     path = window.location.pathname.split('/');
     if (redirects[window.location.pathname])
@@ -41,14 +58,23 @@
       document.getElementById('redirect').style.display = 'block';
       window.location = newLoc;
     }
-    else if (path[1] && path[1] == 'docs')
+    else if (path[1] == 'docs')
     {
-      var newLoc = (path[2] && path[2] == 'v1') ? '/docs/v1/404.htm' : '/docs/v2/404.htm';
+      var newLoc = (path[2] == 'v1') ? '/docs/v1/404.htm' : '/docs/v2/404.htm';
       newLoc += '?url=' + window.location.pathname;
       document.getElementById('default').style.display = 'none';
       document.getElementById('redirect_unknown_link').innerHTML = newLoc;
       document.getElementById('redirect_unknown_link').href = newLoc;
       document.getElementById('redirect_unknown').style.display = 'block';
+      window.location = newLoc;
+    }
+    else if (path[1] == 'v2' && path[2] == 'docs')
+    {
+      var newLoc = '/docs/v2/';
+      if (path[3] == 'commands' || path[3] == 'objects')
+        newLoc += 'lib/' + path.slice(4).join('/');
+      else
+        newLoc += path.slice(3).join('/');
       window.location = newLoc;
     }
   </script>
