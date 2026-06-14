@@ -6,8 +6,11 @@
 	// Thanks for Ragnar-F's original code, this is a forked version
 	// Permalink: https://github.com/Ragnar-F/ahk_docs_german/blob/93e17c109ed2739e1953bfdd63941f7d9c5ef0f2/static/content.js#L1413-L1448
 	
+	// joedf: as suggested by Ragnar (2026.06.03), we should not be using H1 multiple times and styling doesnt match our docs css anymore
+	// So we start i=2 to skip links for H1 for now...
+
 	// Header processing loop
-	for (var i = 1; i < 7; i++) {
+	for (var i = 2; i < 7; i++) {
 		var headers = document.getElementsByTagName('h'+i);
 		for (var j = 0; j < headers.length; j++) {
 			// Get Header text

@@ -44,7 +44,7 @@ codebox {
 	top: 0;
 	left: 0;
 	display: block;
-	padding: 3px;
+	padding: .75em;
 	background-color: #272822;
 	transition: opacity 0.3s;
 }
@@ -52,7 +52,7 @@ codebox {
 	display: inline-block;
 }
 #code_pause {
-	font-size: 9pt;
+	font-size: .9em;
 	color: white;
 }
 #code_pause:hover {
@@ -66,8 +66,8 @@ codebox {
 }
 .code_btn,
 #tracker a {
-	font-family: "Courier New", Courier, monospace;
-	font-size: 12pt;
+	font-family: "Roboto", "Segoe UI", arial, sans-serif;
+	font-size: 16px;
 	color: #e6e8ea;
 	background: #334349;
 	background-image: linear-gradient(#334349 10%,#272822 90%);
@@ -77,7 +77,6 @@ codebox {
 	border-radius: 4px;
 	padding: 4px 10px;
 	margin: 4px;
-	font-size: 16px;
 	display: inline-block;
 	cursor: pointer;
 }
@@ -93,64 +92,48 @@ codebox {
 
 codebox span,
 codebox .S0 {
-	font-family: 'DejaVu Sans Mono', "Courier New", Courier, monospace;
+	font-family: 'Consolas', 'DejaVu Sans Mono', "Courier New", Courier, monospace;
 	color: #F8F8F2;
 	font-size: 10pt;
 }
 codebox .S1 {
 	font-style: italic;
 	color: #75715E;
-	font-size: 10pt;
 }
 codebox .S4 {
 	color: #F92672;
-	font-size: 10pt;
 }
 codebox .S5 {
 	color: #F92672;
-	font-size: 10pt;
 }
 codebox .S6 {
 	color: #E6DB74;
-	font-size: 10pt;
+}
+codebox .S7 {
+	color: #AE81FF;
 }
 codebox .S8 {
 	font-style: italic;
 	color: #CF2F0F;
-	font-size: 10pt;
-}
-codebox .S9 {
-	color: #F4E982;
-	background: #403D1C;
-	text-decoration: inherit;
-	font-size: 10pt;
 }
 codebox .S10 {
 	color: #A6E22E;
-	font-size: 10pt;
 }
 codebox .S11 {
 	font-style: italic;
 	color: #F92672;
-	font-size: 10pt;
 }
 codebox .S12 {
 	color: #EB939A;
-	font-size: 10pt;
 }
-codebox .S15 {
-	color: #FF00FF;
-	background: #122127;
-	text-decoration: inherit;
-	font-size: 10pt;
+codebox .S13 {
+	color: #66D9EF;
 }
 codebox .S16 {
 	font-style: italic;
 	color: #66D9EF;
-	font-size: 10pt;
 }
 codebox .S17 {
 	font-style: italic;
 	color: #FF8000;
-	font-size: 10pt;
 }
